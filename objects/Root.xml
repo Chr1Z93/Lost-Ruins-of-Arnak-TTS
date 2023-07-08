@@ -1,0 +1,265 @@
+
+<TableLayout id="scoreboard" active="false"
+		rectAlignment="UpperLeft" offsetXY="70 -140"
+		height="208" width="140"
+		cellPadding="5 5 0 0" cellBackgroundColor="clear" rowBackgroundColor="rgba(0, 0, 0, 0.97)">
+	<Row><Cell><Text color="white" alignment="MiddleRight">Player</Text></Cell></Row>
+	<Row><Cell><Text color="white" alignment="MiddleRight">Research Tokens</Text></Cell></Row>
+	<Row><Cell><Text color="white" alignment="MiddleRight">Temple Tiles</Text></Cell></Row>
+	<Row><Cell><Text color="white" alignment="MiddleRight">Idols</Text></Cell></Row>
+	<Row><Cell><Text color="white" alignment="MiddleRight">Guardians</Text></Cell></Row>
+	<Row><Cell><Text color="white" alignment="MiddleRight">Items and Artifacts</Text></Cell></Row>
+	<Row><Cell><Text color="white" alignment="MiddleRight">Fear</Text></Cell></Row>
+	<Row><Cell><Text color="white" alignment="MiddleRight">Total</Text></Cell></Row>
+</TableLayout>
+<TableLayout id="scoreboardRed" active="false"
+		rectAlignment="UpperLeft" offsetXY="190 -140"
+		height="208" width="70"
+		cellPadding="5 5 0 0" cellBackgroundColor="clear" rowBackgroundColor="rgba(0, 0, 0, 0.97)">
+	<Row><Cell><Text id="nameRed" color="Red" alignment="MiddleCenter"></Text></Cell></Row>
+	<Row><Cell><Text id="researchRed" color="Red" alignment="MiddleCenter">0</Text></Cell></Row>
+	<Row><Cell><Text id="templeRed" color="Red" alignment="MiddleCenter">0</Text></Cell></Row>
+	<Row><Cell><Text id="idolRed" color="Red" alignment="MiddleCenter">0</Text></Cell></Row>
+	<Row><Cell><Text id="guardianRed" color="Red" alignment="MiddleCenter">0</Text></Cell></Row>
+	<Row><Cell><Text id="cardsRed" color="Red" alignment="MiddleCenter">0</Text></Cell></Row>
+	<Row><Cell><Text id="fearRed" color="Red" alignment="MiddleCenter">0</Text></Cell></Row>
+	<Row><Cell><Text id="totalRed" color="Red" alignment="MiddleCenter">0</Text></Cell></Row>
+</TableLayout>
+<TableLayout id="scoreboardBlue" active="false"
+		rectAlignment="UpperLeft" offsetXY="260 -140"
+		height="208" width="70"
+		cellPadding="5 5 0 0" cellBackgroundColor="clear" rowBackgroundColor="rgba(0, 0, 0, 0.97)">
+	<Row><Cell><Text id="nameBlue" color="Blue" alignment="MiddleCenter"></Text></Cell></Row>
+	<Row><Cell><Text id="researchBlue" color="Blue" alignment="MiddleCenter">0</Text></Cell></Row>
+	<Row><Cell><Text id="templeBlue" color="Blue" alignment="MiddleCenter">0</Text></Cell></Row>
+	<Row><Cell><Text id="idolBlue" color="Blue" alignment="MiddleCenter">0</Text></Cell></Row>
+	<Row><Cell><Text id="guardianBlue" color="Blue" alignment="MiddleCenter">0</Text></Cell></Row>
+	<Row><Cell><Text id="cardsBlue" color="Blue" alignment="MiddleCenter">0</Text></Cell></Row>
+	<Row><Cell><Text id="fearBlue" color="Blue" alignment="MiddleCenter">0</Text></Cell></Row>
+	<Row><Cell><Text id="totalBlue" color="Blue" alignment="MiddleCenter">0</Text></Cell></Row>
+</TableLayout>
+<TableLayout id="scoreboardGreen" active="false"
+		rectAlignment="UpperLeft" offsetXY="330 -140"
+		height="208" width="70"
+		cellPadding="5 5 0 0" cellBackgroundColor="clear" rowBackgroundColor="rgba(0, 0, 0, 0.97)">
+	<Row><Cell><Text id="nameGreen" color="Green" alignment="MiddleCenter"></Text></Cell></Row>
+	<Row><Cell><Text id="researchGreen" color="Green" alignment="MiddleCenter">0</Text></Cell></Row>
+	<Row><Cell><Text id="templeGreen" color="Green" alignment="MiddleCenter">0</Text></Cell></Row>
+	<Row><Cell><Text id="idolGreen" color="Green" alignment="MiddleCenter">0</Text></Cell></Row>
+	<Row><Cell><Text id="guardianGreen" color="Green" alignment="MiddleCenter">0</Text></Cell></Row>
+	<Row><Cell><Text id="cardsGreen" color="Green" alignment="MiddleCenter">0</Text></Cell></Row>
+	<Row><Cell><Text id="fearGreen" color="Green" alignment="MiddleCenter">0</Text></Cell></Row>
+	<Row><Cell><Text id="totalGreen" color="Green" alignment="MiddleCenter">0</Text></Cell></Row>
+</TableLayout>
+<TableLayout id="scoreboardYellow" active="false"
+		rectAlignment="UpperLeft" offsetXY="400 -140"
+		height="208" width="70"
+		cellPadding="5 5 0 0" cellBackgroundColor="clear" rowBackgroundColor="rgba(0, 0, 0, 0.97)">
+	<Row><Cell><Text id="nameYellow" color="Yellow" alignment="MiddleCenter"></Text></Cell></Row>
+	<Row><Cell><Text id="researchYellow" color="Yellow" alignment="MiddleCenter">0</Text></Cell></Row>
+	<Row><Cell><Text id="templeYellow" color="Yellow" alignment="MiddleCenter">0</Text></Cell></Row>
+	<Row><Cell><Text id="idolYellow" color="Yellow" alignment="MiddleCenter">0</Text></Cell></Row>
+	<Row><Cell><Text id="guardianYellow" color="Yellow" alignment="MiddleCenter">0</Text></Cell></Row>
+	<Row><Cell><Text id="cardsYellow" color="Yellow" alignment="MiddleCenter">0</Text></Cell></Row>
+	<Row><Cell><Text id="fearYellow" color="Yellow" alignment="MiddleCenter">0</Text></Cell></Row>
+	<Row><Cell><Text id="totalYellow" color="Yellow" alignment="MiddleCenter">0</Text></Cell></Row>
+</TableLayout>
+
+
+<TableLayout id="optionsMenuTop" active="false"
+		rectAlignment="LowerRight" offsetXY="0 530"
+		height="80" width="380"
+		cellBackgroundColor="clear" rowBackgroundColor="rgba(1, 1, 1, 0.85)">
+	<Row preferredHeight="40">
+		<Cell><Button onClick="uiSetOptions(base)" color="rgb(0, 0.39, 0.65)" textColor="white" fontSize="16">Select Base Game Options</Button></Cell>
+	</Row>
+	<Row preferredHeight="40">
+		<Cell><Button onClick="uiSetOptions(expansion)" color="rgb(0, 0.39, 0.65)" textColor="white" fontSize="16">Select Expedition Leaders Options</Button></Cell>
+	</Row>
+</TableLayout>
+<TableLayout id="optionsMenuLeft" active="false"
+		rectAlignment="LowerRight" offsetXY="-180 40"
+		height="490" width="200"
+		cellPadding="24 0 12 12" cellBackgroundColor="clear" rowBackgroundColor="rgba(1, 1, 1, 0.85)">
+	<Row preferredHeight="140">
+		<Cell>
+			<ToggleGroup>
+				<VerticalLayout>
+					<Text fontStyle="Bold" alignment="MiddleLeft">Board</Text>
+					<Toggle onValueChanged="uiToggle" id="board1">Bird Temple</Toggle>
+					<Toggle onValueChanged="uiToggle" id="board2" isOn="True">Snake Temple</Toggle>
+					<Toggle onValueChanged="uiToggle" id="board3">Random</Toggle>
+				</VerticalLayout>
+			</ToggleGroup>
+		</Cell>
+	</Row>
+	<Row preferredHeight="245">
+		<Cell>
+			<ToggleGroup>
+				<VerticalLayout>
+					<Text fontStyle="Bold" alignment="MiddleLeft">Research Track</Text>
+					<Toggle onValueChanged="uiToggle" id="research1">Bird Temple</Toggle>
+					<Toggle onValueChanged="uiToggle" id="research2">Snake Temple</Toggle>
+					<Toggle onValueChanged="uiToggle" id="research3">Monkey Temple</Toggle>
+					<Toggle onValueChanged="uiToggle" id="research4">Lizard Temple</Toggle>
+					<Toggle onValueChanged="uiToggle" id="research5">Random</Toggle>
+					<Toggle onValueChanged="uiToggle" id="research6" isOn="True">Random Expansion</Toggle>
+				</VerticalLayout>
+			</ToggleGroup>
+		</Cell>
+	</Row>
+	<Row preferredHeight="105">
+		<Cell>
+			<ToggleGroup>
+				<VerticalLayout>
+					<Text fontStyle="Bold" alignment="MiddleLeft">Moon Staff</Text>
+					<Toggle onValueChanged="uiToggle" id="staff1">Blue</Toggle>
+					<Toggle onValueChanged="uiToggle" id="staff2" isOn="True">Red</Toggle>
+				</VerticalLayout>
+			</ToggleGroup>
+		</Cell>
+	</Row>
+</TableLayout>
+<TableLayout id="optionsMenuRight" active="false"
+		rectAlignment="LowerRight" offsetXY="0 40"
+		height="490" width="180"
+		cellPadding="0 0 12 12" cellBackgroundColor="clear" rowBackgroundColor="rgba(1, 1, 1, 0.85)">
+	<Row preferredHeight="140">
+		<Cell>
+			<ToggleGroup>
+				<VerticalLayout>
+					<Text fontStyle="Bold" alignment="MiddleLeft">Expedition Leaders</Text>
+					<Toggle onValueChanged="uiToggle" id="leaders1">None</Toggle>
+					<Toggle onValueChanged="uiToggle" id="leaders2">All Random</Toggle>
+					<Toggle onValueChanged="uiToggle" id="leaders3" isOn="True">Players Choose</Toggle>
+				</VerticalLayout>
+			</ToggleGroup>
+		</Cell>
+	</Row>
+	<Row preferredHeight="315">
+		<Cell><VerticalLayout>
+			<Text fontStyle="Bold" alignment="MiddleLeft">Expansion Components</Text>
+			<VerticalLayout>
+				<Toggle isOn="True" onValueChanged="uiToggle" id="artifacts">Artifacts</Toggle>
+				<Toggle isOn="True" onValueChanged="uiToggle" id="items">Items</Toggle>
+				<Toggle isOn="True" onValueChanged="uiToggle" id="promos">Promos</Toggle>
+				<Toggle isOn="True" onValueChanged="uiToggle" id="assistants">Assistants</Toggle>
+				<Toggle isOn="True" onValueChanged="uiToggle" id="idols">Idols</Toggle>
+				<Toggle isOn="True" onValueChanged="uiToggle" id="sites1">Level 1 Sites</Toggle>
+				<Toggle isOn="True" onValueChanged="uiToggle" id="sites2">Level 2 Sites</Toggle>
+				<Toggle isOn="True" onValueChanged="uiToggle" id="guardians">Guardians</Toggle>
+			</VerticalLayout>
+		</VerticalLayout></Cell>
+	</Row>
+	<Row preferredHeight="35">
+		<!--
+		<Cell><Toggle onValueChanged="uiToggle" id="rival" fontStyle="Bold">Multiplayer Rival Opponent</Toggle></Cell>
+		-->
+	</Row>
+</TableLayout>
+<TableLayout id="optionsMenuButtons" active="false"
+		rectAlignment="LowerRight"
+		height="40" width="380"
+		cellBackgroundColor="clear" rowBackgroundColor="rgba(1, 1, 1, 0.85)">
+	<Row preferredHeight="40">
+		<Cell><Button onClick="menuStart(3)" color="Green" textColor="white" fontSize="16">Setup</Button></Cell>
+	</Row>
+</TableLayout>
+
+
+<TableLayout id="continueMenu" active="false"
+		rectAlignment="LowerRight" offsetXY="0 80"
+		height="192" width="290"
+		columnWidths = "25 135 130"
+		cellPadding="10 10 0 0" cellBackgroundColor="clear" rowBackgroundColor="rgba(1, 1, 1, 0.85)">
+	<Row preferredHeight="115">
+		<Cell columnSpan="3"><Text alignment="MiddleCenter">Click Continue after all players have selected different expedition leaders.
+		
+		To select a leader, hover over your player board and press a number key:
+		</Text></Cell>
+	</Row>
+	<Row preferredHeight="77">
+		<Cell></Cell>
+		<Cell><Text alignment="UpperLeft">
+		1 - Captain
+		2 - Falconer
+		3 - Baroness
+		4 - Professor
+		</Text></Cell>
+		<Cell><Text alignment="UpperLeft">
+		5 - Explorer
+		6 - Mystic
+		7 - Random
+		</Text></Cell>
+	</Row>
+</TableLayout>
+<TableLayout id="continueMenuButtons" active="false"
+		rectAlignment="LowerRight"
+		height="80" width="290"
+		cellBackgroundColor="clear" rowBackgroundColor="rgba(1, 1, 1, 0.85)">
+	<Row preferredHeight="40">
+		<Cell columnSpan="3"><Button onClick="menuStart(4)" color="Green" textColor="white" fontSize="16">Continue</Button></Cell>
+	</Row>
+	<Row preferredHeight="40">
+		<Cell columnSpan="3"><Button onClick="menuOptions" color="rgb(0.67, 0.08, 0.07)" textColor="white" fontSize="16">Back</Button></Cell>
+		<!-- 170, 21, 18 / #aa1512 -->
+	</Row>
+</TableLayout>
+
+
+<TableLayout id="soloMenu" active="false"
+		rectAlignment="LowerRight"
+		height="279" width="270"
+		columnWidths = "20 230 20"
+		cellBackgroundColor="clear" rowBackgroundColor="rgba(1, 1, 1, 0.85)">
+	<Row preferredHeight="10">
+		<Cell /><Cell /><Cell />
+	</Row>
+	<Row preferredHeight="30">
+		<Cell columnSpan="3"><Text fontStyle="Bold" alignment="MiddleCenter">Choose Rival Strength</Text></Cell>
+	</Row>
+	<Row preferredHeight="30">
+		<Cell />
+		<Cell><Text id="redText" alignment="MiddleLeft">Red Actions: 0</Text></Cell>
+		<Cell />
+	</Row>
+	<Row preferredHeight="20">
+		<Cell />
+		<Cell><Slider id="redSlider" onValueChanged="uiSlider" minValue="0" maxValue="5" value="0" wholeNumbers="true" /></Cell>
+		<Cell />
+	</Row>
+	<Row preferredHeight="30">
+		<Cell />
+		<Cell><Text id="purpleText" alignment="MiddleLeft">Purple Actions: 0</Text></Cell>
+		<Cell />
+	</Row>
+	<Row preferredHeight="20">
+		<Cell />
+		<Cell><Slider id="purpleSlider" onValueChanged="uiSlider" minValue="0" maxValue="5" value="0" wholeNumbers="true" /></Cell>
+		<Cell />
+	</Row>
+	<Row preferredHeight="5">
+		<Cell /><Cell /><Cell />
+	</Row>
+	<Row preferredHeight="30">
+		<Cell />
+		<Cell><Text id="rivalDifficulty" alignment="MiddleLeft">Difficulty: 0</Text></Cell>
+		<Cell />
+	</Row>
+	<Row preferredHeight="30">
+		<Cell />
+		<Cell><Text id="objectiveText" alignment="MiddleLeft">Objectives: 3</Text></Cell>
+		<Cell />
+	</Row>
+	<Row preferredHeight="20">
+		<Cell />
+		<Cell><Slider id="objectiveSlider" onValueChanged="uiSlider" minValue="0" maxValue="4" value="3" wholeNumbers="true" /></Cell>
+		<Cell />
+	</Row>
+	<Row preferredHeight="14">
+		<Cell /><Cell /><Cell />
+	</Row>
+	<Row preferredHeight="40">
+		<Cell columnSpan="3"><Button onClick="menuStartSolo" color="Green" textColor="white" fontSize="16">Start Game</Button></Cell>
+	</Row>
+</TableLayout>

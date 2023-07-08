@@ -1,0 +1,68 @@
+{
+  "labels": [
+    {
+      "displayed": "temple",
+      "normalized": "temple"
+    },
+    {
+      "displayed": "research",
+      "normalized": "research"
+    },
+    {
+      "displayed": "guardian",
+      "normalized": "guardian"
+    },
+    {
+      "displayed": "site1",
+      "normalized": "site1"
+    },
+    {
+      "displayed": "site2",
+      "normalized": "site2"
+    },
+    {
+      "displayed": "assistant",
+      "normalized": "assistant"
+    },
+    {
+      "displayed": "idol",
+      "normalized": "idol"
+    },
+    {
+      "displayed": "pawn",
+      "normalized": "pawn"
+    },
+    {
+      "displayed": "staff",
+      "normalized": "staff"
+    },
+    {
+      "displayed": "artifact",
+      "normalized": "artifact"
+    },
+    {
+      "displayed": "item",
+      "normalized": "item"
+    },
+    {
+      "displayed": "falcon",
+      "normalized": "falcon"
+    },
+    {
+      "displayed": "food",
+      "normalized": "food"
+    },
+    {
+      "displayed": "tent",
+      "normalized": "tent"
+    },
+    {
+      "displayed": "objective",
+      "normalized": "objective"
+    },
+    {
+      "displayed": "resource",
+      "normalized": "resource"
+    }
+  ]
+}

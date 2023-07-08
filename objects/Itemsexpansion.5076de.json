@@ -1,0 +1,101 @@
+{
+  "AltLookAngle": {
+    "x": 0,
+    "y": 0,
+    "z": 0
+  },
+  "Autoraise": true,
+  "ColorDiffuse": {
+    "b": 0.71324,
+    "g": 0.71324,
+    "r": 0.71324
+  },
+  "ContainedObjects_order": [
+    "ToolBox.6c7b9b",
+    "Crowbar.1a0cb2",
+    "HandLens.85486b",
+    "Airship.fe4267",
+    "FirstAidKit.c772e3",
+    "Shovel.dcce44",
+    "IronRations.38722b",
+    "Camera.a13094",
+    "Hammock.6e8559",
+    "Coffee.d4c40e",
+    "FountainPen.86fea7",
+    "Sieve.d91458",
+    "LandingNet.dbd5ba",
+    "LittleMonkey.3b6f83",
+    "Goat.184c78",
+    "Cat.79ceaf",
+    "Parachute.8ac92d",
+    "ArmyBelt.72315e"
+  ],
+  "ContainedObjects_path": "Itemsexpansion.5076de",
+  "CustomDeck": {
+    "53": {
+      "BackIsHidden": true,
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/1862806463732171728/E2EBDA19EAF2265F39F3F36C197C7104CA4802E3/",
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/1862806463732172069/D35E7481415E5ECD9F34A1EEB4160300614DF612/",
+      "NumHeight": 2,
+      "NumWidth": 10,
+      "Type": 0,
+      "UniqueBack": false
+    }
+  },
+  "DeckIDs": [
+    5300,
+    5309,
+    5316,
+    5311,
+    5314,
+    5303,
+    5310,
+    5304,
+    5313,
+    5306,
+    5315,
+    5305,
+    5308,
+    5312,
+    5317,
+    5301,
+    5307,
+    5302
+  ],
+  "Description": "",
+  "DragSelectable": true,
+  "GMNotes": "",
+  "GUID": "5076de",
+  "Grid": true,
+  "GridProjection": false,
+  "Hands": false,
+  "HideWhenFaceDown": true,
+  "IgnoreFoW": false,
+  "LayoutGroupSortIndex": 0,
+  "Locked": false,
+  "LuaScript": "",
+  "LuaScriptState": "",
+  "MeasureMovement": false,
+  "Name": "Deck",
+  "Nickname": "Items (expansion)",
+  "SidewaysCard": false,
+  "Snap": true,
+  "Sticky": true,
+  "Tags": [
+    "item"
+  ],
+  "Tooltip": true,
+  "Transform": {
+    "posX": 18.17,
+    "posY": 1.589,
+    "posZ": 38.5,
+    "rotX": 0,
+    "rotY": 180,
+    "rotZ": 180,
+    "scaleX": 2.3,
+    "scaleY": 1,
+    "scaleZ": 2.3
+  },
+  "Value": 0,
+  "XmlUI": ""
+}

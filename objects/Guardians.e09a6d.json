@@ -1,0 +1,104 @@
+{
+  "AltLookAngle": {
+    "x": 0,
+    "y": 0,
+    "z": 0
+  },
+  "Autoraise": true,
+  "ColorDiffuse": {
+    "b": 0.71324,
+    "g": 0.71324,
+    "r": 0.71324
+  },
+  "ContainedObjects_order": [
+    "Card.4e3cf3",
+    "Card.094b9c",
+    "Card.87eb00",
+    "Card.88e2d0",
+    "Card.faa0f3",
+    "Card.8b09d1",
+    "Card.9cfd06",
+    "Card.4f2bd2",
+    "Card.c1e7ef",
+    "Card.46196d",
+    "Card.be4964",
+    "Card.cdb620",
+    "Card.9d1649",
+    "Card.4820e2",
+    "Card.e5153d"
+  ],
+  "ContainedObjects_path": "Guardians.e09a6d",
+  "CustomDeck": {
+    "13": {
+      "BackIsHidden": false,
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/1862806463732172133/15347C5EB6902681B356167983924FBDEB8F58CE/",
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/1862806463732172318/A121A342AE9FEA2436EB934664D9F16E877CC068/",
+      "NumHeight": 3,
+      "NumWidth": 5,
+      "Type": 0,
+      "UniqueBack": false
+    },
+    "14": {
+      "BackIsHidden": false,
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/1862806463732172133/15347C5EB6902681B356167983924FBDEB8F58CE/",
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/1862806463732172422/48C3AD8B10A6270DAF47278CDB7247A9E31E05F5/",
+      "NumHeight": 2,
+      "NumWidth": 5,
+      "Type": 0,
+      "UniqueBack": false
+    }
+  },
+  "DeckIDs": [
+    1308,
+    1304,
+    1401,
+    1303,
+    1402,
+    1307,
+    1305,
+    1309,
+    1302,
+    1404,
+    1301,
+    1403,
+    1306,
+    1310,
+    1400
+  ],
+  "Description": "",
+  "DragSelectable": true,
+  "GMNotes": "",
+  "GUID": "e09a6d",
+  "Grid": true,
+  "GridProjection": false,
+  "Hands": false,
+  "HideWhenFaceDown": true,
+  "IgnoreFoW": false,
+  "LayoutGroupSortIndex": 0,
+  "Locked": false,
+  "LuaScript": "",
+  "LuaScriptState": "",
+  "MeasureMovement": false,
+  "Name": "Deck",
+  "Nickname": "Guardians",
+  "SidewaysCard": false,
+  "Snap": true,
+  "Sticky": true,
+  "Tags": [
+    "guardian"
+  ],
+  "Tooltip": true,
+  "Transform": {
+    "posX": 8.67,
+    "posY": 1.674,
+    "posZ": -37.42,
+    "rotX": 0,
+    "rotY": 180,
+    "rotZ": 180,
+    "scaleX": 2,
+    "scaleY": 1,
+    "scaleZ": 2
+  },
+  "Value": 0,
+  "XmlUI": ""
+}

@@ -1,0 +1,46 @@
+{
+  "0": {
+    "body": "For scoring, keep components within your play area or directly above it, on your player board.\r\n\r\nPlay area lines can be redrawn with Rewind Time.\r\n\r\nFlip your tent tile face-down to automatically pass your turn until the next round. (Flip your tent face-up to undo).\r\n\r\nLeft/Right-click resource counters to take/spend resources.\r\n\r\nClicking the Buy button on an empty card space will refill the card row.\r\n\r\nAdventurer - the easiest way to discover a site with choice of two site cards:\r\n1. Flip top two cards of the site deck.\r\n2. Return one on top and the other on bottom (with right-click menu).\r\n3. Click the '+Site \u0026 Guardian' button on the site.\r\n\r\nTo manually discover a site, the site card must be locked first before placing the guardian on top. To remove a site, unlock the site card.\r\n\r\n",
+    "color": "Grey",
+    "id": 0,
+    "title": "Notes",
+    "visibleColor": {
+      "b": 0.5,
+      "g": 0.5,
+      "r": 0.5
+    }
+  },
+  "1": {
+    "body": "Buy buttons - exile a card and refill the card row.\r\n\r\nTake buttons (Professor leader) - move tablet and compass tokens to the suitcase.\r\n\r\nAssistant piles (context menu action) - take the top assistant and put it on the bottom of its pile.\r\n\r\nSites and guardians (context menu action) - send to the bottom of the appropriate deck.\r\n\r\nResearch bonus tiles (context menu action) - send to trash.\r\n\r\nCards and fear tokens (context menu action) - exile.\r\n\r\nThe Mystic should place Fear cards and tokens onto the ritual pile manually.\r\n\r\n",
+    "color": "Grey",
+    "id": 1,
+    "title": "Right-Clicks",
+    "visibleColor": {
+      "b": 0.5,
+      "g": 0.5,
+      "r": 0.5
+    }
+  },
+  "2": {
+    "body": "The artifact 'War Mask' in your play area will prevent you from getting Fear from guardians at the end of the round, but only if it is face-up and not stacked with other cards.\n\nIf you played War Mask NOT for its effect, flip it face-down or stack it with other cards.\n\n",
+    "color": "Grey",
+    "id": 2,
+    "title": "War Mask",
+    "visibleColor": {
+      "b": 0.5,
+      "g": 0.5,
+      "r": 0.5
+    }
+  },
+  "3": {
+    "body": "Select a color other than Red and start the game. Solo options will appear after normal setup.\r\n\r\nThe rival will take its first turn each round automatically. Click the Rival Turn button to execute subsequent turns.\r\n\r\nThe rival makes its selections at random instead of using action deck arrows.\r\n\r\nFlip objective cards face-down when you complete them. You may delete the rival's temple tiles if it completes objectives that you forgot to flip over.\r\n\r\nThe rival will continue to take turns if your tent tile is face-down.\r\n\r\nAvoid rewinding time into the middle of the rival's turn - rewind time further into the middle of yours.\n\r\n",
+    "color": "Grey",
+    "id": 3,
+    "title": "Solo Mode",
+    "visibleColor": {
+      "b": 0.5,
+      "g": 0.5,
+      "r": 0.5
+    }
+  }
+}

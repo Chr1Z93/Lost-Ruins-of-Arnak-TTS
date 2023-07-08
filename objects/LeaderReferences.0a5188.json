@@ -1,0 +1,61 @@
+{
+  "AltLookAngle": {
+    "x": 0,
+    "y": 0,
+    "z": 0
+  },
+  "Autoraise": true,
+  "Bag": {
+    "Order": 0
+  },
+  "ColorDiffuse": {
+    "b": 0,
+    "g": 0.36652,
+    "r": 0.70588
+  },
+  "ContainedObjects_order": [
+    "Custom_Tile.1dc909",
+    "Custom_Tile.a63829",
+    "Custom_Tile.9c6b74",
+    "Custom_Tile.9847aa",
+    "Custom_Tile.3891dd",
+    "Custom_Tile.f33041",
+    "Custom_Tile.2078a8",
+    "Custom_Tile.67ff6a"
+  ],
+  "ContainedObjects_path": "LeaderReferences.0a5188",
+  "Description": "",
+  "DragSelectable": true,
+  "GMNotes": "",
+  "GUID": "0a5188",
+  "Grid": true,
+  "GridProjection": false,
+  "Hands": false,
+  "HideWhenFaceDown": false,
+  "IgnoreFoW": false,
+  "LayoutGroupSortIndex": 0,
+  "Locked": true,
+  "LuaScript": "",
+  "LuaScriptState": "",
+  "MaterialIndex": -1,
+  "MeasureMovement": false,
+  "MeshIndex": -1,
+  "Name": "Bag",
+  "Nickname": "Leader References",
+  "Snap": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "Transform": {
+    "posX": -59.999,
+    "posY": 1.297,
+    "posZ": 48.499,
+    "rotX": 0,
+    "rotY": 180,
+    "rotZ": 0,
+    "scaleX": 1,
+    "scaleY": 1,
+    "scaleZ": 1
+  },
+  "Value": 0,
+  "XmlUI": ""
+}

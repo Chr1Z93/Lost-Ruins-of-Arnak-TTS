@@ -1,0 +1,209 @@
+{
+  "AltLookAngle": {
+    "x": 0,
+    "y": 0,
+    "z": 0
+  },
+  "AttachedSnapPoints": [
+    {
+      "Position": {
+        "x": -2.296,
+        "y": 0.1,
+        "z": -0.863
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Tags": [
+        "research"
+      ]
+    },
+    {
+      "Position": {
+        "x": -1.904,
+        "y": 0.1,
+        "z": -0.863
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Tags": [
+        "research"
+      ]
+    },
+    {
+      "Position": {
+        "x": -1.509,
+        "y": 0.1,
+        "z": -0.863
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Tags": [
+        "research"
+      ]
+    },
+    {
+      "Position": {
+        "x": -1.117,
+        "y": 0.1,
+        "z": -0.863
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Tags": [
+        "research"
+      ]
+    },
+    {
+      "Position": {
+        "x": -0.286,
+        "y": 0.1,
+        "z": 0.429
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "site1"
+      ]
+    },
+    {
+      "Position": {
+        "x": -1.962,
+        "y": 0.1,
+        "z": 0.425
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "site2"
+      ]
+    },
+    {
+      "Position": {
+        "x": -1.084,
+        "y": 0.1,
+        "z": 0.427
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "guardian"
+      ]
+    },
+    {
+      "Position": {
+        "x": -1.144,
+        "y": 0.1,
+        "z": -0.409
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Tags": [
+        "assistant"
+      ]
+    },
+    {
+      "Position": {
+        "x": -1.729,
+        "y": 0.1,
+        "z": -0.409
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Tags": [
+        "assistant"
+      ]
+    },
+    {
+      "Position": {
+        "x": -2.315,
+        "y": 0.1,
+        "z": -0.409
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Tags": [
+        "assistant"
+      ]
+    }
+  ],
+  "Autoraise": true,
+  "ColorDiffuse": {
+    "b": 0.24999,
+    "g": 0.24999,
+    "r": 0.24999
+  },
+  "CustomImage": {
+    "CustomTile": {
+      "Stackable": false,
+      "Stretch": true,
+      "Thickness": 0.1,
+      "Type": 0
+    },
+    "ImageScalar": 1,
+    "ImageSecondaryURL": "",
+    "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1862806463732171428/5530B240547C6B9EF7A910BE3C413E54A98C1BCF/",
+    "WidthScale": 0
+  },
+  "Description": "",
+  "DragSelectable": true,
+  "GMNotes": "",
+  "GUID": "0759b1",
+  "Grid": true,
+  "GridProjection": false,
+  "Hands": false,
+  "HideWhenFaceDown": false,
+  "IgnoreFoW": false,
+  "LayoutGroupSortIndex": 0,
+  "Locked": true,
+  "LuaScript": "",
+  "LuaScriptState": "",
+  "MeasureMovement": false,
+  "Name": "Custom_Tile",
+  "Nickname": "Supply Board",
+  "Snap": true,
+  "Sticky": true,
+  "Tooltip": false,
+  "Transform": {
+    "posX": 0,
+    "posY": 1.481,
+    "posZ": -34,
+    "rotX": 0,
+    "rotY": 180,
+    "rotZ": 0,
+    "scaleX": 8,
+    "scaleY": 1,
+    "scaleZ": 8
+  },
+  "Value": 0,
+  "XmlUI": ""
+}

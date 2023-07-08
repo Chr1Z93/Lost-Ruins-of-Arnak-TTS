@@ -1,0 +1,60 @@
+{
+  "AltLookAngle": {
+    "x": 0,
+    "y": 0,
+    "z": 0
+  },
+  "Autoraise": true,
+  "ColorDiffuse": {
+    "b": 1,
+    "g": 1,
+    "r": 1
+  },
+  "CustomImage": {
+    "CustomToken": {
+      "MergeDistancePixels": 15,
+      "Stackable": false,
+      "StandUp": false,
+      "Thickness": 0.1
+    },
+    "ImageScalar": 1,
+    "ImageSecondaryURL": "",
+    "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1862806463732174677/3E9D308CD633BB501F64BA4831167C13D3DD8EB4/",
+    "WidthScale": 0
+  },
+  "Description": "Blue",
+  "DragSelectable": true,
+  "GMNotes": "",
+  "GUID": "1a305e",
+  "Grid": true,
+  "GridProjection": false,
+  "Hands": false,
+  "HideWhenFaceDown": false,
+  "IgnoreFoW": false,
+  "LayoutGroupSortIndex": 0,
+  "Locked": false,
+  "LuaScript": "",
+  "LuaScriptState": "",
+  "MeasureMovement": false,
+  "Name": "Custom_Token",
+  "Nickname": "Blue Magnifying Glass",
+  "Snap": true,
+  "Sticky": false,
+  "Tags": [
+    "research"
+  ],
+  "Tooltip": true,
+  "Transform": {
+    "posX": 18.37,
+    "posY": 1.732,
+    "posZ": -27.1,
+    "rotX": 0,
+    "rotY": 180,
+    "rotZ": 0,
+    "scaleX": 0.4,
+    "scaleY": 1,
+    "scaleZ": 0.4
+  },
+  "Value": 0,
+  "XmlUI": ""
+}

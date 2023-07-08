@@ -1,0 +1,71 @@
+{
+  "AltLookAngle": {
+    "x": 0,
+    "y": 0,
+    "z": 0
+  },
+  "Autoraise": true,
+  "Bag": {
+    "Order": 0
+  },
+  "ColorDiffuse": {
+    "b": 0,
+    "g": 0.36652,
+    "r": 0.70588
+  },
+  "ContainedObjects_order": [
+    "Custom_Tile.e293f1",
+    "Custom_Tile.0cabfa",
+    "Custom_Tile.c33432",
+    "Custom_Tile.46fda7",
+    "Custom_Tile.7bff22",
+    "Custom_Tile.06ed3d",
+    "Custom_Tile.1a944b",
+    "Custom_Tile.a119a3",
+    "Custom_Tile.532719",
+    "Custom_Tile.f65ba7",
+    "Custom_Tile.f6c213",
+    "Custom_Tile.99c50b",
+    "Custom_Tile.5f4ffc",
+    "Custom_Tile.393354",
+    "Custom_Tile.2daab1",
+    "Custom_Tile.46886f",
+    "Custom_Tile.4ab8c9",
+    "Custom_Tile.222256"
+  ],
+  "ContainedObjects_path": "ResearchBonusTiles.e90e2a",
+  "Description": "",
+  "DragSelectable": true,
+  "GMNotes": "",
+  "GUID": "e90e2a",
+  "Grid": true,
+  "GridProjection": false,
+  "Hands": false,
+  "HideWhenFaceDown": false,
+  "IgnoreFoW": false,
+  "LayoutGroupSortIndex": 0,
+  "Locked": true,
+  "LuaScript": "",
+  "LuaScriptState": "",
+  "MaterialIndex": -1,
+  "MeasureMovement": false,
+  "MeshIndex": -1,
+  "Name": "Bag",
+  "Nickname": "Research Bonus Tiles",
+  "Snap": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "Transform": {
+    "posX": -64,
+    "posY": 1.296,
+    "posZ": 48.5,
+    "rotX": 0,
+    "rotY": 180,
+    "rotZ": 0,
+    "scaleX": 1,
+    "scaleY": 1,
+    "scaleZ": 1
+  },
+  "Value": 0,
+  "XmlUI": ""
+}

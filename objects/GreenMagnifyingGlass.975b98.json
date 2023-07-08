@@ -1,0 +1,60 @@
+{
+  "AltLookAngle": {
+    "x": 0,
+    "y": 0,
+    "z": 0
+  },
+  "Autoraise": true,
+  "ColorDiffuse": {
+    "b": 1,
+    "g": 1,
+    "r": 1
+  },
+  "CustomImage": {
+    "CustomToken": {
+      "MergeDistancePixels": 15,
+      "Stackable": false,
+      "StandUp": false,
+      "Thickness": 0.1
+    },
+    "ImageScalar": 1,
+    "ImageSecondaryURL": "",
+    "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1862806463732174709/AB17E079C67EAC925DC5EF94CE8221FC15FB0C63/",
+    "WidthScale": 0
+  },
+  "Description": "Green",
+  "DragSelectable": true,
+  "GMNotes": "",
+  "GUID": "975b98",
+  "Grid": true,
+  "GridProjection": false,
+  "Hands": false,
+  "HideWhenFaceDown": false,
+  "IgnoreFoW": false,
+  "LayoutGroupSortIndex": 0,
+  "Locked": false,
+  "LuaScript": "",
+  "LuaScriptState": "",
+  "MeasureMovement": false,
+  "Name": "Custom_Token",
+  "Nickname": "Green Magnifying Glass",
+  "Snap": true,
+  "Sticky": false,
+  "Tags": [
+    "research"
+  ],
+  "Tooltip": true,
+  "Transform": {
+    "posX": 15.231,
+    "posY": 1.732,
+    "posZ": -27.1,
+    "rotX": 0,
+    "rotY": 180,
+    "rotZ": 0,
+    "scaleX": 0.4,
+    "scaleY": 1,
+    "scaleZ": 0.4
+  },
+  "Value": 0,
+  "XmlUI": ""
+}

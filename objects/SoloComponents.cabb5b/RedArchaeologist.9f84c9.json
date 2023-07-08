@@ -1,0 +1,58 @@
+{
+  "AltLookAngle": {
+    "x": 0,
+    "y": 0,
+    "z": 0
+  },
+  "Autoraise": true,
+  "ColorDiffuse": {
+    "b": 0.09399,
+    "g": 0.09999,
+    "r": 0.856
+  },
+  "CustomMesh": {
+    "CastShadows": true,
+    "ColliderURL": "",
+    "Convex": true,
+    "DiffuseURL": "",
+    "MaterialIndex": 1,
+    "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1862806667880282387/D29F9E1AC9B0F9CE693CD6B7B72191E812DAE9D0/",
+    "NormalURL": "",
+    "TypeIndex": 1
+  },
+  "Description": "Red",
+  "DragSelectable": true,
+  "GMNotes": "",
+  "GUID": "9f84c9",
+  "Grid": true,
+  "GridProjection": false,
+  "Hands": false,
+  "HideWhenFaceDown": false,
+  "IgnoreFoW": false,
+  "LayoutGroupSortIndex": 0,
+  "Locked": false,
+  "LuaScript": "",
+  "LuaScriptState": "",
+  "MeasureMovement": false,
+  "Name": "Custom_Model",
+  "Nickname": "Red Archaeologist",
+  "Snap": true,
+  "Sticky": true,
+  "Tags": [
+    "pawn"
+  ],
+  "Tooltip": true,
+  "Transform": {
+    "posX": -46.253,
+    "posY": 4.226,
+    "posZ": 48.452,
+    "rotX": 0,
+    "rotY": 180,
+    "rotZ": 0,
+    "scaleX": 1.6,
+    "scaleY": 1.6,
+    "scaleZ": 8
+  },
+  "Value": 0,
+  "XmlUI": ""
+}

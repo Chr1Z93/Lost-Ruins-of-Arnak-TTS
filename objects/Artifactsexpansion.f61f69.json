@@ -1,0 +1,87 @@
+{
+  "AltLookAngle": {
+    "x": 0,
+    "y": 0,
+    "z": 0
+  },
+  "Autoraise": true,
+  "ColorDiffuse": {
+    "b": 0.71324,
+    "g": 0.71324,
+    "r": 0.71324
+  },
+  "ContainedObjects_order": [
+    "Pedestal.764f21",
+    "RodofDivision.774aec",
+    "DivineRiders.5b837d",
+    "GuardiansFang.2fa4fa",
+    "PathfindersHat.8bb0c1",
+    "CapeofDawn.822176",
+    "FriendshipMedallion.7edf59",
+    "CursedIdol.3163cc",
+    "GuardiansLute.f83657",
+    "One-EyedStatue.ff5eee",
+    "RubyCandleholder.055a61"
+  ],
+  "ContainedObjects_path": "Artifactsexpansion.f61f69",
+  "CustomDeck": {
+    "52": {
+      "BackIsHidden": true,
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/1862806463732171728/E2EBDA19EAF2265F39F3F36C197C7104CA4802E3/",
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/1862806463732171993/20D535A2EC2171F5CE6D051031650D6531FBF7EF/",
+      "NumHeight": 2,
+      "NumWidth": 10,
+      "Type": 0,
+      "UniqueBack": false
+    }
+  },
+  "DeckIDs": [
+    5208,
+    5205,
+    5206,
+    5204,
+    5210,
+    5200,
+    5201,
+    5203,
+    5202,
+    5209,
+    5211
+  ],
+  "Description": "",
+  "DragSelectable": true,
+  "GMNotes": "",
+  "GUID": "f61f69",
+  "Grid": true,
+  "GridProjection": false,
+  "Hands": false,
+  "HideWhenFaceDown": true,
+  "IgnoreFoW": false,
+  "LayoutGroupSortIndex": 0,
+  "Locked": false,
+  "LuaScript": "",
+  "LuaScriptState": "",
+  "MeasureMovement": false,
+  "Name": "Deck",
+  "Nickname": "Artifacts (expansion)",
+  "SidewaysCard": false,
+  "Snap": true,
+  "Sticky": true,
+  "Tags": [
+    "artifact"
+  ],
+  "Tooltip": true,
+  "Transform": {
+    "posX": -18.2,
+    "posY": 1.555,
+    "posZ": 38.5,
+    "rotX": 0,
+    "rotY": 180,
+    "rotZ": 180,
+    "scaleX": 2.3,
+    "scaleY": 1,
+    "scaleZ": 2.3
+  },
+  "Value": 0,
+  "XmlUI": ""
+}

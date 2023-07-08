@@ -1,0 +1,1221 @@
+{
+  "AltLookAngle": {
+    "x": 0,
+    "y": 0,
+    "z": 0
+  },
+  "AttachedSnapPoints": [
+    {
+      "Position": {
+        "x": 1.589,
+        "y": 0.05,
+        "z": -0.634
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "idol"
+      ]
+    },
+    {
+      "Position": {
+        "x": 1.206,
+        "y": 0.05,
+        "z": -0.634
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "idol"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.819,
+        "y": 0.05,
+        "z": -0.634
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "idol"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.44,
+        "y": 0.05,
+        "z": -0.634
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "idol"
+      ]
+    },
+    {
+      "Position": {
+        "x": 3.059,
+        "y": 0.05,
+        "z": -0.002
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      }
+    },
+    {
+      "Position": {
+        "x": -0.278,
+        "y": 0.05,
+        "z": 0.425
+      },
+      "Tags": [
+        "assistant"
+      ]
+    },
+    {
+      "Position": {
+        "x": -0.278,
+        "y": 0.05,
+        "z": -0.44
+      },
+      "Tags": [
+        "assistant"
+      ]
+    }
+  ],
+  "Autoraise": true,
+  "ColorDiffuse": {
+    "b": 1,
+    "g": 1,
+    "r": 1
+  },
+  "CustomImage": {
+    "CustomToken": {
+      "MergeDistancePixels": 15,
+      "Stackable": false,
+      "StandUp": false,
+      "Thickness": 0.1
+    },
+    "ImageScalar": 1,
+    "ImageSecondaryURL": "",
+    "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1862807092245592388/2483A0484B3A46E5353B8D43FCDBC6D51FA81CA4/",
+    "WidthScale": 0
+  },
+  "Description": "Base",
+  "DragSelectable": true,
+  "GMNotes": "",
+  "GUID": "83d7fe",
+  "Grid": true,
+  "GridProjection": false,
+  "Hands": false,
+  "HideWhenFaceDown": false,
+  "IgnoreFoW": false,
+  "LayoutGroupSortIndex": 0,
+  "Locked": true,
+  "LuaScript": "",
+  "LuaScriptState": "",
+  "MeasureMovement": false,
+  "Name": "Custom_Token",
+  "Nickname": "Player Board",
+  "Snap": true,
+  "States": {
+    "1": {
+      "AltLookAngle": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "AttachedSnapPoints": [
+        {
+          "Position": {
+            "x": 1.52363729,
+            "y": 0.0499999672,
+            "z": -0.668963552
+          },
+          "Rotation": {
+            "x": 5.609057e-8,
+            "y": 0.0147602158,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": 1.125542,
+            "y": 0.04999996,
+            "z": -0.6688614
+          },
+          "Rotation": {
+            "x": -1.25719712e-9,
+            "y": 0.0147602158,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": 0.655065656,
+            "y": 0.049999956,
+            "z": -0.6687402
+          },
+          "Rotation": {
+            "x": 7.15542425e-9,
+            "y": 0.0147602158,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": 0.255065948,
+            "y": 0.0499999523,
+            "z": -0.6686372
+          },
+          "Rotation": {
+            "x": -4.315865e-8,
+            "y": 0.0147602158,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": -1.49887991,
+            "y": 0.0500000566,
+            "z": -0.454851657
+          },
+          "Tags": [
+            "assistant"
+          ]
+        },
+        {
+          "Position": {
+            "x": -1.4989326,
+            "y": 0.0500000566,
+            "z": 0.446100384
+          },
+          "Tags": [
+            "assistant"
+          ]
+        },
+        {
+          "Position": {
+            "x": 3.07996488,
+            "y": 0.0499999858,
+            "z": -0.1360311
+          },
+          "Rotation": {
+            "x": -8.128386e-9,
+            "y": 0.0147602158,
+            "z": 180
+          }
+        },
+        {
+          "Position": {
+            "x": 1.56669116,
+            "y": 0.049999956,
+            "z": 0.6993092
+          },
+          "Rotation": {
+            "x": -5.943202e-8,
+            "y": -9.140327e-17,
+            "z": 1.762357e-7
+          },
+          "Tags": [
+            "pawn"
+          ]
+        }
+      ],
+      "Autoraise": true,
+      "ColorDiffuse": {
+        "b": 1,
+        "g": 1,
+        "r": 1
+      },
+      "CustomImage": {
+        "CustomToken": {
+          "MergeDistancePixels": 15,
+          "Stackable": false,
+          "StandUp": false,
+          "Thickness": 0.1
+        },
+        "ImageScalar": 1,
+        "ImageSecondaryURL": "",
+        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1862807092245592439/D2018919F62DE45BE76C162979146D930E7D2994/",
+        "WidthScale": 0
+      },
+      "Description": "Captain",
+      "DragSelectable": true,
+      "GMNotes": "",
+      "GUID": "12ea95",
+      "Grid": true,
+      "GridProjection": false,
+      "Hands": false,
+      "HideWhenFaceDown": false,
+      "IgnoreFoW": false,
+      "LayoutGroupSortIndex": 0,
+      "Locked": true,
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "MeasureMovement": false,
+      "Name": "Custom_Token",
+      "Nickname": "Player Board",
+      "Snap": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "Transform": {
+        "posX": 51,
+        "posY": 1.53149891,
+        "posZ": 18.9999981,
+        "rotX": 2.335069e-8,
+        "rotY": 180,
+        "rotZ": -3.04676462e-8,
+        "scaleX": 5.25,
+        "scaleY": 1,
+        "scaleZ": 5.25
+      },
+      "Value": 0,
+      "XmlUI": ""
+    },
+    "2": {
+      "AltLookAngle": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "AttachedSnapPoints": [
+        {
+          "Position": {
+            "x": 1.52363729,
+            "y": 0.0499999672,
+            "z": -0.668963552
+          },
+          "Rotation": {
+            "x": 5.609057e-8,
+            "y": 0.0147602158,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": 1.125542,
+            "y": 0.04999996,
+            "z": -0.6688614
+          },
+          "Rotation": {
+            "x": -1.25719712e-9,
+            "y": 0.0147602158,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": 0.655065656,
+            "y": 0.049999956,
+            "z": -0.6687402
+          },
+          "Rotation": {
+            "x": 7.15542425e-9,
+            "y": 0.0147602158,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": 0.255065948,
+            "y": 0.0499999523,
+            "z": -0.6686372
+          },
+          "Rotation": {
+            "x": -4.315865e-8,
+            "y": 0.0147602158,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": -1.49887991,
+            "y": 0.0500000566,
+            "z": -0.454851657
+          },
+          "Tags": [
+            "assistant"
+          ]
+        },
+        {
+          "Position": {
+            "x": -1.4989326,
+            "y": 0.0500000566,
+            "z": 0.446100384
+          },
+          "Tags": [
+            "assistant"
+          ]
+        },
+        {
+          "Position": {
+            "x": 3.07996488,
+            "y": 0.0499999858,
+            "z": -0.1360311
+          },
+          "Rotation": {
+            "x": -8.128386e-9,
+            "y": 0.0147602158,
+            "z": 180
+          }
+        },
+        {
+          "Position": {
+            "x": 0.525789559,
+            "y": 0.0499999523,
+            "z": 0.293198079
+          },
+          "Rotation": {
+            "x": -0.0000046671,
+            "y": 45.01382,
+            "z": -0.0000020056948
+          },
+          "Tags": [
+            "falcon"
+          ]
+        },
+        {
+          "Position": {
+            "x": 0.0363241881,
+            "y": 0.0499999523,
+            "z": 0.5199906
+          },
+          "Rotation": {
+            "x": -2.14434962e-7,
+            "y": 10.0147676,
+            "z": -7.73883642e-7
+          },
+          "Tags": [
+            "falcon"
+          ]
+        },
+        {
+          "Position": {
+            "x": -0.472281724,
+            "y": 0.0499999523,
+            "z": 0.3848837
+          },
+          "Rotation": {
+            "x": 0.00000139340057,
+            "y": 330.01474,
+            "z": 1.91098465e-7
+          },
+          "Tags": [
+            "falcon"
+          ]
+        },
+        {
+          "Position": {
+            "x": -0.7009657,
+            "y": 0.0499999523,
+            "z": -0.0512480624
+          },
+          "Rotation": {
+            "x": -5.18676245e-7,
+            "y": 295.014771,
+            "z": -9.882338e-7
+          },
+          "Tags": [
+            "falcon"
+          ]
+        },
+        {
+          "Position": {
+            "x": -0.7449079,
+            "y": 0.0499999523,
+            "z": -0.5693315
+          },
+          "Rotation": {
+            "x": -0.0000028148786,
+            "y": 270.019348,
+            "z": 0.000004837626
+          },
+          "Tags": [
+            "falcon"
+          ]
+        }
+      ],
+      "Autoraise": true,
+      "ColorDiffuse": {
+        "b": 1,
+        "g": 1,
+        "r": 1
+      },
+      "CustomImage": {
+        "CustomToken": {
+          "MergeDistancePixels": 15,
+          "Stackable": false,
+          "StandUp": false,
+          "Thickness": 0.1
+        },
+        "ImageScalar": 1,
+        "ImageSecondaryURL": "",
+        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1862807092245592685/AA3904CB3D12A90174B125FCB4B70DFC65DF8AB3/",
+        "WidthScale": 0
+      },
+      "Description": "Falconer",
+      "DragSelectable": true,
+      "GMNotes": "",
+      "GUID": "2094da",
+      "Grid": true,
+      "GridProjection": false,
+      "Hands": false,
+      "HideWhenFaceDown": false,
+      "IgnoreFoW": false,
+      "LayoutGroupSortIndex": 0,
+      "Locked": true,
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "MeasureMovement": false,
+      "Name": "Custom_Token",
+      "Nickname": "Player Board",
+      "Snap": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "Transform": {
+        "posX": 51,
+        "posY": 1.53149891,
+        "posZ": 18.9999981,
+        "rotX": 2.335069e-8,
+        "rotY": 180,
+        "rotZ": -3.04676462e-8,
+        "scaleX": 5.25,
+        "scaleY": 1,
+        "scaleZ": 5.25
+      },
+      "Value": 0,
+      "XmlUI": ""
+    },
+    "3": {
+      "AltLookAngle": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "AttachedSnapPoints": [
+        {
+          "Position": {
+            "x": 1.52363729,
+            "y": 0.0499999672,
+            "z": -0.668963552
+          },
+          "Rotation": {
+            "x": 5.609057e-8,
+            "y": 0.0147602158,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": 1.125542,
+            "y": 0.04999996,
+            "z": -0.6688614
+          },
+          "Rotation": {
+            "x": -1.25719712e-9,
+            "y": 0.0147602158,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": 0.655065656,
+            "y": 0.049999956,
+            "z": -0.6687402
+          },
+          "Rotation": {
+            "x": 7.15542425e-9,
+            "y": 0.0147602158,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": 0.255065948,
+            "y": 0.0499999523,
+            "z": -0.6686372
+          },
+          "Rotation": {
+            "x": -4.315865e-8,
+            "y": 0.0147602158,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": -1.49887991,
+            "y": 0.0500000566,
+            "z": -0.454851657
+          },
+          "Tags": [
+            "assistant"
+          ]
+        },
+        {
+          "Position": {
+            "x": -1.4989326,
+            "y": 0.0500000566,
+            "z": 0.446100384
+          },
+          "Tags": [
+            "assistant"
+          ]
+        },
+        {
+          "Position": {
+            "x": 3.07996488,
+            "y": 0.0499999858,
+            "z": -0.1360311
+          },
+          "Rotation": {
+            "x": -8.128386e-9,
+            "y": 0.0147602158,
+            "z": 180
+          }
+        }
+      ],
+      "Autoraise": true,
+      "ColorDiffuse": {
+        "b": 1,
+        "g": 1,
+        "r": 1
+      },
+      "CustomImage": {
+        "CustomToken": {
+          "MergeDistancePixels": 15,
+          "Stackable": false,
+          "StandUp": false,
+          "Thickness": 0.1
+        },
+        "ImageScalar": 1,
+        "ImageSecondaryURL": "",
+        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1862807092245592273/B181101030DF3014002CC84C3E32C6350E1A7BD2/",
+        "WidthScale": 0
+      },
+      "Description": "Baroness",
+      "DragSelectable": true,
+      "GMNotes": "",
+      "GUID": "e52198",
+      "Grid": true,
+      "GridProjection": false,
+      "Hands": false,
+      "HideWhenFaceDown": false,
+      "IgnoreFoW": false,
+      "LayoutGroupSortIndex": 0,
+      "Locked": true,
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "MeasureMovement": false,
+      "Name": "Custom_Token",
+      "Nickname": "Player Board",
+      "Snap": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "Transform": {
+        "posX": 51,
+        "posY": 1.53149891,
+        "posZ": 18.9999981,
+        "rotX": 2.335069e-8,
+        "rotY": 180,
+        "rotZ": -3.04676462e-8,
+        "scaleX": 5.25,
+        "scaleY": 1,
+        "scaleZ": 5.25
+      },
+      "Value": 0,
+      "XmlUI": ""
+    },
+    "4": {
+      "AltLookAngle": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "AttachedSnapPoints": [
+        {
+          "Position": {
+            "x": 1.52363729,
+            "y": 0.0499999672,
+            "z": -0.668963552
+          },
+          "Rotation": {
+            "x": 5.609057e-8,
+            "y": 0.0147602158,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": 1.125542,
+            "y": 0.04999996,
+            "z": -0.6688614
+          },
+          "Rotation": {
+            "x": -1.25719712e-9,
+            "y": 0.0147602158,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": 0.655065656,
+            "y": 0.049999956,
+            "z": -0.6687402
+          },
+          "Rotation": {
+            "x": 7.15542425e-9,
+            "y": 0.0147602158,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": 0.255065948,
+            "y": 0.0499999523,
+            "z": -0.6686372
+          },
+          "Rotation": {
+            "x": -4.315865e-8,
+            "y": 0.0147602158,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": -1.49887991,
+            "y": 0.0500000566,
+            "z": -0.454851657
+          },
+          "Tags": [
+            "assistant"
+          ]
+        },
+        {
+          "Position": {
+            "x": -1.4989326,
+            "y": 0.0500000566,
+            "z": 0.446100384
+          },
+          "Tags": [
+            "assistant"
+          ]
+        },
+        {
+          "Position": {
+            "x": 3.07996488,
+            "y": 0.0499999858,
+            "z": -0.1360311
+          },
+          "Rotation": {
+            "x": -8.128386e-9,
+            "y": 0.0147602158,
+            "z": 180
+          }
+        }
+      ],
+      "Autoraise": true,
+      "ColorDiffuse": {
+        "b": 1,
+        "g": 1,
+        "r": 1
+      },
+      "CustomImage": {
+        "CustomToken": {
+          "MergeDistancePixels": 15,
+          "Stackable": false,
+          "StandUp": false,
+          "Thickness": 0.1
+        },
+        "ImageScalar": 1,
+        "ImageSecondaryURL": "",
+        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1862807092245592897/0A7E192EE2EC15C5F8B30C3803E542B942BAC430/",
+        "WidthScale": 0
+      },
+      "Description": "Professor",
+      "DragSelectable": true,
+      "GMNotes": "",
+      "GUID": "511992",
+      "Grid": true,
+      "GridProjection": false,
+      "Hands": false,
+      "HideWhenFaceDown": false,
+      "IgnoreFoW": false,
+      "LayoutGroupSortIndex": 0,
+      "Locked": true,
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "MeasureMovement": false,
+      "Name": "Custom_Token",
+      "Nickname": "Player Board",
+      "Snap": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "Transform": {
+        "posX": 51,
+        "posY": 1.53149891,
+        "posZ": 18.9999981,
+        "rotX": 2.335069e-8,
+        "rotY": 180,
+        "rotZ": -3.04676462e-8,
+        "scaleX": 5.25,
+        "scaleY": 1,
+        "scaleZ": 5.25
+      },
+      "Value": 0,
+      "XmlUI": ""
+    },
+    "5": {
+      "AltLookAngle": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "AttachedSnapPoints": [
+        {
+          "Position": {
+            "x": 1.52363729,
+            "y": 0.0499999672,
+            "z": -0.668963552
+          },
+          "Rotation": {
+            "x": 5.609057e-8,
+            "y": 0.0147602158,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": 1.125542,
+            "y": 0.04999996,
+            "z": -0.6688614
+          },
+          "Rotation": {
+            "x": -1.25719712e-9,
+            "y": 0.0147602158,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": 0.655065656,
+            "y": 0.049999956,
+            "z": -0.6687402
+          },
+          "Rotation": {
+            "x": 7.15542425e-9,
+            "y": 0.0147602158,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": 0.255065948,
+            "y": 0.0499999523,
+            "z": -0.6686372
+          },
+          "Rotation": {
+            "x": -4.315865e-8,
+            "y": 0.0147602158,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": -1.49887991,
+            "y": 0.0500000566,
+            "z": -0.454851657
+          },
+          "Tags": [
+            "assistant"
+          ]
+        },
+        {
+          "Position": {
+            "x": -1.4989326,
+            "y": 0.0500000566,
+            "z": 0.446100384
+          },
+          "Tags": [
+            "assistant"
+          ]
+        },
+        {
+          "Position": {
+            "x": 3.07996488,
+            "y": 0.0499999858,
+            "z": -0.1360311
+          },
+          "Rotation": {
+            "x": -8.128386e-9,
+            "y": 0.0147602158,
+            "z": 180
+          }
+        },
+        {
+          "Position": {
+            "x": -0.759896636,
+            "y": 0.04999995,
+            "z": -0.628694057
+          },
+          "Rotation": {
+            "x": 0.00000108255676,
+            "y": 359.990753,
+            "z": 1.76399706e-9
+          },
+          "Tags": [
+            "food"
+          ]
+        },
+        {
+          "Position": {
+            "x": -0.759999454,
+            "y": 0.04999995,
+            "z": -0.005837179
+          },
+          "Rotation": {
+            "x": 7.801285e-7,
+            "y": 359.990753,
+            "z": -0.00000112062571
+          },
+          "Tags": [
+            "food"
+          ]
+        },
+        {
+          "Position": {
+            "x": -0.7600994,
+            "y": 0.04999995,
+            "z": 0.6132106
+          },
+          "Rotation": {
+            "x": -4.01105268e-7,
+            "y": 359.990753,
+            "z": 0.00000132635671
+          },
+          "Tags": [
+            "food"
+          ]
+        }
+      ],
+      "Autoraise": true,
+      "ColorDiffuse": {
+        "b": 1,
+        "g": 1,
+        "r": 1
+      },
+      "CustomImage": {
+        "CustomToken": {
+          "MergeDistancePixels": 15,
+          "Stackable": false,
+          "StandUp": false,
+          "Thickness": 0.1
+        },
+        "ImageScalar": 1,
+        "ImageSecondaryURL": "",
+        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1862807092245592551/C87DC9B3AA37B7B668FF8D02051E556607D0D3EA/",
+        "WidthScale": 0
+      },
+      "Description": "Adventurer",
+      "DragSelectable": true,
+      "GMNotes": "",
+      "GUID": "5a697f",
+      "Grid": true,
+      "GridProjection": false,
+      "Hands": false,
+      "HideWhenFaceDown": false,
+      "IgnoreFoW": false,
+      "LayoutGroupSortIndex": 0,
+      "Locked": true,
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "MeasureMovement": false,
+      "Name": "Custom_Token",
+      "Nickname": "Player Board",
+      "Snap": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "Transform": {
+        "posX": 51,
+        "posY": 1.53149891,
+        "posZ": 18.9999981,
+        "rotX": 2.335069e-8,
+        "rotY": 180,
+        "rotZ": -3.04676462e-8,
+        "scaleX": 5.25,
+        "scaleY": 1,
+        "scaleZ": 5.25
+      },
+      "Value": 0,
+      "XmlUI": ""
+    },
+    "6": {
+      "AltLookAngle": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "AttachedSnapPoints": [
+        {
+          "Position": {
+            "x": 2.88571453,
+            "y": 0.0500000566,
+            "z": -0.327618569
+          },
+          "Rotation": {
+            "x": -7.36585948e-9,
+            "y": 89.99999,
+            "z": 180
+          }
+        },
+        {
+          "Position": {
+            "x": 1.40380931,
+            "y": 0.0499999449,
+            "z": -0.114285618
+          },
+          "Rotation": {
+            "x": -5.091234e-10,
+            "y": -0.00000207468656,
+            "z": 180
+          }
+        },
+        {
+          "Position": {
+            "x": -3.19047618,
+            "y": 0.04999997,
+            "z": -0.443809927
+          },
+          "Tags": [
+            "assistant"
+          ]
+        },
+        {
+          "Position": {
+            "x": -3.19047618,
+            "y": 0.0499999635,
+            "z": 0.4628568
+          },
+          "Tags": [
+            "assistant"
+          ]
+        },
+        {
+          "Position": {
+            "x": -0.120000124,
+            "y": 0.049999956,
+            "z": -0.662857056
+          },
+          "Rotation": {
+            "x": -1.55207314e-8,
+            "y": -0.00000207468656,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": -0.5142858,
+            "y": 0.04999996,
+            "z": -0.6628571
+          },
+          "Rotation": {
+            "x": -4.87731e-9,
+            "y": -0.00000207468656,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": -0.9923807,
+            "y": 0.04999996,
+            "z": -0.6628572
+          },
+          "Rotation": {
+            "x": 3.18781268e-8,
+            "y": -0.00000207468656,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": -1.39619076,
+            "y": 0.0499999635,
+            "z": -0.662857234
+          },
+          "Rotation": {
+            "x": 3.04204839e-8,
+            "y": -0.00000207468656,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": -1.798095,
+            "y": 0.0499999635,
+            "z": -0.6628573
+          },
+          "Rotation": {
+            "x": -6.24861158e-8,
+            "y": -0.00000207468656,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        }
+      ],
+      "Autoraise": true,
+      "ColorDiffuse": {
+        "b": 1,
+        "g": 1,
+        "r": 1
+      },
+      "CustomImage": {
+        "CustomToken": {
+          "MergeDistancePixels": 15,
+          "Stackable": false,
+          "StandUp": false,
+          "Thickness": 0.1
+        },
+        "ImageScalar": 1,
+        "ImageSecondaryURL": "",
+        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1862807092245592856/A643FAC3649898661B767A1EED27DC0CFCFE32FF/",
+        "WidthScale": 0
+      },
+      "Description": "Mystic",
+      "DragSelectable": true,
+      "GMNotes": "",
+      "GUID": "066c15",
+      "Grid": true,
+      "GridProjection": false,
+      "Hands": false,
+      "HideWhenFaceDown": false,
+      "IgnoreFoW": false,
+      "LayoutGroupSortIndex": 0,
+      "Locked": true,
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "MeasureMovement": false,
+      "Name": "Custom_Token",
+      "Nickname": "Player Board",
+      "Snap": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "Transform": {
+        "posX": 51,
+        "posY": 1.53149891,
+        "posZ": 18.9999981,
+        "rotX": 2.335069e-8,
+        "rotY": 180,
+        "rotZ": -3.04676462e-8,
+        "scaleX": 5.25,
+        "scaleY": 1,
+        "scaleZ": 5.25
+      },
+      "Value": 0,
+      "XmlUI": ""
+    }
+  },
+  "Sticky": true,
+  "Tooltip": true,
+  "Transform": {
+    "posX": 51,
+    "posY": 1.531,
+    "posZ": 19,
+    "rotX": 0,
+    "rotY": 180,
+    "rotZ": 0,
+    "scaleX": 5.25,
+    "scaleY": 1,
+    "scaleZ": 5.25
+  },
+  "Value": 0,
+  "XmlUI": ""
+}
