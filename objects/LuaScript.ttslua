@@ -1411,14 +1411,14 @@ function setupButtons()
 end
 
 function takeResourceButton(resource, clickColor, alt)
+	local toBag
 	local fromBag = getObjectFromGUID(bags.resources[resource])
 	if alt then
-		local toBag = getObjectFromGUID(suitcaseResourceBags[resource])
-		toBag.putObject(fromBag.takeObject())
+		toBag = getObjectFromGUID(suitcaseResourceBags[resource])
 	else
-		local toBag = getObjectFromGUID(playerVars[clickColor].resourceBags[resource])
-		toBag.putObject(fromBag.takeObject())
+		toBag = getObjectFromGUID(playerVars[clickColor].resourceBags[resource])
 	end
+	toBag.putObject(fromBag.takeObject())
 end
 
 function takeFearButton(zone, clickColor)
@@ -1435,17 +1435,73 @@ function buyButton(zone, clickColor, alt)
 	movingRow = true
 	local card = drawCard(zone)
 	if card ~= nil then
+		local cost = tonumber(card.getDescription())
+
 		if alt then
 			exile(card)
 		elseif card.hasTag('artifact') then
+			-- buying an artifact (with compasses)
+			local resource = "s"
+			local resourceName = {singular = "compass", plural = "compasses"}
+			
+			-- check if card can be bought with resources
+			local resourceBag = getObjectFromGUID(playerVars[clickColor].resourceBags[resource])
+			local resourceCount = resourceBag.getQuantity()
+		
+			-- check if suitcase is in play
+			local suitcase = getObjectFromGUID(suitcaseResourceBags[resource])
+			local suitcaseCount = 0
+
+			if suitcase then
+				suitcaseCount = suitcase.getQuantity()
+			end
+
+			if (resourceCount + suitcaseCount) < cost then
+				broadcastToColor("You don't have enough " .. resourceName.plural .. " to buy this card.", clickColor, "Yellow")
+				movingRow = false
+				return
+			end
+
+			-- take resources from player
+			local trash = getObjectFromGUID(playerVars[clickColor].trashGuid)
+			for i = 1, suitcaseCount do
+				trash.putObject(suitcase.takeObject())
+			end
+
+			local modifiedCost = cost - suitcaseCount
+			for i = 1, modifiedCost do
+				trash.putObject(resourceBag.takeObject())
+			end
+
+			-- move card to play area
 			local toPos = getObjectFromGUID(playerVars[clickColor].playAreaZoneGuid).getPosition()
 			local xOffset = 11.5
-			if clickColor == 'Red' or clickColor == 'Yellow' then xOffset = 0 - xOffset end
+			if clickColor == 'Red' or clickColor == 'Yellow' then
+				xOffset = 0 - xOffset
+			end
 			card.setPositionSmooth({ toPos[1] + xOffset, tableY + 0.5, toPos[3] }, false, true)
-			local suffix = ' compass).'
-			if tonumber(card.getDescription()) > 1 then suffix = ' compasses).' end
-			broadcastToAll(getPlayerName(clickColor) .. ' bought ' .. card.getName() .. ' (' .. card.getDescription() .. suffix)
+			buyBroadcast(clickColor, card.getName(), cost, resourceName)
 		else
+			-- buying an item (with coins)
+			local resource = "c"
+			local resourceName = {singular = "coin", plural = "coins"}
+
+			-- check if card can be bought with resources
+			local resourceBag = getObjectFromGUID(playerVars[clickColor].resourceBags[resource])
+			local resourceCount = resourceBag.getQuantity()
+
+			if resourceCount < cost then
+				broadcastToColor("You don't have enough " .. resourceName.plural .. " to buy this card.", clickColor, "Yellow")
+				movingRow = false
+				return
+			end
+
+			local trash = getObjectFromGUID(playerVars[clickColor].trashGuid)
+			for i = 1, cost do
+				trash.putObject(resourceBag.takeObject())
+			end
+
+			-- move card below deck
 			local deckZone = getObjectFromGUID(getDeckZoneGuid(clickColor))
 			local toPos = deckZone.getPosition()
 			local deck = nil
@@ -1464,9 +1520,7 @@ function buyButton(zone, clickColor, alt)
 			else
 				deck.putObject(card)
 			end
-			local suffix = ' coin).'
-			if tonumber(card.getDescription()) > 1 then suffix = ' coins).' end
-			broadcastToAll(getPlayerName(clickColor) .. ' bought ' .. card.getName() .. ' (' .. card.getDescription() .. suffix)
+			buyBroadcast(clickColor, card.getName(), cost, resourceName)
 		end
 	end
 	local delay = 0.4
@@ -1474,6 +1528,16 @@ function buyButton(zone, clickColor, alt)
 	Wait.time(function()
 		startLuaCoroutine(Global, 'refillRowCoroutine')
 	end, delay)
+end
+
+function buyBroadcast(clickColor, name, cost, resourceName)
+	local suffix
+	if cost == 1 then
+		suffix = resourceName.singular
+	else
+		suffix = resourceName.plural
+	end
+	broadcastToAll(getPlayerName(clickColor) .. ' bought ' .. name .. ' (' .. cost .. " " .. suffix .. ").")
 end
 
 function refillRowCoroutine()
