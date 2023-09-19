@@ -1,8 +1,12 @@
 -- SCRIPTED BY jkk - https://steamcommunity.com/id/creamymello/myworkshopfiles/
 -- EDITED BY Chr1Z
 TESTING = false
-testVars = { buttonZone = '7f50fd', zone = 'ac00c1', defineSeated = true,
-	seatedPlayers = { 'Blue', 'Yellow', 'Red', 'Green', 'Pink' } }
+testVars = {
+	buttonZone = '7f50fd',
+	zone = 'ac00c1',
+	defineSeated = true,
+	seatedPlayers = { 'Blue', 'Yellow', 'Red', 'Green', 'Pink' }
+}
 
 playerVars = {
 	Red = {
@@ -10,10 +14,15 @@ playerVars = {
 		playAreaZoneGuid = '472eb8',
 		refZoneGuid = '545a04',
 		deckZoneGuids = { base = 'fb8591', leader = '474558', mystic = '06e359' },
-		idolZoneGuids = { base = { '116857', '5786ec', '9251fa', '7481a4' },
-			leader = { '9cb5f8', 'e8ac49', '22a8b1', '8d02cd' }, mystic = { '9cb5f8', 'e8ac49', '22a8b1', '8d02cd', '5786ec' } },
-		idolPositions = { base = { { -43.00, 1.60, 19.20 }, { -41.00, 1.60, 19.20 } },
-			leader = { { -49.16, 1.60, 19.12 }, { -47.16, 1.60, 19.12 } } },
+		idolZoneGuids = {
+			base = { '116857', '5786ec', '9251fa', '7481a4' },
+			leader = { '9cb5f8', 'e8ac49', '22a8b1', '8d02cd' },
+			mystic = { '9cb5f8', 'e8ac49', '22a8b1', '8d02cd', '5786ec' }
+		},
+		idolPositions = {
+			base = { { -43.00, 1.60, 19.20 }, { -41.00, 1.60, 19.20 } },
+			leader = { { -49.16, 1.60, 19.12 }, { -47.16, 1.60, 19.12 } }
+		},
 		mysticRitualPosition = { -66.15, 1.60, 20.72 },
 		researchTokens = { magnifying = '3ac5a9', notebook = 'a70c8f' },
 		pawns = { 'b2d015', '47658b', 'bfb9eb' },
@@ -25,7 +34,8 @@ playerVars = {
 		resourceBagZones = { t = 'e757ed', a = 'd0f92a', j = 'b56916', c = 'cbf8fd', s = '0a749b' },
 		suitcaseResourceBagZones = { t = '223031', s = '4b2360' },
 		suitcasePosition = { -26.50, 1.53, 8.80 },
-		falconPositions = { { -44.93, 1.63, 17.46 }, { -42.37, 1.63, 16.26 }, { -39.69, 1.63, 16.98 }, { -38.49, 1.63, 19.27 },
+		falconPositions = { { -44.93, 1.63, 17.46 }, { -42.37, 1.63, 16.26 }, { -39.69, 1.63, 16.98 },
+			{ -38.49, 1.63, 19.27 },
 			{ -38.26, 1.63, 21.99 } },
 		archivePositions = { { -67.00, 1.50, 20.30 }, { -67.00, 1.50, 13.10 }, { -67.00, 1.50, 5.90 } },
 		foodPositions = { { -38.18, 1.63, 22.27 }, { -38.18, 1.63, 19.00 }, { -38.18, 1.63, 15.75 } },
@@ -38,11 +48,17 @@ playerVars = {
 		refZoneGuid = '9ba49e',
 		assistantZoneGuid = 'ca1026',
 		deckZoneGuids = { base = '251ebb', leader = 'c59a9b', mystic = 'a3aaf8', ritual = '339af9' },
-		idolZoneGuids = { base = { '3cdff3', 'c8f9c1', 'bd027c', '1dea04' },
-			leader = { '2fa9f6', 'df8c38', '0f1761', '726cb1' }, mystic = { '8e8b36', '6c8212', '8930e9', '334d16', '82f6de' } },
-		idolPositions = { base = { { 43.00, 1.60, 19.20 }, { 45.00, 1.60, 19.20 } },
-			leader = { { 43.90, 1.60, 19.12 }, { 45.90, 1.60, 19.12 } }, mystic = { { 52.84, 1.60, 19.12 },
-			{ 54.84, 1.60, 19.12 } } },
+		idolZoneGuids = {
+			base = { '3cdff3', 'c8f9c1', 'bd027c', '1dea04' },
+			leader = { '2fa9f6', 'df8c38', '0f1761', '726cb1' },
+			mystic = { '8e8b36', '6c8212', '8930e9', '334d16', '82f6de' }
+		},
+		idolPositions = {
+			base = { { 43.00, 1.60, 19.20 }, { 45.00, 1.60, 19.20 } },
+			leader = { { 43.90, 1.60, 19.12 }, { 45.90, 1.60, 19.12 } },
+			mystic = { { 52.84, 1.60, 19.12 },
+				{ 54.84, 1.60, 19.12 } }
+		},
 		mysticRitualPosition = { 35.85, 1.60, 20.72 },
 		researchTokens = { magnifying = '1a305e', notebook = '96a124' },
 		pawns = { 'c8a97b', 'ddd08f', '822412' },
@@ -67,11 +83,16 @@ playerVars = {
 		refZoneGuid = '25eec1',
 		assistantZoneGuid = '1d601a',
 		deckZoneGuids = { base = '033194', leader = '56a26a', mystic = '1947cf', ritual = '603a7b' },
-		idolZoneGuids = { base = { '2f19b7', '865607', 'f878bc', 'cabb53' },
-			leader = { 'c24a72', '4beb7d', 'd26366', '0dd4bc' }, mystic = { '44ffc5', '87e6fb', '59fcb8', 'e5db25', 'ac377a' } },
-		idolPositions = { base = { { 43.00, 1.60, -21.80 }, { 45.00, 1.60, -21.80 } },
+		idolZoneGuids = {
+			base = { '2f19b7', '865607', 'f878bc', 'cabb53' },
+			leader = { 'c24a72', '4beb7d', 'd26366', '0dd4bc' },
+			mystic = { '44ffc5', '87e6fb', '59fcb8', 'e5db25', 'ac377a' }
+		},
+		idolPositions = {
+			base = { { 43.00, 1.60, -21.80 }, { 45.00, 1.60, -21.80 } },
 			leader = { { 43.90, 1.60, -21.88 }, { 45.90, 1.60, -21.88 } },
-			mystic = { { 52.84, 1.60, -21.88 }, { 54.84, 1.60, -21.88 } } },
+			mystic = { { 52.84, 1.60, -21.88 }, { 54.84, 1.60, -21.88 } }
+		},
 		mysticRitualPosition = { 35.85, 1.60, -20.28 },
 		researchTokens = { magnifying = '975b98', notebook = '6cf350' },
 		pawns = { '609cfd', 'ddc20b', 'b4abfd' },
@@ -83,7 +104,8 @@ playerVars = {
 		resourceBagZones = { t = 'f4d753', a = '067ec4', j = '37db2d', c = '4eab66', s = 'b8b628' },
 		suitcaseResourceBagZones = { t = '4d7b3f', s = '9e8531' },
 		suitcasePosition = { 26.60, 1.53, -32.20 },
-		falconPositions = { { 48.21, 1.63, -23.58 }, { 50.81, 1.63, -24.74 }, { 53.48, 1.63, -23.99 }, { 54.66, 1.63, -21.66 },
+		falconPositions = { { 48.21, 1.63, -23.58 }, { 50.81, 1.63, -24.74 }, { 53.48, 1.63, -23.99 },
+			{ 54.66, 1.63, -21.66 },
 			{ 54.86, 1.63, -18.93 } },
 		archivePositions = { { 67.00, 1.50, -20.70 }, { 67.00, 1.50, -27.90 }, { 67.00, 1.50, -35.10 } },
 		foodPositions = { { 54.99, 1.63, -18.70 }, { 54.99, 1.63, -21.97 }, { 54.99, 1.63, -25.22 } },
@@ -95,10 +117,15 @@ playerVars = {
 		playAreaZoneGuid = '7a5b2c',
 		refZoneGuid = '332924',
 		deckZoneGuids = { base = 'ec6a31', leader = 'a0aebd', mystic = 'eae7fa' },
-		idolZoneGuids = { base = { 'a46612', 'c0e331', 'd59114', '7d2de9' },
-			leader = { '202f73', 'd70471', '9dbea2', 'cdb5e6' }, mystic = { '202f73', 'd70471', '9dbea2', 'cdb5e6', 'c0e331' } },
-		idolPositions = { base = { { -43.00, 1.60, -21.80 }, { -41.00, 1.60, -21.80 } },
-			leader = { { -49.16, 1.60, -21.88 }, { -47.16, 1.60, -21.88 } } },
+		idolZoneGuids = {
+			base = { 'a46612', 'c0e331', 'd59114', '7d2de9' },
+			leader = { '202f73', 'd70471', '9dbea2', 'cdb5e6' },
+			mystic = { '202f73', 'd70471', '9dbea2', 'cdb5e6', 'c0e331' }
+		},
+		idolPositions = {
+			base = { { -43.00, 1.60, -21.80 }, { -41.00, 1.60, -21.80 } },
+			leader = { { -49.16, 1.60, -21.88 }, { -47.16, 1.60, -21.88 } }
+		},
 		mysticRitualPosition = { -66.15, 1.59, -20.28 },
 		researchTokens = { magnifying = 'ca9cc3', notebook = '5db4d4' },
 		pawns = { 'e94bc0', 'dabf30', 'b5f37c' },
@@ -120,9 +147,20 @@ playerVars = {
 }
 seatedPlayerColors = {}
 startPlayerIndex = 0
-hexColors = { White = '[ffffff]', Brown = '[713b17]', Red = '[da1a18]', Orange = '[f4641d]', Yellow = '[e7e52c]',
-	Green = '[31b32b]', Teal = '[21b19b]', Blue = '[1e87ff]', Purple = '[a020f0]', Pink = '[f570ce]', Black = '[404040]',
-	Grey = '[808080]' }
+hexColors = {
+	White = '[ffffff]',
+	Brown = '[713b17]',
+	Red = '[da1a18]',
+	Orange = '[f4641d]',
+	Yellow = '[e7e52c]',
+	Green = '[31b32b]',
+	Teal = '[21b19b]',
+	Blue = '[1e87ff]',
+	Purple = '[a020f0]',
+	Pink = '[f570ce]',
+	Black = '[404040]',
+	Grey = '[808080]'
+}
 
 options = {
 	solo = false,
@@ -132,8 +170,16 @@ options = {
 	researchTrack = 1,
 	staff = 1,
 	leaders = 'none',
-	expansions = { artifacts = false, items = false, promos = true, assistants = false, idols = false, sites1 = false,
-		sites2 = false, guardians = false }
+	expansions = {
+		artifacts = false,
+		items = false,
+		promos = true,
+		assistants = false,
+		idols = false,
+		sites1 = false,
+		sites2 = false,
+		guardians = false
+	}
 }
 bags = {
 	resources = { t = '831df9', a = '84369b', j = 'e283e9', c = '1ee5ea', s = 'c85087' },
@@ -147,12 +193,25 @@ bags = {
 	solo = 'cabb5b',
 	soloTempleTiles = 'c13fff'
 }
-deckZones = { artifacts = 'c19201', items = 'cd21a5', fear = '1fcdb3', sites1 = '702902', sites2 = 'e0c338',
-	guardians = 'b51480' }
+deckZones = {
+	artifacts = 'c19201',
+	items = 'cd21a5',
+	fear = '1fcdb3',
+	sites1 = '702902',
+	sites2 = 'e0c338',
+	guardians = 'b51480'
+}
 assistantDeckGuid = '538a5c'
 idolDeckGuid = 'ab4a80'
-expansionDecks = { artifacts = 'f61f69', items = '5076de', assistants = 'cf87b7', idols = '9988c4', sites1 = '37a6dd',
-	sites2 = '486402', guardians = 'b876d5' }
+expansionDecks = {
+	artifacts = 'f61f69',
+	items = '5076de',
+	assistants = 'cf87b7',
+	idols = '9988c4',
+	sites1 = '37a6dd',
+	sites2 = '486402',
+	guardians = 'b876d5'
+}
 playerDecks = {
 	base = { Red = 'cbf743', Blue = 'aaed1a', Green = '47fe07', Yellow = '34c052' },
 	leaders = { '1e21bd', '99385f', 'd0d33f', 'a42e51', '64471d', '2c1dc4' }
@@ -161,33 +220,60 @@ tokens = { falcon = '9ef0a8', suitcase = 'f78694', food = { '4c7454', '7ae3bf', 
 cards = { baroness = '49e35e', artifactPromo = 'f4cc17', itemPromo = 'aeb186' }
 suitcaseResourceBags = { t = 'da4493', s = '4ecc7c' }
 falconRotations = { { 0.00, 225.00, 0.00 }, { 0.00, 190.00, 0.00 }, { 0.00, 148.00, 0.00 }, { 0.00, 115.00, 0.00 },
-	{ 0.00, 90.00, 0.00 } }
+	{ 0.00, 90.00,  0.00 } }
 assistantPositions = { { 9.15, 1.63, -30.73 }, { 13.83, 1.63, -30.73 }, { 18.52, 1.63, -30.73 } }
 assistantZones = { 'a432ac', 'a44647', '3ffbd7' }
 
 cardRowZoneGuids = { '8ae6f2', '6103ae', 'cea4b5', '99cfc2', '8a1a02', 'dbf266' }
 staffGuids = { '45ee3a', 'b4f223' }
 staffPositions = { { -14.61, 1.63, 20.23 }, { -7.37, 1.63, 20.23 }, { -0.03, 1.63, 20.23 }, { 7.23, 1.63, 20.23 },
-	{ 14.51, 1.63, 20.23 } }
+	{ 14.51,  1.63, 20.23 } }
 exileZoneGuids = { artifacts = '19f28c', items = 'ec5c7a', other = 'bcb533' }
 siteLevels = {
-	{ { guid = '102294', pawnSpaces = { 'd8ae82' } },       { guid = '836103', pawnSpaces = { '7b9a3a' } },
-		                                                                                                              { guid =
-		'73d0db', pawnSpaces = { '6dfe86' } },                                                                                                                            { guid =
-	'a3b7a0', pawnSpaces = { 'c77d64' } } },
-	{ { guid = '5dce42', pawnSpaces = { '6ec07b' } },       { guid = '8a7e4e', pawnSpaces = { 'f40303' } },
-		                                                                                                              { guid =
-		'ceb501', pawnSpaces = { '2bc798' } },                                                                                                                            { guid =
-	'91a1f7', pawnSpaces = { '68bc73' } } },
-	{ { guid = 'f399b2', pawnSpaces = { '716a13' } },       { guid = '588793', pawnSpaces = { '39f1c2' } },
-		                                                                                                              { guid =
-		'fa45f2', pawnSpaces = { '3c7380' } },                                                                                                                            { guid =
-	'874212', pawnSpaces = { '0c50cf' } } },
+	{ { guid = '102294', pawnSpaces = { 'd8ae82' } }, { guid = '836103', pawnSpaces = { '7b9a3a' } },
+		{
+			guid =
+			'73d0db',
+			pawnSpaces = { '6dfe86' }
+		}, {
+		guid =
+		'a3b7a0',
+		pawnSpaces = { 'c77d64' }
+	} },
+	{ { guid = '5dce42', pawnSpaces = { '6ec07b' } }, { guid = '8a7e4e', pawnSpaces = { 'f40303' } },
+		{
+			guid =
+			'ceb501',
+			pawnSpaces = { '2bc798' }
+		}, {
+		guid =
+		'91a1f7',
+		pawnSpaces = { '68bc73' }
+	} },
+	{ { guid = 'f399b2', pawnSpaces = { '716a13' } }, { guid = '588793', pawnSpaces = { '39f1c2' } },
+		{
+			guid =
+			'fa45f2',
+			pawnSpaces = { '3c7380' }
+		}, {
+		guid =
+		'874212',
+		pawnSpaces = { '0c50cf' }
+	} },
 	{ { guid = 'e57811', pawnSpaces = { 'df2d4f', '45ab8f' } }, { guid = '05cffe', pawnSpaces = { '74b16f', '9cf53d' } },
-		                                                                                                              { guid =
-		'2af21b', pawnSpaces = { '264538', '023ed4' } },                                                                                                                  { guid =
-	'92dc47', pawnSpaces = { '5c1009', '79c8e7' } },                                                                                                                                                                          { guid =
-	'0322bb', pawnSpaces = { '87786d', '35c82d' } } }
+		{
+			guid =
+			'2af21b',
+			pawnSpaces = { '264538', '023ed4' }
+		}, {
+		guid =
+		'92dc47',
+		pawnSpaces = { '5c1009', '79c8e7' }
+	}, {
+		guid =
+		'0322bb',
+		pawnSpaces = { '87786d', '35c82d' }
+	} }
 }
 
 templeTileZoneGuids = { 'fc3aea', '6b0f38', 'aa7dfd', 'e573c3', 'bb0b10', '599983' }
@@ -197,85 +283,149 @@ researchTracks = {
 	{
 		bonusPositions = {
 			{ { 9.08, 1.68, -18.72 }, { 13.77, 1.68, -18.73 }, { 9.11, 1.68, -9.83 }, { 13.22, 1.68, -9.84 },
-				                                                                                           { 17.23, 1.68, -9.84 },
-				                                                                                                                 { 9.34,
-					1.68, -1.65 },                                                                                                                    { 14.05,
+				{ 17.23, 1.68, -9.84 },
+				{ 9.34,
+					1.68, -1.65 }, { 14.05,
 				1.68, -1.65 } },
-			{ { 9.29, 1.68, 2.43 },  { 16.64, 1.68, 2.43 } },
+			{ { 9.29, 1.68, 2.43 },    { 16.64, 1.68, 2.43 } },
 			{ { 13.01, 1.68, -14.25 }, { 11.45, 1.68, -5.71 } },
 			{ { 19.63, 1.68, 6.15 } }
 		},
 		rows = {
-			{ z = 3.87,   bonusPos = { 19.63, 1.78, 6.15 } },
-			{ z = 0.95,   magnifying = 16,               notebook = 10,
-				                                                            paths = {
-					{ pos = { 9.29, 1.78, 2.43 }, forward = { 1 }, bonus = true },
-					{ pos = { 16.64, 1.78, 2.43 }, forward = { 1 }, bonus = true } } },
-			{ z = -3.16,  magnifying = 12,               notebook = 8,
-				                                                            paths = {
-					{ pos = { 9.34, 1.78, -1.65 }, forward = { 1 }, bonus = true },
-					{ pos = { 14.05, 1.78, -1.65 }, forward = { 1, 2 }, bonus = true } } },
-			{ z = -7.36,  magnifying = 9,                notebook = 6,
-				                                                            paths = {
-					{ pos = { 11.45, 1.78, -5.71 }, forward = { 1, 2 }, bonus = true } } },
-			{ z = -11.44, magnifying = 6,                notebook = 4,  assistant = true,
-				                                                                                                                                                                                            paths = {
-					{ pos = { 9.11, 1.78, -9.83 }, forward = { 1 }, bonus = true },
+			{ z = 3.87, bonusPos = { 19.63, 1.78, 6.15 } },
+			{
+				z = 0.95,
+				magnifying = 16,
+				notebook = 10,
+				paths = {
+					{ pos = { 9.29, 1.78, 2.43 },  forward = { 1 }, bonus = true },
+					{ pos = { 16.64, 1.78, 2.43 }, forward = { 1 }, bonus = true } }
+			},
+			{
+				z = -3.16,
+				magnifying = 12,
+				notebook = 8,
+				paths = {
+					{ pos = { 9.34, 1.78, -1.65 },  forward = { 1 },    bonus = true },
+					{ pos = { 14.05, 1.78, -1.65 }, forward = { 1, 2 }, bonus = true } }
+			},
+			{
+				z = -7.36,
+				magnifying = 9,
+				notebook = 6,
+				paths = {
+					{ pos = { 11.45, 1.78, -5.71 }, forward = { 1, 2 }, bonus = true } }
+			},
+			{
+				z = -11.44,
+				magnifying = 6,
+				notebook = 4,
+				assistant = true,
+				paths = {
+					{ pos = { 9.11, 1.78, -9.83 },  forward = { 1 }, bonus = true },
 					{ pos = { 13.22, 1.78, -9.84 }, forward = { 1 }, bonus = true },
-					{ pos = { 17.23, 1.78, -9.84 }, forward = { 1 }, bonus = true } } },
-			{ z = -15.93, magnifying = 4,                notebook = 2,  assistant = true,
-				                                                                                                                                                                                            paths = {
-					{ pos = { 13.01, 1.78, -14.25 }, forward = { 1, 2, 3 }, bonus = true } } },
-			{ z = -20.50, magnifying = 2,                notebook = 1,  assistant = true,
-				                                                                                                                                                                                            paths = {
-					{ pos = { 9.08, 1.78, -18.72 }, forward = { 1 }, bonus = true },
-					{ pos = { 13.77, 1.78, -18.73 }, forward = { 1 }, bonus = true } } },
-			{ z = -24.93, magnifying = 1,                notebook = 0,  assistant = true,
-				                                                                                                                                                                                            paths = {
-					{ pos = { 9.31, 1.73, -23.28 }, forward = { 1, 2 } }, { pos = { 17.53, 1.73, -23.28 }, forward = { 2 } } } }
+					{ pos = { 17.23, 1.78, -9.84 }, forward = { 1 }, bonus = true } }
+			},
+			{
+				z = -15.93,
+				magnifying = 4,
+				notebook = 2,
+				assistant = true,
+				paths = {
+					{ pos = { 13.01, 1.78, -14.25 }, forward = { 1, 2, 3 }, bonus = true } }
+			},
+			{
+				z = -20.50,
+				magnifying = 2,
+				notebook = 1,
+				assistant = true,
+				paths = {
+					{ pos = { 9.08, 1.78, -18.72 },  forward = { 1 }, bonus = true },
+					{ pos = { 13.77, 1.78, -18.73 }, forward = { 1 }, bonus = true } }
+			},
+			{
+				z = -24.93,
+				magnifying = 1,
+				notebook = 0,
+				assistant = true,
+				paths = {
+					{ pos = { 9.31, 1.73, -23.28 }, forward = { 1, 2 } }, { pos = { 17.53, 1.73, -23.28 }, forward = { 2 } } }
+			}
 		},
 		templePoints = { 23, 21, 20, 19 }
 	},
 	{
 		bonusPositions = {
 			{ { 9.05, 1.68, -19.26 }, { 16.90, 1.68, -19.26 }, { 9.06, 1.68, -15.03 }, { 16.91, 1.68, -15.03 },
-				                                                                                             { 9.06, 1.68, -1.92 },
-				                                                                                                                  { 15.33,
-					1.68, -1.92 },                                                                                                                      { 9.07,
-				1.68, 2.38 },                                                                                                                                             { 16.90,
+				{ 9.06, 1.68, -1.92 },
+				{ 15.33,
+					1.68, -1.92 }, { 9.07,
+				1.68, 2.38 }, { 16.90,
 				1.68, 2.38 } },
 			{ { 13.16, 1.68, -19.26 }, { 13.08, 1.68, 2.38 } },
-			{ { 9.07, 1.68, -6.02 }, { 16.93, 1.68, -6.02 } },
+			{ { 9.07, 1.68, -6.02 },   { 16.93, 1.68, -6.02 } },
 			{ { 19.66, 1.68, 6.15 } }
 		},
 		rows = {
-			{ z = 4.20,   bonusPos = { 19.66, 1.78, 6.15 } },
-			{ z = 0.66,   magnifying = 15,               notebook = 15,
-				                                                            paths = {
-					{ forward = { 1 }, bonusPos = { { 9.07, 1.78, 2.38 }, { 13.08, 1.78, 2.38 }, { 16.90, 1.78, 2.38 } } } } },
-			{ z = -3.47,  magnifying = 10,               notebook = 12,
-				                                                            paths = {
-					{ pos = { 9.06, 1.78, -1.92 }, forward = { 1 }, bonus = true },
-					{ pos = { 15.33, 1.78, -1.92 }, forward = { 1 }, bonus = true } } },
-			{ z = -7.51,  magnifying = 5,                notebook = 8,  assistant = true,
-				                                                                                                                                                                                                                                                          paths = {
-					{ pos = { 9.07, 1.78, -6.02 }, forward = { 1, 2 }, bonus = true },
-					{ pos = { 16.93, 1.78, -6.02 }, forward = { 2 }, bonus = true } } },
-			{ z = -12.46, magnifying = 4,                notebook = 5,  assistant = true,
-				                                                                                                                                                                                                                                                          paths = {
-					{ pos = { 17.37, 1.73, -10.84 }, forward = { 1, 2 } } } },
-			{ z = -16.61, magnifying = 3,                notebook = 4,  assistant = true,
-				                                                                                                                                                                                                                                                          paths = {
-					{ pos = { 9.06, 1.78, -15.03 }, forward = { 1 }, bonus = true },
-					{ pos = { 16.91, 1.78, -15.03 }, forward = { 1 }, bonus = true } } },
-			{ z = -20.93, magnifying = 2,                notebook = 3,
-				                                                            paths = {
-					{ pos = { 9.05, 1.78, -19.26 }, forward = { 1 }, bonus = true },
+			{ z = 4.20, bonusPos = { 19.66, 1.78, 6.15 } },
+			{
+				z = 0.66,
+				magnifying = 15,
+				notebook = 15,
+				paths = {
+					{ forward = { 1 }, bonusPos = { { 9.07, 1.78, 2.38 }, { 13.08, 1.78, 2.38 }, { 16.90, 1.78, 2.38 } } } }
+			},
+			{
+				z = -3.47,
+				magnifying = 10,
+				notebook = 12,
+				paths = {
+					{ pos = { 9.06, 1.78, -1.92 },  forward = { 1 }, bonus = true },
+					{ pos = { 15.33, 1.78, -1.92 }, forward = { 1 }, bonus = true } }
+			},
+			{
+				z = -7.51,
+				magnifying = 5,
+				notebook = 8,
+				assistant = true,
+				paths = {
+					{ pos = { 9.07, 1.78, -6.02 },  forward = { 1, 2 }, bonus = true },
+					{ pos = { 16.93, 1.78, -6.02 }, forward = { 2 },    bonus = true } }
+			},
+			{
+				z = -12.46,
+				magnifying = 4,
+				notebook = 5,
+				assistant = true,
+				paths = {
+					{ pos = { 17.37, 1.73, -10.84 }, forward = { 1, 2 } } }
+			},
+			{
+				z = -16.61,
+				magnifying = 3,
+				notebook = 4,
+				assistant = true,
+				paths = {
+					{ pos = { 9.06, 1.78, -15.03 },  forward = { 1 }, bonus = true },
+					{ pos = { 16.91, 1.78, -15.03 }, forward = { 1 }, bonus = true } }
+			},
+			{
+				z = -20.93,
+				magnifying = 2,
+				notebook = 3,
+				paths = {
+					{ pos = { 9.05, 1.78, -19.26 },  forward = { 1 },    bonus = true },
 					{ pos = { 13.16, 1.78, -19.26 }, forward = { 1, 2 }, bonus = true },
-					{ pos = { 16.90, 1.78, -19.26 }, forward = { 2 }, bonus = true } } },
-			{ z = -25.04, magnifying = 1,                notebook = 0,  assistant = true,
-				                                                                                                                                                                                                                                                          paths = {
-					{ pos = { 8.69, 1.73, -23.36 }, forward = { 1, 2 } }, { pos = { 14.50, 1.73, -23.23 }, forward = { 2, 3 } } } }
+					{ pos = { 16.90, 1.78, -19.26 }, forward = { 2 },    bonus = true } }
+			},
+			{
+				z = -25.04,
+				magnifying = 1,
+				notebook = 0,
+				assistant = true,
+				paths = {
+					{ pos = { 8.69, 1.73, -23.36 }, forward = { 1, 2 } }, { pos = { 14.50, 1.73, -23.23 }, forward = { 2, 3 } } }
+			}
 		},
 		templePoints = { 23, 21, 20, 19 },
 		assistantPos = { 12.86, 1.72, -10.47 },
@@ -287,31 +437,65 @@ researchTracks = {
 			{ { 13.50, 1.68, -16.70 }, { 12.80, 1.68, -3.99 }, { 19.73, 1.68, 6.06 } }
 		},
 		rows = {
-			{ z = 4.20,   bonusPos = { 19.73, 1.78, 6.06 } },
-			{ z = 1.48,   magnifying = 15,               notebook = 16,
-				                                                            paths = { { pos = { 9.42, 1.73, 3.00 }, forward = { 1 } },
-					{ pos = { 15.75, 1.73, 3.00 }, forward = { 1 } } } },
-			{ z = -1.89,  magnifying = 9,                notebook = 9,  assistant = true,
-				                                                                                                                                                            paths = {
-					{ pos = { 8.53, 1.73, -0.47 }, forward = { 1 } }, { pos = { 13.74, 1.73, -0.47 }, forward = { 1, 2 } } } },
-			{ z = -5.4,   magnifying = 8,                notebook = 7,
+			{ z = 4.20,  bonusPos = { 19.73, 1.78, 6.06 } },
+			{
+				z = 1.48,
+				magnifying = 15,
+				notebook = 16,
+				paths = { { pos = { 9.42, 1.73, 3.00 }, forward = { 1 } },
+					{ pos = { 15.75, 1.73, 3.00 }, forward = { 1 } } }
+			},
+			{
+				z = -1.89,
+				magnifying = 9,
+				notebook = 9,
+				assistant = true,
+				paths = {
+					{ pos = { 8.53, 1.73, -0.47 }, forward = { 1 } }, { pos = { 13.74, 1.73, -0.47 }, forward = { 1, 2 } } }
+			},
+			{
+				z = -5.4,
+				magnifying = 8,
+				notebook = 7,
+				paths = {
+					{ pos = { 12.79, 1.78, -3.99 }, forward = { 1, 2 }, bonus = true } }
+			},
+			{ z = -9.87, magnifying = 5,                  notebook = 4,
 				                                                            paths = {
-					{ pos = { 12.79, 1.78, -3.99 }, forward = { 1, 2 }, bonus = true } } },
-			{ z = -9.87,  magnifying = 5,                notebook = 4,  paths = { { pos = { 16.51, 1.73, -7.80 }, forward = { 1 } } } },
-			{ z = -14.5,  magnifying = 5,                notebook = 2,  assistant = true,
-				                                                                                                                                                            paths = {
-					{ pos = { 16.44, 1.73, -12.55 }, forward = { 1 } } } },
-			{ z = -18.14, magnifying = 4,                notebook = 1,
-				                                                            paths = {
-					{ pos = { 13.50, 1.78, -16.70 }, forward = { 1 }, bonus = true } } },
-			{ z = -21.8,  magnifying = 3,                notebook = 0,  assistant = true,
-				                                                                                                                                                            paths = {
-					{ pos = { 8.23, 1.73, -20.30 }, forward = { 1 } }, { pos = { 13.20, 1.73, -20.30 }, forward = { 1 } },
-					{ pos = { 16.68, 1.73, -20.30 }, forward = { 1 } } } },
-			{ z = -24.98, magnifying = 1,                notebook = 0,  assistant = true,
-				                                                                                                                                                            paths = {
-					{ pos = { 8.48, 1.73, -23.76 }, forward = { 1 } }, { pos = { 11.74, 1.73, -23.80 }, forward = { 1, 2 } },
-					{ pos = { 15.24, 1.73, -23.76 }, forward = { 2, 3 } } } }
+					{ pos = { 16.51, 1.73, -7.80 }, forward = { 1 } } } },
+			{
+				z = -14.5,
+				magnifying = 5,
+				notebook = 2,
+				assistant = true,
+				paths = {
+					{ pos = { 16.44, 1.73, -12.55 }, forward = { 1 } } }
+			},
+			{
+				z = -18.14,
+				magnifying = 4,
+				notebook = 1,
+				paths = {
+					{ pos = { 13.50, 1.78, -16.70 }, forward = { 1 }, bonus = true } }
+			},
+			{
+				z = -21.8,
+				magnifying = 3,
+				notebook = 0,
+				assistant = true,
+				paths = {
+					{ pos = { 8.23, 1.73, -20.30 },  forward = { 1 } }, { pos = { 13.20, 1.73, -20.30 }, forward = { 1 } },
+					{ pos = { 16.68, 1.73, -20.30 }, forward = { 1 } } }
+			},
+			{
+				z = -24.98,
+				magnifying = 1,
+				notebook = 0,
+				assistant = true,
+				paths = {
+					{ pos = { 8.48, 1.73, -23.76 },  forward = { 1 } }, { pos = { 11.74, 1.73, -23.80 }, forward = { 1, 2 } },
+					{ pos = { 15.24, 1.73, -23.76 }, forward = { 2, 3 } } }
+			}
 		},
 		templePoints = { 23, 21, 20, 19 },
 		artifactPos = { 10.36, 1.69, -10.37 }
@@ -319,44 +503,83 @@ researchTracks = {
 	{
 		bonusPositions = {
 			{ { 9.15, 1.68, -19.77 }, { 16.97, 1.68, -19.80 }, { 9.15, 1.68, -16.18 }, { 16.94, 1.68, -16.20 },
-				                                                                                            { 9.37, 1.68, -9.19 },
-				                                                                                                                 { 11.89,
-					1.68, -4.60 },                                                                                                                     { 14.44,
-				1.68, -4.61 },                                                                                                                                             { 11.37,
-				1.68, 2.57 },                                                                                                                                                                   { 15.01,
+				{ 9.37, 1.68, -9.19 },
+				{ 11.89,
+					1.68, -4.60 }, { 14.44,
+				1.68, -4.61 }, { 11.37,
+				1.68, 2.57 }, { 15.01,
 				1.68, 2.56 } },
-			{ { 9.33, 1.68, -4.60 }, { 9.02, 1.68, 2.57 } },
+			{ { 9.33, 1.68, -4.60 },  { 9.02, 1.68, 2.57 } },
 			{ { 16.98, 1.68, -4.61 }, { 17.35, 1.68, 2.56 } },
 			{ { 19.84, 1.68, 6.11 } }
 		},
 		rows = {
-			{ z = 4.20,   bonusPos = { 19.84, 1.78, 6.11 } },
-			{ z = 1.12,   magnifying = 20,               notebook = 13,
-				                                                            paths = {
-					{ forward = { 1 },
-						bonusPos = { { 9.02, 1.78, 2.57 }, { 11.37, 1.78, 2.57 }, { 15.01, 1.78, 2.56 }, { 17.35, 1.78, 2.56 } } } } },
-			{ z = -2.13,  magnifying = 12,               notebook = 10,
-				                                                            paths = { { pos = { 8.75, 1.73, -0.96 },
-					forward = { 1 } }, { pos = { 15.73, 1.73, -0.96 }, forward = { 1 } } } },
-			{ z = -6.21,  magnifying = 8,                notebook = 7,  assistant = true,
-				                                                                                                                                                                                                                                          paths = {
-					{ forward = { 1, 2 },
-						bonusPos = { { 9.33, 1.78, -4.60 }, { 11.89, 1.78, -4.60 }, { 14.44, 1.78, -4.61 }, { 17.00, 1.78, -4.61 } } } } },
-			{ z = -13.94, magnifying = 4,                notebook = 3,  assistant = true,
-				                                                                                                                                                                                                                                          paths = {
-					{ pos = { 9.37, 1.78, -9.19 }, forward = { 1 }, bonus = true } } },
-			{ z = -17.54, magnifying = 3,                notebook = 3,
-				                                                            paths = {
-					{ pos = { 9.15, 1.78, -16.18 }, forward = { 1 }, bonus = true }, { pos = { 13.19, 1.73, -16.18 }, forward = { 1 } },
-					{ pos = { 16.93, 1.78, -16.18 }, forward = { 1 }, bonus = true } } },
-			{ z = -21.18, magnifying = 2,                notebook = 1,  assistant = true,
-				                                                                                                                                                                                                                                          paths = {
-					{ pos = { 9.15, 1.78, -19.77 }, forward = { 1, 2 }, bonus = true },
-					{ pos = { 16.97, 1.78, -19.80 }, forward = { 2, 3 }, bonus = true } } },
-			{ z = -24.96, magnifying = 1,                notebook = 0,  assistant = true,
-				                                                                                                                                                                                                                                          paths = {
-					{ pos = { 7.97, 1.73, -23.29 }, forward = { 1 } }, { pos = { 11.94, 1.73, -23.29 }, forward = { 1, 2 } },
-					{ pos = { 16.19, 1.73, -23.29 }, forward = { 2 } } } }
+			{ z = 4.20, bonusPos = { 19.84, 1.78, 6.11 } },
+			{
+				z = 1.12,
+				magnifying = 20,
+				notebook = 13,
+				paths = {
+					{
+						forward = { 1 },
+						bonusPos = { { 9.02, 1.78, 2.57 }, { 11.37, 1.78, 2.57 }, { 15.01, 1.78, 2.56 }, { 17.35, 1.78, 2.56 } }
+					} }
+			},
+			{
+				z = -2.13,
+				magnifying = 12,
+				notebook = 10,
+				paths = { {
+					pos = { 8.75, 1.73, -0.96 },
+					forward = { 1 }
+				}, { pos = { 15.73, 1.73, -0.96 }, forward = { 1 } } }
+			},
+			{
+				z = -6.21,
+				magnifying = 8,
+				notebook = 7,
+				assistant = true,
+				paths = {
+					{
+						forward = { 1, 2 },
+						bonusPos = { { 9.33, 1.78, -4.60 }, { 11.89, 1.78, -4.60 }, { 14.44, 1.78, -4.61 }, { 17.00, 1.78, -4.61 } }
+					} }
+			},
+			{
+				z = -13.94,
+				magnifying = 4,
+				notebook = 3,
+				assistant = true,
+				paths = {
+					{ pos = { 9.37, 1.78, -9.19 }, forward = { 1 }, bonus = true } }
+			},
+			{
+				z = -17.54,
+				magnifying = 3,
+				notebook = 3,
+				paths = {
+					{ pos = { 9.15, 1.78, -16.18 },  forward = { 1 }, bonus = true },
+					{ pos = { 13.19, 1.73, -16.18 }, forward = { 1 } },
+					{ pos = { 16.93, 1.78, -16.18 }, forward = { 1 }, bonus = true } }
+			},
+			{
+				z = -21.18,
+				magnifying = 2,
+				notebook = 1,
+				assistant = true,
+				paths = {
+					{ pos = { 9.15, 1.78, -19.77 },  forward = { 1, 2 }, bonus = true },
+					{ pos = { 16.97, 1.78, -19.80 }, forward = { 2, 3 }, bonus = true } }
+			},
+			{
+				z = -24.96,
+				magnifying = 1,
+				notebook = 0,
+				assistant = true,
+				paths = {
+					{ pos = { 7.97, 1.73, -23.29 },  forward = { 1 } }, { pos = { 11.94, 1.73, -23.29 }, forward = { 1, 2 } },
+					{ pos = { 16.19, 1.73, -23.29 }, forward = { 2 } } }
+			}
 		},
 		templePoints = { 28, 26, 25, 24 },
 		guardianPos = { 14.90, 1.69, -10.51 },
@@ -373,9 +596,14 @@ solo = {
 	boardPosition = { -43.26, 1.53, 18.96 },
 	objectives = 'd8547e',
 	objectivePosition = { -51.00, 1.53, -0.80 },
-	zones = { deck = '7196a9', discard = '0ecbe9',
+	zones = {
+		deck = '7196a9',
+		discard = '0ecbe9',
 		idol = { c = '184e31', s = '7fa25b', t = '500131', r = 'af87d7', e = '69ed89', u = 'fdf87e', dupe = '91df7a' },
-		delete = '0a61ed', objectivesDeck = '250afb', objectives = { 'd18d8f', 'c9584b', '36d489', '08da31' } },
+		delete = '0a61ed',
+		objectivesDeck = '250afb',
+		objectives = { 'd18d8f', 'c9584b', '36d489', '08da31' }
+	},
 	pawns = { '47658b', 'bfb9eb', 'b2d015', 'fb9f5d', '9f84c9', 'e5b510' },
 	pawnPositions = { { -28.50, 2.20, 20 }, { -26.50, 2.20, 20 }, { -24.50, 2.20, 20 }, { -28.50, 2.20, 18 },
 		{ -26.50, 2.20, 18 }, { -24.50, 2.20, 18 } },
@@ -402,16 +630,25 @@ solo = {
 		assistant = { -26.50, 2, 10.15 }
 	}
 }
-soloStatus = { firstTurn = true, fulfilledObjectives = {}, pawnsOut = 0, magnifying = { row = 0, path = 0 },
-	notebook = { row = 0, path = 0 } }
+soloStatus = {
+	firstTurn = true,
+	fulfilledObjectives = {},
+	pawnsOut = 0,
+	magnifying = { row = 0, path = 0 },
+	notebook = { row = 0, path = 0 }
+}
 
 tableY = 1.50
 tileY = 1.60
 pawnY = 2.30
 faceup = { 0, 180, 0 }
 facedown = { 0, 180, 180 }
-buttonLabels = { ready1 = 'Calculate Scores', ready2 = 'Recalculate Scores', confirm = hexColors.Green .. 'Confirm[-]',
-	busy = hexColors.Red .. 'Scoring[-]' }
+buttonLabels = {
+	ready1 = 'Calculate Scores',
+	ready2 = 'Recalculate Scores',
+	confirm = hexColors.Green .. 'Confirm[-]',
+	busy = hexColors.Red .. 'Scoring[-]'
+}
 buttonLabelsRival = { ready = 'Rival Turn', busy = hexColors.Red .. 'Busy[-]' }
 
 round = 0
@@ -421,8 +658,14 @@ movingRow = false
 discovering = false
 
 function onSave()
-	local data = { seatedPlayerColors = seatedPlayerColors, startPlayerIndex = startPlayerIndex, options = options,
-		round = round, siteLevels = siteLevels, soloStatus = soloStatus }
+	local data = {
+		seatedPlayerColors = seatedPlayerColors,
+		startPlayerIndex = startPlayerIndex,
+		options = options,
+		round = round,
+		siteLevels = siteLevels,
+		soloStatus = soloStatus
+	}
 	--local data = nil
 	return JSON.encode(data)
 end
@@ -833,17 +1076,27 @@ function menuStart(player, value, id)
 					end
 
 					if playerBoardState == 2 then
-						tokenBag.takeObject({ guid = tokens.falcon, position = vars.falconPositions[2], rotation = falconRotations
-						[2] })
+						tokenBag.takeObject({
+							guid = tokens.falcon,
+							position = vars.falconPositions[2],
+							rotation = falconRotations
+									[2]
+						})
 					elseif playerBoardState == 4 then
 						local profStuff = {}
-						local suitcase = tokenBag.takeObject({ guid = tokens.suitcase, position = vars.suitcasePosition,
-							rotation = faceup })
+						local suitcase = tokenBag.takeObject({
+							guid = tokens.suitcase,
+							position = vars.suitcasePosition,
+							rotation = faceup
+						})
 						table.insert(profStuff, suitcase)
 						for resource, guid in pairs(suitcaseResourceBags) do
 							local toPos = getObjectFromGUID(vars.suitcaseResourceBagZones[resource]).getPosition()
-							local resourceBag = tokenBag.takeObject({ guid = guid, position = { toPos[1], 1.63, toPos[3] },
-								rotation = faceup })
+							local resourceBag = tokenBag.takeObject({
+								guid = guid,
+								position = { toPos[1], 1.63, toPos[3] },
+								rotation = faceup
+							})
 							table.insert(profStuff, resourceBag)
 						end
 						wait(0.3)
@@ -967,8 +1220,11 @@ function menuStart(player, value, id)
 					break
 				end
 			end
-			local artifactCard = decks.artifacts.takeObject({ guid = artifactGuid, position = trackInfo.artifactPos,
-				rotation = faceup })
+			local artifactCard = decks.artifacts.takeObject({
+				guid = artifactGuid,
+				position = trackInfo.artifactPos,
+				rotation = faceup
+			})
 			wait(0.3)
 			artifactCard.lock()
 		else
@@ -1063,7 +1319,8 @@ function menuStart(player, value, id)
 		-- delete bags
 		for _, object in ipairs(getObjectFromGUID(solo.zones.delete).getObjects()) do
 			if not (options.solo and (object.getName() == 'Solo Components' or object.getName() == 'Solo Temple Tiles')) then
-				object.destruct() end
+				object.destruct()
+			end
 		end
 		if not options.solo then getObjectFromGUID(solo.rules).destruct() end
 		if not options.expansions.promos then getObjectFromGUID(promoRulesGuid).destruct() end
@@ -1151,8 +1408,13 @@ function menuStartSolo()
 	function menuStartSoloCoroutine()
 		local bag = getObjectFromGUID(bags.solo)
 		local playerColor = seatedPlayerColors[1]
-		if options.objectives > 0 then bag.takeObject({ guid = solo.objectives, position = solo.objectivePosition,
-				rotation = facedown }) end
+		if options.objectives > 0 then
+			bag.takeObject({
+				guid = solo.objectives,
+				position = solo.objectivePosition,
+				rotation = facedown
+			})
+		end
 		local index = 0
 		for _, guid in pairs(solo.actionDecks) do
 			index = index + 1
@@ -1442,12 +1704,12 @@ function buyButton(zone, clickColor, alt)
 		elseif card.hasTag('artifact') then
 			-- buying an artifact (with compasses)
 			local resource = "s"
-			local resourceName = {singular = "compass", plural = "compasses"}
-			
+			local resourceName = { singular = "compass", plural = "compasses" }
+
 			-- check if card can be bought with resources
 			local resourceBag = getObjectFromGUID(playerVars[clickColor].resourceBags[resource])
 			local resourceCount = resourceBag.getQuantity()
-		
+
 			-- check if suitcase is in play
 			local suitcase = getObjectFromGUID(suitcaseResourceBags[resource])
 			local suitcaseCount = 0
@@ -1484,7 +1746,7 @@ function buyButton(zone, clickColor, alt)
 		else
 			-- buying an item (with coins)
 			local resource = "c"
-			local resourceName = {singular = "coin", plural = "coins"}
+			local resourceName = { singular = "coin", plural = "coins" }
 
 			-- check if card can be bought with resources
 			local resourceBag = getObjectFromGUID(playerVars[clickColor].resourceBags[resource])
@@ -2156,8 +2418,10 @@ function nextRoundButton(obj, clickColor, alt)
 			if not (options.solo and playerColor == 'Red') then
 				local vars = playerVars[playerColor]
 				local assistantZoneGuid = vars.allZoneGuid
-				if options.playerBoards[playerColor] == 6 and vars.assistantZoneGuid ~= nil then assistantZoneGuid = vars
-					.assistantZoneGuid end
+				if options.playerBoards[playerColor] == 6 and vars.assistantZoneGuid ~= nil then
+					assistantZoneGuid = vars
+							.assistantZoneGuid
+				end
 				for _, object in ipairs(getObjectFromGUID(assistantZoneGuid).getObjects()) do
 					if object.hasTag('assistant') then
 						local rotation = object.getRotation()
@@ -2564,8 +2828,10 @@ function onPlayerTurn(player, previousPlayer)
 				if not tent.is_face_down then atLeastOneFaceupTent = true end
 			end
 		end
-		if atLeastOneFaceupTent and currentPlayerTent ~= nil and currentPlayerTent.is_face_down then Turns.turn_color = Turns
-			.getNextTurnColor() end
+		if atLeastOneFaceupTent and currentPlayerTent ~= nil and currentPlayerTent.is_face_down then
+			Turns.turn_color = Turns
+					.getNextTurnColor()
+		end
 	end, 0.01)
 end
 
@@ -2673,7 +2939,7 @@ function exile(object)
 			end
 		end, 0.3)
 		return
-		addDelayAfterExile      -- there needs to be a small delay before moving another card, if this exile ended with anything other than putObject to a deck
+				addDelayAfterExile -- there needs to be a small delay before moving another card, if this exile ended with anything other than putObject to a deck
 	end
 end
 
@@ -3021,7 +3287,8 @@ function rivalTurnCoroutine()
 				-- research with notebook
 				wait(1.5)
 				if soloStatus.notebook.row > soloStatus.magnifying.row or soloStatus.notebook.row == 0 and soloStatus.magnifying.row > 0 then
-					rivalResearch('notebook', true) end
+					rivalResearch('notebook', true)
+				end
 			end
 		end
 	elseif action == 'research' then
