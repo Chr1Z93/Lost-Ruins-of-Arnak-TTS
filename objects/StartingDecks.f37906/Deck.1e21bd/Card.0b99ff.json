@@ -41,6 +41,9 @@
   "SidewaysCard": false,
   "Snap": true,
   "Sticky": true,
+  "Tags": [
+    "doubleFear"
+  ],
   "Tooltip": true,
   "Transform": {
     "posX": -71.637,

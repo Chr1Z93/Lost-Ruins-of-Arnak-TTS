@@ -2406,7 +2406,7 @@ function calculateScores()
 					if scoreIdols then subscores.idol = subscores.idol + 3 end
 				elseif object.hasTag('guardian') then
 					subscores.guardian = subscores.guardian + 5
-				elseif object.type == 'Custom_Token' and object.getName() == 'Fear' then
+				elseif (object.type == 'Custom_Token' and object.getName() == 'Fear') or object.hasTag("doubleFear") then
 					subscores.fear = subscores.fear - 2
 				elseif object.getName() == 'Fear' then
 					subscores.fear = subscores.fear - 1
