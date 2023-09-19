@@ -1710,11 +1710,13 @@ function buyButton(zone, clickColor, alt)
 			local resourceBag = getObjectFromGUID(playerVars[clickColor].resourceBags[resource])
 			local resourceCount = resourceBag.getQuantity()
 
-			-- check if suitcase is in play
-			local suitcase = getObjectFromGUID(suitcaseResourceBags[resource])
+			-- check if suitcase is in play for you
+			local playerBoardState = options.playerBoards[clickColor]
+			local suitcase
 			local suitcaseCount = 0
 
-			if suitcase then
+			if playerBoardState == 4 then
+				suitcase = getObjectFromGUID(suitcaseResourceBags[resource])
 				suitcaseCount = suitcase.getQuantity()
 			end
 
