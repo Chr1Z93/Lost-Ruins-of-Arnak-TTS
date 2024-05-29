@@ -11,8 +11,8 @@
     "r": 0.71324
   },
   "ContainedObjects_order": [
-    "Card.d7b6b4",
     "Card.b4d561",
+    "Card.d7b6b4",
     "Card.09d20a",
     "CardCustom.49e35e"
   ],
@@ -27,7 +27,7 @@
       "Type": 0,
       "UniqueBack": false
     },
-    "78": {
+    "81": {
       "BackIsHidden": true,
       "BackURL": "http://cloud-3.steamusercontent.com/ugc/1862806463732242183/9DD976A39F06C1C02E05853E8490CE85A9331876/",
       "FaceURL": "http://cloud-3.steamusercontent.com/ugc/1862806463732242232/11878151AA3A37E489E0B9A11374450BE9FB11A6/",
@@ -38,10 +38,10 @@
     }
   },
   "DeckIDs": [
-    5521,
     5522,
+    5521,
     5520,
-    7800
+    8100
   ],
   "Description": "",
   "DragSelectable": true,
@@ -64,9 +64,9 @@
   "Sticky": true,
   "Tooltip": true,
   "Transform": {
-    "posX": -51.743,
-    "posY": 3.604,
-    "posZ": 47.974,
+    "posX": -52.09,
+    "posY": 3.607,
+    "posZ": 48.087,
     "rotX": 0,
     "rotY": 180,
     "rotZ": 0,

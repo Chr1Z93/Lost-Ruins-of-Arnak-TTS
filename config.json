@@ -23,7 +23,7 @@
   "ComponentTags_path": "ComponentTags.json",
   "DecalPallet": [],
   "GameComplexity": "Medium Complexity",
-  "GameMode": "Lost Ruins of Arnak",
+  "GameMode": " Lost Ruins of Arnak [SCRIPTED]",
   "GameType": "Game",
   "Gravity": 0.5,
   "Grid_path": "Grid.json",
@@ -377,16 +377,16 @@
     60,
     120
   ],
-  "SaveName": "Lost Ruins of Arnak",
+  "SaveName": " Lost Ruins of Arnak [SCRIPTED]",
   "Sky": "Sky_Museum",
   "SnapPoints_path": "SnapPoints.json",
   "TabStates_path": "TabStates.json",
   "Table": "Table_None",
   "Tags": [
     "Board Games",
+    "Rules",
     "Cards",
     "Components",
-    "Rules",
     "Scripting",
     "User Interfaces",
     "English"

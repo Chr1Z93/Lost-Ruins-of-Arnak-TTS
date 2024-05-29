@@ -1,12 +1,6 @@
 -- SCRIPTED BY jkk - https://steamcommunity.com/id/creamymello/myworkshopfiles/
--- EDITED BY Chr1Z
 TESTING = false
-testVars = {
-	buttonZone = '7f50fd',
-	zone = 'ac00c1',
-	defineSeated = true,
-	seatedPlayers = { 'Blue', 'Yellow', 'Red', 'Green', 'Pink' }
-}
+testVars = { buttonZone = '7f50fd', zone = 'ac00c1', defineSeated = true, seatedPlayers = {'Blue', 'Yellow', 'Red', 'Green', 'Pink'} }
 
 playerVars = {
 	Red = {
@@ -14,33 +8,24 @@ playerVars = {
 		playAreaZoneGuid = '472eb8',
 		refZoneGuid = '545a04',
 		deckZoneGuids = { base = 'fb8591', leader = '474558', mystic = '06e359' },
-		idolZoneGuids = {
-			base = { '116857', '5786ec', '9251fa', '7481a4' },
-			leader = { '9cb5f8', 'e8ac49', '22a8b1', '8d02cd' },
-			mystic = { '9cb5f8', 'e8ac49', '22a8b1', '8d02cd', '5786ec' }
-		},
-		idolPositions = {
-			base = { { -43.00, 1.60, 19.20 }, { -41.00, 1.60, 19.20 } },
-			leader = { { -49.16, 1.60, 19.12 }, { -47.16, 1.60, 19.12 } }
-		},
-		mysticRitualPosition = { -66.15, 1.60, 20.72 },
-		researchTokens = { magnifying = '3ac5a9', notebook = 'a70c8f' },
-		pawns = { 'b2d015', '47658b', 'bfb9eb' },
-		pawnPositions = { { -24.91, 2.30, 24.03 }, { -28.33, 2.30, 24.41 }, { -26.38, 2.30, 25.02 } },
+		idolZoneGuids = { base = {'116857', '5786ec', '9251fa', '7481a4'}, leader = {'9cb5f8', 'e8ac49', '22a8b1', '8d02cd'}, mystic = {'9cb5f8', 'e8ac49', '22a8b1', '8d02cd', '5786ec'} },
+		idolPositions = { base = {{-43.00, 1.60, 19.20}, {-41.00, 1.60, 19.20}}, leader = {{-49.16, 1.60, 19.12}, {-47.16, 1.60, 19.12}} },
+		mysticRitualPosition = {-66.15, 1.60, 20.72},
+		researchTokens = {magnifying = '3ac5a9', notebook = 'a70c8f'},
+		pawns = {'b2d015', '47658b', 'bfb9eb'},
+		pawnPositions = { {-24.91, 2.30, 24.03}, {-28.33, 2.30, 24.41}, {-26.38, 2.30, 25.02} },
 		tentGuid = '2cbeb3',
 		tentZoneGuid = 'cc542a',
 		trashGuid = 'b0f01b',
-		resourceBags = { t = '7cf312', a = 'b5027a', j = '2e0235', c = 'ea5777', s = 'e10365' },
-		resourceBagZones = { t = 'e757ed', a = 'd0f92a', j = 'b56916', c = 'cbf8fd', s = '0a749b' },
-		suitcaseResourceBagZones = { t = '223031', s = '4b2360' },
-		suitcasePosition = { -26.50, 1.53, 8.80 },
-		falconPositions = { { -44.93, 1.63, 17.46 }, { -42.37, 1.63, 16.26 }, { -39.69, 1.63, 16.98 },
-			{ -38.49, 1.63, 19.27 },
-			{ -38.26, 1.63, 21.99 } },
-		archivePositions = { { -67.00, 1.50, 20.30 }, { -67.00, 1.50, 13.10 }, { -67.00, 1.50, 5.90 } },
-		foodPositions = { { -38.18, 1.63, 22.27 }, { -38.18, 1.63, 19.00 }, { -38.18, 1.63, 15.75 } },
-		refPositions = { { -57.80, 1.48, 29.50 }, { -50.30, 1.48, 29.50 } },
-		firstPlayerPosition = { -26.60, 1.53, 28.75 }
+		resourceBags = {t = '7cf312', a = 'b5027a', j = '2e0235', c = 'ea5777', s = 'e10365'},
+		resourceBagZones = {t = 'e757ed', a = 'd0f92a', j = 'b56916', c = 'cbf8fd', s = '0a749b'},
+		suitcaseResourceBagZones = {t = '223031', s = '4b2360'},
+		suitcasePosition = {-26.50, 1.53, 8.80},
+		falconPositions = { {-44.93, 1.63, 17.46}, {-42.37, 1.63, 16.26}, {-39.69, 1.63, 16.98}, {-38.49, 1.63, 19.27}, {-38.26, 1.63, 21.99} },
+		archivePositions = { {-67.00, 1.50, 20.30}, {-67.00, 1.50, 13.10}, {-67.00, 1.50, 5.90} },
+		foodPositions = { {-38.18, 1.63, 22.27}, {-38.18, 1.63, 19.00}, {-38.18, 1.63, 15.75} },
+		refPositions = { {-57.80, 1.48, 29.50}, {-50.30, 1.48, 29.50} },
+		firstPlayerPosition = {-26.60, 1.53, 28.75}
 	},
 	Blue = {
 		allZoneGuid = 'd9da53',
@@ -48,34 +33,24 @@ playerVars = {
 		refZoneGuid = '9ba49e',
 		assistantZoneGuid = 'ca1026',
 		deckZoneGuids = { base = '251ebb', leader = 'c59a9b', mystic = 'a3aaf8', ritual = '339af9' },
-		idolZoneGuids = {
-			base = { '3cdff3', 'c8f9c1', 'bd027c', '1dea04' },
-			leader = { '2fa9f6', 'df8c38', '0f1761', '726cb1' },
-			mystic = { '8e8b36', '6c8212', '8930e9', '334d16', '82f6de' }
-		},
-		idolPositions = {
-			base = { { 43.00, 1.60, 19.20 }, { 45.00, 1.60, 19.20 } },
-			leader = { { 43.90, 1.60, 19.12 }, { 45.90, 1.60, 19.12 } },
-			mystic = { { 52.84, 1.60, 19.12 },
-				{ 54.84, 1.60, 19.12 } }
-		},
-		mysticRitualPosition = { 35.85, 1.60, 20.72 },
-		researchTokens = { magnifying = '1a305e', notebook = '96a124' },
-		pawns = { 'c8a97b', 'ddd08f', '822412' },
-		pawnPositions = { { 28.29, 2.30, 24.02 }, { 24.87, 2.30, 24.41 }, { 26.82, 2.30, 25.02 } },
+		idolZoneGuids = { base = {'3cdff3', 'c8f9c1', 'bd027c', '1dea04'}, leader = {'2fa9f6', 'df8c38', '0f1761', '726cb1'}, mystic = {'8e8b36', '6c8212', '8930e9', '334d16', '82f6de'} },
+		idolPositions = { base = {{43.00, 1.60, 19.20}, {45.00, 1.60, 19.20}}, leader = {{43.90, 1.60, 19.12}, {45.90, 1.60, 19.12}}, mystic = {{52.84, 1.60, 19.12}, {54.84, 1.60, 19.12}} },
+		mysticRitualPosition = {35.85, 1.60, 20.72},
+		researchTokens = {magnifying = '1a305e', notebook = '96a124'},
+		pawns = {'c8a97b', 'ddd08f', '822412'},
+		pawnPositions = { {28.29, 2.30, 24.02}, {24.87, 2.30, 24.41}, {26.82, 2.30, 25.02} },
 		tentGuid = '46fb5e',
 		tentZoneGuid = '2b78f5',
 		trashGuid = 'c1c247',
-		resourceBags = { t = 'd40949', a = '20ff93', j = '70714a', c = 'bcf902', s = '65efcd' },
-		resourceBagZones = { t = 'c197da', a = '2e1fe3', j = '8e0e22', c = '12d02d', s = '5c8abb' },
-		suitcaseResourceBagZones = { t = 'f923b7', s = '7c33b6' },
-		suitcasePosition = { 26.60, 1.53, 8.80 },
-		falconPositions = { { 48.21, 1.63, 17.42 }, { 50.81, 1.63, 16.26 }, { 53.48, 1.63, 17.01 }, { 54.66, 1.63, 19.34 },
-			{ 54.86, 1.63, 22.07 } },
-		archivePositions = { { 67.00, 1.50, 20.30 }, { 67.00, 1.50, 13.10 }, { 67.00, 1.50, 5.90 } },
-		foodPositions = { { 54.99, 1.63, 22.30 }, { 54.99, 1.63, 19.03 }, { 54.99, 1.63, 15.78 } },
-		refPositions = { { 57.80, 1.48, 29.50 }, { 50.30, 1.48, 29.50 } },
-		firstPlayerPosition = { 26.60, 1.53, 28.75 }
+		resourceBags = {t = 'd40949', a = '20ff93', j = '70714a', c = 'bcf902', s = '65efcd'},
+		resourceBagZones = {t = 'c197da', a = '2e1fe3', j = '8e0e22', c = '12d02d', s = '5c8abb'},
+		suitcaseResourceBagZones = {t = 'f923b7', s = '7c33b6'},
+		suitcasePosition = {26.60, 1.53, 8.80},
+		falconPositions = { {48.21, 1.63, 17.42}, {50.81, 1.63, 16.26}, {53.48, 1.63, 17.01}, {54.66, 1.63, 19.34}, {54.86, 1.63, 22.07} },
+		archivePositions = { {67.00, 1.50, 20.30}, {67.00, 1.50, 13.10}, {67.00, 1.50, 5.90} },
+		foodPositions = { {54.99, 1.63, 22.30}, {54.99, 1.63, 19.03}, {54.99, 1.63, 15.78} },
+		refPositions = { {57.80, 1.48, 29.50}, {50.30, 1.48, 29.50} },
+		firstPlayerPosition = {26.60, 1.53, 28.75}
 	},
 	Green = {
 		allZoneGuid = '05b782',
@@ -83,84 +58,53 @@ playerVars = {
 		refZoneGuid = '25eec1',
 		assistantZoneGuid = '1d601a',
 		deckZoneGuids = { base = '033194', leader = '56a26a', mystic = '1947cf', ritual = '603a7b' },
-		idolZoneGuids = {
-			base = { '2f19b7', '865607', 'f878bc', 'cabb53' },
-			leader = { 'c24a72', '4beb7d', 'd26366', '0dd4bc' },
-			mystic = { '44ffc5', '87e6fb', '59fcb8', 'e5db25', 'ac377a' }
-		},
-		idolPositions = {
-			base = { { 43.00, 1.60, -21.80 }, { 45.00, 1.60, -21.80 } },
-			leader = { { 43.90, 1.60, -21.88 }, { 45.90, 1.60, -21.88 } },
-			mystic = { { 52.84, 1.60, -21.88 }, { 54.84, 1.60, -21.88 } }
-		},
-		mysticRitualPosition = { 35.85, 1.60, -20.28 },
-		researchTokens = { magnifying = '975b98', notebook = '6cf350' },
-		pawns = { '609cfd', 'ddc20b', 'b4abfd' },
-		pawnPositions = { { 28.29, 2.30, -16.98 }, { 24.87, 2.30, -16.59 }, { 26.82, 2.30, -15.98 } },
+		idolZoneGuids = { base = {'2f19b7', '865607', 'f878bc', 'cabb53'}, leader = {'c24a72', '4beb7d', 'd26366', '0dd4bc'}, mystic = {'44ffc5', '87e6fb', '59fcb8', 'e5db25', 'ac377a'} },
+		idolPositions = { base = {{43.00, 1.60, -21.80}, {45.00, 1.60, -21.80}}, leader = {{43.90, 1.60, -21.88}, {45.90, 1.60, -21.88}}, mystic = {{52.84, 1.60, -21.88}, {54.84, 1.60, -21.88}} },
+		mysticRitualPosition = {35.85, 1.60, -20.28},
+		researchTokens = {magnifying = '975b98', notebook = '6cf350'},
+		pawns = {'609cfd', 'ddc20b', 'b4abfd'},
+		pawnPositions = { {28.29, 2.30, -16.98}, {24.87, 2.30, -16.59}, {26.82, 2.30, -15.98} },
 		tentGuid = '5a9adf',
 		tentZoneGuid = '5717d6',
 		trashGuid = '9c24a7',
-		resourceBags = { t = '9bf040', a = '64418c', j = 'da3f08', c = '590b1a', s = '8b0cb8' },
-		resourceBagZones = { t = 'f4d753', a = '067ec4', j = '37db2d', c = '4eab66', s = 'b8b628' },
-		suitcaseResourceBagZones = { t = '4d7b3f', s = '9e8531' },
-		suitcasePosition = { 26.60, 1.53, -32.20 },
-		falconPositions = { { 48.21, 1.63, -23.58 }, { 50.81, 1.63, -24.74 }, { 53.48, 1.63, -23.99 },
-			{ 54.66, 1.63, -21.66 },
-			{ 54.86, 1.63, -18.93 } },
-		archivePositions = { { 67.00, 1.50, -20.70 }, { 67.00, 1.50, -27.90 }, { 67.00, 1.50, -35.10 } },
-		foodPositions = { { 54.99, 1.63, -18.70 }, { 54.99, 1.63, -21.97 }, { 54.99, 1.63, -25.22 } },
-		refPositions = { { 57.80, 1.48, -11.50 }, { 50.30, 1.48, -11.50 } },
-		firstPlayerPosition = { 26.60, 1.53, -12.25 }
+		resourceBags = {t = '9bf040', a = '64418c', j = 'da3f08', c = '590b1a', s = '8b0cb8'},
+		resourceBagZones = {t = 'f4d753', a = '067ec4', j = '37db2d', c = '4eab66', s = 'b8b628'},
+		suitcaseResourceBagZones = {t = '4d7b3f', s = '9e8531'},
+		suitcasePosition = {26.60, 1.53, -32.20},
+		falconPositions = { {48.21, 1.63, -23.58}, {50.81, 1.63, -24.74}, {53.48, 1.63, -23.99}, {54.66, 1.63, -21.66}, {54.86, 1.63, -18.93} },
+		archivePositions = { {67.00, 1.50, -20.70}, {67.00, 1.50, -27.90}, {67.00, 1.50, -35.10} },
+		foodPositions = { {54.99, 1.63, -18.70}, {54.99, 1.63, -21.97}, {54.99, 1.63, -25.22} },
+		refPositions = { {57.80, 1.48, -11.50}, {50.30, 1.48, -11.50} },
+		firstPlayerPosition = {26.60, 1.53, -12.25}
 	},
 	Yellow = {
 		allZoneGuid = '19cc4f',
 		playAreaZoneGuid = '7a5b2c',
 		refZoneGuid = '332924',
 		deckZoneGuids = { base = 'ec6a31', leader = 'a0aebd', mystic = 'eae7fa' },
-		idolZoneGuids = {
-			base = { 'a46612', 'c0e331', 'd59114', '7d2de9' },
-			leader = { '202f73', 'd70471', '9dbea2', 'cdb5e6' },
-			mystic = { '202f73', 'd70471', '9dbea2', 'cdb5e6', 'c0e331' }
-		},
-		idolPositions = {
-			base = { { -43.00, 1.60, -21.80 }, { -41.00, 1.60, -21.80 } },
-			leader = { { -49.16, 1.60, -21.88 }, { -47.16, 1.60, -21.88 } }
-		},
-		mysticRitualPosition = { -66.15, 1.59, -20.28 },
-		researchTokens = { magnifying = 'ca9cc3', notebook = '5db4d4' },
-		pawns = { 'e94bc0', 'dabf30', 'b5f37c' },
-		pawnPositions = { { -24.91, 2.30, -16.98 }, { -28.33, 2.30, -16.59 }, { -26.38, 2.30, -15.98 } },
+		idolZoneGuids = { base = {'a46612', 'c0e331', 'd59114', '7d2de9'}, leader = {'202f73', 'd70471', '9dbea2', 'cdb5e6'}, mystic = {'202f73', 'd70471', '9dbea2', 'cdb5e6', 'c0e331'} },
+		idolPositions = { base = {{-43.00, 1.60, -21.80}, {-41.00, 1.60, -21.80}}, leader = {{-49.16, 1.60, -21.88}, {-47.16, 1.60, -21.88}} },
+		mysticRitualPosition = {-66.15, 1.59, -20.28},
+		researchTokens = {magnifying = 'ca9cc3', notebook = '5db4d4'},
+		pawns = {'e94bc0', 'dabf30', 'b5f37c'},
+		pawnPositions = { {-24.91, 2.30, -16.98}, {-28.33, 2.30, -16.59}, {-26.38, 2.30, -15.98} },
 		tentGuid = '1da514',
 		tentZoneGuid = 'b6e97f',
 		trashGuid = '66b07c',
-		resourceBags = { t = 'cf6aea', a = 'd28bcd', j = '355261', c = '57c250', s = 'f20389' },
-		resourceBagZones = { t = '9b072b', a = 'dba428', j = 'f72570', c = '71fc56', s = 'f0ec52' },
-		suitcaseResourceBagZones = { t = '3c308e', s = '75c07f' },
-		suitcasePosition = { -26.60, 1.53, -32.20 },
-		falconPositions = { { -44.93, 1.63, -23.54 }, { -42.37, 1.63, -24.73 }, { -39.69, 1.63, -24.02 },
-			{ -38.49, 1.63, -21.73 }, { -38.26, 1.63, -19.01 } },
-		archivePositions = { { -67.00, 1.50, -20.70 }, { -67.00, 1.50, -27.90 }, { -67.00, 1.50, -35.10 } },
-		foodPositions = { { -38.18, 1.63, -18.73 }, { -38.18, 1.63, -22.00 }, { -38.18, 1.63, -25.25 } },
-		refPositions = { { -57.80, 1.48, -11.50 }, { -50.30, 1.48, -11.50 } },
-		firstPlayerPosition = { -26.60, 1.53, -12.25 }
+		resourceBags = {t = 'cf6aea', a = 'd28bcd', j = '355261', c = '57c250', s = 'f20389'},
+		resourceBagZones = {t = '9b072b', a = 'dba428', j = 'f72570', c = '71fc56', s = 'f0ec52'},
+		suitcaseResourceBagZones = {t = '3c308e', s = '75c07f'},
+		suitcasePosition = {-26.60, 1.53, -32.20},
+		falconPositions = { {-44.93, 1.63, -23.54}, {-42.37, 1.63, -24.73}, {-39.69, 1.63, -24.02}, {-38.49, 1.63, -21.73}, {-38.26, 1.63, -19.01} },
+		archivePositions = { {-67.00, 1.50, -20.70}, {-67.00, 1.50, -27.90}, {-67.00, 1.50, -35.10} },
+		foodPositions = { {-38.18, 1.63, -18.73}, {-38.18, 1.63, -22.00}, {-38.18, 1.63, -25.25} },
+		refPositions = { {-57.80, 1.48, -11.50}, {-50.30, 1.48, -11.50} },
+		firstPlayerPosition = {-26.60, 1.53, -12.25}
 	}
 }
 seatedPlayerColors = {}
 startPlayerIndex = 0
-hexColors = {
-	White = '[ffffff]',
-	Brown = '[713b17]',
-	Red = '[da1a18]',
-	Orange = '[f4641d]',
-	Yellow = '[e7e52c]',
-	Green = '[31b32b]',
-	Teal = '[21b19b]',
-	Blue = '[1e87ff]',
-	Purple = '[a020f0]',
-	Pink = '[f570ce]',
-	Black = '[404040]',
-	Grey = '[808080]'
-}
+hexColors = { White = '[ffffff]', Brown = '[713b17]', Red = '[da1a18]', Orange = '[f4641d]', Yellow = '[e7e52c]', Green = '[31b32b]', Teal = '[21b19b]', Blue = '[1e87ff]', Purple = '[a020f0]', Pink = '[f570ce]', Black = '[404040]', Grey = '[808080]' }
 
 options = {
 	solo = false,
@@ -170,16 +114,7 @@ options = {
 	researchTrack = 1,
 	staff = 1,
 	leaders = 'none',
-	expansions = {
-		artifacts = false,
-		items = false,
-		promos = true,
-		assistants = false,
-		idols = false,
-		sites1 = false,
-		sites2 = false,
-		guardians = false
-	}
+	expansions = { artifacts = false, items = false, promos = true, assistants = false, idols = false, sites1 = false, sites2 = false, guardians = false }
 }
 bags = {
 	resources = { t = '831df9', a = '84369b', j = 'e283e9', c = '1ee5ea', s = 'c85087' },
@@ -193,481 +128,173 @@ bags = {
 	solo = 'cabb5b',
 	soloTempleTiles = 'c13fff'
 }
-deckZones = {
-	artifacts = 'c19201',
-	items = 'cd21a5',
-	fear = '1fcdb3',
-	sites1 = '702902',
-	sites2 = 'e0c338',
-	guardians = 'b51480'
-}
+deckZones = { artifacts = 'c19201', items = 'cd21a5', fear = '1fcdb3', sites1 = '702902', sites2 = 'e0c338', guardians = 'b51480' }
 assistantDeckGuid = '538a5c'
 idolDeckGuid = 'ab4a80'
-expansionDecks = {
-	artifacts = 'f61f69',
-	items = '5076de',
-	assistants = 'cf87b7',
-	idols = '9988c4',
-	sites1 = '37a6dd',
-	sites2 = '486402',
-	guardians = 'b876d5'
-}
+expansionDecks = { artifacts = 'f61f69', items = '5076de', assistants = 'cf87b7', idols = '9988c4', sites1 = '37a6dd', sites2 = '486402', guardians = 'b876d5' }
 playerDecks = {
-	base = { Red = 'cbf743', Blue = 'aaed1a', Green = '47fe07', Yellow = '34c052' },
-	leaders = { '1e21bd', '99385f', 'd0d33f', 'a42e51', '64471d', '2c1dc4' }
+	base = {Red = 'cbf743', Blue = 'aaed1a', Green = '47fe07', Yellow = '34c052'},
+	leaders = {'1e21bd', '99385f', 'd0d33f', 'a42e51', '64471d', '2c1dc4'}
 }
-tokens = { falcon = '9ef0a8', suitcase = 'f78694', food = { '4c7454', '7ae3bf', 'a4129d' }, firstPlayer = 'b1383c' }
+tokens = { falcon = '9ef0a8', suitcase = 'f78694', food = {'4c7454', '7ae3bf', 'a4129d'}, firstPlayer = 'b1383c' }
 cards = { baroness = '49e35e', artifactPromo = 'f4cc17', itemPromo = 'aeb186' }
-suitcaseResourceBags = { t = 'da4493', s = '4ecc7c' }
-falconRotations = { { 0.00, 225.00, 0.00 }, { 0.00, 190.00, 0.00 }, { 0.00, 148.00, 0.00 }, { 0.00, 115.00, 0.00 },
-	{ 0.00, 90.00,  0.00 } }
-assistantPositions = { { 9.15, 1.63, -30.73 }, { 13.83, 1.63, -30.73 }, { 18.52, 1.63, -30.73 } }
-assistantZones = { 'a432ac', 'a44647', '3ffbd7' }
+suitcaseResourceBags = {t = 'da4493', s = '4ecc7c'}
+falconRotations = { {0.00, 225.00, 0.00}, {0.00, 190.00, 0.00}, {0.00, 148.00, 0.00}, {0.00, 115.00, 0.00}, {0.00, 90.00, 0.00} }
+assistantPositions = { {9.15, 1.63, -30.73}, {13.83, 1.63, -30.73}, {18.52, 1.63, -30.73} }
+assistantZones = {'a432ac', 'a44647', '3ffbd7'}
 
-cardRowZoneGuids = { '8ae6f2', '6103ae', 'cea4b5', '99cfc2', '8a1a02', 'dbf266' }
-staffGuids = { '45ee3a', 'b4f223' }
-staffPositions = { { -14.61, 1.63, 20.23 }, { -7.37, 1.63, 20.23 }, { -0.03, 1.63, 20.23 }, { 7.23, 1.63, 20.23 },
-	{ 14.51,  1.63, 20.23 } }
+cardRowZoneGuids = {'8ae6f2', '6103ae', 'cea4b5', '99cfc2', '8a1a02', 'dbf266'}
+staffGuids = {'45ee3a', 'b4f223'}
+staffPositions = { {-14.61, 1.63, 20.23}, {-7.37, 1.63, 20.23}, {-0.03, 1.63, 20.23}, {7.23, 1.63, 20.23}, {14.51, 1.63, 20.23} }
 exileZoneGuids = { artifacts = '19f28c', items = 'ec5c7a', other = 'bcb533' }
 siteLevels = {
-	{ { guid = '102294', pawnSpaces = { 'd8ae82' } }, { guid = '836103', pawnSpaces = { '7b9a3a' } },
-		{
-			guid =
-			'73d0db',
-			pawnSpaces = { '6dfe86' }
-		}, {
-		guid =
-		'a3b7a0',
-		pawnSpaces = { 'c77d64' }
-	} },
-	{ { guid = '5dce42', pawnSpaces = { '6ec07b' } }, { guid = '8a7e4e', pawnSpaces = { 'f40303' } },
-		{
-			guid =
-			'ceb501',
-			pawnSpaces = { '2bc798' }
-		}, {
-		guid =
-		'91a1f7',
-		pawnSpaces = { '68bc73' }
-	} },
-	{ { guid = 'f399b2', pawnSpaces = { '716a13' } }, { guid = '588793', pawnSpaces = { '39f1c2' } },
-		{
-			guid =
-			'fa45f2',
-			pawnSpaces = { '3c7380' }
-		}, {
-		guid =
-		'874212',
-		pawnSpaces = { '0c50cf' }
-	} },
-	{ { guid = 'e57811', pawnSpaces = { 'df2d4f', '45ab8f' } }, { guid = '05cffe', pawnSpaces = { '74b16f', '9cf53d' } },
-		{
-			guid =
-			'2af21b',
-			pawnSpaces = { '264538', '023ed4' }
-		}, {
-		guid =
-		'92dc47',
-		pawnSpaces = { '5c1009', '79c8e7' }
-	}, {
-		guid =
-		'0322bb',
-		pawnSpaces = { '87786d', '35c82d' }
-	} }
+	{ {guid = '102294', pawnSpaces = {'d8ae82'}}, {guid = '836103', pawnSpaces = {'7b9a3a'}}, {guid = '73d0db', pawnSpaces = {'6dfe86'}}, {guid = 'a3b7a0', pawnSpaces = {'c77d64'}} },
+	{ {guid = '5dce42', pawnSpaces = {'6ec07b'}}, {guid = '8a7e4e', pawnSpaces = {'f40303'}}, {guid = 'ceb501', pawnSpaces = {'2bc798'}}, {guid = '91a1f7', pawnSpaces = {'68bc73'}} },
+	{ {guid = 'f399b2', pawnSpaces = {'716a13'}}, {guid = '588793', pawnSpaces = {'39f1c2'}}, {guid = 'fa45f2', pawnSpaces = {'3c7380'}}, {guid = '874212', pawnSpaces = {'0c50cf'}} },
+	{ {guid = 'e57811', pawnSpaces = {'df2d4f', '45ab8f'}}, {guid = '05cffe', pawnSpaces = {'74b16f', '9cf53d'}}, {guid = '2af21b', pawnSpaces = {'264538', '023ed4'}}, {guid = '92dc47', pawnSpaces = {'5c1009', '79c8e7'}}, {guid = '0322bb', pawnSpaces = {'87786d', '35c82d'}} }
 }
 
-templeTileZoneGuids = { 'fc3aea', '6b0f38', 'aa7dfd', 'e573c3', 'bb0b10', '599983' }
-templeSpaceZoneGuids = { '9c9b90', 'efc726', '024b25', '13d709' }
+templeTileZoneGuids = {'fc3aea', '6b0f38', 'aa7dfd', 'e573c3', 'bb0b10', '599983'}
+templeSpaceZoneGuids = {'9c9b90', 'efc726', '024b25', '13d709'}
 researchZoneGuid = '5de995'
 researchTracks = {
 	{
 		bonusPositions = {
-			{ { 9.08, 1.68, -18.72 }, { 13.77, 1.68, -18.73 }, { 9.11, 1.68, -9.83 }, { 13.22, 1.68, -9.84 },
-				{ 17.23, 1.68, -9.84 },
-				{ 9.34,
-					1.68, -1.65 }, { 14.05,
-				1.68, -1.65 } },
-			{ { 9.29, 1.68, 2.43 },    { 16.64, 1.68, 2.43 } },
-			{ { 13.01, 1.68, -14.25 }, { 11.45, 1.68, -5.71 } },
-			{ { 19.63, 1.68, 6.15 } }
+			{ {9.08, 1.68, -18.72}, {13.77, 1.68, -18.73}, {9.11, 1.68, -9.83}, {13.22, 1.68, -9.84}, {17.23, 1.68, -9.84}, {9.34, 1.68, -1.65}, {14.05, 1.68, -1.65} },
+			{ {9.29, 1.68, 2.43}, {16.64, 1.68, 2.43} },
+			{ {13.01, 1.68, -14.25}, {11.45, 1.68, -5.71} },
+			{ {19.63, 1.68, 6.15} }
 		},
 		rows = {
-			{ z = 3.87, bonusPos = { 19.63, 1.78, 6.15 } },
-			{
-				z = 0.95,
-				magnifying = 16,
-				notebook = 10,
-				paths = {
-					{ pos = { 9.29, 1.78, 2.43 },  forward = { 1 }, bonus = true },
-					{ pos = { 16.64, 1.78, 2.43 }, forward = { 1 }, bonus = true } }
-			},
-			{
-				z = -3.16,
-				magnifying = 12,
-				notebook = 8,
-				paths = {
-					{ pos = { 9.34, 1.78, -1.65 },  forward = { 1 },    bonus = true },
-					{ pos = { 14.05, 1.78, -1.65 }, forward = { 1, 2 }, bonus = true } }
-			},
-			{
-				z = -7.36,
-				magnifying = 9,
-				notebook = 6,
-				paths = {
-					{ pos = { 11.45, 1.78, -5.71 }, forward = { 1, 2 }, bonus = true } }
-			},
-			{
-				z = -11.44,
-				magnifying = 6,
-				notebook = 4,
-				assistant = true,
-				paths = {
-					{ pos = { 9.11, 1.78, -9.83 },  forward = { 1 }, bonus = true },
-					{ pos = { 13.22, 1.78, -9.84 }, forward = { 1 }, bonus = true },
-					{ pos = { 17.23, 1.78, -9.84 }, forward = { 1 }, bonus = true } }
-			},
-			{
-				z = -15.93,
-				magnifying = 4,
-				notebook = 2,
-				assistant = true,
-				paths = {
-					{ pos = { 13.01, 1.78, -14.25 }, forward = { 1, 2, 3 }, bonus = true } }
-			},
-			{
-				z = -20.50,
-				magnifying = 2,
-				notebook = 1,
-				assistant = true,
-				paths = {
-					{ pos = { 9.08, 1.78, -18.72 },  forward = { 1 }, bonus = true },
-					{ pos = { 13.77, 1.78, -18.73 }, forward = { 1 }, bonus = true } }
-			},
-			{
-				z = -24.93,
-				magnifying = 1,
-				notebook = 0,
-				assistant = true,
-				paths = {
-					{ pos = { 9.31, 1.73, -23.28 }, forward = { 1, 2 } }, { pos = { 17.53, 1.73, -23.28 }, forward = { 2 } } }
-			}
+			{ z = 3.87, bonusPos = {19.63, 1.78, 6.15} },
+			{ z = 0.95, magnifying = 16, notebook = 10, paths = {{pos = {9.29, 1.78, 2.43}, forward = {1}, bonus = true}, {pos = {16.64, 1.78, 2.43}, forward = {1}, bonus = true}} },
+			{ z = -3.16, magnifying = 12, notebook = 8, paths = {{pos = {9.34, 1.78, -1.65}, forward = {1}, bonus = true}, {pos = {14.05, 1.78, -1.65}, forward = {1,2}, bonus = true}} },
+			{ z = -7.36, magnifying = 9, notebook = 6, paths = {{pos = {11.45, 1.78, -5.71}, forward = {1,2}, bonus = true}} },
+			{ z = -11.44, magnifying = 6, notebook = 4, assistant = true, paths = {{pos = {9.11, 1.78, -9.83}, forward = {1}, bonus = true}, {pos = {13.22, 1.78, -9.84}, forward = {1}, bonus = true}, {pos = {17.23, 1.78, -9.84}, forward = {1}, bonus = true}} },
+			{ z = -15.93, magnifying = 4, notebook = 2, assistant = true, paths = {{pos = {13.01, 1.78, -14.25}, forward = {1,2,3}, bonus = true}} },
+			{ z = -20.50, magnifying = 2, notebook = 1, assistant = true, paths = {{pos = {9.08, 1.78, -18.72}, forward = {1}, bonus = true}, {pos = {13.77, 1.78, -18.73}, forward = {1}, bonus = true}} },
+			{ z = -24.93, magnifying = 1, notebook = 0, assistant = true, paths = {{pos = {9.31, 1.73, -23.28}, forward = {1,2}}, {pos = {17.53, 1.73, -23.28}, forward = {2}}} }
 		},
-		templePoints = { 23, 21, 20, 19 }
+		templePoints = {23, 21, 20, 19}
 	},
 	{
 		bonusPositions = {
-			{ { 9.05, 1.68, -19.26 }, { 16.90, 1.68, -19.26 }, { 9.06, 1.68, -15.03 }, { 16.91, 1.68, -15.03 },
-				{ 9.06, 1.68, -1.92 },
-				{ 15.33,
-					1.68, -1.92 }, { 9.07,
-				1.68, 2.38 }, { 16.90,
-				1.68, 2.38 } },
-			{ { 13.16, 1.68, -19.26 }, { 13.08, 1.68, 2.38 } },
-			{ { 9.07, 1.68, -6.02 },   { 16.93, 1.68, -6.02 } },
-			{ { 19.66, 1.68, 6.15 } }
+			{ {9.05, 1.68, -19.26}, {16.90, 1.68, -19.26}, {9.06, 1.68, -15.03}, {16.91, 1.68, -15.03}, {9.06, 1.68, -1.92}, {15.33, 1.68, -1.92}, {9.07, 1.68, 2.38}, {16.90, 1.68, 2.38} },
+			{ {13.16, 1.68, -19.26}, {13.08, 1.68, 2.38} },
+			{ {9.07, 1.68, -6.02}, {16.93, 1.68, -6.02} },
+			{ {19.66, 1.68, 6.15} }
 		},
 		rows = {
-			{ z = 4.20, bonusPos = { 19.66, 1.78, 6.15 } },
-			{
-				z = 0.66,
-				magnifying = 15,
-				notebook = 15,
-				paths = {
-					{ forward = { 1 }, bonusPos = { { 9.07, 1.78, 2.38 }, { 13.08, 1.78, 2.38 }, { 16.90, 1.78, 2.38 } } } }
-			},
-			{
-				z = -3.47,
-				magnifying = 10,
-				notebook = 12,
-				paths = {
-					{ pos = { 9.06, 1.78, -1.92 },  forward = { 1 }, bonus = true },
-					{ pos = { 15.33, 1.78, -1.92 }, forward = { 1 }, bonus = true } }
-			},
-			{
-				z = -7.51,
-				magnifying = 5,
-				notebook = 8,
-				assistant = true,
-				paths = {
-					{ pos = { 9.07, 1.78, -6.02 },  forward = { 1, 2 }, bonus = true },
-					{ pos = { 16.93, 1.78, -6.02 }, forward = { 2 },    bonus = true } }
-			},
-			{
-				z = -12.46,
-				magnifying = 4,
-				notebook = 5,
-				assistant = true,
-				paths = {
-					{ pos = { 17.37, 1.73, -10.84 }, forward = { 1, 2 } } }
-			},
-			{
-				z = -16.61,
-				magnifying = 3,
-				notebook = 4,
-				assistant = true,
-				paths = {
-					{ pos = { 9.06, 1.78, -15.03 },  forward = { 1 }, bonus = true },
-					{ pos = { 16.91, 1.78, -15.03 }, forward = { 1 }, bonus = true } }
-			},
-			{
-				z = -20.93,
-				magnifying = 2,
-				notebook = 3,
-				paths = {
-					{ pos = { 9.05, 1.78, -19.26 },  forward = { 1 },    bonus = true },
-					{ pos = { 13.16, 1.78, -19.26 }, forward = { 1, 2 }, bonus = true },
-					{ pos = { 16.90, 1.78, -19.26 }, forward = { 2 },    bonus = true } }
-			},
-			{
-				z = -25.04,
-				magnifying = 1,
-				notebook = 0,
-				assistant = true,
-				paths = {
-					{ pos = { 8.69, 1.73, -23.36 }, forward = { 1, 2 } }, { pos = { 14.50, 1.73, -23.23 }, forward = { 2, 3 } } }
-			}
+			{ z = 4.20, bonusPos = {19.66, 1.78, 6.15} },
+			{ z = 0.66, magnifying = 15, notebook = 15, paths = {{forward = {1}, bonusPos = {{9.07, 1.78, 2.38}, {13.08, 1.78, 2.38}, {16.90, 1.78, 2.38}}}} },
+			{ z = -3.47, magnifying = 10, notebook = 12, paths = {{pos = {9.06, 1.78, -1.92}, forward = {1}, bonus = true}, {pos = {15.33, 1.78, -1.92}, forward = {1}, bonus = true}} },
+			{ z = -7.51, magnifying = 5, notebook = 8, assistant = true, paths = {{pos = {9.07, 1.78, -6.02}, forward = {1,2}, bonus = true}, {pos = {16.93, 1.78, -6.02}, forward = {2}, bonus = true}} },
+			{ z = -12.46, magnifying = 4, notebook = 5, assistant = true, paths = {{pos = {17.37, 1.73, -10.84}, forward = {1,2}}} },
+			{ z = -16.61, magnifying = 3, notebook = 4, assistant = true, paths = {{pos = {9.06, 1.78, -15.03}, forward = {1}, bonus = true}, {pos = {16.91, 1.78, -15.03}, forward = {1}, bonus = true}} },
+			{ z = -20.93, magnifying = 2, notebook = 3, paths = {{pos = {9.05, 1.78, -19.26}, forward = {1}, bonus = true}, {pos = {13.16, 1.78, -19.26}, forward = {1,2}, bonus = true}, {pos = {16.90, 1.78, -19.26}, forward = {2}, bonus = true}} },
+			{ z = -25.04, magnifying = 1, notebook = 0, assistant = true, paths = {{pos = {8.69, 1.73, -23.36}, forward = {1,2}}, {pos = {14.50, 1.73, -23.23}, forward = {2,3}}} }
 		},
-		templePoints = { 23, 21, 20, 19 },
-		assistantPos = { 12.86, 1.72, -10.47 },
+		templePoints = {23, 21, 20, 19},
+		assistantPos = {12.86, 1.72, -10.47},
 		assistantZone = '7f2184',
 	},
 	{
 		bonusPositions = {
 			{}, {}, {},
-			{ { 13.50, 1.68, -16.70 }, { 12.80, 1.68, -3.99 }, { 19.73, 1.68, 6.06 } }
+			{ {13.50, 1.68, -16.70}, {12.80, 1.68, -3.99}, {19.73, 1.68, 6.06} }
 		},
 		rows = {
-			{ z = 4.20,  bonusPos = { 19.73, 1.78, 6.06 } },
-			{
-				z = 1.48,
-				magnifying = 15,
-				notebook = 16,
-				paths = { { pos = { 9.42, 1.73, 3.00 }, forward = { 1 } },
-					{ pos = { 15.75, 1.73, 3.00 }, forward = { 1 } } }
-			},
-			{
-				z = -1.89,
-				magnifying = 9,
-				notebook = 9,
-				assistant = true,
-				paths = {
-					{ pos = { 8.53, 1.73, -0.47 }, forward = { 1 } }, { pos = { 13.74, 1.73, -0.47 }, forward = { 1, 2 } } }
-			},
-			{
-				z = -5.4,
-				magnifying = 8,
-				notebook = 7,
-				paths = {
-					{ pos = { 12.79, 1.78, -3.99 }, forward = { 1, 2 }, bonus = true } }
-			},
-			{ z = -9.87, magnifying = 5,                  notebook = 4,
-				                                                            paths = {
-					{ pos = { 16.51, 1.73, -7.80 }, forward = { 1 } } } },
-			{
-				z = -14.5,
-				magnifying = 5,
-				notebook = 2,
-				assistant = true,
-				paths = {
-					{ pos = { 16.44, 1.73, -12.55 }, forward = { 1 } } }
-			},
-			{
-				z = -18.14,
-				magnifying = 4,
-				notebook = 1,
-				paths = {
-					{ pos = { 13.50, 1.78, -16.70 }, forward = { 1 }, bonus = true } }
-			},
-			{
-				z = -21.8,
-				magnifying = 3,
-				notebook = 0,
-				assistant = true,
-				paths = {
-					{ pos = { 8.23, 1.73, -20.30 },  forward = { 1 } }, { pos = { 13.20, 1.73, -20.30 }, forward = { 1 } },
-					{ pos = { 16.68, 1.73, -20.30 }, forward = { 1 } } }
-			},
-			{
-				z = -24.98,
-				magnifying = 1,
-				notebook = 0,
-				assistant = true,
-				paths = {
-					{ pos = { 8.48, 1.73, -23.76 },  forward = { 1 } }, { pos = { 11.74, 1.73, -23.80 }, forward = { 1, 2 } },
-					{ pos = { 15.24, 1.73, -23.76 }, forward = { 2, 3 } } }
-			}
+			{ z = 4.20, bonusPos = {19.73, 1.78, 6.06} },
+			{ z = 1.48, magnifying = 15, notebook = 16, paths = {{pos = {9.42, 1.73, 3.00}, forward = {1}}, {pos = {15.75, 1.73, 3.00}, forward = {1}}} },
+			{ z = -1.89, magnifying = 9, notebook = 9, assistant = true, paths = {{pos = {8.53, 1.73, -0.47}, forward = {1}}, {pos = {13.74, 1.73, -0.47}, forward = {1,2}}} },
+			{ z = -5.4, magnifying = 8, notebook = 7, paths = {{pos = {12.79, 1.78, -3.99}, forward = {1,2}, bonus = true}} },
+			{ z = -9.87, magnifying = 5, notebook = 4, paths = {{pos = {16.51, 1.73, -7.80}, forward = {1}}} },
+			{ z = -14.5, magnifying = 5, notebook = 2, assistant = true, paths = {{pos = {16.44, 1.73, -12.55}, forward = {1}}} },
+			{ z = -18.14, magnifying = 4, notebook = 1, paths = {{pos = {13.50, 1.78, -16.70}, forward = {1}, bonus = true}} },
+			{ z = -21.8, magnifying = 3, notebook = 0, assistant = true, paths = {{pos = {8.23, 1.73, -20.30}, forward = {1}}, {pos = {13.20, 1.73, -20.30}, forward = {1}}, {pos = {16.68, 1.73, -20.30}, forward = {1}}} },
+			{ z = -24.98, magnifying = 1, notebook = 0, assistant = true, paths = {{pos = {8.48, 1.73, -23.76}, forward = {1}}, {pos = {11.74, 1.73, -23.80}, forward = {1,2}}, {pos = {15.24, 1.73, -23.76}, forward = {2,3}}} }
 		},
-		templePoints = { 23, 21, 20, 19 },
-		artifactPos = { 10.36, 1.69, -10.37 }
+		templePoints = {23, 21, 20, 19},
+		artifactPos = {10.36, 1.69, -10.37}
 	},
 	{
 		bonusPositions = {
-			{ { 9.15, 1.68, -19.77 }, { 16.97, 1.68, -19.80 }, { 9.15, 1.68, -16.18 }, { 16.94, 1.68, -16.20 },
-				{ 9.37, 1.68, -9.19 },
-				{ 11.89,
-					1.68, -4.60 }, { 14.44,
-				1.68, -4.61 }, { 11.37,
-				1.68, 2.57 }, { 15.01,
-				1.68, 2.56 } },
-			{ { 9.33, 1.68, -4.60 },  { 9.02, 1.68, 2.57 } },
-			{ { 16.98, 1.68, -4.61 }, { 17.35, 1.68, 2.56 } },
-			{ { 19.84, 1.68, 6.11 } }
+			{ {9.15, 1.68, -19.77}, {16.97, 1.68, -19.80}, {9.15, 1.68, -16.18}, {16.94, 1.68, -16.20}, {9.37, 1.68, -9.19}, {11.89, 1.68, -4.60}, {14.44, 1.68, -4.61}, {11.37, 1.68, 2.57}, {15.01, 1.68, 2.56} },
+			{ {9.33, 1.68, -4.60}, {9.02, 1.68, 2.57} },
+			{ {16.98, 1.68, -4.61}, {17.35, 1.68, 2.56} },
+			{ {19.84, 1.68, 6.11} }
 		},
 		rows = {
-			{ z = 4.20, bonusPos = { 19.84, 1.78, 6.11 } },
-			{
-				z = 1.12,
-				magnifying = 20,
-				notebook = 13,
-				paths = {
-					{
-						forward = { 1 },
-						bonusPos = { { 9.02, 1.78, 2.57 }, { 11.37, 1.78, 2.57 }, { 15.01, 1.78, 2.56 }, { 17.35, 1.78, 2.56 } }
-					} }
-			},
-			{
-				z = -2.13,
-				magnifying = 12,
-				notebook = 10,
-				paths = { {
-					pos = { 8.75, 1.73, -0.96 },
-					forward = { 1 }
-				}, { pos = { 15.73, 1.73, -0.96 }, forward = { 1 } } }
-			},
-			{
-				z = -6.21,
-				magnifying = 8,
-				notebook = 7,
-				assistant = true,
-				paths = {
-					{
-						forward = { 1, 2 },
-						bonusPos = { { 9.33, 1.78, -4.60 }, { 11.89, 1.78, -4.60 }, { 14.44, 1.78, -4.61 }, { 17.00, 1.78, -4.61 } }
-					} }
-			},
-			{
-				z = -13.94,
-				magnifying = 4,
-				notebook = 3,
-				assistant = true,
-				paths = {
-					{ pos = { 9.37, 1.78, -9.19 }, forward = { 1 }, bonus = true } }
-			},
-			{
-				z = -17.54,
-				magnifying = 3,
-				notebook = 3,
-				paths = {
-					{ pos = { 9.15, 1.78, -16.18 },  forward = { 1 }, bonus = true },
-					{ pos = { 13.19, 1.73, -16.18 }, forward = { 1 } },
-					{ pos = { 16.93, 1.78, -16.18 }, forward = { 1 }, bonus = true } }
-			},
-			{
-				z = -21.18,
-				magnifying = 2,
-				notebook = 1,
-				assistant = true,
-				paths = {
-					{ pos = { 9.15, 1.78, -19.77 },  forward = { 1, 2 }, bonus = true },
-					{ pos = { 16.97, 1.78, -19.80 }, forward = { 2, 3 }, bonus = true } }
-			},
-			{
-				z = -24.96,
-				magnifying = 1,
-				notebook = 0,
-				assistant = true,
-				paths = {
-					{ pos = { 7.97, 1.73, -23.29 },  forward = { 1 } }, { pos = { 11.94, 1.73, -23.29 }, forward = { 1, 2 } },
-					{ pos = { 16.19, 1.73, -23.29 }, forward = { 2 } } }
-			}
+			{ z = 4.20, bonusPos = {19.84, 1.78, 6.11} },
+			{ z = 1.12, magnifying = 20, notebook = 13, paths = {{forward = {1}, bonusPos = {{9.02, 1.78, 2.57}, {11.37, 1.78, 2.57}, {15.01, 1.78, 2.56}, {17.35, 1.78, 2.56}}}} },
+			{ z = -2.13, magnifying = 12, notebook = 10, paths = {{pos = {8.75, 1.73, -0.96}, forward = {1}}, {pos = {15.73, 1.73, -0.96}, forward = {1}}} },
+			{ z = -6.21, magnifying = 8, notebook = 7, assistant = true, paths = {{forward = {1,2}, bonusPos = {{9.33, 1.78, -4.60}, {11.89, 1.78, -4.60}, {14.44, 1.78, -4.61}, {17.00, 1.78, -4.61}}}} },
+			{ z = -13.94, magnifying = 4, notebook = 3, assistant = true, paths = {{pos = {9.37, 1.78, -9.19}, forward = {1}, bonus = true}} },
+			{ z = -17.54, magnifying = 3, notebook = 3, paths = {{pos = {9.15, 1.78, -16.18}, forward = {1}, bonus = true}, {pos = {13.19, 1.73, -16.18}, forward = {1}}, {pos = {16.93, 1.78, -16.18}, forward = {1}, bonus = true}} },
+			{ z = -21.18, magnifying = 2, notebook = 1, assistant = true, paths = {{pos = {9.15, 1.78, -19.77}, forward = {1,2}, bonus = true}, {pos = {16.97, 1.78, -19.80}, forward = {2,3}, bonus = true}} },
+			{ z = -24.96, magnifying = 1, notebook = 0, assistant = true, paths = {{pos = {7.97, 1.73, -23.29}, forward = {1}}, {pos = {11.94, 1.73, -23.29}, forward = {1,2}}, {pos = {16.19, 1.73, -23.29}, forward = {2}}} }
 		},
-		templePoints = { 28, 26, 25, 24 },
-		guardianPos = { 14.90, 1.69, -10.51 },
+		templePoints = {28, 26, 25, 24},
+		guardianPos = {14.90, 1.69, -10.51},
 		guardianZone = '7f2184',
-		idolPos = { 18.54, 1.72, -0.97 }
+		idolPos = {18.54, 1.72, -0.97}
 	}
 }
 
-expansionRulesCopies = { 'c30ae7', 'c4dd33', '47e8e6', 'd40f4c' }
+expansionRulesCopies = {'c30ae7', 'c4dd33', '47e8e6', 'd40f4c'}
 promoRulesGuid = '78c6d8'
 solo = {
 	rules = '29196c',
 	board = 'a30382',
-	boardPosition = { -43.26, 1.53, 18.96 },
+	boardPosition = {-43.26, 1.53, 18.96},
 	objectives = 'd8547e',
-	objectivePosition = { -51.00, 1.53, -0.80 },
-	zones = {
-		deck = '7196a9',
-		discard = '0ecbe9',
-		idol = { c = '184e31', s = '7fa25b', t = '500131', r = 'af87d7', e = '69ed89', u = 'fdf87e', dupe = '91df7a' },
-		delete = '0a61ed',
-		objectivesDeck = '250afb',
-		objectives = { 'd18d8f', 'c9584b', '36d489', '08da31' }
-	},
-	pawns = { '47658b', 'bfb9eb', 'b2d015', 'fb9f5d', '9f84c9', 'e5b510' },
-	pawnPositions = { { -28.50, 2.20, 20 }, { -26.50, 2.20, 20 }, { -24.50, 2.20, 20 }, { -28.50, 2.20, 18 },
-		{ -26.50, 2.20, 18 }, { -24.50, 2.20, 18 } },
-	actionDecks = { arch = 'f682fb', other = '52b0e5' },
+	objectivePosition = {-51.00, 1.53, -0.80},
+	zones = {deck = '7196a9', discard = '0ecbe9', idol = {c = '184e31', s = '7fa25b', t = '500131', r = 'af87d7', e = '69ed89', u = 'fdf87e', dupe = '91df7a'}, delete = '0a61ed', objectivesDeck = '250afb', objectives = {'d18d8f', 'c9584b', '36d489', '08da31'}},
+	pawns = {'47658b', 'bfb9eb', 'b2d015', 'fb9f5d', '9f84c9', 'e5b510'},
+	pawnPositions = { {-28.50, 2.20, 20}, {-26.50, 2.20, 20}, {-24.50, 2.20, 20}, {-28.50, 2.20, 18}, {-26.50, 2.20, 18}, {-24.50, 2.20, 18} },
+	actionDecks = { arch = 'f682fb', other = '52b0e5'},
 	actionCards = {
-		artifact = { '35cf03', '8643d5', '6862ec' },
-		item = { '0b253e', 'ff70b0', '344897' },
-		site = { '3e3e03', '0fe862', '79c5eb' },
-		guardian = { 'ee3c46', '4a8a22', '5e9528' },
-		research = { 'd5cc24', 'ea0b21', 'f06250' }
+		artifact = {'35cf03', '8643d5', '6862ec'},
+		item = {'0b253e', 'ff70b0', '344897'},
+		site = {'3e3e03', '0fe862', '79c5eb'},
+		guardian = {'ee3c46', '4a8a22', '5e9528'},
+		research = {'d5cc24', 'ea0b21', 'f06250'}
 	},
-	actionCardTypes = { 'artifact', 'item', 'site', 'guardian', 'research' },
-	deckPositions = { { -52.57, 1.65, 17.70 }, { -48.58, 1.60, 17.70 } },
-	setupPositions = { { -52.57, 1.53, 42.48 }, { -48.58, 1.53, 42.48 } },
+	actionCardTypes = {'artifact', 'item', 'site', 'guardian', 'research'},
+	deckPositions = { {-52.57, 1.65, 17.70}, {-48.58, 1.60, 17.70} },
+	setupPositions = { {-52.57, 1.53, 42.48}, {-48.58, 1.53, 42.48} },
 	acquiredStuffPositions = {
-		idolA = { -34.85, 1.50, 10.15 },
-		researchBonus = { -32.16, 2.28, 10.15 },
-		templeTile = { { -45.60, 1.93, 11.00 }, { -42.00, 1.93, 11.00 }, { -38.40, 1.93, 11.00 }, { -45.60, 1.93, 9.30 },
-			{ -42.00, 1.93, 9.30 }, { -38.40, 1.93, 9.30 } },
-		templeTileSilver = { -49.90, 1.93, 10.15 },
-		templeTileGold = { -54.10, 1.93, 10.15 },
-		guardian = { -42.25, 2.1, 17.71 },
-		buy = { -35.12, 2.1, 18.95 },
-		assistant = { -26.50, 2, 10.15 }
+		idolA = {-34.85, 1.50, 10.15},
+		researchBonus = {-32.16, 2.28, 10.15},
+		templeTile = { {-45.60, 1.93, 11.00}, {-42.00, 1.93, 11.00}, {-38.40, 1.93, 11.00}, {-45.60, 1.93, 9.30}, {-42.00, 1.93, 9.30}, {-38.40, 1.93, 9.30} },
+		templeTileSilver = {-49.90, 1.93, 10.15},
+		templeTileGold = {-54.10, 1.93, 10.15},
+		guardian = {-42.25, 2.1, 17.71},
+		buy = {-35.12, 2.1, 18.95},
+		assistant = {-26.50, 2, 10.15}
 	}
 }
-soloStatus = {
-	firstTurn = true,
-	fulfilledObjectives = {},
-	pawnsOut = 0,
-	magnifying = { row = 0, path = 0 },
-	notebook = { row = 0, path = 0 }
-}
+soloStatus = { firstTurn = true, fulfilledObjectives = {}, pawnsOut = 0, magnifying = {row = 0, path = 0}, notebook = {row = 0, path = 0} }
 
 tableY = 1.50
 tileY = 1.60
 pawnY = 2.30
-faceup = { 0, 180, 0 }
-facedown = { 0, 180, 180 }
-buttonLabels = {
-	ready1 = 'Calculate Scores',
-	ready2 = 'Recalculate Scores',
-	confirm = hexColors.Green .. 'Confirm[-]',
-	busy = hexColors.Red .. 'Scoring[-]'
-}
-buttonLabelsRival = { ready = 'Rival Turn', busy = hexColors.Red .. 'Busy[-]' }
+faceup = {0,180,0}
+facedown = {0,180,180}
+buttonLabels = {ready1 = 'Calculate Scores', ready2 = 'Recalculate Scores', confirm = hexColors.Green .. 'Confirm[-]', busy = hexColors.Red .. 'Scoring[-]'}
+buttonLabelsRival = {ready = 'Rival Turn', busy = hexColors.Red .. 'Busy[-]'}
 
 round = 0
 doneLoading = false
 setupInProgress = false
 movingRow = false
 discovering = false
+turn = nil		-- tts bug: the player turn is not set correctly when loading/rewinding
 
 function onSave()
-	local data = {
-		seatedPlayerColors = seatedPlayerColors,
-		startPlayerIndex = startPlayerIndex,
-		options = options,
-		round = round,
-		siteLevels = siteLevels,
-		soloStatus = soloStatus
-	}
+	local data = {seatedPlayerColors = seatedPlayerColors, startPlayerIndex = startPlayerIndex, options = options, round = round, siteLevels = siteLevels, soloStatus = soloStatus, turn = turn}
 	--local data = nil
-	return JSON.encode(data)
+	return JSON.encode(data) 
 end
 
 function onLoad(saveState)
@@ -679,11 +306,11 @@ function onLoad(saveState)
 		round = loadedData.round
 		siteLevels = loadedData.siteLevels
 		soloStatus = loadedData.soloStatus
+		turn = loadedData.turn
 	end
-
-	if round == 0 then
-		menuOptions()
-	elseif round > 0 then
+	
+	if round == 0 then menuOptions()
+	elseif round > 0  then
 		drawLines()
 		setupButtons()
 		for _, object in ipairs(getObjects()) do
@@ -694,6 +321,7 @@ function onLoad(saveState)
 		addAssistantCycleMenu()
 	end
 	if TESTING then setupTestButtons() end
+	if turn ~= nil and Turns.enable and Turns.turn_color ~= turn then Turns.turn_color = turn end
 	Wait.time(function() doneLoading = true end, 0.5)
 end
 
@@ -723,23 +351,17 @@ function menuOptions()
 end
 
 function uiSetOptions(player, value, id)
-	local allToggleIds = { 'board1', 'board2', 'board3', 'research1', 'research2', 'research3', 'research4', 'research5',
-		'research6', 'staff1', 'staff2', 'leaders1', 'leaders2', 'leaders3', 'artifacts', 'items', 'promos', 'assistants',
-		'idols', 'sites1', 'sites2', 'guardians' }
+	local allToggleIds = {'board1', 'board2', 'board3', 'research1', 'research2', 'research3', 'research4', 'research5', 'research6', 'staff1', 'staff2', 'leaders1', 'leaders2', 'leaders3', 'artifacts', 'items', 'promos', 'assistants', 'idols', 'sites1', 'sites2', 'guardians'}
 	if value == 'base' then
 		for i, id in ipairs(allToggleIds) do
-			if id == 'board1' or id == 'research1' or id == 'staff1' or id == 'leaders1' then
-				UI.setAttribute(id, 'isOn', 'True')
-			else
-				UI.setAttribute(id, 'isOn', 'False')
+			if id == 'board1' or id == 'research1' or id == 'staff1' or id == 'leaders1' then UI.setAttribute(id, 'isOn', 'True')
+			else UI.setAttribute(id, 'isOn', 'False')
 			end
 		end
 	else
 		for i, id in ipairs(allToggleIds) do
-			if id == 'board2' or id == 'research6' or id == 'staff2' or id == 'leaders3' or i > 14 then
-				UI.setAttribute(id, 'isOn', 'True')
-			else
-				UI.setAttribute(id, 'isOn', 'False')
+			if id == 'board2' or id == 'research6' or id == 'staff2' or id == 'leaders3' or i > 14 then UI.setAttribute(id, 'isOn', 'True')
+			else UI.setAttribute(id, 'isOn', 'False')
 			end
 		end
 	end
@@ -784,17 +406,17 @@ function menuStart(player, value, id)
 		UI.setAttribute('continueMenuButtons', 'active', 'true')
 		return
 	end
-
+	
 	-- get seated player colors
-	local allColors = { 'Red', 'Blue', 'Green', 'Yellow' }
+	local allColors = {'Red', 'Blue', 'Green', 'Yellow'}
 	seatedPlayerColors = {}
 	local absentColors = {}
-
+	
 	local seatedPlayers = getSeatedPlayers()
 	if TESTING and testVars.defineSeated then seatedPlayers = testVars.seatedPlayers end
-
+	
 	local playerBoards = {}
-	local leaders = { false, false, false, false, false, false }
+	local leaders = {false, false, false, false, false, false}
 	local duplicate = false
 	for _, color in ipairs(allColors) do
 		local seated = false
@@ -807,105 +429,81 @@ function menuStart(player, value, id)
 				if playerBoard.getStateId() ~= 7 then
 					if not leaders[playerBoard.getStateId()] then
 						leaders[playerBoard.getStateId()] = true
-					else
-						duplicate = true
+					else duplicate = true
 					end
 				end
 			end
 		end
 		if not seated then table.insert(absentColors, color) end
 	end
-	if #seatedPlayerColors == 0 then
-		broadcastToAll('All players must select colors before setup.')
-		return
-	end
-	if duplicate and menuChoice == 4 then
-		broadcastToAll('Duplicate expedition leaders were chosen.')
-		return
-	end
+	if #seatedPlayerColors == 0 then broadcastToAll('All players must select colors before setup.') return end
+	if duplicate and menuChoice == 4 then broadcastToAll('Duplicate expedition leaders were chosen.') return end
 	if #seatedPlayerColors == 1 then
-		if seatedPlayerColors[1] == 'Red' then
-			broadcastToAll('Rival plays as red. Choose a different color.')
-			return
-		end
+		if seatedPlayerColors[1] == 'Red' then broadcastToAll('Rival plays as red. Choose a different color.') return end
 		options.solo = true
 		table.insert(seatedPlayerColors, 'Red')
 		table.remove(absentColors, 1)
 	end
-
+	
 	math.randomseed(os.time())
 	options.playerBoards = playerBoards
-	if checkToggle('board2') then
-		options.board = 2
-	elseif checkToggle('board3') then
-		options.board = math.random(1, 2)
+	if checkToggle('board2') then options.board = 2
+	elseif checkToggle('board3') then options.board = math.random(1,2)
 	end
-
-	if checkToggle('research2') then
-		options.researchTrack = 2
-	elseif checkToggle('research3') then
-		options.researchTrack = 3
-	elseif checkToggle('research4') then
-		options.researchTrack = 4
-	elseif checkToggle('research5') then
-		options.researchTrack = math.random(1, 4)
-	elseif checkToggle('research6') then
-		options.researchTrack = math.random(3, 4)
+	
+	if checkToggle('research2') then options.researchTrack = 2
+	elseif checkToggle('research3') then options.researchTrack = 3
+	elseif checkToggle('research4') then options.researchTrack = 4
+	elseif checkToggle('research5') then options.researchTrack = math.random(1,4)
+	elseif checkToggle('research6') then options.researchTrack = math.random(3,4)
 	end
-
+	
 	if checkToggle('staff2') then options.staff = 2 end
-
-	if checkToggle('leaders2') then
-		options.leaders = 'random'
-	elseif checkToggle('leaders3') then
-		options.leaders = 'choose'
+	
+	if checkToggle('leaders2') then options.leaders = 'random'
+	elseif checkToggle('leaders3') then options.leaders = 'choose'
 	end
-
-	local expansions = { 'artifacts', 'items', 'promos', 'assistants', 'idols', 'sites1', 'sites2', 'guardians' }
+	
+	local expansions = {'artifacts', 'items', 'promos', 'assistants', 'idols', 'sites1', 'sites2', 'guardians'}
 	for _, expansion in ipairs(expansions) do
 		checkToggle(expansion, options.expansions)
 	end
-
+	
 	if options.researchTrack == 4 and not options.expansions.idols then
 		broadcastToAll('The Lizard Temple has been selected. Expansion idols will be used.')
 		options.expansions.idols = true
 	end
 	setupInProgress = true
-
+	
 	function menuStartCoroutine()
 		uiOff()
 		if TESTING then log(options) end
 		local soloBag = getObjectFromGUID(bags.solo)
-
+		
 		-- set states on boards
-		if options.leaders == 'random' then leaders = { false, false, false, false, false, false } end
+		if options.leaders == 'random' then leaders = {false, false, false, false, false, false} end
 		for _, playerColor in ipairs(seatedPlayerColors) do
 			if options.solo and playerColor == 'Red' then
 				for _, object in ipairs(getObjectFromGUID(playerVars[playerColor].allZoneGuid).getObjects()) do
 					if object.getName() ~= 'Red Archaeologist' then object.destruct() end
 				end
 				getPlayerBoard(playerColor).destruct()
-				soloBag.takeObject({ guid = solo.board, position = solo.boardPosition, rotation = faceup })
+				soloBag.takeObject({guid = solo.board, position = solo.boardPosition, rotation = faceup})
 			else
 				local playerBoard = getPlayerBoard(playerColor)
-				if playerBoard == nil then
-					broadcastToAll('Cannot find ' .. playerColor .. "'s player board. Please reload the mod.")
-					return 1
-				end
+				if playerBoard == nil then broadcastToAll('Cannot find ' .. playerColor .. "'s player board. Please reload the mod.") return 1 end
 				if options.leaders == 'random' or options.leaders == 'choose' and playerBoard.getStateId() == 7 then
 					local rand = nil
-					repeat
-						rand = math.random(1, #leaders)
+					repeat rand = math.random(1, #leaders)
 					until (leaders[rand] == false)
-
+					
 					leaders[rand] = true
 					options.playerBoards[playerColor] = rand
 					if playerBoard.getStateId() ~= rand then playerBoard.setState(rand) end
 				elseif options.leaders == 'none' then
 					options.playerBoards[playerColor] = 7
 					if playerBoard.getStateId() ~= 7 then playerBoard.setState(7) end
-				else
-					options.playerBoards[playerColor] = playerBoard.getStateId()
+				else options.playerBoards[playerColor] = playerBoard.getStateId()
 				end
 			end
 		end
@@ -929,7 +527,7 @@ function menuStart(player, value, id)
 				break
 			end
 		end
-
+		
 		-- delete not seated
 		for _, playerColor in ipairs(absentColors) do
 			local vars = playerVars[playerColor]
@@ -946,39 +544,32 @@ function menuStart(player, value, id)
 			if object ~= nil then object.destruct() end
 		end
 		wait(0.6)
-
+		
 		-- wait for loading
 		local boards = {}
 		for _, object in ipairs(fearDeckZone.getObjects()) do
-			if object.getName() == 'Board' then
-				boards.board = object
-				break
-			end
+			if object.getName() == 'Board' then boards.board = object break end
 		end
 		for _, object in ipairs(getObjectFromGUID(researchTracks[4].guardianZone).getObjects()) do
-			if object.getName() == 'Research Track' then
-				boards.researchBoard = object
-				break
-			end
+			if object.getName() == 'Research Track' then boards.researchBoard = object break end
 		end
 		for _, playerColor in ipairs(seatedPlayerColors) do
 			boards[playerColor] = getPlayerBoard(playerColor)
 		end
-
+		
 		function checkDoneSpawning()
 			for _, board in pairs(boards) do
 				if board.spawning or board.loading_custom then return false end
 			end
 			return true
 		end
-
 		repeat coroutine.yield(0) until checkDoneSpawning()
 		for _, board in pairs(boards) do
 			board.lock()
 			board.interactable = false
 		end
 		drawLines()
-
+		
 		-- combine/delete expansion decks
 		local decks = {}
 		for _, object in ipairs(fearDeckZone.getObjects()) do
@@ -991,49 +582,35 @@ function menuStart(player, value, id)
 		for option, guid in pairs(expansionDecks) do
 			local expansionDeck = getObjectFromGUID(guid)
 			local deck = nil
-			if option == 'idols' then
-				deck = getObjectFromGUID(idolDeckGuid)
-			elseif option == 'assistants' then
-				deck = getObjectFromGUID(assistantDeckGuid)
+			if option == 'idols' then deck = getObjectFromGUID(idolDeckGuid)
+			elseif option == 'assistants' then deck = getObjectFromGUID(assistantDeckGuid)
 			else
 				for _, object in ipairs(getObjectFromGUID(deckZones[option]).getObjects()) do
 					if object.type == 'Deck' then deck = object end
 				end
 			end
-			if deck == nil then
-				broadcastToAll('Cannot find ' .. option .. ' deck. Please reload the mod.')
-				return 1
-			end
-			if expansionDeck == nil then
-				broadcastToAll('Cannot find ' .. option .. ' expansion deck. Please reload the mod.')
-				return 1
-			end
+			if deck == nil then broadcastToAll('Cannot find ' .. option .. ' deck. Please reload the mod.') return 1 end
+			if expansionDeck == nil then broadcastToAll('Cannot find ' .. option .. ' expansion deck. Please reload the mod.') return 1 end
 			deck.unlock()
 			decks[option] = deck
-			if options.expansions[option] then
-				deck.putObject(expansionDeck)
-			else
-				expansionDeck.destruct()
+			if options.expansions[option] then deck.putObject(expansionDeck)
+			else expansionDeck.destruct()
 			end
 		end
 		local promo = getObjectFromGUID(cards.artifactPromo)
 		if promo ~= nil then
-			if options.expansions.promos then
-				decks.artifacts.putObject(promo)
-			else
-				promo.destruct()
+			if options.expansions.promos then decks.artifacts.putObject(promo)
+			else promo.destruct()
 			end
 		end
 		promo = getObjectFromGUID(cards.itemPromo)
 		if promo ~= nil then
-			if options.expansions.promos then
-				decks.items.putObject(promo)
-			else
-				promo.destruct()
+			if options.expansions.promos then decks.items.putObject(promo)
+			else promo.destruct()
 			end
 		end
 		wait(0.5)
-
+		
 		-- distribute starting player decks and tokens
 		local startingDeckBag = getObjectFromGUID(bags.startingDecks)
 		local tokenBag = getObjectFromGUID(bags.leaderTokens)
@@ -1048,55 +625,40 @@ function menuStart(player, value, id)
 							pawn.setRotationSmooth(faceup, false, true)
 							pawn.setPositionSmooth(solo.pawnPositions[i], false, true)
 						end
-					else
-						soloBag.takeObject({ guid = guid, position = solo.pawnPositions[i], rotation = faceup })
+					else soloBag.takeObject({guid = guid, position = solo.pawnPositions[i], rotation = faceup})
 					end
 				end
 			else
 				local deck = nil
 				local playerBoardState = options.playerBoards[playerColor]
 				local vars = playerVars[playerColor]
-
+				
 				if playerBoardState ~= 1 then
 					local pawn = getObjectFromGUID(vars.pawns[3])
 					if pawn ~= nil then pawn.destruct() end
 				end
-
-				if playerBoardState == 7 then
-					deck = startingDeckBag.takeObject({ guid = playerDecks.base[playerColor] })
+				
+				if playerBoardState == 7 then deck = startingDeckBag.takeObject({guid = playerDecks.base[playerColor]})
 				else
-					deck = startingDeckBag.takeObject({ guid = playerDecks.leaders[playerBoardState] })
+					deck = startingDeckBag.takeObject({guid = playerDecks.leaders[playerBoardState]})
 					local refIndex = playerBoardState * 2 - 2
-					for i = 1, 2 do
+					for i=1, 2 do
 						local ref = refBag.takeObject()
 						wait(0.01)
 						ref.setRotationSmooth(faceup, false, true)
 						ref.setPositionSmooth(vars.refPositions[i], false, true)
-						table.insert(references, { obj = ref, state = refIndex + i })
+						table.insert(references, {obj = ref, state = refIndex + i})
 					end
-
+					
 					if playerBoardState == 2 then
-						tokenBag.takeObject({
-							guid = tokens.falcon,
-							position = vars.falconPositions[2],
-							rotation = falconRotations
-									[2]
-						})
+						tokenBag.takeObject({guid = tokens.falcon, position = vars.falconPositions[2], rotation = falconRotations[2]})
 					elseif playerBoardState == 4 then
 						local profStuff = {}
-						local suitcase = tokenBag.takeObject({
-							guid = tokens.suitcase,
-							position = vars.suitcasePosition,
-							rotation = faceup
-						})
+						local suitcase = tokenBag.takeObject({guid = tokens.suitcase, position = vars.suitcasePosition, rotation = faceup})
 						table.insert(profStuff, suitcase)
 						for resource, guid in pairs(suitcaseResourceBags) do
 							local toPos = getObjectFromGUID(vars.suitcaseResourceBagZones[resource]).getPosition()
-							local resourceBag = tokenBag.takeObject({
-								guid = guid,
-								position = { toPos[1], 1.63, toPos[3] },
-								rotation = faceup
-							})
+							local resourceBag = tokenBag.takeObject({guid = guid, position = {toPos[1], 1.63, toPos[3]}, rotation = faceup})
 							table.insert(profStuff, resourceBag)
 						end
 						wait(0.3)
@@ -1108,20 +670,18 @@ function menuStart(player, value, id)
 						local pawn = getObjectFromGUID(vars.pawns[2])
 						if pawn ~= nil then pawn.destruct() end
 						for i, guid in ipairs(tokens.food) do
-							local token = tokenBag.takeObject({ guid = guid })
+							local token = tokenBag.takeObject({guid = guid})
 							wait(0.01)
 							token.setRotationSmooth(faceup, false, true)
-							if i == 3 then
-								token.setPositionSmooth({ 4.89, 1.53, 40 }, false, true)
-							else
-								token.setPositionSmooth(vars.foodPositions[i], false, true)
+							if i == 3 then token.setPositionSmooth({4.89, 1.53, 40}, false, true)
+							else token.setPositionSmooth(vars.foodPositions[i], false, true)
 							end
 						end
 					end
 				end
 				local toPos = getObjectFromGUID(getDeckZoneGuid(playerColor)).getPosition()
 				deck.setRotation(facedown)
-				deck.setPositionSmooth({ toPos[1], tileY + 0.02, toPos[3] }, false, true)
+				deck.setPositionSmooth({toPos[1], tileY + 0.02, toPos[3]}, false, true)
 				decks[playerColor] = deck
 			end
 		end
@@ -1132,7 +692,7 @@ function menuStart(player, value, id)
 		wait(0.4)
 		for _, playerColor in ipairs(seatedPlayerColors) do
 			if not (options.solo and playerColor == 'Red') then
-				for i = 1, 2 do
+				for i=1, 2 do
 					decks[playerColor].putObject(decks.fear.takeObject())
 				end
 				for _, object in ipairs(getObjectFromGUID(playerVars[playerColor].refZoneGuid).getObjects()) do
@@ -1141,21 +701,21 @@ function menuStart(player, value, id)
 			end
 		end
 		wait(1)
-
+		
 		-- shuffle decks
-		for i = 1, 2 do
+		for i=1, 2 do
 			for _, deck in pairs(decks) do
 				deck.shuffle()
 			end
 			wait(0.32)
 		end
 		wait(0.2)
-
+		
 		-- put cards in archive
 		for _, playerColor in ipairs(seatedPlayerColors) do
 			if options.playerBoards[playerColor] == 4 then
 				local archive = {}
-				for i = 1, 3 do
+				for i=1, 3 do
 					local card = drawCard(getObjectFromGUID(deckZones.artifacts))
 					card.use_hands = false
 					card.setRotationSmooth(faceup, false, true)
@@ -1169,20 +729,18 @@ function menuStart(player, value, id)
 				break
 			end
 		end
-
+		
 		-- remove temple tiles
 		for _, guid in ipairs(templeTileZoneGuids) do
 			local count = 0
-			for _, object in ipairs(getObjectFromGUID(guid).getObjects()) do -- zones have tag 'temple'
+			for _, object in ipairs(getObjectFromGUID(guid).getObjects()) do	-- zones have tag 'temple'
 				count = count + 1
-				if count > #seatedPlayerColors then
-					object.destruct()
-				else
-					object.unlock()
+				if count > #seatedPlayerColors then object.destruct()
+				else object.unlock()
 				end
 			end
 		end
-
+		
 		-- setup research track
 		local bag = getObjectFromGUID(bags.researchBonus)
 		bag.shuffle()
@@ -1191,11 +749,11 @@ function menuStart(player, value, id)
 		for i, list in ipairs(trackInfo.bonusPositions) do
 			if i == 4 then
 				for _, pos in ipairs(list) do
-					for i = 1, #seatedPlayerColors do
+					for i=1, #seatedPlayerColors do
 						local tile = bag.takeObject()
 						wait(0.01)
 						tile.setRotationSmooth(facedown, false, true)
-						tile.setPositionSmooth({ pos[1], pos[2] + i * 0.1, pos[3] }, false, true)
+						tile.setPositionSmooth({pos[1], pos[2] + i * 0.1, pos[3]}, false, true)
 					end
 				end
 			elseif i == 1 or #seatedPlayerColors > i then
@@ -1210,21 +768,14 @@ function menuStart(player, value, id)
 			local newDecks = decks.assistants.cut(#seatedPlayerColors)
 			wait(0.01)
 			decks.assistants = newDecks[1]
-			newDecks[2].setRotationSmooth({ 0, 90, 0 }, false, true)
+			newDecks[2].setRotationSmooth({0,90,0}, false, true)
 			newDecks[2].setPositionSmooth(trackInfo.assistantPos, false, true)
 		elseif trackInfo.artifactPos ~= nil then
 			local artifactGuid = nil
 			for _, card in ipairs(decks.artifacts.getObjects()) do
-				if card.description == '3' then
-					artifactGuid = card.guid
-					break
-				end
+				if card.description == '3' then artifactGuid = card.guid break end
 			end
-			local artifactCard = decks.artifacts.takeObject({
-				guid = artifactGuid,
-				position = trackInfo.artifactPos,
-				rotation = faceup
-			})
+			local artifactCard = decks.artifacts.takeObject({guid = artifactGuid, position = trackInfo.artifactPos, rotation = faceup})
 			wait(0.3)
 			artifactCard.lock()
 		else
@@ -1234,7 +785,7 @@ function menuStart(player, value, id)
 				card.setPositionSmooth(trackInfo.guardianPos, false, true)
 			end
 			if trackInfo.idolPos ~= nil then
-				for i = 1, 4 do
+				for i=1, 4 do
 					local card = decks.idols.takeObject()
 					if i > #seatedPlayerColors then
 						wait(0.01)
@@ -1246,18 +797,18 @@ function menuStart(player, value, id)
 				end
 			end
 		end
-
+		
 		-- distribute idols
-		for i = 1, 3 do
+		for i=1, 3 do
 			for _, siteZone in ipairs(siteLevels[i]) do
 				local pos = getObjectFromGUID(siteZone.guid).getPosition()
 				if i == 1 then
 					local card = decks.idols.takeObject()
 					card.setRotationSmooth(faceup, false, true)
-					card.setPositionSmooth({ pos[1] - 0.97, pos[2], pos[3] }, false, true)
+					card.setPositionSmooth({pos[1] - 0.97, pos[2], pos[3]}, false, true)
 					card = decks.idols.takeObject()
 					card.setRotationSmooth(facedown, false, true)
-					card.setPositionSmooth({ pos[1] + 0.97, pos[2], pos[3] }, false, true)
+					card.setPositionSmooth({pos[1] + 0.97, pos[2], pos[3]}, false, true)
 				else
 					local card = decks.idols.takeObject()
 					card.setRotationSmooth(faceup, false, true)
@@ -1266,7 +817,7 @@ function menuStart(player, value, id)
 			end
 		end
 		if decks.idols ~= nil then decks.idols.destruct() end
-
+		
 		-- distribute blocking
 		bag = getObjectFromGUID(bags.blocking)
 		local blocks = {}
@@ -1274,28 +825,26 @@ function menuStart(player, value, id)
 			for _, siteInfo in ipairs(siteLevels[4]) do
 				siteInfo.blocked = true
 				local toPos = getObjectFromGUID(siteInfo.pawnSpaces[2]).getPosition()
-				local block = bag.takeObject({ position = { toPos[1], 1.63, toPos[3] }, rotation = faceup })
+				local block = bag.takeObject({position = {toPos[1], 1.63, toPos[3]}, rotation = faceup})
 				table.insert(blocks, block)
 			end
 		elseif #seatedPlayerColors == 3 then
-			local selection = { 1, 2, 3, 4, 5 }
-			for i = 1, 3 do
+			local selection = {1, 2, 3, 4, 5}
+			for i=1, 3 do
 				local randomIndex = math.random(1, #selection)
 				local siteInfo = siteLevels[4][selection[randomIndex]]
 				siteInfo.blocked = true
 				local toPos = getObjectFromGUID(siteInfo.pawnSpaces[2]).getPosition()
-				local block = bag.takeObject({ position = { toPos[1], 1.63, toPos[3] }, rotation = faceup })
+				local block = bag.takeObject({position = {toPos[1], 1.63, toPos[3]}, rotation = faceup})
 				table.insert(blocks, block)
 				if i < 3 then table.remove(selection, randomIndex) end
 			end
 		end
-
+		
 		-- distribute assistants
 		local stackCount = 4
-		if options.researchTrack == 2 and not options.expansions.assistants then
-			stackCount = 3
-		elseif options.researchTrack ~= 2 and options.expansions.assistants then
-			stackCount = 5
+		if options.researchTrack == 2 and not options.expansions.assistants then stackCount = 3
+		elseif options.researchTrack ~= 2 and options.expansions.assistants then stackCount = 5
 		end
 		local newDecks = decks.assistants.cut(stackCount)
 		wait(0.01)
@@ -1307,7 +856,7 @@ function menuStart(player, value, id)
 		moreNewDecks[2].setPositionSmooth(assistantPositions[2], false, true)
 		moreNewDecks[1].setRotationSmooth(faceup, false, true)
 		moreNewDecks[1].setPositionSmooth(assistantPositions[3], false, true)
-
+		
 		-- fill market
 		wait(0.4)
 		round = 1
@@ -1315,12 +864,10 @@ function menuStart(player, value, id)
 		wait(0.2)
 		setupButtons()
 		wait(0.2)
-
+		
 		-- delete bags
 		for _, object in ipairs(getObjectFromGUID(solo.zones.delete).getObjects()) do
-			if not (options.solo and (object.getName() == 'Solo Components' or object.getName() == 'Solo Temple Tiles')) then
-				object.destruct()
-			end
+			if not (options.solo and (object.getName() == 'Solo Components' or object.getName() == 'Solo Temple Tiles')) then object.destruct() end
 		end
 		if not options.solo then getObjectFromGUID(solo.rules).destruct() end
 		if not options.expansions.promos then getObjectFromGUID(promoRulesGuid).destruct() end
@@ -1328,7 +875,7 @@ function menuStart(player, value, id)
 			block.lock()
 		end
 		addAssistantCycleMenu()
-
+		
 		-- start player
 		local firstPlayerColor = 'Red'
 		if not (options.solo and #seatedPlayerColors == 2) then
@@ -1341,7 +888,7 @@ function menuStart(player, value, id)
 			firstPlayerMarker.setRotation(faceup)
 			firstPlayerMarker.setPositionSmooth(playerVars[firstPlayerColor].firstPlayerPosition, false, false)
 		end
-
+		
 		-- starting resources
 		if options.solo and #seatedPlayerColors == 2 then
 			takeResourceButton('c', seatedPlayerColors[1])
@@ -1349,8 +896,8 @@ function menuStart(player, value, id)
 		else
 			local passedFirstPlayer = false
 			local turnOrder = 0
-			local resourcesPerTurnOrder = { { c = 2, s = 0 }, { c = 1, s = 1 }, { c = 2, s = 1 }, { c = 1, s = 2 } }
-			for i = 1, 2 do
+			local resourcesPerTurnOrder = { {c=2, s=0}, {c=1, s=1}, {c=2, s=1}, {c=1, s=2} }
+			for i=1, 2 do
 				for _, playerColor in ipairs(seatedPlayerColors) do
 					if playerColor == firstPlayerColor then
 						if passedFirstPlayer then break end
@@ -1369,16 +916,15 @@ function menuStart(player, value, id)
 			end
 		end
 		wait(0.4)
-
+		
 		if options.solo then
 			UI.setAttribute('soloMenu', 'active', 'true')
 		else
 			for _, playerColor in ipairs(seatedPlayerColors) do
 				if options.playerBoards[playerColor] == 3 then
-					decks[playerColor].takeObject({ guid = cards.baroness }).deal(1, playerColor)
+					decks[playerColor].takeObject({guid = cards.baroness}).deal(1, playerColor)
 					decks[playerColor].deal(4, playerColor)
-				else
-					decks[playerColor].deal(5, playerColor)
+				else decks[playerColor].deal(5, playerColor)
 				end
 				if options.playerBoards[playerColor] == 6 then decks.fear.deal(1, playerColor) end
 				getObjectFromGUID(playerVars[playerColor].tentGuid).unlock()
@@ -1390,38 +936,28 @@ function menuStart(player, value, id)
 		end
 		return 1
 	end
-
 	startLuaCoroutine(Global, 'menuStartCoroutine')
 end
 
 function menuStartSolo()
 	local red = tonumber(UI.getAttribute('redSlider', 'value'))
 	local purple = tonumber(UI.getAttribute('purpleSlider', 'value'))
-	local actionCounts = { 5 - red - purple, red, purple }
-	if red + purple > 5 then
-		broadcastToAll('Cannot use more than five red and purple action cards combined.')
-		return
-	end
+	local actionCounts = {5 - red - purple, red, purple}
+	if red + purple > 5 then broadcastToAll('Cannot use more than five red and purple action cards combined.') return end
 	options.objectives = tonumber(UI.getAttribute('objectiveSlider', 'value'))
 	uiOff()
-
+	
 	function menuStartSoloCoroutine()
 		local bag = getObjectFromGUID(bags.solo)
 		local playerColor = seatedPlayerColors[1]
-		if options.objectives > 0 then
-			bag.takeObject({
-				guid = solo.objectives,
-				position = solo.objectivePosition,
-				rotation = facedown
-			})
-		end
+		if options.objectives > 0 then bag.takeObject({guid = solo.objectives, position = solo.objectivePosition, rotation = facedown}) end
 		local index = 0
 		for _, guid in pairs(solo.actionDecks) do
 			index = index + 1
-			bag.takeObject({ guid = guid, position = solo.setupPositions[index], rotation = facedown })
+			bag.takeObject({guid = guid, position = solo.setupPositions[index], rotation = facedown})
 		end
 		wait(0.4)
-
+		
 		local actionDeck = getObjectFromGUID(solo.actionDecks.arch)
 		local otherActionCards = getObjectFromGUID(solo.actionDecks.other)
 		for i = 3, 1, -1 do
@@ -1429,7 +965,7 @@ function menuStartSolo()
 				for j = 1, actionCounts[i] do
 					local rand = math.random(1, #solo.actionCardTypes)
 					local actionType = solo.actionCardTypes[rand]
-					actionDeck.putObject(otherActionCards.takeObject({ guid = solo.actionCards[actionType][i] }))
+					actionDeck.putObject(otherActionCards.takeObject({guid = solo.actionCards[actionType][i]}))
 					table.remove(solo.actionCardTypes, rand)
 				end
 			end
@@ -1438,7 +974,7 @@ function menuStartSolo()
 		actionDeck.setRotationSmooth(facedown, false, true)
 		actionDeck.setPositionSmooth(solo.deckPositions[1], false, true)
 		wait(0.5)
-
+		
 		actionDeck.shuffle()
 		if options.objectives > 0 then getObjectFromGUID(solo.objectives).shuffle() end
 		for _, object in ipairs(getObjectFromGUID(solo.zones.delete).getObjects()) do
@@ -1447,29 +983,22 @@ function menuStartSolo()
 		for _, playerColor in ipairs(seatedPlayerColors) do
 			if playerColor ~= 'Red' then
 				for _, object in ipairs(getObjectFromGUID(getDeckZoneGuid(playerColor)).getObjects()) do
-					if object.type == 'Deck' then
-						object.shuffle()
-						break
-					end
+					if object.type == 'Deck' then object.shuffle() break end
 				end
 			end
 		end
 		wait(0.5)
-
+		
 		for _, playerColor in ipairs(seatedPlayerColors) do
 			if playerColor ~= 'Red' then
 				local deck = nil
 				for _, object in ipairs(getObjectFromGUID(getDeckZoneGuid(playerColor)).getObjects()) do
-					if object.type == 'Deck' then
-						deck = object
-						break
-					end
+					if object.type == 'Deck' then deck = object break end
 				end
 				if options.playerBoards[playerColor] == 3 then
-					deck.takeObject({ guid = cards.baroness }).deal(1, playerColor)
+					deck.takeObject({guid = cards.baroness}).deal(1, playerColor)
 					deck.deal(4, playerColor)
-				else
-					deck.deal(5, playerColor)
+				else deck.deal(5, playerColor)
 				end
 				if options.playerBoards[playerColor] == 6 then drawCard(getObjectFromGUID(deckZones.fear)).deal(1, playerColor) end
 				getObjectFromGUID(playerVars[playerColor].tentGuid).unlock()
@@ -1480,7 +1009,6 @@ function menuStartSolo()
 		if options.solo and #seatedPlayerColors == 2 then rivalTurnCoroutine() end
 		return 1
 	end
-
 	startLuaCoroutine(Global, 'menuStartSoloCoroutine')
 end
 
@@ -1490,12 +1018,12 @@ function drawLines()
 		local zone = getObjectFromGUID(playerVars[playerColor].playAreaZoneGuid)
 		local pos = zone.getPosition()
 		local scale = zone.getScale()
-		local vectorLine = { points = {}, color = playerColor, thickness = 0.2, rotation = { 0, 0, 0 } }
-		table.insert(vectorLine.points, { pos.x - scale.x / 2, 1.5, pos.z + scale.z / 2 })
-		table.insert(vectorLine.points, { pos.x + scale.x / 2, 1.5, pos.z + scale.z / 2 })
-		table.insert(vectorLine.points, { pos.x + scale.x / 2, 1.5, pos.z - scale.z / 2 })
-		table.insert(vectorLine.points, { pos.x - scale.x / 2, 1.5, pos.z - scale.z / 2 })
-		table.insert(vectorLine.points, { pos.x - scale.x / 2, 1.5, pos.z + scale.z / 2 })
+		local vectorLine = { points = {}, color = playerColor, thickness = 0.2, rotation = {0,0,0} }
+		table.insert(vectorLine.points, {pos.x-scale.x/2, 1.5, pos.z+scale.z/2})
+		table.insert(vectorLine.points, {pos.x+scale.x/2, 1.5, pos.z+scale.z/2})
+		table.insert(vectorLine.points, {pos.x+scale.x/2, 1.5, pos.z-scale.z/2})
+		table.insert(vectorLine.points, {pos.x-scale.x/2, 1.5, pos.z-scale.z/2})
+		table.insert(vectorLine.points, {pos.x-scale.x/2, 1.5, pos.z+scale.z/2})
 		table.insert(vectorLines, vectorLine)
 	end
 	Global.setVectorLines(vectorLines)
@@ -1508,7 +1036,7 @@ function setupButtons()
 		function_owner = self,
 		label = 'Setup Round ' .. round + 1,
 		click_function = 'nextRoundButton',
-		position = { 8.23, 0, -3 },
+		position = {8.23, 0, -3},
 		width = 2400,
 		height = 500,
 		font_size = 250
@@ -1519,50 +1047,50 @@ function setupButtons()
 	end
 	local buttonZone = getObjectFromGUID(deckZones.fear)
 	buttonZone.createButton(params)
-
+	
 	-- take fear
 	params = {
 		function_owner = self,
 		label = 'Take',
 		click_function = 'takeFearButton',
-		position = { 0, 0, -2.9 },
+		position = {0, 0, -2.9},
 		width = 800,
 		height = 380,
 		font_size = 200
 	}
 	buttonZone.createButton(params)
-
+	
 	-- buy card row
 	params.label = 'Buy'
-	params.position = { 0, 0, -2.4 }
+	params.position = {0, 0, -2.4}
 	for i, guid in ipairs(cardRowZoneGuids) do
 		params.click_function = 'buy' .. i
 		getObjectFromGUID(guid).createButton(params)
-
+		
 		_G['buy' .. i] = function(obj, clickColor, alt)
 			if not doneLoading or setupInProgress or movingRow or not isSeated(clickColor) then return end
 			buyButton(obj, clickColor, alt)
 		end
 	end
-
+	
 	-- take resources
 	params.label = 'Take'
-	params.scale = { 2 / 1.5, 2, 2 / 1.5 }
-	params.position = { 0, 0, 1.8 }
+	params.scale = { 2/1.5, 2, 2/1.5 }
+	params.position = {0, 0, 1.8}
 	for resource, guid in pairs(bags.resources) do
 		params.click_function = 'takeResource' .. resource
 		getObjectFromGUID(guid).createButton(params)
-
+		
 		_G['takeResource' .. resource] = function(obj, clickColor, alt)
 			if not doneLoading or not isSeated(clickColor) then return end
 			takeResourceButton(resource, clickColor)
 		end
 	end
-
+	
 	-- player resource bag counters
 	params = {
 		function_owner = self,
-		position = { 0, 0, 1.9 },
+		position = {0, 0, 1.9},
 		width = 700,
 		height = 700,
 		font_size = 400
@@ -1575,13 +1103,12 @@ function setupButtons()
 				params.label = bag.getQuantity()
 				params.click_function = 'clickResourceBag' .. resource .. playerColor
 				getObjectFromGUID(guid).createButton(params)
-
+				
 				_G['clickResourceBag' .. resource .. playerColor] = function(obj, clickColor, alt)
 					if not doneLoading or clickColor ~= playerColor then return end
 					if alt then
 						if bag.getQuantity() > 0 then getObjectFromGUID(vars.trashGuid).putObject(bag.takeObject()) end
-					else
-						takeResourceButton(resource, clickColor)
+					else takeResourceButton(resource, clickColor)
 					end
 				end
 			end
@@ -1592,13 +1119,12 @@ function setupButtons()
 						params.label = bag.getQuantity()
 						params.click_function = 'clickResourceBag' .. resource .. 'Suitcase'
 						getObjectFromGUID(vars.suitcaseResourceBagZones[resource]).createButton(params)
-
+						
 						_G['clickResourceBag' .. resource .. 'Suitcase'] = function(obj, clickColor, alt)
 							if not doneLoading or clickColor ~= playerColor then return end
 							if alt then
 								if bag.getQuantity() > 0 then getObjectFromGUID(vars.trashGuid).putObject(bag.takeObject()) end
-							else
-								takeResourceButton(resource, clickColor, true)
+							else takeResourceButton(resource, clickColor, true)
 							end
 						end
 					end
@@ -1606,7 +1132,7 @@ function setupButtons()
 			end
 		end
 	end
-
+	
 	-- place pawns
 	params = {
 		function_owner = self,
@@ -1619,23 +1145,21 @@ function setupButtons()
 		for j, siteInfo in ipairs(level) do
 			for k, guid in ipairs(siteInfo.pawnSpaces) do
 				if k < 2 or not siteInfo.blocked then
-					if i == 4 then
-						params.position = { 0, 0, 1.4 }
-					else
-						params.position = { 1.6, 0, 0 }
+					if i == 4 then params.position = {0, 0, 1.4}
+					else params.position = {1.6, 0, 0}
 					end
 					params.click_function = 'placePawn' .. i .. j .. k
 					getObjectFromGUID(guid).createButton(params)
-
+					
 					_G['placePawn' .. i .. j .. k] = function(obj, clickColor, alt)
 						if discovering or not doneLoading or setupInProgress or not isSeated(clickColor) then return end
-						placePawn(clickColor, obj, siteInfo)
+						placePawn(clickColor, obj, siteInfo, i, alt)
 					end
 				end
 			end
 		end
 	end
-
+	
 	-- discover sites
 	params = {
 		function_owner = self,
@@ -1643,24 +1167,24 @@ function setupButtons()
 		height = 280,
 		font_size = 150
 	}
-	for i = 1, 3 do
+	for i=1, 3 do
 		for _, siteInfo in ipairs(siteLevels[i]) do
 			if not siteInfo.discovered then
 				params.label = '+Site & Guardian'
 				params.click_function = 'discoverSG' .. siteInfo.guid
-				params.position = { 0, 0, -1.5 }
+				params.position = {0, 0, -1.5}
 				getObjectFromGUID(siteInfo.guid).createButton(params)
-
+				
 				params.label = '+Site Only'
 				params.click_function = 'discoverS' .. siteInfo.guid
-				params.position = { 0, 0, -0.9 }
+				params.position = {0, 0, -0.9}
 				getObjectFromGUID(siteInfo.guid).createButton(params)
-
+				
 				_G['discoverSG' .. siteInfo.guid] = function(obj, clickColor, alt)
 					if discovering or not doneLoading or setupInProgress or not isSeated(clickColor) and clickColor ~= 'Black' then return end
 					discoverButton(obj, clickColor)
 				end
-
+				
 				_G['discoverS' .. siteInfo.guid] = function(obj, clickColor, alt)
 					if discovering or not doneLoading or setupInProgress or not isSeated(clickColor) and clickColor ~= 'Black' then return end
 					discoverButton(obj, clickColor, true)
@@ -1668,19 +1192,19 @@ function setupButtons()
 			end
 		end
 	end
-
+	
 	if options.solo then setupButtonRivalTurn() end
 end
 
 function takeResourceButton(resource, clickColor, alt)
-	local toBag
 	local fromBag = getObjectFromGUID(bags.resources[resource])
 	if alt then
-		toBag = getObjectFromGUID(suitcaseResourceBags[resource])
+		local toBag = getObjectFromGUID(suitcaseResourceBags[resource])
+		toBag.putObject(fromBag.takeObject())
 	else
-		toBag = getObjectFromGUID(playerVars[clickColor].resourceBags[resource])
+		local toBag = getObjectFromGUID(playerVars[clickColor].resourceBags[resource])
+		toBag.putObject(fromBag.takeObject())
 	end
-	toBag.putObject(fromBag.takeObject())
 end
 
 function takeFearButton(zone, clickColor)
@@ -1689,119 +1213,72 @@ function takeFearButton(zone, clickColor)
 	if card == nil then card = getObjectFromGUID(bags.fear).takeObject() end
 	local toPos = getObjectFromGUID(playerVars[clickColor].playAreaZoneGuid).getPosition()
 	local xOffset = 16.5
-	if clickColor == 'Red' or clickColor == 'Yellow' then xOffset = 0 - xOffset end
-	card.setPositionSmooth({ toPos[1] + xOffset, tableY + 0.5, toPos[3] }, false, true)
+	if clickColor == 'Red' or clickColor == 'Yellow' then xOffset = 0-xOffset end
+	card.setPositionSmooth({toPos[1] + xOffset, tableY + 0.5, toPos[3]}, false, true)
 end
 
 function buyButton(zone, clickColor, alt)
-	movingRow = true
-	local card = drawCard(zone)
-	if card ~= nil then
-		local cost = tonumber(card.getDescription())
-
-		if alt then
-			exile(card)
-		elseif card.hasTag('artifact') then
-			-- buying an artifact (with compasses)
-			local resource = "s"
-			local resourceName = { singular = "compass", plural = "compasses" }
-
-			-- check if card can be bought with resources
-			local resourceBag = getObjectFromGUID(playerVars[clickColor].resourceBags[resource])
-			local resourceCount = resourceBag.getQuantity()
-
-			-- check if suitcase is in play for you
-			local playerBoardState = options.playerBoards[clickColor]
-			local suitcase
-			local suitcaseCount = 0
-
-			if playerBoardState == 4 then
-				suitcase = getObjectFromGUID(suitcaseResourceBags[resource])
-				suitcaseCount = suitcase.getQuantity()
-			end
-
-			if (resourceCount + suitcaseCount) < cost then
-				broadcastToColor("You don't have enough " .. resourceName.plural .. " to buy this card.", clickColor, "Yellow")
-				movingRow = false
-				return
-			end
-
-			-- take resources from player
-			local trash = getObjectFromGUID(playerVars[clickColor].trashGuid)
-			for i = 1, suitcaseCount do
-				trash.putObject(suitcase.takeObject())
-			end
-
-			local modifiedCost = cost - suitcaseCount
-			for i = 1, modifiedCost do
-				trash.putObject(resourceBag.takeObject())
-			end
-
-			-- move card to play area
-			local toPos = getObjectFromGUID(playerVars[clickColor].playAreaZoneGuid).getPosition()
-			local xOffset = 11.5
-			if clickColor == 'Red' or clickColor == 'Yellow' then
-				xOffset = 0 - xOffset
-			end
-			card.setPositionSmooth({ toPos[1] + xOffset, tableY + 0.5, toPos[3] }, false, true)
-			buyBroadcast(clickColor, card.getName(), cost, resourceName)
-		else
-			-- buying an item (with coins)
-			local resource = "c"
-			local resourceName = { singular = "coin", plural = "coins" }
-
-			-- check if card can be bought with resources
-			local resourceBag = getObjectFromGUID(playerVars[clickColor].resourceBags[resource])
-			local resourceCount = resourceBag.getQuantity()
-
-			if resourceCount < cost then
-				broadcastToColor("You don't have enough " .. resourceName.plural .. " to buy this card.", clickColor, "Yellow")
-				movingRow = false
-				return
-			end
-
-			local trash = getObjectFromGUID(playerVars[clickColor].trashGuid)
-			for i = 1, cost do
-				trash.putObject(resourceBag.takeObject())
-			end
-
-			-- move card below deck
-			local deckZone = getObjectFromGUID(getDeckZoneGuid(clickColor))
-			local toPos = deckZone.getPosition()
-			local deck = nil
-			for _, object in ipairs(deckZone.getObjects()) do
-				if object.type == 'Deck' then
-					deck = object
-					break
-				elseif object.type == 'Card' then
-					object.setPositionSmooth({ toPos[1], tileY + 0.5, toPos[3] }, false, true)
-					break
+	function buyButtonCoroutine()
+		movingRow = true
+		local card = drawCard(zone)
+		local vars = playerVars[clickColor]
+		if card ~= nil then
+			if alt then
+				local cost = tonumber(card.getDescription())
+				local resourceName = 'coin'
+				local bag = getObjectFromGUID(vars.resourceBags.c)
+				if card.hasTag('artifact') then
+					resourceName = 'compass'
+					bag = getObjectFromGUID(vars.resourceBags.s)
+				end
+				if bag.getQuantity() >= cost then
+					broadcastToAll(getPlayerName(clickColor) .. ' spends ' .. cost .. ' ' .. resourceName .. ' tokens to buy a card.')
+					for i=1, cost do
+						if bag.getQuantity() > 0 then
+							getObjectFromGUID(vars.trashGuid).putObject(bag.takeObject()) 
+							wait(0.16)
+						end
+					end
+					wait(0.5)
+				else
+					broadcastToColor('You do not have enough ' .. resourceName .. ' tokens to buy this card.', clickColor)
+					movingRow = false
+					return 1
 				end
 			end
-			if deck == nil then
-				card.setRotationSmooth(facedown, false, true)
-				card.setPositionSmooth({ toPos[1], tileY, toPos[3] }, false, true)
+			
+			if card.hasTag('artifact') then
+				local toPos = getObjectFromGUID(vars.playAreaZoneGuid).getPosition()
+				local xOffset = 11.5
+				if clickColor == 'Red' or clickColor == 'Yellow' then xOffset = 0-xOffset end
+				card.setPositionSmooth({toPos[1] + xOffset, tableY + 0.5, toPos[3]}, false, true)
+				local suffix = ' compass).'
+				if tonumber(card.getDescription()) > 1 then suffix = ' compasses).' end
+				broadcastToAll(getPlayerName(clickColor) .. ' bought ' .. card.getName() .. ' (' .. card.getDescription() .. suffix)
 			else
-				deck.putObject(card)
+				local deckZone = getObjectFromGUID(getDeckZoneGuid(clickColor))
+				local toPos = deckZone.getPosition()
+				local deck = nil
+				for _, object in ipairs(deckZone.getObjects()) do
+					if object.type == 'Deck' then deck = object break
+					elseif object.type == 'Card' then object.setPositionSmooth({toPos[1], tileY + 0.5, toPos[3]}, false, true) break
+					end
+				end
+				if deck == nil then
+					card.setRotationSmooth(facedown, false, true)
+					card.setPositionSmooth({toPos[1], tileY, toPos[3]}, false, true)
+				else deck.putObject(card)
+				end
+				local suffix = ' coin).'
+				if tonumber(card.getDescription()) > 1 then suffix = ' coins).' end
+				broadcastToAll(getPlayerName(clickColor) .. ' bought ' .. card.getName() .. ' (' .. card.getDescription() .. suffix)
 			end
-			buyBroadcast(clickColor, card.getName(), cost, resourceName)
 		end
+		wait(0.4)
+		refillRowCoroutine()
+		return 1
 	end
-	local delay = 0.4
-	if alt then delay = 0.1 end
-	Wait.time(function()
-		startLuaCoroutine(Global, 'refillRowCoroutine')
-	end, delay)
-end
-
-function buyBroadcast(clickColor, name, cost, resourceName)
-	local suffix
-	if cost == 1 then
-		suffix = resourceName.singular
-	else
-		suffix = resourceName.plural
-	end
-	broadcastToAll(getPlayerName(clickColor) .. ' bought ' .. name .. ' (' .. cost .. " " .. suffix .. ").")
+	startLuaCoroutine(Global, 'buyButtonCoroutine')
 end
 
 function refillRowCoroutine()
@@ -1811,46 +1288,44 @@ function refillRowCoroutine()
 	for i, guid in ipairs(cardRowZoneGuids) do
 		for _, object in ipairs(getObjectFromGUID(guid).getObjects()) do
 			if object.type == 'Card' or object.type == 'Deck' then
-				if i <= round then
-					table.insert(artifacts, object)
-				else
-					table.insert(items, object)
+				if i <= round then table.insert(artifacts, object)
+				else table.insert(items, object)
 				end
 				cardExists = true
 				break
 			end
 		end
 	end
-
-	if #artifacts < round or #items < 6 - round then
+	
+	if #artifacts < round or #items < 6-round then
 		-- shift
 		if #artifacts > 0 and #artifacts < round then
-			for i = 1, #artifacts do
-				local toPos = getObjectFromGUID(cardRowZoneGuids[round - i + 1]).getPosition()
-				artifacts[#artifacts - i + 1].setPositionSmooth({ toPos[1], tileY, toPos[3] }, false, true)
+			for i=1, #artifacts do
+				local toPos = getObjectFromGUID(cardRowZoneGuids[round-i+1]).getPosition()
+				artifacts[#artifacts-i+1].setPositionSmooth({toPos[1], tileY, toPos[3]}, false, true)
 			end
 		end
-		if #items > 0 and #items < 6 - round then
-			for i = 1, #items do
-				local toPos = getObjectFromGUID(cardRowZoneGuids[round + i]).getPosition()
-				items[i].setPositionSmooth({ toPos[1], tileY, toPos[3] }, false, true)
+		if #items > 0 and #items < 6-round then
+			for i=1, #items do
+				local toPos = getObjectFromGUID(cardRowZoneGuids[round+i]).getPosition()
+				items[i].setPositionSmooth({toPos[1], tileY, toPos[3]}, false, true)
 			end
 		end
-		if #artifacts > 0 and #artifacts < round or #items > 0 and #items < 6 - round then wait(0.26) end
-
+		if #artifacts > 0 and #artifacts < round or #items > 0 and #items < 6-round then wait(0.26) end
+		
 		-- refill
 		if #artifacts < round then
 			for i = 1, round - #artifacts do
 				local toPos = getObjectFromGUID(cardRowZoneGuids[i]).getPosition()
-				local card = drawCard(getObjectFromGUID(deckZones.artifacts), faceup, { toPos[1], tileY, toPos[3] })
+				local card = drawCard(getObjectFromGUID(deckZones.artifacts), faceup, {toPos[1], tileY, toPos[3]})
 				if card == nil then break end
 				wait(0.16)
 			end
 		end
-		if #items < 6 - round then
+		if #items < 6-round then
 			for i = round + #items + 1, 6 do
 				local toPos = getObjectFromGUID(cardRowZoneGuids[i]).getPosition()
-				local card = drawCard(getObjectFromGUID(deckZones.items), faceup, { toPos[1], tileY, toPos[3] })
+				local card = drawCard(getObjectFromGUID(deckZones.items), faceup, {toPos[1], tileY, toPos[3]})
 				if card == nil then break end
 				wait(0.16)
 			end
@@ -1861,36 +1336,25 @@ function refillRowCoroutine()
 	return 1
 end
 
-function placePawn(playerColor, zone, siteInfo)
+function placePawn(playerColor, zone, siteInfo, level, alt)
 	-- check occupied
 	for _, obj in ipairs(zone.getObjects()) do
-		if obj.hasTag('pawn') then
-			broadcastToColor('This space is occupied.', playerColor)
-			return
-		end
+		if obj.hasTag('pawn') then broadcastToColor('This space is occupied.', playerColor) return end
 	end
-
+	
 	-- look for a free pawn
+	local vars = playerVars[playerColor]
 	local pawn = nil
 	if options.playerBoards[playerColor] == 5 then
-		pawn = getObjectFromGUID(playerVars[playerColor].pawns[1])
-		if pawn == nil then
-			broadcastToColor('Your archaeologist was not found.', playerColor)
-			return
-		end
+		pawn = getObjectFromGUID(vars.pawns[1])
+		if pawn == nil then broadcastToColor('Your archaeologist was not found.', playerColor) return end
 	else
-		for _, obj in ipairs(getObjectFromGUID(playerVars[playerColor].tentZoneGuid).getObjects()) do
-			if obj.hasTag('pawn') and obj.getDescription() == playerColor then
-				pawn = obj
-				break
-			end
+		for _, obj in ipairs(getObjectFromGUID(vars.tentZoneGuid).getObjects()) do
+			if obj.hasTag('pawn') and obj.getDescription() == playerColor then pawn = obj break end
 		end
-		if pawn == nil then
-			broadcastToColor('No archaeologists found near your tent space.', playerColor)
-			return
-		end
+		if pawn == nil then broadcastToColor('No archaeologists found near your tent space.', playerColor) return end
 	end
-
+	
 	-- check for idol/site
 	local idolFaceup = nil
 	local idolFacedown = nil
@@ -1903,40 +1367,49 @@ function placePawn(playerColor, zone, siteInfo)
 				broadcastToAll('More than one ' .. faceMsg .. ' idol found at this location.')
 				return
 			end
-			if obj.is_face_down then
-				idolFacedown = obj
-			else
-				idolFaceup = obj
+			if obj.is_face_down then idolFacedown = obj
+			else idolFaceup = obj
 			end
 		elseif obj.hasTag('site1') or obj.hasTag('site2') then
-			if obj.type == 'Deck' or site ~= nil then
-				broadcastToAll('More than one site card found at this location.')
-				return
-			end
+			if obj.type == 'Deck' or site ~= nil then broadcastToAll('More than one site card found at this location.') return end
 			site = obj
 		end
 	end
-	if (idolFaceup ~= nil or idolFacedown ~= nil) and site ~= nil then
-		broadcastToAll('Idol and site card both found at this location.')
-		return
-	end
-
+	if (idolFaceup ~= nil or idolFacedown ~= nil) and site ~= nil then broadcastToAll('Idol and site card both found at this location.') return end
+	
 	function placePawnCoroutine()
 		discovering = true
+		if level < 4 and alt and (idolFaceup ~= nil or idolFacedown ~= nil) then
+			local compassCost = 3
+			if level == 1 then compassCost = 6 end
+			local bag = getObjectFromGUID(vars.resourceBags.s)
+			if bag.getQuantity() >= compassCost then
+				broadcastToAll(getPlayerName(playerColor) .. ' spends ' .. compassCost .. ' compasses to discover a site.')
+				for i=1, compassCost do
+					if bag.getQuantity() > 0 then
+						getObjectFromGUID(vars.trashGuid).putObject(bag.takeObject()) 
+						wait(0.16)
+					end
+				end
+				wait(0.5)
+			else
+				broadcastToColor('You do not have enough compass tokens to discover this site.', playerColor)
+				discovering = false
+				return 1
+			end
+		end
 		local toPos = zone.getPosition()
 		pawn.setRotationSmooth(faceup, false, true)
-		pawn.setPositionSmooth({ toPos[1], pawnY, toPos[3] }, false, false)
+		pawn.setPositionSmooth({toPos[1], pawnY, toPos[3]}, false, false)
 		wait(0.6)
 		if idolFaceup ~= nil or idolFacedown ~= nil then
-			local idolPositions = playerVars[playerColor].idolPositions.leader
-			if options.playerBoards[playerColor] == 7 then
-				idolPositions = playerVars[playerColor].idolPositions.base
-			elseif options.playerBoards[playerColor] == 6 and playerVars[playerColor].idolPositions.mystic ~= nil then
-				idolPositions = playerVars[playerColor].idolPositions.mystic
+			local idolPositions = vars.idolPositions.leader
+			if options.playerBoards[playerColor] == 7 then idolPositions = vars.idolPositions.base
+			elseif options.playerBoards[playerColor] == 6 and vars.idolPositions.mystic ~= nil then idolPositions = vars.idolPositions.mystic
 			end
-			local toPosFaceup = { idolPositions[2][1], tileY + 0.3, idolPositions[2][3] }
-			local toPosFacedown = { idolPositions[1][1], tileY + 0.3, idolPositions[1][3] }
-
+			local toPosFaceup = {idolPositions[2][1], tileY + 0.3, idolPositions[2][3]}
+			local toPosFacedown = {idolPositions[1][1], tileY + 0.3, idolPositions[1][3]}
+			
 			if idolFaceup ~= nil then
 				local delivered = deliverRewardsCoroutine(playerColor, idolFaceup)
 				wait(0.5)
@@ -1952,58 +1425,38 @@ function placePawn(playerColor, zone, siteInfo)
 				idolFacedown.setRotation(facedown)
 				idolFacedown.setPositionSmooth(toPosFacedown, false, false)
 			end
-		elseif site ~= nil then
-			deliverRewardsCoroutine(playerColor, site)
-		elseif tonumber(zone.getName()) == 4 then
-			deliverRewardsCoroutine(playerColor, zone)
+		elseif site ~= nil then deliverRewardsCoroutine(playerColor, site)
+		elseif tonumber(zone.getName()) == 4 then deliverRewardsCoroutine(playerColor, zone)
 		end
 		discovering = false
 		return 1
 	end
-
 	startLuaCoroutine(Global, 'placePawnCoroutine')
 end
 
 function deliverRewardsCoroutine(playerColor, obj)
 	local rewards = obj.getGMNotes()
-	local resourceLabels = { t = 'tablet', a = 'arrowhead', j = 'jewel', c = 'coin', s = 'compass' }
+	local resourceLabels = {t = 'tablet', a = 'arrowhead', j = 'jewel', c = 'coin', s = 'compass'}
 	local resourceCount = {}
 	local deliveredAll = true
 	local deliveredResources = false
-	for i = 1, string.len(rewards) do
+	for i=1, string.len(rewards) do
 		local reward = string.sub(rewards, i, i)
 		if resourceLabels[reward] ~= nil then
 			takeResourceButton(reward, playerColor)
-			if resourceCount[reward] == nil then
-				resourceCount[reward] = 1
-			else
-				resourceCount[reward] = resourceCount[reward] + 1
+			if resourceCount[reward] == nil then resourceCount[reward] = 1
+			else resourceCount[reward] = resourceCount[reward] + 1
 			end
 			deliveredResources = true
-		elseif reward == 'u' then
-			broadcastToAll(getPlayerName(playerColor) .. ' may upgrade one resource.')
-			deliveredAll = false
-		elseif reward == 'r' then
-			broadcastToAll(getPlayerName(playerColor) .. ' may refresh an assistant.')
-			deliveredAll = false
-		elseif reward == 'e' then
-			broadcastToAll(getPlayerName(playerColor) .. ' may exile a card.')
-			deliveredAll = false
-		elseif reward == 'i' then
-			broadcastToAll(getPlayerName(playerColor) .. ' may return two compasses to take an item for free.')
-			deliveredAll = false
-		elseif reward == 'm' then
-			broadcastToAll(getPlayerName(playerColor) .. ' may activate a campsite.')
-			deliveredAll = false
-		elseif reward == 'f' then
-			takeFearButton(getObjectFromGUID(deckZones.fear), playerColor)
-			wait(0.3)
+		elseif reward == 'u' then broadcastToAll(getPlayerName(playerColor) .. ' may upgrade one resource.') deliveredAll = false
+		elseif reward == 'r' then broadcastToAll(getPlayerName(playerColor) .. ' may refresh an assistant.') deliveredAll = false
+		elseif reward == 'e' then broadcastToAll(getPlayerName(playerColor) .. ' may exile a card.') deliveredAll = false
+		elseif reward == 'i' then broadcastToAll(getPlayerName(playerColor) .. ' may return two compasses to take an item for free.') deliveredAll = false
+		elseif reward == 'm' then broadcastToAll(getPlayerName(playerColor) .. ' may activate a campsite.') deliveredAll = false
+		elseif reward == 'f' then takeFearButton(getObjectFromGUID(deckZones.fear), playerColor) wait(0.3)
 		elseif reward == 'd' then
 			local card = drawCard(getObjectFromGUID(getDeckZoneGuid(playerColor)))
-			if card ~= nil then
-				card.deal(1, playerColor)
-				wait(0.3)
-			end
+			if card ~= nil then card.deal(1, playerColor) wait(0.3) end
 		end
 		wait(0.16)
 	end
@@ -2013,13 +1466,11 @@ function deliverRewardsCoroutine(playerColor, obj)
 		for code, count in pairs(resourceCount) do
 			local label = resourceLabels[code]
 			if count > 1 then
-				if code == 's' then
-					label = 'compasses'
-				else
-					label = label .. 's'
+				if code == 's' then label = 'compasses'
+				else label = label .. 's'
 				end
 			end
-			table.insert(textList, count .. ' ' .. label)
+			table.insert(textList, count .. ' ' .. label )
 		end
 		broadcastToAll(message .. listToText(textList) .. '.')
 	end
@@ -2028,43 +1479,29 @@ end
 
 function discoverButton(zone, clickColor, alt)
 	for _, object in ipairs(zone.getObjects()) do
-		if object.hasTag('idol') then
-			broadcastToColor('One or more idols are still at this location.', clickColor)
-			return
-		end
+		if object.hasTag('idol') then broadcastToColor('One or more idols are still at this location.', clickColor) return end
 	end
-
+	
 	local level = tonumber(zone.getName())
 	local siteNum = tonumber(zone.getDescription())
 	local foundPawn = false
 	for _, object in ipairs(getObjectFromGUID(siteLevels[level][siteNum].pawnSpaces[1]).getObjects()) do
 		if object.hasTag('pawn') and object.getDescription() == clickColor then foundPawn = true end
 	end
-	if not foundPawn then
-		broadcastToColor('Your archaeologist not found at this location.', clickColor)
-		return
-	end
-
+	if not foundPawn then broadcastToColor('Your archaeologist not found at this location.', clickColor) return end
+	
 	local guardianDeckZone = getObjectFromGUID(deckZones.guardians)
 	local siteDeckZone = nil
-	if level == 1 then
-		siteDeckZone = getObjectFromGUID(deckZones.sites2)
-	else
-		siteDeckZone = getObjectFromGUID(deckZones.sites1)
+	if level == 1 then siteDeckZone = getObjectFromGUID(deckZones.sites2)
+	else siteDeckZone = getObjectFromGUID(deckZones.sites1)
 	end
-
-	if not drawCard(siteDeckZone, nil, nil, true) then
-		broadcastToColor('Site cards not found.', clickColor)
-		return
-	end
-	if not alt and not drawCard(guardianDeckZone, nil, nil, true) then
-		broadcastToColor('Guardian cards not found.', clickColor)
-		return
-	end
+	
+	if not drawCard(siteDeckZone, nil, nil, true) then broadcastToColor('Site cards not found.', clickColor) return end
+	if not alt and not drawCard(guardianDeckZone, nil, nil, true) then broadcastToColor('Guardian cards not found.', clickColor) return end
 	discovering = true
 	zone.removeButton(1)
 	zone.removeButton(0)
-
+	
 	function discoverCoroutine()
 		local zonePos = zone.getPosition()
 		local siteOffsetZ = 1.77
@@ -2076,18 +1513,18 @@ function discoverButton(zone, clickColor, alt)
 		local site = drawCard(siteDeckZone)
 		site.interactable = false
 		site.setRotation(faceup)
-		site.setPositionSmooth({ zonePos[1], tileY, zonePos[3] + siteOffsetZ }, false, true)
+		site.setPositionSmooth({zonePos[1], tileY, zonePos[3] + siteOffsetZ}, false, true)
 		wait(0.5)
 		site.lock()
 		site.interactable = true
-
+		
 		if not alt then
 			local guardian = drawCard(guardianDeckZone)
 			guardian.setRotation(faceup)
-			guardian.setPositionSmooth({ zonePos[1], 1.63, zonePos[3] + guardianOffsetZ }, false, true)
+			guardian.setPositionSmooth({zonePos[1], 1.63, zonePos[3] + guardianOffsetZ}, false, true)
 		end
 		siteLevels[level][siteNum].discovered = true
-
+		
 		if not (options.solo and clickColor == 'Red') then
 			if not alt then wait(0.5) end
 			deliverRewardsCoroutine(clickColor, site)
@@ -2095,7 +1532,6 @@ function discoverButton(zone, clickColor, alt)
 		discovering = false
 		return 1
 	end
-
 	startLuaCoroutine(Global, 'discoverCoroutine')
 end
 
@@ -2107,15 +1543,14 @@ function setupButtonRivalTurn()
 			function_owner = self,
 			label = buttonLabelsRival.ready,
 			click_function = 'rivalTurnButton',
-			scale = { 2 / scale[1], 1 / scale[2], 2 / scale[3] },
-			position = { 15.5 / scale[1], -0.44, 3.65 / scale[3] },
+			scale = {2/scale[1], 1/scale[2], 2/scale[3]},
+			position = {15.5/scale[1], -0.44, 3.65/scale[3]},
 			width = 1800,
 			height = 500,
 			font_size = 250
 		}
 		buttonZone.createButton(params)
-	else
-		buttonZone.editButton({ index = 0, label = buttonLabelsRival.ready })
+	else buttonZone.editButton({index = 0, label = buttonLabelsRival.ready})
 	end
 end
 
@@ -2152,10 +1587,7 @@ function guardianFearCoroutine()
 					if object.hasTag('guardian') then hasGuardian = true end
 					if object.type == 'Deck' then
 						for _, card in ipairs(object.getObjects()) do
-							if #card.tags > 0 and card.tags[1] == 'guardian' then
-								hasGuardian = true
-								break
-							end
+							if #card.tags > 0 and card.tags[1] == 'guardian' then hasGuardian = true break end
 						end
 					end
 					if hasGuardian then break end
@@ -2170,7 +1602,7 @@ function guardianFearCoroutine()
 			end
 		end
 	end
-
+	
 	if options.researchTrack == 4 then
 		local hasGuardian = false
 		local guardianZone = getObjectFromGUID(researchTracks[4].guardianZone)
@@ -2211,7 +1643,7 @@ function nextRoundButton(obj, clickColor, alt)
 		setupInProgress = true
 		refillRowCoroutine()
 		guardianFearCoroutine()
-
+		
 		-- lift decks, reset tents
 		local playerDeckZones = {}
 		local decks = {}
@@ -2224,18 +1656,18 @@ function nextRoundButton(obj, clickColor, alt)
 				for _, object in ipairs(deckZone.getObjects()) do
 					if object.type == 'Card' or object.type == 'Deck' then
 						decks[playerColor] = object
-						object.setPosition({ toPos[1], tileY + 0.6, toPos[3] })
+						object.setPosition({toPos[1], tileY + 0.6, toPos[3]})
 						object.lock()
 						break
 					end
 				end
-
+				
 				local tent = getObjectFromGUID(vars.tentGuid)
 				if tent.is_face_down then tent.flip() end
 			end
 		end
 		wait(0.6)
-
+		
 		-- return pawns and tokens
 		for _, playerColor in ipairs(seatedPlayerColors) do
 			local vars = playerVars[playerColor]
@@ -2265,25 +1697,22 @@ function nextRoundButton(obj, clickColor, alt)
 			end
 		end
 		wait(0.5)
-
+		
 		function goesInDeck(object)
 			if object == nil then return false end
-			local excludeTags = { 'assistant', 'idol', 'site1', 'site2', 'guardian' }
-
+			local excludeTags = {'assistant', 'idol', 'site1', 'site2', 'guardian'}
+			
 			local cardTags = nil
-			if object.type == 'Card' then
-				cardTags = object.getTags()
-			else
-				cardTags = object.tags
+			if object.type == 'Card' then cardTags = object.getTags()
+			else cardTags = object.tags
 			end
-
+			
 			if #cardTags == 0 then return true end
 			for _, tag in ipairs(excludeTags) do
 				if tostring(cardTags[1]) == tag then return false end
 			end
 			return true
 		end
-
 		for _, playerColor in ipairs(seatedPlayerColors) do
 			if not (options.solo and playerColor == 'Red') then
 				local toPos = playerDeckZones[playerColor].getPosition()
@@ -2291,7 +1720,7 @@ function nextRoundButton(obj, clickColor, alt)
 					if object.type == 'Card' then
 						if goesInDeck(object) then
 							object.setRotation(facedown)
-							object.setPositionSmooth({ toPos[1], tileY, toPos[3] }, false, true)
+							object.setPositionSmooth({toPos[1], tileY, toPos[3]}, false, true)
 						end
 					elseif object.type == 'Deck' then
 						-- check deck contents in case assistants/idols/sites/guardians were grouped
@@ -2299,22 +1728,20 @@ function nextRoundButton(obj, clickColor, alt)
 						for _, card in ipairs(object.getObjects()) do
 							if goesInDeck(card) then table.insert(guidsToMove, card.guid) end
 						end
-
+						
 						-- ttsbug(?): if object disappears inside this for-loop, object becomes a non-nil reference that doesn't have an instance
 						-- so get the deck/object each time a card needs to be removed from it
 						local deckGuid = object.getGUID()
 						for _, guid in ipairs(guidsToMove) do
 							local deck = getObjectFromGUID(deckGuid)
 							local cardToMove = nil
-							if deck == nil then
-								cardToMove = getObjectFromGUID(guid)
-							else
-								cardToMove = deck.takeObject({ guid = guid })
+							if deck == nil then cardToMove = getObjectFromGUID(guid)
+							else cardToMove = deck.takeObject({guid = guid})
 							end
 							wait(0.01)
-							cardToMove.setScale({ 2.3, 1, 2.3 })
+							cardToMove.setScale({2.3, 1, 2.3})
 							cardToMove.setRotation(facedown)
-							cardToMove.setPositionSmooth({ toPos[1], tileY, toPos[3] }, false, true)
+							cardToMove.setPositionSmooth({toPos[1], tileY, toPos[3]}, false, true)
 						end
 					end
 				end
@@ -2325,10 +1752,10 @@ function nextRoundButton(obj, clickColor, alt)
 			for _, object in ipairs(getObjectFromGUID(solo.zones.discard).getObjects()) do
 				if object.type == 'Card' or object.type == 'Deck' then
 					object.setRotation(facedown)
-					object.setPositionSmooth({ toPos[1], tileY + 0.2, toPos[3] }, false, true)
+					object.setPositionSmooth({toPos[1], tileY + 0.2, toPos[3]}, false, true)
 				end
 			end
-
+			
 			if options.objectives > 0 then
 				toPos = solo.objectivePosition
 				for _, guid in ipairs(solo.zones.objectives) do
@@ -2342,7 +1769,7 @@ function nextRoundButton(obj, clickColor, alt)
 			end
 		end
 		wait(0.4)
-
+		
 		-- get income
 		for _, playerColor in ipairs(seatedPlayerColors) do
 			if options.playerBoards[playerColor] == 2 then
@@ -2382,31 +1809,22 @@ function nextRoundButton(obj, clickColor, alt)
 				wait(0.5)
 			end
 		end
-
+		
 		-- shuffle
 		for playerColor, deckZone in pairs(playerDeckZones) do
 			if decks[playerColor] ~= nil then
 				for _, object in ipairs(deckZone.getObjects()) do
-					if object.type == 'Deck' and object.getGUID() ~= decks[playerColor].guid then
-						object.shuffle()
-						break
-					end
+					if object.type == 'Deck' and object.getGUID() ~= decks[playerColor].guid then object.shuffle() break end
 				end
 			end
 		end
 		if options.solo then
 			for _, object in ipairs(getObjectFromGUID(solo.zones.deck).getObjects()) do
-				if object.type == 'Deck' then
-					object.shuffle()
-					break
-				end
+				if object.type == 'Deck' then object.shuffle() break end
 			end
 			if options.objectives > 0 then
 				for _, object in ipairs(getObjectFromGUID(solo.zones.objectivesDeck).getObjects()) do
-					if object.type == 'Deck' then
-						object.shuffle()
-						break
-					end
+					if object.type == 'Deck' then object.shuffle() break end
 				end
 			end
 		end
@@ -2414,31 +1832,28 @@ function nextRoundButton(obj, clickColor, alt)
 		for _, deck in pairs(decks) do
 			deck.unlock()
 		end
-
+		
 		-- refresh assistants
 		for _, playerColor in ipairs(seatedPlayerColors) do
 			if not (options.solo and playerColor == 'Red') then
 				local vars = playerVars[playerColor]
 				local assistantZoneGuid = vars.allZoneGuid
-				if options.playerBoards[playerColor] == 6 and vars.assistantZoneGuid ~= nil then
-					assistantZoneGuid = vars
-							.assistantZoneGuid
-				end
+				if options.playerBoards[playerColor] == 6 and vars.assistantZoneGuid ~= nil then assistantZoneGuid = vars.assistantZoneGuid end
 				for _, object in ipairs(getObjectFromGUID(assistantZoneGuid).getObjects()) do
 					if object.hasTag('assistant') then
 						local rotation = object.getRotation()
-						object.setRotationSmooth({ 0, 180, rotation[3] }, false, false)
+						object.setRotationSmooth({0, 180, rotation[3]}, false, false)
 					end
 				end
 			end
 		end
-
+		
 		-- card row
 		local rowStart = round - options.staff + 1
 		if rowStart < 1 then rowStart = 1 end
 		local rowEnd = round + options.staff
 		if rowEnd > 6 then rowEnd = 6 end
-		for i = rowStart, rowEnd do
+		for i=rowStart, rowEnd do
 			local waitUntilAfterSetPos = exile(drawCard(getObjectFromGUID(cardRowZoneGuids[i])))
 			if waitUntilAfterSetPos then wait(0.16) end
 			wait(0.16)
@@ -2450,7 +1865,7 @@ function nextRoundButton(obj, clickColor, alt)
 		if staff ~= nil then staff.setPositionSmooth(staffPositions[round], false, true) end
 		wait(0.5)
 		refillRowCoroutine()
-
+		
 		-- starting player
 		local firstPlayerColor = nil
 		if not (options.solo and #seatedPlayerColors == 2) then
@@ -2461,7 +1876,7 @@ function nextRoundButton(obj, clickColor, alt)
 			if token ~= nil then token.setPositionSmooth(playerVars[firstPlayerColor].firstPlayerPosition, false, false) end
 		end
 		wait(0.4)
-
+		
 		-- draw
 		for playerColor, zone in pairs(playerDeckZones) do
 			if not (options.solo and playerColor == 'Red') then
@@ -2471,18 +1886,12 @@ function nextRoundButton(obj, clickColor, alt)
 					local card = getObjectFromGUID(cards.baroness)
 					if card == nil then
 						for _, object in ipairs(zone.getObjects()) do
-							if object.type == 'Deck' then
-								card = object.takeObject({ guid = cards.baroness })
-								break
-							end
+							if object.type == 'Deck' then card = object.takeObject({guid = cards.baroness}) break end
 						end
 					end
 					if card == nil then
 						for _, object in ipairs(getObjectFromGUID(exileZoneGuids.other).getObjects()) do
-							if object.type == 'Deck' then
-								card = object.takeObject({ guid = cards.baroness })
-								break
-							end
+							if object.type == 'Deck' then card = object.takeObject({guid = cards.baroness}) break end
 						end
 					end
 					if card ~= nil then
@@ -2498,18 +1907,15 @@ function nextRoundButton(obj, clickColor, alt)
 						drawn = drawn + 1
 					elseif object.type == 'Deck' then
 						local numberToDraw = handSize - drawn
-						if object.getQuantity() >= numberToDraw then
-							drawn = drawn + numberToDraw
-						else
-							drawn = drawn + object.getQuantity()
+						if object.getQuantity() >= numberToDraw then drawn = drawn + numberToDraw
+						else drawn = drawn + object.getQuantity()
 						end
 						object.deal(numberToDraw, playerColor)
 					end
 				end
 				if options.playerBoards[playerColor] == 6 and drawn < 6 then
 					local card = drawCard(getObjectFromGUID(deckZones.fear))
-					if card == nil then
-						broadcastToAll('No Fear cards left for ' .. getPlayerName(playerColor) .. ' to draw.')
+					if card == nil then broadcastToAll('No Fear cards left for ' .. getPlayerName(playerColor) .. ' to draw.')
 					else
 						broadcastToAll(getPlayerName(playerColor) .. ' draws a Fear card.')
 						card.deal(1, playerColor)
@@ -2518,18 +1924,16 @@ function nextRoundButton(obj, clickColor, alt)
 				end
 			end
 		end
-
+		
 		broadcastToAll('Starting Round ' .. round)
 		if not (options.solo and #seatedPlayerColors == 2) then Turns.turn_color = firstPlayerColor end
-
+		
 		local buttonZone = getObjectFromGUID(deckZones.fear)
-		if round == 5 then
-			buttonZone.editButton({ index = 0, label = buttonLabels.ready1, click_function = 'calculateScoresButton' })
-		else
-			buttonZone.editButton({ index = 0, label = 'Setup Round ' .. round + 1 })
+		if round == 5 then buttonZone.editButton({index = 0, label = buttonLabels.ready1, click_function = 'calculateScoresButton'})
+		else buttonZone.editButton({index = 0, label = 'Setup Round ' .. round + 1})
 		end
 		setupInProgress = false
-
+		
 		if options.solo then
 			soloStatus.firstTurn = true
 			soloStatus.fulfilledObjectives = {}
@@ -2538,7 +1942,6 @@ function nextRoundButton(obj, clickColor, alt)
 		end
 		return 1
 	end
-
 	startLuaCoroutine(Global, 'nextRoundCoroutine')
 end
 
@@ -2549,10 +1952,10 @@ function calculateScoresButton(buttonZone, clickColor, alt)
 	local button = buttonZone.getButtons()[1]
 	if button.label == buttonLabels.ready1 or button.label == buttonLabels.ready2 then
 		broadcastToAll('Are you sure you want to calculate scores?')
-		Wait.time(function() buttonZone.editButton({ index = 0, label = buttonLabels.confirm }) end, 0.2)
+		Wait.time(function() buttonZone.editButton({index = 0, label = buttonLabels.confirm}) end, 0.2)
 		resetScoringButton(buttonZone, buttonLabels.confirm, button.label)
 	elseif button.label == buttonLabels.confirm then
-		buttonZone.editButton({ index = 0, label = buttonLabels.busy })
+		buttonZone.editButton({index = 0, label = buttonLabels.busy})
 		printToAll(getPlayerName(clickColor) .. ' calculated scores.')
 		calculateScores()
 		resetScoringButton(buttonZone)
@@ -2565,15 +1968,14 @@ function resetScoringButton(buttonZone, conditionalLabel, resetLabel)
 			wait(4)
 			local button = buttonZone.getButtons()[1]
 			if button.label == buttonLabels.confirm then
-				buttonZone.editButton({ index = 0, label = resetLabel })
+				buttonZone.editButton({index = 0, label = resetLabel})
 			end
 		else
 			wait(4)
-			buttonZone.editButton({ index = 0, label = buttonLabels.ready2 })
+			buttonZone.editButton({index = 0, label = buttonLabels.ready2})
 		end
 		return 1
 	end
-
 	startLuaCoroutine(Global, 'resetScoringButtonCoroutine')
 end
 
@@ -2581,13 +1983,13 @@ function calculateScores()
 	function calculateScoresCoroutine()
 		guardianFearCoroutine()
 		local winners = {}
-		local top = { score = 0, templeOrder = 9, research = 0 }
+		local top = {score = 0, templeOrder = 9, research = 0}
 		local tiebreaker = false
 		for _, playerColor in ipairs(seatedPlayerColors) do
 			local vars = playerVars[playerColor]
-			local subscores = { research = 0, temple = 0, idol = 0, guardian = 0, cards = 0, fear = 0 }
+			local subscores = {research = 0, temple = 0, idol = 0, guardian = 0, cards = 0, fear = 0}
 			local templeOrder = 9
-
+			
 			for i, guid in ipairs(templeSpaceZoneGuids) do
 				for _, object in ipairs(getObjectFromGUID(guid).getObjects()) do
 					if string.find(object.getName(), 'Magnifying') ~= nil then
@@ -2599,7 +2001,7 @@ function calculateScores()
 					end
 				end
 			end
-
+			
 			for name, guid in pairs(vars.researchTokens) do
 				local token = getObjectFromGUID(guid)
 				if token ~= nil then
@@ -2612,29 +2014,25 @@ function calculateScores()
 					end
 				end
 			end
-
+			
 			-- score uncovered idol spaces
 			if not (options.solo and playerColor == 'Red') then
-				local idolSpacePoints = { 1, 2, 3, 4 }
+				local idolSpacePoints = {1,2,3,4}
 				local idolZoneGuids = vars.idolZoneGuids.base
 				if options.playerBoards[playerColor] == 6 then
 					idolZoneGuids = vars.idolZoneGuids.mystic
-					idolSpacePoints = { 1, 2, 2, 3, 4 }
-				elseif options.playerBoards[playerColor] ~= 7 then
-					idolZoneGuids = vars.idolZoneGuids.leader
+					idolSpacePoints = {1,2,2,3,4}
+				elseif options.playerBoards[playerColor] ~= 7 then idolZoneGuids = vars.idolZoneGuids.leader
 				end
 				for i, guid in ipairs(idolZoneGuids) do
 					local occupied = false
 					for _, object in ipairs(getObjectFromGUID(guid).getObjects()) do
-						if object.type == 'Card' or object.type == 'Deck' then
-							occupied = true
-							break
-						end
+						if object.type == 'Card' or object.type == 'Deck' then occupied = true break end
 					end
 					if not occupied then subscores.idol = subscores.idol + idolSpacePoints[i] end
 				end
 			end
-
+			
 			-- helper functions
 			local excludeGuids = {}
 			if options.playerBoards[playerColor] == 6 and vars.deckZoneGuids.ritual ~= nil then
@@ -2648,40 +2046,35 @@ function calculateScores()
 				end
 				return false
 			end
-
 			function scoreObject(object, scoreIdols)
 				if (object.type == 'Deck' or object.getName() == 'Fear') and isExcluded(object) then return end
 				if object.type == 'Deck' then
 					for _, card in ipairs(object.getObjects()) do
-						if card.name == 'Fear' then
-							subscores.fear = subscores.fear - 1
+						if card.name == 'Fear' then subscores.fear = subscores.fear - 1
 						elseif #card.tags > 0 and card.tags[1] == 'idol' then
 							if scoreIdols then subscores.idol = subscores.idol + 3 end
 						elseif #card.tags > 0 and card.tags[1] == 'guardian' then
 							subscores.guardian = subscores.guardian + 5
 						else
-							local i, j = string.find(card.lua_script, 'points = ')
+							local i,j = string.find(card.lua_script, 'points = ')
 							if j ~= nil then
-								subscores.cards = subscores.cards + tonumber(string.sub(card.lua_script, j + 1, j + 2))
+								subscores.cards = subscores.cards + tonumber(string.sub(card.lua_script, j+1, j+2))
 							end
 						end
 					end
-				elseif object.hasTag('temple') then
-					subscores.temple = subscores.temple + object.getDescription()
+				elseif object.hasTag('temple') then subscores.temple = subscores.temple + object.getDescription()
 				elseif object.hasTag('idol') then
 					if scoreIdols then subscores.idol = subscores.idol + 3 end
-				elseif object.hasTag('guardian') then
-					subscores.guardian = subscores.guardian + 5
-				elseif (object.type == 'Custom_Token' and object.getName() == 'Fear') or object.hasTag("doubleFear") then
-					subscores.fear = subscores.fear - 2
-				elseif object.getName() == 'Fear' then
-					subscores.fear = subscores.fear - 1
+				elseif object.hasTag('guardian') then subscores.guardian = subscores.guardian + 5
+				elseif object.type == 'Custom_Token' and object.getName() == 'Fear' then subscores.fear = subscores.fear - 2
+				elseif object.getName() == 'Fear' then subscores.fear = subscores.fear - 1
+				elseif object.getName() == 'Hidden Fear' then subscores.fear = subscores.fear - 2
 				else
 					local points = object.getVar('points')
 					if points ~= nil then subscores.cards = subscores.cards + points end
 				end
 			end
-
+			
 			-- score all other objects
 			local scoreIdols = true
 			if options.solo and playerColor == 'Red' then scoreIdols = false end
@@ -2691,7 +2084,7 @@ function calculateScores()
 			for _, object in ipairs(Player[playerColor].getHandObjects()) do
 				scoreObject(object, scoreIdols)
 			end
-
+			
 			-- score idols for solo rival
 			if options.solo and playerColor == 'Red' then
 				-- check for purple site action
@@ -2708,11 +2101,10 @@ function calculateScores()
 					end
 					return false
 				end
-
 				if findPurpleSiteActionCard(getObjectFromGUID(solo.zones.discard)) or findPurpleSiteActionCard(getObjectFromGUID(solo.zones.deck)) then
 					baseIdolPoints = 3
 				end
-
+			
 				function countIdols(zone)
 					local count = 0
 					for _, object in ipairs(zone.getObjects()) do
@@ -2726,12 +2118,11 @@ function calculateScores()
 					end
 					return count
 				end
-
 				local all = countIdols(getObjectFromGUID(vars.allZoneGuid))
 				local dupes = countIdols(getObjectFromGUID(solo.zones.idol.dupe))
 				subscores.idol = all * baseIdolPoints + (all - dupes)
 			end
-
+			
 			local total = 0
 			for category, subscore in pairs(subscores) do
 				total = total + subscore
@@ -2739,50 +2130,48 @@ function calculateScores()
 			end
 			UI.setValue('total' .. playerColor, total)
 			UI.setValue('name' .. playerColor, getPlayerName(playerColor, true))
-
+			
 			if total > top.score then
 				tiebreaker = false
-				top = { score = total, templeOrder = templeOrder, research = subscores.research }
-				winners = { playerColor }
+				top = {score = total, templeOrder = templeOrder, research = subscores.research}
+				winners = {playerColor}
 			elseif total == top.score then
 				tiebreaker = true
 				if templeOrder < top.templeOrder then
-					top = { score = total, templeOrder = templeOrder, research = subscores.research }
-					winners = { playerColor }
+					top = {score = total, templeOrder = templeOrder, research = subscores.research}
+					winners = {playerColor}
 				elseif templeOrder == top.templeOrder then
 					if subscores.research > top.research then
-						top = { score = total, templeOrder = templeOrder, research = subscores.research }
-						winners = { playerColor }
+						top = {score = total, templeOrder = templeOrder, research = subscores.research}
+						winners = {playerColor}
 					elseif subscores.research == top.research then
 						table.insert(winners, playerColor)
 					end
 				end
 			end
 		end
-
+		
 		UI.setAttribute('scoreboard', 'active', true)
 		for i, playerColor in ipairs(seatedPlayerColors) do
-			UI.setAttribute('scoreboard' .. playerColor, 'offsetXY', 210 + (i - 1) * 70 .. ' -140')
+			UI.setAttribute('scoreboard' .. playerColor, 'offsetXY', 210+(i-1)*70 .. ' -140')
 			UI.setAttribute('scoreboard' .. playerColor, 'active', true)
 		end
-
+		
 		if #winners == 1 then
-			if tiebreaker then
-				broadcastToAll(getPlayerName(winners[1]) .. ' wins by tiebreaker!')
-			else
-				broadcastToAll(getPlayerName(winners[1]) .. ' wins!')
+			if tiebreaker then broadcastToAll(getPlayerName(winners[1]) .. ' wins by tiebreaker!')
+			else broadcastToAll(getPlayerName(winners[1]) .. ' wins!')
 			end
 		elseif #winners > 1 then
 			broadcastToAll(listToText(winners, true) .. ' are tied!')
 		end
-
+		
 		local buttonZone = getObjectFromGUID(deckZones.fear)
 		if #buttonZone.getButtons() < 3 then
 			local params = {
 				function_owner = self,
 				label = 'Toggle Scoreboard',
 				click_function = 'toggleScoreboardButton',
-				position = { 8.23, 0, -4.25 },
+				position = {8.23, 0, -4.25},
 				width = 2400,
 				height = 500,
 				font_size = 250
@@ -2791,7 +2180,6 @@ function calculateScores()
 		end
 		return 1
 	end
-
 	startLuaCoroutine(Global, 'calculateScoresCoroutine')
 end
 
@@ -2814,12 +2202,15 @@ end
 
 function onPlayerChangeColor(playerColor)
 	if playerColor == 'Grey' then return end
-	Player[playerColor].lookAt({ position = { 0, 0, -7 }, pitch = 75, yaw = 0, distance = 66 })
+	Wait.time(function()
+		Player[playerColor].lookAt({position = {0,0,-7}, pitch = 75, yaw = 0, distance = 66})
+	end, 0.01)
 end
 
 function onPlayerTurn(player, previousPlayer)
 	-- tts bug: when rewinding time or saving a script, onPlayerTurn triggers with non-nil player that has '' color
 	if not doneLoading or setupInProgress or round < 1 or player == nil or player.color == '' then return end
+	turn = player.color
 	Wait.time(function()
 		local currentPlayerTent = nil
 		local atLeastOneFaceupTent = false
@@ -2830,10 +2221,7 @@ function onPlayerTurn(player, previousPlayer)
 				if not tent.is_face_down then atLeastOneFaceupTent = true end
 			end
 		end
-		if atLeastOneFaceupTent and currentPlayerTent ~= nil and currentPlayerTent.is_face_down then
-			Turns.turn_color = Turns
-					.getNextTurnColor()
-		end
+		if atLeastOneFaceupTent and currentPlayerTent ~= nil and currentPlayerTent.is_face_down then Turns.turn_color = Turns.getNextTurnColor() end
 	end, 0.01)
 end
 
@@ -2849,16 +2237,14 @@ function onObjectLeaveContainer(container, leavingObject)
 end
 
 function editResourceBagCounter(container)
-	if round > 0 and container.hasTag('resource') and container.type == 'Bag' then -- stacks count as containers, so need to specify bags
+	if round > 0 and container.hasTag('resource') and container.type == 'Bag' then	-- stacks count as containers, so need to specify bags
 		local playerColor = container.getDescription()
 		local resource = container.getGMNotes()
 		local buttonZone = nil
-		if container.getName() == 'suitcase' then
-			buttonZone = getObjectFromGUID(playerVars[playerColor].suitcaseResourceBagZones[resource])
-		else
-			buttonZone = getObjectFromGUID(playerVars[playerColor].resourceBagZones[resource])
+		if container.getName() == 'suitcase' then buttonZone = getObjectFromGUID(playerVars[playerColor].suitcaseResourceBagZones[resource])
+		else buttonZone = getObjectFromGUID(playerVars[playerColor].resourceBagZones[resource])
 		end
-		buttonZone.editButton({ index = 0, label = container.getQuantity() })
+		buttonZone.editButton({index = 0, label = container.getQuantity()})
 	end
 end
 
@@ -2902,28 +2288,21 @@ end
 
 function exile(object)
 	if object == nil then return end
-	if object.type == 'Tile' then
-		object.destruct()
-	else -- tts bug: setPositionSmooth pulls other cards that are moved when setPositionSmooth ends, so end with setPosition which has smaller window for this bug to occur
+	if object.type == 'Tile' then object.destruct()
+	else	-- tts bug: setPositionSmooth pulls other cards that are moved when setPositionSmooth ends, so end with setPosition which has smaller window for this bug to occur
 		object.use_hands = false
 		local toZone = nil
-		if object.getName() == 'Fear' then
-			toZone = getObjectFromGUID(deckZones.fear)
-		elseif object.hasTag('artifact') then
-			toZone = getObjectFromGUID(exileZoneGuids.artifacts)
-		elseif object.hasTag('item') then
-			toZone = getObjectFromGUID(exileZoneGuids.items)
-		else
-			toZone = getObjectFromGUID(exileZoneGuids.other)
+		if object.getName() == 'Fear' then toZone = getObjectFromGUID(deckZones.fear)
+		elseif object.hasTag('artifact') then toZone = getObjectFromGUID(exileZoneGuids.artifacts)
+		elseif object.hasTag('item') then toZone = getObjectFromGUID(exileZoneGuids.items)
+		else toZone = getObjectFromGUID(exileZoneGuids.other)
 		end
 		toPos = toZone.getPosition()
-
+		
 		local addDelayAfterExile = true
 		local deck = nil
 		for _, obj in ipairs(toZone.getObjects()) do
-			if obj.type == 'Card' then
-				deck = obj
-				break
+			if obj.type == 'Card' then deck = obj break
 			elseif obj.type == 'Deck' then
 				deck = obj
 				puttingIntoDeck = false
@@ -2931,35 +2310,30 @@ function exile(object)
 			end
 		end
 		object.setRotationSmooth(toZone.getRotation(), false, true)
-		object.setPositionSmooth({ toPos[1], toPos[2] + 0.6, toPos[3] }, false, true)
+		object.setPositionSmooth({toPos[1], toPos[2] + 0.6, toPos[3]}, false, true)
 		Wait.time(function()
 			object.use_hands = true
-			if deck == nil then
-				object.setPosition(toPos)
-			else
-				deck.putObject(object)
+			if deck == nil then object.setPosition(toPos)
+			else deck.putObject(object)
 			end
 		end, 0.3)
-		return
-				addDelayAfterExile -- there needs to be a small delay before moving another card, if this exile ended with anything other than putObject to a deck
+		return addDelayAfterExile	-- there needs to be a small delay before moving another card, if this exile ended with anything other than putObject to a deck
 	end
 end
 
 function returnToBottom(object)
 	function returnToBottomCoroutine()
 		local zoneGuid = deckZones.guardians
-		if object.hasTag('site1') then
-			zoneGuid = deckZones.sites1
-		elseif object.hasTag('site2') then
-			zoneGuid = deckZones.sites2
+		if object.hasTag('site1') then zoneGuid = deckZones.sites1
+		elseif object.hasTag('site2') then zoneGuid = deckZones.sites2
 		end
 		local zone = getObjectFromGUID(zoneGuid)
-		local toPos = { zone.getPosition()[1], tileY, zone.getPosition()[3] }
+		local toPos = {zone.getPosition()[1], tileY, zone.getPosition()[3]}
 		local deck = nil
 		for _, obj in ipairs(zone.getObjects()) do
 			if obj.type == 'Card' or obj.type == 'Deck' then
 				deck = obj
-				obj.setPositionSmooth({ toPos[1], toPos[2] + 0.5, toPos[3] }, false, true)
+				obj.setPositionSmooth({toPos[1], toPos[2] + 0.5, toPos[3]}, false, true)
 			end
 		end
 		wait(0.2)
@@ -2968,21 +2342,19 @@ function returnToBottom(object)
 		object.setRotation(facedown)
 		object.setPositionSmooth(toPos, false, true)
 		wait(0.3)
-		if deck == nil then
-			object.setPosition(toPos)
+		if deck == nil then object.setPosition(toPos)
 		else
 			deck.unlock()
 			deck.putObject(object)
 		end
 		return 1
 	end
-
 	startLuaCoroutine(Global, 'returnToBottomCoroutine')
 end
 
 function cycleAssistant(object)
 	local deckPos = object.getPosition()
-	object.takeObject({ position = { deckPos[1], tileY, deckPos[3] }, rotation = object.getRotation() })
+	object.takeObject({position = {deckPos[1], tileY, deckPos[3]}, rotation = object.getRotation()})
 end
 
 function trash(playerColor, object)
@@ -2998,7 +2370,7 @@ function rivalBuy(action, buyHighestPoints)
 		startIndex = round + 1
 		endIndex = 6
 	end
-
+	
 	local highest = 0
 	local highestCards = {}
 	local lowest = 5
@@ -3009,13 +2381,13 @@ function rivalBuy(action, buyHighestPoints)
 			local points = card.getVar('points')
 			if points > highest then
 				highest = points
-				highestCards = { card }
+				highestCards = {card}
 			elseif points == highest then
 				table.insert(highestCards, card)
 			end
 			if points < lowest then
 				lowest = points
-				lowestCards = { card }
+				lowestCards = {card}
 			elseif points == lowest then
 				table.insert(lowestCards, card)
 			end
@@ -3037,9 +2409,9 @@ function rivalCheckSiteForResource(siteInfo, resource, campsite)
 		for _, object in ipairs(pawnZone.getObjects()) do
 			if object.hasTag('pawn') then return nil end
 		end
-		return { zonePos[1], pawnY, zonePos[3] }
+		return {zonePos[1], pawnY, zonePos[3]}
 	end
-
+	
 	if campsite then
 		if string.find(getObjectFromGUID(siteInfo.guid).getGMNotes(), resource) ~= nil then
 			return rivalCheckSiteForOpenPawnPos(siteInfo.pawnSpaces[1])
@@ -3062,10 +2434,7 @@ end
 function rivalMovePawn(toPos)
 	local pawnNo = soloStatus.pawnsOut + 1
 	local pawn = getObjectFromGUID(solo.pawns[pawnNo])
-	if pawn == nil then
-		broadcastToAll('Error: unable to locate rival pawn ' .. pawnNo .. '.')
-		return false
-	end
+	if pawn == nil then broadcastToAll('Error: unable to locate rival pawn ' .. pawnNo .. '.') return false end
 	pawn.setRotationSmooth(faceup, false, true)
 	pawn.setPositionSmooth(toPos, false, false)
 	soloStatus.pawnsOut = pawnNo
@@ -3073,12 +2442,12 @@ function rivalMovePawn(toPos)
 end
 
 function rivalTurnCoroutine()
-	getObjectFromGUID(playerVars.Red.playAreaZoneGuid).editButton({ index = 0, label = buttonLabelsRival.busy })
+	getObjectFromGUID(playerVars.Red.playAreaZoneGuid).editButton({index = 0, label = buttonLabelsRival.busy})
 	wait(0.2)
 	broadcastToAll("Rival's turn.", 'Red')
 	wait(0.5)
 	local deckPos = solo.deckPositions[2]
-	local actionCard = drawCard(getObjectFromGUID(solo.zones.deck), faceup, { deckPos[1], tileY + 0.3, deckPos[3] })
+	local actionCard = drawCard(getObjectFromGUID(solo.zones.deck), faceup, {deckPos[1], tileY + 0.3, deckPos[3]})
 	if actionCard == nil or actionCard.getDescription() == nil or actionCard.getDescription() == '' then
 		broadcastToAll('Rival has no more action cards.')
 		wait(1.2)
@@ -3087,22 +2456,20 @@ function rivalTurnCoroutine()
 		return 1
 	end
 	wait(0.8)
-
+	
 	local action = actionCard.getDescription()
 	local gmNotes = actionCard.getGMNotes()
 	if action == 'artifact' or action == 'item' then
 		refillRowCoroutine()
-		if gmNotes == 'green' then
-			rivalBuy(action, false)
-		else
-			rivalBuy(action, true)
+		if gmNotes == 'green' then rivalBuy(action, false)
+		else rivalBuy(action, true)
 		end
 		soloStatus.fulfilledObjectives[action] = true
 		if gmNotes == 'purple' then
 			wait(1.5)
 			local secondAction = 'item'
 			if action == 'item' then secondAction = 'artifact' end
-
+			
 			rivalBuy(secondAction, false)
 			soloStatus.fulfilledObjectives[secondAction] = true
 		end
@@ -3110,8 +2477,8 @@ function rivalTurnCoroutine()
 		refillRowCoroutine()
 	elseif action == 'arch' then
 		local placedPawn = false
-		local resourceText = { t = 'a tablet', a = 'an arrowhead', j = 'a jewel', c = 'a coin', s = 'a compass' }
-		for i = 1, 4 do
+		local resourceText = {t = 'a tablet', a = 'an arrowhead', j = 'a jewel', c = 'a coin', s = 'a compass'}
+		for i=1, 4 do
 			local possiblePawnPos = {}
 			local campsite = false
 			if i == 4 then campsite = true end
@@ -3119,7 +2486,7 @@ function rivalTurnCoroutine()
 				local pos = rivalCheckSiteForResource(siteInfo, gmNotes, campsite)
 				if pos ~= nil then table.insert(possiblePawnPos, pos) end
 			end
-
+			
 			if #possiblePawnPos > 0 then
 				broadcastToAll('Rival digs at a site that offers ' .. resourceText[gmNotes] .. '.')
 				wait(0.5)
@@ -3131,8 +2498,7 @@ function rivalTurnCoroutine()
 		end
 		if not placedPawn then broadcastToAll('No available site that offers ' .. resourceText[gmNotes] .. '.') end
 	elseif action == 'site' then
-		if gmNotes == 'green' and round == 5 then
-			broadcastToAll('Rival does not take this action in round 5.')
+		if gmNotes == 'green' and round == 5 then broadcastToAll('Rival does not take this action in round 5.')
 		else
 			local startIndex = 2
 			local endIndex = 3
@@ -3142,20 +2508,16 @@ function rivalTurnCoroutine()
 				endIndex = 1
 				level = 2
 			end
-
+			
 			local possibleSiteInfos = {}
 			for i = startIndex, endIndex do
 				for _, siteInfo in ipairs(siteLevels[i]) do
-					if not siteInfo.discovered then
-						table.insert(possibleSiteInfos, siteInfo)
+					if not siteInfo.discovered then table.insert(possibleSiteInfos, siteInfo)
 					else
 						-- sites can become undiscovered so check for site card
 						local discovered = false
 						for _, object in ipairs(getObjectFromGUID(siteInfo.guid).getObjects()) do
-							if object.hasTag('site1') or object.hasTag('site2') then
-								discovered = true
-								break
-							end
+							if object.hasTag('site1') or object.hasTag('site2') then discovered = true break end
 						end
 						if not discovered then table.insert(possibleSiteInfos, siteInfo) end
 					end
@@ -3165,24 +2527,24 @@ function rivalTurnCoroutine()
 				local siteInfo = possibleSiteInfos[math.random(1, #possibleSiteInfos)]
 				broadcastToAll('Rival discovers a random level ' .. level .. ' site.')
 				wait(0.5)
-				local toPos = getObjectFromGUID(siteInfo.pawnSpaces[1]).getPosition()
-				local success = rivalMovePawn({ toPos[1], pawnY, toPos[3] })
+				local toPos =  getObjectFromGUID(siteInfo.pawnSpaces[1]).getPosition()
+				local success = rivalMovePawn({toPos[1], pawnY, toPos[3]})
 				if soloStatus.pawnsOut > 2 then soloStatus.fulfilledObjectives.arch = true end
-
+				
 				if success then
 					wait(1.2)
 					local siteZone = getObjectFromGUID(siteInfo.guid)
 					for _, object in ipairs(siteZone.getObjects()) do
 						if object.hasTag('idol') then
 							local dupeZonePos = getObjectFromGUID(solo.zones.idol.dupe).getPosition()
-							local dupePos = { dupeZonePos[1], tileY + 0.4, dupeZonePos[3] }
+							local dupePos = {dupeZonePos[1], tileY + 0.4, dupeZonePos[3]}
 							if object.is_face_down then
-								object.setRotationSmooth({ 0, 90, 180 }, false, true)
+								object.setRotationSmooth({0,90,180}, false, true)
 								object.setPositionSmooth(dupePos, false, false)
 							else
 								local idolReward = object.getGMNotes()
 								local isDupe = false
-
+								
 								-- look for same type of idol to determine where this goes
 								local idolZone = nil
 								local idolPos = nil
@@ -3193,42 +2555,35 @@ function rivalTurnCoroutine()
 									idolZone = getObjectFromGUID(solo.zones.idol[idolReward])
 									idolPos = idolZone.getPosition()
 								end
-
+								
 								for _, obj in ipairs(idolZone.getObjects()) do
-									if obj.hasTag('idol') then
-										isDupe = true
-										break
-									end
+									if obj.hasTag('idol') then isDupe = true break end
 								end
 								if isDupe then
-									object.setRotationSmooth({ 0, 90, 0 }, false, true)
+									object.setRotationSmooth({0,90,0}, false, true)
 									object.setPositionSmooth(dupePos, false, false)
 								else
 									object.setRotationSmooth(faceup, false, true)
-									object.setPositionSmooth({ idolPos[1], tileY, idolPos[3] }, false, false)
+									object.setPositionSmooth({idolPos[1], tileY, idolPos[3]}, false, false)
 								end
 							end
 							wait(0.5)
 						end
 					end
-
+					
 					local alt = true
-					if (gmNotes == 'green' or gmNotes == 'purple') and (round == 1 or round == 3 or round == 5) then
-						alt = false
-					elseif gmNotes == 'red' and (round == 2 or round == 4) then
-						alt = false
+					if (gmNotes == 'green' or gmNotes == 'purple') and (round == 1 or round == 3 or round == 5) then alt = false
+					elseif gmNotes == 'red' and (round == 2 or round == 4) then alt = false
 					end
 					discoverButton(siteZone, 'Red', alt)
 					soloStatus.fulfilledObjectives.site = true
 					if not alt then wait(0.5) end
 				end
-			else
-				broadcastToAll('No available site to discover.')
+			else broadcastToAll('No available site to discover.')
 			end
 		end
 	elseif action == 'guardian' then
-		if gmNotes == 'green' and round == 5 then
-			broadcastToAll('Rival does not take this action in round 5.')
+		if gmNotes == 'green' and round == 5 then broadcastToAll('Rival does not take this action in round 5.')
 		else
 			if options.researchTrack == 4 and soloStatus.magnifying.row == 5 then
 				-- overcome lizard temple guardian first
@@ -3253,10 +2608,7 @@ function rivalTurnCoroutine()
 							-- check for guardian
 							local guardian = nil
 							for _, object in ipairs(getObjectFromGUID(siteInfo.guid).getObjects()) do
-								if object.hasTag('guardian') then
-									guardian = object
-									break
-								end
+								if object.hasTag('guardian') then guardian = object break end
 							end
 							if guardian ~= nil then
 								for _, object in ipairs(getObjectFromGUID(siteInfo.pawnSpaces[1]).getObjects()) do
@@ -3288,14 +2640,11 @@ function rivalTurnCoroutine()
 			if gmNotes == 'purple' then
 				-- research with notebook
 				wait(1.5)
-				if soloStatus.notebook.row > soloStatus.magnifying.row or soloStatus.notebook.row == 0 and soloStatus.magnifying.row > 0 then
-					rivalResearch('notebook', true)
-				end
+				if soloStatus.notebook.row > soloStatus.magnifying.row or soloStatus.notebook.row == 0 and soloStatus.magnifying.row > 0 then rivalResearch('notebook', true) end
 			end
 		end
 	elseif action == 'research' then
-		if gmNotes == 'green' and round == 5 then
-			broadcastToAll('Rival does not take this action in round 5.')
+		if gmNotes == 'green' and round == 5 then broadcastToAll('Rival does not take this action in round 5.')
 		else
 			soloStatus.fulfilledObjectives.research = rivalResearch('magnifying')
 			if gmNotes == 'purple' and round == 5 then
@@ -3305,12 +2654,12 @@ function rivalTurnCoroutine()
 		end
 	end
 	wait(1.2)
-
+	
 	-- draw objectives or check fulfillment
 	if options.objectives > 0 then
 		local objectivesDeckZone = getObjectFromGUID(solo.zones.objectivesDeck)
 		if soloStatus.firstTurn then
-			for i = 1, options.objectives do
+			for i=1, options.objectives do
 				local toPos = getObjectFromGUID(solo.zones.objectives[i]).getPosition()
 				local card = drawCard(objectivesDeckZone, faceup, toPos)
 				wait(0.16)
@@ -3318,7 +2667,7 @@ function rivalTurnCoroutine()
 			end
 			wait(0.4)
 		end
-
+		
 		local objectiveMessages = {
 			artifact = 'buy an artifact.',
 			item = 'buy an item.',
@@ -3343,8 +2692,7 @@ function rivalTurnCoroutine()
 							wait(0.5)
 							object.flip()
 							wait(0.5)
-							getObjectFromGUID(bags.soloTempleTiles).takeObject({
-								position = solo.acquiredStuffPositions.templeTile[math.random(1, 6)], rotation = faceup })
+							getObjectFromGUID(bags.soloTempleTiles).takeObject({position = solo.acquiredStuffPositions.templeTile[math.random(1,6)], rotation = faceup})
 							wait(1.2)
 						end
 					end
@@ -3354,13 +2702,12 @@ function rivalTurnCoroutine()
 		end
 	end
 	soloStatus.firstTurn = false
-
+	
 	local tent = getObjectFromGUID(playerVars[seatedPlayerColors[1]].tentGuid)
 	if tent == nil or not tent.is_face_down or drawCard(getObjectFromGUID(solo.zones.deck), nil, nil, true) == nil then
 		broadcastToAll(getPlayerName(seatedPlayerColors[1], true) .. "'s turn.", seatedPlayerColors[1])
 		setupButtonRivalTurn()
-	else
-		rivalTurnCoroutine()
+	else rivalTurnCoroutine()
 	end
 	return 1
 end
@@ -3370,27 +2717,24 @@ function rivalResearch(id, doNotTakeAssistant)
 	if id == 'magnifying' then tokenName = tokenName .. ' glass' end
 	broadcastToAll('Rival researches with its ' .. tokenName .. '.')
 	wait(0.5)
-
+	
 	local token = getObjectFromGUID(playerVars.Red.researchTokens[id])
-	if token == nil then
-		broadcastToAll('Error: unable to locate ' .. tokenName .. '.')
-		return false
-	end
+	if token == nil then broadcastToAll('Error: unable to locate ' .. tokenName .. '.') return false end
 	local track = researchTracks[options.researchTrack]
-
+	
 	if options.researchTrack == 3 and soloStatus[id].row == 7 and id == 'magnifying' then
 		local toPos = track.artifactPos
 		token.setRotationSmooth(faceup, false, true)
-		token.setPositionSmooth({ toPos[1], toPos[2] + 0.4, toPos[3] }, false, false)
+		token.setPositionSmooth({toPos[1], toPos[2] + 0.4, toPos[3]}, false, false)
 		soloStatus[id].row = 5
 		soloStatus[id].path = 1
 		return true
 	end
-
+	
 	if id == 'magnifying' and soloStatus[id].row == 1 or id == 'notebook' and soloStatus[id].row == 2 then
 		wait(1.2)
 		function moveSilver(index)
-			for _, object in ipairs(getObjectFromGUID(templeTileZoneGuids[index]).getObjects()) do -- zones have tag 'temple'
+			for _, object in ipairs(getObjectFromGUID(templeTileZoneGuids[index]).getObjects()) do	-- zones have tag 'temple'
 				broadcastToAll('Rival takes a silver temple tile.')
 				object.setRotation(faceup)
 				object.setPositionSmooth(solo.acquiredStuffPositions.templeTileSilver, false, false)
@@ -3398,14 +2742,12 @@ function rivalResearch(id, doNotTakeAssistant)
 			end
 			return false
 		end
-
-		local rand = math.random(4, 5)
+		
+		local rand = math.random(4,5)
 		local silverFound = moveSilver(rand)
 		if not silverFound then
-			if rand == 4 then
-				silverFound = moveSilver(5)
-			else
-				silverFound = moveSilver(4)
+			if rand == 4 then silverFound = moveSilver(5)
+			else silverFound = moveSilver(4)
 			end
 		end
 		if not silverFound then broadcastToAll('No silver temple tiles found.') end
@@ -3420,7 +2762,7 @@ function rivalResearch(id, doNotTakeAssistant)
 			if not occupied then
 				local toPos = zone.getPosition()
 				token.setRotationSmooth(faceup, false, true)
-				token.setPositionSmooth({ toPos[1], 2, toPos[3] }, false, false)
+				token.setPositionSmooth({toPos[1], 2, toPos[3]}, false, false)
 				soloStatus[id].row = 1
 				soloStatus[id].path = 1
 				break
@@ -3429,7 +2771,7 @@ function rivalResearch(id, doNotTakeAssistant)
 		rivalTakeResearchBonus(track.rows[1].bonusPos)
 		return true
 	end
-
+	
 	local nextRowIndex = nil
 	local forwardPaths = nil
 	if soloStatus[id].row == 0 then
@@ -3439,33 +2781,33 @@ function rivalResearch(id, doNotTakeAssistant)
 			table.insert(forwardPaths, i)
 		end
 	else
-		nextRowIndex = soloStatus[id].row - 1
-		forwardPaths = track.rows[soloStatus[id].row].paths[soloStatus[id].path].forward
+		 nextRowIndex = soloStatus[id].row - 1
+		 forwardPaths = track.rows[soloStatus[id].row].paths[soloStatus[id].path].forward
 	end
-
+	
 	local nextRow = track.rows[nextRowIndex]
 	local nextPathIndex = forwardPaths[math.random(1, #forwardPaths)]
 	local nextPath = nextRow.paths[nextPathIndex]
 	local toPos = nextPath.pos
-
+	
 	if toPos ~= nil then
 		token.setRotationSmooth(faceup, false, true)
-		token.setPositionSmooth({ toPos[1], toPos[2] + 0.4, toPos[3] }, false, false)
+		token.setPositionSmooth({toPos[1], toPos[2] + 0.4, toPos[3]}, false, false)
 		soloStatus[id].row = nextRowIndex
 		soloStatus[id].path = nextPathIndex
 		if nextPath.bonus then rivalTakeResearchBonus(toPos) end
 	else
 		-- the next path has multiple bonus tiles; pick one and move to its spot
 		local bonusTile = nil
-		local bonusPositions = {} -- duplicate of nextPath.bonusPos for removing values
+		local bonusPositions = {}		-- duplicate of nextPath.bonusPos for removing values
 		for _, pos in ipairs(nextPath.bonusPos) do
 			table.insert(bonusPositions, pos)
 		end
-
-		for i = 1, #bonusPositions do
+		
+		for i=1, #bonusPositions do
 			local bonusIndex = math.random(1, #bonusPositions)
 			local bonusPos = bonusPositions[bonusIndex]
-			for _, object in ipairs(getObjectFromGUID(researchZoneGuid).getObjects()) do -- research zone has tag 'research'
+			for _, object in ipairs(getObjectFromGUID(researchZoneGuid).getObjects()) do	-- research zone has tag 'research'
 				if object.getDescription() == nil or object.getDescription() == '' then
 					if comparePosition(object.getPosition(), bonusPos) then
 						bonusTile = object
@@ -3474,16 +2816,14 @@ function rivalResearch(id, doNotTakeAssistant)
 					end
 				end
 			end
-			if bonusTile == nil then
-				table.remove(bonusPositions, bonusIndex)
-			else
-				break
+			if bonusTile == nil then table.remove(bonusPositions, bonusIndex)
+			else break
 			end
 		end
-
+		
 		if toPos == nil then toPos = nextPath.bonusPos[1] end
 		token.setRotationSmooth(faceup, false, true)
-		token.setPositionSmooth({ toPos[1], toPos[2] + 0.4, toPos[3] }, false, false)
+		token.setPositionSmooth({toPos[1], toPos[2] + 0.4, toPos[3]}, false, false)
 		soloStatus[id].row = nextRowIndex
 		soloStatus[id].path = nextPathIndex
 		if bonusTile ~= nil then
@@ -3493,7 +2833,7 @@ function rivalResearch(id, doNotTakeAssistant)
 			bonusTile.setPositionSmooth(solo.acquiredStuffPositions.researchBonus, false, false)
 		end
 	end
-
+	
 	if id == 'magnifying' and nextRow.assistant then
 		wait(1.2)
 		if options.researchTrack == 2 and soloStatus[id].row == 5 then
@@ -3503,9 +2843,8 @@ function rivalResearch(id, doNotTakeAssistant)
 				wait(1.2)
 			end
 		end
-
-		if doNotTakeAssistant then
-			broadcastToAll('Rival does not remove an assistant from the supply board for this action.')
+		
+		if doNotTakeAssistant then broadcastToAll('Rival does not remove an assistant from the supply board for this action.')
 		else
 			local most = 0
 			local possibleZones = {}
@@ -3514,17 +2853,14 @@ function rivalResearch(id, doNotTakeAssistant)
 				local obj = drawCard(zone, nil, nil, true)
 				if obj ~= nil then
 					local quantity = 0
-					if obj.type == 'Card' then
-						quantity = 1
-					elseif obj.type == 'Deck' then
-						quantity = obj.getQuantity()
+					if obj.type == 'Card' then quantity = 1
+					elseif obj.type == 'Deck' then quantity = obj.getQuantity()
 					end
-
+					
 					if quantity > most then
 						most = quantity
-						possibleZones = { zone }
-					elseif quantity == most then
-						table.insert(possibleZones, zone)
+						possibleZones = {zone}
+					elseif quantity == most then table.insert(possibleZones, zone)
 					end
 				end
 			end
@@ -3538,7 +2874,7 @@ function rivalResearch(id, doNotTakeAssistant)
 end
 
 function rivalTakeResearchBonus(bonusPos)
-	for _, object in ipairs(getObjectFromGUID(researchZoneGuid).getObjects()) do -- research zone has tag 'research'
+	for _, object in ipairs(getObjectFromGUID(researchZoneGuid).getObjects()) do	-- research zone has tag 'research'
 		if object.getDescription() == nil or object.getDescription() == '' then
 			if comparePosition(object.getPosition(), bonusPos) then
 				wait(1.2)
@@ -3590,7 +2926,7 @@ function drawCard(zone, rotation, position, checkOnly)
 			return object
 		elseif object.type == 'Deck' then
 			if position ~= nil then
-				return object.takeObject({ position = position, rotation = rotation })
+				return object.takeObject({position = position, rotation = rotation})
 			end
 			return object.takeObject()
 		end
@@ -3619,18 +2955,14 @@ function listToText(list, getPlayerNames)
 		if i > 1 then
 			if #list == 2 then
 				text = text .. ' and '
-			else -- #list > 2
-				if i == #list then
-					text = text .. ', and '
-				else
-					text = text .. ', '
+			else		-- #list > 2
+				if i == #list then text = text .. ', and '
+				else text = text .. ', '
 				end
 			end
 		end
-		if getPlayerNames then
-			text = text .. getPlayerName(item)
-		else
-			text = text .. item
+		if getPlayerNames then text = text .. getPlayerName(item)
+		else text = text .. item
 		end
 	end
 	return text
@@ -3652,27 +2984,27 @@ function setupTestButtons()
 			function_owner = self,
 			label = 'Test',
 			click_function = 'test',
-			position = { -2.2, 0, 0 },
+			position = {-2.2, 0, 0},
 			width = 900,
 			height = 500,
 			font_size = 240
 		}
 		buttonZone.createButton(params)
-
+		
 		params.label = 'Test 2'
 		params.click_function = 'test2'
-		params.position = { 0, 0, 0 }
+		params.position = {0, 0, 0}
 		buttonZone.createButton(params)
-
+		
 		params.label = 'Test 3'
 		params.click_function = 'test3'
-		params.position = { 2.2, 0, 0 }
+		params.position = {2.2, 0, 0}
 		buttonZone.createButton(params)
 	end
 end
 
 function test(obj, clickColor, alt)
-	Player[clickColor].lookAt({ position = { 0, 0, -7 }, pitch = 75, yaw = 0, distance = 62 })
+	Player[clickColor].lookAt({position = {0,0,-7}, pitch = 75, yaw = 0, distance = 62})
 	--[[
 	for _, object in ipairs(getObjectFromGUID(testVars.zone).getObjects()) do
 		log(object)
@@ -3687,12 +3019,12 @@ function test(obj, clickColor, alt)
 end
 
 function test2(obj, clickColor, alt)
-	Player[clickColor].lookAt({ position = { 0, 0, -7 }, pitch = 75, yaw = 0, distance = 64 })
+	Player[clickColor].lookAt({position = {0,0,-7}, pitch = 75, yaw = 0, distance = 64})
 	-- testlog(clickColor, getPlayerBoard(clickColor).getStateId(), options.playerBoards[clickColor])
 end
 
 function test3(obj, clickColor, alt)
-	Player[clickColor].lookAt({ position = { 0, 0, -7 }, pitch = 75, yaw = 0, distance = 66 })
+	Player[clickColor].lookAt({position = {0,0,-7}, pitch = 75, yaw = 0, distance = 66})
 	--startLuaCoroutine(Global, 'refillRowCoroutine')
 	--[[
 	for _, object in ipairs(getObjectFromGUID(testVars.zone).getObjects()) do
@@ -3708,3 +3040,4 @@ function testlog(a, b, c, d)
 		log(msg)
 	end
 end
+

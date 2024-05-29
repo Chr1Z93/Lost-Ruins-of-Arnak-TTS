@@ -11,7 +11,7 @@
     }
   },
   "1": {
-    "body": "Buy buttons - exile a card and refill the card row.\r\n\r\nTake buttons (Professor leader) - move tablet and compass tokens to the suitcase.\r\n\r\nAssistant piles (context menu action) - take the top assistant and put it on the bottom of its pile.\r\n\r\nSites and guardians (context menu action) - send to the bottom of the appropriate deck.\r\n\r\nResearch bonus tiles (context menu action) - send to trash.\r\n\r\nCards and fear tokens (context menu action) - exile.\r\n\r\nThe Mystic should place Fear cards and tokens onto the ritual pile manually.\r\n\r\n",
+    "body": "Buy buttons - spend resource tokens equal to the cost of the card, then buy the card.\r\n\r\n'+' (place pawn) buttons - spend compass tokens to discover a site.\r\n\r\nTake buttons (Professor leader) - move tablet and compass tokens to the suitcase.\r\n\r\nAssistant piles (context menu action) - take the top assistant and put it on the bottom of its pile.\r\n\r\nSites and guardians (context menu action) - send to the bottom of the appropriate deck.\r\n\r\nResearch bonus tiles (context menu action) - send to trash.\r\n\r\nCards and fear tokens (context menu action) - exile.\r\n\r\nThe Mystic should place Fear cards and tokens onto the ritual pile manually.\n",
     "color": "Grey",
     "id": 1,
     "title": "Right-Clicks",

@@ -53,9 +53,9 @@
   ],
   "Autoraise": true,
   "ColorDiffuse": {
-    "b": 0.25,
-    "g": 0.25,
-    "r": 0.25
+    "b": 0.24999,
+    "g": 0.24999,
+    "r": 0.24999
   },
   "CustomImage": {
     "CustomTile": {
