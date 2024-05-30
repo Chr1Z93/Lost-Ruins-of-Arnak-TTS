@@ -1,0 +1,59 @@
+{
+  "AltLookAngle": {
+    "x": 0,
+    "y": 0,
+    "z": 0
+  },
+  "Autoraise": true,
+  "Bag": {
+    "Order": 0
+  },
+  "ColorDiffuse": {
+    "b": 0,
+    "g": 0.36652,
+    "r": 0.70588
+  },
+  "ContainedObjects_order": [
+    "GoldTokenAttacher.3cc576",
+    "Deck.428f5c",
+    "Custom_Model.d3657d",
+    "MechanicPlayerBoard.75b3f5",
+    "CardCustom.168247",
+    "Deck.302d5d"
+  ],
+  "ContainedObjects_path": "TheMechanic.6b9f90",
+  "Description": "",
+  "DragSelectable": true,
+  "GMNotes": "",
+  "GUID": "6b9f90",
+  "Grid": true,
+  "GridProjection": false,
+  "Hands": false,
+  "HideWhenFaceDown": false,
+  "IgnoreFoW": false,
+  "LayoutGroupSortIndex": 0,
+  "Locked": false,
+  "LuaScript": "",
+  "LuaScriptState": "",
+  "MaterialIndex": -1,
+  "MeasureMovement": false,
+  "MeshIndex": -1,
+  "Name": "Bag",
+  "Nickname": "The Mechanic",
+  "Snap": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "Transform": {
+    "posX": -15.801,
+    "posY": 2.607,
+    "posZ": 41.186,
+    "rotX": 0,
+    "rotY": 0,
+    "rotZ": 0,
+    "scaleX": 1,
+    "scaleY": 1,
+    "scaleZ": 1
+  },
+  "Value": 0,
+  "XmlUI": ""
+}

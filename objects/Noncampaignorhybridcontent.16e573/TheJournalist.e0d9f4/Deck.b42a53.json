@@ -1,0 +1,141 @@
+{
+  "AltLookAngle": {
+    "x": 0,
+    "y": 0,
+    "z": 0
+  },
+  "Autoraise": true,
+  "ColorDiffuse": {
+    "b": 0.71324,
+    "g": 0.71324,
+    "r": 0.71324
+  },
+  "ContainedObjects_order": [
+    "CardCustom.9208da",
+    "CardCustom.84a4a4",
+    "CardCustom.cbbe7a",
+    "CardCustom.fb3071",
+    "CardCustom.69e653",
+    "CardCustom.178ddf",
+    "CardCustom.1e9695",
+    "CardCustom.b8a5ed"
+  ],
+  "ContainedObjects_path": "Deck.b42a53",
+  "CustomDeck": {
+    "279": {
+      "BackIsHidden": true,
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2496761664835280371/54383EC84FF2E718F9F2F66B73CA6C80396DF063/",
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2496761664835280371/54383EC84FF2E718F9F2F66B73CA6C80396DF063/",
+      "NumHeight": 1,
+      "NumWidth": 1,
+      "Type": 0,
+      "UniqueBack": false
+    },
+    "280": {
+      "BackIsHidden": true,
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2496761664835280474/02B520C17DB863DB2337321F5A81FA9D4EA41E66/",
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2496761664835280474/02B520C17DB863DB2337321F5A81FA9D4EA41E66/",
+      "NumHeight": 1,
+      "NumWidth": 1,
+      "Type": 0,
+      "UniqueBack": false
+    },
+    "281": {
+      "BackIsHidden": true,
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2496761664835280566/4A6D05C3F517515445D4615E82691575D8D015F2/",
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2496761664835280566/4A6D05C3F517515445D4615E82691575D8D015F2/",
+      "NumHeight": 1,
+      "NumWidth": 1,
+      "Type": 0,
+      "UniqueBack": false
+    },
+    "282": {
+      "BackIsHidden": true,
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2496761664835280664/D4CEF9B2D3216D1834A74996A8D7E9C641B9A5B9/",
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2496761664835280664/D4CEF9B2D3216D1834A74996A8D7E9C641B9A5B9/",
+      "NumHeight": 1,
+      "NumWidth": 1,
+      "Type": 0,
+      "UniqueBack": false
+    },
+    "283": {
+      "BackIsHidden": true,
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2496761664835280887/48DB2BC84DC4A1A8E279DC88A5843C425F94E2CF/",
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2496761664835280887/48DB2BC84DC4A1A8E279DC88A5843C425F94E2CF/",
+      "NumHeight": 1,
+      "NumWidth": 1,
+      "Type": 0,
+      "UniqueBack": false
+    },
+    "284": {
+      "BackIsHidden": true,
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2496761664835281049/4D683A846976683F0A229B777F11C7FF17EFF021/",
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2496761664835281049/4D683A846976683F0A229B777F11C7FF17EFF021/",
+      "NumHeight": 1,
+      "NumWidth": 1,
+      "Type": 0,
+      "UniqueBack": false
+    },
+    "285": {
+      "BackIsHidden": true,
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2496761664835281132/F6859B9A18C9407D45C0C5BA6B18CC1556CEF3EC/",
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2496761664835281132/F6859B9A18C9407D45C0C5BA6B18CC1556CEF3EC/",
+      "NumHeight": 1,
+      "NumWidth": 1,
+      "Type": 0,
+      "UniqueBack": false
+    },
+    "286": {
+      "BackIsHidden": true,
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2496761664835281235/9E7C71A220443B1CE043C8A87C35A282650945FC/",
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2496761664835281235/9E7C71A220443B1CE043C8A87C35A282650945FC/",
+      "NumHeight": 1,
+      "NumWidth": 1,
+      "Type": 0,
+      "UniqueBack": false
+    }
+  },
+  "DeckIDs": [
+    28000,
+    28100,
+    28200,
+    28300,
+    28400,
+    28600,
+    28500,
+    27900
+  ],
+  "Description": "",
+  "DragSelectable": true,
+  "GMNotes": "",
+  "GUID": "b42a53",
+  "Grid": true,
+  "GridProjection": false,
+  "Hands": false,
+  "HideWhenFaceDown": true,
+  "IgnoreFoW": false,
+  "LayoutGroupSortIndex": 0,
+  "Locked": false,
+  "LuaScript": "",
+  "LuaScriptState": "",
+  "MeasureMovement": false,
+  "Name": "Deck",
+  "Nickname": "",
+  "SidewaysCard": false,
+  "Snap": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "Transform": {
+    "posX": 69.602,
+    "posY": 1.78,
+    "posZ": 3.981,
+    "rotX": 0,
+    "rotY": 180,
+    "rotZ": 0,
+    "scaleX": 1.42,
+    "scaleY": 1,
+    "scaleZ": 1.52
+  },
+  "Value": 0,
+  "XmlUI": ""
+}

@@ -1,0 +1,60 @@
+function onLoad()
+    local s = 0.1
+    self.createButton({
+        label = "↻",
+        click_function = "rotateCW",
+        function_owner = self,
+        tooltip = "Rotate the wheel clockwise.",
+        position = {2.67,.35,.08},
+        font_size = 300,
+        scale = {s,s,s},
+        width = 1000,
+        height = 450,
+    })
+
+    self.createButton({
+        label = "Undo",
+        click_function = "rotateCCW",
+        function_owner = self,
+        tooltip = "Rotate the wheel counter-clockwise.",
+        position = {2.67,.35,-.03},
+        font_size = 300,
+        scale = {s,s,s},
+        width = 1000,
+        height = 450,
+    })
+end
+
+function rotateCW()
+  wheel = getObjectFromGUID('d3657d')
+  if wheel ~= nil then
+    if WAIT then
+        return
+    else
+        WAIT = true
+        Wait.time(function() WAIT = false end, .5)
+
+        local rot = wheel.getRotation()
+        rot.y = rot.y+90
+        wheel.setRotationSmooth(rot)
+    end
+  end
+
+end
+
+function rotateCCW()
+  wheel = getObjectFromGUID('d3657d')
+  if wheel ~= nil then
+    if WAIT then
+        return
+    else
+        WAIT = true
+        Wait.time(function() WAIT = false end, .5)
+
+        local rot = wheel.getRotation()
+        rot.y = rot.y-90
+        wheel.setRotationSmooth(rot)
+    end
+  end
+
+end

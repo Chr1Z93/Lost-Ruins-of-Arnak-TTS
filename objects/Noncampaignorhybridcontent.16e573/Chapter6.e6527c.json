@@ -1,0 +1,56 @@
+{
+  "AltLookAngle": {
+    "x": 0,
+    "y": 0,
+    "z": 0
+  },
+  "Autoraise": true,
+  "Bag": {
+    "Order": 0
+  },
+  "ColorDiffuse": {
+    "b": 0,
+    "g": 0.36652,
+    "r": 0.70588
+  },
+  "ContainedObjects_order": [
+    "OverviewCards.74971a",
+    "EncounterCards.0ac1dc",
+    "AchivementRewards.9d21e5"
+  ],
+  "ContainedObjects_path": "Chapter6.e6527c",
+  "Description": "",
+  "DragSelectable": true,
+  "GMNotes": "",
+  "GUID": "e6527c",
+  "Grid": true,
+  "GridProjection": false,
+  "Hands": false,
+  "HideWhenFaceDown": false,
+  "IgnoreFoW": false,
+  "LayoutGroupSortIndex": 0,
+  "Locked": false,
+  "LuaScript": "",
+  "LuaScriptState": "",
+  "MaterialIndex": -1,
+  "MeasureMovement": false,
+  "MeshIndex": -1,
+  "Name": "Bag",
+  "Nickname": "Chapter 6",
+  "Snap": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "Transform": {
+    "posX": -16.881,
+    "posY": 2.607,
+    "posZ": 12.399,
+    "rotX": 0,
+    "rotY": 0,
+    "rotZ": 0,
+    "scaleX": 1,
+    "scaleY": 1,
+    "scaleZ": 1
+  },
+  "Value": 0,
+  "XmlUI": ""
+}
