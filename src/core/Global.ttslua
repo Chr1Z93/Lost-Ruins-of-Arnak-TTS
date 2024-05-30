@@ -1,4 +1,6 @@
--- SCRIPTED BY jkk - https://steamcommunity.com/id/creamymello/myworkshopfiles/
+-- originally scripted by jkk - https://steamcommunity.com/id/creamymello/myworkshopfiles/
+-- updated by Chr1Z and covertskippy55 for the missing expedition
+
 TESTING = false
 testVars = {
   buttonZone = '7f50fd',
