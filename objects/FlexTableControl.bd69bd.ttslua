@@ -511,4 +511,3 @@ ref_playerColor = {
 
 --Dummy function, absorbs unwanted triggers
 function none() end
-

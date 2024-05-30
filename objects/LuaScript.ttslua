@@ -258,14 +258,9 @@ options = {
   staff = 1,
   leaders = 'none',
   expansions = {
-    artifacts = false,
-    items = false,
-    promos = true,
-    assistants = false,
-    idols = false,
-    sites1 = false,
-    sites2 = false,
-    guardians = false
+    expeditionLeaders = true,
+    missingExpedition = true,
+    promos = true
   }
 }
 bags = {
@@ -757,29 +752,6 @@ function menuOptions()
   UI.setAttribute('optionsMenuButtons', 'active', 'true')
 end
 
-function uiSetOptions(player, value, id)
-  local allToggleIds = { 'board1', 'board2', 'board3', 'research1', 'research2', 'research3', 'research4', 'research5',
-    'research6', 'staff1', 'staff2', 'leaders1', 'leaders2', 'leaders3', 'artifacts', 'items', 'promos', 'assistants',
-    'idols', 'sites1', 'sites2', 'guardians' }
-  if value == 'base' then
-    for i, id in ipairs(allToggleIds) do
-      if id == 'board1' or id == 'research1' or id == 'staff1' or id == 'leaders1' then
-        UI.setAttribute(id, 'isOn', 'True')
-      else
-        UI.setAttribute(id, 'isOn', 'False')
-      end
-    end
-  else
-    for i, id in ipairs(allToggleIds) do
-      if id == 'board2' or id == 'research6' or id == 'staff2' or id == 'leaders3' or i > 14 then
-        UI.setAttribute(id, 'isOn', 'True')
-      else
-        UI.setAttribute(id, 'isOn', 'False')
-      end
-    end
-  end
-end
-
 function uiToggle(player, value, id)
   UI.setAttribute(id, 'isOn', value)
 end
@@ -883,9 +855,11 @@ function menuStart(player, value, id)
   elseif checkToggle('research4') then
     options.researchTrack = 4
   elseif checkToggle('research5') then
-    options.researchTrack = math.random(1, 4)
+    options.researchTrack = 5
   elseif checkToggle('research6') then
-    options.researchTrack = math.random(3, 4)
+    options.researchTrack = 6
+  elseif checkToggle('research7') then
+    options.researchTrack = math.random(1, 6)
   end
 
   if checkToggle('staff2') then options.staff = 2 end
