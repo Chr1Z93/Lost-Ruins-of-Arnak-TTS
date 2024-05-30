@@ -4,7 +4,7 @@
       "AbsolutePosition": {
         "x": 0,
         "y": 63.75,
-        "z": -24.0
+        "z": -24
       },
       "Distance": 65,
       "Position": {
@@ -289,7 +289,6 @@
     "ExpeditionLeadersRulebook.47e8e6",
     "ExpeditionLeadersRulebook.d40f4c",
     "ScriptingTrigger.7f2184",
-    "ResearchTrack.b575a0",
     "Level1Sites.a27f36",
     "Level2Sites.5ab09c",
     "Level2Sitesexpansion.486402",
@@ -366,7 +365,12 @@
     "ScriptingTrigger.2b78f5",
     "ScriptingTrigger.5717d6",
     "ScriptingTrigger.b6e97f",
-    "ScriptingTrigger.cc542a"
+    "ScriptingTrigger.cc542a",
+    "Noncampaignorhybridcontent.16e573",
+    "CampaignOnlyContent.5c483d",
+    "Custom_PDF.c48af2",
+    "ResearchTrack.b444d0",
+    "ResearchTrack.3c0e2b"
   ],
   "PlayArea": 0.5,
   "PlayerCounts": [
@@ -377,7 +381,7 @@
     60,
     120
   ],
-  "SaveName": "Lost Ruins of Arnak [SCRIPTED]",
+  "SaveName": "arnak test V1.0",
   "Sky": "Sky_Museum",
   "SnapPoints_path": "SnapPoints.json",
   "TabStates_path": "TabStates.json",

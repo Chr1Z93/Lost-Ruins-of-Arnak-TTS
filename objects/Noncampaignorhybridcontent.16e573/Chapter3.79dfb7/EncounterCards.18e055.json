@@ -1,0 +1,78 @@
+{
+  "AltLookAngle": {
+    "x": 0,
+    "y": 0,
+    "z": 0
+  },
+  "Autoraise": true,
+  "ColorDiffuse": {
+    "b": 0.71324,
+    "g": 0.71324,
+    "r": 0.71324
+  },
+  "ContainedObjects_order": [
+    "Card.774807",
+    "Card.8e1985",
+    "Card.ebb700",
+    "Card.43b934",
+    "Card.451845",
+    "Card.f81678",
+    "Card.d2c38c",
+    "Card.eb5133"
+  ],
+  "ContainedObjects_path": "EncounterCards.18e055",
+  "CustomDeck": {
+    "88": {
+      "BackIsHidden": false,
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2496761664833020966/04DF972A221E2EE82CF755E5A7116ACD6ABFC851/",
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2496761664833021185/3A2EB4E0A9A4F88DC4CB941C185D79601960D7DE/",
+      "NumHeight": 4,
+      "NumWidth": 2,
+      "Type": 0,
+      "UniqueBack": false
+    }
+  },
+  "DeckIDs": [
+    8800,
+    8801,
+    8802,
+    8803,
+    8804,
+    8805,
+    8806,
+    8807
+  ],
+  "Description": "",
+  "DragSelectable": true,
+  "GMNotes": "",
+  "GUID": "18e055",
+  "Grid": true,
+  "GridProjection": false,
+  "Hands": false,
+  "HideWhenFaceDown": true,
+  "IgnoreFoW": false,
+  "LayoutGroupSortIndex": 0,
+  "Locked": false,
+  "LuaScript": "",
+  "LuaScriptState": "",
+  "MeasureMovement": false,
+  "Name": "DeckCustom",
+  "Nickname": "Encounter Cards",
+  "SidewaysCard": false,
+  "Snap": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "Transform": {
+    "posX": 74.486,
+    "posY": 1.78,
+    "posZ": 32.913,
+    "rotX": 0,
+    "rotY": 180,
+    "rotZ": 180,
+    "scaleX": 1.65,
+    "scaleY": 1,
+    "scaleZ": 1.65
+  },
+  "Value": 0,
+  "XmlUI": ""
+}

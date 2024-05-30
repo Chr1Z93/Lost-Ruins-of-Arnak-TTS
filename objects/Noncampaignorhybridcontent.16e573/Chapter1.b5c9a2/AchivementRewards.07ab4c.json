@@ -1,0 +1,72 @@
+{
+  "AltLookAngle": {
+    "x": 0,
+    "y": 0,
+    "z": 0
+  },
+  "Autoraise": true,
+  "ColorDiffuse": {
+    "b": 0.71324,
+    "g": 0.71324,
+    "r": 0.71324
+  },
+  "ContainedObjects_order": [
+    "Card.686c90",
+    "Card.491780",
+    "Card.39129a",
+    "Card.abb177",
+    "Card.1f4c8a"
+  ],
+  "ContainedObjects_path": "AchivementRewards.07ab4c",
+  "CustomDeck": {
+    "76": {
+      "BackIsHidden": false,
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2496761664832868876/5DB64A99779A0939A1DB4F6CB7985C200CBB3A37/",
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2496761664832837235/F8FBB919F48DA8E7EB94EB870CA29446A3E9F4F2/",
+      "NumHeight": 3,
+      "NumWidth": 2,
+      "Type": 0,
+      "UniqueBack": false
+    }
+  },
+  "DeckIDs": [
+    7604,
+    7600,
+    7601,
+    7602,
+    7603
+  ],
+  "Description": "",
+  "DragSelectable": true,
+  "GMNotes": "",
+  "GUID": "07ab4c",
+  "Grid": true,
+  "GridProjection": false,
+  "Hands": false,
+  "HideWhenFaceDown": true,
+  "IgnoreFoW": false,
+  "LayoutGroupSortIndex": 0,
+  "Locked": false,
+  "LuaScript": "",
+  "LuaScriptState": "",
+  "MeasureMovement": false,
+  "Name": "DeckCustom",
+  "Nickname": "Achivement Rewards",
+  "SidewaysCard": false,
+  "Snap": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "Transform": {
+    "posX": 50.675,
+    "posY": 2.502,
+    "posZ": 16.171,
+    "rotX": 0,
+    "rotY": 180,
+    "rotZ": 180,
+    "scaleX": 2.3,
+    "scaleY": 1,
+    "scaleZ": 2.3
+  },
+  "Value": 0,
+  "XmlUI": ""
+}
