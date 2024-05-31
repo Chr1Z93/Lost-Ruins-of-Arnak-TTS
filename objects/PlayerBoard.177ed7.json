@@ -119,7 +119,7 @@
   "Description": "Base",
   "DragSelectable": true,
   "GMNotes": "",
-  "GUID": "83d7fe",
+  "GUID": "177ed7",
   "Grid": true,
   "GridProjection": false,
   "Hands": false,
@@ -289,10 +289,10 @@
       "Transform": {
         "posX": 51,
         "posY": 1.53149891,
-        "posZ": 18.9999981,
-        "rotX": 2.335069e-8,
-        "rotY": 180,
-        "rotZ": -3.04676462e-8,
+        "posZ": 19,
+        "rotX": -2.16873985e-8,
+        "rotY": 180.005142,
+        "rotZ": -2.92173716e-8,
         "scaleX": 5.25,
         "scaleY": 1,
         "scaleZ": 5.25
@@ -421,9 +421,9 @@
             "z": 0.5199906
           },
           "Rotation": {
-            "x": -2.14434962e-7,
-            "y": 10.0147676,
-            "z": -7.73883642e-7
+            "x": -2.14434991e-7,
+            "y": 10.0147715,
+            "z": -7.73883755e-7
           },
           "Tags": [
             "falcon"
@@ -515,10 +515,10 @@
       "Transform": {
         "posX": 51,
         "posY": 1.53149891,
-        "posZ": 18.9999981,
-        "rotX": 2.335069e-8,
-        "rotY": 180,
-        "rotZ": -3.04676462e-8,
+        "posZ": 19,
+        "rotX": -2.16873985e-8,
+        "rotY": 180.005142,
+        "rotZ": -2.92173716e-8,
         "scaleX": 5.25,
         "scaleY": 1,
         "scaleZ": 5.25
@@ -666,10 +666,10 @@
       "Transform": {
         "posX": 51,
         "posY": 1.53149891,
-        "posZ": 18.9999981,
-        "rotX": 2.335069e-8,
-        "rotY": 180,
-        "rotZ": -3.04676462e-8,
+        "posZ": 19,
+        "rotX": -2.16873985e-8,
+        "rotY": 180.005142,
+        "rotZ": -2.92173716e-8,
         "scaleX": 5.25,
         "scaleY": 1,
         "scaleZ": 5.25
@@ -817,10 +817,10 @@
       "Transform": {
         "posX": 51,
         "posY": 1.53149891,
-        "posZ": 18.9999981,
-        "rotX": 2.335069e-8,
-        "rotY": 180,
-        "rotZ": -3.04676462e-8,
+        "posZ": 19,
+        "rotX": -2.16873985e-8,
+        "rotY": 180.005142,
+        "rotZ": -2.92173716e-8,
         "scaleX": 5.25,
         "scaleY": 1,
         "scaleZ": 5.25
@@ -964,7 +964,7 @@
             "z": 0.6132106
           },
           "Rotation": {
-            "x": -4.01105268e-7,
+            "x": -4.01105382e-7,
             "y": 359.990753,
             "z": 0.00000132635671
           },
@@ -1013,10 +1013,10 @@
       "Transform": {
         "posX": 51,
         "posY": 1.53149891,
-        "posZ": 18.9999981,
-        "rotX": 2.335069e-8,
-        "rotY": 180,
-        "rotZ": -3.04676462e-8,
+        "posZ": 19,
+        "rotX": -2.16873985e-8,
+        "rotY": 180.005142,
+        "rotZ": -2.92173716e-8,
         "scaleX": 5.25,
         "scaleY": 1,
         "scaleZ": 5.25
@@ -1191,10 +1191,124 @@
       "Transform": {
         "posX": 51,
         "posY": 1.53149891,
-        "posZ": 18.9999981,
-        "rotX": 2.335069e-8,
-        "rotY": 180,
-        "rotZ": -3.04676462e-8,
+        "posZ": 19,
+        "rotX": -2.16873985e-8,
+        "rotY": 180.005142,
+        "rotZ": -2.92173716e-8,
+        "scaleX": 5.25,
+        "scaleY": 1,
+        "scaleZ": 5.25
+      },
+      "Value": 0,
+      "XmlUI": ""
+    },
+    "7": {
+      "AltLookAngle": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Autoraise": true,
+      "ColorDiffuse": {
+        "b": 1,
+        "g": 1,
+        "r": 1
+      },
+      "CustomImage": {
+        "CustomToken": {
+          "MergeDistancePixels": 15,
+          "Stackable": false,
+          "StandUp": false,
+          "Thickness": 0.1
+        },
+        "ImageScalar": 1,
+        "ImageSecondaryURL": "",
+        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2496761664843758807/E802ADB9610A8F5C17C1B0E766DD92A9E8F0E6A8/",
+        "WidthScale": 0
+      },
+      "Description": "Journalist",
+      "DragSelectable": true,
+      "GMNotes": "",
+      "GUID": "ccc255",
+      "Grid": true,
+      "GridProjection": false,
+      "Hands": false,
+      "HideWhenFaceDown": false,
+      "IgnoreFoW": false,
+      "LayoutGroupSortIndex": 0,
+      "Locked": true,
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "MeasureMovement": false,
+      "Name": "Custom_Token",
+      "Nickname": "Player Board",
+      "Snap": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "Transform": {
+        "posX": 51,
+        "posY": 1.53149891,
+        "posZ": 19,
+        "rotX": -2.16873985e-8,
+        "rotY": 180.005142,
+        "rotZ": -2.92173716e-8,
+        "scaleX": 5.25,
+        "scaleY": 1,
+        "scaleZ": 5.25
+      },
+      "Value": 0,
+      "XmlUI": ""
+    },
+    "8": {
+      "AltLookAngle": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Autoraise": true,
+      "ColorDiffuse": {
+        "b": 1,
+        "g": 1,
+        "r": 1
+      },
+      "CustomImage": {
+        "CustomToken": {
+          "MergeDistancePixels": 15,
+          "Stackable": false,
+          "StandUp": false,
+          "Thickness": 0.1
+        },
+        "ImageScalar": 1,
+        "ImageSecondaryURL": "",
+        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2496761664843759776/03FDF98358AFF94810864DFAE077E5D29A22ED48/",
+        "WidthScale": 0
+      },
+      "Description": "Mechanic",
+      "DragSelectable": true,
+      "GMNotes": "",
+      "GUID": "75b3f5",
+      "Grid": true,
+      "GridProjection": false,
+      "Hands": false,
+      "HideWhenFaceDown": false,
+      "IgnoreFoW": false,
+      "LayoutGroupSortIndex": 0,
+      "Locked": true,
+      "LuaScript": "function onLoad()\r\n    local s = 0.1\r\n    self.createButton({\r\n        label = \"↻\",\r\n        click_function = \"rotateCW\",\r\n        function_owner = self,\r\n        tooltip = \"Rotate the wheel clockwise.\",\r\n        position = {2.67,.35,.08},\r\n        font_size = 300,\r\n        scale = {s,s,s},\r\n        width = 1000,\r\n        height = 450,\r\n    })\r\n\r\n    self.createButton({\r\n        label = \"Undo\",\r\n        click_function = \"rotateCCW\",\r\n        function_owner = self,\r\n        tooltip = \"Rotate the wheel counter-clockwise.\",\r\n        position = {2.67,.35,-.03},\r\n        font_size = 300,\r\n        scale = {s,s,s},\r\n        width = 1000,\r\n        height = 450,\r\n    })\r\nend\r\n\r\nfunction rotateCW()\r\n  wheel = getObjectFromGUID('d3657d')\r\n  if wheel ~= nil then\r\n    if WAIT then\r\n        return\r\n    else\r\n        WAIT = true\r\n        Wait.time(function() WAIT = false end, .5)\r\n\r\n        local rot = wheel.getRotation()\r\n        rot.y = rot.y+90\r\n        wheel.setRotationSmooth(rot)\r\n    end\r\n  end\r\n\r\nend\r\n\r\nfunction rotateCCW()\r\n  wheel = getObjectFromGUID('d3657d')\r\n  if wheel ~= nil then\r\n    if WAIT then\r\n        return\r\n    else\r\n        WAIT = true\r\n        Wait.time(function() WAIT = false end, .5)\r\n\r\n        local rot = wheel.getRotation()\r\n        rot.y = rot.y-90\r\n        wheel.setRotationSmooth(rot)\r\n    end\r\n  end\r\n\r\nend\r",
+      "LuaScriptState": "",
+      "MeasureMovement": false,
+      "Name": "Custom_Token",
+      "Nickname": "Player Board",
+      "Snap": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "Transform": {
+        "posX": 51,
+        "posY": 1.53149891,
+        "posZ": 19,
+        "rotX": -2.16873985e-8,
+        "rotY": 180.005142,
+        "rotZ": -2.92173716e-8,
         "scaleX": 5.25,
         "scaleY": 1,
         "scaleZ": 5.25

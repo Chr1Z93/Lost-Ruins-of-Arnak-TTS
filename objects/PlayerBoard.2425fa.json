@@ -7,69 +7,29 @@
   "AttachedSnapPoints": [
     {
       "Position": {
-        "x": 1.589,
+        "x": -3.19,
         "y": 0.05,
-        "z": -0.634
-      },
-      "Rotation": {
-        "x": 0,
-        "y": 0,
-        "z": 180
+        "z": 0.427
       },
       "Tags": [
-        "idol"
+        "assistant"
       ]
     },
     {
       "Position": {
-        "x": 1.206,
+        "x": -3.191,
         "y": 0.05,
-        "z": -0.634
-      },
-      "Rotation": {
-        "x": 0,
-        "y": 0,
-        "z": 180
+        "z": -0.44
       },
       "Tags": [
-        "idol"
+        "assistant"
       ]
     },
     {
       "Position": {
-        "x": 0.819,
+        "x": 0.14,
         "y": 0.05,
-        "z": -0.634
-      },
-      "Rotation": {
-        "x": 0,
-        "y": 0,
-        "z": 180
-      },
-      "Tags": [
-        "idol"
-      ]
-    },
-    {
-      "Position": {
-        "x": 0.44,
-        "y": 0.05,
-        "z": -0.634
-      },
-      "Rotation": {
-        "x": 0,
-        "y": 0,
-        "z": 180
-      },
-      "Tags": [
-        "idol"
-      ]
-    },
-    {
-      "Position": {
-        "x": 3.059,
-        "y": 0.05,
-        "z": -0.002
+        "z": 0.002
       },
       "Rotation": {
         "x": 0,
@@ -79,22 +39,62 @@
     },
     {
       "Position": {
-        "x": -0.278,
+        "x": -1.33,
         "y": 0.05,
-        "z": 0.425
+        "z": -0.634
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
       },
       "Tags": [
-        "assistant"
+        "idol"
       ]
     },
     {
       "Position": {
-        "x": -0.278,
+        "x": -1.714,
         "y": 0.05,
-        "z": -0.44
+        "z": -0.634
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
       },
       "Tags": [
-        "assistant"
+        "idol"
+      ]
+    },
+    {
+      "Position": {
+        "x": -2.097,
+        "y": 0.05,
+        "z": -0.634
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "idol"
+      ]
+    },
+    {
+      "Position": {
+        "x": -2.478,
+        "y": 0.05,
+        "z": -0.634
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "idol"
       ]
     }
   ],
@@ -113,13 +113,13 @@
     },
     "ImageScalar": 1,
     "ImageSecondaryURL": "",
-    "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1862807092245592790/C87906346BDF7E875A1FE7066A0085B7ED1C202F/",
+    "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1862807092245593062/F95BBFA1A49CF27787FE9A29CB69A49731C79F1C/",
     "WidthScale": 0
   },
   "Description": "Base",
   "DragSelectable": true,
   "GMNotes": "",
-  "GUID": "12927c",
+  "GUID": "2425fa",
   "Grid": true,
   "GridProjection": false,
   "Hands": false,
@@ -143,43 +143,33 @@
       "AttachedSnapPoints": [
         {
           "Position": {
-            "x": 1.52363729,
-            "y": 0.0499999672,
-            "z": -0.668963552
-          },
-          "Rotation": {
-            "x": 5.609057e-8,
-            "y": 0.0147602158,
-            "z": 180
+            "x": -3.182857,
+            "y": 0.050000038,
+            "z": 0.441904575
           },
           "Tags": [
-            "idol"
+            "assistant"
           ]
         },
         {
           "Position": {
-            "x": 1.125542,
-            "y": 0.04999996,
-            "z": -0.6688614
-          },
-          "Rotation": {
-            "x": -1.25719712e-9,
-            "y": 0.0147602158,
-            "z": 180
+            "x": -3.182857,
+            "y": 0.0500000454,
+            "z": -0.455238134
           },
           "Tags": [
-            "idol"
+            "assistant"
           ]
         },
         {
           "Position": {
-            "x": 0.655065656,
+            "x": -0.148571178,
             "y": 0.049999956,
-            "z": -0.6687402
+            "z": -0.6723811
           },
           "Rotation": {
-            "x": 7.15542425e-9,
-            "y": 0.0147602158,
+            "x": 9.162246e-9,
+            "y": 0.00000270244664,
             "z": 180
           },
           "Tags": [
@@ -188,13 +178,13 @@
         },
         {
           "Position": {
-            "x": 0.255065948,
+            "x": -0.5485716,
             "y": 0.0499999523,
-            "z": -0.6686372
+            "z": -0.6723811
           },
           "Rotation": {
-            "x": -4.315865e-8,
-            "y": 0.0147602158,
+            "x": -1.92997547e-8,
+            "y": 0.00000270244664,
             "z": 180
           },
           "Tags": [
@@ -203,46 +193,56 @@
         },
         {
           "Position": {
-            "x": -1.49887991,
-            "y": 0.0500000566,
-            "z": -0.454851657
-          },
-          "Tags": [
-            "assistant"
-          ]
-        },
-        {
-          "Position": {
-            "x": -1.4989326,
-            "y": 0.0500000566,
-            "z": 0.446100384
-          },
-          "Tags": [
-            "assistant"
-          ]
-        },
-        {
-          "Position": {
-            "x": 3.07996488,
-            "y": 0.0499999858,
-            "z": -0.1360311
+            "x": -1.02476215,
+            "y": 0.0499999449,
+            "z": -0.672381163
           },
           "Rotation": {
-            "x": -8.128386e-9,
-            "y": 0.0147602158,
+            "x": -4.18148467e-8,
+            "y": 0.00000270244664,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": -1.426667,
+            "y": 0.04999994,
+            "z": -0.672381163
+          },
+          "Rotation": {
+            "x": -2.14355165e-8,
+            "y": 0.00000270244664,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": 1.40952408,
+            "y": 0.0499999672,
+            "z": -0.129523814
+          },
+          "Rotation": {
+            "x": 2.87297941e-9,
+            "y": 0.00000270244664,
             "z": 180
           }
         },
         {
           "Position": {
-            "x": 1.55682957,
-            "y": 0.0499999449,
-            "z": 0.700111151
+            "x": -0.123954467,
+            "y": 0.04999995,
+            "z": 0.70192647
           },
           "Rotation": {
-            "x": -2.41285846e-7,
-            "y": -5.51246342e-16,
-            "z": 2.61798135e-7
+            "x": 2.149308e-7,
+            "y": 1.60760382e-16,
+            "z": 8.57103e-8
           },
           "Tags": [
             "pawn"
@@ -264,13 +264,13 @@
         },
         "ImageScalar": 1,
         "ImageSecondaryURL": "",
-        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1862807092245592439/D2018919F62DE45BE76C162979146D930E7D2994/",
+        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1862807092245592496/B8EDF37CC8AE52A4CC437A8BA50A5B707A3E0780/",
         "WidthScale": 0
       },
       "Description": "Captain",
       "DragSelectable": true,
       "GMNotes": "",
-      "GUID": "a66116",
+      "GUID": "6aacea",
       "Grid": true,
       "GridProjection": false,
       "Hands": false,
@@ -287,12 +287,12 @@
       "Sticky": true,
       "Tooltip": true,
       "Transform": {
-        "posX": 51,
+        "posX": -51,
         "posY": 1.53149891,
         "posZ": -22,
-        "rotX": -1.31172641e-7,
-        "rotY": 180,
-        "rotZ": 1.2702972e-8,
+        "rotX": -2.51784158e-8,
+        "rotY": 179.993347,
+        "rotZ": -5.01545971e-10,
         "scaleX": 5.25,
         "scaleY": 1,
         "scaleZ": 5.25
@@ -309,43 +309,33 @@
       "AttachedSnapPoints": [
         {
           "Position": {
-            "x": 1.52363729,
-            "y": 0.0499999672,
-            "z": -0.668963552
-          },
-          "Rotation": {
-            "x": 5.609057e-8,
-            "y": 0.0147602158,
-            "z": 180
+            "x": -3.182857,
+            "y": 0.050000038,
+            "z": 0.441904575
           },
           "Tags": [
-            "idol"
+            "assistant"
           ]
         },
         {
           "Position": {
-            "x": 1.125542,
-            "y": 0.04999996,
-            "z": -0.6688614
-          },
-          "Rotation": {
-            "x": -1.25719712e-9,
-            "y": 0.0147602158,
-            "z": 180
+            "x": -3.182857,
+            "y": 0.0500000454,
+            "z": -0.455238134
           },
           "Tags": [
-            "idol"
+            "assistant"
           ]
         },
         {
           "Position": {
-            "x": 0.655065656,
+            "x": -0.148571178,
             "y": 0.049999956,
-            "z": -0.6687402
+            "z": -0.6723811
           },
           "Rotation": {
-            "x": 7.15542425e-9,
-            "y": 0.0147602158,
+            "x": 9.162246e-9,
+            "y": 0.00000270244664,
             "z": 180
           },
           "Tags": [
@@ -354,13 +344,13 @@
         },
         {
           "Position": {
-            "x": 0.255065948,
+            "x": -0.5485716,
             "y": 0.0499999523,
-            "z": -0.6686372
+            "z": -0.6723811
           },
           "Rotation": {
-            "x": -4.315865e-8,
-            "y": 0.0147602158,
+            "x": -1.92997547e-8,
+            "y": 0.00000270244664,
             "z": 180
           },
           "Tags": [
@@ -369,46 +359,56 @@
         },
         {
           "Position": {
-            "x": -1.49887991,
-            "y": 0.0500000566,
-            "z": -0.454851657
-          },
-          "Tags": [
-            "assistant"
-          ]
-        },
-        {
-          "Position": {
-            "x": -1.4989326,
-            "y": 0.0500000566,
-            "z": 0.446100384
-          },
-          "Tags": [
-            "assistant"
-          ]
-        },
-        {
-          "Position": {
-            "x": 3.07996488,
-            "y": 0.0499999858,
-            "z": -0.1360311
+            "x": -1.02476215,
+            "y": 0.0499999449,
+            "z": -0.672381163
           },
           "Rotation": {
-            "x": -8.128386e-9,
-            "y": 0.0147602158,
+            "x": -4.18148467e-8,
+            "y": 0.00000270244664,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": -1.426667,
+            "y": 0.04999994,
+            "z": -0.672381163
+          },
+          "Rotation": {
+            "x": -2.14355165e-8,
+            "y": 0.00000270244664,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": 1.40952408,
+            "y": 0.0499999672,
+            "z": -0.129523814
+          },
+          "Rotation": {
+            "x": 2.87297941e-9,
+            "y": 0.00000270244664,
             "z": 180
           }
         },
         {
           "Position": {
-            "x": 0.525789559,
-            "y": 0.0499999523,
-            "z": 0.293198079
+            "x": -1.15619051,
+            "y": 0.04999995,
+            "z": 0.293333322
           },
           "Rotation": {
-            "x": -0.0000046671,
-            "y": 45.01382,
-            "z": -0.0000020056948
+            "x": 0.000002514602,
+            "y": 44.99997,
+            "z": 0.000003822522
           },
           "Tags": [
             "falcon"
@@ -416,14 +416,14 @@
         },
         {
           "Position": {
-            "x": 0.0363241881,
+            "x": -1.64571416,
             "y": 0.0499999523,
-            "z": 0.5199906
+            "z": 0.518094838
           },
           "Rotation": {
-            "x": -2.14434962e-7,
-            "y": 10.0147686,
-            "z": -7.73883642e-7
+            "x": -6.821566e-7,
+            "y": 9.999988,
+            "z": 2.20464884e-7
           },
           "Tags": [
             "falcon"
@@ -431,14 +431,14 @@
         },
         {
           "Position": {
-            "x": -0.472281724,
+            "x": -2.1539526,
             "y": 0.0499999523,
-            "z": 0.3848837
+            "z": 0.382856816
           },
           "Rotation": {
-            "x": 0.00000139340057,
-            "y": 330.01474,
-            "z": 1.91098465e-7
+            "x": 0.000003997802,
+            "y": 328,
+            "z": 0.000003834113
           },
           "Tags": [
             "falcon"
@@ -446,14 +446,14 @@
         },
         {
           "Position": {
-            "x": -0.7009657,
-            "y": 0.0499999523,
-            "z": -0.0512480624
+            "x": -2.384762,
+            "y": 0.049999956,
+            "z": -0.04952425
           },
           "Rotation": {
-            "x": -5.18676245e-7,
-            "y": 295.014771,
-            "z": -9.882338e-7
+            "x": 0.00000198819453,
+            "y": 295,
+            "z": -8.20939647e-7
           },
           "Tags": [
             "falcon"
@@ -461,14 +461,14 @@
         },
         {
           "Position": {
-            "x": -0.7449079,
-            "y": 0.0499999523,
-            "z": -0.5693315
+            "x": -2.42666674,
+            "y": 0.04999996,
+            "z": -0.5701367
           },
           "Rotation": {
-            "x": -0.0000028148786,
-            "y": 270.019348,
-            "z": 0.000004837626
+            "x": -6.378267e-7,
+            "y": 270.001831,
+            "z": 0.000003163112
           },
           "Tags": [
             "falcon"
@@ -490,13 +490,13 @@
         },
         "ImageScalar": 1,
         "ImageSecondaryURL": "",
-        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1862807092245592685/AA3904CB3D12A90174B125FCB4B70DFC65DF8AB3/",
+        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1862807092245592729/DE5DF4737F6844030D84D19D27596093F605F4F6/",
         "WidthScale": 0
       },
       "Description": "Falconer",
       "DragSelectable": true,
       "GMNotes": "",
-      "GUID": "f7cf22",
+      "GUID": "b2ba90",
       "Grid": true,
       "GridProjection": false,
       "Hands": false,
@@ -513,12 +513,12 @@
       "Sticky": true,
       "Tooltip": true,
       "Transform": {
-        "posX": 51,
+        "posX": -51,
         "posY": 1.53149891,
         "posZ": -22,
-        "rotX": -1.31172641e-7,
-        "rotY": 180,
-        "rotZ": 1.2702972e-8,
+        "rotX": -2.51784158e-8,
+        "rotY": 179.993347,
+        "rotZ": -5.01545971e-10,
         "scaleX": 5.25,
         "scaleY": 1,
         "scaleZ": 5.25
@@ -535,43 +535,33 @@
       "AttachedSnapPoints": [
         {
           "Position": {
-            "x": 1.52363729,
-            "y": 0.0499999672,
-            "z": -0.668963552
-          },
-          "Rotation": {
-            "x": 5.609057e-8,
-            "y": 0.0147602158,
-            "z": 180
+            "x": -3.182857,
+            "y": 0.050000038,
+            "z": 0.441904575
           },
           "Tags": [
-            "idol"
+            "assistant"
           ]
         },
         {
           "Position": {
-            "x": 1.125542,
-            "y": 0.04999996,
-            "z": -0.6688614
-          },
-          "Rotation": {
-            "x": -1.25719712e-9,
-            "y": 0.0147602158,
-            "z": 180
+            "x": -3.182857,
+            "y": 0.0500000454,
+            "z": -0.455238134
           },
           "Tags": [
-            "idol"
+            "assistant"
           ]
         },
         {
           "Position": {
-            "x": 0.655065656,
+            "x": -0.148571178,
             "y": 0.049999956,
-            "z": -0.6687402
+            "z": -0.6723811
           },
           "Rotation": {
-            "x": 7.15542425e-9,
-            "y": 0.0147602158,
+            "x": 9.162246e-9,
+            "y": 0.00000270244664,
             "z": 180
           },
           "Tags": [
@@ -580,13 +570,13 @@
         },
         {
           "Position": {
-            "x": 0.255065948,
+            "x": -0.5485716,
             "y": 0.0499999523,
-            "z": -0.6686372
+            "z": -0.6723811
           },
           "Rotation": {
-            "x": -4.315865e-8,
-            "y": 0.0147602158,
+            "x": -1.92997547e-8,
+            "y": 0.00000270244664,
             "z": 180
           },
           "Tags": [
@@ -595,33 +585,43 @@
         },
         {
           "Position": {
-            "x": -1.49887991,
-            "y": 0.0500000566,
-            "z": -0.454851657
-          },
-          "Tags": [
-            "assistant"
-          ]
-        },
-        {
-          "Position": {
-            "x": -1.4989326,
-            "y": 0.0500000566,
-            "z": 0.446100384
-          },
-          "Tags": [
-            "assistant"
-          ]
-        },
-        {
-          "Position": {
-            "x": 3.07996488,
-            "y": 0.0499999858,
-            "z": -0.1360311
+            "x": -1.02476215,
+            "y": 0.0499999449,
+            "z": -0.672381163
           },
           "Rotation": {
-            "x": -8.128386e-9,
-            "y": 0.0147602158,
+            "x": -4.18148467e-8,
+            "y": 0.00000270244664,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": -1.426667,
+            "y": 0.04999994,
+            "z": -0.672381163
+          },
+          "Rotation": {
+            "x": -2.14355165e-8,
+            "y": 0.00000270244664,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": 1.40952408,
+            "y": 0.0499999672,
+            "z": -0.129523814
+          },
+          "Rotation": {
+            "x": 2.87297941e-9,
+            "y": 0.00000270244664,
             "z": 180
           }
         }
@@ -641,13 +641,13 @@
         },
         "ImageScalar": 1,
         "ImageSecondaryURL": "",
-        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1862807092245592273/B181101030DF3014002CC84C3E32C6350E1A7BD2/",
+        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1862807092245592331/411A607AC0F8A74E46784D46924695470149BFB1/",
         "WidthScale": 0
       },
       "Description": "Baroness",
       "DragSelectable": true,
       "GMNotes": "",
-      "GUID": "7621f8",
+      "GUID": "cd13d4",
       "Grid": true,
       "GridProjection": false,
       "Hands": false,
@@ -664,12 +664,12 @@
       "Sticky": true,
       "Tooltip": true,
       "Transform": {
-        "posX": 51,
+        "posX": -51,
         "posY": 1.53149891,
         "posZ": -22,
-        "rotX": -1.31172641e-7,
-        "rotY": 180,
-        "rotZ": 1.2702972e-8,
+        "rotX": -2.51784158e-8,
+        "rotY": 179.993347,
+        "rotZ": -5.01545971e-10,
         "scaleX": 5.25,
         "scaleY": 1,
         "scaleZ": 5.25
@@ -686,43 +686,33 @@
       "AttachedSnapPoints": [
         {
           "Position": {
-            "x": 1.52363729,
-            "y": 0.0499999672,
-            "z": -0.668963552
-          },
-          "Rotation": {
-            "x": 5.609057e-8,
-            "y": 0.0147602158,
-            "z": 180
+            "x": -3.182857,
+            "y": 0.050000038,
+            "z": 0.441904575
           },
           "Tags": [
-            "idol"
+            "assistant"
           ]
         },
         {
           "Position": {
-            "x": 1.125542,
-            "y": 0.04999996,
-            "z": -0.6688614
-          },
-          "Rotation": {
-            "x": -1.25719712e-9,
-            "y": 0.0147602158,
-            "z": 180
+            "x": -3.182857,
+            "y": 0.0500000454,
+            "z": -0.455238134
           },
           "Tags": [
-            "idol"
+            "assistant"
           ]
         },
         {
           "Position": {
-            "x": 0.655065656,
+            "x": -0.148571178,
             "y": 0.049999956,
-            "z": -0.6687402
+            "z": -0.6723811
           },
           "Rotation": {
-            "x": 7.15542425e-9,
-            "y": 0.0147602158,
+            "x": 9.162246e-9,
+            "y": 0.00000270244664,
             "z": 180
           },
           "Tags": [
@@ -731,13 +721,13 @@
         },
         {
           "Position": {
-            "x": 0.255065948,
+            "x": -0.5485716,
             "y": 0.0499999523,
-            "z": -0.6686372
+            "z": -0.6723811
           },
           "Rotation": {
-            "x": -4.315865e-8,
-            "y": 0.0147602158,
+            "x": -1.92997547e-8,
+            "y": 0.00000270244664,
             "z": 180
           },
           "Tags": [
@@ -746,33 +736,43 @@
         },
         {
           "Position": {
-            "x": -1.49887991,
-            "y": 0.0500000566,
-            "z": -0.454851657
-          },
-          "Tags": [
-            "assistant"
-          ]
-        },
-        {
-          "Position": {
-            "x": -1.4989326,
-            "y": 0.0500000566,
-            "z": 0.446100384
-          },
-          "Tags": [
-            "assistant"
-          ]
-        },
-        {
-          "Position": {
-            "x": 3.07996488,
-            "y": 0.0499999858,
-            "z": -0.1360311
+            "x": -1.02476215,
+            "y": 0.0499999449,
+            "z": -0.672381163
           },
           "Rotation": {
-            "x": -8.128386e-9,
-            "y": 0.0147602158,
+            "x": -4.18148467e-8,
+            "y": 0.00000270244664,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": -1.426667,
+            "y": 0.04999994,
+            "z": -0.672381163
+          },
+          "Rotation": {
+            "x": -2.14355165e-8,
+            "y": 0.00000270244664,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": 1.40952408,
+            "y": 0.0499999672,
+            "z": -0.129523814
+          },
+          "Rotation": {
+            "x": 2.87297941e-9,
+            "y": 0.00000270244664,
             "z": 180
           }
         }
@@ -792,13 +792,13 @@
         },
         "ImageScalar": 1,
         "ImageSecondaryURL": "",
-        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1862807092245592897/0A7E192EE2EC15C5F8B30C3803E542B942BAC430/",
+        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1862807092245592958/41B03F929C180CD797D438CA926136C051BEF4B7/",
         "WidthScale": 0
       },
       "Description": "Professor",
       "DragSelectable": true,
       "GMNotes": "",
-      "GUID": "cd6f6e",
+      "GUID": "db7451",
       "Grid": true,
       "GridProjection": false,
       "Hands": false,
@@ -815,12 +815,12 @@
       "Sticky": true,
       "Tooltip": true,
       "Transform": {
-        "posX": 51,
+        "posX": -51,
         "posY": 1.53149891,
         "posZ": -22,
-        "rotX": -1.31172641e-7,
-        "rotY": 180,
-        "rotZ": 1.2702972e-8,
+        "rotX": -2.51784158e-8,
+        "rotY": 179.993347,
+        "rotZ": -5.01545971e-10,
         "scaleX": 5.25,
         "scaleY": 1,
         "scaleZ": 5.25
@@ -837,43 +837,33 @@
       "AttachedSnapPoints": [
         {
           "Position": {
-            "x": 1.52363729,
-            "y": 0.0499999672,
-            "z": -0.668963552
-          },
-          "Rotation": {
-            "x": 5.609057e-8,
-            "y": 0.0147602158,
-            "z": 180
+            "x": -3.182857,
+            "y": 0.050000038,
+            "z": 0.441904575
           },
           "Tags": [
-            "idol"
+            "assistant"
           ]
         },
         {
           "Position": {
-            "x": 1.125542,
-            "y": 0.04999996,
-            "z": -0.6688614
-          },
-          "Rotation": {
-            "x": -1.25719712e-9,
-            "y": 0.0147602158,
-            "z": 180
+            "x": -3.182857,
+            "y": 0.0500000454,
+            "z": -0.455238134
           },
           "Tags": [
-            "idol"
+            "assistant"
           ]
         },
         {
           "Position": {
-            "x": 0.655065656,
+            "x": -0.148571178,
             "y": 0.049999956,
-            "z": -0.6687402
+            "z": -0.6723811
           },
           "Rotation": {
-            "x": 7.15542425e-9,
-            "y": 0.0147602158,
+            "x": 9.162246e-9,
+            "y": 0.00000270244664,
             "z": 180
           },
           "Tags": [
@@ -882,13 +872,13 @@
         },
         {
           "Position": {
-            "x": 0.255065948,
+            "x": -0.5485716,
             "y": 0.0499999523,
-            "z": -0.6686372
+            "z": -0.6723811
           },
           "Rotation": {
-            "x": -4.315865e-8,
-            "y": 0.0147602158,
+            "x": -1.92997547e-8,
+            "y": 0.00000270244664,
             "z": 180
           },
           "Tags": [
@@ -897,46 +887,56 @@
         },
         {
           "Position": {
-            "x": -1.49887991,
-            "y": 0.0500000566,
-            "z": -0.454851657
-          },
-          "Tags": [
-            "assistant"
-          ]
-        },
-        {
-          "Position": {
-            "x": -1.4989326,
-            "y": 0.0500000566,
-            "z": 0.446100384
-          },
-          "Tags": [
-            "assistant"
-          ]
-        },
-        {
-          "Position": {
-            "x": 3.07996488,
-            "y": 0.0499999858,
-            "z": -0.1360311
+            "x": -1.02476215,
+            "y": 0.0499999449,
+            "z": -0.672381163
           },
           "Rotation": {
-            "x": -8.128386e-9,
-            "y": 0.0147602158,
+            "x": -4.18148467e-8,
+            "y": 0.00000270244664,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": -1.426667,
+            "y": 0.04999994,
+            "z": -0.672381163
+          },
+          "Rotation": {
+            "x": -2.14355165e-8,
+            "y": 0.00000270244664,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": 1.40952408,
+            "y": 0.0499999672,
+            "z": -0.129523814
+          },
+          "Rotation": {
+            "x": 2.87297941e-9,
+            "y": 0.00000270244664,
             "z": 180
           }
         },
         {
           "Position": {
-            "x": -0.759896636,
-            "y": 0.04999995,
-            "z": -0.628694057
+            "x": -2.44196534,
+            "y": 0.0500002019,
+            "z": -0.622619033
           },
           "Rotation": {
-            "x": 0.00000108255676,
-            "y": 359.990753,
-            "z": 1.76399706e-9
+            "x": -0.0000011327503,
+            "y": 0.00558559271,
+            "z": 0.00000101981982
           },
           "Tags": [
             "food"
@@ -944,14 +944,14 @@
         },
         {
           "Position": {
-            "x": -0.759999454,
-            "y": 0.04999995,
-            "z": -0.005837179
+            "x": -2.44190478,
+            "y": 0.0500025041,
+            "z": 0.000238192544
           },
           "Rotation": {
-            "x": 7.801285e-7,
-            "y": 359.990753,
-            "z": -0.00000112062571
+            "x": 9.50498531e-7,
+            "y": 0.00558559271,
+            "z": -2.23786557e-7
           },
           "Tags": [
             "food"
@@ -959,14 +959,14 @@
         },
         {
           "Position": {
-            "x": -0.7600994,
-            "y": 0.04999995,
-            "z": 0.6132106
+            "x": -2.44184446,
+            "y": 0.05000061,
+            "z": 0.6192858
           },
           "Rotation": {
-            "x": -4.011053e-7,
-            "y": 359.990753,
-            "z": 0.00000132635671
+            "x": -6.75691638e-7,
+            "y": 0.00558559271,
+            "z": -0.00000195245275
           },
           "Tags": [
             "food"
@@ -988,13 +988,13 @@
         },
         "ImageScalar": 1,
         "ImageSecondaryURL": "",
-        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1862807092245592551/C87DC9B3AA37B7B668FF8D02051E556607D0D3EA/",
+        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1862807092245592625/68C58E762EEC7BB273D92CDEB3339545CC1082CF/",
         "WidthScale": 0
       },
       "Description": "Adventurer",
       "DragSelectable": true,
       "GMNotes": "",
-      "GUID": "fb822c",
+      "GUID": "b0183e",
       "Grid": true,
       "GridProjection": false,
       "Hands": false,
@@ -1011,12 +1011,12 @@
       "Sticky": true,
       "Tooltip": true,
       "Transform": {
-        "posX": 51,
+        "posX": -51,
         "posY": 1.53149891,
         "posZ": -22,
-        "rotX": -1.31172641e-7,
-        "rotY": 180,
-        "rotZ": 1.2702972e-8,
+        "rotX": -2.51784158e-8,
+        "rotY": 179.993347,
+        "rotZ": -5.01545971e-10,
         "scaleX": 5.25,
         "scaleY": 1,
         "scaleZ": 5.25
@@ -1172,7 +1172,7 @@
       "Description": "Mystic",
       "DragSelectable": true,
       "GMNotes": "",
-      "GUID": "eba262",
+      "GUID": "fee76b",
       "Grid": true,
       "GridProjection": false,
       "Hands": false,
@@ -1189,12 +1189,126 @@
       "Sticky": true,
       "Tooltip": true,
       "Transform": {
-        "posX": 51,
+        "posX": -51,
         "posY": 1.53149891,
         "posZ": -22,
-        "rotX": -1.31172641e-7,
-        "rotY": 180,
-        "rotZ": 1.2702972e-8,
+        "rotX": -2.51784158e-8,
+        "rotY": 179.993347,
+        "rotZ": -5.01545971e-10,
+        "scaleX": 5.25,
+        "scaleY": 1,
+        "scaleZ": 5.25
+      },
+      "Value": 0,
+      "XmlUI": ""
+    },
+    "7": {
+      "AltLookAngle": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Autoraise": true,
+      "ColorDiffuse": {
+        "b": 1,
+        "g": 1,
+        "r": 1
+      },
+      "CustomImage": {
+        "CustomToken": {
+          "MergeDistancePixels": 15,
+          "Stackable": false,
+          "StandUp": false,
+          "Thickness": 0.1
+        },
+        "ImageScalar": 1,
+        "ImageSecondaryURL": "",
+        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2496761664843758807/E802ADB9610A8F5C17C1B0E766DD92A9E8F0E6A8/",
+        "WidthScale": 0
+      },
+      "Description": "Journalist",
+      "DragSelectable": true,
+      "GMNotes": "",
+      "GUID": "161ec5",
+      "Grid": true,
+      "GridProjection": false,
+      "Hands": false,
+      "HideWhenFaceDown": false,
+      "IgnoreFoW": false,
+      "LayoutGroupSortIndex": 0,
+      "Locked": true,
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "MeasureMovement": false,
+      "Name": "Custom_Token",
+      "Nickname": "Player Board",
+      "Snap": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "Transform": {
+        "posX": -51,
+        "posY": 1.53149891,
+        "posZ": -22,
+        "rotX": -2.51784158e-8,
+        "rotY": 179.993347,
+        "rotZ": -5.01545971e-10,
+        "scaleX": 5.25,
+        "scaleY": 1,
+        "scaleZ": 5.25
+      },
+      "Value": 0,
+      "XmlUI": ""
+    },
+    "8": {
+      "AltLookAngle": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Autoraise": true,
+      "ColorDiffuse": {
+        "b": 1,
+        "g": 1,
+        "r": 1
+      },
+      "CustomImage": {
+        "CustomToken": {
+          "MergeDistancePixels": 15,
+          "Stackable": false,
+          "StandUp": false,
+          "Thickness": 0.1
+        },
+        "ImageScalar": 1,
+        "ImageSecondaryURL": "",
+        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2496761664843759776/03FDF98358AFF94810864DFAE077E5D29A22ED48/",
+        "WidthScale": 0
+      },
+      "Description": "Mechanic",
+      "DragSelectable": true,
+      "GMNotes": "",
+      "GUID": "89782a",
+      "Grid": true,
+      "GridProjection": false,
+      "Hands": false,
+      "HideWhenFaceDown": false,
+      "IgnoreFoW": false,
+      "LayoutGroupSortIndex": 0,
+      "Locked": true,
+      "LuaScript": "function onLoad()\r\n    local s = 0.1\r\n    self.createButton({\r\n        label = \"↻\",\r\n        click_function = \"rotateCW\",\r\n        function_owner = self,\r\n        tooltip = \"Rotate the wheel clockwise.\",\r\n        position = {2.67,.35,.08},\r\n        font_size = 300,\r\n        scale = {s,s,s},\r\n        width = 1000,\r\n        height = 450,\r\n    })\r\n\r\n    self.createButton({\r\n        label = \"Undo\",\r\n        click_function = \"rotateCCW\",\r\n        function_owner = self,\r\n        tooltip = \"Rotate the wheel counter-clockwise.\",\r\n        position = {2.67,.35,-.03},\r\n        font_size = 300,\r\n        scale = {s,s,s},\r\n        width = 1000,\r\n        height = 450,\r\n    })\r\nend\r\n\r\nfunction rotateCW()\r\n  wheel = getObjectFromGUID('d3657d')\r\n  if wheel ~= nil then\r\n    if WAIT then\r\n        return\r\n    else\r\n        WAIT = true\r\n        Wait.time(function() WAIT = false end, .5)\r\n\r\n        local rot = wheel.getRotation()\r\n        rot.y = rot.y+90\r\n        wheel.setRotationSmooth(rot)\r\n    end\r\n  end\r\n\r\nend\r\n\r\nfunction rotateCCW()\r\n  wheel = getObjectFromGUID('d3657d')\r\n  if wheel ~= nil then\r\n    if WAIT then\r\n        return\r\n    else\r\n        WAIT = true\r\n        Wait.time(function() WAIT = false end, .5)\r\n\r\n        local rot = wheel.getRotation()\r\n        rot.y = rot.y-90\r\n        wheel.setRotationSmooth(rot)\r\n    end\r\n  end\r\n\r\nend\r",
+      "LuaScriptState": "",
+      "MeasureMovement": false,
+      "Name": "Custom_Token",
+      "Nickname": "Player Board",
+      "Snap": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "Transform": {
+        "posX": -51,
+        "posY": 1.53149891,
+        "posZ": -22,
+        "rotX": -2.51784158e-8,
+        "rotY": 179.993347,
+        "rotZ": -5.01545971e-10,
         "scaleX": 5.25,
         "scaleY": 1,
         "scaleZ": 5.25
@@ -1206,7 +1320,7 @@
   "Sticky": true,
   "Tooltip": true,
   "Transform": {
-    "posX": 51,
+    "posX": -51,
     "posY": 1.531,
     "posZ": -22,
     "rotX": 0,
