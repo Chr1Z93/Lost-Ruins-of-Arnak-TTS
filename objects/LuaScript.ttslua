@@ -801,7 +801,7 @@ function menuStart(player, value, id)
   if TESTING and testVars.defineSeated then seatedPlayers = testVars.seatedPlayers end
 
   local playerBoards = {}
-  local leaders = { false, false, false, false, false, false }
+  local leaders = { false, false, false, false, false, false, false, false }
   local duplicate = false
   for _, color in ipairs(allColors) do
     local seated = false
@@ -811,7 +811,7 @@ function menuStart(player, value, id)
         table.insert(seatedPlayerColors, color)
         local playerBoard = getPlayerBoard(color)
         playerBoards[color] = playerBoard.getStateId()
-        if playerBoard.getStateId() ~= 7 then
+        if playerBoard.getStateId() ~= 9 then
           if not leaders[playerBoard.getStateId()] then
             leaders[playerBoard.getStateId()] = true
           else
@@ -842,13 +842,20 @@ function menuStart(player, value, id)
 
   math.randomseed(os.time())
   options.playerBoards = playerBoards
-  if checkToggle('board2') then
+
+  -- Set Game Board
+  if checkToggle('board1') then
+    options.board = 1
+  elseif checkToggle('board2') then
     options.board = 2
   elseif checkToggle('board3') then
     options.board = math.random(1, 2)
   end
 
-  if checkToggle('research2') then
+  -- Set Research Track
+  if checkToggle('research1') then
+    options.researchTrack = 1
+  elseif checkToggle('research2') then
     options.researchTrack = 2
   elseif checkToggle('research3') then
     options.researchTrack = 3
@@ -862,22 +869,33 @@ function menuStart(player, value, id)
     options.researchTrack = math.random(1, 6)
   end
 
-  if checkToggle('staff2') then options.staff = 2 end
+  -- Set Moonstaff Type
+  if checkToggle('staff1') then 
+    options.staff = 1
+  elseif checkToggle('staff2') then
+    options.staff = 2
+  end
 
-  if checkToggle('leaders2') then
-    options.leaders = 'random'
+  -- Set Leader Options
+  if checkToggle('leaders1') then
+    options.leaders = 'none'
+  elseif checkToggle('leaders2') then
+    options.leaders = 'rand_expedition_ldrs'
   elseif checkToggle('leaders3') then
+    options.leaders = 'rand_all_ldrs'
+  elseif checkToggle('leaders4') then
     options.leaders = 'choose'
   end
 
-  local expansions = { 'artifacts', 'items', 'promos', 'assistants', 'idols', 'sites1', 'sites2', 'guardians' }
+  -- Check Enabled Expansions and set those options
+  local expansions = { 'expeditionLeaders', 'missingExpedition', 'promos'}
   for _, expansion in ipairs(expansions) do
     checkToggle(expansion, options.expansions)
   end
 
   if options.researchTrack == 4 and not options.expansions.idols then
-    broadcastToAll('The Lizard Temple has been selected. Expansion idols will be used.')
-    options.expansions.idols = true
+    broadcastToAll('The Lizard Temple has been selected. Expedition Leaders expansion will be used.')
+    options.expansions.expeditionLeaders = true
   end
   setupInProgress = true
 
@@ -887,32 +905,43 @@ function menuStart(player, value, id)
     local soloBag = getObjectFromGUID(bags.solo)
 
     -- set states on boards
-    if options.leaders == 'random' then leaders = { false, false, false, false, false, false } end
+    -- If the player chose to randomized only expedition leaders we need 6 spots, if they randomized all leaders
+    -- then we need 8 spots
+    if options.leaders == 'rand_expedition_ldrs' then 
+        leaders = { false, false, false, false, false, false } 
+    elseif options.leaders == 'rand_all_ldrs' or options.leaders == 'choose' then
+        leaders = {false, false, false, false, false, false, false, false}
+    end
+    
     for _, playerColor in ipairs(seatedPlayerColors) do
+      --Setup the solo player board
       if options.solo and playerColor == 'Red' then
         for _, object in ipairs(getObjectFromGUID(playerVars[playerColor].allZoneGuid).getObjects()) do
           if object.getName() ~= 'Red Archaeologist' then object.destruct() end
         end
         getPlayerBoard(playerColor).destruct()
         soloBag.takeObject({ guid = solo.board, position = solo.boardPosition, rotation = faceup })
+      --If not the solo player board
       else
         local playerBoard = getPlayerBoard(playerColor)
         if playerBoard == nil then
           broadcastToAll('Cannot find ' .. playerColor .. "'s player board. Please reload the mod.")
           return 1
         end
-        if options.leaders == 'random' or options.leaders == 'choose' and playerBoard.getStateId() == 7 then
+        -- if the player chose to random either expedition leaders or all leaders OR they choose to randomize during leader picking
+        if options.leaders == 'rand_expedition_ldrs' or options.leaders == 'rand_all_ldrs' or (options.leaders == 'choose' and playerBoard.getStateId() == 9) then
           local rand = nil
-          repeat
+          repeat -- generate random numbers between 1 and number of leaders (6 if expedition, 8 if all)
             rand = math.random(1, #leaders)
-          until (leaders[rand] == false)
+          until (leaders[rand] == false) -- until you generate a number not already picked
 
-          leaders[rand] = true
-          options.playerBoards[playerColor] = rand
+          leaders[rand] = true -- mark the number as 'picked' and set the playerboard to that state
+          options.playerBoards[playerColor] = rand 
           if playerBoard.getStateId() ~= rand then playerBoard.setState(rand) end
+        -- if the player chose no leaders set the board to 9 which is base board
         elseif options.leaders == 'none' then
-          options.playerBoards[playerColor] = 7
-          if playerBoard.getStateId() ~= 7 then playerBoard.setState(7) end
+          options.playerBoards[playerColor] = 9
+          if playerBoard.getStateId() ~= 9 then playerBoard.setState(9) end
         else
           options.playerBoards[playerColor] = playerBoard.getStateId()
         end
@@ -3673,3 +3702,4 @@ function setupTestButtons()
     buttonZone.createButton(params)
   end
 end
+
