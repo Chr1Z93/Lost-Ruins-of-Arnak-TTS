@@ -413,7 +413,7 @@
 	cellPadding="0 0 12 12"
 	cellBackgroundColor="clear"
 	rowBackgroundColor="rgba(1, 1, 1, 0.85)">
-	<Row preferredHeight="160">
+	<Row preferredHeight="180">
 		<Cell>
 			<ToggleGroup>
 				<VerticalLayout>
@@ -422,18 +422,17 @@
 					<Toggle onValueChanged="uiToggle"
 						id="leaders1">None</Toggle>
 					<Toggle onValueChanged="uiToggle"
-						id="leaders2">Expedition Leaders Only</Toggle>
+						id="leaders2">Random Expedition Leaders</Toggle>
 					<Toggle onValueChanged="uiToggle"
 						id="leaders3"
-						isOn="True">All Leaders</Toggle>
+						isOn="True">Random All Leaders</Toggle>
+                    <Toggle onValueChanged="uiToggle" 
+                        id="leaders4">Manually Pick Leaders</Toggle>
 				</VerticalLayout>
 			</ToggleGroup>
 		</Cell>
 	</Row>
-    <Row preferredHeight="20">
-        <Toggle isOn="True" onValueChanged="uiToggle" id="leader_randomize">Randomize leaders</Toggle>
-	</Row>
-    <Row preferredHeight="315">
+    <Row preferredHeight="300">
 		<Cell>
 			<VerticalLayout>
 				<Text fontStyle="Bold"
@@ -441,10 +440,10 @@
 				<VerticalLayout padding=" 0 0 120 20 ">
 					<Toggle isOn="True"
 						onValueChanged="uiToggle"
-						id="expedition_leaders">Expedition Leaders Content</Toggle>
+						id="expeditionLeaders">Expedition Leaders</Toggle>
 					<Toggle isOn="True"
 						onValueChanged="uiToggle"
-						id="missing_expedition">The Missing Expedition Content</Toggle>
+						id="missingExpedition">The Missing Expedition</Toggle>
 					<Toggle isOn="True"
 						onValueChanged="uiToggle"
 						id="promos">Promos</Toggle>
@@ -452,7 +451,7 @@
 			</VerticalLayout>
 		</Cell>
 	</Row>
-	<Row preferredHeight="35">
+	<Row preferredHeight="55">
 		<!--
 		<Cell><Toggle onValueChanged="uiToggle" id="rival" fontStyle="Bold">Multiplayer Rival Opponent</Toggle></Cell>
 		-->
@@ -650,4 +649,3 @@
 		</Cell>
 	</Row>
 </TableLayout>
-
