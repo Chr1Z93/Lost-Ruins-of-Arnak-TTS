@@ -893,7 +893,7 @@ function menuStart(player, value, id)
     checkToggle(expansion, options.expansions)
   end
 
-  if options.researchTrack == 4 and not options.expansions.idols then
+  if options.researchTrack == 4 and options.expansions.expeditionLeaders == false then
     broadcastToAll('The Lizard Temple has been selected. Expedition Leaders expansion will be used.')
     options.expansions.expeditionLeaders = true
   end
@@ -3702,4 +3702,3 @@ function setupTestButtons()
     buttonZone.createButton(params)
   end
 end
-
