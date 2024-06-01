@@ -28,12 +28,11 @@
     "Chapter5.7a2a70",
     "Chapter6.e6527c",
     "PlotRewards.155531",
-    "TheMechanic.6b9f90",
-    "TheJournalist.e0d9f4",
     "Custom_Tile.78827c",
     "Custom_Tile.5f46af",
     "Deck.aadbff",
-    "Deck.339e36"
+    "Deck.339e36",
+    "TheMechanic.6b9f90"
   ],
   "ContainedObjects_path": "Noncampaignorhybridcontent.16e573",
   "Description": "",
@@ -58,7 +57,7 @@
   "Sticky": true,
   "Tooltip": true,
   "Transform": {
-    "posX": -68.584,
+    "posX": -68.623,
     "posY": 1.296,
     "posZ": 40.68,
     "rotX": 0,

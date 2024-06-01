@@ -307,13 +307,15 @@ playerDecks = {
     Green = '47fe07',
     Yellow = '34c052'
   },
-  leaders = { '1e21bd', '99385f', 'd0d33f', 'a42e51', '64471d', '2c1dc4' }
+  leaders = { '1e21bd', '99385f', 'd0d33f', 'a42e51', '64471d', '2c1dc4', '5c5fc9', '302d5d'}
 }
 tokens = {
   falcon = '9ef0a8',
   suitcase = 'f78694',
   food = { '4c7454', '7ae3bf', 'a4129d' },
-  firstPlayer = 'b1383c'
+  firstPlayer = 'b1383c',
+  journalistArticles = '59f1fc',
+  journalistNewspapers = 'b42a53'
 }
 cards = {
   baroness = '49e35e',
@@ -785,7 +787,7 @@ end
 
 function menuStart(player, value, id)
   local menuChoice = tonumber(value)
-  if menuChoice == 3 and checkToggle('leaders3') then
+  if menuChoice == 3 and checkToggle('leaders4') then --Only show the manual choice menu if player chose that during setup options
     uiOff()
     UI.setAttribute('continueMenu', 'active', 'true')
     UI.setAttribute('continueMenuButtons', 'active', 'true')
@@ -949,20 +951,20 @@ function menuStart(player, value, id)
     end
     local fearDeckZone = getObjectFromGUID(deckZones.fear)
     for _, object in ipairs(fearDeckZone.getObjects()) do
-      if object.getName() == 'Board' then
+      if object.getName() == 'Board' then --Check the current board and if its not what was chosen via options, change it
         if object.getStateId() ~= options.board then object.setState(options.board) end
         break
       end
-    end
+    end 
     for _, object in ipairs(getObjectFromGUID(researchTracks[4].guardianZone).getObjects()) do
       if object.getName() == 'Research Track' then
-        if object.getStateId() ~= options.researchTrack then object.setState(options.researchTrack) end
+        if object.getStateId() ~= options.researchTrack then object.setState(options.researchTrack) end --Check the research board and if its not what was chosen via options, change it
         break
       end
     end
     for _, guid in ipairs(staffGuids) do
       local staff = getObjectFromGUID(guid)
-      if staff ~= nil then
+      if staff ~= nil then --Check the moon staff and if its not what was chosen via options, change it
         if staff.getStateId() ~= options.staff then staff.setState(options.staff) end
         break
       end
@@ -1078,15 +1080,15 @@ function menuStart(player, value, id)
     local refBag = getObjectFromGUID(bags.leaderRef)
     local references = {}
     for _, playerColor in ipairs(seatedPlayerColors) do
-      if options.solo and playerColor == 'Red' then
+      if options.solo and playerColor == 'Red' then -- if playing solo and this is the red player, setup the pawns
         for i, guid in ipairs(solo.pawns) do
           if i < 4 then
-            local pawn = getObjectFromGUID(guid)
+            local pawn = getObjectFromGUID(guid) --setup the red pawns already on the board as part of startup board state
             if pawn ~= nil then
               pawn.setRotationSmooth(faceup, false, true)
               pawn.setPositionSmooth(solo.pawnPositions[i], false, true)
             end
-          else
+          else -- take the rest of red pawns from the solo bag and set them up
             soloBag.takeObject({ guid = guid, position = solo.pawnPositions[i], rotation = faceup })
           end
         end
@@ -1100,10 +1102,10 @@ function menuStart(player, value, id)
           if pawn ~= nil then pawn.destruct() end
         end
 
-        if playerBoardState == 7 then
+        if playerBoardState == 9 then --if the player board is the base board, grab the player deck for the board color
           deck = startingDeckBag.takeObject({ guid = playerDecks.base[playerColor] })
         else
-          deck = startingDeckBag.takeObject({ guid = playerDecks.leaders[playerBoardState] })
+          deck = startingDeckBag.takeObject({ guid = playerDecks.leaders[playerBoardState] }) -- grab the deck from the starting decks bag using the playerboard state as the index to playerdecks->leaders array
           local refIndex = playerBoardState * 2 - 2
           for i = 1, 2 do
             local ref = refBag.takeObject()
@@ -1113,13 +1115,13 @@ function menuStart(player, value, id)
             table.insert(references, { obj = ref, state = refIndex + i })
           end
 
-          if playerBoardState == 2 then
+          if playerBoardState == 2 then -- Token setup for the falcon
             tokenBag.takeObject({
               guid = tokens.falcon,
               position = vars.falconPositions[2],
               rotation = falconRotations[2]
             })
-          elseif playerBoardState == 4 then
+          elseif playerBoardState == 4 then -- Token setup for the proffesor
             local profStuff = {}
             local suitcase = tokenBag.takeObject({
               guid = tokens.suitcase,
@@ -1127,7 +1129,7 @@ function menuStart(player, value, id)
               rotation = faceup
             })
             table.insert(profStuff, suitcase)
-            for resource, guid in pairs(suitcaseResourceBags) do
+            for resource, guid in pairs(suitcaseResourceBags) do -- Place and setup the proffesor's Bag
               local toPos = getObjectFromGUID(vars.suitcaseResourceBagZones[resource]).getPosition()
               local resourceBag = tokenBag.takeObject({
                 guid = guid,
@@ -1141,7 +1143,7 @@ function menuStart(player, value, id)
               obj.setDescription(playerColor)
               obj.lock()
             end
-          elseif playerBoardState == 5 then
+          elseif playerBoardState == 5 then -- Token setup for the explorer
             local pawn = getObjectFromGUID(vars.pawns[2])
             if pawn ~= nil then pawn.destruct() end
             for i, guid in ipairs(tokens.food) do
@@ -1154,6 +1156,10 @@ function menuStart(player, value, id)
                 token.setPositionSmooth(vars.foodPositions[i], false, true)
               end
             end
+          elseif playerBoardState == 7 then -- Token setup for the journalist
+            print("Journalist")
+          elseif playerBoardState == 8 then -- Token setup for the mechanic
+            print("Mechanic")
           end
         end
         local toPos = getObjectFromGUID(getDeckZoneGuid(playerColor)).getPosition()
@@ -1170,7 +1176,7 @@ function menuStart(player, value, id)
     for _, playerColor in ipairs(seatedPlayerColors) do
       if not (options.solo and playerColor == 'Red') then
         for i = 1, 2 do
-          decks[playerColor].putObject(decks.fear.takeObject())
+          decks[playerColor].putObject(decks.fear.takeObject()) -- Give each player two fear cards for starting hard setup
         end
         for _, object in ipairs(getObjectFromGUID(playerVars[playerColor].refZoneGuid).getObjects()) do
           if object.type == 'Tile' then object.lock() end
@@ -1956,7 +1962,7 @@ function placePawn(playerColor, zone, siteInfo, level, alt)
     wait(0.6)
     if idolFaceup ~= nil or idolFacedown ~= nil then
       local idolPositions = vars.idolPositions.leader
-      if options.playerBoards[playerColor] == 7 then
+      if options.playerBoards[playerColor] == 9 then
         idolPositions = vars.idolPositions.base
       elseif options.playerBoards[playerColor] == 6 and vars.idolPositions.mystic ~= nil then
         idolPositions = vars.idolPositions.mystic
@@ -3593,7 +3599,7 @@ end
 
 function getDeckZoneGuid(playerColor)
   local vars = playerVars[playerColor]
-  if options.playerBoards[playerColor] == 7 then return vars.deckZoneGuids.base end
+  if options.playerBoards[playerColor] == 9 then return vars.deckZoneGuids.base end
   if options.playerBoards[playerColor] == 6 then return vars.deckZoneGuids.mystic end
   return vars.deckZoneGuids.leader
 end

@@ -503,13 +503,15 @@
 		2 - Falconer
 		3 - Baroness
 		4 - Professor
+		5 - Explorer
 			</Text>
 		</Cell>
 		<Cell>
 			<Text alignment="UpperLeft">
-		5 - Explorer
 		6 - Mystic
-		7 - Random
+		7 - Journalist
+		8 - Mechanic
+		9 - Random
 			</Text>
 		</Cell>
 	</Row>
