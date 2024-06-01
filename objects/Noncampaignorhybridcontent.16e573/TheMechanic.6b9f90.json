@@ -18,8 +18,7 @@
     "Deck.428f5c",
     "Custom_Model.d3657d",
     "MechanicPlayerBoard.75b3f5",
-    "CardCustom.168247",
-    "Deck.302d5d"
+    "CardCustom.168247"
   ],
   "ContainedObjects_path": "TheMechanic.6b9f90",
   "Description": "",
@@ -44,10 +43,10 @@
   "Sticky": true,
   "Tooltip": true,
   "Transform": {
-    "posX": -15.801,
-    "posY": 2.607,
-    "posZ": 41.186,
-    "rotX": 0,
+    "posX": -68.511,
+    "posY": 3.367,
+    "posZ": 41.079,
+    "rotX": 1,
     "rotY": 0,
     "rotZ": 0,
     "scaleX": 1,
