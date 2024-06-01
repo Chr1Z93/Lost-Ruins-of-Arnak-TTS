@@ -1121,7 +1121,7 @@ function menuStart(player, value, id)
               position = vars.falconPositions[2],
               rotation = falconRotations[2]
             })
-          elseif playerBoardState == 4 then -- Token setup for the proffesor
+          elseif playerBoardState == 4 then -- Token setup for the professor
             local profStuff = {}
             local suitcase = tokenBag.takeObject({
               guid = tokens.suitcase,
@@ -1129,7 +1129,7 @@ function menuStart(player, value, id)
               rotation = faceup
             })
             table.insert(profStuff, suitcase)
-            for resource, guid in pairs(suitcaseResourceBags) do -- Place and setup the proffesor's Bag
+            for resource, guid in pairs(suitcaseResourceBags) do -- Place and setup the professor's Bag
               local toPos = getObjectFromGUID(vars.suitcaseResourceBagZones[resource]).getPosition()
               local resourceBag = tokenBag.takeObject({
                 guid = guid,
