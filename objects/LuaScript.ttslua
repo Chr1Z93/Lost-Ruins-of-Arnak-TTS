@@ -1157,7 +1157,67 @@ function menuStart(player, value, id)
               end
             end
           elseif playerBoardState == 7 then -- Token setup for the journalist
-            print("Journalist")
+            -- Grab the newspaper token deck, shuffle then place two newspapers into their location relative to the player board
+            local boardLocation = getPlayerBoard(playerColor).getPosition()
+            local newsPaperDeck = tokenBag.takeObject({
+                    position          = {-55.98, 1.55, 53.02},
+                    callback_function = function(x) 
+                        x.shuffle() 
+                        x.shuffle()
+                        x.takeObject({
+                            position          = {boardLocation[1]+8.82, boardLocation[2]+0.06,boardLocation[3]-0.58},
+                            smooth            = yes,
+                            callback_function = function(y) y.setLock(true) end
+                        })
+                        x.takeObject({
+                            position          = {boardLocation[1]+14.74, boardLocation[2]+0.06,boardLocation[3]-0.59},
+                            smooth            = yes,
+                            callback_function = function(y) y.setLock(true) end
+                        })
+                    end,
+                    smooth            = false,
+                    guid              = tokens.journalistNewspapers
+            })
+            local articleLocation = nil -- Determine which player color the player is then move the article stack near their resources
+            if playerColor == 'Red' then
+                articleLocation = {-24.00, 1.57, 16.80}
+            elseif playerColor == "Yellow" then
+                articleLocation = {-24.00, 1.57, -24.20}
+            elseif playerColor == "Green" then
+                articleLocation = {29.20, 1.57, -24.20}
+            elseif playerColor == "Blue" then
+                articleLocation = {29.20, 1.57, 16.80}
+            end
+            if articleLocation ~= nil then
+                tokenBag.takeObject({ -- As journalist place article tokens on to the player board for "featured articles". 3 or more players sets only two articles and 2 or less set all 3 articles.
+                    position          = articleLocation,
+                    callback_function = function(x) 
+                        local boardArticleLocations = {{8.87, -0.06, 4.54}, {11.76, -0.06, 4.54}, {14.61, -0.06, 4.54}}
+                        local i = 1
+                        if #seatedPlayers <=2 then
+                            while i <= 3 do
+                                x.takeObject({position = {boardLocation[1]+boardArticleLocations[i][1],boardLocation[2]-boardArticleLocations[i][2],boardLocation[3]+boardArticleLocations[i][3]}}) 
+                                i = i + 1
+                            end
+                        elseif #seatedPlayers >2 then
+                            while i <= 2 do
+                                x.takeObject({position = {boardLocation[1]+boardArticleLocations[i][1],boardLocation[2]-boardArticleLocations[i][2],boardLocation[3]+boardArticleLocations[i][3]}}) 
+                                i = i + 1
+                            end    
+                        end
+                        -- Use the pre-defined pawn placement location array and place the remaining article tokens to the left of them
+                        for i = 1, 3 do
+                            for _, siteData in ipairs(siteLevels[i]) do
+                              local pos = getObjectFromGUID(siteData.pawnSpaces[1]).getPosition()
+                              x.takeObject({position = {pos[1]- 2.25, pos[2], pos[3]- 0.08}})
+                            end
+                        end
+                    end,
+                    smooth            = true,
+                    guid              = tokens.journalistArticles,
+                })  
+            end
+
           elseif playerBoardState == 8 then -- Token setup for the mechanic
             print("Mechanic")
           end
@@ -1366,6 +1426,9 @@ function menuStart(player, value, id)
       if not (options.solo and (object.getName() == 'Solo Components' or object.getName() == 'Solo Temple Tiles')) then
         object.destruct()
       end
+    end
+    if getObjectFromGUID(tokens.journalistNewspapers) ~= nil then 
+        getObjectFromGUID(tokens.journalistNewspapers).destruct()
     end
     if not options.solo then getObjectFromGUID(solo.rules).destruct() end
     if not options.expansions.promos then getObjectFromGUID(promoRulesGuid).destruct() end

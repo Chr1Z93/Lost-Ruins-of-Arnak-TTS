@@ -126,15 +126,15 @@
   "Sticky": true,
   "Tooltip": true,
   "Transform": {
-    "posX": 13.076,
-    "posY": 2.301,
-    "posZ": 37.839,
+    "posX": -16.083,
+    "posY": 6.295,
+    "posZ": 51.57,
     "rotX": 0,
     "rotY": 180,
     "rotZ": 0,
-    "scaleX": 1.42,
+    "scaleX": 1.48,
     "scaleY": 1,
-    "scaleZ": 1.52
+    "scaleZ": 1.59
   },
   "Value": 0,
   "XmlUI": ""
