@@ -48,9 +48,9 @@
       },
       "Autoraise": true,
       "ColorDiffuse": {
-        "b": 0.24999997,
-        "g": 0.24999997,
-        "r": 0.24999997
+        "b": 0.24999994,
+        "g": 0.24999994,
+        "r": 0.24999994
       },
       "CustomImage": {
         "CustomTile": {
@@ -84,12 +84,12 @@
       "Sticky": true,
       "Tooltip": true,
       "Transform": {
-        "posX": -65.59151,
-        "posY": 1.48149931,
-        "posZ": 34.75454,
-        "rotX": 1.39948684e-8,
-        "rotY": 179.9996,
-        "rotZ": -7.529383e-8,
+        "posX": -29.9715652,
+        "posY": 0.749999762,
+        "posZ": -0.08223993,
+        "rotX": -0.0002490975,
+        "rotY": 180.049072,
+        "rotZ": -0.000767551654,
         "scaleX": 5,
         "scaleY": 1,
         "scaleZ": 5
@@ -105,9 +105,9 @@
       },
       "Autoraise": true,
       "ColorDiffuse": {
-        "b": 0.24999997,
-        "g": 0.24999997,
-        "r": 0.24999997
+        "b": 0.24999994,
+        "g": 0.24999994,
+        "r": 0.24999994
       },
       "CustomImage": {
         "CustomTile": {
@@ -141,12 +141,12 @@
       "Sticky": true,
       "Tooltip": true,
       "Transform": {
-        "posX": -65.59151,
-        "posY": 1.4814992,
-        "posZ": 34.75454,
-        "rotX": -1.40744776e-8,
-        "rotY": 179.9996,
-        "rotZ": -4.23782041e-8,
+        "posX": -19.222311,
+        "posY": 0.7501409,
+        "posZ": 0.5699727,
+        "rotX": -0.000249070348,
+        "rotY": 180.049072,
+        "rotZ": -0.0007675379,
         "scaleX": 5,
         "scaleY": 1,
         "scaleZ": 5
@@ -162,9 +162,9 @@
       },
       "Autoraise": true,
       "ColorDiffuse": {
-        "b": 0.24999997,
-        "g": 0.24999997,
-        "r": 0.24999997
+        "b": 0.24999994,
+        "g": 0.24999994,
+        "r": 0.24999994
       },
       "CustomImage": {
         "CustomTile": {
@@ -198,12 +198,240 @@
       "Sticky": true,
       "Tooltip": true,
       "Transform": {
-        "posX": -65.59151,
-        "posY": 1.4814992,
-        "posZ": 34.75454,
-        "rotX": 6.592634e-9,
-        "rotY": 179.9996,
-        "rotZ": -4.14132231e-8,
+        "posX": -7.818955,
+        "posY": 0.750297368,
+        "posZ": -0.310169071,
+        "rotX": -0.000249051518,
+        "rotY": 180.049072,
+        "rotZ": -0.0007675352,
+        "scaleX": 5,
+        "scaleY": 1,
+        "scaleZ": 5
+      },
+      "Value": 0,
+      "XmlUI": ""
+    },
+    "13": {
+      "AltLookAngle": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Autoraise": true,
+      "ColorDiffuse": {
+        "b": 1,
+        "g": 1,
+        "r": 1
+      },
+      "CustomImage": {
+        "CustomTile": {
+          "Stackable": false,
+          "Stretch": true,
+          "Thickness": 0.1,
+          "Type": 0
+        },
+        "ImageScalar": 1,
+        "ImageSecondaryURL": "",
+        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2501266441032847338/3D5A60CBF74BCCD7F5C836F7B0B4C9D3A9B868B0/",
+        "WidthScale": 0
+      },
+      "Description": "",
+      "DragSelectable": true,
+      "GMNotes": "",
+      "GUID": "30e847",
+      "Grid": true,
+      "GridProjection": false,
+      "Hands": false,
+      "HideWhenFaceDown": false,
+      "IgnoreFoW": false,
+      "LayoutGroupSortIndex": 0,
+      "Locked": false,
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "MeasureMovement": false,
+      "Name": "Custom_Tile",
+      "Nickname": "",
+      "Snap": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "Transform": {
+        "posX": 3.96779919,
+        "posY": 0.7504592,
+        "posZ": -1.19888926,
+        "rotX": -0.000250016426,
+        "rotY": 179.997391,
+        "rotZ": -0.000767782156,
+        "scaleX": 5,
+        "scaleY": 1,
+        "scaleZ": 5
+      },
+      "Value": 0,
+      "XmlUI": ""
+    },
+    "14": {
+      "AltLookAngle": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Autoraise": true,
+      "ColorDiffuse": {
+        "b": 1,
+        "g": 1,
+        "r": 1
+      },
+      "CustomImage": {
+        "CustomTile": {
+          "Stackable": false,
+          "Stretch": true,
+          "Thickness": 0.1,
+          "Type": 0
+        },
+        "ImageScalar": 1,
+        "ImageSecondaryURL": "",
+        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2501266441032847504/AC7980AF0E5FE25B2F354B70BEFCA979AECC3072/",
+        "WidthScale": 0
+      },
+      "Description": "",
+      "DragSelectable": true,
+      "GMNotes": "",
+      "GUID": "fd3fc6",
+      "Grid": true,
+      "GridProjection": false,
+      "Hands": false,
+      "HideWhenFaceDown": false,
+      "IgnoreFoW": false,
+      "LayoutGroupSortIndex": 0,
+      "Locked": false,
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "MeasureMovement": false,
+      "Name": "Custom_Tile",
+      "Nickname": "",
+      "Snap": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "Transform": {
+        "posX": 13.1801863,
+        "posY": 0.750584,
+        "posZ": -1.46370351,
+        "rotX": -0.000249023753,
+        "rotY": 180.03801,
+        "rotZ": -0.000767344842,
+        "scaleX": 5,
+        "scaleY": 1,
+        "scaleZ": 5
+      },
+      "Value": 0,
+      "XmlUI": ""
+    },
+    "15": {
+      "AltLookAngle": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Autoraise": true,
+      "ColorDiffuse": {
+        "b": 1,
+        "g": 1,
+        "r": 1
+      },
+      "CustomImage": {
+        "CustomTile": {
+          "Stackable": false,
+          "Stretch": true,
+          "Thickness": 0.1,
+          "Type": 0
+        },
+        "ImageScalar": 1,
+        "ImageSecondaryURL": "",
+        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2501266441032847655/BAF12F09599059E93D9E386F00C4E55BE8E84DD5/",
+        "WidthScale": 0
+      },
+      "Description": "",
+      "DragSelectable": true,
+      "GMNotes": "",
+      "GUID": "9c0e2d",
+      "Grid": true,
+      "GridProjection": false,
+      "Hands": false,
+      "HideWhenFaceDown": false,
+      "IgnoreFoW": false,
+      "LayoutGroupSortIndex": 0,
+      "Locked": false,
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "MeasureMovement": false,
+      "Name": "Custom_Tile",
+      "Nickname": "",
+      "Snap": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "Transform": {
+        "posX": 20.9040775,
+        "posY": 0.7506903,
+        "posZ": -2.19162226,
+        "rotX": -0.0002490142,
+        "rotY": 180.03833,
+        "rotZ": -0.000767305668,
+        "scaleX": 5,
+        "scaleY": 1,
+        "scaleZ": 5
+      },
+      "Value": 0,
+      "XmlUI": ""
+    },
+    "16": {
+      "AltLookAngle": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Autoraise": true,
+      "ColorDiffuse": {
+        "b": 1,
+        "g": 1,
+        "r": 1
+      },
+      "CustomImage": {
+        "CustomTile": {
+          "Stackable": false,
+          "Stretch": true,
+          "Thickness": 0.1,
+          "Type": 0
+        },
+        "ImageScalar": 1,
+        "ImageSecondaryURL": "",
+        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/2501266441032847787/2186EC444CB9560BBD684014513270C46859D310/",
+        "WidthScale": 0
+      },
+      "Description": "",
+      "DragSelectable": true,
+      "GMNotes": "",
+      "GUID": "4e7432",
+      "Grid": true,
+      "GridProjection": false,
+      "Hands": false,
+      "HideWhenFaceDown": false,
+      "IgnoreFoW": false,
+      "LayoutGroupSortIndex": 0,
+      "Locked": false,
+      "LuaScript": "",
+      "LuaScriptState": "",
+      "MeasureMovement": false,
+      "Name": "Custom_Tile",
+      "Nickname": "",
+      "Snap": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "Transform": {
+        "posX": 30.0777721,
+        "posY": 0.750813663,
+        "posZ": -2.373789,
+        "rotX": -0.0002493186,
+        "rotY": 180.031433,
+        "rotZ": -0.000767572,
         "scaleX": 5,
         "scaleY": 1,
         "scaleZ": 5
@@ -219,9 +447,9 @@
       },
       "Autoraise": true,
       "ColorDiffuse": {
-        "b": 0.24999994,
-        "g": 0.24999994,
-        "r": 0.24999994
+        "b": 0.249999911,
+        "g": 0.249999911,
+        "r": 0.249999911
       },
       "CustomImage": {
         "CustomTile": {
@@ -255,12 +483,12 @@
       "Sticky": true,
       "Tooltip": true,
       "Transform": {
-        "posX": -65.6351242,
-        "posY": 1.4814992,
-        "posZ": 34.8382149,
-        "rotX": 2.240684e-8,
-        "rotY": 179.999588,
-        "rotZ": -1.17485444e-8,
+        "posX": -32.0066338,
+        "posY": 1.25740457,
+        "posZ": 19.689085,
+        "rotX": 5.825256,
+        "rotY": 180.032532,
+        "rotZ": 0.003216674,
         "scaleX": 5,
         "scaleY": 1,
         "scaleZ": 5
@@ -276,9 +504,9 @@
       },
       "Autoraise": true,
       "ColorDiffuse": {
-        "b": 0.24999997,
-        "g": 0.24999997,
-        "r": 0.24999997
+        "b": 0.24999994,
+        "g": 0.24999994,
+        "r": 0.24999994
       },
       "CustomImage": {
         "CustomTile": {
@@ -312,12 +540,12 @@
       "Sticky": true,
       "Tooltip": true,
       "Transform": {
-        "posX": -65.6351242,
-        "posY": 1.4814992,
-        "posZ": 34.8382149,
-        "rotX": -3.88936749e-9,
-        "rotY": 179.999588,
-        "rotZ": -1.3324394e-8,
+        "posX": -24.1305466,
+        "posY": 1.26686478,
+        "posZ": 19.8558979,
+        "rotX": 5.92862,
+        "rotY": 180.072632,
+        "rotZ": 0.007490056,
         "scaleX": 5,
         "scaleY": 1,
         "scaleZ": 5
@@ -333,9 +561,9 @@
       },
       "Autoraise": true,
       "ColorDiffuse": {
-        "b": 0.24999997,
-        "g": 0.24999997,
-        "r": 0.24999997
+        "b": 0.24999994,
+        "g": 0.24999994,
+        "r": 0.24999994
       },
       "CustomImage": {
         "CustomTile": {
@@ -369,12 +597,12 @@
       "Sticky": true,
       "Tooltip": true,
       "Transform": {
-        "posX": -65.6351242,
-        "posY": 1.4814992,
-        "posZ": 34.8382149,
-        "rotX": 7.049607e-9,
-        "rotY": 179.999588,
-        "rotZ": 5.83326554e-10,
+        "posX": -15.401351,
+        "posY": 1.25987482,
+        "posZ": 19.73229,
+        "rotX": 5.851058,
+        "rotY": 180.050079,
+        "rotZ": 0.00499223825,
         "scaleX": 5,
         "scaleY": 1,
         "scaleZ": 5
@@ -390,9 +618,9 @@
       },
       "Autoraise": true,
       "ColorDiffuse": {
-        "b": 0.24999997,
-        "g": 0.24999997,
-        "r": 0.24999997
+        "b": 0.24999994,
+        "g": 0.24999994,
+        "r": 0.24999994
       },
       "CustomImage": {
         "CustomTile": {
@@ -426,12 +654,12 @@
       "Sticky": true,
       "Tooltip": true,
       "Transform": {
-        "posX": -65.6351242,
-        "posY": 1.4814992,
-        "posZ": 34.8382149,
-        "rotX": 2.11513509e-8,
-        "rotY": 179.999588,
-        "rotZ": -4.305382e-8,
+        "posX": -1.92997563,
+        "posY": 1.24887323,
+        "posZ": 19.5251331,
+        "rotX": 5.72231245,
+        "rotY": 180.051,
+        "rotZ": 0.003990967,
         "scaleX": 5,
         "scaleY": 1,
         "scaleZ": 5
@@ -447,9 +675,9 @@
       },
       "Autoraise": true,
       "ColorDiffuse": {
-        "b": 0.24999997,
-        "g": 0.24999997,
-        "r": 0.24999997
+        "b": 0.24999994,
+        "g": 0.24999994,
+        "r": 0.24999994
       },
       "CustomImage": {
         "CustomTile": {
@@ -483,12 +711,12 @@
       "Sticky": true,
       "Tooltip": true,
       "Transform": {
-        "posX": -65.6351242,
-        "posY": 1.4814992,
-        "posZ": 34.8382149,
-        "rotX": 1.7347384e-8,
-        "rotY": 179.999588,
-        "rotZ": 7.170281e-7,
+        "posX": 13.6702223,
+        "posY": 0.7505018,
+        "posZ": 18.8274269,
+        "rotX": -0.000249090546,
+        "rotY": 180.049072,
+        "rotZ": -0.0007675435,
         "scaleX": 5,
         "scaleY": 1,
         "scaleZ": 5
@@ -504,9 +732,9 @@
       },
       "Autoraise": true,
       "ColorDiffuse": {
-        "b": 0.24999997,
-        "g": 0.24999997,
-        "r": 0.24999997
+        "b": 0.24999994,
+        "g": 0.24999994,
+        "r": 0.24999994
       },
       "CustomImage": {
         "CustomTile": {
@@ -540,12 +768,12 @@
       "Sticky": true,
       "Tooltip": true,
       "Transform": {
-        "posX": -65.59151,
-        "posY": 1.4814992,
-        "posZ": 34.75454,
-        "rotX": -8.389371e-8,
-        "rotY": 179.9996,
-        "rotZ": 1.52914211e-7,
+        "posX": 24.8310833,
+        "posY": 0.7506545,
+        "posZ": 18.0679,
+        "rotX": -0.000249061763,
+        "rotY": 180.049072,
+        "rotZ": -0.0007676761,
         "scaleX": 5,
         "scaleY": 1,
         "scaleZ": 5
@@ -561,9 +789,9 @@
       },
       "Autoraise": true,
       "ColorDiffuse": {
-        "b": 0.24999997,
-        "g": 0.24999997,
-        "r": 0.24999997
+        "b": 0.24999994,
+        "g": 0.24999994,
+        "r": 0.24999994
       },
       "CustomImage": {
         "CustomTile": {
@@ -597,12 +825,12 @@
       "Sticky": true,
       "Tooltip": true,
       "Transform": {
-        "posX": -65.59151,
-        "posY": 1.4814992,
-        "posZ": 34.75454,
-        "rotX": 1.25403989e-8,
-        "rotY": 179.9996,
-        "rotZ": -3.225477e-8,
+        "posX": 35.5075836,
+        "posY": 0.7507964,
+        "posZ": 18.3138866,
+        "rotX": -0.000249161152,
+        "rotY": 180.049088,
+        "rotZ": -0.0007675474,
         "scaleX": 5,
         "scaleY": 1,
         "scaleZ": 5
@@ -618,9 +846,9 @@
       },
       "Autoraise": true,
       "ColorDiffuse": {
-        "b": 0.24999997,
-        "g": 0.24999997,
-        "r": 0.24999997
+        "b": 0.24999994,
+        "g": 0.24999994,
+        "r": 0.24999994
       },
       "CustomImage": {
         "CustomTile": {
@@ -654,12 +882,12 @@
       "Sticky": true,
       "Tooltip": true,
       "Transform": {
-        "posX": -65.59151,
-        "posY": 1.4814992,
-        "posZ": 34.75454,
-        "rotX": -1.3442131e-8,
-        "rotY": 179.9996,
-        "rotZ": -4.84882321e-8,
+        "posX": -39.9929123,
+        "posY": 0.749860942,
+        "posZ": 0.989223063,
+        "rotX": -0.00024911997,
+        "rotY": 180.049072,
+        "rotZ": -0.0007675043,
         "scaleX": 5,
         "scaleY": 1,
         "scaleZ": 5
@@ -671,9 +899,9 @@
   "Sticky": true,
   "Tooltip": true,
   "Transform": {
-    "posX": 49.367,
-    "posY": 1.481,
-    "posZ": 40.6,
+    "posX": -8.872,
+    "posY": 2.005,
+    "posZ": 44.546,
     "rotX": 0,
     "rotY": 180,
     "rotZ": 0,

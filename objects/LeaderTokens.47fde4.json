@@ -14,6 +14,10 @@
     "r": 0.70588
   },
   "ContainedObjects_order": [
+    "GoldTokenAttacher.3cc576",
+    "Custom_Model.d3657d",
+    "CardCustom.168247",
+    "Deck.428f5c",
     "Deck.59f1fc",
     "Deck.b42a53",
     "Custom_Token.9ef0a8",

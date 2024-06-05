@@ -288,11 +288,11 @@
       "Tooltip": true,
       "Transform": {
         "posX": 51,
-        "posY": 1.53149891,
+        "posY": 1.531,
         "posZ": -22,
-        "rotX": 2.74554512e-8,
+        "rotX": 0,
         "rotY": 180,
-        "rotZ": -1.2252876e-8,
+        "rotZ": 0,
         "scaleX": 5.25,
         "scaleY": 1,
         "scaleZ": 5.25
@@ -1294,7 +1294,7 @@
       "IgnoreFoW": false,
       "LayoutGroupSortIndex": 0,
       "Locked": true,
-      "LuaScript": "function onLoad()\r\n    local s = 0.1\r\n    self.createButton({\r\n        label = \"↻\",\r\n        click_function = \"rotateCW\",\r\n        function_owner = self,\r\n        tooltip = \"Rotate the wheel clockwise.\",\r\n        position = {2.67,.35,.08},\r\n        font_size = 300,\r\n        scale = {s,s,s},\r\n        width = 1000,\r\n        height = 450,\r\n    })\r\n\r\n    self.createButton({\r\n        label = \"Undo\",\r\n        click_function = \"rotateCCW\",\r\n        function_owner = self,\r\n        tooltip = \"Rotate the wheel counter-clockwise.\",\r\n        position = {2.67,.35,-.03},\r\n        font_size = 300,\r\n        scale = {s,s,s},\r\n        width = 1000,\r\n        height = 450,\r\n    })\r\nend\r\n\r\nfunction rotateCW()\r\n  wheel = getObjectFromGUID('d3657d')\r\n  if wheel ~= nil then\r\n    if WAIT then\r\n        return\r\n    else\r\n        WAIT = true\r\n        Wait.time(function() WAIT = false end, .5)\r\n\r\n        local rot = wheel.getRotation()\r\n        rot.y = rot.y+90\r\n        wheel.setRotationSmooth(rot)\r\n    end\r\n  end\r\n\r\nend\r\n\r\nfunction rotateCCW()\r\n  wheel = getObjectFromGUID('d3657d')\r\n  if wheel ~= nil then\r\n    if WAIT then\r\n        return\r\n    else\r\n        WAIT = true\r\n        Wait.time(function() WAIT = false end, .5)\r\n\r\n        local rot = wheel.getRotation()\r\n        rot.y = rot.y-90\r\n        wheel.setRotationSmooth(rot)\r\n    end\r\n  end\r\n\r\nend\r",
+      "LuaScript": "function onLoad()\r\n    local s = 0.1\r\n    self.createButton({\r\n        label = \"↻\",\r\n        click_function = \"rotateCW\",\r\n        function_owner = self,\r\n        tooltip = \"Rotate the wheel clockwise.\",\r\n        position = {2.67,.35,.08},\r\n        font_size = 300,\r\n        scale = {s,s,s},\r\n        width = 1000,\r\n        height = 450,\r\n    })\r\n\r\n    self.createButton({\r\n        label = \"Undo\",\r\n        click_function = \"rotateCCW\",\r\n        function_owner = self,\r\n        tooltip = \"Rotate the wheel counter-clockwise.\",\r\n        position = {2.67,.35,-.03},\r\n        font_size = 300,\r\n        scale = {s,s,s},\r\n        width = 1000,\r\n        height = 450,\r\n    })\r\nend\r\n\r\nfunction rotateCW()\r\n  wheel = getObjectFromGUID('d3657d')\r\n  if wheel ~= nil then\r\n    if WAIT then\r\n        return\r\n    else\r\n        WAIT = true\r\n        Wait.time(function() WAIT = false end, .5)\r\n\r\n        local rot = wheel.getRotation()\r\n        rot.y = rot.y+90\r\n        wheel.setRotationSmooth(rot)\r\n    end\r\n  end\r\n\r\nend\r\n\r\nfunction rotateCCW()\r\n  wheel = getObjectFromGUID('d3657d')\r\n  if wheel ~= nil then\r\n    if WAIT then\r\n        return\r\n    else\r\n        WAIT = true\r\n        Wait.time(function() WAIT = false end, .5)\r\n\r\n        local rot = wheel.getRotation()\r\n        rot.y = rot.y-90\r\n        wheel.setRotationSmooth(rot)\r\n    end\r\n  end\r\n\r\nend",
       "LuaScriptState": "",
       "MeasureMovement": false,
       "Name": "Custom_Token",
@@ -1304,11 +1304,11 @@
       "Tooltip": true,
       "Transform": {
         "posX": 51,
-        "posY": 1.53149891,
+        "posY": 1.531,
         "posZ": -22,
-        "rotX": 2.74554512e-8,
+        "rotX": 0,
         "rotY": 180,
-        "rotZ": -1.2252876e-8,
+        "rotZ": 0,
         "scaleX": 5.25,
         "scaleY": 1,
         "scaleZ": 5.25
