@@ -936,8 +936,10 @@ function menuStart(player, value, id)
           repeat -- generate random numbers between 1 and number of leaders (6 if expedition, 8 if all)
             rand = math.random(1, #leaders)
           until (leaders[rand] == false) -- until you generate a number not already picked
-
+          print(rand)
+          print(leaders[rand])
           leaders[rand] = true -- mark the number as 'picked' and set the playerboard to that state
+          print(leaders[rand])
           options.playerBoards[playerColor] = rand 
           if playerBoard.getStateId() ~= rand then playerBoard.setState(rand) end
         -- if the player chose no leaders set the board to 9 which is base board
@@ -945,7 +947,17 @@ function menuStart(player, value, id)
           options.playerBoards[playerColor] = 9
           if playerBoard.getStateId() ~= 9 then playerBoard.setState(9) end
         else
-          options.playerBoards[playerColor] = playerBoard.getStateId()
+            -- if the players chose manual then we check to make sure there is no duplicate leaders chosen and if there is, ask the player to switch
+            if leaders[playerBoard.getStateId()] == true then
+                while leaders[playerBoard.getStateId()] == true do
+                    broadcastToAll(playerColor + " has duplicate player board. Please manually pick a different board.")
+                    Wait.time(3)
+                end
+            else -- if not a dupliate we make sure to update the random leader array, otherwisee the randomization above can still pick this leader even though its already picked
+                options.playerBoards[playerColor] = playerBoard.getStateId()
+                leaders[playerBoard.getStateId()] = true
+            end
+          
         end
       end
     end
@@ -1222,7 +1234,13 @@ function menuStart(player, value, id)
             print("Mechanic")
           end
         end
+        -- Here the deck grabbed earlier is moved to their correct position
         local toPos = getObjectFromGUID(getDeckZoneGuid(playerColor)).getPosition()
+        if (playerBoardState == 7 or playerBoardState == 8) and (playerColor == "Red" or playerColor == "Yellow") then
+            toPos[1] = toPos[1] - 8.85
+        elseif (playerBoardState == 7 or playerBoardState == 8) and (playerColor == "Green" or playerColor == "Blue") then
+            toPos[1] = toPos[1] - 0.12
+        end 
         deck.setRotation(facedown)
         deck.setPositionSmooth({ toPos[1], tileY + 0.02, toPos[3] }, false, true)
         decks[playerColor] = deck
