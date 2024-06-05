@@ -126,12 +126,12 @@
   "Sticky": true,
   "Tooltip": true,
   "Transform": {
-    "posX": 63.649,
-    "posY": 1.779,
-    "posZ": 2.93,
+    "posX": 71.557,
+    "posY": 2.33,
+    "posZ": 27.441,
     "rotX": 0,
     "rotY": 180,
-    "rotZ": 180,
+    "rotZ": 181,
     "scaleX": 0.63,
     "scaleY": 1,
     "scaleZ": 0.65

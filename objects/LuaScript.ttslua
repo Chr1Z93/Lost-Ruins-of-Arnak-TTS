@@ -315,7 +315,11 @@ tokens = {
   food = { '4c7454', '7ae3bf', 'a4129d' },
   firstPlayer = 'b1383c',
   journalistArticles = '59f1fc',
-  journalistNewspapers = 'b42a53'
+  journalistNewspapers = 'b42a53',
+  MechanicWheel = 'd3657d',
+  MechanicMonkey = '168247',
+  MechanicGoldTokens = '428f5c',
+  MechanicGoldTokenAttacher = '3cc576'
 }
 cards = {
   baroness = '49e35e',
@@ -915,7 +919,14 @@ function menuStart(player, value, id)
         leaders = {false, false, false, false, false, false, false, false}
     end
     
+    for _, playerColor in ipairs(seatedPlayerColors) do -- This is our check for when the players chose manual leaders, this ensures that our randomization for leaders later on doesnt pick duplicates.
+      if options.leaders == 'choose' and getPlayerBoard(playerColor).getStateId() ~= 9 then
+        leaders[getPlayerBoard(playerColor).getStateId()] = true
+      end
+    end
+    
     for _, playerColor in ipairs(seatedPlayerColors) do
+
       --Setup the solo player board
       if options.solo and playerColor == 'Red' then
         for _, object in ipairs(getObjectFromGUID(playerVars[playerColor].allZoneGuid).getObjects()) do
@@ -936,10 +947,7 @@ function menuStart(player, value, id)
           repeat -- generate random numbers between 1 and number of leaders (6 if expedition, 8 if all)
             rand = math.random(1, #leaders)
           until (leaders[rand] == false) -- until you generate a number not already picked
-          print(rand)
-          print(leaders[rand])
           leaders[rand] = true -- mark the number as 'picked' and set the playerboard to that state
-          print(leaders[rand])
           options.playerBoards[playerColor] = rand 
           if playerBoard.getStateId() ~= rand then playerBoard.setState(rand) end
         -- if the player chose no leaders set the board to 9 which is base board
@@ -947,17 +955,7 @@ function menuStart(player, value, id)
           options.playerBoards[playerColor] = 9
           if playerBoard.getStateId() ~= 9 then playerBoard.setState(9) end
         else
-            -- if the players chose manual then we check to make sure there is no duplicate leaders chosen and if there is, ask the player to switch
-            if leaders[playerBoard.getStateId()] == true then
-                while leaders[playerBoard.getStateId()] == true do
-                    broadcastToAll(playerColor + " has duplicate player board. Please manually pick a different board.")
-                    Wait.time(3)
-                end
-            else -- if not a dupliate we make sure to update the random leader array, otherwisee the randomization above can still pick this leader even though its already picked
-                options.playerBoards[playerColor] = playerBoard.getStateId()
-                leaders[playerBoard.getStateId()] = true
-            end
-          
+          options.playerBoards[playerColor] = playerBoard.getStateId()
         end
       end
     end
@@ -1231,11 +1229,89 @@ function menuStart(player, value, id)
             end
 
           elseif playerBoardState == 8 then -- Token setup for the mechanic
-            print("Mechanic")
+            local boardLocation = getPlayerBoard(playerColor).getPosition()
+            local goldTokens = nil -- Determine which player color the player is then move the gold token stack near their resources
+            if playerColor == 'Red' then
+              goldTokens = {-24.00, 1.57, 16.80}
+            elseif playerColor == "Yellow" then
+              goldTokens = {-24.00, 1.57, -24.20}
+            elseif playerColor == "Green" then
+              goldTokens = {29.20, 1.57, -24.20}
+            elseif playerColor == "Blue" then
+              goldTokens = {29.20, 1.57, 16.80}
+            end
+            if goldTokens ~= nil then
+              tokenBag.takeObject({
+                position          = goldTokens,
+                smooth            = true,
+                guid              = tokens.MechanicGoldTokens,
+                rotation          = facedown,
+                callback_function = function(x)  
+                  -- Here we take the gold tokens deck and shuffle it, split it into 4 stacks of two each and move 3 of those 4 stacks to above the player board
+                  x.shuffle()
+                  x.shuffle()
+                  local positions = nil
+                  if playerColor == "Blue" or playerColor == "Green" then
+                    positions = {{boardLocation[1]+12.13, boardLocation[2]+0.2, boardLocation[3]+6.69}, {boardLocation[1]+15.13, boardLocation[2]+0.2, boardLocation[3]+6.69}, {boardLocation[1]+18.13, boardLocation[2]+0.2, boardLocation[3]+6.69}}
+                  elseif playerColor == "Red" or playerColor == "Yellow" then
+                    positions = {{boardLocation[1]-12.13, boardLocation[2]+0.2, boardLocation[3]+6.69}, {boardLocation[1]-15.13, boardLocation[2]+0.2, boardLocation[3]+6.69}, {boardLocation[1]-18.13, boardLocation[2]+0.2, boardLocation[3]+6.69}}
+                  end
+                  
+                  for _, pos in ipairs(positions) do
+                    local i = 1
+                    while i <= 2 do
+                      x.takeObject({
+                        position          = pos,
+                        smooth            = true
+                      })
+                      i = i + 1
+                    end
+                  end
+                end
+              })
+            end
+            -- Place the mechanic monkey assistant
+            if playerColor == "Red" or playerColor == "Yellow" then
+              tokenBag.takeObject({
+                position          = {boardLocation[1]-15.3, boardLocation[2]+0.02, boardLocation[3]+11.35},
+                smooth            = true,
+                guid              = tokens.MechanicMonkey
+              })
+              tokenBag.takeObject({
+                position          = {boardLocation[1]-14.12, boardLocation[2], boardLocation[3]-6.74},
+                rotation          = {0,0,0},
+                smooth            = true,
+                guid              = tokens.MechanicGoldTokenAttacher,
+                callback_function = function(x) x.setLock(true) end
+              })
+            elseif playerColor == "Green" or playerColor == "Blue" then
+              tokenBag.takeObject({
+                position          = {boardLocation[1]+15.3, boardLocation[2]+0.02, boardLocation[3]+11.35},
+                smooth            = true,
+                guid              = tokens.MechanicMonkey
+              })
+              --Place the mechanic bag that allows tokens to attach to the wheel and lock it
+              tokenBag.takeObject({
+                position          = {boardLocation[1]+14.12, boardLocation[2], boardLocation[3]-6.74},
+                rotation          = {0,0,0},
+                smooth            = true,
+                guid              = tokens.MechanicGoldTokenAttacher,
+                callback_function = function(x) x.setLock(true) end
+              })
+            end
+            --Place the spinning wheel for mechanic and lock it in place
+            tokenBag.takeObject({
+              position          =  {boardLocation[1]+13.88,boardLocation[2]+0.05,boardLocation[3]-0.09},
+              rotation          =  {0.00, 316.32, 0.00},
+              callback_function =  function(x) x.setLock(true) end,
+              smooth            =  true,
+              guid              =  tokens.MechanicWheel,
+            })
           end
         end
         -- Here the deck grabbed earlier is moved to their correct position
         local toPos = getObjectFromGUID(getDeckZoneGuid(playerColor)).getPosition()
+        -- The mechanic and journalist need small adjustment to their deck placement location
         if (playerBoardState == 7 or playerBoardState == 8) and (playerColor == "Red" or playerColor == "Yellow") then
             toPos[1] = toPos[1] - 8.85
         elseif (playerBoardState == 7 or playerBoardState == 8) and (playerColor == "Green" or playerColor == "Blue") then
