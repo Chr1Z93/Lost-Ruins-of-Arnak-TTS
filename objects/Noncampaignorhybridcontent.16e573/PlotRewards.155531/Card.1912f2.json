@@ -22,7 +22,7 @@
       "UniqueBack": false
     }
   },
-  "Description": "",
+  "Description": "1",
   "DragSelectable": true,
   "GMNotes": "",
   "GUID": "1912f2",
@@ -33,11 +33,11 @@
   "IgnoreFoW": false,
   "LayoutGroupSortIndex": 0,
   "Locked": false,
-  "LuaScript": "",
+  "LuaScript": "points = 01",
   "LuaScriptState": "",
   "MeasureMovement": false,
   "Name": "Card",
-  "Nickname": "",
+  "Nickname": "Thoughtful Gift",
   "SidewaysCard": false,
   "Snap": true,
   "Sticky": true,

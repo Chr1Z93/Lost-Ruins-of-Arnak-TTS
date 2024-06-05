@@ -22,7 +22,7 @@
       "UniqueBack": false
     }
   },
-  "Description": "",
+  "Description": "1",
   "DragSelectable": true,
   "GMNotes": "",
   "GUID": "42f9df",
@@ -33,11 +33,11 @@
   "IgnoreFoW": false,
   "LayoutGroupSortIndex": 0,
   "Locked": false,
-  "LuaScript": "",
+  "LuaScript": "points = 01",
   "LuaScriptState": "",
   "MeasureMovement": false,
   "Name": "Card",
-  "Nickname": "",
+  "Nickname": "Confused Compass",
   "SidewaysCard": false,
   "Snap": true,
   "Sticky": true,

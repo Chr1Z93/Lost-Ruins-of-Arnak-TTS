@@ -22,7 +22,7 @@
       "UniqueBack": false
     }
   },
-  "Description": "",
+  "Description": "3",
   "DragSelectable": true,
   "GMNotes": "",
   "GUID": "d27ce3",
@@ -33,11 +33,11 @@
   "IgnoreFoW": false,
   "LayoutGroupSortIndex": 0,
   "Locked": false,
-  "LuaScript": "",
+  "LuaScript": "points = 01",
   "LuaScriptState": "",
   "MeasureMovement": false,
   "Name": "Card",
-  "Nickname": "",
+  "Nickname": "Magnetic Ore",
   "SidewaysCard": false,
   "Snap": true,
   "Sticky": true,

@@ -22,7 +22,7 @@
       "UniqueBack": false
     }
   },
-  "Description": "",
+  "Description": "3",
   "DragSelectable": true,
   "GMNotes": "",
   "GUID": "05375d",
@@ -33,11 +33,11 @@
   "IgnoreFoW": false,
   "LayoutGroupSortIndex": 0,
   "Locked": false,
-  "LuaScript": "",
+  "LuaScript": "points = 01",
   "LuaScriptState": "",
   "MeasureMovement": false,
   "Name": "Card",
-  "Nickname": "",
+  "Nickname": "Stone Calendar",
   "SidewaysCard": false,
   "Snap": true,
   "Sticky": true,

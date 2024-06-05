@@ -22,7 +22,7 @@
       "UniqueBack": false
     }
   },
-  "Description": "",
+  "Description": "3",
   "DragSelectable": true,
   "GMNotes": "",
   "GUID": "0e5740",
@@ -33,11 +33,11 @@
   "IgnoreFoW": false,
   "LayoutGroupSortIndex": 0,
   "Locked": false,
-  "LuaScript": "",
+  "LuaScript": "points = 03",
   "LuaScriptState": "",
   "MeasureMovement": false,
   "Name": "Card",
-  "Nickname": "",
+  "Nickname": "Miner's Helmet",
   "SidewaysCard": false,
   "Snap": true,
   "Sticky": true,
