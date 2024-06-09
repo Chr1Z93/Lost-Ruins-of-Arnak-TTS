@@ -11,10 +11,10 @@
     "r": 0.71324
   },
   "ContainedObjects_order": [
-    "Card.13af3f",
-    "Card.dbc139",
-    "Card.8ae791",
-    "Card.9e99d6"
+    "Exploration.13af3f",
+    "Interview.dbc139",
+    "Investigation.8ae791",
+    "Reporting.9e99d6"
   ],
   "ContainedObjects_path": "Deck.5c5fc9",
   "CustomDeck": {

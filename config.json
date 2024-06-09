@@ -74,7 +74,7 @@
     "Guardiansexpansion.b876d5",
     "Level1Sitesexpansion.37a6dd",
     "Assistants.538a5c",
-    "Assistantsexpansion.cf87b7",
+    "AssistantsExpeditionLeaders.cf87b7",
     "SoothsayersRunes.f4cc17",
     "GreenArchaeologist.609cfd",
     "GreenArchaeologist.ddc20b",
@@ -369,7 +369,8 @@
     "PlayerBoard.7bc85f",
     "PlayerBoard.2425fa",
     "PlayerBoard.177ed7",
-    "PlayerBoard.f337fe"
+    "PlayerBoard.f337fe",
+    "AssistantsMissingExpedition.b640aa"
   ],
   "PlayArea": 0.5,
   "PlayerCounts": [

@@ -11,10 +11,10 @@
     "r": 0.71324
   },
   "ContainedObjects_order": [
-    "Card.ea1c6f",
-    "Card.4b9f50",
-    "Card.3df696",
-    "Card.7027ff"
+    "AutoMechanics.ea1c6f",
+    "Tinkering.4b9f50",
+    "MarineMechanics.3df696",
+    "Teamwork.7027ff"
   ],
   "ContainedObjects_path": "Deck.302d5d",
   "CustomDeck": {
