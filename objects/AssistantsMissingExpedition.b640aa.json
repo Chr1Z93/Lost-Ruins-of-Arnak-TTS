@@ -16,17 +16,8 @@
     "CardCustom.edfd74",
     "CardCustom.b22096"
   ],
-  "ContainedObjects_path": "Deck.b640aa",
+  "ContainedObjects_path": "AssistantsMissingExpedition.b640aa",
   "CustomDeck": {
-    "10": {
-      "BackIsHidden": true,
-      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2496761664830640447/8DD9895167E01108A36CCA1BFFE678821C8CC9D9/",
-      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2496761664830640529/6AE479C9B87C0916C207CE074554881CB9ED6DC7/",
-      "NumHeight": 1,
-      "NumWidth": 1,
-      "Type": 0,
-      "UniqueBack": false
-    },
     "253": {
       "BackIsHidden": true,
       "BackURL": "http://cloud-3.steamusercontent.com/ugc/2496761664830639865/8B399B8FFB07C7782B2953949C5355252C0BC6A1/",
@@ -53,12 +44,21 @@
       "NumWidth": 1,
       "Type": 0,
       "UniqueBack": false
+    },
+    "55": {
+      "BackIsHidden": true,
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2496761664830640447/8DD9895167E01108A36CCA1BFFE678821C8CC9D9/",
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2496761664830640529/6AE479C9B87C0916C207CE074554881CB9ED6DC7/",
+      "NumHeight": 1,
+      "NumWidth": 1,
+      "Type": 0,
+      "UniqueBack": false
     }
   },
   "DeckIDs": [
     25300,
     27100,
-    1000,
+    5500,
     27200
   ],
   "Description": "",
@@ -76,15 +76,15 @@
   "LuaScriptState": "",
   "MeasureMovement": false,
   "Name": "Deck",
-  "Nickname": "",
+  "Nickname": "Assistants (Missing Expedition)",
   "SidewaysCard": false,
   "Snap": true,
   "Sticky": true,
   "Tooltip": true,
   "Transform": {
-    "posX": -30.011,
-    "posY": 2.832,
-    "posZ": 46.909,
+    "posX": -12.5,
+    "posY": 1.522,
+    "posZ": -46,
     "rotX": 0,
     "rotY": 180,
     "rotZ": 0,

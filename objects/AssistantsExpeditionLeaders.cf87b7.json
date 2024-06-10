@@ -15,7 +15,7 @@
     "Card.97253a",
     "Card.bd8dc7"
   ],
-  "ContainedObjects_path": "Assistantsexpansion.cf87b7",
+  "ContainedObjects_path": "AssistantsExpeditionLeaders.cf87b7",
   "CustomDeck": {
     "7": {
       "BackIsHidden": false,
@@ -47,7 +47,7 @@
   "LuaScriptState": "",
   "MeasureMovement": false,
   "Name": "Deck",
-  "Nickname": "Assistants (expansion)",
+  "Nickname": "Assistants (Expedition Leaders)",
   "SidewaysCard": false,
   "Snap": true,
   "Sticky": true,

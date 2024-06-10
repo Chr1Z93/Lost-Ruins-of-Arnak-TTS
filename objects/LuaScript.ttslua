@@ -300,6 +300,15 @@ expansionDecks = {
   sites2 = '486402',
   guardians = 'b876d5'
 }
+missingExpeditionDecks = {
+  --artifacts = 'f61f69',
+  --items = '5076de',
+  assistants = 'b640aa',
+  --idols = '9988c4',
+  --sites1 = '37a6dd',
+  --sites2 = '486402',
+  --guardians = 'b876d5'
+}
 playerDecks = {
   base = {
     Red = 'cbf743',
@@ -1038,6 +1047,7 @@ function menuStart(player, value, id)
         break
       end
     end
+    -- Go through the dictionary of first expansion deck guids
     for option, guid in pairs(expansionDecks) do
       local expansionDeck = getObjectFromGUID(guid)
       local deck = nil
@@ -1060,12 +1070,47 @@ function menuStart(player, value, id)
       end
       deck.unlock()
       decks[option] = deck
-      if options.expansions[option] then
+      -- Here we check if the expedition leaders option is checked and if it is, we mix the various decks and items (idols, guardians, artifacts, items, assistants, sites)
+      -- from the first expansion to the base deck decks and items
+      if options.expansions['expeditionLeaders'] then
         deck.putObject(expansionDeck)
       else
         expansionDeck.destruct()
       end
     end
+    -- Go through the dictionary of second expansion deck guids
+    for option, guid in pairs(missingExpeditionDecks) do
+      local expansionDeck = getObjectFromGUID(guid)
+      local deck = nil
+      if option == 'idols' then
+        deck = getObjectFromGUID(idolDeckGuid)
+      elseif option == 'assistants' then
+        deck = getObjectFromGUID(assistantDeckGuid)
+      else
+        for _, object in ipairs(getObjectFromGUID(deckZones[option]).getObjects()) do
+          if object.type == 'Deck' then deck = object end
+        end
+      end
+      if deck == nil then
+        broadcastToAll('Cannot find ' .. option .. ' deck. Please reload the mod.')
+        return 1
+      end
+      if expansionDeck == nil then
+        broadcastToAll('Cannot find ' .. option .. ' expansion deck. Please reload the mod.')
+        return 1
+      end
+      deck.unlock()
+      decks[option] = deck
+      -- Here we check if the missing expedition option is checked and if it is, we mix the various decks and items (idols, guardians, artifacts, items, assistants, sites)
+      -- from the second expansion to the base deck decks and items
+      if options.expansions['missingExpedition'] then
+        deck.putObject(expansionDeck)
+      else
+        expansionDeck.destruct()
+      end
+    end
+    -- This code checks the expansions array to see if promo options are enabled, if it is then, take the artifact promo card
+      -- and the item promo card and put them into the base decks for each of them
     local promo = getObjectFromGUID(cards.artifactPromo)
     if promo ~= nil then
       if options.expansions.promos then
@@ -1403,7 +1448,7 @@ function menuStart(player, value, id)
         end
       end
     end
-    if trackInfo.assistantPos ~= nil then
+    if trackInfo.assistantPos ~= nil then -- Here if the research track chosen has assistant slots, then a number of assistants equal to the number of players is deal to there
       local newDecks = decks.assistants.cut(#seatedPlayerColors)
       wait(0.01)
       decks.assistants = newDecks[1]
@@ -1489,13 +1534,33 @@ function menuStart(player, value, id)
       end
     end
 
-    -- distribute assistants
-    local stackCount = 4
-    if options.researchTrack == 2 and not options.expansions.assistants then
+    local stackCount = 0
+    -- expedition leaders: no + missing expedition: no + research track is not snake temple 
+    if not options.expansions.expeditionLeaders and not options.expansions.missingExpedition and options.researchTrack ~= 2 then
+      stackCount = 4
+    -- expedition leaders: yes + missing expedition: no + research track is not snake temple
+    elseif options.expansions.expeditionLeaders and not options.expansions.missingExpedition and options.researchTrack ~= 2 then
+      stackCount = 5
+    -- expedition leaders: no + missing expedition: yes + research track is not snake temple
+    elseif not options.expansions.expeditionLeaders and options.expansions.missingExpedition and options.researchTrack ~= 2 then
+      stackCount = 5
+    -- expedition leaders: yes + missing expedition: yes + research track is not snake temple
+    elseif options.expansions.expeditionLeaders and options.expansions.missingExpedition and options.researchTrack ~= 2 then
+      stackCount = 6
+    -- expedition leaders: no + missing expedition: no + research track is snake temple
+    elseif not options.expansions.expeditionLeaders and not options.expansions.missingExpedition and options.researchTrack == 2 then
       stackCount = 3
-    elseif options.researchTrack ~= 2 and options.expansions.assistants then
+    -- expedition leaders: yes + missing expedition: no + research track is snake temple
+    elseif options.expansions.expeditionLeaders and not options.expansions.missingExpedition and options.researchTrack == 2 then
+      stackCount = 4
+    -- expedition leaders: no + missing expedition: yes + research is snake temple
+    elseif not options.expansions.expeditionLeaders and options.expansions.missingExpedition and options.researchTrack == 2 then
+      stackCount = 4
+    -- expedition leaders: yes + missing expedition: yes + research track is snake temple
+    elseif options.expansions.expeditionLeaders and options.expansions.missingExpedition and options.researchTrack == 2 then
       stackCount = 5
     end
+    
     local newDecks = decks.assistants.cut(stackCount)
     wait(0.01)
     newDecks[2].setRotationSmooth(faceup, false, true)
