@@ -20,7 +20,7 @@
     "CardCustom.43e0ae",
     "CardCustom.7c9a57"
   ],
-  "ContainedObjects_path": "Deck.2e956e",
+  "ContainedObjects_path": "IdolsMissingExpedition.2e956e",
   "CustomDeck": {
     "65": {
       "BackIsHidden": true,
@@ -120,18 +120,18 @@
   "LuaScriptState": "",
   "MeasureMovement": false,
   "Name": "Deck",
-  "Nickname": "",
+  "Nickname": "Idols (Missing Expedition)",
   "SidewaysCard": false,
   "Snap": true,
   "Sticky": true,
   "Tooltip": true,
   "Transform": {
-    "posX": -16.173,
-    "posY": 2.851,
-    "posZ": 48.909,
+    "posX": -20.894,
+    "posY": 1.541,
+    "posZ": -46,
     "rotX": 0,
     "rotY": 180,
-    "rotZ": 0,
+    "rotZ": 180,
     "scaleX": 0.75,
     "scaleY": 1,
     "scaleZ": 0.75

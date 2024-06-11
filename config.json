@@ -232,7 +232,7 @@
     "ScriptingTrigger.05b782",
     "ScriptingTrigger.19cc4f",
     "Idols.ab4a80",
-    "Idolsexpansion.9988c4",
+    "IdolsExpeditionLeaders.9988c4",
     "LeaderTokens.47fde4",
     "ScriptingTrigger.1d601a",
     "ScriptingTrigger.ca1026",
@@ -370,7 +370,8 @@
     "PlayerBoard.2425fa",
     "PlayerBoard.177ed7",
     "PlayerBoard.f337fe",
-    "AssistantsMissingExpedition.b640aa"
+    "AssistantsMissingExpedition.b640aa",
+    "IdolsMissingExpedition.2e956e"
   ],
   "PlayArea": 0.5,
   "PlayerCounts": [
