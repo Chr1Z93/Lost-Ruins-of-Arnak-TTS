@@ -22,7 +22,7 @@
       "UniqueBack": false
     }
   },
-  "Description": "2",
+  "Description": "",
   "DragSelectable": true,
   "GMNotes_path": "AllCards.4bfea4/IronRations.38722b.gmnotes",
   "GUID": "38722b",
@@ -33,7 +33,7 @@
   "IgnoreFoW": false,
   "LayoutGroupSortIndex": 0,
   "Locked": false,
-  "LuaScript": "points = 01",
+  "LuaScript": "",
   "LuaScriptState": "",
   "MeasureMovement": false,
   "Name": "Card",
@@ -41,9 +41,6 @@
   "SidewaysCard": false,
   "Snap": true,
   "Sticky": true,
-  "Tags": [
-    "item"
-  ],
   "Tooltip": true,
   "Transform": {
     "posX": 103.771,

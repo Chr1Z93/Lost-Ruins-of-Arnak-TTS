@@ -22,7 +22,7 @@
       "UniqueBack": false
     }
   },
-  "Description": "3",
+  "Description": "",
   "DragSelectable": true,
   "GMNotes_path": "AllCards.4bfea4/MinersHelmet.0e5740.gmnotes",
   "GUID": "0e5740",
@@ -33,7 +33,7 @@
   "IgnoreFoW": false,
   "LayoutGroupSortIndex": 0,
   "Locked": false,
-  "LuaScript": "points = 03",
+  "LuaScript": "",
   "LuaScriptState": "",
   "MeasureMovement": false,
   "Name": "Card",

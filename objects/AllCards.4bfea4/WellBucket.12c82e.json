@@ -22,7 +22,7 @@
       "UniqueBack": false
     }
   },
-  "Description": "1",
+  "Description": "",
   "DragSelectable": true,
   "GMNotes_path": "AllCards.4bfea4/WellBucket.12c82e.gmnotes",
   "GUID": "12c82e",
@@ -33,7 +33,7 @@
   "IgnoreFoW": false,
   "LayoutGroupSortIndex": 0,
   "Locked": false,
-  "LuaScript": "points = 01",
+  "LuaScript": "",
   "LuaScriptState": "",
   "MeasureMovement": false,
   "Name": "Card",

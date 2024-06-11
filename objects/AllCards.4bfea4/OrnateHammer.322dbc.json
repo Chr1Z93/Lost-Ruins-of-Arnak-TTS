@@ -22,7 +22,7 @@
       "UniqueBack": false
     }
   },
-  "Description": "4",
+  "Description": "",
   "DragSelectable": true,
   "GMNotes_path": "AllCards.4bfea4/OrnateHammer.322dbc.gmnotes",
   "GUID": "322dbc",
@@ -33,7 +33,7 @@
   "IgnoreFoW": false,
   "LayoutGroupSortIndex": 0,
   "Locked": false,
-  "LuaScript": "points = 02",
+  "LuaScript": "",
   "LuaScriptState": "",
   "MeasureMovement": false,
   "Name": "Card",
@@ -41,9 +41,6 @@
   "SidewaysCard": false,
   "Snap": true,
   "Sticky": true,
-  "Tags": [
-    "artifact"
-  ],
   "Tooltip": true,
   "Transform": {
     "posX": 80.458,

@@ -22,7 +22,7 @@
       "UniqueBack": false
     }
   },
-  "Description": "3",
+  "Description": "",
   "DragSelectable": true,
   "GMNotes_path": "AllCards.4bfea4/MagneticOre.d27ce3.gmnotes",
   "GUID": "d27ce3",
@@ -33,7 +33,7 @@
   "IgnoreFoW": false,
   "LayoutGroupSortIndex": 0,
   "Locked": false,
-  "LuaScript": "points = 01",
+  "LuaScript": "",
   "LuaScriptState": "",
   "MeasureMovement": false,
   "Name": "Card",

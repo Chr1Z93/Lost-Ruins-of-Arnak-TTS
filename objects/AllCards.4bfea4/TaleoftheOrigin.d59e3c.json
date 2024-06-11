@@ -22,7 +22,7 @@
       "UniqueBack": false
     }
   },
-  "Description": "4",
+  "Description": "",
   "DragSelectable": true,
   "GMNotes_path": "AllCards.4bfea4/TaleoftheOrigin.d59e3c.gmnotes",
   "GUID": "d59e3c",
@@ -33,7 +33,7 @@
   "IgnoreFoW": false,
   "LayoutGroupSortIndex": 0,
   "Locked": false,
-  "LuaScript": "points = 02",
+  "LuaScript": "",
   "LuaScriptState": "",
   "MeasureMovement": false,
   "Name": "Card",

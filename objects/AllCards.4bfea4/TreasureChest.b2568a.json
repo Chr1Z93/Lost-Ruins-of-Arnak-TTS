@@ -22,7 +22,7 @@
       "UniqueBack": false
     }
   },
-  "Description": "4",
+  "Description": "",
   "DragSelectable": true,
   "GMNotes_path": "AllCards.4bfea4/TreasureChest.b2568a.gmnotes",
   "GUID": "b2568a",
@@ -33,7 +33,7 @@
   "IgnoreFoW": false,
   "LayoutGroupSortIndex": 0,
   "Locked": false,
-  "LuaScript": "points = 03",
+  "LuaScript": "",
   "LuaScriptState": "",
   "MeasureMovement": false,
   "Name": "Card",
@@ -41,9 +41,6 @@
   "SidewaysCard": false,
   "Snap": true,
   "Sticky": true,
-  "Tags": [
-    "artifact"
-  ],
   "Tooltip": true,
   "Transform": {
     "posX": 104.458,
