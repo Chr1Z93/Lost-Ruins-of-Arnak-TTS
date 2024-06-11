@@ -1,0 +1,9 @@
+{
+  "id": "2112",
+  "type": "Item",
+  "boat": 1,
+  "car": 1,
+  "cost": 2,
+  "points": 1,
+  "expansion": "Missing Expedition"
+}

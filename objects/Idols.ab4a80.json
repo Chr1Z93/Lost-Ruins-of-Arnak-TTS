@@ -30,7 +30,7 @@
   ],
   "ContainedObjects_path": "Idols.ab4a80",
   "CustomDeck": {
-    "54": {
+    "274": {
       "BackIsHidden": true,
       "BackURL": "http://cloud-3.steamusercontent.com/ugc/1862806463732176388/329D91AA4F503651E847CC9EA10021470B528A18/",
       "FaceURL": "http://cloud-3.steamusercontent.com/ugc/1862806807529131015/7441E9C03BBAF473630051D8B3F635D7012DE400/",
@@ -41,22 +41,22 @@
     }
   },
   "DeckIDs": [
-    5402,
-    5400,
-    5403,
-    5400,
-    5403,
-    5405,
-    5401,
-    5401,
-    5402,
-    5404,
-    5400,
-    5401,
-    5404,
-    5403,
-    5402,
-    5405
+    27402,
+    27400,
+    27403,
+    27400,
+    27403,
+    27405,
+    27401,
+    27401,
+    27402,
+    27404,
+    27400,
+    27401,
+    27404,
+    27403,
+    27402,
+    27405
   ],
   "Description": "",
   "DragSelectable": true,
