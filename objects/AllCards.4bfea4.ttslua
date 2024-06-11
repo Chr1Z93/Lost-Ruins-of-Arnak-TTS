@@ -119,35 +119,33 @@ function getCardById(params)
   return cardIdIndex[params.id]
 end
 
--- Returns a list of cards from the bag matching a expansion
----@param params table
---  expansion: String expansion to retrieve ("Expedition Leaders" etc.)
---  sortByMetadata: true to sort the table by metadata instead of ID
+-- Returns a list of cards from the bag matching an expansion / type
+---@param params table Matching information
+--    expansion: string
+--    type: string
 ---@return table: If the indexes are still being constructed, returns an empty table.
 --  Otherwise, a list of tables, each with the following fields
 --    data: TTS object data, suitable for spawning the card
 --    metadata: Table of parsed metadata
-function getCardsByExpansion(params)
+function getCardsByExpansionAndType(params)
   if not isIndexReady() then return {} end
-  return expansionIndex[string.lower(params.expansion)]
-end
 
--- Searches the bag for cards which match the given name and returns a list.
--- Parameter array must contain these fields to define the search:
---   name: String or string fragment to search for names
---   exact: Whether the name match should be exact
-function getCardsByName(params)
-  local name = params.name
-  local exact = params.exact
-  local results = {}
-
-  for _, cardData in pairs(cardIdIndex) do
-    if (exact and (string.lower(cardData.data.Nickname) == string.lower(name)))
-        or (not exact and string.find(string.lower(cardData.data.Nickname), string.lower(name), 1, true)) then
-      table.insert(results, cardData)
+  if not params.expansion and not params.type then
+    return {}
+  elseif params.expansion and not params.type then
+    return expansionIndex[params.expansion]
+  elseif params.type and not params.expansion then
+    return typeIndex[params.type]
+  else
+    -- go through index and filter for matches
+    local result = {}
+    for id, t in pairs(cardIdIndex) do
+      if t.metadata.expansion == params.expansion and t.metadata.type == type then
+        table.insert(result, id)
+      end
     end
+    return result
   end
-  return results
 end
 
 -- Spawn a specific list of cards.
