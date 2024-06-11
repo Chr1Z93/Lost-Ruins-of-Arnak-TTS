@@ -140,7 +140,7 @@ function getCardsByExpansionAndType(params)
     -- go through index and filter for matches
     local result = {}
     for id, t in pairs(cardIdIndex) do
-      if t.metadata.expansion == params.expansion and t.metadata.type == type then
+      if t.metadata.expansion == params.expansion and t.metadata.type == params.type then
         table.insert(result, id)
       end
     end
@@ -151,13 +151,13 @@ end
 -- Spawn a specific list of cards.
 ---@param params table Contains the arguments below:
 --   cardList table A list of card IDs
---   pos? table Position where the cards should be spawned (global)
---   rot? table Rotation for the orientation of the spawned cards (global)
+--   position? table Position where the cards should be spawned (global)
+--   rotation? table Rotation for the orientation of the spawned cards (global)
 --   callback? function callback to be called after the card/deck spawns.
 function spawnCardList(params)
   local cardList = params.cardList
-  local pos = params.pos or Vector(0, 3, 46.2)
-  local rot = params.rot or Vector(0, 180, 180)
+  local pos = params.position or Vector(0, 3, 46.2)
+  local rot = params.rotation or Vector(0, 180, 180)
   local callback = params.callback
 
   -- if missing information, then abort
@@ -177,13 +177,12 @@ function spawnCardList(params)
 
   -- Spawn a single card directly
   if #spawnList == 1 then
-    spawnObjectData({
+    return spawnObjectData({
       data = spawnList[1].data,
       position = pos,
       rotation = rot,
       callback_function = callback
     })
-    return
   end
 
   -- For multiple cards, construct a deck and spawn that
@@ -204,7 +203,7 @@ function spawnCardList(params)
     addCardToDeck(deck, spawnCard.data)
   end
 
-  spawnObjectData({
+  return spawnObjectData({
     data = deck,
     position = pos,
     rotation = rot,

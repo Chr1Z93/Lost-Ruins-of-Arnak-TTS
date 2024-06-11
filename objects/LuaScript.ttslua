@@ -1,12 +1,9 @@
 -- originally scripted by jkk - https://steamcommunity.com/id/creamymello/myworkshopfiles/
 -- updated by Chr1Z and covertskippy55 for the missing expedition
 
-TESTING = false
 testVars = {
-  buttonZone = '7f50fd',
-  zone = 'ac00c1',
   defineSeated = true,
-  seatedPlayers = { 'Blue', 'Yellow', 'Red', 'Green', 'Pink' }
+  seatedPlayers = { 'Blue', 'Yellow', 'Red' }
 }
 
 playerVars = {
@@ -25,10 +22,10 @@ playerVars = {
       mystic = { '9cb5f8', 'e8ac49', '22a8b1', '8d02cd', '5786ec' }
     },
     idolPositions = {
-      base = { { -43.00, 1.60, 19.20 }, { -41.00, 1.60, 19.20 } },
-      leader = { { -49.16, 1.60, 19.12 }, { -47.16, 1.60, 19.12 } }
+      base = { { -43, 1.6, 19.20 }, { -41, 1.6, 19.20 } },
+      leader = { { -49.16, 1.6, 19.12 }, { -47.16, 1.6, 19.12 } }
     },
-    mysticRitualPosition = { -66.15, 1.60, 20.72 },
+    mysticRitualPosition = { -66.15, 1.6, 20.72 },
     researchTokens = {
       magnifying = '3ac5a9',
       notebook = 'a70c8f'
@@ -61,8 +58,10 @@ playerVars = {
     },
     suitcasePosition = { -26.50, 1.53, 8.80 },
     falconPositions = { { -44.93, 1.63, 17.46 }, { -42.37, 1.63, 16.26 }, { -39.69, 1.63, 16.98 }, { -38.49, 1.63, 19.27 }, { -38.26, 1.63, 21.99 } },
-    archivePositions = { { -67.00, 1.50, 20.30 }, { -67.00, 1.50, 13.10 }, { -67.00, 1.50, 5.90 } },
-    foodPositions = { { -38.18, 1.63, 22.27 }, { -38.18, 1.63, 19.00 }, { -38.18, 1.63, 15.75 } },
+    archivePositions = { { -67, 1.50, 20.30 }, { -67, 1.50, 13.10 }, { -67, 1.50, 5.90 } },
+    foodPositions = { { -38.18, 1.63, 22.27 }, { -38.18, 1.63, 19 }, { -38.18, 1.63, 15.75 } },
+    articlePosition = { -24, 1.57, 16.80 },
+    goldenTeethPosition = { -24, 1.57, 16.80 },
     refPositions = { { -57.80, 1.48, 29.50 }, { -50.30, 1.48, 29.50 } },
     firstPlayerPosition = { -26.60, 1.53, 28.75 }
   },
@@ -83,7 +82,7 @@ playerVars = {
       mystic = { '8e8b36', '6c8212', '8930e9', '334d16', '82f6de' }
     },
     idolPositions = {
-      base = { { 43.00, 1.60, 19.20 }, { 45.00, 1.60, 19.20 } },
+      base = { { 43, 1.60, 19.20 }, { 45, 1.60, 19.20 } },
       leader = { { 43.90, 1.60, 19.12 }, { 45.90, 1.60, 19.12 } },
       mystic = { { 52.84, 1.60, 19.12 }, { 54.84, 1.60, 19.12 } }
     },
@@ -117,8 +116,10 @@ playerVars = {
     },
     suitcasePosition = { 26.60, 1.53, 8.80 },
     falconPositions = { { 48.21, 1.63, 17.42 }, { 50.81, 1.63, 16.26 }, { 53.48, 1.63, 17.01 }, { 54.66, 1.63, 19.34 }, { 54.86, 1.63, 22.07 } },
-    archivePositions = { { 67.00, 1.50, 20.30 }, { 67.00, 1.50, 13.10 }, { 67.00, 1.50, 5.90 } },
+    archivePositions = { { 67, 1.50, 20.30 }, { 67, 1.50, 13.10 }, { 67, 1.50, 5.90 } },
     foodPositions = { { 54.99, 1.63, 22.30 }, { 54.99, 1.63, 19.03 }, { 54.99, 1.63, 15.78 } },
+    articlePosition = { 29.20, 1.57, 16.80 },
+    goldenTeethPosition = { 29.20, 1.57, 16.80 },
     refPositions = { { 57.80, 1.48, 29.50 }, { 50.30, 1.48, 29.50 } },
     firstPlayerPosition = { 26.60, 1.53, 28.75 }
   },
@@ -139,7 +140,7 @@ playerVars = {
       mystic = { '44ffc5', '87e6fb', '59fcb8', 'e5db25', 'ac377a' }
     },
     idolPositions = {
-      base = { { 43.00, 1.60, -21.80 }, { 45.00, 1.60, -21.80 } },
+      base = { { 43, 1.60, -21.80 }, { 45, 1.60, -21.80 } },
       leader = { { 43.90, 1.60, -21.88 }, { 45.90, 1.60, -21.88 } },
       mystic = { { 52.84, 1.60, -21.88 }, { 54.84, 1.60, -21.88 } }
     },
@@ -173,8 +174,10 @@ playerVars = {
     },
     suitcasePosition = { 26.60, 1.53, -32.20 },
     falconPositions = { { 48.21, 1.63, -23.58 }, { 50.81, 1.63, -24.74 }, { 53.48, 1.63, -23.99 }, { 54.66, 1.63, -21.66 }, { 54.86, 1.63, -18.93 } },
-    archivePositions = { { 67.00, 1.50, -20.70 }, { 67.00, 1.50, -27.90 }, { 67.00, 1.50, -35.10 } },
+    archivePositions = { { 67, 1.50, -20.70 }, { 67, 1.50, -27.90 }, { 67, 1.50, -35.10 } },
     foodPositions = { { 54.99, 1.63, -18.70 }, { 54.99, 1.63, -21.97 }, { 54.99, 1.63, -25.22 } },
+    articlePosition = { 29.20, 1.57, -24.20 },
+    goldenTeethPosition = { 29.20, 1.57, -24.20 },
     refPositions = { { 57.80, 1.48, -11.50 }, { 50.30, 1.48, -11.50 } },
     firstPlayerPosition = { 26.60, 1.53, -12.25 }
   },
@@ -193,7 +196,7 @@ playerVars = {
       mystic = { '202f73', 'd70471', '9dbea2', 'cdb5e6', 'c0e331' }
     },
     idolPositions = {
-      base = { { -43.00, 1.60, -21.80 }, { -41.00, 1.60, -21.80 } },
+      base = { { -43, 1.60, -21.80 }, { -41, 1.60, -21.80 } },
       leader = { { -49.16, 1.60, -21.88 }, { -47.16, 1.60, -21.88 } }
     },
     mysticRitualPosition = { -66.15, 1.59, -20.28 },
@@ -226,8 +229,10 @@ playerVars = {
     },
     suitcasePosition = { -26.60, 1.53, -32.20 },
     falconPositions = { { -44.93, 1.63, -23.54 }, { -42.37, 1.63, -24.73 }, { -39.69, 1.63, -24.02 }, { -38.49, 1.63, -21.73 }, { -38.26, 1.63, -19.01 } },
-    archivePositions = { { -67.00, 1.50, -20.70 }, { -67.00, 1.50, -27.90 }, { -67.00, 1.50, -35.10 } },
-    foodPositions = { { -38.18, 1.63, -18.73 }, { -38.18, 1.63, -22.00 }, { -38.18, 1.63, -25.25 } },
+    archivePositions = { { -67, 1.50, -20.70 }, { -67, 1.50, -27.90 }, { -67, 1.50, -35.10 } },
+    foodPositions = { { -38.18, 1.63, -18.73 }, { -38.18, 1.63, -22 }, { -38.18, 1.63, -25.25 } },
+    articlePosition = { -24, 1.57, -24.20 },
+    goldenTeethPosition = { -24, 1.57, -24.20 },
     refPositions = { { -57.80, 1.48, -11.50 }, { -50.30, 1.48, -11.50 } },
     firstPlayerPosition = { -26.60, 1.53, -12.25 }
   }
@@ -249,6 +254,20 @@ hexColors = {
   Grey = '[808080]'
 }
 
+starterDeck = {
+  Yellow = { "0001", "0002", "0003", "0004" },
+  Green = { "0005", "0006", "0007", "0008" },
+  Blue = { "0009", "0010", "0011", "0012" },
+  Red = { "0013", "0014", "0015", "0016" },
+  Falconer = { "1001", "1002", "1003", "1004" },
+  Explorer = { "1005", "1006", "1007", "1008" },
+  Professor = { "1009", "1010", "1011", "1012" },
+  Mystic = { "1013", "1014", "1015", "1016" },
+  Baroness = { "1017", "1018", "1019", "1020" },
+  Captain = { "1021", "1022", "1023", "1024" },
+  Mechanic = { "2001", "2002", "2003", "2004" },
+  Journalist = { "2005", "2006", "2007", "2008" }
+}
 options = {
   solo = false,
   objectives = 3,
@@ -256,7 +275,7 @@ options = {
   board = 1,
   researchTrack = 1,
   staff = 1,
-  leaders = 'none',
+  leaders = 'random',
   expansions = {
     expeditionLeaders = true,
     missingExpedition = true,
@@ -291,20 +310,25 @@ deckZones = {
 }
 assistantDeckGuid = '538a5c'
 idolDeckGuid = 'ab4a80'
+
 expansionDecks = {
-  assistants = 'cf87b7',
-  idols = '9988c4',
-  sites1 = '37a6dd',
-  sites2 = '486402',
-  guardians = 'b876d5'
+  expeditionLeaders = {
+    assistants = 'cf87b7',
+    idols = '9988c4',
+    sites1 = '37a6dd',
+    sites2 = '486402',
+    guardians = 'b876d5'
+
+  },
+  missingExpedition = {
+    assistants = 'b640aa',
+    idols = '2e956e',
+    --sites1 = '37a6dd',
+    --sites2 = '486402',
+    --guardians = 'b876d5'
+  }
 }
-missingExpeditionDecks = {
-  assistants = 'b640aa',
-  idols = '2e956e',
-  --sites1 = '37a6dd',
-  --sites2 = '486402',
-  --guardians = 'b876d5'
-}
+
 playerDecks = {
   base = {
     Red = 'cbf743',
@@ -333,12 +357,11 @@ suitcaseResourceBags = {
   t = 'da4493',
   s = '4ecc7c'
 }
-falconRotations = { { 0.00, 225.00, 0.00 }, { 0.00, 190.00, 0.00 }, { 0.00, 148.00, 0.00 }, { 0.00, 115.00, 0.00 }, { 0.00, 90.00, 0.00 } }
+falconRotations = { { 0, 225, 0 }, { 0, 190, 0 }, { 0, 148, 0 }, { 0, 115, 0 }, { 0, 90, 0 } }
 assistantPositions = { { 9.15, 1.63, -30.73 }, { 13.83, 1.63, -30.73 }, { 18.52, 1.63, -30.73 } }
 assistantZones = { 'a432ac', 'a44647', '3ffbd7' }
 
 cardRowZoneGuids = { '8ae6f2', '6103ae', 'cea4b5', '99cfc2', '8a1a02', 'dbf266' }
-staffGuids = { '45ee3a', 'b4f223' }
 staffPositions = { { -14.61, 1.63, 20.23 }, { -7.37, 1.63, 20.23 }, { -0.03, 1.63, 20.23 }, { 7.23, 1.63, 20.23 }, { 14.51, 1.63, 20.23 } }
 exileZoneGuids = {
   artifacts = '19f28c',
@@ -515,7 +538,7 @@ researchTracks = {
         z = 1.48,
         magnifying = 15,
         notebook = 16,
-        paths = { { pos = { 9.42, 1.73, 3.00 }, forward = { 1 } }, { pos = { 15.75, 1.73, 3.00 }, forward = { 1 } } }
+        paths = { { pos = { 9.42, 1.73, 3 }, forward = { 1 } }, { pos = { 15.75, 1.73, 3 }, forward = { 1 } } }
       },
       {
         z = -1.89,
@@ -596,7 +619,7 @@ researchTracks = {
         magnifying = 8,
         notebook = 7,
         assistant = true,
-        paths = { { forward = { 1, 2 }, bonusPos = { { 9.33, 1.78, -4.60 }, { 11.89, 1.78, -4.60 }, { 14.44, 1.78, -4.61 }, { 17.00, 1.78, -4.61 } } } }
+        paths = { { forward = { 1, 2 }, bonusPos = { { 9.33, 1.78, -4.60 }, { 11.89, 1.78, -4.60 }, { 14.44, 1.78, -4.61 }, { 17, 1.78, -4.61 } } } }
       },
       {
         z = -13.94,
@@ -631,16 +654,16 @@ researchTracks = {
     guardianZone = '7f2184',
     idolPos = { 18.54, 1.72, -0.97 }
   }
+  -- TODO: data for new research tracks
 }
 
-expansionRulesCopies = { 'c30ae7', 'c4dd33', '47e8e6', 'd40f4c' }
 promoRulesGuid = '78c6d8'
 solo = {
   rules = '29196c',
   board = 'a30382',
   boardPosition = { -43.26, 1.53, 18.96 },
   objectives = 'd8547e',
-  objectivePosition = { -51.00, 1.53, -0.80 },
+  objectivePosition = { -51, 1.53, -0.80 },
   zones = { deck = '7196a9', discard = '0ecbe9', idol = { c = '184e31', s = '7fa25b', t = '500131', r = 'af87d7', e = '69ed89', u = 'fdf87e', dupe = '91df7a' }, delete = '0a61ed', objectivesDeck = '250afb', objectives = { 'd18d8f', 'c9584b', '36d489', '08da31' } },
   pawns = { '47658b', 'bfb9eb', 'b2d015', 'fb9f5d', '9f84c9', 'e5b510' },
   pawnPositions = { { -28.50, 2.20, 20 }, { -26.50, 2.20, 20 }, { -24.50, 2.20, 20 }, { -28.50, 2.20, 18 }, { -26.50, 2.20, 18 }, { -24.50, 2.20, 18 } },
@@ -658,7 +681,7 @@ solo = {
   acquiredStuffPositions = {
     idolA = { -34.85, 1.50, 10.15 },
     researchBonus = { -32.16, 2.28, 10.15 },
-    templeTile = { { -45.60, 1.93, 11.00 }, { -42.00, 1.93, 11.00 }, { -38.40, 1.93, 11.00 }, { -45.60, 1.93, 9.30 }, { -42.00, 1.93, 9.30 }, { -38.40, 1.93, 9.30 } },
+    templeTile = { { -45.60, 1.93, 11 }, { -42, 1.93, 11 }, { -38.40, 1.93, 11 }, { -45.60, 1.93, 9.30 }, { -42, 1.93, 9.30 }, { -38.40, 1.93, 9.30 } },
     templeTileSilver = { -49.90, 1.93, 10.15 },
     templeTileGold = { -54.10, 1.93, 10.15 },
     guardian = { -42.25, 2.1, 17.71 },
@@ -730,7 +753,6 @@ function onLoad(saveState)
     end
     addAssistantCycleMenu()
   end
-  if TESTING then setupTestButtons() end
   if turn ~= nil and Turns.enable and Turns.turn_color ~= turn then Turns.turn_color = turn end
   math.randomseed(os.time())
   Wait.time(function() doneLoading = true end, 0.5)
@@ -761,11 +783,11 @@ function menuOptions()
   UI.setAttribute('optionsMenuButtons', 'active', 'true')
 end
 
-function uiToggle(player, value, id)
+function uiToggle(_, value, id)
   UI.setAttribute(id, 'isOn', value)
 end
 
-function uiSlider(player, value, id)
+function uiSlider(_, value, id)
   UI.setAttribute(id, 'value', value)
   Wait.time(function()
     if id == 'objectiveSlider' then
@@ -792,39 +814,59 @@ end
 
 ---------------------- SETUP
 
--- TODO split setup into multiple functions
 function setupGame()
-  -- keep track for decks across functions
+  setupInProgress = true
+  AllCardsBag = getObjectFromGUID("4bfea4")
+  fearDeckZone = getObjectFromGUID(deckZones.fear)
   decks = {}
+  boards = {}
 
-  -- Check Enabled Expansions and set those options
+  uiOff()
+  getOptionsFromUI()
+  wait(0.1)
+  detectSeatedPlayers()
+  wait(0.1)
+  optionOverride()
+  wait(0.1)
+  setupDecks()
+  wait(0.1)
+  setupBoard()
+  wait(0.1)
+  setupMoonstaff()
+  wait(0.1)
+  setupArtifactsAndItems()
+  wait(0.1)
+  setupResearchTrack()
+  wait(0.1)
+  setupPlayerAreas()
+  wait(0.1)
+  waitForBoardLoading()
+  wait(0.1)
+  setupStartingResources()
+  wait(0.1)
+  setupMiscThings()
+  return 1 -- TTS throws an error if a coroutine doesn't return 1
+end
+
+function checkDoneSpawning()
+  for _, board in pairs(boards) do
+    if board.spawning or board.loading_custom then return false end
+  end
+  return true
+end
+
+function getOptionsFromUI()
   local expansions = { 'expeditionLeaders', 'missingExpedition', 'promos' }
   for _, expansion in ipairs(expansions) do
     checkToggle(expansion, options.expansions)
   end
 
-  setupBoard()
-  setupMoonstaff()
-  setupResearchTrack()
-  setupItems()
-  setupArtifacts()
-  setupPlayerAreas()
-  setupStartingResources()
-end
-
-function setupPlayerArea()
   if checkToggle('leaders1') then
-    options.leaders = 'none'
+    options.leaders = 'random'
   elseif checkToggle('leaders2') then
-    options.leaders = 'rand_expedition_ldrs'
-  elseif checkToggle('leaders3') then
-    options.leaders = 'rand_all_ldrs'
-  elseif checkToggle('leaders4') then
     options.leaders = 'choose'
   end
-end
 
-function setupBoard()
   if checkToggle('board1') then
     options.board = 1
   elseif checkToggle('board2') then
@@ -833,31 +875,6 @@ function setupBoard()
     options.board = math.random(1, 2)
   end
 
-  -- distribute idols to the tier 1 and tier 2 sites. Tier 2 sites get 2 (one face up one face down)
-  for i = 1, 3 do
-    for _, siteZone in ipairs(siteLevels[i]) do
-      local pos = getObjectFromGUID(siteZone.guid).getPosition()
-      if i == 1 then
-        decks.idols.takeObject({ position = pos + Vector(-0.97, 0, 0), rotation = faceup, smooth = true })
-        decks.idols.takeObject({ position = pos + Vector(0.97, 0, 0), rotation = faceup, smooth = true })
-      else
-        decks.idols.takeObject({ position = pos, rotation = faceup, smooth = true })
-      end
-    end
-  end
-  -- TODO maybe remove remaining idols?
-  -- if decks.idols ~= nil then decks.idols.destruct() end
-end
-
-function setupMoonstaff()
-  if checkToggle('staff1') then
-    options.staff = 1
-  elseif checkToggle('staff2') then
-    options.staff = 2
-  end
-end
-
-function setupResearchTrack()
   if checkToggle('research1') then
     options.researchTrack = 1
   elseif checkToggle('research2') then
@@ -874,20 +891,150 @@ function setupResearchTrack()
     options.researchTrack = math.random(1, 6)
   end
 
+  if checkToggle('staff1') then
+    options.staff = 1
+  elseif checkToggle('staff2') then
+    options.staff = 2
+  end
+end
+
+function optionOverride()
+  if options.researchTrack == 4 and options.expansions.expeditionLeaders == false and options.expansions.missingExpedition == false then
+    broadcastToAll('The Lizard Temple has been selected. Expedition Leaders expansion will be used.')
+    options.expansions.expeditionLeaders = true
+  end
+
+  if options.expansions.missingExpedition == true and options.expansions.expeditionLeaders == false and #seatedPlayers > 2 then
+    broadcastToAll('Not enough real leaders available, enabling Expedition Leaders.')
+    options.expansions.expeditionLeaders = true
+  end
+end
+
+function detectSeatedPlayers()
+  local allColors = { 'Red', 'Blue', 'Green', 'Yellow' }
+  seatedPlayerColors = {}
+  local absentColors = {}
+
+  seatedPlayers = getSeatedPlayers()
+  if testVars.defineSeated then
+    seatedPlayers = testVars.seatedPlayers
+  end
+
+  options.playerBoards = {}
+  local leaders = { false, false, false, false, false, false, false, false }
+  for _, color in ipairs(allColors) do
+    local seated = false
+    for _, seatedPlayerColor in ipairs(seatedPlayers) do
+      if seatedPlayerColor == color then
+        seated = true
+        table.insert(seatedPlayerColors, color)
+        local playerBoard = getPlayerBoard(color)
+        local stateId = playerBoard.getStateId()
+        options.playerBoards[color] = stateId
+        if stateId ~= 9 then
+          if not leaders[stateId] then
+            leaders[stateId] = true
+          else
+            broadcastToAll('Duplicate expedition leaders were chosen.')
+            return
+          end
+        end
+      end
+    end
+    if not seated then table.insert(absentColors, color) end
+  end
+
+  if #seatedPlayerColors == 0 then
+    broadcastToAll('All players must select colors before setup.')
+    return
+  elseif #seatedPlayerColors == 1 then
+    if seatedPlayerColors[1] == 'Red' then
+      broadcastToAll('Rival plays as red. Choose a different color.')
+      return
+    end
+    options.solo = true
+    table.insert(seatedPlayerColors, 'Red')
+    table.remove(absentColors, 1)
+  end
+
+  -- delete not seated
+  for _, playerColor in ipairs(absentColors) do
+    local vars = playerVars[playerColor]
+    for _, object in ipairs(getObjectFromGUID(vars.allZoneGuid).getObjects()) do
+      object.destruct()
+    end
+    for _, guid in pairs(vars.researchTokens) do
+      local token = getObjectFromGUID(guid)
+      if token ~= nil then token.destruct() end
+    end
+  end
+end
+
+function setupBoard()
+  -- Check the current board and if its not what was chosen via options, change it
+  for _, object in ipairs(fearDeckZone.getObjects()) do
+    if object.getName() == 'Board' then
+      if object.getStateId() ~= options.board then object.setState(options.board) end
+      break
+    end
+  end
+
+  -- distribute idols to the tier 1 and tier 2 sites. Tier 2 sites get 2 (one face up one face down)
+  for i = 1, 3 do
+    for _, siteZone in ipairs(siteLevels[i]) do
+      local pos = getObjectFromGUID(siteZone.guid).getPosition()
+      if i == 1 then
+        decks.idols.takeObject({ position = pos + Vector(-0.97, 0, 0), rotation = faceup, smooth = true })
+        decks.idols.takeObject({ position = pos + Vector(0.97, 0, 0), rotation = facedown, smooth = true })
+      else
+        decks.idols.takeObject({ position = pos, rotation = faceup, smooth = true })
+      end
+    end
+  end
+  -- TODO maybe keep remaining idols?
+  if decks.idols ~= nil then decks.idols.destruct() end
+end
+
+function setupMoonstaff()
+  -- Check the moon staff and if its not what was chosen via options, change it
+  local staff = getStaff()
+  if staff and staff.getStateId() ~= options.staff then
+    staff.setState(options.staff)
+  end
+end
+
+function setupResearchTrack()
+  -- Check the research board and if its not what was chosen via options, change it
+  for _, object in ipairs(getObjectFromGUID(researchTracks[4].guardianZone).getObjects()) do
+    if object.getName() == 'Research Track' then
+      if object.getStateId() ~= options.researchTrack then
+        boards.researchBoard = object.setState(options.researchTrack)
+      end
+      break
+    end
+  end
+
+  -- place bonusses
   local bag = getObjectFromGUID(bags.researchBonus)
   bag.shuffle()
 
   local trackInfo = researchTracks[options.researchTrack]
+  -- TODO: add data and remove this
+  if trackInfo == nil then
+    broadcastToAll("Missing information for research track!")
+    return
+  end
+
   for i, list in ipairs(trackInfo.bonusPositions) do
     if i == 4 then
       for _, pos in ipairs(list) do
         for j = 1, #seatedPlayerColors do
-          bag.takeObject({ position = Vector(pos) + Vector(0, j * 0.1, 0), rotation = facedown, smooth = true})
+          bag.takeObject({ position = Vector(pos) + Vector(0, j * 0.1, 0), rotation = facedown, smooth = true })
         end
       end
     elseif i == 1 or #seatedPlayerColors > i then
       for _, pos in ipairs(list) do
-        bag.takeObject( { position = pos, rotation = faceup, smooth = true})
+        bag.takeObject({ position = pos, rotation = faceup, smooth = true })
       end
     end
   end
@@ -901,17 +1048,17 @@ function setupResearchTrack()
     newDecks[2].setPositionSmooth(trackInfo.assistantPos, false, true)
   end
 
-  -- maybe get a random artifact with 3 cost
+  -- maybe get a random artifact with 3 cost (for Monkey Temple)
   if trackInfo.artifactPos ~= nil then
-    for _, card in ipairs(decks.artifacts.getObjects()) do
-      local md = JSON.decode(card.GMNotes) or {}
-      if md.cost == '3' then
-        decks.artifacts.takeObject({
-          index = card.index,
+    for _, cardData in ipairs(decks.artifacts.getData().ContainedObjects) do
+      local md = JSON.decode(cardData.GMNotes) or {}
+      if md.cost == 3 then
+        local card = decks.artifacts.takeObject({
+          guid = cardData.GUID,
           position = trackInfo.artifactPos,
-          rotation = faceup,
-          callback = function(obj) obj.lock() end
+          rotation = faceup
         })
+        card.lock()
         break
       end
     end
@@ -930,7 +1077,619 @@ function setupResearchTrack()
   end
 end
 
-function menuStart(player, value, id)
+function setupArtifactsAndItems()
+  -- get positions from zones
+  local deckPos = {
+    Artifact = getObjectFromGUID(deckZones.artifacts).getPosition(),
+    Item = getObjectFromGUID(deckZones.items).getPosition()
+  }
+
+  for _, cardType in ipairs({ "Artifact", "Item" }) do
+    local cardList = {}
+    -- always add base game cards
+    local result = AllCardsBag.call("getCardsByExpansionAndType", { expansion = "Base Game", type = cardType })
+    addCardsToList(cardList, result)
+
+    -- maybe add cards from "Expedition Leaders"
+    if options.expansions.expeditionLeaders then
+      result = AllCardsBag.call("getCardsByExpansionAndType", { expansion = "Expedition Leaders", type = cardType })
+      addCardsToList(cardList, result)
+    end
+
+    -- maybe add cards from "Missing Expedition"
+    if options.expansions.missingExpedition then
+      result = AllCardsBag.call("getCardsByExpansionAndType", { expansion = "Missing Expedition", type = cardType })
+      addCardsToList(cardList, result)
+    end
+
+    -- maybe add cards from "Promo 1"
+    if options.expansions.promos then
+      result = AllCardsBag.call("getCardsByExpansionAndType", { expansion = "Promo 1", type = cardType })
+      addCardsToList(cardList, result)
+    end
+
+    local deck = AllCardsBag.call("spawnCardList", {
+      cardList = cardList,
+      position = deckPos[cardType],
+      rotation = facedown
+    })
+    deck.setName(cardType .. " Deck")
+    deck.shuffle()
+
+    -- add deck to global index
+    if cardType == "Artifact" then
+      decks.artifacts = deck
+    elseif cardType == "Item" then
+      decks.items = deck
+    end
+    wait(1)
+  end
+end
+
+function addCardsToList(list, cards)
+  for _, v in ipairs(cards) do
+    table.insert(list, v)
+  end
+end
+
+function setupPlayerAreas()
+  -- determine available states
+  local availableLeaders = {}
+
+  -- first 6 states come from the first expansion
+  if options.expansions.expeditionLeaders then
+    for i = 1, 6 do
+      table.insert(availableLeaders, i)
+    end
+  end
+
+  -- next two states come from the second expansion
+  if options.expansions.missingExpedition then
+    for i = 7, 8 do
+      table.insert(availableLeaders, i)
+    end
+  end
+
+  -- track manual leader selection
+  if options.leaders == 'choose' then
+    for _, playerColor in ipairs(seatedPlayerColors) do
+      local stateId = getPlayerBoard(playerColor).getStateId()
+      if stateId ~= 9 then
+        -- remove leader from pool
+        for i, id in ipairs(availableLeaders) do
+          if id == stateId then
+            table.remove(availableLeaders, i)
+            break
+          end
+        end
+      end
+    end
+  end
+
+  for _, playerColor in ipairs(seatedPlayerColors) do
+    if options.solo and playerColor == 'Red' then
+      -- Setup the solo player board
+      local soloBag = getObjectFromGUID(bags.solo)
+      for _, object in ipairs(getObjectFromGUID(playerVars[playerColor].allZoneGuid).getObjects()) do
+        if object.getName() ~= 'Red Archaeologist' then object.destruct() end
+      end
+      getPlayerBoard(playerColor).destruct()
+      soloBag.takeObject({ guid = solo.board, position = solo.boardPosition, rotation = faceup })
+    else
+      -- If not the solo player board
+      local playerBoard = getPlayerBoard(playerColor)
+      if playerBoard == nil then
+        broadcastToAll('Cannot find ' .. playerColor .. "'s player board. Please reload the mod.")
+        return 1
+      end
+
+      -- if random leader selection is enabled OR they choose to randomize during leader picking
+      if options.leaders == 'random' or (options.leaders == 'choose' and playerBoard.getStateId() == 9) then
+        local leaderId = 9
+        if #availableLeaders ~= 0 then
+          local rand = math.random(1, #availableLeaders)
+          leaderId = availableLeaders[rand]
+
+          -- remove leader from pool
+          for i, id in ipairs(availableLeaders) do
+            if id == leaderId then
+              table.remove(availableLeaders, i)
+              break
+            end
+          end
+        end
+
+        options.playerBoards[playerColor] = leaderId
+        if playerBoard.getStateId() ~= leaderId then playerBoard.setState(leaderId) end
+      else
+        options.playerBoards[playerColor] = playerBoard.getStateId()
+      end
+    end
+  end
+
+  -- TODO: remove expansion player aids?
+end
+
+function waitForBoardLoading()
+  for _, object in ipairs(fearDeckZone.getObjects()) do
+    if object.getName() == 'Board' then
+      boards.board = object
+      break
+    end
+  end
+
+  for _, playerColor in ipairs(seatedPlayerColors) do
+    boards[playerColor] = getPlayerBoard(playerColor)
+  end
+
+  repeat coroutine.yield(0) until checkDoneSpawning()
+  for _, board in pairs(boards) do
+    board.lock()
+    board.interactable = false
+  end
+  drawLines()
+end
+
+function setupDecks()
+  -- combine/delete expansion decks
+  for _, object in ipairs(fearDeckZone.getObjects()) do
+    if object.type == 'Deck' then
+      decks.fear = object
+      object.unlock()
+      break
+    end
+  end
+
+  -- Go through the dictionary of first expansion deck guids
+  for expansion, subTable in pairs(expansionDecks) do
+    for option, guid in pairs(subTable) do
+      local expansionDeck = getObjectFromGUID(guid)
+      local deck = nil
+      if option == 'idols' then
+        deck = getObjectFromGUID(idolDeckGuid)
+      elseif option == 'assistants' then
+        deck = getObjectFromGUID(assistantDeckGuid)
+      else
+        for _, object in ipairs(getObjectFromGUID(deckZones[option]).getObjects()) do
+          if object.type == 'Deck' then
+            deck = object
+            break
+          end
+        end
+      end
+
+      if deck == nil then
+        broadcastToAll('Cannot find ' .. option .. ' deck. Please reload the mod.')
+        return 1
+      elseif expansionDeck == nil then
+        broadcastToAll('Cannot find ' .. option .. ' expansion deck. Please reload the mod.')
+        return 1
+      end
+      deck.unlock()
+      decks[option] = deck
+
+      -- If this expansion is checked, we add the content from it to the respective deck (idols, guardians, artifacts, items, assistants, sites)
+      if options.expansions[expansion] then
+        deck.putObject(expansionDeck)
+      else
+        expansionDeck.destruct()
+      end
+    end
+  end
+end
+
+function setupMiscThings()
+  -- remove temple tiles
+  for _, guid in ipairs(templeTileZoneGuids) do
+    local count = 0
+    for _, object in ipairs(getObjectFromGUID(guid).getObjects()) do -- zones have tag 'temple'
+      count = count + 1
+      if count > #seatedPlayerColors then
+        object.destruct()
+      else
+        object.unlock()
+      end
+    end
+  end
+
+  -- distribute blocking
+  bag = getObjectFromGUID(bags.blocking)
+  if #seatedPlayerColors == 2 then
+    for _, siteInfo in ipairs(siteLevels[4]) do
+      siteInfo.blocked = true
+      local toPos = getObjectFromGUID(siteInfo.pawnSpaces[2]).getPosition()
+      local block = bag.takeObject({
+        position = Vector(toPos[1], 1.63, toPos[3]),
+        rotation = faceup
+      })
+      block.lock()
+    end
+  elseif #seatedPlayerColors == 3 then
+    local selection = { 1, 2, 3, 4, 5 }
+    for i = 1, 3 do
+      local randomIndex = math.random(1, #selection)
+      local siteInfo = siteLevels[4][selection[randomIndex]]
+      siteInfo.blocked = true
+      local toPos = getObjectFromGUID(siteInfo.pawnSpaces[2]).getPosition()
+      local block = bag.takeObject({
+        position = Vector(toPos[1], 1.63, toPos[3]),
+        rotation = faceup
+      })
+      block.lock()
+      if i < 3 then
+        table.remove(selection, randomIndex)
+      end
+    end
+  end
+
+  -- place assistants
+  local totalAssistantCount = 12
+  if options.expansions.expeditionLeaders then
+    totalAssistantCount = totalAssistantCount + 3
+  end
+
+  if options.expansions.missingExpedition then
+    totalAssistantCount = totalAssistantCount + 4
+  end
+
+  -- snake temple has one assistant per player in a special spot
+  if options.researchTrack == 2 then
+    totalAssistantCount = totalAssistantCount - #seatedPlayers
+  end
+
+  -- divide by number of stacks (3) and round down
+  local stackCount = math.floor(totalAssistantCount / 3 + 0.5)
+  local newDecks = decks.assistants.cut(stackCount)
+  wait(0.01)
+  newDecks[2].setRotationSmooth(faceup, false, true)
+  newDecks[2].setPositionSmooth(assistantPositions[1], false, true)
+
+  local moreNewDecks = newDecks[1].cut(stackCount)
+  wait(0.01)
+  moreNewDecks[2].setRotationSmooth(faceup, false, true)
+  moreNewDecks[2].setPositionSmooth(assistantPositions[2], false, true)
+  moreNewDecks[1].setRotationSmooth(faceup, false, true)
+  moreNewDecks[1].setPositionSmooth(assistantPositions[3], false, true)
+
+  -- fill market
+  wait(0.4)
+  round = 1
+  refillRowCoroutine()
+  wait(0.2)
+  setupButtons()
+  wait(0.2)
+
+  -- delete bags
+  for _, object in ipairs(getObjectFromGUID(solo.zones.delete).getObjects()) do
+    if not (options.solo and (object.getName() == 'Solo Components' or object.getName() == 'Solo Temple Tiles')) then
+      object.destruct()
+    end
+  end
+
+  addAssistantCycleMenu()
+
+  -- start player
+  local firstPlayerColor = 'Red'
+  if not (options.solo and #seatedPlayerColors == 2) then
+    startPlayerIndex = math.random(1, #seatedPlayerColors)
+    firstPlayerColor = seatedPlayerColors[startPlayerIndex]
+  end
+
+  local firstPlayerMarker = getObjectFromGUID(tokens.firstPlayer)
+  if firstPlayerMarker ~= nil then
+    firstPlayerMarker.lock()
+    firstPlayerMarker.setRotation(faceup)
+    firstPlayerMarker.setPositionSmooth(playerVars[firstPlayerColor].firstPlayerPosition, false, false)
+  end
+
+  if options.solo then
+    UI.setAttribute('soloMenu', 'active', 'true')
+  else
+    for _, playerColor in ipairs(seatedPlayerColors) do
+      if options.playerBoards[playerColor] == 3 then
+        decks[playerColor].takeObject({ guid = cards.baroness }).deal(1, playerColor)
+        decks[playerColor].deal(4, playerColor)
+      else
+        decks[playerColor].deal(5, playerColor)
+      end
+      if options.playerBoards[playerColor] == 6 then decks.fear.deal(1, playerColor) end
+      getObjectFromGUID(playerVars[playerColor].tentGuid).unlock()
+    end
+    broadcastToAll('Starting Round 1')
+    Turns.turn_color = firstPlayerColor
+    Turns.enable = true
+    setupInProgress = false
+  end
+end
+
+-- distribute starting player decks and tokens
+function setupStartingResources()
+  local tokenBag = getObjectFromGUID(bags.leaderTokens)
+  local refBag = getObjectFromGUID(bags.leaderRef)
+  local references = {}
+  for _, playerColor in ipairs(seatedPlayerColors) do
+    if options.solo and playerColor == 'Red' then -- if playing solo and this is the red player, setup the pawns
+      for i, guid in ipairs(solo.pawns) do
+        if i < 4 then
+          local pawn = getObjectFromGUID(guid) -- setup the red pawns already on the board as part of startup board state
+          if pawn ~= nil then
+            pawn.setRotationSmooth(faceup, false, true)
+            pawn.setPositionSmooth(solo.pawnPositions[i], false, true)
+          end
+        else -- take the rest of red pawns from the solo bag and set them up
+          local soloBag = getObjectFromGUID(bags.solo)
+          soloBag.takeObject({ guid = guid, position = solo.pawnPositions[i], rotation = faceup })
+        end
+      end
+    else
+      local playerBoardState = options.playerBoards[playerColor]
+      local vars = playerVars[playerColor]
+
+      if playerBoardState ~= 1 then
+        local pawn = getObjectFromGUID(vars.pawns[3])
+        if pawn ~= nil then pawn.destruct() end
+      end
+
+      -- collect data for deck spawning
+      local cardList
+      local deckPos = getObjectFromGUID(getDeckZoneGuid(playerColor)).getPosition()
+      local boardLocation = getPlayerBoard(playerColor).getPosition()
+
+      -- The mechanic and journalist need a small adjustment to their deck placement location
+      if (playerBoardState == 7 or playerBoardState == 8) and (playerColor == "Red" or playerColor == "Yellow") then
+        deckPos = deckPos - Vector(8.85, 0, 0)
+      elseif (playerBoardState == 7 or playerBoardState == 8) and (playerColor == "Green" or playerColor == "Blue") then
+        deckPos = deckPos - Vector(0.12, 0, 0)
+      end
+
+      if playerBoardState == 9 then
+        -- if the player board is the base board, grab the player deck for the board color
+        cardList = starterDeck[playerColor]
+      else
+        local refIndex = playerBoardState * 2 - 2
+        for i = 1, 2 do
+          local ref = refBag.takeObject({ position = vars.refPositions[i], rotation = faceup, smooth = true })
+          wait(0.01)
+          table.insert(references, { obj = ref, state = refIndex + i })
+        end
+
+        if playerBoardState == 1 then     -- Setup for the captain
+          cardList = starterDeck["Captain"]
+        elseif playerBoardState == 2 then -- Setup for the falcon
+          cardList = starterDeck["Falconer"]
+          tokenBag.takeObject({
+            guid = tokens.falcon,
+            position = vars.falconPositions[2],
+            rotation = falconRotations[2]
+          })
+        elseif playerBoardState == 3 then -- Setup for the baroness
+          cardList = starterDeck["Baroness"]
+        elseif playerBoardState == 4 then -- Setup for the professor
+          cardList = starterDeck["Professor"]
+          local profStuff = {}
+          local suitcase = tokenBag.takeObject({
+            guid = tokens.suitcase,
+            position = vars.suitcasePosition,
+            rotation = faceup
+          })
+          table.insert(profStuff, suitcase)
+          for resource, guid in pairs(suitcaseResourceBags) do -- Place and setup the professor's Bag
+            local toPos = getObjectFromGUID(vars.suitcaseResourceBagZones[resource]).getPosition()
+            local resourceBag = tokenBag.takeObject({
+              guid = guid,
+              position = { toPos[1], 1.63, toPos[3] },
+              rotation = faceup
+            })
+            table.insert(profStuff, resourceBag)
+          end
+          wait(0.3)
+          for _, obj in ipairs(profStuff) do
+            obj.setDescription(playerColor)
+            obj.lock()
+          end
+
+          -- add cards to archive
+          local archive = {}
+          for i = 1, 3 do
+            local card = drawCard(getObjectFromGUID(deckZones.artifacts))
+            card.use_hands = false
+            card.setRotationSmooth(faceup, false, true)
+            card.setPositionSmooth(playerVars[playerColor].archivePositions[i], false, true)
+            table.insert(archive, card)
+          end
+          wait(0.4)
+          for _, card in ipairs(archive) do
+            card.use_hands = true
+          end
+        elseif playerBoardState == 5 then -- Setup for the explorer
+          cardList = starterDeck["Explorer"]
+          local pawn = getObjectFromGUID(vars.pawns[2])
+          if pawn ~= nil then pawn.destruct() end
+          for i, guid in ipairs(tokens.food) do
+            local pos = vars.foodPositions[i]
+            if i == 3 then
+              pos = { 4.89, 1.53, 40 }
+            end
+            tokenBag.takeObject({ guid = guid, position = pos, rotation = faceup, smooth = true })
+          end
+        elseif playerBoardState == 6 then -- Setup for the mystic
+          cardList = starterDeck["Mystic"]
+        elseif playerBoardState == 7 then -- Setup for the journalist
+          cardList = starterDeck["Journalist"]
+          -- Grab the newspaper token deck, shuffle, then place two newspapers into their location relative to the player board
+          tokenBag.takeObject({
+            guid              = tokens.journalistNewspapers,
+            position          = Vector(-55.98, 1.55, 53.02),
+            smooth            = true,
+            callback_function = function(x)
+              x.shuffle()
+              x.takeObject({
+                position          = boardLocation + Vector(8.82, 0.06, -0.58),
+                smooth            = true,
+                callback_function = function(y) y.setLock(true) end
+              })
+              x.takeObject({
+                position          = boardLocation + Vector(14.74, 0.06, -0.59),
+                smooth            = true,
+                callback_function = function(y) y.setLock(true) end
+              })
+            end
+          })
+          -- As journalist place article tokens on to the player board for "featured articles". 3 or more players sets only two articles and 2 or less set all 3 articles.
+          local articlePosition = vars.articlePosition
+          tokenBag.takeObject({
+            guid              = tokens.journalistArticles,
+            position          = articlePosition,
+            smooth            = true,
+            callback_function = function(x)
+              local boardArticleLocations = {
+                Vector(8.87, 0.06, 4.54),
+                Vector(11.76, 0.06, 4.54),
+                Vector(14.61, 0.06, 4.54)
+              }
+              local count = 2
+              if #seatedPlayers <= 2 then count = 3 end
+              for i = 1, count do
+                x.takeObject({ position = boardLocation + boardArticleLocations[i] })
+              end
+              -- Use the pre-defined pawn placement location array and place the remaining article tokens to the left of them
+              for i = 1, 3 do
+                for _, siteData in ipairs(siteLevels[i]) do
+                  local pos = getObjectFromGUID(siteData.pawnSpaces[1]).getPosition()
+                  x.takeObject({ position = pos + Vector(-2.25, 0, -0.08) })
+                end
+              end
+            end
+          })
+        elseif playerBoardState == 8 then -- Setup for the mechanic
+          cardList = starterDeck["Mechanic"]
+          local goldenTeethPosition = vars.goldenTeethPosition
+          tokenBag.takeObject({
+            position          = goldenTeethPosition,
+            smooth            = true,
+            guid              = tokens.MechanicGoldTokens,
+            rotation          = facedown,
+            callback_function = function(x)
+              -- Here we take the gold teeth deck and shuffle it, split it into 4 stacks of two each and move 3 of those 4 stacks to above the player board
+              x.shuffle()
+              local offsets = nil
+              if playerColor == "Blue" or playerColor == "Green" then
+                offsets = {
+                  Vector(12, 0.2, 7.3),
+                  Vector(15, 0.2, 7.3),
+                  Vector(18, 0.2, 7.3)
+                }
+              elseif playerColor == "Red" or playerColor == "Yellow" then
+                offsets = {
+                  Vector(-12, 0.2, 7.3),
+                  Vector(-15, 0.2, 7.3),
+                  Vector(-18, 0.2, 7.3)
+                }
+              end
+
+              for _, offset in ipairs(offsets) do
+                for i = 1, 2 do
+                  x.takeObject({ position = boardLocation + offset, smooth = true })
+                end
+              end
+            end
+          })
+          -- Place the mechanic monkey assistant
+          local monkeyPosOffsets = { Vector(-15.3, 0.02, 11.35), Vector(-14.12, 0, -6.74) }
+          if playerColor == "Green" or playerColor == "Blue" then
+            monkeyPosOffsets = { Vector(15.3, 0.02, 11.35), Vector(14.12, 0, -6.74) }
+          end
+
+          tokenBag.takeObject({
+            position = boardLocation + monkeyPosOffsets[1],
+            smooth   = true,
+            guid     = tokens.MechanicMonkey
+          })
+          tokenBag.takeObject({
+            position          = boardLocation + monkeyPosOffsets[2],
+            rotation          = { 0, 0, 0 },
+            smooth            = true,
+            guid              = tokens.MechanicGoldTokenAttacher,
+            callback_function = function(x) x.setLock(true) end
+          })
+
+          -- Place the spinning wheel for mechanic and lock it in place
+          tokenBag.takeObject({
+            position          = boardLocation + Vector(13.88, 0.05, -0.09),
+            rotation          = { 0, 316.32, 0 },
+            smooth            = true,
+            guid              = tokens.MechanicWheel,
+            callback_function = function(x) x.setLock(true) end
+          })
+        end
+
+        -- spawn the deck
+        decks[playerColor] = AllCardsBag.call("spawnCardList", {
+          cardList = cardList,
+          rotation = facedown,
+          position = deckPos
+        })
+      end
+    end
+  end
+
+  wait(0.4)
+
+  for _, ref in ipairs(references) do
+    if ref.state ~= 1 then ref.obj.setState(ref.state) end
+  end
+
+  wait(0.4)
+
+  for _, playerColor in ipairs(seatedPlayerColors) do
+    if not (options.solo and playerColor == 'Red') then
+      for i = 1, 2 do
+        decks[playerColor].putObject(decks.fear.takeObject()) -- Give each player two fear cards for starting hard setup
+      end
+      for _, object in ipairs(getObjectFromGUID(playerVars[playerColor].refZoneGuid).getObjects()) do
+        if object.type == 'Tile' then object.lock() end
+      end
+    end
+  end
+
+  wait(0.5)
+
+  -- shuffle decks
+  for _, deck in pairs(decks) do
+    if deck ~= nil then
+      deck.shuffle()
+    end
+  end
+
+  -- starting resources
+  if options.solo and #seatedPlayerColors == 2 then
+    takeResourceButton('c', seatedPlayerColors[1])
+    takeResourceButton('s', seatedPlayerColors[1])
+  else
+    local passedFirstPlayer = false
+    local turnOrder = 0
+    local resourcesPerTurnOrder = { { c = 2, s = 0 }, { c = 1, s = 1 }, { c = 2, s = 1 }, { c = 1, s = 2 } }
+    for i = 1, 2 do
+      for _, playerColor in ipairs(seatedPlayerColors) do
+        if playerColor == firstPlayerColor then
+          if passedFirstPlayer then break end
+          passedFirstPlayer = true
+        end
+        if passedFirstPlayer then
+          turnOrder = turnOrder + 1
+          for resource, count in pairs(resourcesPerTurnOrder[turnOrder]) do
+            for i = 1, count do
+              takeResourceButton(resource, playerColor)
+              wait(0.1)
+            end
+          end
+        end
+      end
+    end
+  end
+end
+
+function menuStart(_, value, _)
   -- Only show the manual choice menu if player chose that during setup options
   local menuChoice = tonumber(value)
   if menuChoice == 3 and checkToggle('leaders4') then
@@ -940,717 +1699,7 @@ function menuStart(player, value, id)
     return
   end
 
-  -- get seated player colors
-  local allColors = { 'Red', 'Blue', 'Green', 'Yellow' }
-  seatedPlayerColors = {}
-  local absentColors = {}
-
-  local seatedPlayers = getSeatedPlayers()
-  if TESTING and testVars.defineSeated then seatedPlayers = testVars.seatedPlayers end
-
-  local playerBoards = {}
-  local leaders = { false, false, false, false, false, false, false, false }
-  local duplicate = false
-  for _, color in ipairs(allColors) do
-    local seated = false
-    for _, seatedPlayerColor in ipairs(seatedPlayers) do
-      if seatedPlayerColor == color then
-        seated = true
-        table.insert(seatedPlayerColors, color)
-        local playerBoard = getPlayerBoard(color)
-        playerBoards[color] = playerBoard.getStateId()
-        if playerBoard.getStateId() ~= 9 then
-          if not leaders[playerBoard.getStateId()] then
-            leaders[playerBoard.getStateId()] = true
-          else
-            duplicate = true
-          end
-        end
-      end
-    end
-    if not seated then table.insert(absentColors, color) end
-  end
-  options.playerBoards = playerBoards
-
-  if #seatedPlayerColors == 0 then
-    broadcastToAll('All players must select colors before setup.')
-    return
-  end
-  if duplicate and menuChoice == 4 then
-    broadcastToAll('Duplicate expedition leaders were chosen.')
-    return
-  end
-  if #seatedPlayerColors == 1 then
-    if seatedPlayerColors[1] == 'Red' then
-      broadcastToAll('Rival plays as red. Choose a different color.')
-      return
-    end
-    options.solo = true
-    table.insert(seatedPlayerColors, 'Red')
-    table.remove(absentColors, 1)
-  end
-
-
-  if options.researchTrack == 4 and options.expansions.expeditionLeaders == false and options.expansions.missingExpedition == false then
-    broadcastToAll('The Lizard Temple has been selected. Expedition Leaders expansion will be used.')
-    options.expansions.expeditionLeaders = true
-  end
-  setupInProgress = true
-
-  function menuStartCoroutine()
-    uiOff()
-    if TESTING then log(options) end
-    local soloBag = getObjectFromGUID(bags.solo)
-
-    -- set states on boards
-    -- If the player chose to randomized only expedition leaders we need 6 spots, if they randomized all leaders
-    -- then we need 8 spots
-    if options.leaders == 'rand_expedition_ldrs' then
-      leaders = { false, false, false, false, false, false }
-    elseif options.leaders == 'rand_all_ldrs' or options.leaders == 'choose' then
-      leaders = { false, false, false, false, false, false, false, false }
-    end
-
-    -- This is our check for when the players chose manual leaders, this ensures that our randomization for leaders later on doesnt pick duplicates.
-    for _, playerColor in ipairs(seatedPlayerColors) do
-      if options.leaders == 'choose' and getPlayerBoard(playerColor).getStateId() ~= 9 then
-        leaders[getPlayerBoard(playerColor).getStateId()] = true
-      end
-    end
-
-    for _, playerColor in ipairs(seatedPlayerColors) do
-      -- Setup the solo player board
-      if options.solo and playerColor == 'Red' then
-        for _, object in ipairs(getObjectFromGUID(playerVars[playerColor].allZoneGuid).getObjects()) do
-          if object.getName() ~= 'Red Archaeologist' then object.destruct() end
-        end
-        getPlayerBoard(playerColor).destruct()
-        soloBag.takeObject({ guid = solo.board, position = solo.boardPosition, rotation = faceup })
-        -- If not the solo player board
-      else
-        local playerBoard = getPlayerBoard(playerColor)
-        if playerBoard == nil then
-          broadcastToAll('Cannot find ' .. playerColor .. "'s player board. Please reload the mod.")
-          return 1
-        end
-        -- if the player chose to random either expedition leaders or all leaders OR they choose to randomize during leader picking
-        if options.leaders == 'rand_expedition_ldrs' or options.leaders == 'rand_all_ldrs' or (options.leaders == 'choose' and playerBoard.getStateId() == 9) then
-          local rand = nil
-          repeat                         -- generate random numbers between 1 and number of leaders (6 if expedition, 8 if all)
-            rand = math.random(1, #leaders)
-          until (leaders[rand] == false) -- until you generate a number not already picked
-          leaders[rand] = true           -- mark the number as 'picked' and set the playerboard to that state
-          options.playerBoards[playerColor] = rand
-          if playerBoard.getStateId() ~= rand then playerBoard.setState(rand) end
-          -- if the player chose no leaders set the board to 9 which is base board
-        elseif options.leaders == 'none' then
-          options.playerBoards[playerColor] = 9
-          if playerBoard.getStateId() ~= 9 then playerBoard.setState(9) end
-        else
-          options.playerBoards[playerColor] = playerBoard.getStateId()
-        end
-      end
-    end
-    local fearDeckZone = getObjectFromGUID(deckZones.fear)
-    for _, object in ipairs(fearDeckZone.getObjects()) do
-      if object.getName() == 'Board' then --Check the current board and if its not what was chosen via options, change it
-        if object.getStateId() ~= options.board then object.setState(options.board) end
-        break
-      end
-    end
-    for _, object in ipairs(getObjectFromGUID(researchTracks[4].guardianZone).getObjects()) do
-      if object.getName() == 'Research Track' then
-        if object.getStateId() ~= options.researchTrack then object.setState(options.researchTrack) end --Check the research board and if its not what was chosen via options, change it
-        break
-      end
-    end
-    for _, guid in ipairs(staffGuids) do
-      local staff = getObjectFromGUID(guid)
-      if staff ~= nil then --Check the moon staff and if its not what was chosen via options, change it
-        if staff.getStateId() ~= options.staff then staff.setState(options.staff) end
-        break
-      end
-    end
-
-    -- delete not seated
-    for _, playerColor in ipairs(absentColors) do
-      local vars = playerVars[playerColor]
-      for _, object in ipairs(getObjectFromGUID(vars.allZoneGuid).getObjects()) do
-        object.destruct()
-      end
-      for _, guid in pairs(vars.researchTokens) do
-        local token = getObjectFromGUID(guid)
-        if token ~= nil then token.destruct() end
-      end
-    end
-    for _, guid in ipairs(expansionRulesCopies) do
-      local object = getObjectFromGUID(guid)
-      if object ~= nil then object.destruct() end
-    end
-    wait(0.6)
-
-    -- wait for loading
-    local boards = {}
-    for _, object in ipairs(fearDeckZone.getObjects()) do
-      if object.getName() == 'Board' then
-        boards.board = object
-        break
-      end
-    end
-    for _, object in ipairs(getObjectFromGUID(researchTracks[4].guardianZone).getObjects()) do
-      if object.getName() == 'Research Track' then
-        boards.researchBoard = object
-        break
-      end
-    end
-    for _, playerColor in ipairs(seatedPlayerColors) do
-      boards[playerColor] = getPlayerBoard(playerColor)
-    end
-
-    function checkDoneSpawning()
-      for _, board in pairs(boards) do
-        if board.spawning or board.loading_custom then return false end
-      end
-      return true
-    end
-
-    repeat coroutine.yield(0) until checkDoneSpawning()
-    for _, board in pairs(boards) do
-      board.lock()
-      board.interactable = false
-    end
-    drawLines()
-
-    -- combine/delete expansion decks
-    local decks = {}
-    for _, object in ipairs(fearDeckZone.getObjects()) do
-      if object.type == 'Deck' then
-        decks.fear = object
-        object.unlock()
-        break
-      end
-    end
-
-    -- Go through the dictionary of first expansion deck guids
-    for option, guid in pairs(expansionDecks) do
-      local expansionDeck = getObjectFromGUID(guid)
-      local deck = nil
-      if option == 'idols' then
-        deck = getObjectFromGUID(idolDeckGuid)
-      elseif option == 'assistants' then
-        deck = getObjectFromGUID(assistantDeckGuid)
-      else
-        for _, object in ipairs(getObjectFromGUID(deckZones[option]).getObjects()) do
-          if object.type == 'Deck' then deck = object end
-        end
-      end
-      if deck == nil then
-        broadcastToAll('Cannot find ' .. option .. ' deck. Please reload the mod.')
-        return 1
-      end
-      if expansionDeck == nil then
-        broadcastToAll('Cannot find ' .. option .. ' expansion deck. Please reload the mod.')
-        return 1
-      end
-      deck.unlock()
-      decks[option] = deck
-      -- Here we check if the expedition leaders option is checked and if it is, we mix the various decks and items (idols, guardians, artifacts, items, assistants, sites)
-      -- from the first expansion to the base game decks and items
-      if options.expansions['expeditionLeaders'] then
-        deck.putObject(expansionDeck)
-      else
-        expansionDeck.destruct()
-      end
-    end
-    -- TODO add artifacts and items from expansion
-
-    -- Go through the dictionary of second expansion deck guids
-    for option, guid in pairs(missingExpeditionDecks) do
-      local expansionDeck = getObjectFromGUID(guid)
-      local deck = nil
-      if option == 'idols' then
-        deck = getObjectFromGUID(idolDeckGuid)
-      elseif option == 'assistants' then
-        deck = getObjectFromGUID(assistantDeckGuid)
-      else
-        for _, object in ipairs(getObjectFromGUID(deckZones[option]).getObjects()) do
-          if object.type == 'Deck' then deck = object end
-        end
-      end
-      if deck == nil then
-        broadcastToAll('Cannot find ' .. option .. ' deck. Please reload the mod.')
-        return 1
-      end
-      if expansionDeck == nil then
-        broadcastToAll('Cannot find ' .. option .. ' expansion deck. Please reload the mod.')
-        return 1
-      end
-      deck.unlock()
-      decks[option] = deck
-      -- Here we check if the missing expedition option is checked and if it is, we mix the various decks and items (idols, guardians, artifacts, items, assistants, sites)
-      -- from the second expansion to the base game decks and items
-      if options.expansions['missingExpedition'] then
-        deck.putObject(expansionDeck)
-      else
-        expansionDeck.destruct()
-      end
-    end
-    -- If promo options are enabled, add the cards to their respective decks
-    if options.expansions.promos then
-      -- TODO add promo artifacts to list
-      -- decks.artifacts.putObject(promo)
-
-      -- TODO add promo items to list
-      --decks.items.putObject(promo)
-    end
-    wait(0.5)
-
-    -- distribute starting player decks and tokens
-    local startingDeckBag = getObjectFromGUID(bags.startingDecks)
-    local tokenBag = getObjectFromGUID(bags.leaderTokens)
-    local refBag = getObjectFromGUID(bags.leaderRef)
-    local references = {}
-    for _, playerColor in ipairs(seatedPlayerColors) do
-      if options.solo and playerColor == 'Red' then -- if playing solo and this is the red player, setup the pawns
-        for i, guid in ipairs(solo.pawns) do
-          if i < 4 then
-            local pawn = getObjectFromGUID(guid) --setup the red pawns already on the board as part of startup board state
-            if pawn ~= nil then
-              pawn.setRotationSmooth(faceup, false, true)
-              pawn.setPositionSmooth(solo.pawnPositions[i], false, true)
-            end
-          else -- take the rest of red pawns from the solo bag and set them up
-            soloBag.takeObject({ guid = guid, position = solo.pawnPositions[i], rotation = faceup })
-          end
-        end
-      else
-        local deck = nil
-        local playerBoardState = options.playerBoards[playerColor]
-        local vars = playerVars[playerColor]
-
-        if playerBoardState ~= 1 then
-          local pawn = getObjectFromGUID(vars.pawns[3])
-          if pawn ~= nil then pawn.destruct() end
-        end
-
-        if playerBoardState == 9 then --if the player board is the base board, grab the player deck for the board color
-          deck = startingDeckBag.takeObject({ guid = playerDecks.base[playerColor] })
-        else
-          deck = startingDeckBag.takeObject({ guid = playerDecks.leaders[playerBoardState] }) -- grab the deck from the starting decks bag using the playerboard state as the index to playerdecks->leaders array
-          local refIndex = playerBoardState * 2 - 2
-          for i = 1, 2 do
-            local ref = refBag.takeObject()
-            wait(0.01)
-            ref.setRotationSmooth(faceup, false, true)
-            ref.setPositionSmooth(vars.refPositions[i], false, true)
-            table.insert(references, { obj = ref, state = refIndex + i })
-          end
-
-          if playerBoardState == 2 then -- Token setup for the falcon
-            tokenBag.takeObject({
-              guid = tokens.falcon,
-              position = vars.falconPositions[2],
-              rotation = falconRotations[2]
-            })
-          elseif playerBoardState == 4 then -- Token setup for the professor
-            local profStuff = {}
-            local suitcase = tokenBag.takeObject({
-              guid = tokens.suitcase,
-              position = vars.suitcasePosition,
-              rotation = faceup
-            })
-            table.insert(profStuff, suitcase)
-            for resource, guid in pairs(suitcaseResourceBags) do -- Place and setup the professor's Bag
-              local toPos = getObjectFromGUID(vars.suitcaseResourceBagZones[resource]).getPosition()
-              local resourceBag = tokenBag.takeObject({
-                guid = guid,
-                position = { toPos[1], 1.63, toPos[3] },
-                rotation = faceup
-              })
-              table.insert(profStuff, resourceBag)
-            end
-            wait(0.3)
-            for _, obj in ipairs(profStuff) do
-              obj.setDescription(playerColor)
-              obj.lock()
-            end
-          elseif playerBoardState == 5 then -- Token setup for the explorer
-            local pawn = getObjectFromGUID(vars.pawns[2])
-            if pawn ~= nil then pawn.destruct() end
-            for i, guid in ipairs(tokens.food) do
-              local token = tokenBag.takeObject({ guid = guid })
-              wait(0.01)
-              token.setRotationSmooth(faceup, false, true)
-              if i == 3 then
-                token.setPositionSmooth({ 4.89, 1.53, 40 }, false, true)
-              else
-                token.setPositionSmooth(vars.foodPositions[i], false, true)
-              end
-            end
-          elseif playerBoardState == 7 then -- Token setup for the journalist
-            -- Grab the newspaper token deck, shuffle then place two newspapers into their location relative to the player board
-            local boardLocation = getPlayerBoard(playerColor).getPosition()
-            tokenBag.takeObject({
-              position          = { -55.98, 1.55, 53.02 },
-              callback_function = function(x)
-                x.shuffle()
-                x.shuffle()
-                x.takeObject({
-                  position          = { boardLocation[1] + 8.82, boardLocation[2] + 0.06, boardLocation[3] - 0.58 },
-                  smooth            = true,
-                  callback_function = function(y) y.setLock(true) end
-                })
-                x.takeObject({
-                  position          = { boardLocation[1] + 14.74, boardLocation[2] + 0.06, boardLocation[3] - 0.59 },
-                  smooth            = true,
-                  callback_function = function(y) y.setLock(true) end
-                })
-              end,
-              smooth            = false,
-              guid              = tokens.journalistNewspapers
-            })
-            local articleLocation = nil -- Determine which player color the player is then move the article stack near their resources
-            if playerColor == 'Red' then
-              articleLocation = { -24.00, 1.57, 16.80 }
-            elseif playerColor == "Yellow" then
-              articleLocation = { -24.00, 1.57, -24.20 }
-            elseif playerColor == "Green" then
-              articleLocation = { 29.20, 1.57, -24.20 }
-            elseif playerColor == "Blue" then
-              articleLocation = { 29.20, 1.57, 16.80 }
-            end
-            if articleLocation ~= nil then
-              tokenBag.takeObject({ -- As journalist place article tokens on to the player board for "featured articles". 3 or more players sets only two articles and 2 or less set all 3 articles.
-                position          = articleLocation,
-                callback_function = function(x)
-                  local boardArticleLocations = { { 8.87, -0.06, 4.54 }, { 11.76, -0.06, 4.54 }, { 14.61, -0.06, 4.54 } }
-                  local i = 1
-                  if #seatedPlayers <= 2 then
-                    while i <= 3 do
-                      x.takeObject({ position = { boardLocation[1] + boardArticleLocations[i][1], boardLocation[2] - boardArticleLocations[i][2], boardLocation[3] + boardArticleLocations[i][3] } })
-                      i = i + 1
-                    end
-                  elseif #seatedPlayers > 2 then
-                    while i <= 2 do
-                      x.takeObject({ position = { boardLocation[1] + boardArticleLocations[i][1], boardLocation[2] - boardArticleLocations[i][2], boardLocation[3] + boardArticleLocations[i][3] } })
-                      i = i + 1
-                    end
-                  end
-                  -- Use the pre-defined pawn placement location array and place the remaining article tokens to the left of them
-                  for i = 1, 3 do
-                    for _, siteData in ipairs(siteLevels[i]) do
-                      local pos = getObjectFromGUID(siteData.pawnSpaces[1]).getPosition()
-                      x.takeObject({ position = { pos[1] - 2.25, pos[2], pos[3] - 0.08 } })
-                    end
-                  end
-                end,
-                smooth            = true,
-                guid              = tokens.journalistArticles,
-              })
-            end
-          elseif playerBoardState == 8 then -- Token setup for the mechanic
-            local boardLocation = getPlayerBoard(playerColor).getPosition()
-            local goldTokens = nil          -- Determine which player color the player is then move the gold token stack near their resources
-            if playerColor == 'Red' then
-              goldTokens = { -24.00, 1.57, 16.80 }
-            elseif playerColor == "Yellow" then
-              goldTokens = { -24.00, 1.57, -24.20 }
-            elseif playerColor == "Green" then
-              goldTokens = { 29.20, 1.57, -24.20 }
-            elseif playerColor == "Blue" then
-              goldTokens = { 29.20, 1.57, 16.80 }
-            end
-            if goldTokens ~= nil then
-              tokenBag.takeObject({
-                position          = goldTokens,
-                smooth            = true,
-                guid              = tokens.MechanicGoldTokens,
-                rotation          = facedown,
-                callback_function = function(x)
-                  -- Here we take the gold tokens deck and shuffle it, split it into 4 stacks of two each and move 3 of those 4 stacks to above the player board
-                  x.shuffle()
-                  x.shuffle()
-                  local positions = nil
-                  if playerColor == "Blue" or playerColor == "Green" then
-                    positions = { { boardLocation[1] + 12.13, boardLocation[2] + 0.2, boardLocation[3] + 6.69 }, { boardLocation[1] + 15.13, boardLocation[2] + 0.2, boardLocation[3] + 6.69 }, { boardLocation[1] + 18.13, boardLocation[2] + 0.2, boardLocation[3] + 6.69 } }
-                  elseif playerColor == "Red" or playerColor == "Yellow" then
-                    positions = { { boardLocation[1] - 12.13, boardLocation[2] + 0.2, boardLocation[3] + 6.69 }, { boardLocation[1] - 15.13, boardLocation[2] + 0.2, boardLocation[3] + 6.69 }, { boardLocation[1] - 18.13, boardLocation[2] + 0.2, boardLocation[3] + 6.69 } }
-                  end
-
-                  for _, pos in ipairs(positions) do
-                    local i = 1
-                    while i <= 2 do
-                      x.takeObject({
-                        position = pos,
-                        smooth   = true
-                      })
-                      i = i + 1
-                    end
-                  end
-                end
-              })
-            end
-            -- Place the mechanic monkey assistant
-            if playerColor == "Red" or playerColor == "Yellow" then
-              tokenBag.takeObject({
-                position = { boardLocation[1] - 15.3, boardLocation[2] + 0.02, boardLocation[3] + 11.35 },
-                smooth   = true,
-                guid     = tokens.MechanicMonkey
-              })
-              tokenBag.takeObject({
-                position          = { boardLocation[1] - 14.12, boardLocation[2], boardLocation[3] - 6.74 },
-                rotation          = { 0, 0, 0 },
-                smooth            = true,
-                guid              = tokens.MechanicGoldTokenAttacher,
-                callback_function = function(x) x.setLock(true) end
-              })
-            elseif playerColor == "Green" or playerColor == "Blue" then
-              tokenBag.takeObject({
-                position = { boardLocation[1] + 15.3, boardLocation[2] + 0.02, boardLocation[3] + 11.35 },
-                smooth   = true,
-                guid     = tokens.MechanicMonkey
-              })
-              --Place the mechanic bag that allows tokens to attach to the wheel and lock it
-              tokenBag.takeObject({
-                position          = { boardLocation[1] + 14.12, boardLocation[2], boardLocation[3] - 6.74 },
-                rotation          = { 0, 0, 0 },
-                smooth            = true,
-                guid              = tokens.MechanicGoldTokenAttacher,
-                callback_function = function(x) x.setLock(true) end
-              })
-            end
-            --Place the spinning wheel for mechanic and lock it in place
-            tokenBag.takeObject({
-              position          = { boardLocation[1] + 13.88, boardLocation[2] + 0.05, boardLocation[3] - 0.09 },
-              rotation          = { 0.00, 316.32, 0.00 },
-              callback_function = function(x) x.setLock(true) end,
-              smooth            = true,
-              guid              = tokens.MechanicWheel,
-            })
-          end
-        end
-        -- Here the deck grabbed earlier is moved to their correct position
-        local toPos = getObjectFromGUID(getDeckZoneGuid(playerColor)).getPosition()
-        -- The mechanic and journalist need small adjustment to their deck placement location
-        if (playerBoardState == 7 or playerBoardState == 8) and (playerColor == "Red" or playerColor == "Yellow") then
-          toPos[1] = toPos[1] - 8.85
-        elseif (playerBoardState == 7 or playerBoardState == 8) and (playerColor == "Green" or playerColor == "Blue") then
-          toPos[1] = toPos[1] - 0.12
-        end
-        deck.setRotation(facedown)
-        deck.setPositionSmooth({ toPos[1], tileY + 0.02, toPos[3] }, false, true)
-        decks[playerColor] = deck
-      end
-    end
-    wait(0.4)
-    for _, ref in ipairs(references) do
-      if ref.state ~= 1 then ref.obj.setState(ref.state) end
-    end
-    wait(0.4)
-    for _, playerColor in ipairs(seatedPlayerColors) do
-      if not (options.solo and playerColor == 'Red') then
-        for i = 1, 2 do
-          decks[playerColor].putObject(decks.fear.takeObject()) -- Give each player two fear cards for starting hard setup
-        end
-        for _, object in ipairs(getObjectFromGUID(playerVars[playerColor].refZoneGuid).getObjects()) do
-          if object.type == 'Tile' then object.lock() end
-        end
-      end
-    end
-    wait(1)
-
-    -- shuffle decks
-    for i = 1, 2 do
-      for _, deck in pairs(decks) do
-        deck.shuffle()
-      end
-      wait(0.32)
-    end
-    wait(0.2)
-
-    -- put cards in archive
-    for _, playerColor in ipairs(seatedPlayerColors) do
-      if options.playerBoards[playerColor] == 4 then
-        local archive = {}
-        for i = 1, 3 do
-          local card = drawCard(getObjectFromGUID(deckZones.artifacts))
-          card.use_hands = false
-          card.setRotationSmooth(faceup, false, true)
-          card.setPositionSmooth(playerVars[playerColor].archivePositions[i], false, true)
-          table.insert(archive, card)
-        end
-        wait(0.4)
-        for _, card in ipairs(archive) do
-          card.use_hands = true
-        end
-        break
-      end
-    end
-
-    -- remove temple tiles
-    for _, guid in ipairs(templeTileZoneGuids) do
-      local count = 0
-      for _, object in ipairs(getObjectFromGUID(guid).getObjects()) do -- zones have tag 'temple'
-        count = count + 1
-        if count > #seatedPlayerColors then
-          object.destruct()
-        else
-          object.unlock()
-        end
-      end
-    end
-
-    -- distribute blocking
-    bag = getObjectFromGUID(bags.blocking)
-    local blocks = {}
-    if #seatedPlayerColors == 2 then
-      for _, siteInfo in ipairs(siteLevels[4]) do
-        siteInfo.blocked = true
-        local toPos = getObjectFromGUID(siteInfo.pawnSpaces[2]).getPosition()
-        local block = bag.takeObject({ position = { toPos[1], 1.63, toPos[3] }, rotation = faceup })
-        table.insert(blocks, block)
-      end
-    elseif #seatedPlayerColors == 3 then
-      local selection = { 1, 2, 3, 4, 5 }
-      for i = 1, 3 do
-        local randomIndex = math.random(1, #selection)
-        local siteInfo = siteLevels[4][selection[randomIndex]]
-        siteInfo.blocked = true
-        local toPos = getObjectFromGUID(siteInfo.pawnSpaces[2]).getPosition()
-        local block = bag.takeObject({ position = { toPos[1], 1.63, toPos[3] }, rotation = faceup })
-        table.insert(blocks, block)
-        if i < 3 then
-          table.remove(selection, randomIndex)
-        end
-      end
-    end
-
-    local stackCount = 0
-    -- expedition leaders: no + missing expedition: no + research track is not snake temple
-    if not options.expansions.expeditionLeaders and not options.expansions.missingExpedition and options.researchTrack ~= 2 then
-      stackCount = 4
-      -- expedition leaders: yes + missing expedition: no + research track is not snake temple
-    elseif options.expansions.expeditionLeaders and not options.expansions.missingExpedition and options.researchTrack ~= 2 then
-      stackCount = 5
-      -- expedition leaders: no + missing expedition: yes + research track is not snake temple
-    elseif not options.expansions.expeditionLeaders and options.expansions.missingExpedition and options.researchTrack ~= 2 then
-      stackCount = 5
-      -- expedition leaders: yes + missing expedition: yes + research track is not snake temple
-    elseif options.expansions.expeditionLeaders and options.expansions.missingExpedition and options.researchTrack ~= 2 then
-      stackCount = 6
-      -- expedition leaders: no + missing expedition: no + research track is snake temple
-    elseif not options.expansions.expeditionLeaders and not options.expansions.missingExpedition and options.researchTrack == 2 then
-      stackCount = 3
-      -- expedition leaders: yes + missing expedition: no + research track is snake temple
-    elseif options.expansions.expeditionLeaders and not options.expansions.missingExpedition and options.researchTrack == 2 then
-      stackCount = 4
-      -- expedition leaders: no + missing expedition: yes + research is snake temple
-    elseif not options.expansions.expeditionLeaders and options.expansions.missingExpedition and options.researchTrack == 2 then
-      stackCount = 4
-      -- expedition leaders: yes + missing expedition: yes + research track is snake temple
-    elseif options.expansions.expeditionLeaders and options.expansions.missingExpedition and options.researchTrack == 2 then
-      stackCount = 5
-    end
-
-    local newDecks = decks.assistants.cut(stackCount)
-    wait(0.01)
-    newDecks[2].setRotationSmooth(faceup, false, true)
-    newDecks[2].setPositionSmooth(assistantPositions[1], false, true)
-    local moreNewDecks = newDecks[1].cut(stackCount)
-    wait(0.01)
-    moreNewDecks[2].setRotationSmooth(faceup, false, true)
-    moreNewDecks[2].setPositionSmooth(assistantPositions[2], false, true)
-    moreNewDecks[1].setRotationSmooth(faceup, false, true)
-    moreNewDecks[1].setPositionSmooth(assistantPositions[3], false, true)
-
-    -- fill market
-    wait(0.4)
-    round = 1
-    refillRowCoroutine()
-    wait(0.2)
-    setupButtons()
-    wait(0.2)
-
-    -- delete bags
-    for _, object in ipairs(getObjectFromGUID(solo.zones.delete).getObjects()) do
-      if not (options.solo and (object.getName() == 'Solo Components' or object.getName() == 'Solo Temple Tiles')) then
-        object.destruct()
-      end
-    end
-    if getObjectFromGUID(tokens.journalistNewspapers) ~= nil then
-      getObjectFromGUID(tokens.journalistNewspapers).destruct()
-    end
-    --if not options.solo then getObjectFromGUID(solo.rules).destruct() end
-    --if not options.expansions.promos then getObjectFromGUID(promoRulesGuid).destruct() end
-    for _, block in ipairs(blocks) do
-      block.lock()
-    end
-    addAssistantCycleMenu()
-
-    -- start player
-    local firstPlayerColor = 'Red'
-    if not (options.solo and #seatedPlayerColors == 2) then
-      startPlayerIndex = math.random(1, #seatedPlayerColors)
-      firstPlayerColor = seatedPlayerColors[startPlayerIndex]
-    end
-
-    local firstPlayerMarker = getObjectFromGUID(tokens.firstPlayer)
-    if firstPlayerMarker ~= nil then
-      firstPlayerMarker.lock()
-      firstPlayerMarker.setRotation(faceup)
-      firstPlayerMarker.setPositionSmooth(playerVars[firstPlayerColor].firstPlayerPosition, false, false)
-    end
-
-    -- starting resources
-    if options.solo and #seatedPlayerColors == 2 then
-      takeResourceButton('c', seatedPlayerColors[1])
-      takeResourceButton('s', seatedPlayerColors[1])
-    else
-      local passedFirstPlayer = false
-      local turnOrder = 0
-      local resourcesPerTurnOrder = { { c = 2, s = 0 }, { c = 1, s = 1 }, { c = 2, s = 1 }, { c = 1, s = 2 } }
-      for i = 1, 2 do
-        for _, playerColor in ipairs(seatedPlayerColors) do
-          if playerColor == firstPlayerColor then
-            if passedFirstPlayer then break end
-            passedFirstPlayer = true
-          end
-          if passedFirstPlayer then
-            turnOrder = turnOrder + 1
-            for resource, count in pairs(resourcesPerTurnOrder[turnOrder]) do
-              for i = 1, count do
-                takeResourceButton(resource, playerColor)
-                wait(0.1)
-              end
-            end
-          end
-        end
-      end
-    end
-    wait(0.4)
-
-    if options.solo then
-      UI.setAttribute('soloMenu', 'active', 'true')
-    else
-      for _, playerColor in ipairs(seatedPlayerColors) do
-        if options.playerBoards[playerColor] == 3 then
-          decks[playerColor].takeObject({ guid = cards.baroness }).deal(1, playerColor)
-          decks[playerColor].deal(4, playerColor)
-        else
-          decks[playerColor].deal(5, playerColor)
-        end
-        if options.playerBoards[playerColor] == 6 then decks.fear.deal(1, playerColor) end
-        getObjectFromGUID(playerVars[playerColor].tentGuid).unlock()
-      end
-      broadcastToAll('Starting Round 1')
-      Turns.turn_color = firstPlayerColor
-      Turns.enable = true
-      setupInProgress = false
-    end
-    return 1
-  end
-
-  startLuaCoroutine(Global, 'menuStartCoroutine')
+  startLuaCoroutine(Global, "setupGame")
 end
 
 function menuStartSolo()
@@ -1951,7 +2000,7 @@ function takeFearButton(zone, clickColor)
   card.setPositionSmooth({ toPos[1] + xOffset, tableY + 0.5, toPos[3] }, false, true)
 end
 
--- helepr function to get the metadata for a card
+-- helper function to get the metadata for a card
 function getMetaData(card)
   if card.type ~= "Card" then return {} end
 
@@ -2457,6 +2506,19 @@ function guardianFearCoroutine()
   return 1
 end
 
+function getStaff()
+  local staffList = getObjectsWithTag("staff")
+  if #staffList == 0 then
+    print("Staff not found.")
+    return nil
+  else
+    if #staffList > 1 then
+      print("Multiple staffs found!")
+    end
+    return staffList[1]
+  end
+end
+
 function nextRoundButton(obj, clickColor, alt)
   if not isSeated(clickColor) and clickColor ~= 'Black' or movingRow or setupInProgress or UI.getAttribute('soloMenu', 'active') == 'true' then return end
   if options.solo then
@@ -2700,14 +2762,18 @@ function nextRoundButton(obj, clickColor, alt)
     end
     wait(0.4)
     round = round + 1
-    local staff = getObjectFromGUID(staffGuids[2])
-    if staff == nil then staff = getObjectFromGUID(staffGuids[1]) end
-    if staff ~= nil then staff.setPositionSmooth(staffPositions[round], false, true) end
+
+    -- move staff
+    local staff = getStaff()
+    if staff then
+      staff.setPositionSmooth(staffPositions[round], false, true)
+    end
+
     wait(0.5)
     refillRowCoroutine()
 
     -- starting player
-    local firstPlayerColor = nil
+    firstPlayerColor = nil
     if not (options.solo and #seatedPlayerColors == 2) then
       startPlayerIndex = startPlayerIndex + 1
       if startPlayerIndex > #seatedPlayerColors then startPlayerIndex = 1 end
@@ -3822,6 +3888,9 @@ function getDeckZoneGuid(playerColor)
   local vars = playerVars[playerColor]
   if options.playerBoards[playerColor] == 9 then return vars.deckZoneGuids.base end
   if options.playerBoards[playerColor] == 6 then return vars.deckZoneGuids.mystic end
+  -- TODO: maybe add additional scripting zones for journalist and mechanic
+  --if options.playerBoards[playerColor] == 7 then return vars.deckZoneGuids.journalist end
+  --if options.playerBoards[playerColor] == 8 then return vars.deckZoneGuids.mechanic end
   return vars.deckZoneGuids.leader
 end
 
@@ -3848,7 +3917,7 @@ function drawCard(zone, rotation, position, checkOnly)
       end
       return object
     elseif object.type == 'Deck' then
-      return object.takeObject()
+      return object.takeObject({ position = position, rotation = rotation })
     end
   end
   return nil
@@ -3897,32 +3966,4 @@ function temp() end
 function wait(t)
   local now = Time.time
   repeat coroutine.yield(0) until Time.time > now + t
-end
-
----------------------- TEST
-
-function setupTestButtons()
-  local buttonZone = getObjectFromGUID(testVars.buttonZone)
-  if buttonZone.getButtons() == nil or #buttonZone.getButtons() == 0 then
-    local params = {
-      function_owner = self,
-      label = 'Test',
-      click_function = 'test',
-      position = { -2.2, 0, 0 },
-      width = 900,
-      height = 500,
-      font_size = 240
-    }
-    buttonZone.createButton(params)
-
-    params.label = 'Test 2'
-    params.click_function = 'test2'
-    params.position = { 0, 0, 0 }
-    buttonZone.createButton(params)
-
-    params.label = 'Test 3'
-    params.click_function = 'test3'
-    params.position = { 2.2, 0, 0 }
-    buttonZone.createButton(params)
-  end
 end
