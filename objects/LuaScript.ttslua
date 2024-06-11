@@ -304,7 +304,7 @@ missingExpeditionDecks = {
   --artifacts = 'f61f69',
   --items = '5076de',
   assistants = 'b640aa',
-  --idols = '9988c4',
+  idols = '2e956e',
   --sites1 = '37a6dd',
   --sites2 = '486402',
   --guardians = 'b876d5'
@@ -908,7 +908,7 @@ function menuStart(player, value, id)
     checkToggle(expansion, options.expansions)
   end
 
-  if options.researchTrack == 4 and options.expansions.expeditionLeaders == false then
+  if options.researchTrack == 4 and options.expansions.expeditionLeaders == false and options.expansions.missingExpedition == false then
     broadcastToAll('The Lizard Temple has been selected. Expedition Leaders expansion will be used.')
     options.expansions.expeditionLeaders = true
   end
@@ -1071,7 +1071,7 @@ function menuStart(player, value, id)
       deck.unlock()
       decks[option] = deck
       -- Here we check if the expedition leaders option is checked and if it is, we mix the various decks and items (idols, guardians, artifacts, items, assistants, sites)
-      -- from the first expansion to the base deck decks and items
+      -- from the first expansion to the base game decks and items
       if options.expansions['expeditionLeaders'] then
         deck.putObject(expansionDeck)
       else
@@ -1102,7 +1102,7 @@ function menuStart(player, value, id)
       deck.unlock()
       decks[option] = deck
       -- Here we check if the missing expedition option is checked and if it is, we mix the various decks and items (idols, guardians, artifacts, items, assistants, sites)
-      -- from the second expansion to the base deck decks and items
+      -- from the second expansion to the base game decks and items
       if options.expansions['missingExpedition'] then
         deck.putObject(expansionDeck)
       else
@@ -1475,6 +1475,7 @@ function menuStart(player, value, id)
         card.setRotationSmooth(facedown, false, true)
         card.setPositionSmooth(trackInfo.guardianPos, false, true)
       end
+      -- If the research track chosen has idol slots then place idols equal to the number of players
       if trackInfo.idolPos ~= nil then
         for i = 1, 4 do
           local card = decks.idols.takeObject()
@@ -1489,7 +1490,7 @@ function menuStart(player, value, id)
       end
     end
 
-    -- distribute idols
+    -- distribute idols to the tier 1 and tier 2 sites. Tier 2 sites get 2 (one face up one face down)
     for i = 1, 3 do
       for _, siteZone in ipairs(siteLevels[i]) do
         local pos = getObjectFromGUID(siteZone.guid).getPosition()
@@ -1589,8 +1590,8 @@ function menuStart(player, value, id)
     if getObjectFromGUID(tokens.journalistNewspapers) ~= nil then 
         getObjectFromGUID(tokens.journalistNewspapers).destruct()
     end
-    if not options.solo then getObjectFromGUID(solo.rules).destruct() end
-    if not options.expansions.promos then getObjectFromGUID(promoRulesGuid).destruct() end
+    --if not options.solo then getObjectFromGUID(solo.rules).destruct() end
+    --if not options.expansions.promos then getObjectFromGUID(promoRulesGuid).destruct() end
     for _, block in ipairs(blocks) do
       block.lock()
     end

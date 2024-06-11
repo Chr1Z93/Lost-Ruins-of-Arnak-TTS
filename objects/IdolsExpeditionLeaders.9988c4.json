@@ -16,7 +16,7 @@
     "Card.622ded",
     "Card.fbf82a"
   ],
-  "ContainedObjects_path": "Idolsexpansion.9988c4",
+  "ContainedObjects_path": "IdolsExpeditionLeaders.9988c4",
   "CustomDeck": {
     "54": {
       "BackIsHidden": true,
@@ -49,7 +49,7 @@
   "LuaScriptState": "",
   "MeasureMovement": false,
   "Name": "Deck",
-  "Nickname": "Idols (expansion)",
+  "Nickname": "Idols (Expedition Leaders)",
   "SidewaysCard": false,
   "Snap": true,
   "Sticky": true,
