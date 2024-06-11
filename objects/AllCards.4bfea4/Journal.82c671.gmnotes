@@ -1,0 +1,9 @@
+{
+  "id": "0101",
+  "type": "Item",
+  "car": 1,
+  "boat": 1,
+  "cost": 3,
+  "points": 1,
+  "expansion": "Base Game"
+}

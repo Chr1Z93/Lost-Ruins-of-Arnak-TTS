@@ -1,0 +1,9 @@
+{
+  "id": "9101",
+  "type": "Item",
+  "boat": 1,
+  "car": 1,
+  "cost": 4,
+  "points": 2,
+  "expansion": "Promo 1"
+}
