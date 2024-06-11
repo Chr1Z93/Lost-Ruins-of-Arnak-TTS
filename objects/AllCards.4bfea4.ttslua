@@ -149,3 +149,116 @@ function getCardsByName(params)
   end
   return results
 end
+
+-- Spawn a specific list of cards.
+---@param params table Contains the arguments below:
+--   cardList table A list of card IDs
+--   pos? table Position where the cards should be spawned (global)
+--   rot? table Rotation for the orientation of the spawned cards (global)
+--   callback? function callback to be called after the card/deck spawns.
+function spawnCardList(params)
+  local cardList = params.cardList
+  local pos = params.pos or Vector(0, 3, 46.2)
+  local rot = params.rot or Vector(0, 180, 180)
+  local callback = params.callback
+
+  -- if missing information, then abort
+  if not cardList then return end
+
+  -- get valid IDs from card list
+  local spawnList = {}
+
+  for _, id in ipairs(cardList) do
+    if cardIdIndex[id] then
+      table.insert(spawnList, cardIdIndex[id])
+    end
+  end
+
+  -- if no valid card IDs were provided
+  if #spawnList == 0 then return end
+
+  -- Spawn a single card directly
+  if #spawnList == 1 then
+    spawnObjectData({
+      data = spawnList[1].data,
+      position = pos,
+      rotation = rot,
+      callback_function = callback
+    })
+    return
+  end
+
+  -- For multiple cards, construct a deck and spawn that
+  local deck = {}
+  deck.Name = "Deck"
+  deck.ContainedObjects = {}
+  deck.DeckIDs = {}
+  deck.CustomDeck = {}
+
+  -- Decks won't inherently scale to the cards in them, use the first card to set the size
+  deck.Transform = {
+    scaleX = spawnList[1].data.Transform.scaleX,
+    scaleY = 1,
+    scaleZ = spawnList[1].data.Transform.scaleZ
+  }
+
+  for _, spawnCard in ipairs(spawnList) do
+    addCardToDeck(deck, spawnCard.data)
+  end
+
+  spawnObjectData({
+    data = deck,
+    position = pos,
+    rotation = rot,
+    callback_function = callback
+  })
+end
+
+-- Inserts a card into the given deck.  This does three things:
+--   1. Add the card's data to ContainedObjects.
+--   2. Add the card's ID (the TTS CardID) to the deck's ID list.
+--   3. Extract the card's CustomDeck table and add it to the deck.
+---@param deck table TTS deck data structure to add to
+---@param cardData table Data for the card to be inserted
+function addCardToDeck(deck, cardData)
+  for customDeckId, customDeckData in pairs(cardData.CustomDeck) do
+    if deck.CustomDeck[customDeckId] == nil then
+      -- CustomDeck not added to deck yet, add it
+      deck.CustomDeck[customDeckId] = customDeckData
+    elseif deck.CustomDeck[customDeckId].FaceURL == customDeckData.FaceURL then
+      -- CustomDeck for this card matches the current one for the deck, do nothing
+    else
+      -- CustomDeck data conflict
+      local newDeckId = nil
+      for deckId, customDeck in pairs(deck.CustomDeck) do
+        if customDeckData.FaceURL == customDeck.FaceURL then
+          newDeckId = deckId
+        end
+      end
+      if newDeckId == nil then
+        -- No non-conflicting custom deck for this card, add a new one
+        newDeckId = findNextAvailableId(deck.CustomDeck, "1000")
+        deck.CustomDeck[newDeckId] = customDeckData
+      end
+      -- Update the card with the new CustomDeck info
+      cardData.CardID = newDeckId..string.sub(cardData.CardID, 5)
+      cardData.CustomDeck[customDeckId] = nil
+      cardData.CustomDeck[newDeckId] = customDeckData
+      break
+    end
+  end
+  table.insert(deck.ContainedObjects, cardData)
+  table.insert(deck.DeckIDs, cardData.CardID)
+end
+
+-- Returns the first ID which does not exist in the given table, starting at startId and increasing
+---@param objectTable table keyed by strings which are numbers
+---@param startId string possible ID.
+---@return string id >= startId
+function findNextAvailableId(objectTable, startId)
+  local id = startId
+  while objectTable[id] ~= nil do
+    id = tostring(tonumber(id) + 1)
+  end
+  return id
+end
