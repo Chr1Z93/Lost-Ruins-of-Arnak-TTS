@@ -5,7 +5,7 @@ function onLoad()
     label          = "N",
     position       = { 0, 1, -2.50 },
     rotation       = { 0, 180, 0 },
-    scale          = {2.5,2.5,2.5},
+    scale          = { 2.5, 2.5, 2.5 },
     width          = 200,
   })
   self.createButton({
@@ -14,7 +14,7 @@ function onLoad()
     label          = "E",
     position       = { -1, 1, -3 },
     rotation       = { 0, 180, 0 },
-    scale          = {2.5,2.5,2.5},
+    scale          = { 2.5, 2.5, 2.5 },
     width          = 200,
   })
   self.createButton({
@@ -23,16 +23,16 @@ function onLoad()
     label          = "S",
     position       = { 0, 1, -3.5 },
     rotation       = { 0, 180, 0 },
-    scale          = {2.5,2.5,2.5},
+    scale          = { 2.5, 2.5, 2.5 },
     width          = 200,
   })
   self.createButton({
     click_function = "attachWest",
     function_owner = self,
     label          = "W",
-    position       = {1, 1, -3 },
+    position       = { 1, 1, -3 },
     rotation       = { 0, 180, 0 },
-    scale          = {2.5,2.5,2.5},
+    scale          = { 2.5, 2.5, 2.5 },
     width          = 200,
   })
 end
@@ -48,7 +48,7 @@ function attachNorth()
       rotation          = northRot,
       smooth            = true,
       callback_function = attachSelf
-    })   
+    })
   end
 end
 
@@ -100,7 +100,6 @@ end
 function attachSelf(x)
   local wheel = getObjectFromGUID('d3657d')
   if wheel ~= nil and x ~= nil then
-    wheel.addAttachment(x)    
+    wheel.addAttachment(x)
   end
-  
 end
