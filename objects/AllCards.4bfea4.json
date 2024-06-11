@@ -217,7 +217,7 @@
   "IgnoreFoW": false,
   "LayoutGroupSortIndex": 0,
   "Locked": true,
-  "LuaScript": "",
+  "LuaScript_path": "AllCards.4bfea4.ttslua",
   "LuaScriptState": "",
   "MaterialIndex": -1,
   "MeasureMovement": false,

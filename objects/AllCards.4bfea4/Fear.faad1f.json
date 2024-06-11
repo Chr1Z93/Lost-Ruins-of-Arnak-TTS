@@ -24,7 +24,7 @@
   },
   "Description": "",
   "DragSelectable": true,
-  "GMNotes": "{\r\n  \"id\": \"0000\",\r\n  \"boot\": 1,\n  \"points\": -1,\r\n  \"expansion\": \"Base Game\"\r\n}",
+  "GMNotes": "{\r\n  \"id\": \"0000\",\r\n  \"type\": \"Fear\",\r\n  \"boot\": 1,\n  \"points\": -1,\r\n  \"expansion\": \"Base Game\"\r\n}",
   "GUID": "faad1f",
   "Grid": true,
   "GridProjection": false,

@@ -1,0 +1,151 @@
+local cardIdIndex = {}
+local expansionIndex = {}
+local typeIndex = {}
+
+local indexingDone = false
+
+function onLoad()
+  self.addContextMenuItem("Rebuild Index", startIndexBuild)
+  math.randomseed(os.time())
+  Wait.frames(startIndexBuild, 30)
+end
+
+function clearIndexes()
+  indexingDone = false
+  cardIdIndex = {}
+  expansionIndex = {}
+  typeIndex = {}
+end
+
+-- Clears the bag indexes and starts the coroutine to rebuild the indexes
+function startIndexBuild()
+  clearIndexes()
+  startLuaCoroutine(self, "buildIndex")
+end
+
+function onObjectLeaveContainer(container, _)
+  if container == self then
+    broadcastToAll("Removing cards from the All Player Cards bag may break some functions.", "Red")
+  end
+end
+
+-- Create the card indexes by iterating all cards in the bag, parsing their metadata
+-- and creating the keyed lookup tables for the cards. This is a coroutine which will
+-- spread the workload by processing 20 cards before yielding.
+function buildIndex()
+  local cardCount = 0
+  indexingDone = false
+
+  for _, cardData in ipairs(self.getData().ContainedObjects) do
+    addCardToIndex(cardData)
+    cardCount = cardCount + 1
+    if cardCount > 19 then
+      cardCount = 0
+      coroutine.yield(0)
+    end
+  end
+
+  -- sort tables by ID
+  for _, indexTable in pairs(expansionIndex) do
+    table.sort(indexTable)
+  end
+
+  for _, indexTable in pairs(typeIndex) do
+    table.sort(indexTable)
+  end
+
+  indexingDone = true
+
+  --outputMetrics()
+  return 1
+end
+
+function outputMetrics()
+  logExpansionCount("Base Game")
+  logExpansionCount("Expedition Leaders")
+  logExpansionCount("Missing Expedition")
+  logExpansionCount("Promo 1")
+end
+
+function logExpansionCount(name)
+  log(name .. ": " .. #expansionIndex[name])
+end
+
+-- Adds a card to any indexes it should be a part of, based on its metadata
+---@param cardData table TTS object data for the card
+function addCardToIndex(cardData)
+  local cardMetadata = JSON.decode(cardData.GMNotes)
+
+  -- if metadata was not valid JSON or empty, don't add the card
+  if not cardMetadata == nil then
+    log("Error parsing " .. cardData.Nickname)
+    return
+  end
+
+  -- add to main index
+  cardIdIndex[cardMetadata.id] = { data = cardData, metadata = cardMetadata }
+
+  -- add to expansion index
+  local expansion = cardMetadata.expansion
+  if not expansionIndex[expansion] then
+    expansionIndex[expansion] = {}
+  end
+  table.insert(expansionIndex[expansion], cardMetadata.id)
+
+  -- add to type index
+  local type = cardMetadata.type
+  if not typeIndex[type] then
+    typeIndex[type] = {}
+  end
+  table.insert(typeIndex[type], cardMetadata.id)
+end
+
+---@return boolean: If true, the bag is currently not indexing and ready to be accessed
+function isIndexReady()
+  if not indexingDone then
+    broadcastToAll("Still loading player cards, please try again in a few seconds", { 0.9, 0.2, 0.2 })
+  end
+  return indexingDone
+end
+
+-- Returns a specific card from the bag, based on ID
+---@param params table ID of the card to retrieve
+---@return table: If the indexes are still being constructed, returns an empty table.
+--  Otherwise, a single table with the following fields
+--    data: TTS object data, suitable for spawning the card
+--    metadata: Table of parsed metadata
+function getCardById(params)
+  if not isIndexReady() then return {} end
+  return cardIdIndex[params.id]
+end
+
+-- Returns a list of cards from the bag matching a expansion
+---@param params table
+--  expansion: String expansion to retrieve ("Expedition Leaders" etc.)
+--  sortByMetadata: true to sort the table by metadata instead of ID
+---@return table: If the indexes are still being constructed, returns an empty table.
+--  Otherwise, a list of tables, each with the following fields
+--    data: TTS object data, suitable for spawning the card
+--    metadata: Table of parsed metadata
+function getCardsByExpansion(params)
+  if not isIndexReady() then return {} end
+  return expansionIndex[string.lower(params.expansion)]
+end
+
+-- Searches the bag for cards which match the given name and returns a list.
+-- Parameter array must contain these fields to define the search:
+--   name: String or string fragment to search for names
+--   exact: Whether the name match should be exact
+function getCardsByName(params)
+  local name = params.name
+  local exact = params.exact
+  local results = {}
+
+  for _, cardData in pairs(cardIdIndex) do
+    if (exact and (string.lower(cardData.data.Nickname) == string.lower(name)))
+        or (not exact and string.find(string.lower(cardData.data.Nickname), string.lower(name), 1, true)) then
+      table.insert(results, cardData)
+    end
+  end
+  return results
+end
