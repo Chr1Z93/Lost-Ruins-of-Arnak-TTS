@@ -657,8 +657,28 @@ researchTracks = {
     guardianPos = { 14.90, 1.69, -10.51 },
     guardianZone = '7f2184',
     idolPos = { 18.54, 1.72, -0.97 }
+  },
+  -- tree temple
+  {
+    bonusPositions = {
+
+    },
+    rows = {
+
+    },
+    templePoints = {27, 25, 24, 23 }
+  },
+  -- waterfall temple
+  {
+    bonusPositions = {
+
+    },
+    rows = {
+
+    },
+    templePoints = {20, 18, 17, 16 },
+    site1pos = {} -- TODO: add handling for this
   }
-  -- TODO: data for new research tracks
 }
 
 solo = {
