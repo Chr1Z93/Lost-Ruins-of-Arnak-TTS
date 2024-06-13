@@ -3,7 +3,7 @@
 
 testVars = {
   defineSeated = true,
-  seatedPlayers = { 'Blue', 'Yellow', 'Red','Green'}
+  seatedPlayers = { 'Blue', 'Yellow', 'Red', 'Green' }
 }
 
 playerVars = {
@@ -657,8 +657,6 @@ researchTracks = {
   -- TODO: data for new research tracks
 }
 
-promoRulesGuid = '78c6d8'
-expansionRulesCopies = { 'c30ae7', 'c4dd33', '47e8e6', 'd40f4c' }
 solo = {
   rules = '29196c',
   board = 'a30382',
@@ -835,7 +833,7 @@ function setupGame()
   wait(0.1)
   setupMoonstaff()
   wait(0.1)
-  setupArtifactsAndItems()
+  setupArtifactsItemsFear()
   wait(0.1)
   setupResearchTrack()
   wait(0.1)
@@ -969,11 +967,6 @@ function detectSeatedPlayers()
       if token ~= nil then token.destruct() end
     end
   end
-  for _, guid in ipairs(expansionRulesCopies) do
-    local object = getObjectFromGUID(guid)
-    if object ~= nil then object.destruct() end
-  end
-  wait(0.6)
 end
 
 function setupBoard()
@@ -986,7 +979,6 @@ function setupBoard()
   end
 
   -- distribute idols to the tier 1 and tier 2 sites. Tier 2 sites get 2 (one face up one face down)
-  decks.idols.shuffle()
   decks.idols.shuffle()
   for i = 1, 3 do
     for _, siteZone in ipairs(siteLevels[i]) do
@@ -1088,11 +1080,12 @@ function setupResearchTrack()
   end
 end
 
-function setupArtifactsAndItems()
+function setupArtifactsItemsFear()
   -- get positions from zones
   local deckPos = {
     Artifact = getObjectFromGUID(deckZones.artifacts).getPosition(),
-    Item = getObjectFromGUID(deckZones.items).getPosition()
+    Item = getObjectFromGUID(deckZones.items).getPosition(),
+    Fear = getObjectFromGUID(deckZones.fear).getPosition()
   }
 
   for _, cardType in ipairs({ "Artifact", "Item" }) do
@@ -1135,6 +1128,19 @@ function setupArtifactsAndItems()
     end
     wait(1)
   end
+
+  -- generate fear deck
+  local cardList = {}
+  for i = 1, (19 - #seatedPlayers * 2) do
+    table.insert(cardList, "0000")
+  end
+  local deck = AllCardsBag.call("spawnCardList", {
+    cardList = cardList,
+    position = deckPos["Fear"],
+    rotation = facedown
+  })
+  deck.setName("Fear Deck")
+  decks.fear = deck
 end
 
 function addCardsToList(list, cards)
@@ -1635,6 +1641,10 @@ function setupStartingResources()
           })
         end
 
+        -- add two fear cards to the deck
+        table.insert(cardList, "0000")
+        table.insert(cardList, "0000")
+
         -- spawn the deck
         decks[playerColor] = AllCardsBag.call("spawnCardList", {
           cardList = cardList,
@@ -1655,9 +1665,6 @@ function setupStartingResources()
 
   for _, playerColor in ipairs(seatedPlayerColors) do
     if not (options.solo and playerColor == 'Red') then
-      for i = 1, 2 do
-        decks[playerColor].putObject(decks.fear.takeObject()) -- Give each player two fear cards for starting hard setup
-      end
       for _, object in ipairs(getObjectFromGUID(playerVars[playerColor].refZoneGuid).getObjects()) do
         if object.type == 'Tile' then object.lock() end
       end
