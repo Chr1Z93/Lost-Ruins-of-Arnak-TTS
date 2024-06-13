@@ -325,7 +325,7 @@ expansionDecks = {
     idols = '2e956e',
     --sites1 = '37a6dd',
     --sites2 = '486402',
-    --guardians = 'b876d5'
+    guardians = '6fbe77'
   }
 }
 
@@ -986,6 +986,8 @@ function setupBoard()
   end
 
   -- distribute idols to the tier 1 and tier 2 sites. Tier 2 sites get 2 (one face up one face down)
+  decks.idols.shuffle()
+  decks.idols.shuffle()
   for i = 1, 3 do
     for _, siteZone in ipairs(siteLevels[i]) do
       local pos = getObjectFromGUID(siteZone.guid).getPosition()
@@ -997,8 +999,8 @@ function setupBoard()
       end
     end
   end
-  -- TODO maybe keep remaining idols?
-  if decks.idols ~= nil then decks.idols.destruct() end
+  -- if the research track needs idols, dont remove the remaining idols
+  if decks.idols ~= nil and researchTracks[options.researchTrack].idolPos == nil then decks.idols.destruct() end
 end
 
 function setupMoonstaff()
@@ -1072,14 +1074,17 @@ function setupResearchTrack()
 
   -- maybe get a random guardian
   if trackInfo.guardianPos ~= nil then
+    decks.guardians.shuffle()
     decks.guardians.takeObject({ position = trackInfo.guardianPos, rotation = facedown, smooth = true })
   end
 
   -- maybe place idols equal to the number of players
   if trackInfo.idolPos ~= nil then
+    decks.idols.shuffle()
     for i = 1, #seatedPlayerColors do
       decks.idols.takeObject({ position = trackInfo.idolPos, rotation = facedown, smooth = true })
     end
+    decks.idols.destruct()
   end
 end
 
@@ -1246,7 +1251,7 @@ function setupDecks()
     end
   end
 
-  -- Go through the dictionary of first expansion deck guids
+  -- Go through the expansion dictionary which holds multiple dictionaries containing each of the expansions which in turn contain the guids for various expansion decks/items
   for expansion, subTable in pairs(expansionDecks) do
     for option, guid in pairs(subTable) do
       local expansionDeck = getObjectFromGUID(guid)
@@ -2276,9 +2281,10 @@ function placePawn(playerColor, zone, siteInfo, level, alt)
   startLuaCoroutine(Global, 'placePawnCoroutine')
 end
 
+--function that checks the gm notes to determine what rewards the player should get
 function deliverRewardsCoroutine(playerColor, obj)
   local rewards = obj.getGMNotes()
-  local resourceLabels = { t = 'tablet', a = 'arrowhead', j = 'jewel', c = 'coin', s = 'compass' }
+  local resourceLabels = { t = 'tablet', a = 'arrowhead', j = 'jewel', c = 'coin', s = 'compass' } --these resources are automatically given to the player
   local resourceCount = {}
   local deliveredAll = true
   local deliveredResources = false
@@ -2292,7 +2298,7 @@ function deliverRewardsCoroutine(playerColor, obj)
         resourceCount[reward] = resourceCount[reward] + 1
       end
       deliveredResources = true
-    elseif reward == 'u' then
+    elseif reward == 'u' then -- these rewards, the player must manually take action on
       broadcastToAll(getPlayerName(playerColor) .. ' may upgrade one resource.')
       deliveredAll = false
     elseif reward == 'r' then
@@ -2307,10 +2313,16 @@ function deliverRewardsCoroutine(playerColor, obj)
     elseif reward == 'm' then
       broadcastToAll(getPlayerName(playerColor) .. ' may activate a campsite.')
       deliveredAll = false
-    elseif reward == 'f' then
+    elseif reward == 'g' then
+      broadcastToAll(getPlayerName(playerColor) .. ' may flip an expended guardian for reuse.')
+      deliveredAll = false
+    elseif reward == 'p' then
+      broadcastToAll(getPlayerName(playerColor) .. ' may take one 2-point temple tile from any stack for free.')
+      deliveredAll = false
+    elseif reward == 'f' then -- give fear cards automatically to the player
       takeFearButton(getObjectFromGUID(deckZones.fear), playerColor)
       wait(0.3)
-    elseif reward == 'd' then
+    elseif reward == 'd' then -- draw a card automatically for the player
       local card = drawCard(getObjectFromGUID(getDeckZoneGuid(playerColor)))
       if card ~= nil then
         card.deal(1, playerColor)

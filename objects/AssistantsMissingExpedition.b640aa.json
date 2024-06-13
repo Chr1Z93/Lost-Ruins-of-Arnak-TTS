@@ -11,10 +11,10 @@
     "r": 0.71324
   },
   "ContainedObjects_order": [
-    "CardCustom.8e4638",
     "CardCustom.51ad0d",
     "CardCustom.edfd74",
-    "CardCustom.b22096"
+    "CardCustom.b22096",
+    "CardCustom.8e4638"
   ],
   "ContainedObjects_path": "AssistantsMissingExpedition.b640aa",
   "CustomDeck": {
@@ -45,7 +45,7 @@
       "Type": 0,
       "UniqueBack": false
     },
-    "277": {
+    "579": {
       "BackIsHidden": true,
       "BackURL": "http://cloud-3.steamusercontent.com/ugc/2496761664830640086/D4AB7BF19BE484719AFC75F826CDD698C7F47D35/",
       "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2496761664830640212/B79E761CF041A10489B34AE6BAA0BC2A8DB454D8/",
@@ -56,10 +56,10 @@
     }
   },
   "DeckIDs": [
-    25300,
     27100,
     27600,
-    27700
+    57900,
+    25300
   ],
   "Description": "",
   "DragSelectable": true,
@@ -80,6 +80,9 @@
   "SidewaysCard": false,
   "Snap": true,
   "Sticky": true,
+  "Tags": [
+    "assistant"
+  ],
   "Tooltip": true,
   "Transform": {
     "posX": -12.5,
