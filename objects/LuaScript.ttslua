@@ -3,7 +3,7 @@
 
 testVars = {
   defineSeated = true,
-  seatedPlayers = { 'Blue', 'Yellow', 'Red', 'Green' }
+  seatedPlayers = { 'Blue', 'Yellow', 'Red','Green'}
 }
 
 playerVars = {
