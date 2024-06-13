@@ -1917,7 +1917,7 @@ function setupButtons()
       local vars = playerVars[playerColor]
       for resource, guid in pairs(vars.resourceBagZones) do
         local bag = getObjectFromGUID(vars.resourceBags[resource])
-        params.label = bag.getQuantity()
+        params.label = tostring(bag.getQuantity())
         params.click_function = 'clickResourceBag' .. resource .. playerColor
         getObjectFromGUID(guid).createButton(params)
 
@@ -1934,7 +1934,7 @@ function setupButtons()
         for resource, guid in pairs(suitcaseResourceBags) do
           local bag = getObjectFromGUID(guid)
           if bag ~= nil then
-            params.label = bag.getQuantity()
+            params.label = tostring(bag.getQuantity())
             params.click_function = 'clickResourceBag' .. resource .. 'Suitcase'
             getObjectFromGUID(vars.suitcaseResourceBagZones[resource]).createButton(params)
 
