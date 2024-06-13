@@ -13,7 +13,7 @@
   },
   "CustomDeck": {
     "84": {
-      "BackIsHidden": false,
+      "BackIsHidden": true,
       "BackURL": "http://cloud-3.steamusercontent.com/ugc/2496761664832868876/5DB64A99779A0939A1DB4F6CB7985C200CBB3A37/",
       "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2496761664833016901/D97AE1C7391EA834A3E503763FA4C4FFAE6BE15F/",
       "NumHeight": 2,

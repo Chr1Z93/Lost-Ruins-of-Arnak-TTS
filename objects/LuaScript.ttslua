@@ -1141,7 +1141,7 @@ function setupArtifactsItemsFear()
   local deck = AllCardsBag.call("spawnCardList", {
     cardList = cardList,
     position = deckPos["Fear"],
-    rotation = facedown
+    rotation = faceup
   })
   deck.setName("Fear Deck")
   decks.fear = deck
