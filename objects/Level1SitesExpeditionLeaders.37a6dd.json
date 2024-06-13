@@ -11,35 +11,35 @@
     "r": 0.71324
   },
   "ContainedObjects_order": [
-    "Card.c1f255",
-    "Card.e31dd6",
-    "Card.9ae554",
-    "Card.191da5",
-    "Card.d8ef41"
+    "Card.1d796c",
+    "Card.b52560",
+    "Card.f40cc1",
+    "Card.9d9491",
+    "Card.2ecf03"
   ],
-  "ContainedObjects_path": "GuardiansExpeditionLeaders.b876d5",
+  "ContainedObjects_path": "Level1SitesExpeditionLeaders.37a6dd",
   "CustomDeck": {
-    "12": {
+    "17": {
       "BackIsHidden": false,
-      "BackURL": "http://cloud-3.steamusercontent.com/ugc/1862806463732172133/15347C5EB6902681B356167983924FBDEB8F58CE/",
-      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/1862806463732172227/EA553AB2DE712F89BC4569A8A2828C5E2C18401F/",
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/1862806463732172505/0F010A85A45CF2B263F8F88A03BC6E6B6C379E0F/",
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/1862806463732172554/BC424CB929130237DEB49A659ED52920C702D5FC/",
       "NumHeight": 2,
-      "NumWidth": 5,
+      "NumWidth": 6,
       "Type": 0,
       "UniqueBack": false
     }
   },
   "DeckIDs": [
-    1203,
-    1201,
-    1200,
-    1204,
-    1202
+    1700,
+    1701,
+    1703,
+    1704,
+    1702
   ],
   "Description": "",
   "DragSelectable": true,
   "GMNotes": "",
-  "GUID": "b876d5",
+  "GUID": "37a6dd",
   "Grid": true,
   "GridProjection": false,
   "Hands": false,
@@ -51,24 +51,24 @@
   "LuaScriptState": "",
   "MeasureMovement": false,
   "Name": "Deck",
-  "Nickname": "Guardians (Expedition Leaders)",
+  "Nickname": "Level 1 Sites (Expedition Leaders)",
   "SidewaysCard": false,
   "Snap": true,
   "Sticky": true,
   "Tags": [
-    "guardian"
+    "site1"
   ],
   "Tooltip": true,
   "Transform": {
-    "posX": 13,
+    "posX": 1,
     "posY": 1.526,
     "posZ": -46.5,
     "rotX": 0,
     "rotY": 180,
     "rotZ": 180,
-    "scaleX": 2,
+    "scaleX": 2.1,
     "scaleY": 1,
-    "scaleZ": 2
+    "scaleZ": 2.1
   },
   "Value": 0,
   "XmlUI": ""

@@ -15,7 +15,7 @@
     "CardCustom.8fd9db",
     "CardCustom.28dfe8"
   ],
-  "ContainedObjects_path": "GuardiansExpeditionLeaders.6fbe77",
+  "ContainedObjects_path": "GuardiansMissingExpedition.6fbe77",
   "CustomDeck": {
     "486": {
       "BackIsHidden": true,
@@ -65,7 +65,7 @@
   "LuaScriptState": "",
   "MeasureMovement": false,
   "Name": "Deck",
-  "Nickname": "Guardians (Expedition Leaders)",
+  "Nickname": "Guardians (Missing Expedition)",
   "SidewaysCard": false,
   "Snap": true,
   "Sticky": true,
@@ -74,9 +74,9 @@
   ],
   "Tooltip": true,
   "Transform": {
-    "posX": 8.67,
-    "posY": 1.535,
-    "posZ": -50.542,
+    "posX": 19.999,
+    "posY": 1.517,
+    "posZ": -46.5,
     "rotX": 0,
     "rotY": 180,
     "rotZ": 180,

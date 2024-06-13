@@ -42,9 +42,9 @@
   "Sticky": true,
   "Tooltip": false,
   "Transform": {
-    "posX": -35.3,
-    "posY": 1.48,
-    "posZ": -11.5,
+    "posX": -35,
+    "posY": 1.481,
+    "posZ": -12.5,
     "rotX": 0,
     "rotY": 180,
     "rotZ": 0,

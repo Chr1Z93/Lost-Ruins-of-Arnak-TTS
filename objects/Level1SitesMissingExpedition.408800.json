@@ -16,11 +16,11 @@
     "CardCustom.653368",
     "CardCustom.95e021"
   ],
-  "ContainedObjects_path": "Deck.408800",
+  "ContainedObjects_path": "Level1SitesMissingExpedition.408800",
   "CustomDeck": {
     "22": {
       "BackIsHidden": true,
-      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2496761664831503555/8A7E1FE5F4B64A04A16B412C9F99FAFA7700BD73/",
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/1862806463732172505/0F010A85A45CF2B263F8F88A03BC6E6B6C379E0F/",
       "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2496761664831503686/8B288CC7C34040B6E152511C1765881CEF5859F7/",
       "NumHeight": 1,
       "NumWidth": 1,
@@ -29,7 +29,7 @@
     },
     "23": {
       "BackIsHidden": true,
-      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2496761664831503555/8A7E1FE5F4B64A04A16B412C9F99FAFA7700BD73/",
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/1862806463732172505/0F010A85A45CF2B263F8F88A03BC6E6B6C379E0F/",
       "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2496761664831503874/D5FA1B22AC405B997AC285562CB80FC09D3C8ADA/",
       "NumHeight": 1,
       "NumWidth": 1,
@@ -38,7 +38,7 @@
     },
     "24": {
       "BackIsHidden": true,
-      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2496761664831503555/8A7E1FE5F4B64A04A16B412C9F99FAFA7700BD73/",
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/1862806463732172505/0F010A85A45CF2B263F8F88A03BC6E6B6C379E0F/",
       "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2496761664831504008/DD3C8AC95CB79433D598E30B0D4B3389531AAC9D/",
       "NumHeight": 1,
       "NumWidth": 1,
@@ -47,7 +47,7 @@
     },
     "25": {
       "BackIsHidden": true,
-      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2496761664831503555/8A7E1FE5F4B64A04A16B412C9F99FAFA7700BD73/",
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/1862806463732172505/0F010A85A45CF2B263F8F88A03BC6E6B6C379E0F/",
       "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2496761664831504174/1C476BA10B6FD7D632FD560F914D62ECBCEE8576/",
       "NumHeight": 1,
       "NumWidth": 1,
@@ -76,15 +76,15 @@
   "LuaScriptState": "",
   "MeasureMovement": false,
   "Name": "Deck",
-  "Nickname": "",
+  "Nickname": "Level 1 Sites (Missing Expedition)",
   "SidewaysCard": false,
   "Snap": true,
   "Sticky": true,
   "Tooltip": true,
   "Transform": {
-    "posX": -30.248,
-    "posY": 2.832,
-    "posZ": 39.253,
+    "posX": 7,
+    "posY": 1.522,
+    "posZ": -46.5,
     "rotX": 0,
     "rotY": 180,
     "rotZ": 180,

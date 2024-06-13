@@ -5,17 +5,17 @@
     "z": 0
   },
   "Autoraise": true,
-  "CardID": 2600,
+  "CardID": 2200,
   "ColorDiffuse": {
     "b": 0.71324,
     "g": 0.71324,
     "r": 0.71324
   },
   "CustomDeck": {
-    "26": {
+    "22": {
       "BackIsHidden": true,
-      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2496761664831505854/C15F6F99E379877CEFC9DF483F43068C20241A75/",
-      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2496761664831505958/530EF54ECCC8A93CE81F8B0CB13F02FD611842A6/",
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/1862806463732172505/0F010A85A45CF2B263F8F88A03BC6E6B6C379E0F/",
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2496761664831503686/8B288CC7C34040B6E152511C1765881CEF5859F7/",
       "NumHeight": 1,
       "NumWidth": 1,
       "Type": 0,
@@ -25,7 +25,7 @@
   "Description": "",
   "DragSelectable": true,
   "GMNotes": "",
-  "GUID": "10d945",
+  "GUID": "1eee42",
   "Grid": true,
   "GridProjection": false,
   "Hands": true,
@@ -41,17 +41,20 @@
   "SidewaysCard": false,
   "Snap": true,
   "Sticky": true,
+  "Tags": [
+    "site1"
+  ],
   "Tooltip": true,
   "Transform": {
-    "posX": -22.408,
-    "posY": 2.806,
-    "posZ": 39.22,
+    "posX": -15.796,
+    "posY": 0.807,
+    "posZ": 0.407,
     "rotX": 0,
     "rotY": 180,
-    "rotZ": 180,
-    "scaleX": 2.3,
+    "rotZ": 0,
+    "scaleX": 1,
     "scaleY": 1,
-    "scaleZ": 2.3
+    "scaleZ": 1
   },
   "Value": 0,
   "XmlUI": ""
