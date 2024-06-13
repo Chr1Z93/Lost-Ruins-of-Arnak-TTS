@@ -37,10 +37,10 @@
   "LuaScriptState": "",
   "MeasureMovement": false,
   "Name": "Custom_Tile",
-  "Nickname": "",
+  "Nickname": "Reference - Effects",
   "Snap": true,
   "Sticky": true,
-  "Tooltip": true,
+  "Tooltip": false,
   "Transform": {
     "posX": 42.8,
     "posY": 1.481,
@@ -48,9 +48,9 @@
     "rotX": 0,
     "rotY": 180,
     "rotZ": 0,
-    "scaleX": 5,
+    "scaleX": 4,
     "scaleY": 1,
-    "scaleZ": 5
+    "scaleZ": 4
   },
   "Value": 0,
   "XmlUI": ""
