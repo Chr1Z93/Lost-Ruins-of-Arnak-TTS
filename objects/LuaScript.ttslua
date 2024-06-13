@@ -996,7 +996,11 @@ function setupBoard()
     end
   end
   -- if the research track needs idols, dont remove the remaining idols
-  if decks.idols ~= nil and researchTracks[options.researchTrack].idolPos == nil then decks.idols.destruct() end
+  if decks.idols ~= nil
+      and researchTracks[options.researchTrack]
+      and not researchTracks[options.researchTrack].idolPos then
+    decks.idols.destruct()
+  end
 end
 
 function setupMoonstaff()
@@ -1527,7 +1531,7 @@ function setupStartingResources()
           -- add cards to archive
           local archive = {}
           for i = 1, 3 do
-            local card = drawCard(getObjectFromGUID(deckZones.artifacts))
+            local card = drawCard(deckZones.artifacts)
             card.use_hands = false
             card.setRotationSmooth(faceup, false, true)
             card.setPositionSmooth(playerVars[playerColor].archivePositions[i], false, true)
@@ -1816,7 +1820,7 @@ function menuStartSolo()
         else
           deck.deal(5, playerColor)
         end
-        if options.playerBoards[playerColor] == 6 then drawCard(getObjectFromGUID(deckZones.fear)).deal(1, playerColor) end
+        if options.playerBoards[playerColor] == 6 then drawCard(deckZones.fear).deal(1, playerColor) end
         getObjectFromGUID(playerVars[playerColor].tentGuid).unlock()
       end
     end
@@ -2165,7 +2169,7 @@ function refillRowCoroutine()
     if #artifacts < round then
       for i = 1, round - #artifacts do
         local toPos = getObjectFromGUID(cardRowZoneGuids[i]).getPosition()
-        local card = drawCard(getObjectFromGUID(deckZones.artifacts), faceup, { toPos[1], tileY, toPos[3] })
+        local card = drawCard(deckZones.artifacts, faceup, { toPos[1], tileY, toPos[3] })
         if card == nil then break end
         wait(0.16)
       end
@@ -2173,7 +2177,7 @@ function refillRowCoroutine()
     if #items < 6 - round then
       for i = round + #items + 1, 6 do
         local toPos = getObjectFromGUID(cardRowZoneGuids[i]).getPosition()
-        local card = drawCard(getObjectFromGUID(deckZones.items), faceup, { toPos[1], tileY, toPos[3] })
+        local card = drawCard(deckZones.items, faceup, { toPos[1], tileY, toPos[3] })
         if card == nil then break end
         wait(0.16)
       end
@@ -2327,7 +2331,7 @@ function deliverRewardsCoroutine(playerColor, obj)
       end
       deliveredResources = true
 
-    -- for these rewards the player must manually take action on
+      -- for these rewards the player must manually take action on
     elseif tonumber(reward) then
       -- draw a card from the respective bonus deck
       local card = drawCard(deckZones["bonus" .. tonumber(reward)])
@@ -2359,10 +2363,13 @@ function deliverRewardsCoroutine(playerColor, obj)
       broadcastToAll(getPlayerName(playerColor) .. ' may take one 2-point temple tile from any stack for free.')
       deliveredAll = false
     elseif reward == 'f' then -- give fear cards automatically to the player
-      takeFearButton(getObjectFromGUID(deckZones.fear), playerColor)
-      wait(0.3)
+      -- exception for miners helmet
+      if not hasMinersHelmetActive(playerColor) then
+        takeFearButton(getObjectFromGUID(deckZones.fear), playerColor)
+        wait(0.3)
+      end
     elseif reward == 'd' then -- draw a card automatically for the player
-      local card = drawCard(getObjectFromGUID(getDeckZoneGuid(playerColor)))
+      local card = drawCard(getDeckZoneGuid(playerColor))
       if card ~= nil then
         card.deal(1, playerColor)
         wait(0.3)
@@ -2562,6 +2569,21 @@ function guardianFearCoroutine()
     end
   end
   return 1
+end
+
+-- helper function to detect if a player has a faceup miners helmet in his play area
+function hasMinersHelmetActive(playerColor)
+  for _, object in ipairs(getObjectFromGUID(playerVars[playerColor].playAreaZoneGuid).getObjects()) do
+    if object.getName() == "Miner's Helmet" then
+      if not object.is_face_down then
+        broadcastToAll("Detected active Miner's Helmet for " .. getPlayerName(playerColor) .." and skipped the Fear card.")
+        return true
+      else
+        return false
+      end
+    end
+  end
+  return false
 end
 
 function getStaff()
@@ -2814,7 +2836,7 @@ function nextRoundButton(obj, clickColor, alt)
     local rowEnd = round + options.staff
     if rowEnd > 6 then rowEnd = 6 end
     for i = rowStart, rowEnd do
-      local waitUntilAfterSetPos = exile(drawCard(getObjectFromGUID(cardRowZoneGuids[i])))
+      local waitUntilAfterSetPos = exile(drawCard(cardRowZoneGuids[i]))
       if waitUntilAfterSetPos then wait(0.16) end
       wait(0.16)
     end
@@ -2886,7 +2908,7 @@ function nextRoundButton(obj, clickColor, alt)
           end
         end
         if options.playerBoards[playerColor] == 6 and drawn < 6 then
-          local card = drawCard(getObjectFromGUID(deckZones.fear))
+          local card = drawCard(deckZones.fear)
           if card == nil then
             broadcastToAll('No Fear cards left for ' .. getPlayerName(playerColor) .. ' to draw.')
           else
@@ -2967,7 +2989,7 @@ function calculateScores()
       local subscores = { research = 0, temple = 0, idol = 0, guardian = 0, cards = 0, fear = 0 }
       local templeOrder = 9
 
-      -- score the research position of the magnifying glass
+      -- score the position in the temple
       for i, guid in ipairs(templeSpaceZoneGuids) do
         for _, object in ipairs(getObjectFromGUID(guid).getObjects()) do
           if string.find(object.getName(), 'Magnifying') ~= nil then
@@ -2980,7 +3002,7 @@ function calculateScores()
         end
       end
 
-      -- score the research position of the journal
+      -- score the research position of the magnifying glass / journal
       for name, guid in pairs(vars.researchTokens) do
         local token = getObjectFromGUID(guid)
         if token ~= nil then
@@ -3394,7 +3416,7 @@ function rivalBuy(action, buyHighestPoints)
   local lowest = 5
   local lowestCards = {}
   for i = startIndex, endIndex do
-    local card = drawCard(getObjectFromGUID(cardRowZoneGuids[i]), nil, nil, true)
+    local card = drawCard(cardRowZoneGuids[i], nil, nil, true)
     if card.type == 'Card' then
       local points = card.getVar('points')
       if points > highest then
@@ -3468,7 +3490,7 @@ function rivalTurnCoroutine()
   broadcastToAll("Rival's turn.", 'Red')
   wait(0.5)
   local deckPos = solo.deckPositions[2]
-  local actionCard = drawCard(getObjectFromGUID(solo.zones.deck), faceup, { deckPos[1], tileY + 0.3, deckPos[3] })
+  local actionCard = drawCard(solo.zones.deck, faceup, { deckPos[1], tileY + 0.3, deckPos[3] })
   if actionCard == nil or actionCard.getDescription() == nil or actionCard.getDescription() == '' then
     broadcastToAll('Rival has no more action cards.')
     wait(1.2)
@@ -3748,7 +3770,7 @@ function rivalTurnCoroutine()
   soloStatus.firstTurn = false
 
   local tent = getObjectFromGUID(playerVars[seatedPlayerColors[1]].tentGuid)
-  if tent == nil or not tent.is_face_down or drawCard(getObjectFromGUID(solo.zones.deck), nil, nil, true) == nil then
+  if tent == nil or not tent.is_face_down or drawCard(solo.zones.deck, nil, nil, true) == nil then
     broadcastToAll(getPlayerName(seatedPlayerColors[1], true) .. "'s turn.", seatedPlayerColors[1])
     setupButtonRivalTurn()
   else
@@ -3889,7 +3911,7 @@ function rivalResearch(id, doNotTakeAssistant)
   if id == 'magnifying' and nextRow.assistant then
     wait(1.2)
     if options.researchTrack == 2 and soloStatus[id].row == 5 then
-      local card = drawCard(getObjectFromGUID(track.assistantZone), faceup, solo.acquiredStuffPositions.assistant)
+      local card = drawCard(track.assistantZone, faceup, solo.acquiredStuffPositions.assistant)
       if card ~= nil then
         broadcastToAll('Rival rescues an assistant from the research track.')
         wait(1.2)
@@ -3974,6 +3996,16 @@ function comparePosition(pos1, pos2)
 end
 
 function drawCard(zone, rotation, position, checkOnly)
+  -- allow providing a zone GUID or an object reference
+  if zone.type == nil then
+    zone = getObjectFromGUID(zone)
+  end
+
+  if zone.type ~= "Scripting" then
+    log("Invalid zone!")
+    return
+  end
+
   for _, object in ipairs(zone.getObjects()) do
     if checkOnly then
       if object.type == 'Card' or object.type == 'Deck' then return object end
