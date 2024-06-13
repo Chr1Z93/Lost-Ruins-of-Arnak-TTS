@@ -372,7 +372,12 @@
     "EncounterCards.18e055",
     "EncounterCards.695842",
     "EncounterCards.ea2b73",
-    "EncounterCards.c7741d"
+    "EncounterCards.c7741d",
+    "ScriptingTrigger.bonus1",
+    "ScriptingTrigger.bonus2",
+    "ScriptingTrigger.bonus3",
+    "ScriptingTrigger.bonus4",
+    "ScriptingTrigger.bonus5"
   ],
   "PlayArea": 0.5,
   "PlayerCounts": [

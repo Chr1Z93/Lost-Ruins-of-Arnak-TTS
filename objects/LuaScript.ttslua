@@ -306,11 +306,11 @@ deckZones = {
   sites1 = '702902',
   sites2 = 'e0c338',
   guardians = 'b51480',
-  bonus1 = "",
-  bonus2 = "",
-  bonus3 = "",
-  bonus4 = "",
-  bonus5 = ""
+  bonus1 = "bonus1",
+  bonus2 = "bonus2",
+  bonus3 = "bonus3",
+  bonus4 = "bonus4",
+  bonus5 = "bonus5"
 }
 assistantDeckGuid = '538a5c'
 idolDeckGuid = 'ab4a80'
@@ -1300,6 +1300,21 @@ function setupDecks()
 end
 
 function setupMiscThings()
+  -- remove or shuffle bonus encounter cards
+  for i = 1, 5 do
+    local zone = getObjectFromGUID(deckZones["bonus" .. i])
+    for _, obj in ipairs(zone.getObjects()) do
+      if obj.type == "Deck" then
+        if options.expansions.missingExpedition then
+          obj.shuffle()
+        else
+          obj.destruct()
+        end
+      end
+      break
+    end
+  end
+
   -- remove temple tiles
   for _, guid in ipairs(templeTileZoneGuids) do
     local count = 0
