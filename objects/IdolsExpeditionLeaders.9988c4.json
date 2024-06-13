@@ -18,7 +18,7 @@
   ],
   "ContainedObjects_path": "IdolsExpeditionLeaders.9988c4",
   "CustomDeck": {
-    "275": {
+    "421": {
       "BackIsHidden": true,
       "BackURL": "http://cloud-3.steamusercontent.com/ugc/1862806463732176388/329D91AA4F503651E847CC9EA10021470B528A18/",
       "FaceURL": "http://cloud-3.steamusercontent.com/ugc/1862806807529131015/7441E9C03BBAF473630051D8B3F635D7012DE400/",
@@ -29,10 +29,10 @@
     }
   },
   "DeckIDs": [
-    27503,
-    27506,
-    27506,
-    27502
+    42103,
+    42106,
+    42106,
+    42102
   ],
   "Description": "",
   "DragSelectable": true,

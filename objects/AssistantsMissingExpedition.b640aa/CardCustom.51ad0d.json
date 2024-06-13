@@ -12,7 +12,7 @@
     "r": 0.71324
   },
   "CustomDeck": {
-    "9": {
+    "271": {
       "BackIsHidden": true,
       "BackURL": "http://cloud-3.steamusercontent.com/ugc/2496761664830640285/D54F7CE4CCF9656541659015E7235E0EEC43D154/",
       "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2496761664830640380/6D6B762CF92C86AF32B60917570110BB4CB76DD2/",
@@ -41,11 +41,14 @@
   "SidewaysCard": false,
   "Snap": true,
   "Sticky": true,
+  "Tags": [
+    "assistant"
+  ],
   "Tooltip": true,
   "Transform": {
-    "posX": -20.983,
-    "posY": 0.764,
-    "posZ": 19.383,
+    "posX": 14.407,
+    "posY": 2.454,
+    "posZ": -40.098,
     "rotX": 0,
     "rotY": 180,
     "rotZ": 0,

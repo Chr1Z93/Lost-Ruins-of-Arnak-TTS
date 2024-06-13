@@ -74,7 +74,7 @@
     "Custom_Tile.2d713e",
     "Custom_Tile.85cd7b",
     "Guardians.e09a6d",
-    "Guardiansexpansion.b876d5",
+    "GuardiansExpeditionLeaders.b876d5",
     "Level1Sitesexpansion.37a6dd",
     "Assistants.538a5c",
     "AssistantsExpeditionLeaders.cf87b7",
@@ -369,7 +369,8 @@
     "PlayerBoard.f337fe",
     "AssistantsMissingExpedition.b640aa",
     "IdolsMissingExpedition.2e956e",
-    "AllCards.4bfea4"
+    "AllCards.4bfea4",
+    "GuardiansExpeditionLeaders.6fbe77"
   ],
   "PlayArea": 0.5,
   "PlayerCounts": [

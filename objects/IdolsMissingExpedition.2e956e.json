@@ -11,14 +11,14 @@
     "r": 0.71324
   },
   "ContainedObjects_order": [
-    "CardCustom.73eb1d",
     "CardCustom.eda66d",
-    "CardCustom.67a607",
-    "CardCustom.eb1fe2",
     "CardCustom.6baa10",
     "CardCustom.68c188",
-    "CardCustom.43e0ae",
-    "CardCustom.7c9a57"
+    "CardCustom.7c9a57",
+    "CardCustom.eb1fe2",
+    "CardCustom.67a607",
+    "CardCustom.73eb1d",
+    "CardCustom.43e0ae"
   ],
   "ContainedObjects_path": "IdolsMissingExpedition.2e956e",
   "CustomDeck": {
@@ -96,14 +96,14 @@
     }
   },
   "DeckIDs": [
-    7400,
     6900,
-    7000,
-    6700,
     6500,
     6800,
-    7300,
-    7200
+    7200,
+    6700,
+    7000,
+    7400,
+    7300
   ],
   "Description": "",
   "DragSelectable": true,
@@ -124,6 +124,9 @@
   "SidewaysCard": false,
   "Snap": true,
   "Sticky": true,
+  "Tags": [
+    "idol"
+  ],
   "Tooltip": true,
   "Transform": {
     "posX": -20.894,

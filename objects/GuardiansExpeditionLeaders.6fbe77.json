@@ -11,34 +11,34 @@
     "r": 0.71324
   },
   "ContainedObjects_order": [
-    "CardCustom.397fa8",
-    "CardCustom.c5223e",
-    "CardCustom.55c72b"
+    "CardCustom.736863",
+    "CardCustom.8fd9db",
+    "CardCustom.28dfe8"
   ],
-  "ContainedObjects_path": "Deck.663f77",
+  "ContainedObjects_path": "GuardiansExpeditionLeaders.6fbe77",
   "CustomDeck": {
-    "62": {
+    "486": {
       "BackIsHidden": true,
       "BackURL": "http://cloud-3.steamusercontent.com/ugc/2496761664831300390/C8D86F0A0306DF066C913A50DEA75A77F4B3354C/",
-      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2496761664831213529/9491D77A70428C9FEAC5F55A7B0B01816C56AD08/",
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2501267173192017673/38F4A1944F6CA32004D784ABFA4EC026ACD6DF18/",
       "NumHeight": 1,
       "NumWidth": 1,
       "Type": 0,
       "UniqueBack": false
     },
-    "63": {
+    "487": {
       "BackIsHidden": true,
       "BackURL": "http://cloud-3.steamusercontent.com/ugc/2496761664831300390/C8D86F0A0306DF066C913A50DEA75A77F4B3354C/",
-      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2496761664831213364/C9378CA824902E0A5B4834D389DF76617124C30C/",
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2501267173192017465/3BD345BF3AE4165B74E6BD32533A36A29EE26CCE/",
       "NumHeight": 1,
       "NumWidth": 1,
       "Type": 0,
       "UniqueBack": false
     },
-    "64": {
+    "488": {
       "BackIsHidden": true,
       "BackURL": "http://cloud-3.steamusercontent.com/ugc/2496761664831300390/C8D86F0A0306DF066C913A50DEA75A77F4B3354C/",
-      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2496761664831213181/AB8EFD5FB9F366A84158E6116BE6C7355DA3000F/",
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2501267173192017320/4ABFDD49AF80A5D9EC003CFD80660261310761F5/",
       "NumHeight": 1,
       "NumWidth": 1,
       "Type": 0,
@@ -46,14 +46,14 @@
     }
   },
   "DeckIDs": [
-    6200,
-    6300,
-    6400
+    48700,
+    48800,
+    48600
   ],
   "Description": "",
   "DragSelectable": true,
   "GMNotes": "",
-  "GUID": "663f77",
+  "GUID": "6fbe77",
   "Grid": true,
   "GridProjection": false,
   "Hands": false,
@@ -65,15 +65,18 @@
   "LuaScriptState": "",
   "MeasureMovement": false,
   "Name": "Deck",
-  "Nickname": "",
+  "Nickname": "Guardians (Expedition Leaders)",
   "SidewaysCard": false,
   "Snap": true,
   "Sticky": true,
+  "Tags": [
+    "guardian"
+  ],
   "Tooltip": true,
   "Transform": {
-    "posX": -22.436,
-    "posY": 2.827,
-    "posZ": 46.909,
+    "posX": 8.67,
+    "posY": 1.535,
+    "posZ": -50.542,
     "rotX": 0,
     "rotY": 180,
     "rotZ": 180,

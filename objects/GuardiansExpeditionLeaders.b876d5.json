@@ -17,7 +17,7 @@
     "Card.191da5",
     "Card.d8ef41"
   ],
-  "ContainedObjects_path": "Guardiansexpansion.b876d5",
+  "ContainedObjects_path": "GuardiansExpeditionLeaders.b876d5",
   "CustomDeck": {
     "12": {
       "BackIsHidden": false,
@@ -51,7 +51,7 @@
   "LuaScriptState": "",
   "MeasureMovement": false,
   "Name": "Deck",
-  "Nickname": "Guardians (expansion)",
+  "Nickname": "Guardians (Expedition Leaders)",
   "SidewaysCard": false,
   "Snap": true,
   "Sticky": true,
@@ -61,9 +61,9 @@
   "Tooltip": true,
   "Transform": {
     "posX": 8.67,
-    "posY": 1.526,
-    "posZ": -46,
-    "rotX": 0,
+    "posY": 1.583,
+    "posZ": -44.329,
+    "rotX": 1,
     "rotY": 180,
     "rotZ": 180,
     "scaleX": 2,

@@ -24,7 +24,7 @@
   },
   "Description": "",
   "DragSelectable": true,
-  "GMNotes": "",
+  "GMNotes": "p",
   "GUID": "43e0ae",
   "Grid": true,
   "GridProjection": false,
@@ -41,11 +41,14 @@
   "SidewaysCard": false,
   "Snap": true,
   "Sticky": true,
+  "Tags": [
+    "idol"
+  ],
   "Tooltip": true,
   "Transform": {
-    "posX": -11.93,
-    "posY": 0.764,
-    "posZ": -15.256,
+    "posX": -17.661,
+    "posY": 2.355,
+    "posZ": -40.371,
     "rotX": 0,
     "rotY": 180,
     "rotZ": 0,

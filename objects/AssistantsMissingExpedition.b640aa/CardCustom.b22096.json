@@ -5,14 +5,14 @@
     "z": 0
   },
   "Autoraise": true,
-  "CardID": 27700,
+  "CardID": 57900,
   "ColorDiffuse": {
     "b": 0.71324,
     "g": 0.71324,
     "r": 0.71324
   },
   "CustomDeck": {
-    "8": {
+    "579": {
       "BackIsHidden": true,
       "BackURL": "http://cloud-3.steamusercontent.com/ugc/2496761664830640086/D4AB7BF19BE484719AFC75F826CDD698C7F47D35/",
       "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2496761664830640212/B79E761CF041A10489B34AE6BAA0BC2A8DB454D8/",
@@ -41,11 +41,14 @@
   "SidewaysCard": false,
   "Snap": true,
   "Sticky": true,
+  "Tags": [
+    "assistant"
+  ],
   "Tooltip": true,
   "Transform": {
-    "posX": -12.331,
-    "posY": 0.842,
-    "posZ": 15.984,
+    "posX": -10.829,
+    "posY": 2.355,
+    "posZ": -38.048,
     "rotX": 0,
     "rotY": 180,
     "rotZ": 0,
