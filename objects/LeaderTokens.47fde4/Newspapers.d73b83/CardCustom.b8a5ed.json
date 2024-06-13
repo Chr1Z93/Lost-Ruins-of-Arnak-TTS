@@ -4,6 +4,58 @@
     "y": 0,
     "z": 0
   },
+  "AttachedSnapPoints": [
+    {
+      "Position": {
+        "x": 0.55,
+        "y": 0.209,
+        "z": -0.963
+      },
+      "Tags": [
+        "article"
+      ]
+    },
+    {
+      "Position": {
+        "x": -0.558,
+        "y": 0.209,
+        "z": -0.956
+      },
+      "Tags": [
+        "article"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.512,
+        "y": 0.209,
+        "z": 0.125
+      },
+      "Tags": [
+        "article"
+      ]
+    },
+    {
+      "Position": {
+        "x": -0.541,
+        "y": 0.209,
+        "z": 0.152
+      },
+      "Tags": [
+        "article"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.034,
+        "y": 0.209,
+        "z": 1.124
+      },
+      "Tags": [
+        "article"
+      ]
+    }
+  ],
   "Autoraise": true,
   "CardID": 27900,
   "ColorDiffuse": {
@@ -28,7 +80,7 @@
   "GUID": "b8a5ed",
   "Grid": true,
   "GridProjection": false,
-  "Hands": true,
+  "Hands": false,
   "HideWhenFaceDown": true,
   "IgnoreFoW": false,
   "LayoutGroupSortIndex": 0,
@@ -43,15 +95,15 @@
   "Sticky": true,
   "Tooltip": true,
   "Transform": {
-    "posX": 36.513,
-    "posY": 0.888,
-    "posZ": -5.465,
+    "posX": -67.001,
+    "posY": 1.495,
+    "posZ": -3.618,
     "rotX": 0,
     "rotY": 180,
     "rotZ": 0,
-    "scaleX": 1.42,
+    "scaleX": 1.48,
     "scaleY": 1,
-    "scaleZ": 1.52
+    "scaleZ": 1.59
   },
   "Value": 0,
   "XmlUI": ""

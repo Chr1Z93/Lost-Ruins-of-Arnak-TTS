@@ -1,0 +1,110 @@
+{
+  "AltLookAngle": {
+    "x": 0,
+    "y": 0,
+    "z": 0
+  },
+  "AttachedSnapPoints": [
+    {
+      "Position": {
+        "x": 0.55,
+        "y": 0.209,
+        "z": -0.963
+      },
+      "Tags": [
+        "article"
+      ]
+    },
+    {
+      "Position": {
+        "x": -0.558,
+        "y": 0.209,
+        "z": -0.956
+      },
+      "Tags": [
+        "article"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.512,
+        "y": 0.209,
+        "z": 0.125
+      },
+      "Tags": [
+        "article"
+      ]
+    },
+    {
+      "Position": {
+        "x": -0.541,
+        "y": 0.209,
+        "z": 0.152
+      },
+      "Tags": [
+        "article"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.034,
+        "y": 0.209,
+        "z": 1.124
+      },
+      "Tags": [
+        "article"
+      ]
+    }
+  ],
+  "Autoraise": true,
+  "CardID": 28600,
+  "ColorDiffuse": {
+    "b": 0.71324,
+    "g": 0.71324,
+    "r": 0.71324
+  },
+  "CustomDeck": {
+    "286": {
+      "BackIsHidden": true,
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2496761664835281235/9E7C71A220443B1CE043C8A87C35A282650945FC/",
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2496761664835281235/9E7C71A220443B1CE043C8A87C35A282650945FC/",
+      "NumHeight": 1,
+      "NumWidth": 1,
+      "Type": 0,
+      "UniqueBack": false
+    }
+  },
+  "Description": "",
+  "DragSelectable": true,
+  "GMNotes": "",
+  "GUID": "178ddf",
+  "Grid": true,
+  "GridProjection": false,
+  "Hands": false,
+  "HideWhenFaceDown": true,
+  "IgnoreFoW": false,
+  "LayoutGroupSortIndex": 0,
+  "Locked": false,
+  "LuaScript": "",
+  "LuaScriptState": "",
+  "MeasureMovement": false,
+  "Name": "CardCustom",
+  "Nickname": "",
+  "SidewaysCard": false,
+  "Snap": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "Transform": {
+    "posX": -62.695,
+    "posY": 1.495,
+    "posZ": -3.618,
+    "rotX": 0,
+    "rotY": 180,
+    "rotZ": 0,
+    "scaleX": 1.48,
+    "scaleY": 1,
+    "scaleZ": 1.59
+  },
+  "Value": 0,
+  "XmlUI": ""
+}

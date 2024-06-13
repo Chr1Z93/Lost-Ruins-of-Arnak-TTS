@@ -1208,6 +1208,115 @@
         "y": 0,
         "z": 0
       },
+      "AttachedSnapPoints": [
+        {
+          "Position": {
+            "x": -0.6131,
+            "y": 0.053,
+            "z": 0.4622
+          },
+          "Tags": [
+            "assistant"
+          ]
+        },
+        {
+          "Position": {
+            "x": -0.6065,
+            "y": 0.05,
+            "z": -0.4495
+          },
+          "Tags": [
+            "assistant"
+          ]
+        },
+        {
+          "Position": {
+            "x": 3.1161,
+            "y": 0.05,
+            "z": -0.1066
+          },
+          "Rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 180
+          }
+        },
+        {
+          "Position": {
+            "x": 1.6438,
+            "y": 0.05,
+            "z": -0.6736
+          },
+          "Rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": 1.2249,
+            "y": 0.05,
+            "z": -0.6747
+          },
+          "Rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": 0.8007,
+            "y": 0.05,
+            "z": -0.6687
+          },
+          "Rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": -3.4852,
+            "y": 0.05,
+            "z": -0.2538
+          },
+          "Rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": -3.4940,
+            "y": 0.05,
+            "z": 0.2487
+          },
+          "Rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        }
+      ],
       "Autoraise": true,
       "ColorDiffuse": {
         "b": 1,
@@ -1229,7 +1338,7 @@
       "Description": "Journalist",
       "DragSelectable": true,
       "GMNotes": "",
-      "GUID": "ccc255",
+      "GUID": "161ec5",
       "Grid": true,
       "GridProjection": false,
       "Hands": false,
@@ -1246,12 +1355,12 @@
       "Sticky": true,
       "Tooltip": true,
       "Transform": {
-        "posX": 51,
-        "posY": 1.53149891,
-        "posZ": 19,
-        "rotX": -2.16873985e-8,
-        "rotY": 180.005142,
-        "rotZ": -2.92173716e-8,
+        "posX": -51,
+        "posY": 1.531,
+        "posZ": -22,
+        "rotX": 0,
+        "rotY": 180,
+        "rotZ": 0,
         "scaleX": 5.25,
         "scaleY": 1,
         "scaleZ": 5.25
@@ -1265,6 +1374,110 @@
         "y": 0,
         "z": 0
       },
+      "AttachedSnapPoints": [
+        {
+          "Position": {
+            "x": -1.2562,
+            "y": 0.05,
+            "z": 0.4612
+          },
+          "Tags": [
+            "assistant"
+          ]
+        },
+        {
+          "Position": {
+            "x": -1.2709,
+            "y": 0.05,
+            "z": -0.4565
+          },
+          "Tags": [
+            "assistant"
+          ]
+        },
+        {
+          "Position": {
+            "x": -0.3622,
+            "y": 0.05,
+            "z": 0.4557
+          },
+          "Tags": [
+            "assistant"
+          ]
+        },
+        {
+          "Position": {
+            "x": 3.1161,
+            "y": 0.05,
+            "z": -0.1066
+          },
+          "Rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 180
+          }
+        },
+        {
+          "Position": {
+            "x": 1.6213,
+            "y": 0.05,
+            "z": -0.6765
+          },
+          "Rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": 1.231,
+            "y": 0.05,
+            "z": -0.6849
+          },
+          "Rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": 0.7697,
+            "y": 0.05,
+            "z": -0.6822
+          },
+          "Rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        },
+        {
+          "Position": {
+            "x": 0.3777,
+            "y": 0.05,
+            "z": -0.6774
+          },
+          "Rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 180
+          },
+          "Tags": [
+            "idol"
+          ]
+        }
+      ],
       "Autoraise": true,
       "ColorDiffuse": {
         "b": 1,
@@ -1286,7 +1499,7 @@
       "Description": "Mechanic",
       "DragSelectable": true,
       "GMNotes": "",
-      "GUID": "75b3f5",
+      "GUID": "89782a",
       "Grid": true,
       "GridProjection": false,
       "Hands": false,
@@ -1303,12 +1516,12 @@
       "Sticky": true,
       "Tooltip": true,
       "Transform": {
-        "posX": 51,
-        "posY": 1.53149891,
-        "posZ": 19,
-        "rotX": -2.16873985e-8,
-        "rotY": 180.005142,
-        "rotZ": -2.92173716e-8,
+        "posX": -51,
+        "posY": 1.531,
+        "posZ": -22,
+        "rotX": 0,
+        "rotY": 180,
+        "rotZ": 0,
         "scaleX": 5.25,
         "scaleY": 1,
         "scaleZ": 5.25
