@@ -3,7 +3,7 @@
 
 testVars = {
   defineSeated = true,
-  seatedPlayers = { 'Blue', 'Yellow', 'Red' }
+  seatedPlayers = { 'Blue', 'Yellow', 'Red','Green'}
 }
 
 playerVars = {
@@ -658,6 +658,7 @@ researchTracks = {
 }
 
 promoRulesGuid = '78c6d8'
+expansionRulesCopies = { 'c30ae7', 'c4dd33', '47e8e6', 'd40f4c' }
 solo = {
   rules = '29196c',
   board = 'a30382',
@@ -968,6 +969,11 @@ function detectSeatedPlayers()
       if token ~= nil then token.destruct() end
     end
   end
+  for _, guid in ipairs(expansionRulesCopies) do
+    local object = getObjectFromGUID(guid)
+    if object ~= nil then object.destruct() end
+  end
+  wait(0.6)
 end
 
 function setupBoard()
@@ -1448,7 +1454,7 @@ function setupStartingResources()
       else
         local refIndex = playerBoardState * 2 - 2
         for i = 1, 2 do
-          local ref = refBag.takeObject({ position = vars.refPositions[i], rotation = faceup, smooth = true })
+          local ref = refBag.takeObject({ position = vars.refPositions[i], rotation = faceup, smooth = false })
           wait(0.01)
           table.insert(references, { obj = ref, state = refIndex + i })
         end
@@ -1533,6 +1539,7 @@ function setupStartingResources()
                 smooth            = true,
                 callback_function = function(y) y.setLock(true) end
               })
+              x.destruct()
             end
           })
           -- As journalist place article tokens on to the player board for "featured articles". 3 or more players sets only two articles and 2 or less set all 3 articles.

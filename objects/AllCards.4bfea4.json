@@ -217,8 +217,8 @@
   "IgnoreFoW": false,
   "LayoutGroupSortIndex": 0,
   "Locked": true,
-  "LuaScript_path": "AllCards.4bfea4.ttslua",
   "LuaScriptState": "",
+  "LuaScript_path": "AllCards.4bfea4.ttslua",
   "MaterialIndex": -1,
   "MeasureMovement": false,
   "MeshIndex": -1,
@@ -228,9 +228,9 @@
   "Sticky": true,
   "Tooltip": true,
   "Transform": {
-    "posX": -68,
+    "posX": -73.729,
     "posY": 1.296,
-    "posZ": 32.5,
+    "posZ": 48.432,
     "rotX": 0,
     "rotY": 180,
     "rotZ": 0,
@@ -238,6 +238,5 @@
     "scaleY": 1,
     "scaleZ": 1
   },
-  "Value": 0,
-  "XmlUI": ""
+  "Value": 0
 }
