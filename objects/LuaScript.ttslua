@@ -2967,6 +2967,7 @@ function calculateScores()
       local subscores = { research = 0, temple = 0, idol = 0, guardian = 0, cards = 0, fear = 0 }
       local templeOrder = 9
 
+      -- score the research position of the magnifying glass
       for i, guid in ipairs(templeSpaceZoneGuids) do
         for _, object in ipairs(getObjectFromGUID(guid).getObjects()) do
           if string.find(object.getName(), 'Magnifying') ~= nil then
@@ -2979,6 +2980,7 @@ function calculateScores()
         end
       end
 
+      -- score the research position of the journal
       for name, guid in pairs(vars.researchTokens) do
         local token = getObjectFromGUID(guid)
         if token ~= nil then
@@ -3028,20 +3030,26 @@ function calculateScores()
         return false
       end
 
+      function getVpValue(notes)
+        local md = JSON.decode(notes) or {}
+        return md.points or 0
+      end
+
       function scoreObject(object, scoreIdols)
         if (object.type == 'Deck' or object.getName() == 'Fear') and isExcluded(object) then return end
         if object.type == 'Deck' then
-          for _, card in ipairs(object.getObjects()) do
-            if card.name == 'Fear' then
-              subscores.fear = subscores.fear - 1
-            elseif #card.tags > 0 and card.tags[1] == 'idol' then
+          for _, card in ipairs(object.getData()) do
+            if #card.tags > 0 and card.tags[1] == 'idol' then
               if scoreIdols then subscores.idol = subscores.idol + 3 end
             elseif #card.tags > 0 and card.tags[1] == 'guardian' then
               subscores.guardian = subscores.guardian + 5
             else
-              local i, j = string.find(card.lua_script, 'points = ')
-              if j ~= nil then
-                subscores.cards = subscores.cards + tonumber(string.sub(card.lua_script, j + 1, j + 2))
+              -- regular cards
+              local score = getVpValue(card.GMNotes)
+              if score < 0 then
+                subscores.fear = subscores.fear + score
+              else
+                subscores.cards = subscores.cards + score
               end
             end
           end
@@ -3053,13 +3061,14 @@ function calculateScores()
           subscores.guardian = subscores.guardian + 5
         elseif object.type == 'Custom_Token' and object.getName() == 'Fear' then
           subscores.fear = subscores.fear - 2
-        elseif object.getName() == 'Fear' then
-          subscores.fear = subscores.fear - 1
-        elseif object.getName() == 'Hidden Fear' then
-          subscores.fear = subscores.fear - 2
-        else
-          local points = object.getVar('points')
-          if points ~= nil then subscores.cards = subscores.cards + points end
+        elseif object.type == "Card" then
+          -- regular cards
+          local score = getVpValue(object.getGMNotes())
+          if score < 0 then
+            subscores.fear = subscores.fear + score
+          else
+            subscores.cards = subscores.cards + score
+          end
         end
       end
 
@@ -3116,7 +3125,7 @@ function calculateScores()
       local total = 0
       for category, subscore in pairs(subscores) do
         total = total + subscore
-        UI.setValue(category .. playerColor, subscore)
+        UI.setValue(category .. playerColor, tostring(subscore))
       end
       UI.setValue('total' .. playerColor, total)
       UI.setValue('name' .. playerColor, getPlayerName(playerColor, true))
