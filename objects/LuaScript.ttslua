@@ -594,6 +594,7 @@ researchTracks = {
     templePoints = { 23, 21, 20, 19 },
     artifactPos = { 10.36, 1.69, -10.37 }
   },
+  -- Lizard Temple
   {
     bonusPositions = {
       { { 9.15, 1.68, -19.77 }, { 16.97, 1.68, -19.80 }, { 9.15, 1.68, -16.18 }, { 16.94, 1.68, -16.20 }, { 9.37, 1.68, -9.19 }, { 11.89, 1.68, -4.60 }, { 14.44, 1.68, -4.61 }, { 11.37, 1.68, 2.57 }, { 15.01, 1.68, 2.56 } },
@@ -656,27 +657,116 @@ researchTracks = {
     templePoints = { 28, 26, 25, 24 },
     guardianPos = { 14.90, 1.69, -10.51 },
     guardianZone = '7f2184',
-    idolPos = { 18.54, 1.72, -0.97 }
+    idolPositions = { { 18.54, 1.72, -0.97 } }
   },
-  -- tree temple
+  -- Tree Temple
+  {
+    bonusPositions = {
+      -- always place these
+      { { 10.66, 1.78, 2.70 }, { 16.82, 1.78, 2.70 },  { 11.91, 1.78, -9.80 }, { 14.39, 1.78, -9.77 }, { 9.42, 1.78, -19.80 }, { 16.82, 1.78, -19.80 } },
+      -- only place these for 3+ player
+      { { 9.40, 1.78, -9.80 }, { 12.18, 1.78, -19.80 } },
+      -- only place these for 4+ players
+      { { 16.97, 1.78, -9.80 } },
+      -- place one tile per player
+      { { 19.75, 1.78, 5.90 } }
+    },
+    rows = {
+      {
+        z = 0,
+        bonusPos = {}
+      },
+      {
+        z = 0,
+        magnifying = 19,
+        notebook = 13
+      },
+      {
+        z = 0,
+        magnifying = 15,
+        notebook = 10
+      },
+      {
+        z = 0,
+        magnifying = 12,
+        notebook = 6
+      },
+      {
+        z = 0,
+        magnifying = 9,
+        notebook = 5
+      },
+      {
+        z = 0,
+        magnifying = 6,
+        notebook = 3
+      },
+      {
+        z = 0,
+        magnifying = 3,
+        notebook = 1
+      },
+      {
+        z = 0,
+        magnifying = 1,
+        notebook = 0
+      }
+    },
+    templePoints = { 27, 25, 24, 23 },
+    idolPositions = { { 19.86, 1.69, -15.77 }, { 19.89, 1.69, -6.18 } }
+  },
+  -- Waterfall Temple
   {
     bonusPositions = {
 
     },
     rows = {
-
+      {
+        z = 0,
+        bonusPos = {}
+      },
+      {
+        z = 0,
+        magnifying = 13,
+        notebook = 18
+      },
+      {
+        z = 0,
+        magnifying = 10,
+        notebook = 14
+      },
+      {
+        z = 0,
+        magnifying = 8,
+        notebook = 11
+      },
+      {
+        z = 0,
+        magnifying = 5,
+        notebook = 9
+      },
+      {
+        z = 0,
+        magnifying = 5,
+        notebook = 7
+      },
+      {
+        z = 0,
+        magnifying = 3,
+        notebook = 5
+      },
+      {
+        z = 0,
+        magnifying = 3,
+        notebook = 3
+      },
+      {
+        z = 0,
+        magnifying = 1,
+        notebook = 0
+      }
     },
-    templePoints = {27, 25, 24, 23 }
-  },
-  -- waterfall temple
-  {
-    bonusPositions = {
-
-    },
-    rows = {
-
-    },
-    templePoints = {20, 18, 17, 16 },
+    templePoints = { 20, 18, 17, 16 },
     site1pos = {} -- TODO: add handling for this
   }
 }
@@ -771,6 +861,7 @@ function onLoad(saveState)
     setupButtons()
     for _, object in ipairs(getObjects()) do
       addExileMenu(object)
+      addGetRewardsMenu(object)
       addReturnMenu(object)
       addTrashMenu(object)
     end
@@ -1003,7 +1094,6 @@ function setupBoard()
   end
 
   -- distribute idols to the tier 1 and tier 2 sites. Tier 2 sites get 2 (one face up one face down)
-  decks.idols.shuffle()
   for i = 1, 3 do
     for _, siteZone in ipairs(siteLevels[i]) do
       local pos = getObjectFromGUID(siteZone.guid).getPosition()
@@ -1018,7 +1108,7 @@ function setupBoard()
   -- if the research track needs idols, dont remove the remaining idols
   if decks.idols ~= nil
       and researchTracks[options.researchTrack]
-      and not researchTracks[options.researchTrack].idolPos then
+      and not researchTracks[options.researchTrack].idolPositions then
     decks.idols.destruct()
   end
 end
@@ -1047,12 +1137,6 @@ function setupResearchTrack()
   bag.shuffle()
 
   local trackInfo = researchTracks[options.researchTrack]
-  -- TODO: add data and remove this
-  if trackInfo == nil then
-    broadcastToAll("Missing information for research track!")
-    return
-  end
-
   for i, list in ipairs(trackInfo.bonusPositions) do
     if i == 4 then
       for _, pos in ipairs(list) do
@@ -1068,7 +1152,7 @@ function setupResearchTrack()
   end
 
   -- maybe place assistants equal to the number of players
-  if trackInfo.assistantPos ~= nil then
+  if trackInfo.assistantPos then
     local newDecks = decks.assistants.cut(#seatedPlayerColors)
     wait(0.01)
     decks.assistants = newDecks[1]
@@ -1077,7 +1161,7 @@ function setupResearchTrack()
   end
 
   -- maybe get a random artifact with 3 cost (for Monkey Temple)
-  if trackInfo.artifactPos ~= nil then
+  if trackInfo.artifactPos then
     for _, cardData in ipairs(decks.artifacts.getData().ContainedObjects) do
       local md = JSON.decode(cardData.GMNotes) or {}
       if md.cost == 3 then
@@ -1093,16 +1177,25 @@ function setupResearchTrack()
   end
 
   -- maybe get a random guardian
-  if trackInfo.guardianPos ~= nil then
-    decks.guardians.shuffle()
+  if trackInfo.guardianPos then
     decks.guardians.takeObject({ position = trackInfo.guardianPos, rotation = facedown, smooth = true })
   end
 
+  -- maybe place a site 1 location per player
+  if trackInfo.site1pos then
+    local newDecks = decks.site1.cut(#seatedPlayerColors)
+    wait(0.01)
+    decks.site1 = newDecks[1]
+    newDecks[2].setRotationSmooth({ 0, 90, 0 }, false, true)
+    newDecks[2].setPositionSmooth(trackInfo.site1pos, false, true)
+  end
+
   -- maybe place idols equal to the number of players
-  if trackInfo.idolPos ~= nil then
-    decks.idols.shuffle()
-    for i = 1, #seatedPlayerColors do
-      decks.idols.takeObject({ position = trackInfo.idolPos, rotation = facedown, smooth = true })
+  if trackInfo.idolPositions then
+    for _, idolPos in ipairs(trackInfo.idolPositions) do
+      for i = 1, #seatedPlayerColors do
+        decks.idols.takeObject({ position = idolPos, rotation = facedown, smooth = true })
+      end
     end
     decks.idols.destruct()
   end
@@ -1319,6 +1412,13 @@ function setupDecks()
       else
         expansionDeck.destruct()
       end
+    end
+  end
+
+  -- shuffle decks
+  for _, deck in pairs(decks) do
+    if deck ~= nil then
+      deck.shuffle()
     end
   end
 end
@@ -2305,7 +2405,7 @@ function placePawn(playerColor, zone, siteInfo, level, alt)
       local toPosFacedown = { idolPositions[1][1], tileY + 0.3, idolPositions[1][3] }
 
       if idolFaceup ~= nil then
-        local delivered = deliverRewardsCoroutine(playerColor, idolFaceup)
+        local delivered = deliverRewards(playerColor, idolFaceup)
         wait(0.5)
         if delivered then
           idolFaceup.setRotation(facedown)
@@ -2320,9 +2420,9 @@ function placePawn(playerColor, zone, siteInfo, level, alt)
         idolFacedown.setPositionSmooth(toPosFacedown, false, false)
       end
     elseif site ~= nil then
-      deliverRewardsCoroutine(playerColor, site)
+      deliverRewards(playerColor, site)
     elseif tonumber(zone.getName()) == 4 then
-      deliverRewardsCoroutine(playerColor, zone)
+      deliverRewards(playerColor, zone)
     end
     discovering = false
     return 1
@@ -2332,7 +2432,7 @@ function placePawn(playerColor, zone, siteInfo, level, alt)
 end
 
 -- function that checks the gm notes to determine what rewards the player should get
-function deliverRewardsCoroutine(playerColor, obj)
+function deliverRewards(playerColor, obj)
   local rewards = obj.getGMNotes()
   local resourceLabels = { t = 'tablet', a = 'arrowhead', j = 'jewel', c = 'coin', s = 'compass' }
   local resourceCount = {}
@@ -2480,7 +2580,7 @@ function discoverButton(zone, clickColor, alt)
 
     if not (options.solo and clickColor == 'Red') then
       if not alt then wait(0.5) end
-      deliverRewardsCoroutine(clickColor, site)
+      deliverRewards(clickColor, site)
     end
     discovering = false
     return 1
@@ -2596,7 +2696,8 @@ function hasMinersHelmetActive(playerColor)
   for _, object in ipairs(getObjectFromGUID(playerVars[playerColor].playAreaZoneGuid).getObjects()) do
     if object.getName() == "Miner's Helmet" then
       if not object.is_face_down then
-        broadcastToAll("Detected active Miner's Helmet for " .. getPlayerName(playerColor) .." and skipped the Fear card.")
+        broadcastToAll("Detected active Miner's Helmet for " ..
+          getPlayerName(playerColor) .. " and skipped the Fear card.")
         return true
       else
         return false
@@ -3277,6 +3378,7 @@ end
 
 function onObjectLeaveContainer(container, leavingObject)
   addExileMenu(leavingObject)
+  addGetRewardsMenu(leavingObject)
   addReturnMenu(leavingObject)
   addTrashMenu(leavingObject)
   editResourceBagCounter(container)
@@ -3308,6 +3410,12 @@ end
 function addExileMenu(object)
   if object.type == 'Tile' and object.getName() == 'Fear' or object.type == 'Card' and (#object.getTags() == 0 or object.hasTag('artifact') or object.hasTag('item')) then
     object.addContextMenuItem('Exile', function() exile(object) end)
+  end
+end
+
+function addGetRewardsMenu(object)
+  if object.type == 'Card' and (object.hasTag('site1') or object.hasTag('site2')) then
+    object.addContextMenuItem('Get Rewards', function(playerColor) deliverRewards(playerColor, object) end)
   end
 end
 
