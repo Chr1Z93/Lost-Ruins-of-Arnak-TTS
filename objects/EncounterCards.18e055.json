@@ -11,31 +11,41 @@
     "r": 0.71324
   },
   "ContainedObjects_order": [
-    "Card.3db92c",
-    "Card.196176",
-    "Card.4bae7c"
+    "Card.774807",
+    "Card.8e1985",
+    "Card.ebb700",
+    "Card.43b934",
+    "Card.451845",
+    "Card.f81678",
+    "Card.d2c38c",
+    "Card.eb5133"
   ],
-  "ContainedObjects_path": "Level2SitesExpeditionLeaders.486402",
+  "ContainedObjects_path": "EncounterCards.18e055",
   "CustomDeck": {
-    "15": {
+    "88": {
       "BackIsHidden": false,
-      "BackURL": "http://cloud-3.steamusercontent.com/ugc/1862806463732172872/5034C020F5B15999C6B4E7648F1D5B659EAB30A7/",
-      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/1862806463732172928/BBD24A07F11F22AA890B074BC903CFDE7EF5FB7F/",
-      "NumHeight": 2,
-      "NumWidth": 3,
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2496761664833020966/04DF972A221E2EE82CF755E5A7116ACD6ABFC851/",
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2496761664833021185/3A2EB4E0A9A4F88DC4CB941C185D79601960D7DE/",
+      "NumHeight": 4,
+      "NumWidth": 2,
       "Type": 0,
       "UniqueBack": false
     }
   },
   "DeckIDs": [
-    1501,
-    1502,
-    1500
+    8800,
+    8801,
+    8802,
+    8803,
+    8804,
+    8805,
+    8806,
+    8807
   ],
   "Description": "",
   "DragSelectable": true,
   "GMNotes": "",
-  "GUID": "486402",
+  "GUID": "18e055",
   "Grid": true,
   "GridProjection": false,
   "Hands": false,
@@ -46,25 +56,22 @@
   "LuaScript": "",
   "LuaScriptState": "",
   "MeasureMovement": false,
-  "Name": "Deck",
-  "Nickname": "Level 2 Sites (Expedition Leaders)",
+  "Name": "DeckCustom",
+  "Nickname": "Encounter Cards",
   "SidewaysCard": false,
   "Snap": true,
   "Sticky": true,
-  "Tags": [
-    "site2"
-  ],
   "Tooltip": true,
   "Transform": {
-    "posX": 27,
-    "posY": 1.517,
-    "posZ": -46.5,
+    "posX": 0,
+    "posY": 1.541,
+    "posZ": 47,
     "rotX": 0,
     "rotY": 180,
     "rotZ": 180,
-    "scaleX": 2.3,
+    "scaleX": 1.65,
     "scaleY": 1,
-    "scaleZ": 2.3
+    "scaleZ": 1.65
   },
   "Value": 0,
   "XmlUI": ""

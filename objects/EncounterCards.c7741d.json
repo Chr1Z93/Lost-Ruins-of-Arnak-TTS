@@ -11,31 +11,45 @@
     "r": 0.71324
   },
   "ContainedObjects_order": [
-    "Card.3db92c",
-    "Card.196176",
-    "Card.4bae7c"
+    "Card.7cb1b7",
+    "Card.d37593",
+    "Card.81ce95",
+    "Card.1ca2b9",
+    "Card.5ae72d",
+    "Card.0496a3",
+    "Card.d5c076",
+    "Card.fc31ff",
+    "Card.7ad6fe",
+    "Card.e15ef0"
   ],
-  "ContainedObjects_path": "Level2SitesExpeditionLeaders.486402",
+  "ContainedObjects_path": "EncounterCards.c7741d",
   "CustomDeck": {
-    "15": {
+    "81": {
       "BackIsHidden": false,
-      "BackURL": "http://cloud-3.steamusercontent.com/ugc/1862806463732172872/5034C020F5B15999C6B4E7648F1D5B659EAB30A7/",
-      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/1862806463732172928/BBD24A07F11F22AA890B074BC903CFDE7EF5FB7F/",
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2496761664832996155/822015E03BB98BF7D962498746ED5D79B330E759/",
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2496761664832996376/1AF9ED9AB427584A2835E0929048026FB7A9086D/",
       "NumHeight": 2,
-      "NumWidth": 3,
+      "NumWidth": 5,
       "Type": 0,
       "UniqueBack": false
     }
   },
   "DeckIDs": [
-    1501,
-    1502,
-    1500
+    8100,
+    8101,
+    8102,
+    8103,
+    8104,
+    8105,
+    8106,
+    8107,
+    8108,
+    8109
   ],
   "Description": "",
   "DragSelectable": true,
   "GMNotes": "",
-  "GUID": "486402",
+  "GUID": "c7741d",
   "Grid": true,
   "GridProjection": false,
   "Hands": false,
@@ -46,25 +60,22 @@
   "LuaScript": "",
   "LuaScriptState": "",
   "MeasureMovement": false,
-  "Name": "Deck",
-  "Nickname": "Level 2 Sites (Expedition Leaders)",
+  "Name": "DeckCustom",
+  "Nickname": "Encounter Cards",
   "SidewaysCard": false,
   "Snap": true,
   "Sticky": true,
-  "Tags": [
-    "site2"
-  ],
   "Tooltip": true,
   "Transform": {
-    "posX": 27,
-    "posY": 1.517,
-    "posZ": -46.5,
+    "posX": -7.501,
+    "posY": 1.551,
+    "posZ": 47,
     "rotX": 0,
     "rotY": 180,
     "rotZ": 180,
-    "scaleX": 2.3,
+    "scaleX": 1.65,
     "scaleY": 1,
-    "scaleZ": 2.3
+    "scaleZ": 1.65
   },
   "Value": 0,
   "XmlUI": ""
