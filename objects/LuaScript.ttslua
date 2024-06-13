@@ -327,8 +327,8 @@ expansionDecks = {
   missingExpedition = {
     assistants = 'b640aa',
     idols = '2e956e',
-    --sites1 = '37a6dd',
-    --sites2 = '486402',
+    sites1 = '408800',
+    sites2 = '10d945',
     guardians = '6fbe77'
   }
 }
