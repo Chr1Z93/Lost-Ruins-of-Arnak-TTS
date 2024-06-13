@@ -3,7 +3,7 @@
 
 testVars = {
   defineSeated = true,
-  seatedPlayers = { 'Blue', 'Yellow', 'Red','Green'}
+  seatedPlayers = { 'Blue', 'Yellow', 'Red', 'Green' }
 }
 
 playerVars = {
@@ -295,7 +295,6 @@ bags = {
   researchBonus = 'e90e2a',
   leaderRef = '0a5188',
   leaderTokens = '47fde4',
-  startingDecks = 'f37906',
   replaced = 'bb923d',
   solo = 'cabb5b',
   soloTempleTiles = 'c13fff'
@@ -306,7 +305,12 @@ deckZones = {
   fear = '1fcdb3',
   sites1 = '702902',
   sites2 = 'e0c338',
-  guardians = 'b51480'
+  guardians = 'b51480',
+  bonus1 = "",
+  bonus2 = "",
+  bonus3 = "",
+  bonus4 = "",
+  bonus5 = ""
 }
 assistantDeckGuid = '538a5c'
 idolDeckGuid = 'ab4a80'
@@ -2288,15 +2292,17 @@ function placePawn(playerColor, zone, siteInfo, level, alt)
   startLuaCoroutine(Global, 'placePawnCoroutine')
 end
 
---function that checks the gm notes to determine what rewards the player should get
+-- function that checks the gm notes to determine what rewards the player should get
 function deliverRewardsCoroutine(playerColor, obj)
   local rewards = obj.getGMNotes()
-  local resourceLabels = { t = 'tablet', a = 'arrowhead', j = 'jewel', c = 'coin', s = 'compass' } --these resources are automatically given to the player
+  local resourceLabels = { t = 'tablet', a = 'arrowhead', j = 'jewel', c = 'coin', s = 'compass' }
   local resourceCount = {}
   local deliveredAll = true
   local deliveredResources = false
   for i = 1, string.len(rewards) do
     local reward = string.sub(rewards, i, i)
+
+    -- these resources are automatically given to the player
     if resourceLabels[reward] ~= nil then
       takeResourceButton(reward, playerColor)
       if resourceCount[reward] == nil then
@@ -2305,7 +2311,18 @@ function deliverRewardsCoroutine(playerColor, obj)
         resourceCount[reward] = resourceCount[reward] + 1
       end
       deliveredResources = true
-    elseif reward == 'u' then -- these rewards, the player must manually take action on
+
+    -- for these rewards the player must manually take action on
+    elseif tonumber(reward) then
+      -- draw a card from the respective bonus deck
+      local card = drawCard(deckZones["bonus" .. tonumber(reward)])
+      if card ~= nil then
+        card.deal(1, playerColor)
+        wait(0.3)
+      end
+      broadcastToAll(getPlayerName(playerColor) .. ' has to choose an option from the dealt bonus card.')
+      deliveredAll = false
+    elseif reward == 'u' then
       broadcastToAll(getPlayerName(playerColor) .. ' may upgrade one resource.')
       deliveredAll = false
     elseif reward == 'r' then

@@ -15,7 +15,7 @@
     "23": {
       "BackIsHidden": true,
       "BackURL": "http://cloud-3.steamusercontent.com/ugc/1862806463732172505/0F010A85A45CF2B263F8F88A03BC6E6B6C379E0F/",
-      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2496761664831503874/D5FA1B22AC405B997AC285562CB80FC09D3C8ADA/",
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2450601677147917091/58A328D8C7508EA846246CC8A6C7ED6A421329D9/",
       "NumHeight": 1,
       "NumWidth": 1,
       "Type": 0,
@@ -24,7 +24,7 @@
   },
   "Description": "",
   "DragSelectable": true,
-  "GMNotes": "",
+  "GMNotes": "cs2",
   "GUID": "95e021",
   "Grid": true,
   "GridProjection": false,

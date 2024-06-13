@@ -15,7 +15,7 @@
     "26": {
       "BackIsHidden": true,
       "BackURL": "http://cloud-3.steamusercontent.com/ugc/1862806463732172872/5034C020F5B15999C6B4E7648F1D5B659EAB30A7/",
-      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2496761664831505958/530EF54ECCC8A93CE81F8B0CB13F02FD611842A6/",
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2450601677147917335/3A69052FD8C9993783141E5D21C868A6008E1EFA/",
       "NumHeight": 1,
       "NumWidth": 1,
       "Type": 0,
@@ -46,7 +46,7 @@
   ],
   "Tooltip": true,
   "Transform": {
-    "posX": 33,
+    "posX": 34,
     "posY": 1.495,
     "posZ": -46.5,
     "rotX": 0,
