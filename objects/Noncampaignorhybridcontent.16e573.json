@@ -15,16 +15,14 @@
   },
   "ContainedObjects_order": [
     "Chapter6.e6527c",
-    "CardCustom.3d25c6",
-    "Chapter1.b5c9a2",
-    "Chapter2.0b68fb",
-    "Chapter3.79dfb7",
-    "Chapter4.041bee",
     "Chapter5.7a2a70",
-    "Custom_Tile.78827c",
+    "Chapter4.041bee",
+    "Chapter3.79dfb7",
+    "Chapter2.0b68fb",
+    "Chapter1.b5c9a2",
     "Custom_Tile.5f46af",
-    "Deck.aadbff",
-    "Deck.339e36"
+    "Custom_Tile.78827c",
+    "CardCustom.3d25c6"
   ],
   "ContainedObjects_path": "Noncampaignorhybridcontent.16e573",
   "Description": "",

@@ -37,20 +37,20 @@
   "LuaScriptState": "",
   "MeasureMovement": false,
   "Name": "Custom_Token",
-  "Nickname": "",
+  "Nickname": "Falcon",
   "Snap": true,
   "Sticky": true,
   "Tags": [
     "falcon"
   ],
-  "Tooltip": true,
+  "Tooltip": false,
   "Transform": {
-    "posX": -55.469,
-    "posY": 3.583,
-    "posZ": 48.469,
+    "posX": -27.56,
+    "posY": 3.706,
+    "posZ": 46.824,
     "rotX": 0,
     "rotY": 180,
-    "rotZ": 4,
+    "rotZ": 0,
     "scaleX": 0.6,
     "scaleY": 1,
     "scaleZ": 0.6

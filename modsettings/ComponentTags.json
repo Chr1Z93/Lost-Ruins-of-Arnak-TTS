@@ -67,6 +67,10 @@
     {
       "displayed": "article",
       "normalized": "article"
+    },
+    {
+      "displayed": "waterfall",
+      "normalized": "waterfall"
     }
   ]
 }

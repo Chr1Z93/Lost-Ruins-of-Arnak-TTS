@@ -225,7 +225,7 @@
     "ScriptingTrigger.19cc4f",
     "Idols.ab4a80",
     "IdolsExpeditionLeaders.9988c4",
-    "LeaderTokens.47fde4",
+    "MiscTokens.47fde4",
     "ScriptingTrigger.1d601a",
     "ScriptingTrigger.ca1026",
     "ScriptingTrigger.9ba49e",
@@ -357,7 +357,6 @@
     "Noncampaignorhybridcontent.16e573",
     "CampaignOnlyContent.5c483d",
     "Custom_PDF.c48af2",
-    "ResearchTrack.b575a0",
     "PlayerBoard.7bc85f",
     "PlayerBoard.2425fa",
     "PlayerBoard.177ed7",
@@ -377,7 +376,8 @@
     "ScriptingTrigger.bonus2",
     "ScriptingTrigger.bonus3",
     "ScriptingTrigger.bonus4",
-    "ScriptingTrigger.bonus5"
+    "ScriptingTrigger.bonus5",
+    "ResearchTrack.b575a0"
   ],
   "PlayArea": 0.5,
   "PlayerCounts": [
