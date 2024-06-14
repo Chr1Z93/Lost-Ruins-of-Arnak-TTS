@@ -2,8 +2,8 @@
 -- updated by Chr1Z and covertskippy55 for the missing expedition
 
 testVars = {
-  defineSeated = true,
-  seatedPlayers = { 'Blue', 'Yellow', 'Red', 'Green' }
+  defineSeated = false,
+  seatedPlayers = { 'Blue', 'Green' }
 }
 
 playerVars = {
@@ -280,7 +280,8 @@ options = {
     expeditionLeaders = true,
     missingExpedition = true,
     promos = true
-  }
+  },
+  campaign = false
 }
 bags = {
   resources = {
@@ -971,32 +972,47 @@ function setupGame()
   fearDeckZone = getObjectFromGUID(deckZones.fear)
   decks = {}
   boards = {}
-
-  uiOff()
-  getOptionsFromUI()
-  wait(0.1)
-  detectSeatedPlayers()
-  wait(0.1)
-  optionOverride()
-  wait(0.1)
-  setupDecks()
-  wait(0.1)
-  setupBoard()
-  wait(0.1)
-  setupMoonstaff()
-  wait(0.1)
-  setupArtifactsItemsFear()
-  wait(0.1)
-  setupResearchTrack()
-  wait(0.1)
-  setupPlayerAreas()
-  wait(0.1)
-  waitForBoardLoading()
-  wait(0.1)
-  setupStartingResources()
-  wait(0.1)
-  setupMiscThings()
-  return 1 -- TTS throws an error if a coroutine doesn't return 1
+  if options.campaign == true then
+    uiOff()
+    detectSeatedPlayers()
+    wait(0.1)
+    setupArtifactsItemsFear()
+    wait(0.1)
+    setupPlayerAreas()
+    wait(0.1)
+    waitForBoardLoading()
+    wait(0.1)
+    setupStartingResources()
+    wait(0.1)
+    setupInProgress = false
+    return 1
+  else
+    uiOff()
+    getOptionsFromUI()
+    wait(0.1)
+    detectSeatedPlayers()
+    wait(0.1)
+    optionOverride()
+    wait(0.1)
+    setupDecks()
+    wait(0.1)
+    setupBoard()
+    wait(0.1)
+    setupMoonstaff()
+    wait(0.1)
+    setupArtifactsItemsFear()
+    wait(0.1)
+    setupResearchTrack()
+    wait(0.1)
+    setupPlayerAreas()
+    wait(0.1)
+    waitForBoardLoading()
+    wait(0.1)
+    setupStartingResources()
+    wait(0.1)
+    setupMiscThings()
+    return 1 -- TTS throws an error if a coroutine doesn't return 1
+  end
 end
 
 function checkDoneSpawning()
@@ -1098,10 +1114,12 @@ function detectSeatedPlayers()
   if #seatedPlayerColors == 0 then
     broadcastToAll('All players must select colors before setup.')
     return
-  elseif #seatedPlayerColors == 1 then
-    if seatedPlayerColors[1] == 'Red' then
-      broadcastToAll('Rival plays as red. Choose a different color.')
-      return
+  elseif #seatedPlayerColors == 1 or options.campaign == true then
+    for _,seatedPlayer in ipairs(seatedPlayerColors) do
+      if seatedPlayer == 'Red' then
+        broadcastToAll('Rival plays as red. Choose a different color.')
+        return
+      end
     end
     options.solo = true
     table.insert(seatedPlayerColors, 'Red')
@@ -1409,7 +1427,9 @@ function waitForBoardLoading()
   repeat coroutine.yield(0) until checkDoneSpawning()
   for _, board in pairs(boards) do
     board.lock()
-    board.interactable = false
+    if options.campaign == false then
+      board.interactable = false
+    end
   end
   drawLines()
 end
@@ -1424,7 +1444,7 @@ function setupDecks()
     end
   end
 
-  -- Go through the expansion dictionary which holds multiple dictionaries containing each of the expansions which in turn contain the guids for various expansion decks/items
+  -- Go through the expansion dictionary which holds multiple dictionaries containing the guids for various expansion decks/items
   for expansion, subTable in pairs(expansionDecks) do
     for option, guid in pairs(subTable) do
       local expansionDeck = getObjectFromGUID(guid)
@@ -1470,110 +1490,111 @@ function setupDecks()
 end
 
 function setupMiscThings()
-  -- remove or shuffle bonus encounter cards
-  for i = 1, 5 do
-    local zone = getObjectFromGUID(deckZones["bonus" .. i])
-    for _, obj in ipairs(zone.getObjects()) do
-      if obj.type == "Deck" then
-        if options.expansions.missingExpedition then
-          obj.shuffle()
+  if options.campaign == false then
+    -- remove or shuffle bonus encounter cards
+    for i = 1, 5 do
+      local zone = getObjectFromGUID(deckZones["bonus" .. i])
+      for _, obj in ipairs(zone.getObjects()) do
+        if obj.type == "Deck" then
+          if options.expansions.missingExpedition then
+            obj.shuffle()
+          else
+            obj.destruct()
+          end
+        end
+        break
+      end
+    end
+
+    -- remove temple tiles
+    for _, guid in ipairs(templeTileZoneGuids) do
+      local count = 0
+      for _, object in ipairs(getObjectFromGUID(guid).getObjects()) do -- zones have tag 'temple'
+        count = count + 1
+        if count > #seatedPlayerColors then
+          object.destruct()
         else
-          obj.destruct()
+          object.unlock()
         end
       end
-      break
     end
-  end
 
-  -- remove temple tiles
-  for _, guid in ipairs(templeTileZoneGuids) do
-    local count = 0
-    for _, object in ipairs(getObjectFromGUID(guid).getObjects()) do -- zones have tag 'temple'
-      count = count + 1
-      if count > #seatedPlayerColors then
+    -- distribute blocking
+    bag = getObjectFromGUID(bags.blocking)
+    if #seatedPlayerColors == 2 then
+      for _, siteInfo in ipairs(siteLevels[4]) do
+        siteInfo.blocked = true
+        local toPos = getObjectFromGUID(siteInfo.pawnSpaces[2]).getPosition()
+        local block = bag.takeObject({
+          position = Vector(toPos[1], 1.63, toPos[3]),
+          rotation = faceup
+        })
+        block.lock()
+      end
+    elseif #seatedPlayerColors == 3 then
+      local selection = { 1, 2, 3, 4, 5 }
+      for i = 1, 3 do
+        local randomIndex = math.random(1, #selection)
+        local siteInfo = siteLevels[4][selection[randomIndex]]
+        siteInfo.blocked = true
+        local toPos = getObjectFromGUID(siteInfo.pawnSpaces[2]).getPosition()
+        local block = bag.takeObject({
+          position = Vector(toPos[1], 1.63, toPos[3]),
+          rotation = faceup
+        })
+        block.lock()
+        if i < 3 then
+          table.remove(selection, randomIndex)
+        end
+      end
+    end
+
+    -- place assistants
+    local totalAssistantCount = 12
+    if options.expansions.expeditionLeaders then
+      totalAssistantCount = totalAssistantCount + 3
+    end
+
+    if options.expansions.missingExpedition then
+      totalAssistantCount = totalAssistantCount + 4
+    end
+
+    -- snake temple has one assistant per player in a special spot
+    if options.researchTrack == 2 then
+      totalAssistantCount = totalAssistantCount - #seatedPlayers
+    end
+
+    -- divide by number of stacks (3) and round down
+    local stackCount = math.floor(totalAssistantCount / 3 + 0.5)
+    local newDecks = decks.assistants.cut(stackCount)
+    wait(0.01)
+    newDecks[2].setRotationSmooth(faceup, false, true)
+    newDecks[2].setPositionSmooth(assistantPositions[1], false, true)
+
+    local moreNewDecks = newDecks[1].cut(stackCount)
+    wait(0.01)
+    moreNewDecks[2].setRotationSmooth(faceup, false, true)
+    moreNewDecks[2].setPositionSmooth(assistantPositions[2], false, true)
+    moreNewDecks[1].setRotationSmooth(faceup, false, true)
+    moreNewDecks[1].setPositionSmooth(assistantPositions[3], false, true)
+
+    -- fill market
+    wait(0.4)
+    round = 1
+    refillRowCoroutine()
+    wait(0.2)
+    setupButtons()
+    wait(0.2)
+
+    -- delete bags
+    for _, object in ipairs(getObjectFromGUID(solo.zones.delete).getObjects()) do
+      if not (options.solo and (object.getName() == 'Solo Components' or object.getName() == 'Solo Temple Tiles')) then
         object.destruct()
-      else
-        object.unlock()
       end
     end
+  
+    addAssistantCycleMenu()
   end
-
-  -- distribute blocking
-  bag = getObjectFromGUID(bags.blocking)
-  if #seatedPlayerColors == 2 then
-    for _, siteInfo in ipairs(siteLevels[4]) do
-      siteInfo.blocked = true
-      local toPos = getObjectFromGUID(siteInfo.pawnSpaces[2]).getPosition()
-      local block = bag.takeObject({
-        position = Vector(toPos[1], 1.63, toPos[3]),
-        rotation = faceup
-      })
-      block.lock()
-    end
-  elseif #seatedPlayerColors == 3 then
-    local selection = { 1, 2, 3, 4, 5 }
-    for i = 1, 3 do
-      local randomIndex = math.random(1, #selection)
-      local siteInfo = siteLevels[4][selection[randomIndex]]
-      siteInfo.blocked = true
-      local toPos = getObjectFromGUID(siteInfo.pawnSpaces[2]).getPosition()
-      local block = bag.takeObject({
-        position = Vector(toPos[1], 1.63, toPos[3]),
-        rotation = faceup
-      })
-      block.lock()
-      if i < 3 then
-        table.remove(selection, randomIndex)
-      end
-    end
-  end
-
-  -- place assistants
-  local totalAssistantCount = 12
-  if options.expansions.expeditionLeaders then
-    totalAssistantCount = totalAssistantCount + 3
-  end
-
-  if options.expansions.missingExpedition then
-    totalAssistantCount = totalAssistantCount + 4
-  end
-
-  -- snake temple has one assistant per player in a special spot
-  if options.researchTrack == 2 then
-    totalAssistantCount = totalAssistantCount - #seatedPlayers
-  end
-
-  -- divide by number of stacks (3) and round down
-  local stackCount = math.floor(totalAssistantCount / 3 + 0.5)
-  local newDecks = decks.assistants.cut(stackCount)
-  wait(0.01)
-  newDecks[2].setRotationSmooth(faceup, false, true)
-  newDecks[2].setPositionSmooth(assistantPositions[1], false, true)
-
-  local moreNewDecks = newDecks[1].cut(stackCount)
-  wait(0.01)
-  moreNewDecks[2].setRotationSmooth(faceup, false, true)
-  moreNewDecks[2].setPositionSmooth(assistantPositions[2], false, true)
-  moreNewDecks[1].setRotationSmooth(faceup, false, true)
-  moreNewDecks[1].setPositionSmooth(assistantPositions[3], false, true)
-
-  -- fill market
-  wait(0.4)
-  round = 1
-  refillRowCoroutine()
-  wait(0.2)
-  setupButtons()
-  wait(0.2)
-
-  -- delete bags
-  for _, object in ipairs(getObjectFromGUID(solo.zones.delete).getObjects()) do
-    if not (options.solo and (object.getName() == 'Solo Components' or object.getName() == 'Solo Temple Tiles')) then
-      object.destruct()
-    end
-  end
-
-  addAssistantCycleMenu()
-
   -- start player
   local firstPlayerColor = 'Red'
   if not (options.solo and #seatedPlayerColors == 2) then
@@ -1870,7 +1891,7 @@ function setupStartingResources()
   end
 
   -- starting resources
-  if options.solo and #seatedPlayerColors == 2 then
+  if options.solo and options.campaign == false and #seatedPlayerColors == 2 then
     takeResourceButton('c', seatedPlayerColors[1])
     takeResourceButton('s', seatedPlayerColors[1])
   else
@@ -1898,15 +1919,26 @@ function setupStartingResources()
 end
 
 function menuStart(_, value, _)
-  -- Only show the manual choice menu if player chose that during setup options
   local menuChoice = tonumber(value)
-  if menuChoice == 3 and checkToggle('leaders4') then
+  --If the player chose campaign set a variety of options then show the manual leader choosing UI
+  if menuChoice == 1 then
+    uiOff()
+    options.campaign = true
+    options.leaders = 'choose'
+    options.solo = true
+    options.expansions.expeditionLeaders = true
+    options.expansions.missingExpedition = true
+    UI.setAttribute('continueMenu', 'active', 'true')
+    UI.setAttribute('continueMenuButtons', 'active', 'true')
+    return
+  end
+    -- Only show the manual choice menu if player chose that during setup options
+  if menuChoice == 2 and checkToggle('leaders2') then
     uiOff()
     UI.setAttribute('continueMenu', 'active', 'true')
     UI.setAttribute('continueMenuButtons', 'active', 'true')
     return
   end
-
   startLuaCoroutine(Global, "setupGame")
 end
 
@@ -2151,7 +2183,7 @@ function setupButtons()
     end
   end
 
-  -- discover sites
+  -- discover sites button creation
   params = {
     function_owner = self,
     width = 1200,

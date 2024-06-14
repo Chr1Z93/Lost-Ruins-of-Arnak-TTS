@@ -14,9 +14,18 @@
     "r": 0.70588
   },
   "ContainedObjects_order": [
+    "CardCustom.3d25c6",
     "Custom_PDF.0cf9c7",
     "Custom_Tile.c64617",
-    "Deck.20c269"
+    "Deck.20c269",
+    "Custom_Tile.78827c",
+    "Custom_Tile.5f46af",
+    "Chapter6.e6527c",
+    "OverviewCards.78cbcd",
+    "OverviewCards.f1bd54",
+    "OverviewCards.248eeb",
+    "OverviewCards.2f7531",
+    "OverviewCards.7e55f6"
   ],
   "ContainedObjects_path": "CampaignOnlyContent.5c483d",
   "Description": "",

@@ -11,24 +11,24 @@
     "r": 0.71324
   },
   "ContainedObjects_order": [
-    "Chapter1OverviewCard.79a528",
-    "CardCustom.126c5d"
+    "CardCustom.fff065",
+    "CardCustom.e4bd46"
   ],
-  "ContainedObjects_path": "OverviewCards.7e55f6",
+  "ContainedObjects_path": "OverviewCards.248eeb",
   "CustomDeck": {
-    "78": {
+    "86": {
       "BackIsHidden": true,
-      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2496761664832840556/C15DDF50D43E042B3C6D5A52C158B1C330772FF8/",
-      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2496761664832840727/815A9BD0C2A37E3AEFB75A6C0D9B6944F2B19AC5/",
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2496761664833023197/9070D8533BBC2A33513A57F07B898B707B01994C/",
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2496761664833023557/95051B9766A605332E2BDCF3C1900F8F2C38842E/",
       "NumHeight": 1,
       "NumWidth": 1,
       "Type": 0,
       "UniqueBack": false
     },
-    "79": {
+    "87": {
       "BackIsHidden": true,
-      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2496761664832840841/4600BCC827678630776E6769C1C7128B96590EA7/",
-      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2496761664832840962/D0812EAA9B87E804CD75B3D01594B558F89B0B99/",
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2496761664833023809/F661CD045ADC984624CF442F1AA6461CC3BA3C75/",
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2496761664833024013/9EFF82A1CFEA2BC5E4BA11227C1204C1782E62A4/",
       "NumHeight": 1,
       "NumWidth": 1,
       "Type": 0,
@@ -36,13 +36,13 @@
     }
   },
   "DeckIDs": [
-    7800,
-    7900
+    8700,
+    8600
   ],
   "Description": "",
   "DragSelectable": true,
   "GMNotes": "",
-  "GUID": "7e55f6",
+  "GUID": "248eeb",
   "Grid": true,
   "GridProjection": false,
   "Hands": false,
@@ -60,12 +60,12 @@
   "Sticky": true,
   "Tooltip": true,
   "Transform": {
-    "posX": 64.996,
-    "posY": 2.299,
-    "posZ": 7.646,
+    "posX": -34.425,
+    "posY": 3.576,
+    "posZ": 48.811,
     "rotX": 0,
     "rotY": 180,
-    "rotZ": 180,
+    "rotZ": 181,
     "scaleX": 1.65,
     "scaleY": 1,
     "scaleZ": 1.65

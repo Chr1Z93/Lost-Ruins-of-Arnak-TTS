@@ -5,41 +5,50 @@
     "z": 0
   },
   "Autoraise": true,
-  "CardID": 8802,
-  "ColorDiffuse": {
-    "b": 0.71324,
-    "g": 0.71324,
-    "r": 0.71324
+  "Bag": {
+    "Order": 0
   },
+  "ColorDiffuse": {
+    "b": 0,
+    "g": 0.36652,
+    "r": 0.70588
+  },
+  "ContainedObjects_order": [
+    "OverviewCards.74971a",
+    "EncounterCards.0ac1dc"
+  ],
+  "ContainedObjects_path": "Chapter6.e6527c",
   "Description": "",
   "DragSelectable": true,
   "GMNotes": "",
-  "GUID": "ebb700",
+  "GUID": "e6527c",
   "Grid": true,
   "GridProjection": false,
-  "Hands": true,
+  "Hands": false,
+  "HideWhenFaceDown": false,
   "IgnoreFoW": false,
   "LayoutGroupSortIndex": 0,
   "Locked": false,
   "LuaScript": "",
   "LuaScriptState": "",
+  "MaterialIndex": -1,
   "MeasureMovement": false,
-  "Name": "Card",
-  "Nickname": "",
-  "SidewaysCard": false,
+  "MeshIndex": -1,
+  "Name": "Bag",
+  "Nickname": "Chapter 6",
   "Snap": true,
   "Sticky": true,
   "Tooltip": true,
   "Transform": {
-    "posX": 11,
-    "posY": 1.531,
-    "posZ": -1.52,
+    "posX": -35.4,
+    "posY": 3.365,
+    "posZ": 48.685,
     "rotX": 0,
-    "rotY": 180,
-    "rotZ": 180,
-    "scaleX": 1.65,
+    "rotY": 0,
+    "rotZ": 359,
+    "scaleX": 1,
     "scaleY": 1,
-    "scaleZ": 1.65
+    "scaleZ": 1
   },
   "Value": 0,
   "XmlUI": ""
