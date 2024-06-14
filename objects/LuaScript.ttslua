@@ -62,7 +62,7 @@ playerVars = {
     foodPositions = { { -38.18, 1.63, 22.27 }, { -38.18, 1.63, 19 }, { -38.18, 1.63, 15.75 } },
     articlePosition = { -24, 1.57, 16.80 },
     goldenTeethPosition = { -24, 1.57, 16.80 },
-    refPositions = { { -57.80, 1.48, 29.50 }, { -50.30, 1.48, 29.50 } },
+    refPositions = { {-53, 1.48, 28.5}, {-47, 1.48, 28.5} },
     firstPlayerPosition = { -26.60, 1.53, 28.75 }
   },
   Blue = {
@@ -120,7 +120,7 @@ playerVars = {
     foodPositions = { { 54.99, 1.63, 22.30 }, { 54.99, 1.63, 19.03 }, { 54.99, 1.63, 15.78 } },
     articlePosition = { 29.20, 1.57, 16.80 },
     goldenTeethPosition = { 29.20, 1.57, 16.80 },
-    refPositions = { { 57.80, 1.48, 29.50 }, { 50.30, 1.48, 29.50 } },
+    refPositions = { {53, 1.48, 28.5}, {47, 1.48, 28.5} },
     firstPlayerPosition = { 26.60, 1.53, 28.75 }
   },
   Green = {
@@ -178,7 +178,7 @@ playerVars = {
     foodPositions = { { 54.99, 1.63, -18.70 }, { 54.99, 1.63, -21.97 }, { 54.99, 1.63, -25.22 } },
     articlePosition = { 29.20, 1.57, -24.20 },
     goldenTeethPosition = { 29.20, 1.57, -24.20 },
-    refPositions = { { 57.80, 1.48, -11.50 }, { 50.30, 1.48, -11.50 } },
+    refPositions = { {53, 1.48, -12.5}, {47, 1.48, -12.5} },
     firstPlayerPosition = { 26.60, 1.53, -12.25 }
   },
   Yellow = {
@@ -233,7 +233,7 @@ playerVars = {
     foodPositions = { { -38.18, 1.63, -18.73 }, { -38.18, 1.63, -22 }, { -38.18, 1.63, -25.25 } },
     articlePosition = { -24, 1.57, -24.20 },
     goldenTeethPosition = { -24, 1.57, -24.20 },
-    refPositions = { { -57.80, 1.48, -11.50 }, { -50.30, 1.48, -11.50 } },
+    refPositions = { {-53, 1.48, -12.5}, {-47, 1.48, -12.5} },
     firstPlayerPosition = { -26.60, 1.53, -12.25 }
   }
 }
@@ -294,7 +294,7 @@ bags = {
   blocking = '8c3f25',
   researchBonus = 'e90e2a',
   leaderRef = '0a5188',
-  leaderTokens = '47fde4',
+  miscTokens = '47fde4',
   replaced = 'bb923d',
   solo = 'cabb5b',
   soloTempleTiles = 'c13fff'
@@ -733,7 +733,7 @@ researchTracks = {
   {
     bonusPositions = {
       -- always place these
-      { { 11.38, 1.78, 2.44 },  { 16.67, 1.78, 2.43 },  { 11.85, 1.78, -4.45 }, { 14.20, 1.78, -4.47 }, { 12.03, 1.78, -16.93 }, { 12.03, 1.78, -16.93 } },
+      { { 11.38, 1.78, 2.44 },  { 16.67, 1.78, 2.43 },  { 11.85, 1.78, -4.45 }, { 14.20, 1.78, -4.47 }, { 12.03, 1.78, -16.93 }, { 14.33, 1.68, -16.98 } },
       -- only place these for 3+ player
       { { 9.60, 1.78, -4.47 },  { 9.75, 1.78, -16.95 } },
       -- only place these for 4+ players
@@ -795,8 +795,8 @@ researchTracks = {
       }
     },
     templePoints = { 20, 18, 17, 16 },
-    site1pos = { 10.34, 1.69, -10.75 }, -- TODO: add handling for this
-    waterfallPositions = { { { 11.21, 1.69, -2.19 }, { 14.93, 1.69, -2.26 } }, { { 11.04, 1.69, -18.88 }, { 14.81, 1.69, -18.88 } } } -- TODO: add handling for this
+    site1pos = { 10.34, 1.69, -10.75 },
+    waterfallPositions = { { { 11.21, 1.69, -2.19 }, { 14.93, 1.69, -2.26 } }, { { 11.04, 1.69, -18.88 }, { 14.81, 1.69, -18.88 } } }
   }
 }
 
@@ -1206,10 +1206,10 @@ function setupResearchTrack()
 
   -- maybe place a site 1 location per player
   if trackInfo.site1pos then
-    local newDecks = decks.site1.cut(#seatedPlayerColors)
+    local newDecks = decks.sites1.cut(#seatedPlayerColors)
     wait(0.01)
-    decks.site1 = newDecks[1]
-    newDecks[2].setRotationSmooth({ 0, 90, 0 }, false, true)
+    decks.sites1 = newDecks[1]
+    newDecks[2].setRotationSmooth(facedown, false, true)
     newDecks[2].setPositionSmooth(trackInfo.site1pos, false, true)
   end
 
@@ -1224,6 +1224,19 @@ function setupResearchTrack()
 
   -- won't need idols after this
   decks.idols.destruct()
+
+  -- maybe place waterfall tiles
+  if trackInfo.waterfallPositions then
+    local tokenBag = getObjectFromGUID(bags.miscTokens)
+    for _, posList in ipairs(trackInfo.waterfallPositions) do
+      for _, objData in ipairs(tokenBag.getData().ContainedObjects) do
+        if objData.Nickname == "Waterfall" then
+          tokenBag.takeObject({ guid = objData.GUID, position = posList[math.random(#posList)] })
+          break
+        end
+      end
+    end
+  end
 end
 
 function setupArtifactsItemsFear()
@@ -1589,7 +1602,7 @@ end
 
 -- distribute starting player decks and tokens
 function setupStartingResources()
-  local tokenBag = getObjectFromGUID(bags.leaderTokens)
+  local tokenBag = getObjectFromGUID(bags.miscTokens)
   local refBag = getObjectFromGUID(bags.leaderRef)
   local references = {}
   for _, playerColor in ipairs(seatedPlayerColors) do
@@ -1756,20 +1769,20 @@ function setupStartingResources()
             guid              = tokens.MechanicGoldTokens,
             rotation          = facedown,
             callback_function = function(x)
-              -- Here we take the gold teeth deck and shuffle it, split it into 4 stacks of two each and move 3 of those 4 stacks to above the player board
+              -- Here we take the golden teeth deck and shuffle it, split it into 4 stacks of two each and move 3 of those 4 stacks to above the player board
               x.shuffle()
               local offsets = nil
               if playerColor == "Blue" or playerColor == "Green" then
                 offsets = {
-                  Vector(12, 0.2, 7.3),
-                  Vector(15, 0.2, 7.3),
-                  Vector(18, 0.2, 7.3)
+                  Vector(13.5, 0.2, 7.2),
+                  Vector(16.25, 0.2, 7.2),
+                  Vector(19, 0.2, 7.2)
                 }
               elseif playerColor == "Red" or playerColor == "Yellow" then
                 offsets = {
-                  Vector(-12, 0.2, 7.3),
-                  Vector(-15, 0.2, 7.3),
-                  Vector(-18, 0.2, 7.3)
+                  Vector(-13.5, 0.2, 7.2),
+                  Vector(-16.25, 0.2, 7.2),
+                  Vector(-19, 0.2, 7.2)
                 }
               end
 
@@ -2510,8 +2523,11 @@ function deliverRewards(playerColor, obj)
     elseif reward == 'f' then -- give fear cards automatically to the player
       -- exception for miners helmet
       if not hasMinersHelmetActive(playerColor) then
+        broadcastToAll(getPlayerName(playerColor) .. ' gets a fear card.')
         takeFearButton(getObjectFromGUID(deckZones.fear), playerColor)
         wait(0.3)
+      else
+        broadcastToAll(getPlayerName(playerColor) .. " does not get a fear card due to an active Miner's Helmet.")
       end
     elseif reward == 'd' then -- draw a card automatically for the player
       local card = drawCard(getDeckZoneGuid(playerColor))
@@ -2721,8 +2737,6 @@ function hasMinersHelmetActive(playerColor)
   for _, object in ipairs(getObjectFromGUID(playerVars[playerColor].playAreaZoneGuid).getObjects()) do
     if object.getName() == "Miner's Helmet" then
       if not object.is_face_down then
-        broadcastToAll("Detected active Miner's Helmet for " ..
-          getPlayerName(playerColor) .. " and skipped the Fear card.")
         return true
       else
         return false

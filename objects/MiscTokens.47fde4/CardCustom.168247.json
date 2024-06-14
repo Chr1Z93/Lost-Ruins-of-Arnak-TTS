@@ -41,6 +41,9 @@
   "SidewaysCard": false,
   "Snap": true,
   "Sticky": true,
+  "Tags": [
+    "assistant"
+  ],
   "Tooltip": true,
   "Transform": {
     "posX": 74.208,

@@ -6,9 +6,9 @@
   },
   "Autoraise": true,
   "ColorDiffuse": {
-    "b": 0.25,
-    "g": 0.25,
-    "r": 0.25
+    "b": 1,
+    "g": 1,
+    "r": 1
   },
   "CustomImage": {
     "CustomTile": {
@@ -48,9 +48,9 @@
       },
       "Autoraise": true,
       "ColorDiffuse": {
-        "b": 0.24999994,
-        "g": 0.24999994,
-        "r": 0.24999994
+        "b": 1,
+        "g": 1,
+        "r": 1
       },
       "CustomImage": {
         "CustomTile": {
@@ -84,15 +84,15 @@
       "Sticky": true,
       "Tooltip": true,
       "Transform": {
-        "posX": -29.9715652,
-        "posY": 0.749999762,
-        "posZ": -0.08223993,
-        "rotX": -0.0002490975,
-        "rotY": 180.049072,
-        "rotZ": -0.000767551654,
-        "scaleX": 5,
+        "posX": -30,
+        "posY": 1,
+        "posZ": 0,
+        "rotX": 0,
+        "rotY": 180,
+        "rotZ": 0,
+        "scaleX": 4,
         "scaleY": 1,
-        "scaleZ": 5
+        "scaleZ": 4
       },
       "Value": 0,
       "XmlUI": ""
@@ -105,9 +105,9 @@
       },
       "Autoraise": true,
       "ColorDiffuse": {
-        "b": 0.24999994,
-        "g": 0.24999994,
-        "r": 0.24999994
+        "b": 1,
+        "g": 1,
+        "r": 1
       },
       "CustomImage": {
         "CustomTile": {
@@ -141,15 +141,15 @@
       "Sticky": true,
       "Tooltip": true,
       "Transform": {
-        "posX": -19.222311,
-        "posY": 0.7501409,
-        "posZ": 0.5699727,
-        "rotX": -0.000249070348,
-        "rotY": 180.049072,
-        "rotZ": -0.0007675379,
-        "scaleX": 5,
+        "posX": -30,
+        "posY": 1,
+        "posZ": 0,
+        "rotX": 0,
+        "rotY": 180,
+        "rotZ": 0,
+        "scaleX": 4,
         "scaleY": 1,
-        "scaleZ": 5
+        "scaleZ": 4
       },
       "Value": 0,
       "XmlUI": ""
@@ -162,9 +162,9 @@
       },
       "Autoraise": true,
       "ColorDiffuse": {
-        "b": 0.24999994,
-        "g": 0.24999994,
-        "r": 0.24999994
+        "b": 1,
+        "g": 1,
+        "r": 1
       },
       "CustomImage": {
         "CustomTile": {
@@ -198,15 +198,15 @@
       "Sticky": true,
       "Tooltip": true,
       "Transform": {
-        "posX": -7.818955,
-        "posY": 0.750297368,
-        "posZ": -0.310169071,
-        "rotX": -0.000249051518,
-        "rotY": 180.049072,
-        "rotZ": -0.0007675352,
-        "scaleX": 5,
+        "posX": -30,
+        "posY": 1,
+        "posZ": 0,
+        "rotX": 0,
+        "rotY": 180,
+        "rotZ": 0,
+        "scaleX": 4,
         "scaleY": 1,
-        "scaleZ": 5
+        "scaleZ": 4
       },
       "Value": 0,
       "XmlUI": ""
@@ -255,15 +255,15 @@
       "Sticky": true,
       "Tooltip": true,
       "Transform": {
-        "posX": 3.96779919,
-        "posY": 0.7504592,
-        "posZ": -1.19888926,
-        "rotX": -0.000250016426,
-        "rotY": 179.997391,
-        "rotZ": -0.000767782156,
-        "scaleX": 5,
+        "posX": -30,
+        "posY": 1,
+        "posZ": 0,
+        "rotX": 0,
+        "rotY": 180,
+        "rotZ": 0,
+        "scaleX": 4,
         "scaleY": 1,
-        "scaleZ": 5
+        "scaleZ": 4
       },
       "Value": 0,
       "XmlUI": ""
@@ -312,15 +312,15 @@
       "Sticky": true,
       "Tooltip": true,
       "Transform": {
-        "posX": 13.1801863,
-        "posY": 0.750584,
-        "posZ": -1.46370351,
-        "rotX": -0.000249023753,
-        "rotY": 180.03801,
-        "rotZ": -0.000767344842,
-        "scaleX": 5,
+        "posX": -30,
+        "posY": 1,
+        "posZ": 0,
+        "rotX": 0,
+        "rotY": 180,
+        "rotZ": 0,
+        "scaleX": 4,
         "scaleY": 1,
-        "scaleZ": 5
+        "scaleZ": 4
       },
       "Value": 0,
       "XmlUI": ""
@@ -369,15 +369,15 @@
       "Sticky": true,
       "Tooltip": true,
       "Transform": {
-        "posX": 20.9040775,
-        "posY": 0.7506903,
-        "posZ": -2.19162226,
-        "rotX": -0.0002490142,
-        "rotY": 180.03833,
-        "rotZ": -0.000767305668,
-        "scaleX": 5,
+        "posX": -30,
+        "posY": 1,
+        "posZ": 0,
+        "rotX": 0,
+        "rotY": 180,
+        "rotZ": 0,
+        "scaleX": 4,
         "scaleY": 1,
-        "scaleZ": 5
+        "scaleZ": 4
       },
       "Value": 0,
       "XmlUI": ""
@@ -426,15 +426,15 @@
       "Sticky": true,
       "Tooltip": true,
       "Transform": {
-        "posX": 30.0777721,
-        "posY": 0.750813663,
-        "posZ": -2.373789,
-        "rotX": -0.0002493186,
-        "rotY": 180.031433,
-        "rotZ": -0.000767572,
-        "scaleX": 5,
+        "posX": -30,
+        "posY": 1,
+        "posZ": 0,
+        "rotX": 0,
+        "rotY": 180,
+        "rotZ": 0,
+        "scaleX": 4,
         "scaleY": 1,
-        "scaleZ": 5
+        "scaleZ": 4
       },
       "Value": 0,
       "XmlUI": ""
@@ -447,9 +447,9 @@
       },
       "Autoraise": true,
       "ColorDiffuse": {
-        "b": 0.249999911,
-        "g": 0.249999911,
-        "r": 0.249999911
+        "b": 1,
+        "g": 1,
+        "r": 1
       },
       "CustomImage": {
         "CustomTile": {
@@ -483,15 +483,15 @@
       "Sticky": true,
       "Tooltip": true,
       "Transform": {
-        "posX": -32.0066338,
-        "posY": 1.25740457,
-        "posZ": 19.689085,
-        "rotX": 5.825256,
-        "rotY": 180.032532,
-        "rotZ": 0.003216674,
-        "scaleX": 5,
+        "posX": -30,
+        "posY": 1,
+        "posZ": 0,
+        "rotX": 0,
+        "rotY": 180,
+        "rotZ": 0,
+        "scaleX": 4,
         "scaleY": 1,
-        "scaleZ": 5
+        "scaleZ": 4
       },
       "Value": 0,
       "XmlUI": ""
@@ -504,9 +504,9 @@
       },
       "Autoraise": true,
       "ColorDiffuse": {
-        "b": 0.24999994,
-        "g": 0.24999994,
-        "r": 0.24999994
+        "b": 1,
+        "g": 1,
+        "r": 1
       },
       "CustomImage": {
         "CustomTile": {
@@ -540,15 +540,15 @@
       "Sticky": true,
       "Tooltip": true,
       "Transform": {
-        "posX": -24.1305466,
-        "posY": 1.26686478,
-        "posZ": 19.8558979,
-        "rotX": 5.92862,
-        "rotY": 180.072632,
-        "rotZ": 0.007490056,
-        "scaleX": 5,
+        "posX": -30,
+        "posY": 1,
+        "posZ": 0,
+        "rotX": 0,
+        "rotY": 180,
+        "rotZ": 0,
+        "scaleX": 4,
         "scaleY": 1,
-        "scaleZ": 5
+        "scaleZ": 4
       },
       "Value": 0,
       "XmlUI": ""
@@ -561,9 +561,9 @@
       },
       "Autoraise": true,
       "ColorDiffuse": {
-        "b": 0.24999994,
-        "g": 0.24999994,
-        "r": 0.24999994
+        "b": 1,
+        "g": 1,
+        "r": 1
       },
       "CustomImage": {
         "CustomTile": {
@@ -597,15 +597,15 @@
       "Sticky": true,
       "Tooltip": true,
       "Transform": {
-        "posX": -15.401351,
-        "posY": 1.25987482,
-        "posZ": 19.73229,
-        "rotX": 5.851058,
-        "rotY": 180.050079,
-        "rotZ": 0.00499223825,
-        "scaleX": 5,
+        "posX": -30,
+        "posY": 1,
+        "posZ": 0,
+        "rotX": 0,
+        "rotY": 180,
+        "rotZ": 0,
+        "scaleX": 4,
         "scaleY": 1,
-        "scaleZ": 5
+        "scaleZ": 4
       },
       "Value": 0,
       "XmlUI": ""
@@ -618,9 +618,9 @@
       },
       "Autoraise": true,
       "ColorDiffuse": {
-        "b": 0.24999994,
-        "g": 0.24999994,
-        "r": 0.24999994
+        "b": 1,
+        "g": 1,
+        "r": 1
       },
       "CustomImage": {
         "CustomTile": {
@@ -654,15 +654,15 @@
       "Sticky": true,
       "Tooltip": true,
       "Transform": {
-        "posX": -1.92997563,
-        "posY": 1.24887323,
-        "posZ": 19.5251331,
-        "rotX": 5.72231245,
-        "rotY": 180.051,
-        "rotZ": 0.003990967,
-        "scaleX": 5,
+        "posX": -30,
+        "posY": 1,
+        "posZ": 0,
+        "rotX": 0,
+        "rotY": 180,
+        "rotZ": 0,
+        "scaleX": 4,
         "scaleY": 1,
-        "scaleZ": 5
+        "scaleZ": 4
       },
       "Value": 0,
       "XmlUI": ""
@@ -675,9 +675,9 @@
       },
       "Autoraise": true,
       "ColorDiffuse": {
-        "b": 0.24999994,
-        "g": 0.24999994,
-        "r": 0.24999994
+        "b": 1,
+        "g": 1,
+        "r": 1
       },
       "CustomImage": {
         "CustomTile": {
@@ -711,15 +711,15 @@
       "Sticky": true,
       "Tooltip": true,
       "Transform": {
-        "posX": 13.6702223,
-        "posY": 0.7505018,
-        "posZ": 18.8274269,
-        "rotX": -0.000249090546,
-        "rotY": 180.049072,
-        "rotZ": -0.0007675435,
-        "scaleX": 5,
+        "posX": -30,
+        "posY": 1,
+        "posZ": 0,
+        "rotX": 0,
+        "rotY": 180,
+        "rotZ": 0,
+        "scaleX": 4,
         "scaleY": 1,
-        "scaleZ": 5
+        "scaleZ": 4
       },
       "Value": 0,
       "XmlUI": ""
@@ -732,9 +732,9 @@
       },
       "Autoraise": true,
       "ColorDiffuse": {
-        "b": 0.24999994,
-        "g": 0.24999994,
-        "r": 0.24999994
+        "b": 1,
+        "g": 1,
+        "r": 1
       },
       "CustomImage": {
         "CustomTile": {
@@ -768,15 +768,15 @@
       "Sticky": true,
       "Tooltip": true,
       "Transform": {
-        "posX": 24.8310833,
-        "posY": 0.7506545,
-        "posZ": 18.0679,
-        "rotX": -0.000249061763,
-        "rotY": 180.049072,
-        "rotZ": -0.0007676761,
-        "scaleX": 5,
+        "posX": -30,
+        "posY": 1,
+        "posZ": 0,
+        "rotX": 0,
+        "rotY": 180,
+        "rotZ": 0,
+        "scaleX": 4,
         "scaleY": 1,
-        "scaleZ": 5
+        "scaleZ": 4
       },
       "Value": 0,
       "XmlUI": ""
@@ -789,9 +789,9 @@
       },
       "Autoraise": true,
       "ColorDiffuse": {
-        "b": 0.24999994,
-        "g": 0.24999994,
-        "r": 0.24999994
+        "b": 1,
+        "g": 1,
+        "r": 1
       },
       "CustomImage": {
         "CustomTile": {
@@ -825,15 +825,15 @@
       "Sticky": true,
       "Tooltip": true,
       "Transform": {
-        "posX": 35.5075836,
-        "posY": 0.7507964,
-        "posZ": 18.3138866,
-        "rotX": -0.000249161152,
-        "rotY": 180.049088,
-        "rotZ": -0.0007675474,
-        "scaleX": 5,
+        "posX": -30,
+        "posY": 1,
+        "posZ": 0,
+        "rotX": 0,
+        "rotY": 180,
+        "rotZ": 0,
+        "scaleX": 4,
         "scaleY": 1,
-        "scaleZ": 5
+        "scaleZ": 4
       },
       "Value": 0,
       "XmlUI": ""
@@ -846,9 +846,9 @@
       },
       "Autoraise": true,
       "ColorDiffuse": {
-        "b": 0.24999994,
-        "g": 0.24999994,
-        "r": 0.24999994
+        "b": 1,
+        "g": 1,
+        "r": 1
       },
       "CustomImage": {
         "CustomTile": {
@@ -882,15 +882,15 @@
       "Sticky": true,
       "Tooltip": true,
       "Transform": {
-        "posX": -39.9929123,
-        "posY": 0.749860942,
-        "posZ": 0.989223063,
-        "rotX": -0.00024911997,
-        "rotY": 180.049072,
-        "rotZ": -0.0007675043,
-        "scaleX": 5,
+        "posX": -30,
+        "posY": 1,
+        "posZ": 0,
+        "rotX": 0,
+        "rotY": 180,
+        "rotZ": 0,
+        "scaleX": 4,
         "scaleY": 1,
-        "scaleZ": 5
+        "scaleZ": 4
       },
       "Value": 0,
       "XmlUI": ""
@@ -899,16 +899,16 @@
   "Sticky": true,
   "Tooltip": true,
   "Transform": {
-    "posX": -8.882,
-    "posY": 2.694,
-    "posZ": 44.479,
-    "rotX": 0,
-    "rotY": 179,
-    "rotZ": 0,
-    "scaleX": 5,
-    "scaleY": 1,
-    "scaleZ": 5
-  },
+        "posX": -30,
+        "posY": 1,
+        "posZ": 0,
+        "rotX": 0,
+        "rotY": 180,
+        "rotZ": 0,
+        "scaleX": 4,
+        "scaleY": 1,
+        "scaleZ": 4
+      },
   "Value": 0,
   "XmlUI": ""
 }

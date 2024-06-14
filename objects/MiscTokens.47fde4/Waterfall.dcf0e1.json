@@ -5,38 +5,30 @@
     "z": 0
   },
   "Autoraise": true,
+  "CardID": 58000,
   "ColorDiffuse": {
     "b": 0.71324,
     "g": 0.71324,
     "r": 0.71324
   },
-  "ContainedObjects_order": [
-    "Waterfall.fa97ae",
-    "Waterfall.dcf0e1"
-  ],
-  "ContainedObjects_path": "Waterfalltokens.cb48af",
   "CustomDeck": {
     "580": {
       "BackIsHidden": true,
-      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2496761664836317071/D8F5FA1B572DCC2A18C740CA78798221F9BC97B9/",
-      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2496761664836317071/D8F5FA1B572DCC2A18C740CA78798221F9BC97B9/",
+      "BackURL": "http://cloud-3.steamusercontent.com/ugc/2450601762294538893/407AC494E777FC1938F8CC6827FA25E9295D421D/",
+      "FaceURL": "http://cloud-3.steamusercontent.com/ugc/2450601762294538893/407AC494E777FC1938F8CC6827FA25E9295D421D/",
       "NumHeight": 1,
       "NumWidth": 1,
       "Type": 0,
       "UniqueBack": false
     }
   },
-  "DeckIDs": [
-    58000,
-    58000
-  ],
   "Description": "",
   "DragSelectable": true,
   "GMNotes": "",
-  "GUID": "cb48af",
+  "GUID": "dcf0e1",
   "Grid": true,
   "GridProjection": false,
-  "Hands": false,
+  "Hands": true,
   "HideWhenFaceDown": true,
   "IgnoreFoW": false,
   "LayoutGroupSortIndex": 0,
@@ -44,19 +36,19 @@
   "LuaScript": "",
   "LuaScriptState": "",
   "MeasureMovement": false,
-  "Name": "Deck",
-  "Nickname": "Waterfall tokens",
+  "Name": "CardCustom",
+  "Nickname": "Waterfall",
   "SidewaysCard": false,
   "Snap": true,
   "Sticky": true,
   "Tags": [
     "waterfall"
   ],
-  "Tooltip": true,
+  "Tooltip": false,
   "Transform": {
-    "posX": -35.289,
-    "posY": 5.676,
-    "posZ": 47.551,
+    "posX": -47.431,
+    "posY": 1.495,
+    "posZ": 43.642,
     "rotX": 0,
     "rotY": 180,
     "rotZ": 0,
