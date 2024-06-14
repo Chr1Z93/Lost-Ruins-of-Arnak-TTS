@@ -671,45 +671,59 @@ researchTracks = {
       -- place one tile per player
       { { 19.75, 1.78, 5.90 } }
     },
+    -- z-position in the following table is for research token detection (scoring)
+    -- magnifying / notebook indicates the points for reaching that row
+    -- assistant indicates whether the rival will remove an assistant
     rows = {
       {
-        z = 0,
-        bonusPos = {}
+        z = 4.4,
+        bonusPos = {19.75, 1.73, 5.90}
       },
       {
-        z = 0,
+        z = 0.65,
         magnifying = 19,
-        notebook = 13
+        notebook = 13,
+        paths = { { pos = {10.66, 1.73, 2.70}, forward = { 1 } }, { pos = {16.82, 1.73, 2.70}, forward = { 1} }}
       },
       {
-        z = 0,
+        z = -3.1,
         magnifying = 15,
-        notebook = 10
+        notebook = 10,
+        assistant = true,
+        paths = { { pos = {10.37, 1.73, -1.44}, forward = { 1, 2 } }, { pos = {16.80, 1.73, -1.42}, forward = { 1, 2 } }}
       },
       {
-        z = 0,
+        z = -7.7,
         magnifying = 12,
-        notebook = 6
+        notebook = 6,
+        paths = { { pos = {8.92, 1.73, -5.16}, forward = { 1, 2 } }, { pos = {11.42, 1.73, -5.05}, forward = { 1, 2 } }, { pos = {14.79, 1.73, -4.94}, forward = { 1, 2 } }, { pos = {17.45, 1.73, -5.16}, forward = { 1, 2 } }}
       },
       {
-        z = 0,
+        z = -11.6,
         magnifying = 9,
-        notebook = 5
+        notebook = 5,
+        assistant = true,
+        paths = { { pos = {9.40, 1.73, -9.80}, forward = { 1, 2, 3, 4 } }, { pos = {11.91, 1.73, -9.80}, forward = { 1, 2, 3, 4 } }, { pos = {14.39, 1.73, -9.77}, forward = {1,2,3,4}}, { pos = {14.39, 1.73, -9.77}, forward = {1,2,3,4}}}
       },
       {
-        z = 0,
+        z = -17.9,
         magnifying = 6,
-        notebook = 3
+        notebook = 3,
+        paths = { { pos = {9.79, 1.73, -13.91}, forward = { 1, 2, 3, 4 } }, { pos = {11.88, 1.73, -14.68}, forward = { 1, 2, 3, 4 } }, { pos = {14.37, 1.73, -14.64}, forward = {1,2,3,4}}, { pos = {16.78, 1.73, -13.96}, forward = {1,2,3,4}}}
       },
       {
-        z = 0,
+        z = -21.4,
         magnifying = 3,
-        notebook = 1
+        notebook = 1,
+        assistant = true,
+        paths = { { pos = {9.42, 1.73, -19.80}, forward = { 1, 2, 3, 4 } }, { pos = {12.18, 1.73, -19.80}, forward = { 1, 2, 3, 4 } }, { pos = {16.82, 1.73, -19.80}, forward = {1,2,3,4}}}
       },
       {
-        z = 0,
+        z = -26,
         magnifying = 1,
-        notebook = 0
+        notebook = 0,
+        assistant = true,
+        paths = { { pos = {9.22, 1.73, -23.25}, forward = { 1, 2 } }, { pos = {15.69, 1.73, -23.44}, forward = { 1, 2, 3 } }}
       }
     },
     templePoints = { 27, 25, 24, 23 },
@@ -1105,12 +1119,6 @@ function setupBoard()
       end
     end
   end
-  -- if the research track needs idols, dont remove the remaining idols
-  if decks.idols ~= nil
-      and researchTracks[options.researchTrack]
-      and not researchTracks[options.researchTrack].idolPositions then
-    decks.idols.destruct()
-  end
 end
 
 function setupMoonstaff()
@@ -1197,8 +1205,10 @@ function setupResearchTrack()
         decks.idols.takeObject({ position = idolPos, rotation = facedown, smooth = true })
       end
     end
-    decks.idols.destruct()
   end
+
+  -- won't need idols after this
+  decks.idols.destruct()
 end
 
 function setupArtifactsItemsFear()
@@ -2697,7 +2707,7 @@ function hasMinersHelmetActive(playerColor)
     if object.getName() == "Miner's Helmet" then
       if not object.is_face_down then
         broadcastToAll("Detected active Miner's Helmet for " ..
-          getPlayerName(playerColor) .. " and skipped the Fear card.")
+        getPlayerName(playerColor) .. " and skipped the Fear card.")
         return true
       else
         return false
