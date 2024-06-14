@@ -677,53 +677,53 @@ researchTracks = {
     rows = {
       {
         z = 4.4,
-        bonusPos = {19.75, 1.73, 5.90}
+        bonusPos = { 19.75, 1.73, 5.90 }
       },
       {
         z = 0.65,
         magnifying = 19,
         notebook = 13,
-        paths = { { pos = {10.66, 1.73, 2.70}, forward = { 1 } }, { pos = {16.82, 1.73, 2.70}, forward = { 1} }}
+        paths = { { pos = { 10.66, 1.73, 2.70 }, forward = { 1 } }, { pos = { 16.82, 1.73, 2.70 }, forward = { 1 } } }
       },
       {
         z = -3.1,
         magnifying = 15,
         notebook = 10,
         assistant = true,
-        paths = { { pos = {10.37, 1.73, -1.44}, forward = { 1, 2 } }, { pos = {16.80, 1.73, -1.42}, forward = { 1, 2 } }}
+        paths = { { pos = { 10.37, 1.73, -1.44 }, forward = { 1, 2 } }, { pos = { 16.80, 1.73, -1.42 }, forward = { 1, 2 } } }
       },
       {
         z = -7.7,
         magnifying = 12,
         notebook = 6,
-        paths = { { pos = {8.92, 1.73, -5.16}, forward = { 1, 2 } }, { pos = {11.42, 1.73, -5.05}, forward = { 1, 2 } }, { pos = {14.79, 1.73, -4.94}, forward = { 1, 2 } }, { pos = {17.45, 1.73, -5.16}, forward = { 1, 2 } }}
+        paths = { { pos = { 8.92, 1.73, -5.16 }, forward = { 1, 2 } }, { pos = { 11.42, 1.73, -5.05 }, forward = { 1, 2 } }, { pos = { 14.79, 1.73, -4.94 }, forward = { 1, 2 } }, { pos = { 17.45, 1.73, -5.16 }, forward = { 1, 2 } } }
       },
       {
         z = -11.6,
         magnifying = 9,
         notebook = 5,
         assistant = true,
-        paths = { { pos = {9.40, 1.73, -9.80}, forward = { 1, 2, 3, 4 } }, { pos = {11.91, 1.73, -9.80}, forward = { 1, 2, 3, 4 } }, { pos = {14.39, 1.73, -9.77}, forward = {1,2,3,4}}, { pos = {14.39, 1.73, -9.77}, forward = {1,2,3,4}}}
+        paths = { { pos = { 9.40, 1.73, -9.80 }, forward = { 1, 2, 3, 4 } }, { pos = { 11.91, 1.73, -9.80 }, forward = { 1, 2, 3, 4 } }, { pos = { 14.39, 1.73, -9.77 }, forward = { 1, 2, 3, 4 } }, { pos = { 14.39, 1.73, -9.77 }, forward = { 1, 2, 3, 4 } } }
       },
       {
         z = -17.9,
         magnifying = 6,
         notebook = 3,
-        paths = { { pos = {9.79, 1.73, -13.91}, forward = { 1, 2, 3, 4 } }, { pos = {11.88, 1.73, -14.68}, forward = { 1, 2, 3, 4 } }, { pos = {14.37, 1.73, -14.64}, forward = {1,2,3,4}}, { pos = {16.78, 1.73, -13.96}, forward = {1,2,3,4}}}
+        paths = { { pos = { 9.79, 1.73, -13.91 }, forward = { 1, 2, 3, 4 } }, { pos = { 11.88, 1.73, -14.68 }, forward = { 1, 2, 3, 4 } }, { pos = { 14.37, 1.73, -14.64 }, forward = { 1, 2, 3, 4 } }, { pos = { 16.78, 1.73, -13.96 }, forward = { 1, 2, 3, 4 } } }
       },
       {
         z = -21.4,
         magnifying = 3,
         notebook = 1,
         assistant = true,
-        paths = { { pos = {9.42, 1.73, -19.80}, forward = { 1, 2, 3, 4 } }, { pos = {12.18, 1.73, -19.80}, forward = { 1, 2, 3, 4 } }, { pos = {16.82, 1.73, -19.80}, forward = {1,2,3,4}}}
+        paths = { { pos = { 9.42, 1.73, -19.80 }, forward = { 1, 2, 3, 4 } }, { pos = { 12.18, 1.73, -19.80 }, forward = { 1, 2, 3, 4 } }, { pos = { 16.82, 1.73, -19.80 }, forward = { 1, 2, 3, 4 } } }
       },
       {
         z = -26,
         magnifying = 1,
         notebook = 0,
         assistant = true,
-        paths = { { pos = {9.22, 1.73, -23.25}, forward = { 1, 2 } }, { pos = {15.69, 1.73, -23.44}, forward = { 1, 2, 3 } }}
+        paths = { { pos = { 9.22, 1.73, -23.25 }, forward = { 1, 2 } }, { pos = { 15.69, 1.73, -23.44 }, forward = { 1, 2, 3 } } }
       }
     },
     templePoints = { 27, 25, 24, 23 },
@@ -732,56 +732,71 @@ researchTracks = {
   -- Waterfall Temple
   {
     bonusPositions = {
-
+      -- always place these
+      { { 11.38, 1.78, 2.44 },  { 16.67, 1.78, 2.43 },  { 11.85, 1.78, -4.45 }, { 14.20, 1.78, -4.47 }, { 12.03, 1.78, -16.93 }, { 12.03, 1.78, -16.93 } },
+      -- only place these for 3+ player
+      { { 9.60, 1.78, -4.47 },  { 9.75, 1.78, -16.95 } },
+      -- only place these for 4+ players
+      { { 16.45, 1.78, -4.47 }, { 16.55, 1.78, -16.95 } },
+      -- place one tile per player
+      { { 19.66, 1.78, 5.58 } }
     },
+    -- z-position in the following table is for research token detection (scoring)
+    -- magnifying / notebook indicates the points for reaching that row
+    -- assistant indicates whether the rival will remove an assistant
     rows = {
       {
-        z = 0,
-        bonusPos = {}
+        z = 4.1,
+        bonusPos = { 19.66, 1.78, 5.58 }
       },
       {
-        z = 0,
+        z = 1.1,
         magnifying = 13,
         notebook = 18
       },
       {
-        z = 0,
+        z = -2.25,
         magnifying = 10,
-        notebook = 14
+        notebook = 14,
+        assistant = true
       },
       {
-        z = 0,
+        z = -6.3,
         magnifying = 8,
         notebook = 11
       },
       {
-        z = 0,
+        z = -10.6,
         magnifying = 5,
         notebook = 9
       },
       {
-        z = 0,
+        z = -14.8,
         magnifying = 5,
-        notebook = 7
+        notebook = 7,
+        assistant = true
       },
       {
-        z = 0,
+        z = -18.6,
         magnifying = 3,
-        notebook = 5
+        notebook = 5,
+        assistant = true
       },
       {
-        z = 0,
+        z = -22.1,
         magnifying = 3,
         notebook = 3
       },
       {
-        z = 0,
+        z = -25.3,
         magnifying = 1,
-        notebook = 0
+        notebook = 0,
+        assistant = true
       }
     },
     templePoints = { 20, 18, 17, 16 },
-    site1pos = {} -- TODO: add handling for this
+    site1pos = { 10.34, 1.69, -10.75 }, -- TODO: add handling for this
+    waterfallPositions = { { { 11.21, 1.69, -2.19 }, { 14.93, 1.69, -2.26 } }, { { 11.04, 1.69, -18.88 }, { 14.81, 1.69, -18.88 } } } -- TODO: add handling for this
   }
 }
 
@@ -2707,7 +2722,7 @@ function hasMinersHelmetActive(playerColor)
     if object.getName() == "Miner's Helmet" then
       if not object.is_face_down then
         broadcastToAll("Detected active Miner's Helmet for " ..
-        getPlayerName(playerColor) .. " and skipped the Fear card.")
+          getPlayerName(playerColor) .. " and skipped the Fear card.")
         return true
       else
         return false
