@@ -683,7 +683,7 @@ researchTracks = {
         z = 0.65,
         magnifying = 19,
         notebook = 13,
-        paths = { { pos = { 10.66, 1.73, 2.70 }, forward = { 1 } }, { pos = { 16.82, 1.73, 2.70 }, forward = { 1 } } }
+        paths = { { pos = { 10.66, 1.73, 2.70 }, forward = { 1 } , bonus = true}, { pos = { 16.82, 1.73, 2.70 }, forward = { 1 }, bonus = true } }
       },
       {
         z = -3.1,
@@ -696,34 +696,34 @@ researchTracks = {
         z = -7.7,
         magnifying = 12,
         notebook = 6,
-        paths = { { pos = { 8.92, 1.73, -5.16 }, forward = { 1, 2 } }, { pos = { 11.42, 1.73, -5.05 }, forward = { 1, 2 } }, { pos = { 14.79, 1.73, -4.94 }, forward = { 1, 2 } }, { pos = { 17.45, 1.73, -5.16 }, forward = { 1, 2 } } }
+        paths = { { pos = { 8.92, 1.73, -5.16 }, forward = { 1, 2 }, bonus = true }, { pos = { 11.42, 1.73, -5.05 }, forward = { 1, 2 }, bonus = true }, { pos = { 14.79, 1.73, -4.94 }, forward = { 1, 2 }, bonus = true }, { pos = { 17.45, 1.73, -5.16 }, forward = { 1, 2 }, bonus = true } }
       },
       {
         z = -11.6,
         magnifying = 9,
         notebook = 5,
         assistant = true,
-        paths = { { pos = { 9.40, 1.73, -9.80 }, forward = { 1, 2, 3, 4 } }, { pos = { 11.91, 1.73, -9.80 }, forward = { 1, 2, 3, 4 } }, { pos = { 14.39, 1.73, -9.77 }, forward = { 1, 2, 3, 4 } }, { pos = { 14.39, 1.73, -9.77 }, forward = { 1, 2, 3, 4 } } }
+        paths = { { pos = { 11.91, 1.73, -9.80 }, forward = { 1, 2, 3, 4 }, bonus = true }, { pos = { 14.39, 1.73, -9.77 }, forward = { 1, 2, 3, 4 }, bonus = true } }
       },
       {
         z = -17.9,
         magnifying = 6,
         notebook = 3,
-        paths = { { pos = { 9.79, 1.73, -13.91 }, forward = { 1, 2, 3, 4 } }, { pos = { 11.88, 1.73, -14.68 }, forward = { 1, 2, 3, 4 } }, { pos = { 14.37, 1.73, -14.64 }, forward = { 1, 2, 3, 4 } }, { pos = { 16.78, 1.73, -13.96 }, forward = { 1, 2, 3, 4 } } }
+        paths = { { pos = { 9.79, 1.73, -13.91 }, forward = { 1, 2}, bonus = true }, { pos = { 11.88, 1.73, -14.68 }, forward = { 1, 2 }, bonus = true }, { pos = { 14.37, 1.73, -14.64 }, forward = { 1, 2 }, bonus = true }, { pos = { 16.78, 1.73, -13.96 }, forward = { 1, 2 } , bonus = true} }
       },
       {
         z = -21.4,
         magnifying = 3,
         notebook = 1,
         assistant = true,
-        paths = { { pos = { 9.42, 1.73, -19.80 }, forward = { 1, 2, 3, 4 } }, { pos = { 12.18, 1.73, -19.80 }, forward = { 1, 2, 3, 4 } }, { pos = { 16.82, 1.73, -19.80 }, forward = { 1, 2, 3, 4 } } }
+        paths = { { pos = { 9.42, 1.73, -19.80 }, forward = { 1, 2, 3, 4 }, bonus = true }, { pos = { 16.82, 1.73, -19.80 }, forward = { 1, 2, 3, 4 }, bonus = true } }
       },
       {
         z = -26,
         magnifying = 1,
         notebook = 0,
         assistant = true,
-        paths = { { pos = { 9.22, 1.73, -23.25 }, forward = { 1, 2 } }, { pos = { 15.69, 1.73, -23.44 }, forward = { 1, 2, 3 } } }
+        paths = { { pos = { 9.22, 1.73, -23.25 }, forward = { 1 } }, { pos = { 15.69, 1.73, -23.44 }, forward = { 1, 2 } } }
       }
     },
     templePoints = { 27, 25, 24, 23 },
@@ -758,40 +758,48 @@ researchTracks = {
         z = -2.25,
         magnifying = 10,
         notebook = 14,
-        assistant = true
+        assistant = true,
+        paths = { { pos ={11.38, 1.68, 2.44}, forward = { 1 } }, { pos ={16.67, 1.68, 2.43}, forward = { 1 } } }
       },
       {
         z = -6.3,
         magnifying = 8,
-        notebook = 11
+        notebook = 11,
+        paths = { { pos ={13.73, 1.73, -0.55}, forward = { 1, 2 } , bonus = true} }
+
       },
       {
         z = -10.6,
         magnifying = 5,
-        notebook = 9
+        notebook = 9,
+        paths = { { pos ={9.60, 1.68, -4.47}, forward = { 1 } } }
       },
       {
         z = -14.8,
         magnifying = 5,
         notebook = 7,
-        assistant = true
+        assistant = true,
+        paths = { { pos = {10.34, 1.81, -10.75}, forward = { 1 } } }
       },
       {
         z = -18.6,
         magnifying = 3,
         notebook = 5,
-        assistant = true
+        assistant = true,
+        paths = { { pos = {9.75, 1.68, -16.95}, forward = { 1 } , bonus = true} }
       },
       {
         z = -22.1,
         magnifying = 3,
-        notebook = 3
+        notebook = 3,
+        paths = { { pos = {12.73, 1.73, -20.41}, forward = { 1 } } }
       },
       {
         z = -25.3,
         magnifying = 1,
         notebook = 0,
-        assistant = true
+        assistant = true,
+        paths = { { pos = {9.23, 1.73, -23.53}, forward = { 1 } }, { pos = {14.75, 1.73, -23.63}, forward = { 1, 2 } } }
       }
     },
     templePoints = { 20, 18, 17, 16 },
