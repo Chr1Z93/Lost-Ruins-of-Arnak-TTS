@@ -465,7 +465,6 @@
 			textColor="white"
 			fontSize="16">Setup Standard Game</Button>
 	</HorizontalLayout>
-
 </Panel>
 
 <TableLayout id="continueMenu"
