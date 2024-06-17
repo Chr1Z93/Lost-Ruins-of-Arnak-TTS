@@ -49,9 +49,9 @@
     "rotX": 0,
     "rotY": 180,
     "rotZ": 0,
-    "scaleX": 1,
+    "scaleX": 1.65,
     "scaleY": 1,
-    "scaleZ": 1
+    "scaleZ": 1.65
   },
   "Value": 0,
   "XmlUI": ""

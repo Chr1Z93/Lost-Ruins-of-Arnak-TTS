@@ -14,13 +14,14 @@
     "r": 0.70588
   },
   "ContainedObjects_order": [
-    "CardCustom.3d25c6",
-    "Custom_PDF.0cf9c7",
-    "Custom_Tile.c64617",
     "Deck.20c269",
     "Custom_Tile.78827c",
     "Custom_Tile.5f46af",
-    "Chapter6.e6527c",
+    "Custom_PDF.0cf9c7",
+    "CardCustom.3d25c6",
+    "Custom_Tile.c64617",
+    "EncounterCards.0ac1dc",
+    "OverviewCards.74971a",
     "OverviewCards.78cbcd",
     "OverviewCards.f1bd54",
     "OverviewCards.248eeb",

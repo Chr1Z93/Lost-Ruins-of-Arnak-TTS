@@ -11,8 +11,8 @@
     "r": 0.71324
   },
   "ContainedObjects_order": [
-    "CardCustom.f844c3",
-    "CardCustom.28886a"
+    "CardCustom.28886a",
+    "CardCustom.f844c3"
   ],
   "ContainedObjects_path": "OverviewCards.78cbcd",
   "CustomDeck": {
@@ -36,8 +36,8 @@
     }
   },
   "DeckIDs": [
-    9500,
-    9600
+    9600,
+    9500
   ],
   "Description": "",
   "DragSelectable": true,
@@ -60,9 +60,9 @@
   "Sticky": true,
   "Tooltip": true,
   "Transform": {
-    "posX": -35.523,
-    "posY": 3.59,
-    "posZ": 48.053,
+    "posX": -5.688,
+    "posY": 9.802,
+    "posZ": 53.516,
     "rotX": 0,
     "rotY": 180,
     "rotZ": 180,

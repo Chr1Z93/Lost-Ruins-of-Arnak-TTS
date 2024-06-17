@@ -3,7 +3,7 @@
 
 testVars = {
   defineSeated = false,
-  seatedPlayers = { 'Blue', 'Green' }
+  seatedPlayers = { 'Blue', 'Green'}
 }
 
 playerVars = {
@@ -298,7 +298,8 @@ bags = {
   miscTokens = '47fde4',
   replaced = 'bb923d',
   solo = 'cabb5b',
-  soloTempleTiles = 'c13fff'
+  soloTempleTiles = 'c13fff',
+  campaignItems = '5c483d'
 }
 deckZones = {
   artifacts = 'c19201',
@@ -976,6 +977,10 @@ function setupGame()
     uiOff()
     detectSeatedPlayers()
     wait(0.1)
+    if #seatedPlayerColors >3 then
+      broadcastToAll("Campaign mode cannot be played with more than 2 players, please reload the mod and try again.")
+      return 1
+    end
     setupArtifactsItemsFear()
     wait(0.1)
     setupPlayerAreas()
@@ -984,7 +989,8 @@ function setupGame()
     wait(0.1)
     setupStartingResources()
     wait(0.1)
-    setupInProgress = false
+    setupCampaignMisc()
+    wait(0.1)
     return 1
   else
     uiOff()
@@ -1628,8 +1634,249 @@ function setupMiscThings()
   end
 end
 
--- distribute starting player decks and tokens
+function setupCampaignMisc()
+  local campaignBag = getObjectFromGUID(bags.campaignItems)
+
+  -- take fear button
+  local buttonZone = getObjectFromGUID(deckZones.fear)
+  params = {
+    function_owner = self,
+    label = 'Take',
+    click_function = 'takeFearButton',
+    position = { 0, 0, -2.9 },
+    width = 800,
+    height = 380,
+    font_size = 200
+  }
+  buttonZone.createButton(params)
+
+  -- take resources buttons
+  params.label = 'Take'
+  params.scale = { 2 / 1.5, 2, 2 / 1.5 }
+  params.position = { 0, 0, 1.8 }
+  for resource, guid in pairs(bags.resources) do
+    params.click_function = 'takeResource' .. resource
+    getObjectFromGUID(guid).createButton(params)
+
+    _G['takeResource' .. resource] = function(obj, clickColor, alt)
+      if not doneLoading or not isSeated(clickColor) then return end
+      takeResourceButton(resource, clickColor)
+    end
+  end
+
+  -- player resource bag counters creation
+  params = {
+    function_owner = self,
+    position = { 0, 0, 1.9 },
+    width = 700,
+    height = 700,
+    font_size = 400
+  }
+  for _, playerColor in ipairs(seatedPlayerColors) do
+    if not (options.solo and playerColor == 'Red') then
+      local vars = playerVars[playerColor]
+      for resource, guid in pairs(vars.resourceBagZones) do
+        local bag = getObjectFromGUID(vars.resourceBags[resource])
+        params.label = tostring(bag.getQuantity())
+        params.click_function = 'clickResourceBag' .. resource .. playerColor
+        getObjectFromGUID(guid).createButton(params)
+
+        _G['clickResourceBag' .. resource .. playerColor] = function(obj, clickColor, alt)
+          if not doneLoading or clickColor ~= playerColor then return end
+          if alt then
+            if bag.getQuantity() > 0 then getObjectFromGUID(vars.trashGuid).putObject(bag.takeObject()) end
+          else
+            takeResourceButton(resource, clickColor)
+          end
+        end
+      end
+      if options.playerBoards[playerColor] == 4 then
+        for resource, guid in pairs(suitcaseResourceBags) do
+          local bag = getObjectFromGUID(guid)
+          if bag ~= nil then
+            params.label = tostring(bag.getQuantity())
+            params.click_function = 'clickResourceBag' .. resource .. 'Suitcase'
+            getObjectFromGUID(vars.suitcaseResourceBagZones[resource]).createButton(params)
+
+            _G['clickResourceBag' .. resource .. 'Suitcase'] = function(obj, clickColor, alt)
+              if not doneLoading or clickColor ~= playerColor then return end
+              if alt then
+                if bag.getQuantity() > 0 then getObjectFromGUID(vars.trashGuid).putObject(bag.takeObject()) end
+              else
+                takeResourceButton(resource, clickColor, true)
+              end
+            end
+          end
+        end
+      end
+    end
+  end
+
+  -- shuffle bonus encounter cards and reposition them to make space for the chapter 6 deck
+  for i = 1, 5 do
+    local zone = getObjectFromGUID(deckZones["bonus" .. i])
+    for _, obj in ipairs(zone.getObjects()) do
+      if obj.type == "Deck" then
+        obj.setPosition(obj.getPosition() + vector(-4.0, 0, 0))
+        obj.shuffle()
+      end
+    end
+  end
+
+  -- place the chapter 6 encounter deck on the board
+  campaignBag.takeObject({
+    position          = {18.5, 1.54, 47.00},
+    guid = '0ac1dc',
+    smooth = false,
+    rotation = {0.00, 180.00, 180.00}
+  })
+
+  --place the campaign book at the edge of the table
+  campaignBag.takeObject({
+    position          = {-27.86, 1.50, 50.34},
+    callback_function = function(x)
+      x.setLock(true)
+      x.setPositionSmooth({36.00, 6.80, 55.00})
+      x.setRotationSmooth({60.00, 180.00, 0.00})
+    end,
+    smooth            = true,
+    guid              = '0cf9c7',
+  })
+
+  --place the campaign tracker at the edge of the table
+  campaignBag.takeObject({
+    position          = {-27.86, 1.50, 50.34},
+    callback_function = function(x)
+      x.setLock(true)
+      x.setPositionSmooth({45.00, 6.80, 55.00})
+      x.setRotationSmooth({60.00, 180.00, 0.00})
+    end,
+    smooth            = true,
+    guid              = 'c64617',
+  })
+
+  --place the overview cards in two rows below the campaign book
+  local overViewGuids = {'7e55f6', '2f7531','248eeb','f1bd54','78cbcd','74971a'}
+  local startLoc = {33.0, 1.55, 47.0}
+  local newLoc = {}
+  for i,g in ipairs(overViewGuids) do
+    if i <=3 then
+      newLoc = {startLoc[1]+(8*(i-1)), startLoc[2], startLoc[3]}
+    else
+      newLoc = {startLoc[1]+(8*(i-4)), startLoc[2], 40}
+    end
+    campaignBag.takeObject({
+      position          = newLoc,
+      rotation          = {0.00, 180.00, 180.00},
+      smooth            = false,
+      guid              = g,
+    })
+  end
+
+  -- If two players are playing place the pidgeon tokens on the board
+  if #seatedPlayerColors == 3 then
+    campaignBag.takeObject({
+      position          = {-15.00, 1.51, 36.50},
+      smooth            =  true,
+      rotation          = {0.00, 180.00, 180.00},
+      guid              = '20c269',
+    })
+  end
+
+  --Iterate through the expansion decks and grab the decks containing the expansion content (idols, assistants, guardians, sties)
+  --Grab the decks of the base game belonging to each of those types, then add the expansion decks to the base decks
+  local baseDeck = nil
+  local expDeck = nil
+   for key,value in pairs(expansionDecks) do -- Outer table containing the list of expansions
+    for deckType, guidString in pairs(value) do -- Inner table containing the deck types and guids per expansion from outer table
+      -- Delete the missing expedition site decks as they cannot be used in the campaign
+      if key == 'missingExpedition' and (deckType == 'sites1' or deckType == 'sites2') then
+        getObjectFromGUID(guidString).destruct()
+      -- for idols and assistants, the base deck guids are defined as global variables and not as deck zones
+      elseif deckType == 'idols' then
+        baseDeck = getObjectFromGUID(idolDeckGuid)
+        expDeck = getObjectFromGUID(guidString)
+        baseDeck.putObject(expDeck)
+      elseif deckType == 'assistants' then
+        baseDeck = getObjectFromGUID(assistantDeckGuid)
+        expDeck = getObjectFromGUID(guidString)
+        baseDeck.putObject(expDeck)
+      else
+        -- for the other deck types, their guids are not stored but instead we have to use their deck zones to grab the deck guid
+        for _, object in ipairs(getObjectFromGUID(deckZones[deckType]).getObjects()) do
+          if object.type == 'Deck' then
+            baseDeck = object
+            break
+          end
+        end
+        expDeck = getObjectFromGUID(guidString)
+        baseDeck.putObject(expDeck) -- put expansion deck into base deck of the same type
+      end
+    end
+   end
+  
+   -- Determine a first player thats not the red bot
+  repeat
+    startPlayerIndex = math.random(1,#seatedPlayerColors)
+    firstPlayerColor = seatedPlayerColors[startPlayerIndex]
+  until firstPlayerColor ~= 'Red'
+
+  for _, playerColor in ipairs(seatedPlayerColors) do
+    if playerColor ~= 'Red' then
+      if options.playerBoards[playerColor] == 3 then
+        decks[playerColor].takeObject({ guid = cards.baroness }).deal(1, playerColor)
+        decks[playerColor].deal(4, playerColor)
+      else
+        decks[playerColor].deal(5, playerColor)
+      end
+      if options.playerBoards[playerColor] == 6 then decks.fear.deal(1, playerColor) end
+    end
+  end
+
+  getObjectFromGUID(solo.board).setLock(true) -- Lock bot player board
+  local soloBag = getObjectFromGUID(bags.solo)
+  soloBag.takeObject({ -- Place the bot player base action deck
+    position          = {-59.79, 1.50, -0.04},
+    rotation          = {0.00, 180.00, 0.00},
+    smooth            = true,
+    guid              = solo.actionDecks[1],
+  })
+  soloBag.takeObject({ -- Place the bot player advanced (green,red,purple) action deck
+    position          = {-55.79, 1.50, -0.04},
+    rotation          = {0.00, 180.00, 0.00},
+    smooth            = true,
+    guid              = solo.actionDecks[2],
+    callback_function = function(x) -- Iterate through the advanced deck and seperate out the different colors to be their own decks
+      for _,card in ipairs(x.getObjects()) do
+        if card.gm_notes == 'red' then
+          x.takeObject({
+            position          = {-51.79, 1.50, -0.04},
+            smooth            = true,
+            guid              = card.guid,
+
+          })
+        elseif card.gm_notes == 'purple' then
+          x.takeObject({
+            position          = {-47.79, 1.50, -0.04},
+            smooth            = true,
+            guid              = card.guid,
+
+          })  
+        end
+      end
+    end
+  })
+
+  -- Set turn to randomized player and begin game!
+  broadcastToAll('Campaign Starts!') 
+  Turns.turn_color = firstPlayerColor
+  Turns.enable = true
+  setupInProgress = false
+  round = 1
+end
+
 function setupStartingResources()
+  -- distribute starting player decks and tokens
   local tokenBag = getObjectFromGUID(bags.miscTokens)
   local refBag = getObjectFromGUID(bags.leaderRef)
   local references = {}
@@ -2788,11 +3035,11 @@ end
 function getStaff()
   local staffList = getObjectsWithTag("staff")
   if #staffList == 0 then
-    print("Staff not found.")
+    broadcastToAll("Staff not found.")
     return nil
   else
     if #staffList > 1 then
-      print("Multiple staffs found!")
+      broadcastToAll("Multiple staffs found!")
     end
     return staffList[1]
   end
