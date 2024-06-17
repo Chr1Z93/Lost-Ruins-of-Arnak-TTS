@@ -1490,111 +1490,110 @@ function setupDecks()
 end
 
 function setupMiscThings()
-  if options.campaign == false then
-    -- remove or shuffle bonus encounter cards
-    for i = 1, 5 do
-      local zone = getObjectFromGUID(deckZones["bonus" .. i])
-      for _, obj in ipairs(zone.getObjects()) do
-        if obj.type == "Deck" then
-          if options.expansions.missingExpedition then
-            obj.shuffle()
-          else
-            obj.destruct()
-          end
-        end
-        break
-      end
-    end
-
-    -- remove temple tiles
-    for _, guid in ipairs(templeTileZoneGuids) do
-      local count = 0
-      for _, object in ipairs(getObjectFromGUID(guid).getObjects()) do -- zones have tag 'temple'
-        count = count + 1
-        if count > #seatedPlayerColors then
-          object.destruct()
+  -- remove or shuffle bonus encounter cards
+  for i = 1, 5 do
+    local zone = getObjectFromGUID(deckZones["bonus" .. i])
+    for _, obj in ipairs(zone.getObjects()) do
+      if obj.type == "Deck" then
+        if options.expansions.missingExpedition then
+          obj.shuffle()
         else
-          object.unlock()
+          obj.destruct()
         end
       end
+      break
     end
-
-    -- distribute blocking
-    bag = getObjectFromGUID(bags.blocking)
-    if #seatedPlayerColors == 2 then
-      for _, siteInfo in ipairs(siteLevels[4]) do
-        siteInfo.blocked = true
-        local toPos = getObjectFromGUID(siteInfo.pawnSpaces[2]).getPosition()
-        local block = bag.takeObject({
-          position = Vector(toPos[1], 1.63, toPos[3]),
-          rotation = faceup
-        })
-        block.lock()
-      end
-    elseif #seatedPlayerColors == 3 then
-      local selection = { 1, 2, 3, 4, 5 }
-      for i = 1, 3 do
-        local randomIndex = math.random(1, #selection)
-        local siteInfo = siteLevels[4][selection[randomIndex]]
-        siteInfo.blocked = true
-        local toPos = getObjectFromGUID(siteInfo.pawnSpaces[2]).getPosition()
-        local block = bag.takeObject({
-          position = Vector(toPos[1], 1.63, toPos[3]),
-          rotation = faceup
-        })
-        block.lock()
-        if i < 3 then
-          table.remove(selection, randomIndex)
-        end
-      end
-    end
-
-    -- place assistants
-    local totalAssistantCount = 12
-    if options.expansions.expeditionLeaders then
-      totalAssistantCount = totalAssistantCount + 3
-    end
-
-    if options.expansions.missingExpedition then
-      totalAssistantCount = totalAssistantCount + 4
-    end
-
-    -- snake temple has one assistant per player in a special spot
-    if options.researchTrack == 2 then
-      totalAssistantCount = totalAssistantCount - #seatedPlayers
-    end
-
-    -- divide by number of stacks (3) and round down
-    local stackCount = math.floor(totalAssistantCount / 3 + 0.5)
-    local newDecks = decks.assistants.cut(stackCount)
-    wait(0.01)
-    newDecks[2].setRotationSmooth(faceup, false, true)
-    newDecks[2].setPositionSmooth(assistantPositions[1], false, true)
-
-    local moreNewDecks = newDecks[1].cut(stackCount)
-    wait(0.01)
-    moreNewDecks[2].setRotationSmooth(faceup, false, true)
-    moreNewDecks[2].setPositionSmooth(assistantPositions[2], false, true)
-    moreNewDecks[1].setRotationSmooth(faceup, false, true)
-    moreNewDecks[1].setPositionSmooth(assistantPositions[3], false, true)
-
-    -- fill market
-    wait(0.4)
-    round = 1
-    refillRowCoroutine()
-    wait(0.2)
-    setupButtons()
-    wait(0.2)
-
-    -- delete bags
-    for _, object in ipairs(getObjectFromGUID(solo.zones.delete).getObjects()) do
-      if not (options.solo and (object.getName() == 'Solo Components' or object.getName() == 'Solo Temple Tiles')) then
-        object.destruct()
-      end
-    end
-  
-    addAssistantCycleMenu()
   end
+
+  -- remove temple tiles
+  for _, guid in ipairs(templeTileZoneGuids) do
+    local count = 0
+    for _, object in ipairs(getObjectFromGUID(guid).getObjects()) do -- zones have tag 'temple'
+      count = count + 1
+      if count > #seatedPlayerColors then
+        object.destruct()
+      else
+        object.unlock()
+      end
+    end
+  end
+
+  -- distribute blocking
+  bag = getObjectFromGUID(bags.blocking)
+  if #seatedPlayerColors == 2 then
+    for _, siteInfo in ipairs(siteLevels[4]) do
+      siteInfo.blocked = true
+      local toPos = getObjectFromGUID(siteInfo.pawnSpaces[2]).getPosition()
+      local block = bag.takeObject({
+        position = Vector(toPos[1], 1.63, toPos[3]),
+        rotation = faceup
+      })
+      block.lock()
+    end
+  elseif #seatedPlayerColors == 3 then
+    local selection = { 1, 2, 3, 4, 5 }
+    for i = 1, 3 do
+      local randomIndex = math.random(1, #selection)
+      local siteInfo = siteLevels[4][selection[randomIndex]]
+      siteInfo.blocked = true
+      local toPos = getObjectFromGUID(siteInfo.pawnSpaces[2]).getPosition()
+      local block = bag.takeObject({
+        position = Vector(toPos[1], 1.63, toPos[3]),
+        rotation = faceup
+      })
+      block.lock()
+      if i < 3 then
+        table.remove(selection, randomIndex)
+      end
+    end
+  end
+
+  -- place assistants
+  local totalAssistantCount = 12
+  if options.expansions.expeditionLeaders then
+    totalAssistantCount = totalAssistantCount + 3
+  end
+
+  if options.expansions.missingExpedition then
+    totalAssistantCount = totalAssistantCount + 4
+  end
+
+  -- snake temple has one assistant per player in a special spot
+  if options.researchTrack == 2 then
+    totalAssistantCount = totalAssistantCount - #seatedPlayers
+  end
+
+  -- divide by number of stacks (3) and round down
+  local stackCount = math.floor(totalAssistantCount / 3 + 0.5)
+  local newDecks = decks.assistants.cut(stackCount)
+  wait(0.01)
+  newDecks[2].setRotationSmooth(faceup, false, true)
+  newDecks[2].setPositionSmooth(assistantPositions[1], false, true)
+
+  local moreNewDecks = newDecks[1].cut(stackCount)
+  wait(0.01)
+  moreNewDecks[2].setRotationSmooth(faceup, false, true)
+  moreNewDecks[2].setPositionSmooth(assistantPositions[2], false, true)
+  moreNewDecks[1].setRotationSmooth(faceup, false, true)
+  moreNewDecks[1].setPositionSmooth(assistantPositions[3], false, true)
+
+  -- fill market
+  wait(0.4)
+  round = 1
+  refillRowCoroutine()
+  wait(0.2)
+  setupButtons()
+  wait(0.2)
+
+  -- delete bags
+  for _, object in ipairs(getObjectFromGUID(solo.zones.delete).getObjects()) do
+    if not (options.solo and (object.getName() == 'Solo Components' or object.getName() == 'Solo Temple Tiles')) then
+      object.destruct()
+    end
+  end
+
+  addAssistantCycleMenu()
+
   -- start player
   local firstPlayerColor = 'Red'
   if not (options.solo and #seatedPlayerColors == 2) then
