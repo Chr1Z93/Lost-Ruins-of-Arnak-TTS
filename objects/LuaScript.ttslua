@@ -990,7 +990,6 @@ function setupGame()
     setupStartingResources()
     wait(0.1)
     setupCampaignMisc()
-    wait(0.1)
     return 1
   else
     uiOff()
