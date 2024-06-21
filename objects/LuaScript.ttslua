@@ -1633,9 +1633,8 @@ function setupMiscThings()
   end
 end
 
-function setupCampaignMisc()
-  local campaignBag = getObjectFromGUID(bags.campaignItems)
-
+--Create buttons that are used for both standard play and campaign play
+function setupButtonsMisc()
   -- take fear button
   local buttonZone = getObjectFromGUID(deckZones.fear)
   params = {
@@ -1711,7 +1710,13 @@ function setupCampaignMisc()
     end
   end
 
-  -- shuffle bonus encounter cards and reposition them to make space for the chapter 6 deck
+end
+
+--This function will do a variety of things to setup the campaign including moving campiagn related objects to the table, determining first player, etc
+function setupCampaignMisc()
+  local campaignBag = getObjectFromGUID(bags.campaignItems)
+
+    -- shuffle bonus encounter cards and reposition them to make space for the chapter 6 deck
   for i = 1, 5 do
     local zone = getObjectFromGUID(deckZones["bonus" .. i])
     for _, obj in ipairs(zone.getObjects()) do
@@ -1721,6 +1726,8 @@ function setupCampaignMisc()
       end
     end
   end
+
+  setupButtonsMisc()
 
   -- place the chapter 6 encounter deck on the board
   campaignBag.takeObject({
@@ -2294,7 +2301,7 @@ function drawLines()
 end
 
 ---------------------- BUTTONS
-
+--Create buttons primarily used for standard play
 function setupButtons()
   local params = {
     function_owner = self,
@@ -2312,21 +2319,20 @@ function setupButtons()
   local buttonZone = getObjectFromGUID(deckZones.fear)
   buttonZone.createButton(params)
 
-  -- take fear
+  setupButtonsMisc()
+
+  -- buy card row
   params = {
     function_owner = self,
-    label = 'Take',
+    label = 'Buy',
     click_function = 'takeFearButton',
-    position = { 0, 0, -2.9 },
+    position = { 0, 0, -2.4 },
     width = 800,
     height = 380,
     font_size = 200
   }
-  buttonZone.createButton(params)
 
-  -- buy card row
-  params.label = 'Buy'
-  params.position = { 0, 0, -2.4 }
+
   for i, guid in ipairs(cardRowZoneGuids) do
     params.click_function = 'buy' .. i
     getObjectFromGUID(guid).createButton(params)
@@ -2334,68 +2340,6 @@ function setupButtons()
     _G['buy' .. i] = function(obj, clickColor, alt)
       if not doneLoading or setupInProgress or movingRow or not isSeated(clickColor) then return end
       buyButton(obj, clickColor, alt)
-    end
-  end
-
-  -- take resources
-  params.label = 'Take'
-  params.scale = { 2 / 1.5, 2, 2 / 1.5 }
-  params.position = { 0, 0, 1.8 }
-  for resource, guid in pairs(bags.resources) do
-    params.click_function = 'takeResource' .. resource
-    getObjectFromGUID(guid).createButton(params)
-
-    _G['takeResource' .. resource] = function(obj, clickColor, alt)
-      if not doneLoading or not isSeated(clickColor) then return end
-      takeResourceButton(resource, clickColor)
-    end
-  end
-
-  -- player resource bag counters
-  params = {
-    function_owner = self,
-    position = { 0, 0, 1.9 },
-    width = 700,
-    height = 700,
-    font_size = 400
-  }
-  for _, playerColor in ipairs(seatedPlayerColors) do
-    if not (options.solo and playerColor == 'Red') then
-      local vars = playerVars[playerColor]
-      for resource, guid in pairs(vars.resourceBagZones) do
-        local bag = getObjectFromGUID(vars.resourceBags[resource])
-        params.label = tostring(bag.getQuantity())
-        params.click_function = 'clickResourceBag' .. resource .. playerColor
-        getObjectFromGUID(guid).createButton(params)
-
-        _G['clickResourceBag' .. resource .. playerColor] = function(obj, clickColor, alt)
-          if not doneLoading or clickColor ~= playerColor then return end
-          if alt then
-            if bag.getQuantity() > 0 then getObjectFromGUID(vars.trashGuid).putObject(bag.takeObject()) end
-          else
-            takeResourceButton(resource, clickColor)
-          end
-        end
-      end
-      if options.playerBoards[playerColor] == 4 then
-        for resource, guid in pairs(suitcaseResourceBags) do
-          local bag = getObjectFromGUID(guid)
-          if bag ~= nil then
-            params.label = tostring(bag.getQuantity())
-            params.click_function = 'clickResourceBag' .. resource .. 'Suitcase'
-            getObjectFromGUID(vars.suitcaseResourceBagZones[resource]).createButton(params)
-
-            _G['clickResourceBag' .. resource .. 'Suitcase'] = function(obj, clickColor, alt)
-              if not doneLoading or clickColor ~= playerColor then return end
-              if alt then
-                if bag.getQuantity() > 0 then getObjectFromGUID(vars.trashGuid).putObject(bag.takeObject()) end
-              else
-                takeResourceButton(resource, clickColor, true)
-              end
-            end
-          end
-        end
-      end
     end
   end
 
@@ -3870,7 +3814,8 @@ function rivalBuy(action, buyHighestPoints)
   for i = startIndex, endIndex do
     local card = drawCard(cardRowZoneGuids[i], nil, nil, true)
     if card.type == 'Card' then
-      local points = card.getVar('points')
+      --local points = card.getVar('points')
+      local points = JSON.decode(card.getGMNotes()).points
       if points > highest then
         highest = points
         highestCards = { card }
