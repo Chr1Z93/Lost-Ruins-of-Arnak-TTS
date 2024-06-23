@@ -22,6 +22,7 @@
   ],
   "ComponentTags_path": "ComponentTags.json",
   "DecalPallet": [],
+  "Decals": [],
   "GameComplexity": "Medium Complexity",
   "GameMode": "Lost Ruins of Arnak [SCRIPTED]",
   "GameType": "Game",
@@ -35,6 +36,7 @@
   "Lighting_path": "Lighting.json",
   "LuaScriptState_path": "LuaScriptState.luascriptstate",
   "LuaScript_path": "LuaScript.ttslua",
+  "MusicPlayer_path": "MusicPlayer.json",
   "Note_path": "Note.luascriptstate",
   "ObjectStates_order": [
     "HandTrigger.85c87e",
