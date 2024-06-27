@@ -22,7 +22,6 @@
   ],
   "ComponentTags_path": "ComponentTags.json",
   "DecalPallet": [],
-  "Decals": [],
   "GameComplexity": "Medium Complexity",
   "GameMode": "Lost Ruins of Arnak [SCRIPTED]",
   "GameType": "Game",
@@ -36,7 +35,6 @@
   "Lighting_path": "Lighting.json",
   "LuaScriptState_path": "LuaScriptState.luascriptstate",
   "LuaScript_path": "LuaScript.ttslua",
-  "MusicPlayer_path": "MusicPlayer.json",
   "Note_path": "Note.luascriptstate",
   "ObjectStates_order": [
     "HandTrigger.85c87e",
@@ -358,8 +356,6 @@
     "ScriptingTrigger.cc542a",
     "CampaignOnlyContent.5c483d",
     "Custom_PDF.c48af2",
-    "PlayerBoard.7bc85f",
-    "PlayerBoard.2425fa",
     "PlayerBoard.177ed7",
     "PlayerBoard.f337fe",
     "AssistantsMissingExpedition.b640aa",
@@ -378,7 +374,15 @@
     "ScriptingTrigger.bonus3",
     "ScriptingTrigger.bonus4",
     "ScriptingTrigger.bonus5",
-    "ResearchTrack.b575a0"
+    "ResearchTrack.b575a0",
+    "ScriptingTrigger.de4ec0",
+    "ScriptingTrigger.1caf8d",
+    "ScriptingTrigger.6892c0",
+    "ScriptingTrigger.53c99c",
+    "ScriptingTrigger.30eb87",
+    "ScriptingTrigger.f203ae",
+    "PlayerBoard.7bc85f",
+    "PlayerBoard.2425fa"
   ],
   "PlayArea": 0.5,
   "PlayerCounts": [
