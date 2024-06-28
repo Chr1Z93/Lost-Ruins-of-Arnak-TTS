@@ -1725,7 +1725,7 @@ function setupCampaignMisc()
     local zone = getObjectFromGUID(deckZones["bonus" .. i])
     for _, obj in ipairs(zone.getObjects()) do
       if obj.type == "Deck" then
-        obj.setPosition(obj.getPosition() + vector(-4.0, 0, 0))
+        obj.setPosition(obj.getPosition() + Vector(-4.0, 0, 0))
         obj.shuffle()
       end
     end
