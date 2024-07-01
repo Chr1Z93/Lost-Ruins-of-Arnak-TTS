@@ -3,7 +3,7 @@
 
 testVars = {
   defineSeated = false,
-  seatedPlayers = { 'Blue', 'Green' }
+  seatedPlayers = { 'Blue', 'Green', 'Yellow', 'Red'}
 }
 
 playerVars = {
@@ -14,7 +14,8 @@ playerVars = {
     deckZoneGuids = {
       base = 'fb8591',
       leader = '474558',
-      mystic = '06e359'
+      mystic = '06e359',
+      journo_Mech = 'f203ae'
     },
     idolZoneGuids = {
       base = { '116857', '5786ec', '9251fa', '7481a4' },
@@ -62,7 +63,7 @@ playerVars = {
     foodPositions = { { -38.18, 1.63, 22.27 }, { -38.18, 1.63, 19 }, { -38.18, 1.63, 15.75 } },
     articlePosition = { -24, 1.57, 16.80 },
     goldenTeethPosition = { -24, 1.57, 16.80 },
-    refPositions = { { -53, 1.48, 28.5 }, { -47, 1.48, 28.5 } },
+    refPositions = { {-53, 1.48, 28.5}, {-47, 1.48, 28.5} },
     firstPlayerPosition = { -26.60, 1.53, 28.75 }
   },
   Blue = {
@@ -74,7 +75,8 @@ playerVars = {
       base = '251ebb',
       leader = 'c59a9b',
       mystic = 'a3aaf8',
-      ritual = '339af9'
+      ritual = '339af9',
+      journo_Mech = 'c59a9b'
     },
     idolZoneGuids = {
       base = { '3cdff3', 'c8f9c1', 'bd027c', '1dea04' },
@@ -120,7 +122,7 @@ playerVars = {
     foodPositions = { { 54.99, 1.63, 22.30 }, { 54.99, 1.63, 19.03 }, { 54.99, 1.63, 15.78 } },
     articlePosition = { 29.20, 1.57, 16.80 },
     goldenTeethPosition = { 29.20, 1.57, 16.80 },
-    refPositions = { { 53, 1.48, 28.5 }, { 47, 1.48, 28.5 } },
+    refPositions = { {53, 1.48, 28.5}, {47, 1.48, 28.5} },
     firstPlayerPosition = { 26.60, 1.53, 28.75 }
   },
   Green = {
@@ -132,7 +134,8 @@ playerVars = {
       base = '033194',
       leader = '56a26a',
       mystic = '1947cf',
-      ritual = '603a7b'
+      ritual = '603a7b',
+      journo_Mech = '56a26a'
     },
     idolZoneGuids = {
       base = { '2f19b7', '865607', 'f878bc', 'cabb53' },
@@ -178,7 +181,7 @@ playerVars = {
     foodPositions = { { 54.99, 1.63, -18.70 }, { 54.99, 1.63, -21.97 }, { 54.99, 1.63, -25.22 } },
     articlePosition = { 29.20, 1.57, -24.20 },
     goldenTeethPosition = { 29.20, 1.57, -24.20 },
-    refPositions = { { 53, 1.48, -12.5 }, { 47, 1.48, -12.5 } },
+    refPositions = { {53, 1.48, -12.5}, {47, 1.48, -12.5} },
     firstPlayerPosition = { 26.60, 1.53, -12.25 }
   },
   Yellow = {
@@ -188,7 +191,8 @@ playerVars = {
     deckZoneGuids = {
       base = 'ec6a31',
       leader = 'a0aebd',
-      mystic = 'eae7fa'
+      mystic = 'eae7fa',
+      journo_Mech = '30eb87',
     },
     idolZoneGuids = {
       base = { 'a46612', 'c0e331', 'd59114', '7d2de9' },
@@ -233,7 +237,7 @@ playerVars = {
     foodPositions = { { -38.18, 1.63, -18.73 }, { -38.18, 1.63, -22 }, { -38.18, 1.63, -25.25 } },
     articlePosition = { -24, 1.57, -24.20 },
     goldenTeethPosition = { -24, 1.57, -24.20 },
-    refPositions = { { -53, 1.48, -12.5 }, { -47, 1.48, -12.5 } },
+    refPositions = { {-53, 1.48, -12.5}, {-47, 1.48, -12.5} },
     firstPlayerPosition = { -26.60, 1.53, -12.25 }
   }
 }
@@ -685,7 +689,7 @@ researchTracks = {
         z = 0.65,
         magnifying = 19,
         notebook = 13,
-        paths = { { pos = { 10.66, 1.73, 2.70 }, forward = { 1 }, bonus = true }, { pos = { 16.82, 1.73, 2.70 }, forward = { 1 }, bonus = true } }
+        paths = { { pos = { 10.66, 1.73, 2.70 }, forward = { 1 } , bonus = true}, { pos = { 16.82, 1.73, 2.70 }, forward = { 1 }, bonus = true } }
       },
       {
         z = -3.1,
@@ -711,7 +715,7 @@ researchTracks = {
         z = -17.9,
         magnifying = 6,
         notebook = 3,
-        paths = { { pos = { 9.79, 1.73, -13.91 }, forward = { 1, 2 }, bonus = true }, { pos = { 11.88, 1.73, -14.68 }, forward = { 1, 2 }, bonus = true }, { pos = { 14.37, 1.73, -14.64 }, forward = { 1, 2 }, bonus = true }, { pos = { 16.78, 1.73, -13.96 }, forward = { 1, 2 }, bonus = true } }
+        paths = { { pos = { 9.79, 1.73, -13.91 }, forward = { 1, 2}, bonus = true }, { pos = { 11.88, 1.73, -14.68 }, forward = { 1, 2 }, bonus = true }, { pos = { 14.37, 1.73, -14.64 }, forward = { 1, 2 }, bonus = true }, { pos = { 16.78, 1.73, -13.96 }, forward = { 1, 2 } , bonus = true} }
       },
       {
         z = -21.4,
@@ -761,47 +765,47 @@ researchTracks = {
         magnifying = 10,
         notebook = 14,
         assistant = true,
-        paths = { { pos = { 11.38, 1.68, 2.44 }, forward = { 1 } }, { pos = { 16.67, 1.68, 2.43 }, forward = { 1 } } }
+        paths = { { pos ={11.38, 1.68, 2.44}, forward = { 1 } }, { pos ={16.67, 1.68, 2.43}, forward = { 1 } } }
       },
       {
         z = -6.3,
         magnifying = 8,
         notebook = 11,
-        paths = { { pos = { 13.73, 1.73, -0.55 }, forward = { 1, 2 }, bonus = true } }
+        paths = { { pos ={13.73, 1.73, -0.55}, forward = { 1, 2 } , bonus = true} }
 
       },
       {
         z = -10.6,
         magnifying = 5,
         notebook = 9,
-        paths = { { pos = { 9.60, 1.68, -4.47 }, forward = { 1 } } }
+        paths = { { pos ={9.60, 1.68, -4.47}, forward = { 1 } } }
       },
       {
         z = -14.8,
         magnifying = 5,
         notebook = 7,
         assistant = true,
-        paths = { { pos = { 10.34, 1.81, -10.75 }, forward = { 1 } } }
+        paths = { { pos = {10.34, 1.81, -10.75}, forward = { 1 } } }
       },
       {
         z = -18.6,
         magnifying = 3,
         notebook = 5,
         assistant = true,
-        paths = { { pos = { 9.75, 1.68, -16.95 }, forward = { 1 }, bonus = true } }
+        paths = { { pos = {9.75, 1.68, -16.95}, forward = { 1 } , bonus = true} }
       },
       {
         z = -22.1,
         magnifying = 3,
         notebook = 3,
-        paths = { { pos = { 12.73, 1.73, -20.41 }, forward = { 1 } } }
+        paths = { { pos = {12.73, 1.73, -20.41}, forward = { 1 } } }
       },
       {
         z = -25.3,
         magnifying = 1,
         notebook = 0,
         assistant = true,
-        paths = { { pos = { 9.23, 1.73, -23.53 }, forward = { 1 } }, { pos = { 14.75, 1.73, -23.63 }, forward = { 1, 2 } } }
+        paths = { { pos = {9.23, 1.73, -23.53}, forward = { 1 } }, { pos = {14.75, 1.73, -23.63}, forward = { 1, 2 } } }
       }
     },
     templePoints = { 20, 18, 17, 16 },
@@ -816,7 +820,7 @@ solo = {
   boardPosition = { -43.26, 1.53, 18.96 },
   objectives = 'd8547e',
   objectivePosition = { -51, 1.53, -0.80 },
-  zones = { deck = '7196a9', discard = '0ecbe9', idol = { c = '184e31', s = '7fa25b', t = '500131', r = 'af87d7', e = '69ed89', u = 'fdf87e', dupe = '91df7a' }, delete = '0a61ed', objectivesDeck = '250afb', objectives = { 'd18d8f', 'c9584b', '36d489', '08da31' } },
+  zones = { deck = '7196a9', discard = '0ecbe9', idol = { c = '184e31', p = 'de4ec0',  s = '7fa25b', ftt= '1caf8d', g= '6892c0', d= '53c99c', t = '500131', r = 'af87d7', e = '69ed89', u = 'fdf87e', dupe = '91df7a' }, delete = '0a61ed', objectivesDeck = '250afb', objectives = { 'd18d8f', 'c9584b', '36d489', '08da31' } },
   pawns = { '47658b', 'bfb9eb', 'b2d015', 'fb9f5d', '9f84c9', 'e5b510' },
   pawnPositions = { { -28.50, 2.20, 20 }, { -26.50, 2.20, 20 }, { -24.50, 2.20, 20 }, { -28.50, 2.20, 18 }, { -26.50, 2.20, 18 }, { -24.50, 2.20, 18 } },
   actionDecks = { arch = 'f682fb', other = '52b0e5' },
@@ -977,7 +981,7 @@ function setupGame()
     uiOff()
     detectSeatedPlayers()
     wait(0.1)
-    if #seatedPlayerColors > 3 then
+    if #seatedPlayerColors >3 then
       broadcastToAll("Campaign mode cannot be played with more than 2 players, please reload the mod and try again.")
       return 1
     end
@@ -1120,7 +1124,7 @@ function detectSeatedPlayers()
     broadcastToAll('All players must select colors before setup.')
     return
   elseif #seatedPlayerColors == 1 or options.campaign == true then
-    for _, seatedPlayer in ipairs(seatedPlayerColors) do
+    for _,seatedPlayer in ipairs(seatedPlayerColors) do
       if seatedPlayer == 'Red' then
         broadcastToAll('Rival plays as red. Choose a different color.')
         return
@@ -1596,7 +1600,7 @@ function setupMiscThings()
       object.destruct()
     end
   end
-
+  getObjectFromGUID(bags.campaignItems).destruct()
   addAssistantCycleMenu()
 
   -- start player
@@ -1709,18 +1713,19 @@ function setupButtonsMisc()
       end
     end
   end
+
 end
 
--- This function will do a variety of things to setup the campaign including moving campiagn related objects to the table, determining first player, etc
+--This function will do a variety of things to setup the campaign including moving campiagn related objects to the table, determining first player, etc
 function setupCampaignMisc()
   local campaignBag = getObjectFromGUID(bags.campaignItems)
 
-  -- shuffle bonus encounter cards and reposition them to make space for the chapter 6 deck
+    -- shuffle bonus encounter cards and reposition them to make space for the chapter 6 deck
   for i = 1, 5 do
     local zone = getObjectFromGUID(deckZones["bonus" .. i])
     for _, obj in ipairs(zone.getObjects()) do
       if obj.type == "Deck" then
-        obj.setPosition(obj.getPosition() + Vector(-4, 0, 0))
+        obj.setPosition(obj.getPosition() + Vector(-4.0, 0, 0))
         obj.shuffle()
       end
     end
@@ -1730,75 +1735,74 @@ function setupCampaignMisc()
 
   -- place the chapter 6 encounter deck on the board
   campaignBag.takeObject({
-    position = { 18.5, 1.54, 47 },
-    guid     = '0ac1dc',
-    smooth   = false,
-    rotation = { 0, 180, 180 }
+    position          = {18.5, 1.54, 47.00},
+    guid = '0ac1dc',
+    smooth = false,
+    rotation = {0.00, 180.00, 180.00}
   })
 
-  -- place the campaign book at the edge of the table
+  --place the campaign book at the edge of the table
   campaignBag.takeObject({
-    position          = { -27.86, 1.50, 50.34 },
-    smooth            = true,
-    guid              = '0cf9c7',
+    position          = {-27.86, 1.50, 50.34},
     callback_function = function(x)
       x.setLock(true)
-      x.setPositionSmooth({ 36, 6.8, 55 })
-      x.setRotationSmooth({ 60, 180, 0 })
-    end
+      x.setPositionSmooth({36.00, 6.80, 55.00})
+      x.setRotationSmooth({60.00, 180.00, 0.00})
+    end,
+    smooth            = true,
+    guid              = '0cf9c7',
   })
 
   --place the campaign tracker at the edge of the table
   campaignBag.takeObject({
-    position          = { -27.86, 1.5, 50.34 },
-    smooth            = true,
-    guid              = 'c64617',
+    position          = {-27.86, 1.50, 50.34},
     callback_function = function(x)
       x.setLock(true)
-      x.setPositionSmooth({ 45, 6.8, 55 })
-      x.setRotationSmooth({ 60, 180, 0 })
-    end
+      x.setPositionSmooth({45.00, 6.80, 55.00})
+      x.setRotationSmooth({60.00, 180.00, 0.00})
+    end,
+    smooth            = true,
+    guid              = 'c64617',
   })
 
-  -- place the overview cards in two rows below the campaign book
-  local overViewGuids = { '7e55f6', '2f7531', '248eeb', 'f1bd54', '78cbcd', '74971a' }
-  local startLoc = { 33, 1.55, 47 }
+  --place the overview cards in two rows below the campaign book
+  local overViewGuids = {'7e55f6', '2f7531','248eeb','f1bd54','78cbcd','74971a'}
+  local startLoc = {33.0, 1.55, 47.0}
   local newLoc = {}
-  for i, g in ipairs(overViewGuids) do
-    if i <= 3 then
-      newLoc = { startLoc[1] + (8 * (i - 1)), startLoc[2], startLoc[3] }
+  for i,g in ipairs(overViewGuids) do
+    if i <=3 then
+      newLoc = {startLoc[1]+(8*(i-1)), startLoc[2], startLoc[3]}
     else
-      newLoc = { startLoc[1] + (8 * (i - 4)), startLoc[2], 40 }
+      newLoc = {startLoc[1]+(8*(i-4)), startLoc[2], 40}
     end
     campaignBag.takeObject({
-      position = newLoc,
-      rotation = { 0, 180, 180 },
-      smooth   = false,
-      guid     = g
+      position          = newLoc,
+      rotation          = {0.00, 180.00, 180.00},
+      smooth            = false,
+      guid              = g,
     })
   end
 
   -- If two players are playing place the pidgeon tokens on the board
   if #seatedPlayerColors == 3 then
     campaignBag.takeObject({
-      position = { -15, 1.51, 36.50 },
-      smooth   = true,
-      rotation = { 0, 180, 180 },
-      guid     = '20c269'
+      position          = {-15.00, 1.51, 36.50},
+      smooth            =  true,
+      rotation          = {0.00, 180.00, 180.00},
+      guid              = '20c269',
     })
   end
 
-  -- Iterate through the expansion decks and grab the decks containing the expansion content (idols, assistants, guardians, sties)
-  -- Grab the decks of the base game belonging to each of those types, then add the expansion decks to the base decks
+  --Iterate through the expansion decks and grab the decks containing the expansion content (idols, assistants, guardians, sties)
+  --Grab the decks of the base game belonging to each of those types, then add the expansion decks to the base decks
   local baseDeck = nil
   local expDeck = nil
-  for key, value in pairs(expansionDecks) do    -- Outer table containing the list of expansions
+   for key,value in pairs(expansionDecks) do -- Outer table containing the list of expansions
     for deckType, guidString in pairs(value) do -- Inner table containing the deck types and guids per expansion from outer table
       -- Delete the missing expedition site decks as they cannot be used in the campaign
       if key == 'missingExpedition' and (deckType == 'sites1' or deckType == 'sites2') then
         getObjectFromGUID(guidString).destruct()
-
-        -- for idols and assistants, the base deck guids are defined as global variables and not as deck zones
+      -- for idols and assistants, the base deck guids are defined as global variables and not as deck zones
       elseif deckType == 'idols' then
         baseDeck = getObjectFromGUID(idolDeckGuid)
         expDeck = getObjectFromGUID(guidString)
@@ -1819,11 +1823,11 @@ function setupCampaignMisc()
         baseDeck.putObject(expDeck) -- put expansion deck into base deck of the same type
       end
     end
-  end
-
-  -- Determine a first player thats not the red bot
+   end
+  
+   -- Determine a first player thats not the red bot
   repeat
-    startPlayerIndex = math.random(1, #seatedPlayerColors)
+    startPlayerIndex = math.random(1,#seatedPlayerColors)
     firstPlayerColor = seatedPlayerColors[startPlayerIndex]
   until firstPlayerColor ~= 'Red'
 
@@ -1841,38 +1845,40 @@ function setupCampaignMisc()
 
   getObjectFromGUID(solo.board).setLock(true) -- Lock bot player board
   local soloBag = getObjectFromGUID(bags.solo)
-  soloBag.takeObject({                        -- Place the bot player base action deck
-    position = { -59.79, 1.5, -0.04 },
-    rotation = { 0, 180, 0 },
-    smooth   = true,
-    guid     = solo.actionDecks[1],
+  soloBag.takeObject({ -- Place the bot player base action deck
+    position          = {-59.79, 1.50, -0.04},
+    rotation          = {0.00, 180.00, 0.00},
+    smooth            = true,
+    guid              = solo.actionDecks[1],
   })
   soloBag.takeObject({ -- Place the bot player advanced (green,red,purple) action deck
-    position          = { -55.79, 1.5, -0.04 },
-    rotation          = { 0, 180, 0 },
+    position          = {-55.79, 1.50, -0.04},
+    rotation          = {0.00, 180.00, 0.00},
     smooth            = true,
     guid              = solo.actionDecks[2],
     callback_function = function(x) -- Iterate through the advanced deck and seperate out the different colors to be their own decks
-      for _, card in ipairs(x.getObjects()) do
+      for _,card in ipairs(x.getObjects()) do
         if card.gm_notes == 'red' then
           x.takeObject({
-            position = { -51.79, 1.5, -0.04 },
-            smooth   = true,
-            guid     = card.guid
+            position          = {-51.79, 1.50, -0.04},
+            smooth            = true,
+            guid              = card.guid,
+
           })
         elseif card.gm_notes == 'purple' then
           x.takeObject({
-            position = { -47.79, 1.5, -0.04 },
-            smooth   = true,
-            guid     = card.guid
-          })
+            position          = {-47.79, 1.50, -0.04},
+            smooth            = true,
+            guid              = card.guid,
+
+          })  
         end
       end
     end
   })
 
   -- Set turn to randomized player and begin game!
-  broadcastToAll('Campaign Starts!')
+  broadcastToAll('Campaign Starts!') 
   Turns.turn_color = firstPlayerColor
   Turns.enable = true
   setupInProgress = false
@@ -1912,11 +1918,9 @@ function setupStartingResources()
       local deckPos = getObjectFromGUID(getDeckZoneGuid(playerColor)).getPosition()
       local boardLocation = getPlayerBoard(playerColor).getPosition()
 
-      -- The mechanic and journalist need a small adjustment to their deck placement location
-      if (playerBoardState == 7 or playerBoardState == 8) and (playerColor == "Red" or playerColor == "Yellow") then
-        deckPos = deckPos - Vector(8.85, 0, 0)
-      elseif (playerBoardState == 7 or playerBoardState == 8) and (playerColor == "Green" or playerColor == "Blue") then
-        deckPos = deckPos - Vector(0.12, 0, 0)
+      -- The mechanic and journalist need a small adjustment to their deck placement location if blue or green player
+      if (playerBoardState == 7 or playerBoardState == 8) and (playerColor == "Green" or playerColor == "Blue") then
+        deckPos = deckPos - Vector(0.08, 0, 0)
       end
 
       if playerBoardState == 9 then
@@ -2182,7 +2186,7 @@ function menuStart(_, value, _)
     UI.setAttribute('continueMenuButtons', 'active', 'true')
     return
   end
-  -- Only show the manual choice menu if player chose that during setup options
+    -- Only show the manual choice menu if player chose that during setup options
   if menuChoice == 2 and checkToggle('leaders2') then
     uiOff()
     UI.setAttribute('continueMenu', 'active', 'true')
@@ -4372,6 +4376,7 @@ function getDeckZoneGuid(playerColor)
   local vars = playerVars[playerColor]
   if options.playerBoards[playerColor] == 9 then return vars.deckZoneGuids.base end
   if options.playerBoards[playerColor] == 6 then return vars.deckZoneGuids.mystic end
+  if options.playerBoards[playerColor] == 7 or options.playerBoards[playerColor] == 8 then return vars.deckZoneGuids.journo_Mech end
   -- TODO: maybe add additional scripting zones for journalist and mechanic
   --if options.playerBoards[playerColor] == 7 then return vars.deckZoneGuids.journalist end
   --if options.playerBoards[playerColor] == 8 then return vars.deckZoneGuids.mechanic end
