@@ -280,12 +280,12 @@ options = {
   researchTrack = 1,
   staff = 1,
   leaders = 'random',
+  campaign = false,
   expansions = {
     expeditionLeaders = true,
     missingExpedition = true,
     promos = true
-  },
-  campaign = false
+  }
 }
 bags = {
   resources = {
@@ -820,7 +820,7 @@ solo = {
   boardPosition = { -43.26, 1.53, 18.96 },
   objectives = 'd8547e',
   objectivePosition = { -51, 1.53, -0.80 },
-  zones = { deck = '7196a9', discard = '0ecbe9', idol = { c = '184e31', p = 'de4ec0', s = '7fa25b', ftt = '1caf8d', g = '6892c0', d = '53c99c', t = '500131', r = 'af87d7', e = '69ed89', u = 'fdf87e', dupe = '91df7a' }, delete = '0a61ed', objectivesDeck = '250afb', objectives = { 'd18d8f', 'c9584b', '36d489', '08da31' } },
+  zones = { deck = '7196a9', discard = '0ecbe9', idol = { c = '184e31', p = 'de4ec0', s = '7fa25b', fa = '6892c0', ftt = '1caf8d', g = '6892c0', d = '53c99c', t = '500131', r = 'af87d7', e = '69ed89', u = 'fdf87e', dupe = '91df7a' }, delete = '0a61ed', objectivesDeck = '250afb', objectives = { 'd18d8f', 'c9584b', '36d489', '08da31' } },
   pawns = { '47658b', 'bfb9eb', 'b2d015', 'fb9f5d', '9f84c9', 'e5b510' },
   pawnPositions = { { -28.50, 2.20, 20 }, { -26.50, 2.20, 20 }, { -24.50, 2.20, 20 }, { -28.50, 2.20, 18 }, { -26.50, 2.20, 18 }, { -24.50, 2.20, 18 } },
   actionDecks = { arch = 'f682fb', other = '52b0e5' },
@@ -1382,7 +1382,7 @@ function setupPlayerAreas()
         if object.getName() ~= 'Red Archaeologist' then object.destruct() end
       end
       getPlayerBoard(playerColor).destruct()
-      soloBag.takeObject({ guid = solo.board, position = solo.boardPosition, rotation = faceup })
+      soloBag.takeObject({ guid = solo.board, position = solo.boardPosition, rotation = faceup, callback_function = function(x) x.setLock(true) end })
     else
       -- If not the solo player board
       local playerBoard = getPlayerBoard(playerColor)
@@ -1839,7 +1839,6 @@ function setupCampaignMisc()
     end
   end
 
-  getObjectFromGUID(solo.board).setLock(true) -- Lock bot player board
   local soloBag = getObjectFromGUID(bags.solo)
   soloBag.takeObject({                        -- Place the bot player base action deck
     position = { -59.79, 1.50, -0.04 },
@@ -2141,7 +2140,7 @@ function setupStartingResources()
   end
 
   -- starting resources
-  if options.solo and options.campaign == false and #seatedPlayerColors == 2 then
+  if options.solo and (options.campaign == false or options.campaign == nil) and #seatedPlayerColors == 2 then
     takeResourceButton('c', seatedPlayerColors[1])
     takeResourceButton('s', seatedPlayerColors[1])
   else
@@ -3990,13 +3989,8 @@ function rivalTurnCoroutine()
                 -- look for same type of idol to determine where this goes
                 local idolZone = nil
                 local idolPos = nil
-                if idolReward == 'fa' then
-                  idolZone = getObjectFromGUID(playerVars.Red.playAreaZoneGuid)
-                  idolPos = solo.acquiredStuffPositions.idolA
-                else
-                  idolZone = getObjectFromGUID(solo.zones.idol[idolReward])
-                  idolPos = idolZone.getPosition()
-                end
+                idolZone = getObjectFromGUID(solo.zones.idol[idolReward])
+                idolPos = idolZone.getPosition()
 
                 for _, obj in ipairs(idolZone.getObjects()) do
                   if obj.hasTag('idol') then
