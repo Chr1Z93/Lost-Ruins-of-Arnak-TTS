@@ -2140,7 +2140,7 @@ function setupStartingResources()
   end
 
   -- starting resources
-  if options.solo and (options.campaign == false or options.campaing == nil) and #seatedPlayerColors == 2 then
+  if options.solo and (options.campaign == false or options.campaign == nil) and #seatedPlayerColors == 2 then
     takeResourceButton('c', seatedPlayerColors[1])
     takeResourceButton('s', seatedPlayerColors[1])
   else
