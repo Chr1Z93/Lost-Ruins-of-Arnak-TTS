@@ -3,7 +3,7 @@
 -- updated by Chr1Z and covertskippy55 for the missing expedition
 
 testVars = {
-  defineSeated = true,
+  defineSeated = false,
   seatedPlayers = { 'Blue', 'Green', 'Yellow', 'Red' }
 }
 
