@@ -3,7 +3,7 @@
 -- updated by Chr1Z and covertskippy55 for the missing expedition
 
 testVars = {
-  defineSeated = false,
+  defineSeated = true,
   seatedPlayers = { 'Blue', 'Green', 'Yellow', 'Red' }
 }
 
@@ -1776,7 +1776,7 @@ function setupCampaignMisc()
     rotation = { 0.00, 180.00, 180.00 }
   })
 
-  --place the campaign book at the edge of the table
+  -- place the campaign book at the edge of the table
   campaignBag.takeObject({
     position          = { -27.86, 1.50, 50.34 },
     callback_function = function(x)
@@ -1788,7 +1788,7 @@ function setupCampaignMisc()
     guid              = '0cf9c7',
   })
 
-  --place the campaign tracker at the edge of the table
+  -- place the campaign tracker at the edge of the table
   campaignBag.takeObject({
     position          = { -27.86, 1.50, 50.34 },
     callback_function = function(x)
@@ -1800,7 +1800,7 @@ function setupCampaignMisc()
     guid              = 'c64617',
   })
 
-  --place the overview cards in two rows below the campaign book
+  -- place the overview cards in two rows below the campaign book
   local overViewGuids = { '7e55f6', '2f7531', '248eeb', 'f1bd54', '78cbcd', '74971a' }
   local startLoc = { 33.0, 1.55, 47.0 }
   local newLoc = {}
@@ -1828,8 +1828,8 @@ function setupCampaignMisc()
     })
   end
 
-  --Iterate through the expansion decks and grab the decks containing the expansion content (idols, assistants, guardians, sties)
-  --Grab the decks of the base game belonging to each of those types, then add the expansion decks to the base decks
+  -- Iterate through the expansion decks and grab the decks containing the expansion content (idols, assistants, guardians, sties)
+  -- Grab the decks of the base game belonging to each of those types, then add the expansion decks to the base decks
   local baseDeck = nil
   local expDeck = nil
   for key, value in pairs(expansionDecks) do    -- Outer table containing the list of expansions
@@ -2697,8 +2697,8 @@ function placePawn(playerColor, zone, siteInfo, level, alt)
     pawn.setPositionSmooth({ toPos[1], pawnY, toPos[3] }, false, false)
     wait(0.6)
     if idolFaceup ~= nil or idolFacedown ~= nil then
-      local idolPosition3 = getGlobalPosForIdolSlot(playerColor, 3)
-      local idolPosition4 = getGlobalPosForIdolSlot(playerColor, 4)
+      local idolPosition3 = getGlobalPosForIdolSlot(playerColor, 3) - Vector(0, 0, 3)
+      local idolPosition4 = getGlobalPosForIdolSlot(playerColor, 4) - Vector(0, 0, 3)
       local toPosFaceup = idolPosition3:setAt("y", tileY + 0.3)
       local toPosFacedown = idolPosition4:setAt("y", tileY + 0.3)
 
