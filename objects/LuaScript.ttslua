@@ -241,6 +241,75 @@ playerVars = {
     firstPlayerPosition = { -26.60, 1.53, -12.25 }
   }
 }
+
+-- data for idols slots: points and local position
+idolSlotData = {
+   -- captain
+  {
+    { points = 1, localPos = Vector(-0.149, 0, -0.672)},
+    { points = 2, localPos = Vector(-0.549, 0, -0.672)},
+    { points = 3, localPos = Vector(-1.025, 0, -0.672)},
+    { points = 4, localPos = Vector(-1.427, 0, -0.672)}
+  },
+  -- falconer
+  {
+    { points = 1, localPos = Vector(-0.149, 0, -0.672)},
+    { points = 2, localPos = Vector(-0.549, 0, -0.672)},
+    { points = 3, localPos = Vector(-1.025, 0, -0.672)},
+    { points = 4, localPos = Vector(-1.427, 0, -0.672)}
+  },
+  -- baroness
+  {
+    { points = 1, localPos = Vector(-0.149, 0, -0.672)},
+    { points = 2, localPos = Vector(-0.549, 0, -0.672)},
+    { points = 3, localPos = Vector(-1.025, 0, -0.672)},
+    { points = 4, localPos = Vector(-1.427, 0, -0.672)}
+  },
+  -- professor
+  {
+    { points = 1, localPos = Vector(-0.149, 0, -0.672)},
+    { points = 2, localPos = Vector(-0.549, 0, -0.672)},
+    { points = 3, localPos = Vector(-1.025, 0, -0.672)},
+    { points = 4, localPos = Vector(-1.427, 0, -0.672)}
+  },
+  -- explorer
+  {
+    { points = 1, localPos = Vector(-0.149, 0, -0.672)},
+    { points = 2, localPos = Vector(-0.549, 0, -0.672)},
+    { points = 3, localPos = Vector(-1.025, 0, -0.672)},
+    { points = 4, localPos = Vector(-1.427, 0, -0.672)}
+  },
+  -- mystic
+  {
+    { points = 1, localPos = Vector(-0.120, 0, -0.663)},
+    { points = 2, localPos = Vector(-0.514, 0, -0.663)},
+    { points = 2, localPos = Vector(-0.992, 0, -0.663)},
+    { points = 3, localPos = Vector(-1.396, 0, -0.663)},
+    { points = 4, localPos = Vector(-1.798, 0, -0.663)}
+  },
+  -- journalist
+  {
+    { points = 2, localPos = Vector(1.644, 0, -0.674)},
+    { points = 3, localPos = Vector(1.225, 0, -0.674)},
+    { points = 4, localPos = Vector(0.800, 0, -0.674)},
+    { points = 0, localPos = Vector(-3.485, 0, -0.254)},
+    { points = 0, localPos = Vector(-3.494, 0, 0.249)}
+  },
+  -- mechanic
+  {
+    { points = 1, localPos = Vector(1.621, 0, -0.677)},
+    { points = 2, localPos = Vector(1.231, 0, -0.677)},
+    { points = 3, localPos = Vector(0.770, 0, -0.677)},
+    { points = 4, localPos = Vector(0.378, 0, -0.677)}
+  },
+  -- base game board
+  {
+    { points = 1, localPos = Vector(-1.330, 0, -0.634)},
+    { points = 2, localPos = Vector(-1.714, 0, -0.634)},
+    { points = 3, localPos = Vector(-2.097, 0, -0.634)},
+    { points = 4, localPos = Vector(-2.478, 0, -0.634)}
+  },
+}
 seatedPlayerColors = {}
 startPlayerIndex = 0
 hexColors = {
@@ -3504,7 +3573,7 @@ function calculateScores()
         table.insert(scoreTheseObjects, object)
       end
 
-      -- additionaly, get the deck for left sitting mechanic / journalist
+      -- additionally, get the deck for left sitting mechanic / journalist
       if (playerColor == "Red" or playerColor == "Yellow") and
           (options.playerBoards[playerColor] == 7 or options.playerBoards[playerColor] == 8) then
         local deckZoneGUID = playerVars[playerColor].deckZoneGuids.journo_Mech
