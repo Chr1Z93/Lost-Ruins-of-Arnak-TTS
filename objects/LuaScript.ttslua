@@ -1,3 +1,4 @@
+---@diagnostic disable: param-type-mismatch, assign-type-mismatch
 -- originally scripted by jkk - https://steamcommunity.com/id/creamymello/myworkshopfiles/
 -- updated by Chr1Z and covertskippy55 for the missing expedition
 
@@ -16,15 +17,6 @@ playerVars = {
       leader = '474558',
       mystic = '06e359',
       journo_Mech = 'f203ae'
-    },
-    idolZoneGuids = {
-      base = { '116857', '5786ec', '9251fa', '7481a4' },
-      leader = { '9cb5f8', 'e8ac49', '22a8b1', '8d02cd' },
-      mystic = { '9cb5f8', 'e8ac49', '22a8b1', '8d02cd', '5786ec' }
-    },
-    idolPositions = {
-      base = { { -43, 1.6, 19.20 }, { -41, 1.6, 19.20 } },
-      leader = { { -49.16, 1.6, 19.12 }, { -47.16, 1.6, 19.12 } }
     },
     mysticRitualPosition = { -66.15, 1.6, 20.72 },
     researchTokens = {
@@ -78,16 +70,6 @@ playerVars = {
       ritual = '339af9',
       journo_Mech = 'c59a9b'
     },
-    idolZoneGuids = {
-      base = { '3cdff3', 'c8f9c1', 'bd027c', '1dea04' },
-      leader = { '2fa9f6', 'df8c38', '0f1761', '726cb1' },
-      mystic = { '8e8b36', '6c8212', '8930e9', '334d16', '82f6de' }
-    },
-    idolPositions = {
-      base = { { 43, 1.60, 19.20 }, { 45, 1.60, 19.20 } },
-      leader = { { 43.90, 1.60, 19.12 }, { 45.90, 1.60, 19.12 } },
-      mystic = { { 52.84, 1.60, 19.12 }, { 54.84, 1.60, 19.12 } }
-    },
     mysticRitualPosition = { 35.85, 1.60, 20.72 },
     researchTokens = {
       magnifying = '1a305e',
@@ -137,16 +119,6 @@ playerVars = {
       ritual = '603a7b',
       journo_Mech = '56a26a'
     },
-    idolZoneGuids = {
-      base = { '2f19b7', '865607', 'f878bc', 'cabb53' },
-      leader = { 'c24a72', '4beb7d', 'd26366', '0dd4bc' },
-      mystic = { '44ffc5', '87e6fb', '59fcb8', 'e5db25', 'ac377a' }
-    },
-    idolPositions = {
-      base = { { 43, 1.60, -21.80 }, { 45, 1.60, -21.80 } },
-      leader = { { 43.90, 1.60, -21.88 }, { 45.90, 1.60, -21.88 } },
-      mystic = { { 52.84, 1.60, -21.88 }, { 54.84, 1.60, -21.88 } }
-    },
     mysticRitualPosition = { 35.85, 1.60, -20.28 },
     researchTokens = {
       magnifying = '975b98',
@@ -193,15 +165,6 @@ playerVars = {
       leader = 'a0aebd',
       mystic = 'eae7fa',
       journo_Mech = '30eb87',
-    },
-    idolZoneGuids = {
-      base = { 'a46612', 'c0e331', 'd59114', '7d2de9' },
-      leader = { '202f73', 'd70471', '9dbea2', 'cdb5e6' },
-      mystic = { '202f73', 'd70471', '9dbea2', 'cdb5e6', 'c0e331' }
-    },
-    idolPositions = {
-      base = { { -43, 1.60, -21.80 }, { -41, 1.60, -21.80 } },
-      leader = { { -49.16, 1.60, -21.88 }, { -47.16, 1.60, -21.88 } }
     },
     mysticRitualPosition = { -66.15, 1.59, -20.28 },
     researchTokens = {
@@ -308,7 +271,7 @@ idolSlotData = {
     { points = 2, localPos = Vector(-1.714, 0, -0.634)},
     { points = 3, localPos = Vector(-2.097, 0, -0.634)},
     { points = 4, localPos = Vector(-2.478, 0, -0.634)}
-  },
+  }
 }
 seatedPlayerColors = {}
 startPlayerIndex = 0
@@ -2734,14 +2697,10 @@ function placePawn(playerColor, zone, siteInfo, level, alt)
     pawn.setPositionSmooth({ toPos[1], pawnY, toPos[3] }, false, false)
     wait(0.6)
     if idolFaceup ~= nil or idolFacedown ~= nil then
-      local idolPositions = vars.idolPositions.leader
-      if options.playerBoards[playerColor] == 9 then
-        idolPositions = vars.idolPositions.base
-      elseif options.playerBoards[playerColor] == 6 and vars.idolPositions.mystic ~= nil then
-        idolPositions = vars.idolPositions.mystic
-      end
-      local toPosFaceup = { idolPositions[2][1], tileY + 0.3, idolPositions[2][3] }
-      local toPosFacedown = { idolPositions[1][1], tileY + 0.3, idolPositions[1][3] }
+      local idolPosition3 = getGlobalPosForIdolSlot(playerColor, 3)
+      local idolPosition4 = getGlobalPosForIdolSlot(playerColor, 4)
+      local toPosFaceup = idolPosition3:setAt("y", tileY + 0.3)
+      local toPosFacedown = idolPosition4:setAt("y", tileY + 0.3)
 
       if idolFaceup ~= nil then
         local delivered = deliverRewards(playerColor, idolFaceup)
@@ -2768,6 +2727,17 @@ function placePawn(playerColor, zone, siteInfo, level, alt)
   end
 
   startLuaCoroutine(Global, 'placePawnCoroutine')
+end
+
+function getGlobalPosForIdolSlot(playerColor, points)
+  local board = getPlayerBoard(playerColor)
+  local idolData = idolSlotData[options.playerBoards[playerColor]]
+
+  for _, data in ipairs(idolData) do
+    if data.points == points then
+      return board.positionToWorld(data.localPos)
+    end
+  end
 end
 
 -- function that checks the gm notes to determine what rewards the player should get
@@ -3479,24 +3449,7 @@ function calculateScores()
 
       -- score uncovered idol spaces
       if not (options.solo and playerColor == 'Red') then
-        local idolSpacePoints = { 1, 2, 3, 4 }
-        local idolZoneGuids = vars.idolZoneGuids.base
-        if options.playerBoards[playerColor] == 6 then
-          idolZoneGuids = vars.idolZoneGuids.mystic
-          idolSpacePoints = { 1, 2, 2, 3, 4 }
-        elseif options.playerBoards[playerColor] ~= 7 then
-          idolZoneGuids = vars.idolZoneGuids.leader
-        end
-        for i, guid in ipairs(idolZoneGuids) do
-          local occupied = false
-          for _, object in ipairs(getObjectFromGUID(guid).getObjects()) do
-            if object.type == 'Card' or object.type == 'Deck' then
-              occupied = true
-              break
-            end
-          end
-          if not occupied then subscores.idol = subscores.idol + idolSpacePoints[i] end
-        end
+        subscores.idol = subscores.idol + scoreUncoveredIdolSlots(playerColor)
       end
 
       -- helper functions
@@ -3581,6 +3534,30 @@ function calculateScores()
         for _, object in ipairs(deckZone.getObjects()) do
           if object.type == 'Card' or object.type == 'Deck' then
             table.insert(scoreTheseObjects, object)
+          end
+        end
+      end
+
+      -- additionally, get the idols for right sitting journalist
+      if (playerColor == "Green" or playerColor == "Blue") and options.playerBoards[playerColor] == 7 then
+        local board = getPlayerBoard(playerColor)
+        local idolData = idolSlotData[options.playerBoards[playerColor]]
+        
+        for _, data in ipairs(idolData) do
+          -- get all objects in this spot
+          local searchResult = Physics.cast({
+            origin       = board.positionToWorld(data.localPos):setAt("y", 2),
+            direction    = { 0, -1, 0 },
+            orientation  = { 0, 0, 0 },
+            type         = 3,
+            size         = { 0.1, 2, 0.1 },
+            max_distance = 2
+          })
+
+          for _, hit in ipairs(searchResult) do
+            if hit.hit_object.hasTag("idol") then
+              table.insert(scoreTheseObjects, hit.hit_object)
+            end
           end
         end
       end
@@ -3691,6 +3668,41 @@ function calculateScores()
   end
 
   startLuaCoroutine(Global, 'calculateScoresCoroutine')
+end
+
+-- score empty idol slots
+function scoreUncoveredIdolSlots(playerColor)
+  local idolSlotPoints = 0
+  local board = getPlayerBoard(playerColor)
+  local idolData = idolSlotData[options.playerBoards[playerColor]]
+
+  for _, data in ipairs(idolData) do
+    -- get all objects in this spot
+    local searchResult = Physics.cast({
+      origin       = board.positionToWorld(data.localPos):setAt("y", 2),
+      direction    = { 0, -1, 0 },
+      orientation  = { 0, 0, 0 },
+      type         = 3,
+      size         = { 0.1, 2, 0.1 },
+      max_distance = 2
+    })
+
+    -- check if occupied by idol or deck of idols
+    local empty = true
+    for _, hit in ipairs(searchResult) do
+      local obj = hit.hit_object
+      if obj.hasTag("idol") then
+        empty = false
+        break
+      end
+    end
+
+    -- give points if empty
+    if empty then
+      idolSlotPoints = idolSlotPoints + data.points
+    end
+  end
+  return idolSlotPoints
 end
 
 function toggleScoreboardButton(obj, clickColor, alt)
@@ -4476,7 +4488,7 @@ function getDeckZoneGuid(playerColor)
 end
 
 function getPlayerBoard(playerColor)
-  for _, object in ipairs(getObjectFromGUID(playerVars[playerColor].idolZoneGuids.leader[3]).getObjects()) do
+  for _, object in ipairs(getObjectFromGUID(playerVars[playerColor].allZoneGuid).getObjects()) do
     if object.getName() == 'Player Board' then return object end
   end
   return nil
