@@ -1382,7 +1382,14 @@ function setupPlayerAreas()
         if object.getName() ~= 'Red Archaeologist' then object.destruct() end
       end
       getPlayerBoard(playerColor).destruct()
-      soloBag.takeObject({ guid = solo.board, position = solo.boardPosition, rotation = faceup, callback_function = function(x) x.setLock(true) end })
+      soloBag.takeObject({
+        guid = solo.board,
+        position = solo.boardPosition,
+        rotation = faceup,
+        callback_function = function(x)
+          x.setLock(true)
+        end
+      })
     else
       -- If not the solo player board
       local playerBoard = getPlayerBoard(playerColor)
@@ -1840,32 +1847,34 @@ function setupCampaignMisc()
   end
 
   local soloBag = getObjectFromGUID(bags.solo)
-  soloBag.takeObject({                        -- Place the bot player base action deck
+  -- Place the bot player base action deck
+  soloBag.takeObject({
     position = { -59.79, 1.50, -0.04 },
     rotation = { 0.00, 180.00, 0.00 },
     smooth   = true,
     guid     = solo.actionDecks[1],
   })
-  soloBag.takeObject({ -- Place the bot player advanced (green,red,purple) action deck
+
+  -- Place the bot player advanced (green,red,purple) action deck
+  soloBag.takeObject({
     position          = { -55.79, 1.50, -0.04 },
     rotation          = { 0.00, 180.00, 0.00 },
     smooth            = true,
     guid              = solo.actionDecks[2],
-    callback_function = function(x) -- Iterate through the advanced deck and seperate out the different colors to be their own decks
+    callback_function = function(x)
+      -- Iterate through the advanced deck and seperate out the different colors to be their own decks
       for _, card in ipairs(x.getObjects()) do
         if card.gm_notes == 'red' then
           x.takeObject({
             position = { -51.79, 1.50, -0.04 },
             smooth   = true,
-            guid     = card.guid,
-
+            guid     = card.guid
           })
         elseif card.gm_notes == 'purple' then
           x.takeObject({
             position = { -47.79, 1.50, -0.04 },
             smooth   = true,
-            guid     = card.guid,
-
+            guid     = card.guid
           })
         end
       end
@@ -3443,14 +3452,15 @@ function calculateScores()
       function scoreObject(object, scoreIdols)
         if (object.type == 'Deck' or object.getName() == 'Fear') and isExcluded(object) then return end
         if object.type == 'Deck' then
-          for _, card in ipairs(object.getData()) do
-            if #card.tags > 0 and card.tags[1] == 'idol' then
+          -- cards in decks
+          for _, cardData in ipairs(object.getData().ContainedObjects) do
+            if cardData.Tags and cardData.Tags[1] == 'idol' then
               if scoreIdols then subscores.idol = subscores.idol + 3 end
-            elseif #card.tags > 0 and card.tags[1] == 'guardian' then
+            elseif cardData.Tags and cardData.Tags[1] == 'guardian' then
               subscores.guardian = subscores.guardian + 5
             else
               -- regular cards
-              local score = getVpValue(card.GMNotes)
+              local score = getVpValue(cardData.GMNotes)
               if score < 0 then
                 subscores.fear = subscores.fear + score
               else
@@ -3480,10 +3490,34 @@ function calculateScores()
       -- score all other objects
       local scoreIdols = true
       if options.solo and playerColor == 'Red' then scoreIdols = false end
+
+      -- make list of objects to score
+      local scoreTheseObjects = {}
+
+      -- get all objects in play zone
       for _, object in ipairs(getObjectFromGUID(vars.allZoneGuid).getObjects()) do
-        scoreObject(object, scoreIdols)
+        table.insert(scoreTheseObjects, object)
       end
+
+      -- get objects from hand
       for _, object in ipairs(Player[playerColor].getHandObjects()) do
+        table.insert(scoreTheseObjects, object)
+      end
+
+      -- additionaly, get the deck for left sitting mechanic / journalist
+      if (playerColor == "Red" or playerColor == "Yellow") and
+          (options.playerBoards[playerColor] == 7 or options.playerBoards[playerColor] == 8) then
+        local deckZoneGUID = playerVars[playerColor].deckZoneGuids.journo_Mech
+        local deckZone = getObjectFromGUID(deckZoneGUID)
+        for _, object in ipairs(deckZone.getObjects()) do
+          if object.type == 'Card' or object.type == 'Deck' then
+            table.insert(scoreTheseObjects, object)
+          end
+        end
+      end
+
+      -- perform the scoring
+      for _, object in ipairs(scoreTheseObjects) do
         scoreObject(object, scoreIdols)
       end
 
@@ -4364,8 +4398,7 @@ function getDeckZoneGuid(playerColor)
   if options.playerBoards[playerColor] == 9 then return vars.deckZoneGuids.base end
   if options.playerBoards[playerColor] == 6 then return vars.deckZoneGuids.mystic end
   if options.playerBoards[playerColor] == 7 or options.playerBoards[playerColor] == 8 then
-    return vars.deckZoneGuids
-        .journo_Mech
+    return vars.deckZoneGuids.journo_Mech
   end
   -- TODO: maybe add additional scripting zones for journalist and mechanic
   --if options.playerBoards[playerColor] == 7 then return vars.deckZoneGuids.journalist end
