@@ -1218,7 +1218,7 @@ function setupResearchTrack()
       break
     end
   end
-
+  
   -- place bonusses
   local bag = getObjectFromGUID(bags.researchBonus)
   bag.shuffle()
@@ -1237,7 +1237,7 @@ function setupResearchTrack()
       end
     end
   end
-
+  
   -- maybe place assistants equal to the number of players
   if trackInfo.assistantPos then
     local newDecks = decks.assistants.cut(#seatedPlayerColors)
@@ -1246,7 +1246,7 @@ function setupResearchTrack()
     newDecks[2].setRotationSmooth({ 0, 90, 0 }, false, true)
     newDecks[2].setPositionSmooth(trackInfo.assistantPos, false, true)
   end
-
+  
   -- maybe get a random artifact with 3 cost (for Monkey Temple)
   if trackInfo.artifactPos then
     for _, cardData in ipairs(decks.artifacts.getData().ContainedObjects) do
@@ -1287,7 +1287,9 @@ function setupResearchTrack()
   end
 
   -- won't need idols after this
-  decks.idols.destruct()
+  if decks.idols ~= nil then
+    decks.idols.destruct()
+  end
 
   -- maybe place waterfall tiles
   if trackInfo.waterfallPositions then
@@ -1445,7 +1447,6 @@ function setupPlayerAreas()
             end
           end
         end
-
         options.playerBoards[playerColor] = leaderId
         if playerBoard.getStateId() ~= leaderId then playerBoard.setState(leaderId) end
       else
@@ -2141,17 +2142,17 @@ function setupStartingResources()
           })
         end
 
-        -- add two fear cards to the deck
-        table.insert(cardList, "0000")
-        table.insert(cardList, "0000")
-
-        -- spawn the deck
-        decks[playerColor] = AllCardsBag.call("spawnCardList", {
-          cardList = cardList,
-          rotation = facedown,
-          position = deckPos
-        })
       end
+       -- add two fear cards to the deck
+       table.insert(cardList, "0000")
+       table.insert(cardList, "0000")
+       
+      -- spawn the deck
+      decks[playerColor] = AllCardsBag.call("spawnCardList", {
+        cardList = cardList,
+        rotation = facedown,
+        position = deckPos
+      })
     end
   end
 
