@@ -30,7 +30,7 @@
         },
         "ImageScalar": 1,
         "ImageSecondaryURL": "",
-        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1862806463732176251/F80B3376B4F669D3006E52FE72E2FC8F66ED2086/",
+        "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/1862806463732176251/F80B3376B4F669D3006E52FE72E2FC8F66ED2086/",
         "WidthScale": 0
       },
       "Description": "",
@@ -82,7 +82,7 @@
     "Convex": true,
     "DiffuseURL": "",
     "MaterialIndex": 0,
-    "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1858304668126749550/9AD455F2CBAEC01B2CBCDDB8B6DC4CE48D14B545/",
+    "MeshURL": "https://steamusercontent-a.akamaihd.net/ugc/1858304668126749550/9AD455F2CBAEC01B2CBCDDB8B6DC4CE48D14B545/",
     "NormalURL": "",
     "TypeIndex": 6
   },

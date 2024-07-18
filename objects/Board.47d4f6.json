@@ -1158,7 +1158,7 @@
     },
     "ImageScalar": 1,
     "ImageSecondaryURL": "",
-    "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1862806463732171498/C86632120BE908A5E659AC21071DB8CAFFEE481D/",
+    "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/1862806463732171498/C86632120BE908A5E659AC21071DB8CAFFEE481D/",
     "WidthScale": 0
   },
   "Description": "Bird Temple",
@@ -2339,7 +2339,7 @@
         },
         "ImageScalar": 1,
         "ImageSecondaryURL": "",
-        "ImageURL": "http://cloud-3.steamusercontent.com/ugc/1862806463732171557/46BC5CEA440365148D2A7C0153DE7A56E5F3806E/",
+        "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/1862806463732171557/46BC5CEA440365148D2A7C0153DE7A56E5F3806E/",
         "WidthScale": 0
       },
       "Description": "Snake Temple",
