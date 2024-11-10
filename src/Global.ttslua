@@ -2360,14 +2360,12 @@ function setupButtons()
   -- buy card row
   params = {
     function_owner = self,
-    label = 'Buy',
-    click_function = 'takeFearButton',
-    position = { 0, 0, -2.4 },
-    width = 800,
+    label = 'Take / Buy',
+    position = { 0, 0, -2.5 },
+    width = 900,
     height = 380,
-    font_size = 200
+    font_size = 190
   }
-
 
   for i, guid in ipairs(cardRowZoneGuids) do
     params.click_function = 'buy' .. i
@@ -2486,16 +2484,17 @@ function buyButton(zone, clickColor, alt)
     if card ~= nil then
       local md = getMetaData(card)
       if alt then
-        local bag
+        local bag, suffix
         if md.resource == "compass" then
           bag = getObjectFromGUID(vars.resourceBags.s)
+          suffix = ' compass' .. (md.cost > 1 and "es" or "")
         elseif md.resource == "coin" then
           bag = getObjectFromGUID(vars.resourceBags.c)
+          suffix = ' coin' .. (md.cost > 1 and "s" or "")
         end
 
         if bag.getQuantity() >= md.cost then
-          broadcastToAll(getPlayerName(clickColor) .. ' spends ' .. md.cost .. ' ' ..
-            md.resource .. ' tokens to buy a card.')
+          broadcastToAll(getPlayerName(clickColor) .. ' spends ' .. md.cost .. suffix .. ' to buy a card.')
           for i = 1, md.cost do
             if bag.getQuantity() > 0 then
               getObjectFromGUID(vars.trashGuid).putObject(bag.takeObject())
@@ -2504,7 +2503,7 @@ function buyButton(zone, clickColor, alt)
           end
           wait(0.5)
         else
-          broadcastToColor('You do not have enough ' .. md.resource .. ' tokens to buy this card.', clickColor)
+          broadcastToColor('You do not have enough' .. suffix .. ' to buy this card.', clickColor)
           movingRow = false
           return 1
         end
