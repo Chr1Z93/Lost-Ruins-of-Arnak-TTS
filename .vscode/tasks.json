@@ -2,7 +2,7 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Build Arnak",
+      "label": "Arnak: Build",
       "type": "shell",
       "command": "go",
       "args": [
@@ -14,11 +14,23 @@
       "options": {
         "cwd": "C:\\git\\TTSModManager"
       },
-      "problemMatcher": [],
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      }
+      "problemMatcher": []
+    },
+    {
+      "label": "Arnak: Decompose",
+      "type": "shell",
+      "command": "go",
+      "args": [
+        "run",
+        "main.go",
+        "--moddir=${workspaceFolder}",
+        "--modfile=${env:USERPROFILE}\\Documents\\My Games\\Tabletop Simulator\\Saves\\Arnak.json",
+        "--reverse"
+      ],
+      "options": {
+        "cwd": "C:\\git\\TTSModManager"
+      },
+      "problemMatcher": []
     }
   ]
 }
