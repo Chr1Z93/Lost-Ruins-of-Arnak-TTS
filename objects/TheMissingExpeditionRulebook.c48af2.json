@@ -6,9 +6,9 @@
   },
   "Autoraise": true,
   "ColorDiffuse": {
-    "b": 1,
-    "g": 1,
-    "r": 1
+    "b": 0.1098,
+    "g": 0.17647,
+    "r": 0.29019
   },
   "CustomPDF": {
     "PDFPage": 0,
@@ -31,7 +31,7 @@
   "LuaScriptState": "",
   "MeasureMovement": false,
   "Name": "Custom_PDF",
-  "Nickname": "",
+  "Nickname": "The Missing Expedition Rulebook",
   "Snap": true,
   "Sticky": true,
   "Tooltip": true,
