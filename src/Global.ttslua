@@ -3,7 +3,7 @@
 -- updated by Chr1Z and covertskippy55 for the missing expedition
 
 testVars = {
-  defineSeated = false,
+  defineSeated = true,
   seatedPlayers = { 'Blue', 'Green', 'Yellow', 'Red' }
 }
 
@@ -2362,8 +2362,8 @@ function setupButtons()
     function_owner = self,
     label = 'Take / Buy',
     position = { 0, 0, -2.5 },
-    width = 900,
-    height = 380,
+    width = 1000,
+    height = 350,
     font_size = 190
   }
 
@@ -2494,7 +2494,7 @@ function buyButton(zone, clickColor, alt)
         end
 
         if bag.getQuantity() >= md.cost then
-          broadcastToAll(getPlayerName(clickColor) .. ' spends ' .. md.cost .. suffix .. ' to buy a card.')
+          broadcastToAll(getPlayerName(clickColor) .. ' spends ' .. md.cost .. suffix .. ' to buy ' .. card.getName() .. ".")
           for i = 1, md.cost do
             if bag.getQuantity() > 0 then
               getObjectFromGUID(vars.trashGuid).putObject(bag.takeObject())
@@ -2503,7 +2503,7 @@ function buyButton(zone, clickColor, alt)
           end
           wait(0.5)
         else
-          broadcastToColor('You do not have enough' .. suffix .. ' to buy this card.', clickColor)
+          broadcastToColor('You do not have enough' .. suffix .. ' to buy ' .. card.getName() .. ".", clickColor)
           movingRow = false
           return 1
         end
