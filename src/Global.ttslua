@@ -2494,7 +2494,8 @@ function buyButton(zone, clickColor, alt)
         end
 
         if bag.getQuantity() >= md.cost then
-          broadcastToAll(getPlayerName(clickColor) .. ' spends ' .. md.cost .. suffix .. ' to buy ' .. card.getName() .. ".")
+          broadcastToAll(getPlayerName(clickColor) ..
+            ' spends ' .. md.cost .. suffix .. ' to buy ' .. card.getName() .. ".")
           for i = 1, md.cost do
             if bag.getQuantity() > 0 then
               getObjectFromGUID(vars.trashGuid).putObject(bag.takeObject())
@@ -3031,7 +3032,7 @@ function getStaff()
 end
 
 function nextRoundButton(obj, clickColor, alt)
-  if not isSeated(clickColor) and clickColor ~= 'Black' or movingRow or setupInProgress or UI.getAttribute('soloMenu', 'active') == 'true' then return end
+  if (not isSeated(clickColor) and clickColor ~= 'Black') or movingRow or setupInProgress or (UI.getAttribute('soloMenu', 'active') == 'true') then return end
   if options.solo then
     local button = getObjectFromGUID(playerVars.Red.playAreaZoneGuid).getButtons()[1]
     if button.label == buttonLabelsRival.busy then return end
@@ -3371,7 +3372,23 @@ function nextRoundButton(obj, clickColor, alt)
     return 1
   end
 
-  startLuaCoroutine(Global, 'nextRoundCoroutine')
+  -- check for hand cards and prompt to continue
+  local emptyHands = true
+  for _, playerColor in ipairs(seatedPlayerColors) do
+    for _, handObj in pairs(Player[playerColor].getHandObjects()) do
+      if handObj.type == "Card" then
+        emptyHands = false
+        break
+      end
+    end
+  end
+
+  if emptyHands then
+    startLuaCoroutine(Global, 'nextRoundCoroutine')
+  else
+    Player[clickColor].showConfirmDialog("Some players have cards in their hand. Continue?",
+      function() startLuaCoroutine(Global, 'nextRoundCoroutine') end)
+  end
 end
 
 ---------------------- SCORING
