@@ -3,7 +3,7 @@
 -- updated by Chr1Z and covertskippy55 for the missing expedition
 
 testVars = {
-  defineSeated = true,
+  defineSeated = false,
   seatedPlayers = { 'Blue', 'Green', 'Yellow', 'Red' }
 }
 
@@ -1120,9 +1120,10 @@ function detectSeatedPlayers()
   seatedPlayerColors = {}
   local absentColors = {}
 
-  seatedPlayers = getSeatedPlayers()
   if testVars.defineSeated then
     seatedPlayers = testVars.seatedPlayers
+  else
+    seatedPlayers = getSeatedPlayers()
   end
 
   options.playerBoards = {}
@@ -1641,12 +1642,6 @@ function setupMiscThings()
   addAssistantCycleMenu()
 
   -- start player
-  local firstPlayerColor = 'Red'
-  if not (options.solo and #seatedPlayerColors == 2) then
-    startPlayerIndex = math.random(1, #seatedPlayerColors)
-    firstPlayerColor = seatedPlayerColors[startPlayerIndex]
-  end
-
   local firstPlayerMarker = getObjectFromGUID(tokens.firstPlayer)
   if firstPlayerMarker ~= nil then
     firstPlayerMarker.lock()
@@ -2181,11 +2176,16 @@ function setupStartingResources()
   end
 
   -- starting resources
+  firstPlayerColor = 'Red'
+  if not (options.solo and #seatedPlayerColors == 2) then
+    startPlayerIndex = math.random(1, #seatedPlayerColors)
+    firstPlayerColor = seatedPlayerColors[startPlayerIndex]
+  end
+
   if options.solo and (options.campaign == false or options.campaign == nil) and #seatedPlayerColors == 2 then
     takeResourceButton('c', seatedPlayerColors[1])
     takeResourceButton('s', seatedPlayerColors[1])
   else
-    -- TODO fix this
     local passedFirstPlayer = false
     local turnOrder = 0
     local resourcesPerTurnOrder = { { c = 2, s = 0 }, { c = 1, s = 1 }, { c = 2, s = 1 }, { c = 1, s = 2 } }
@@ -2198,7 +2198,7 @@ function setupStartingResources()
         if passedFirstPlayer then
           turnOrder = turnOrder + 1
           for resource, count in pairs(resourcesPerTurnOrder[turnOrder]) do
-            for i = 1, count do
+            for j = 1, count do
               takeResourceButton(resource, playerColor)
               wait(0.1)
             end
