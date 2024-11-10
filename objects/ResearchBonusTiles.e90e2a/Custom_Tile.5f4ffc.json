@@ -28,7 +28,7 @@
   "GUID": "5f4ffc",
   "Grid": true,
   "GridProjection": false,
-  "Hands": false,
+  "Hands": true,
   "HideWhenFaceDown": false,
   "IgnoreFoW": false,
   "LayoutGroupSortIndex": 0,
