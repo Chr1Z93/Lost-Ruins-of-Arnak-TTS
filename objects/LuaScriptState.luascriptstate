@@ -1,1 +1,154 @@
-{"options":{"board":1,"expansions":{"artifacts":false,"assistants":false,"guardians":false,"idols":false,"items":false,"promos":true,"sites1":false,"sites2":false},"leaders":"none","objectives":3,"playerBoards":[],"researchTrack":1,"solo":false,"staff":1},"round":0,"seatedPlayerColors":[],"siteLevels":[[{"guid":"102294","pawnSpaces":["d8ae82"]},{"guid":"836103","pawnSpaces":["7b9a3a"]},{"guid":"73d0db","pawnSpaces":["6dfe86"]},{"guid":"a3b7a0","pawnSpaces":["c77d64"]}],[{"guid":"5dce42","pawnSpaces":["6ec07b"]},{"guid":"8a7e4e","pawnSpaces":["f40303"]},{"guid":"ceb501","pawnSpaces":["2bc798"]},{"guid":"91a1f7","pawnSpaces":["68bc73"]}],[{"guid":"f399b2","pawnSpaces":["716a13"]},{"guid":"588793","pawnSpaces":["39f1c2"]},{"guid":"fa45f2","pawnSpaces":["3c7380"]},{"guid":"874212","pawnSpaces":["0c50cf"]}],[{"guid":"e57811","pawnSpaces":["df2d4f","45ab8f"]},{"guid":"05cffe","pawnSpaces":["74b16f","9cf53d"]},{"guid":"2af21b","pawnSpaces":["264538","023ed4"]},{"guid":"92dc47","pawnSpaces":["5c1009","79c8e7"]},{"guid":"0322bb","pawnSpaces":["87786d","35c82d"]}]],"soloStatus":{"firstTurn":true,"fulfilledObjectives":[],"magnifying":{"path":0,"row":0},"notebook":{"path":0,"row":0},"pawnsOut":0},"startPlayerIndex":0}
+{
+  "options": {
+    "board": 1,
+    "expansions": {
+      "artifacts": false,
+      "assistants": false,
+      "guardians": false,
+      "idols": false,
+      "items": false,
+      "promos": true,
+      "sites1": false,
+      "sites2": false
+    },
+    "leaders": "none",
+    "objectives": 3,
+    "playerBoards": [],
+    "researchTrack": 1,
+    "solo": false,
+    "staff": 1
+  },
+  "round": 0,
+  "seatedPlayerColors": [],
+  "siteLevels": [
+    [
+      {
+        "guid": "102294",
+        "pawnSpaces": [
+          "d8ae82"
+        ]
+      },
+      {
+        "guid": "836103",
+        "pawnSpaces": [
+          "7b9a3a"
+        ]
+      },
+      {
+        "guid": "73d0db",
+        "pawnSpaces": [
+          "6dfe86"
+        ]
+      },
+      {
+        "guid": "a3b7a0",
+        "pawnSpaces": [
+          "c77d64"
+        ]
+      }
+    ],
+    [
+      {
+        "guid": "5dce42",
+        "pawnSpaces": [
+          "6ec07b"
+        ]
+      },
+      {
+        "guid": "8a7e4e",
+        "pawnSpaces": [
+          "f40303"
+        ]
+      },
+      {
+        "guid": "ceb501",
+        "pawnSpaces": [
+          "2bc798"
+        ]
+      },
+      {
+        "guid": "91a1f7",
+        "pawnSpaces": [
+          "68bc73"
+        ]
+      }
+    ],
+    [
+      {
+        "guid": "f399b2",
+        "pawnSpaces": [
+          "716a13"
+        ]
+      },
+      {
+        "guid": "588793",
+        "pawnSpaces": [
+          "39f1c2"
+        ]
+      },
+      {
+        "guid": "fa45f2",
+        "pawnSpaces": [
+          "3c7380"
+        ]
+      },
+      {
+        "guid": "874212",
+        "pawnSpaces": [
+          "0c50cf"
+        ]
+      }
+    ],
+    [
+      {
+        "guid": "e57811",
+        "pawnSpaces": [
+          "df2d4f",
+          "45ab8f"
+        ]
+      },
+      {
+        "guid": "05cffe",
+        "pawnSpaces": [
+          "74b16f",
+          "9cf53d"
+        ]
+      },
+      {
+        "guid": "2af21b",
+        "pawnSpaces": [
+          "264538",
+          "023ed4"
+        ]
+      },
+      {
+        "guid": "92dc47",
+        "pawnSpaces": [
+          "5c1009",
+          "79c8e7"
+        ]
+      },
+      {
+        "guid": "0322bb",
+        "pawnSpaces": [
+          "87786d",
+          "35c82d"
+        ]
+      }
+    ]
+  ],
+  "soloStatus": {
+    "firstTurn": true,
+    "fulfilledObjectives": [],
+    "magnifying": {
+      "path": 0,
+      "row": 0
+    },
+    "notebook": {
+      "path": 0,
+      "row": 0
+    },
+    "pawnsOut": 0
+  },
+  "startPlayerIndex": 0
+}

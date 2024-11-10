@@ -34,8 +34,8 @@
     "Hiding": 0
   },
   "Lighting_path": "Lighting.json",
+  "LuaScript": "require(\"core/Global\")",
   "LuaScriptState_path": "LuaScriptState.luascriptstate",
-  "LuaScript_path": "LuaScript.ttslua",
   "MusicPlayer_path": "MusicPlayer.json",
   "Note_path": "Note.luascriptstate",
   "ObjectStates_order": [
