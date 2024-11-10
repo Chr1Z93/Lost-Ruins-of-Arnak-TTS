@@ -13,7 +13,7 @@
   },
   "CustomDeck": {
     "55": {
-      "BackIsHidden": false,
+      "BackIsHidden": true,
       "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/1862807092238653079/144867A65661DAF609A4B6EE56CA25B1738023CD/",
       "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/1862807092238653000/DDD51E853A6C55DF97CAB0D2D21D5FA7C6EA2392/",
       "NumHeight": 2,

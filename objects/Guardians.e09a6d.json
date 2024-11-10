@@ -30,7 +30,7 @@
   "ContainedObjects_path": "Guardians.e09a6d",
   "CustomDeck": {
     "13": {
-      "BackIsHidden": false,
+      "BackIsHidden": true,
       "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/1862806463732172133/15347C5EB6902681B356167983924FBDEB8F58CE/",
       "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/1862806463732172318/A121A342AE9FEA2436EB934664D9F16E877CC068/",
       "NumHeight": 3,
@@ -39,7 +39,7 @@
       "UniqueBack": false
     },
     "14": {
-      "BackIsHidden": false,
+      "BackIsHidden": true,
       "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/1862806463732172133/15347C5EB6902681B356167983924FBDEB8F58CE/",
       "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/1862806463732172422/48C3AD8B10A6270DAF47278CDB7247A9E31E05F5/",
       "NumHeight": 2,

@@ -2185,6 +2185,7 @@ function setupStartingResources()
     takeResourceButton('c', seatedPlayerColors[1])
     takeResourceButton('s', seatedPlayerColors[1])
   else
+    -- TODO fix this
     local passedFirstPlayer = false
     local turnOrder = 0
     local resourcesPerTurnOrder = { { c = 2, s = 0 }, { c = 1, s = 1 }, { c = 2, s = 1 }, { c = 1, s = 2 } }
@@ -3341,9 +3342,9 @@ function nextRoundButton(obj, clickColor, alt)
         if options.playerBoards[playerColor] == 6 and drawn < 6 then
           local card = drawCard(deckZones.fear)
           if card == nil then
-            broadcastToAll('No Fear cards left for ' .. getPlayerName(playerColor) .. ' to draw.')
+            broadcastToAll('No fear cards left for ' .. getPlayerName(playerColor) .. ' to draw.')
           else
-            broadcastToAll(getPlayerName(playerColor) .. ' draws a Fear card.')
+            broadcastToAll(getPlayerName(playerColor) .. ' draws a fear card.')
             card.deal(1, playerColor)
           end
           wait(0.5)

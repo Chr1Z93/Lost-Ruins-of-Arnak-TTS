@@ -18,7 +18,7 @@
   "ContainedObjects_path": "AssistantsExpeditionLeaders.cf87b7",
   "CustomDeck": {
     "7": {
-      "BackIsHidden": false,
+      "BackIsHidden": true,
       "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/1862806463732171839/E6FDA7CE2D396AFD019A00E064B661F5B677626D/",
       "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/1862806463732171881/BD754B5E920A72BA10CA83EDDEFC6E20193662B2/",
       "NumHeight": 2,

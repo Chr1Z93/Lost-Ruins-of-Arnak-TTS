@@ -18,7 +18,7 @@
   "ContainedObjects_path": "Level2SitesExpeditionLeaders.486402",
   "CustomDeck": {
     "15": {
-      "BackIsHidden": false,
+      "BackIsHidden": true,
       "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/1862806463732172872/5034C020F5B15999C6B4E7648F1D5B659EAB30A7/",
       "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/1862806463732172928/BBD24A07F11F22AA890B074BC903CFDE7EF5FB7F/",
       "NumHeight": 2,

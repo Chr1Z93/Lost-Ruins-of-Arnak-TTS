@@ -23,7 +23,7 @@
   "ContainedObjects_path": "EncounterCards.0ac1dc",
   "CustomDeck": {
     "98": {
-      "BackIsHidden": false,
+      "BackIsHidden": true,
       "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/2496761664833095038/0C5DA10038990C7C55DA093E7280DE48D371E562/",
       "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/2496761664833095985/3CA8E816E0AB90EE336F6AF9803544BF31CA5A39/",
       "NumHeight": 2,
