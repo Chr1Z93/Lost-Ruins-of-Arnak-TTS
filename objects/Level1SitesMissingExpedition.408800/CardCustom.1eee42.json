@@ -15,7 +15,7 @@
     "22": {
       "BackIsHidden": true,
       "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/1862806463732172505/0F010A85A45CF2B263F8F88A03BC6E6B6C379E0F/",
-      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/2450601677147916778/AAF04CC6ABC9E2DCB13DEFCABA2F6BCC4255DA71/",
+      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/2496761664831503686/8B288CC7C34040B6E152511C1765881CEF5859F7/",
       "NumHeight": 1,
       "NumWidth": 1,
       "Type": 0,
@@ -46,15 +46,15 @@
   ],
   "Tooltip": true,
   "Transform": {
-    "posX": -15.796,
-    "posY": 0.807,
-    "posZ": 0.407,
+    "posX": 63.513,
+    "posY": 1.495,
+    "posZ": -34.089,
     "rotX": 0,
     "rotY": 180,
     "rotZ": 0,
-    "scaleX": 1,
+    "scaleX": 2.1,
     "scaleY": 1,
-    "scaleZ": 1
+    "scaleZ": 2.1
   },
   "Value": 0,
   "XmlUI": ""

@@ -11,10 +11,10 @@
     "r": 0.71324
   },
   "ContainedObjects_order": [
-    "CardCustom.9b43e6",
-    "CardCustom.1eee42",
+    "CardCustom.95e021",
     "CardCustom.653368",
-    "CardCustom.95e021"
+    "CardCustom.1eee42",
+    "CardCustom.9b43e6"
   ],
   "ContainedObjects_path": "Level1SitesMissingExpedition.408800",
   "CustomDeck": {
@@ -56,10 +56,10 @@
     }
   },
   "DeckIDs": [
-    2500,
-    2200,
+    2300,
     2400,
-    2300
+    2200,
+    2500
   ],
   "Description": "",
   "DragSelectable": true,

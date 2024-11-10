@@ -15,7 +15,7 @@
     "24": {
       "BackIsHidden": true,
       "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/1862806463732172505/0F010A85A45CF2B263F8F88A03BC6E6B6C379E0F/",
-      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/2450601677147917182/9A3AFE0BC75E89197C7F7D4FC475D94FF50DB9D2/",
+      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/2496761664831504008/DD3C8AC95CB79433D598E30B0D4B3389531AAC9D/",
       "NumHeight": 1,
       "NumWidth": 1,
       "Type": 0,
@@ -24,7 +24,7 @@
   },
   "Description": "",
   "DragSelectable": true,
-  "GMNotes": "c1",
+  "GMNotes": "cs2",
   "GUID": "653368",
   "Grid": true,
   "GridProjection": false,
@@ -46,15 +46,15 @@
   ],
   "Tooltip": true,
   "Transform": {
-    "posX": -15.575,
-    "posY": 0.834,
-    "posZ": 0.507,
+    "posX": 57.703,
+    "posY": 1.495,
+    "posZ": -34.089,
     "rotX": 0,
     "rotY": 180,
     "rotZ": 0,
-    "scaleX": 1,
+    "scaleX": 2.1,
     "scaleY": 1,
-    "scaleZ": 1
+    "scaleZ": 2.1
   },
   "Value": 0,
   "XmlUI": ""

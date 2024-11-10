@@ -22,7 +22,6 @@
   ],
   "ComponentTags_path": "ComponentTags.json",
   "DecalPallet": [],
-  "Decals": [],
   "GameComplexity": "Medium Complexity",
   "GameMode": "Lost Ruins of Arnak - FULL [SCRIPTED]",
   "GameType": "Game",
@@ -36,7 +35,6 @@
   "Lighting_path": "Lighting.json",
   "LuaScript": "require(\"Global\")",
   "LuaScriptState_path": "LuaScriptState.luascriptstate",
-  "MusicPlayer_path": "MusicPlayer.json",
   "Note_path": "Note.luascriptstate",
   "ObjectStates_order": [
     "HandTrigger.85c87e",
@@ -369,6 +367,6 @@
     "English"
   ],
   "Turns_path": "Turns.json",
-  "VersionNumber": "v13.2.2",
+  "VersionNumber": "v13.3",
   "XmlUI_path": "Root.xml"
 }
