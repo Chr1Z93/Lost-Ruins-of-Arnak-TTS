@@ -2370,11 +2370,7 @@ function setupButtons()
   for i, guid in ipairs(cardRowZoneGuids) do
     params.click_function = 'buy' .. i
     getObjectFromGUID(guid).createButton(params)
-
-    _G['buy' .. i] = function(obj, clickColor, alt)
-      if not doneLoading or setupInProgress or movingRow or not isSeated(clickColor) then return end
-      buyButton(obj, clickColor, alt)
-    end
+    _G['buy' .. i] = function(obj, clickColor, alt) buyButton(obj, clickColor, alt) end
   end
 
   -- place pawns
@@ -2477,81 +2473,73 @@ function getMetaData(card)
 end
 
 function buyButton(zone, clickColor, alt)
-  function buyButtonCoroutine()
-    movingRow = true
-    local card = drawCard(zone)
-    local vars = playerVars[clickColor]
-    if card ~= nil then
-      local md = getMetaData(card)
-      if alt then
-        local bag, suffix
-        if md.resource == "compass" then
-          bag = getObjectFromGUID(vars.resourceBags.s)
-          suffix = ' compass' .. (md.cost > 1 and "es" or "")
-        elseif md.resource == "coin" then
-          bag = getObjectFromGUID(vars.resourceBags.c)
-          suffix = ' coin' .. (md.cost > 1 and "s" or "")
-        end
+  if not doneLoading or setupInProgress or movingRow or not isSeated(clickColor) then return end
 
-        if bag.getQuantity() >= md.cost then
-          broadcastToAll(getPlayerName(clickColor) ..
-            ' spends ' .. md.cost .. suffix .. ' to buy ' .. card.getName() .. ".")
-          for i = 1, md.cost do
-            if bag.getQuantity() > 0 then
-              getObjectFromGUID(vars.trashGuid).putObject(bag.takeObject())
-              wait(0.16)
-            end
-          end
-          wait(0.5)
-        else
-          broadcastToColor('You do not have enough' .. suffix .. ' to buy ' .. card.getName() .. ".", clickColor)
-          movingRow = false
-          return 1
-        end
+  movingRow = true
+  local card = drawCard(zone)
+  local vars = playerVars[clickColor]
+  local coloredName = getPlayerName(clickColor)
+  if card ~= nil then
+    local md = getMetaData(card)
+    local suffix
+    if md.resource == "compass" then
+      suffix = ' compass' .. (md.cost > 1 and "es" or "")
+    elseif md.resource == "coin" then
+      suffix = ' coin' .. (md.cost > 1 and "s" or "")
+    end
+
+    if alt then
+      -- right-click -> "buy": automatically remove resources
+      local bag
+      if md.resource == "compass" then
+        bag = getObjectFromGUID(vars.resourceBags.s)
+      elseif md.resource == "coin" then
+        bag = getObjectFromGUID(vars.resourceBags.c)
       end
 
-      if md.type == "Artifact" then
-        local toPos = getObjectFromGUID(vars.playAreaZoneGuid).getPosition()
+      if bag.getQuantity() < md.cost then
+        broadcastToColor('You do not have enough' .. suffix .. ' to buy ' .. card.getName() .. ".", clickColor)
+        movingRow = false
+        return
+      end
 
-        local xOffset = 11.5
-        if clickColor == 'Red' or clickColor == 'Yellow' then
-          xOffset = 0 - xOffset
-        end
-        card.setPositionSmooth({ toPos[1] + xOffset, tableY + 0.5, toPos[3] }, false, true)
-
-        local suffix = ' compass).'
-        if md.cost > 1 then suffix = ' compasses).' end
-        broadcastToAll(getPlayerName(clickColor) .. ' bought ' .. card.getName() .. ' (' .. md.cost .. suffix)
-      else
-        local deckZone = getObjectFromGUID(getDeckZoneGuid(clickColor))
-        local toPos = deckZone.getPosition()
-        local deck = nil
-        for _, object in ipairs(deckZone.getObjects()) do
-          if object.type == 'Deck' then
-            deck = object
-            break
-          elseif object.type == 'Card' then
-            object.setPositionSmooth({ toPos[1], tileY + 0.5, toPos[3] }, false, true)
-            break
-          end
-        end
-        if deck == nil then
-          card.setRotationSmooth(facedown, false, true)
-          card.setPositionSmooth({ toPos[1], tileY, toPos[3] }, false, true)
-        else
-          deck.putObject(card)
-        end
-        local suffix = ' coin).'
-        if md.cost > 1 then suffix = ' coins).' end
-        broadcastToAll(getPlayerName(clickColor) .. ' bought ' .. card.getName() .. ' (' .. md.cost .. suffix)
+      broadcastToAll(coloredName .. ' spends ' .. md.cost .. suffix .. ' to buy ' .. card.getName() .. ".")
+      local trash = getObjectFromGUID(vars.trashGuid)
+      for i = 1, md.cost do
+        Wait.time(function() trash.putObject(bag.takeObject()) end, i * 0.1)
       end
     end
-    wait(0.4)
-    refillRowCoroutine()
-    return 1
-  end
 
-  startLuaCoroutine(Global, 'buyButtonCoroutine')
+    if md.type == "Artifact" then
+      local toPos = getObjectFromGUID(vars.playAreaZoneGuid).getPosition()
+      local xOffset = 11.5
+      if clickColor == 'Red' or clickColor == 'Yellow' then
+        xOffset = 0 - xOffset
+      end
+      card.setPositionSmooth({ toPos[1] + xOffset, tableY + 0.5, toPos[3] }, false, true)
+    else
+      local deckZone = getObjectFromGUID(getDeckZoneGuid(clickColor))
+      local toPos = deckZone.getPosition()
+      local deck = nil
+      for _, object in ipairs(deckZone.getObjects()) do
+        if object.type == 'Deck' then
+          deck = object
+          break
+        elseif object.type == 'Card' then
+          object.setPositionSmooth({ toPos[1], tileY + 0.5, toPos[3] }, false, true)
+          break
+        end
+      end
+      if deck == nil then
+        card.setRotationSmooth(facedown, false, true)
+        card.setPositionSmooth({ toPos[1], tileY, toPos[3] }, false, true)
+      else
+        deck.putObject(card)
+      end
+    end
+    broadcastToAll(coloredName .. ' bought ' .. card.getName() .. ' (' .. md.cost .. suffix .. ").")
+    Wait.time(function() movingRow = false end, 0.5)
+  end
 end
 
 function refillRowCoroutine()
@@ -3763,6 +3751,7 @@ function onPlayerTurn(player, previousPlayer)
     if atLeastOneFaceupTent and currentPlayerTent ~= nil and currentPlayerTent.is_face_down then
       Turns.turn_color = Turns.getNextTurnColor()
     end
+    startLuaCoroutine(Global, "refillRowCoroutine")
   end, 0.01)
 end
 
