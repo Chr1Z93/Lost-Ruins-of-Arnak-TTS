@@ -2440,11 +2440,15 @@ end
 
 function takeResourceButton(resource, clickColor, alt)
   local fromBag = getObjectFromGUID(bags.resources[resource])
+  if fromBag == nil then return end
+
   if alt then
     local toBag = getObjectFromGUID(suitcaseResourceBags[resource])
+    if toBag == nil then return end
     toBag.putObject(fromBag.takeObject())
   else
     local toBag = getObjectFromGUID(playerVars[clickColor].resourceBags[resource])
+    if toBag == nil then return end
     toBag.putObject(fromBag.takeObject())
   end
 end
