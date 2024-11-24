@@ -2547,6 +2547,9 @@ function buyButton(zone, clickColor, alt)
 end
 
 function refillRowCoroutine()
+  if movingRow then return 1 end
+  movingRow = true
+
   -- get cards/decks in the row
   local artifacts = {}
   local items = {}
@@ -2875,17 +2878,19 @@ function discoverButton(zone, clickColor, alt)
     wait(0.5)
     site.lock()
     site.interactable = true
+    siteLevels[level][siteNum].discovered = true
 
-    if not alt then
+    local deliveredAll = true
+    if not (options.solo and clickColor == 'Red') then
+      if not alt then wait(0.5) end
+      deliveredAll = deliverRewards(clickColor, site)
+    end
+
+    -- place guardian if all rewards were dealt
+    if not alt and deliveredAll then
       local guardian = drawCard(guardianDeckZone)
       guardian.setRotation(faceup)
       guardian.setPositionSmooth({ zonePos[1], 1.63, zonePos[3] + guardianOffsetZ }, false, true)
-    end
-    siteLevels[level][siteNum].discovered = true
-
-    if not (options.solo and clickColor == 'Red') then
-      if not alt then wait(0.5) end
-      deliverRewards(clickColor, site)
     end
     discovering = false
     return 1
@@ -3769,6 +3774,15 @@ function onObjectLeaveContainer(container, leavingObject)
   addReturnMenu(leavingObject)
   addTrashMenu(leavingObject)
   editResourceBagCounter(container)
+end
+
+-- check if this is an object with states (and prevent state switching)
+function onObjectNumberTyped(hoveredObject, playerColor, number)
+  local states = hoveredObject.getStates()
+  if states ~= nil and #states > 0 then
+    broadcastToColor("Use the context menu for state changing.", playerColor)
+    return true
+  end
 end
 
 function editResourceBagCounter(container)
