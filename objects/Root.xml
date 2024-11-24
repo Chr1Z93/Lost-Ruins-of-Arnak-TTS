@@ -455,7 +455,7 @@
 	height="40"
 	width="435"
 	color="rgba(1, 1, 1, 0.85)">
-	<HorizontalLayout>	
+	<HorizontalLayout>
 		<Button onClick="menuStart(1)"
 			color="Green"
 			textColor="white"
@@ -479,9 +479,9 @@
 	rowBackgroundColor="rgba(1, 1, 1, 0.85)">
 	<Row preferredHeight="115">
 		<Cell columnSpan="3">
-			<Text alignment="MiddleCenter">Click Continue after all players have selected different expedition leaders.
+			<Text alignment="MiddleCenter">Click 'Continue' after all players have selected different expedition leaders.
 		
-		To select a leader, hover over your player board and press a number key:
+		To select a leader, right-click your player board and select a state:
 			</Text>
 		</Cell>
 	</Row>
