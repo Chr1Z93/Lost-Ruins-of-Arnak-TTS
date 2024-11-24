@@ -368,5 +368,5 @@
   ],
   "Turns_path": "Turns.json",
   "VersionNumber": "v13.3",
-  "XmlUI_path": "Root.xml"
+  "XmlUI": "\u003cInclude src=\"Global.xml\"/\u003e"
 }

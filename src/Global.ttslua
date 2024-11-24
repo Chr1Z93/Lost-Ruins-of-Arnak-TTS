@@ -2887,10 +2887,14 @@ function discoverButton(zone, clickColor, alt)
     end
 
     -- place guardian if all rewards were dealt
-    if not alt and deliveredAll then
-      local guardian = drawCard(guardianDeckZone)
-      guardian.setRotation(faceup)
-      guardian.setPositionSmooth({ zonePos[1], 1.63, zonePos[3] + guardianOffsetZ }, false, true)
+    if not alt then
+      if deliveredAll then
+        local guardian = drawCard(guardianDeckZone)
+        guardian.setRotation(faceup)
+        guardian.setPositionSmooth({ zonePos[1], 1.63, zonePos[3] + guardianOffsetZ }, false, true)
+      else
+        broadcastToAll("Place a Guardian after resolving choices from the rewards.")
+      end
     end
     discovering = false
     return 1
