@@ -15,7 +15,7 @@
     "24": {
       "BackIsHidden": true,
       "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/1862806463732172505/0F010A85A45CF2B263F8F88A03BC6E6B6C379E0F/",
-      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/2496761664831504008/DD3C8AC95CB79433D598E30B0D4B3389531AAC9D/",
+      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/62582467384956617/A1825523F05640656BD3CAC06AA5E3747C8C673B/",
       "NumHeight": 1,
       "NumWidth": 1,
       "Type": 0,
@@ -28,7 +28,7 @@
   "GUID": "653368",
   "Grid": true,
   "GridProjection": false,
-  "Hands": true,
+  "Hands": false,
   "HideWhenFaceDown": true,
   "IgnoreFoW": false,
   "LayoutGroupSortIndex": 0,
