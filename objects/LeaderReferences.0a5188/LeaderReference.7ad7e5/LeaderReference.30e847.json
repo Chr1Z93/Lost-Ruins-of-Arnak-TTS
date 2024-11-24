@@ -32,7 +32,7 @@
   "HideWhenFaceDown": false,
   "IgnoreFoW": false,
   "LayoutGroupSortIndex": 0,
-  "Locked": false,
+  "Locked": true,
   "LuaScript": "",
   "LuaScriptState": "",
   "MeasureMovement": false,
@@ -40,7 +40,7 @@
   "Nickname": "Leader Reference",
   "Snap": true,
   "Sticky": true,
-  "Tooltip": true,
+  "Tooltip": false,
   "Transform": {
     "posX": -30,
     "posY": 1,
