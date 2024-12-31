@@ -852,7 +852,27 @@ solo = {
   boardPosition = { -43.26, 1.53, 18.96 },
   objectives = 'd8547e',
   objectivePosition = { -51, 1.53, -0.80 },
-  zones = { deck = '7196a9', discard = '0ecbe9', idol = { c = '184e31', p = 'de4ec0', s = '7fa25b', fa = '6892c0', ftt = '1caf8d', g = '6892c0', d = '53c99c', t = '500131', r = 'af87d7', e = '69ed89', u = 'fdf87e', dupe = '91df7a' }, delete = '0a61ed', objectivesDeck = '250afb', objectives = { 'd18d8f', 'c9584b', '36d489', '08da31' } },
+  zones = {
+    deck = '7196a9',
+    discard = '0ecbe9',
+    idol = {
+      c = '184e31',
+      p = 'de4ec0',
+      s = '7fa25b',
+      fa = '6892c0',
+      ftt = '1caf8d',
+      g = '6892c0',
+      d = '53c99c',
+      t = '500131',
+      r = 'af87d7',
+      e = '69ed89',
+      u = 'fdf87e',
+      dupe = '91df7a'
+    },
+    delete = '0a61ed',
+    objectivesDeck = '250afb',
+    objectives = { 'd18d8f', 'c9584b', '36d489', '08da31' }
+  },
   pawns = { '47658b', 'bfb9eb', 'b2d015', 'fb9f5d', '9f84c9', 'e5b510' },
   pawnPositions = { { -28.50, 2.20, 20 }, { -26.50, 2.20, 20 }, { -24.50, 2.20, 20 }, { -28.50, 2.20, 18 }, { -26.50, 2.20, 18 }, { -24.50, 2.20, 18 } },
   actionDecks = { arch = 'f682fb', other = '52b0e5' },
@@ -3477,6 +3497,7 @@ function calculateScores()
           if object.type == 'Deck' or object.getName() == 'Fear' then table.insert(excludeGuids, object.getGUID()) end
         end
       end
+
       function isExcluded(object)
         for _, guid in ipairs(excludeGuids) do
           if object.getGUID() == guid then return true end
@@ -3485,6 +3506,7 @@ function calculateScores()
       end
 
       function getVpValue(notes)
+        if notes == nil or notes == "" or string.sub(notes, 1, 1) ~= '{' then return 0 end
         local md = JSON.decode(notes) or {}
         return md.points or 0
       end
@@ -3589,6 +3611,7 @@ function calculateScores()
       if options.solo and playerColor == 'Red' then
         -- check for purple site action
         local baseIdolPoints = 2
+
         function findPurpleSiteActionCard(zone)
           for _, object in ipairs(zone.getObjects()) do
             if object.type == 'Card' then
