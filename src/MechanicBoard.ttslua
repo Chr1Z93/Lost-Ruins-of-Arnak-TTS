@@ -1,27 +1,27 @@
 function onLoad()
   local s = 0.1
   self.createButton({
-    label = "↻",
+    label          = "↻",
     click_function = "rotateCW",
     function_owner = self,
-    tooltip = "Rotate the wheel clockwise.",
-    position = { 2.67, .35, .08 },
-    font_size = 300,
-    scale = { s, s, s },
-    width = 1000,
-    height = 450,
+    tooltip        = "Rotate the wheel clockwise.",
+    position       = { 2.67, .35, .08 },
+    font_size      = 300,
+    scale          = { s, s, s },
+    width          = 1000,
+    height         = 450
   })
 
   self.createButton({
-    label = "Undo",
+    label          = "Undo",
     click_function = "rotateCCW",
     function_owner = self,
-    tooltip = "Rotate the wheel counter-clockwise.",
-    position = { 2.67, .35, -.03 },
-    font_size = 300,
-    scale = { s, s, s },
-    width = 1000,
-    height = 450,
+    tooltip        = "Rotate the wheel counter-clockwise.",
+    position       = { 2.67, .35, -.03 },
+    font_size      = 300,
+    scale          = { s, s, s },
+    width          = 1000,
+    height         = 450
   })
 end
 
