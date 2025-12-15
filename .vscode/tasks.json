@@ -4,31 +4,36 @@
     {
       "label": "Arnak: Build",
       "type": "shell",
-      "command": "go",
+      "command": "python",
       "args": [
-        "run",
-        "main.go",
-        "--moddir=${workspaceFolder}",
-        "--modfile=${env:USERPROFILE}\\Documents\\My Games\\Tabletop Simulator\\Saves\\Arnak.json"
+        "${workspaceFolder}/.vscode/build.py",
+        "--action",
+        "build",
+        "--moddir",
+        "${workspaceFolder}"
       ],
       "options": {
-        "cwd": "C:\\git\\TTSModManager"
+        "cwd": "${workspaceFolder}${pathSeparator}.vscode"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
       },
       "problemMatcher": []
     },
     {
       "label": "Arnak: Decompose",
       "type": "shell",
-      "command": "go",
+      "command": "python",
       "args": [
-        "run",
-        "main.go",
-        "--moddir=${workspaceFolder}",
-        "--modfile=${env:USERPROFILE}\\Documents\\My Games\\Tabletop Simulator\\Saves\\Arnak.json",
-        "--reverse"
+        "${workspaceFolder}/.vscode/build.py",
+        "--action",
+        "decompose",
+        "--moddir",
+        "${workspaceFolder}"
       ],
       "options": {
-        "cwd": "C:\\git\\TTSModManager"
+        "cwd": "${workspaceFolder}${pathSeparator}.vscode"
       },
       "problemMatcher": []
     }
