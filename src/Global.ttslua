@@ -1031,6 +1031,7 @@ function setupGame()
   if options.campaign == true then
     detectSeatedPlayers()
     wait(0.1)
+    if #seatedPlayerColors == 0 then return 1 end
     if #seatedPlayerColors > 3 then
       broadcastToAll("Campaign mode cannot be played with more than 2 players, please reload the mod and try again.")
       return 1
@@ -1049,6 +1050,7 @@ function setupGame()
     wait(0.1)
     detectSeatedPlayers()
     wait(0.1)
+    if #seatedPlayerColors == 0 then return 1 end
     optionOverride()
     wait(0.1)
     setupDecks()
