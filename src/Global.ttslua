@@ -1097,6 +1097,10 @@ function getOptionsFromUI()
   elseif checkToggle('board2') then
     options.board = 2
   elseif checkToggle('board3') then
+    options.board = 3
+  elseif checkToggle('board4') then
+    options.board = 4
+  elseif checkToggle('board5') then
     options.board = math.random(1, 2)
   end
 
@@ -1113,6 +1117,10 @@ function getOptionsFromUI()
   elseif checkToggle('research6') then
     options.researchTrack = 6
   elseif checkToggle('research7') then
+    options.researchTrack = 7
+  elseif checkToggle('research8') then
+    options.researchTrack = 8
+  elseif checkToggle('research9') then
     options.researchTrack = math.random(1, 6)
   end
 

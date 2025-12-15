@@ -357,8 +357,12 @@
 					<Toggle onValueChanged="uiToggle"
 						id="board2">Snake Temple</Toggle>
 					<Toggle onValueChanged="uiToggle"
-						id="board3"
-						isOn="True">Random</Toggle>
+						id="board3">Spider Temple</Toggle>
+					<Toggle onValueChanged="uiToggle"
+						id="board4">Owl Temple</Toggle>
+					<Toggle onValueChanged="uiToggle"
+						isOn="True"
+						id="board5">Random</Toggle>
 				</VerticalLayout>
 			</ToggleGroup>
 		</Cell>
@@ -382,8 +386,12 @@
 					<Toggle onValueChanged="uiToggle"
 						id="research6">Waterfall Temple</Toggle>
 					<Toggle onValueChanged="uiToggle"
+						id="research7">Spider Temple</Toggle>
+					<Toggle onValueChanged="uiToggle"
+						id="research8">Owl Temple</Toggle>
+					<Toggle onValueChanged="uiToggle"
 						isOn="True"
-						id="research7">Randomize Temple</Toggle>
+						id="research9">Randomize Temple</Toggle>
 				</VerticalLayout>
 			</ToggleGroup>
 		</Cell>
@@ -440,6 +448,9 @@
 				<Toggle isOn="True"
 					onValueChanged="uiToggle"
 					id="missingExpedition">The Missing Expedition</Toggle>
+				<Toggle isOn="True"
+					onValueChanged="uiToggle"
+					id="twistedPaths">Twisted Paths</Toggle>
 				<Toggle isOn="True"
 					onValueChanged="uiToggle"
 					id="promos">Promos</Toggle>
