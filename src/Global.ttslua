@@ -847,7 +847,6 @@ researchTracks = {
 }
 
 solo = {
-  rules = '29196c',
   board = 'a30382',
   boardPosition = { -43.26, 1.53, 18.96 },
   objectives = 'd8547e',
