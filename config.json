@@ -6,7 +6,7 @@
         "y": 63.75,
         "z": -24
       },
-      "Distance": 65,
+      "Distance": 100,
       "Position": {
         "x": 0,
         "y": 0,
@@ -23,7 +23,7 @@
   "ComponentTags_path": "ComponentTags.json",
   "DecalPallet": [],
   "GameComplexity": "Medium Complexity",
-  "GameMode": "Lost Ruins of Arnak - FULL [SCRIPTED]",
+  "GameMode": "Lost Ruins of Arnak - COMPLETE",
   "GameType": "Game",
   "Gravity": 0.5,
   "Grid_path": "Grid.json",
@@ -352,7 +352,7 @@
     60,
     120
   ],
-  "SaveName": "Lost Ruins of Arnak [SCRIPTED]",
+  "SaveName": "Lost Ruins of Arnak - COMPLETE",
   "Sky": "Sky_Museum",
   "SnapPoints_path": "SnapPoints.json",
   "TabStates_path": "TabStates.json",
