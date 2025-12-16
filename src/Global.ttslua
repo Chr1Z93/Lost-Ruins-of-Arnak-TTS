@@ -956,33 +956,725 @@ function onLoad(saveState)
     turn               = loadedData.turn
   end
 
-  if round == 0 then
-    menuOptions()
-  elseif round > 0 then
-    drawLines()
-    setupButtons()
-    for _, object in ipairs(getObjects()) do
-      addExileMenu(object)
-      addGetRewardsMenu(object)
-      addReturnMenu(object)
-      addTrashMenu(object)
+  createGlobalXml()
+
+  Wait.frames(function()
+    if round == 0 then
+      menuOptions()
+    elseif round > 0 then
+      drawLines()
+      setupButtons()
+      for _, object in ipairs(getObjects()) do
+        addExileMenu(object)
+        addGetRewardsMenu(object)
+        addReturnMenu(object)
+        addTrashMenu(object)
+      end
+      addAssistantCycleMenu()
     end
-    addAssistantCycleMenu()
-  end
-  if turn ~= nil and Turns.enable and Turns.turn_color ~= turn then Turns.turn_color = turn end
-  Wait.time(function() doneLoading = true end, 0.5)
+    if turn ~= nil and Turns.enable and Turns.turn_color ~= turn then Turns.turn_color = turn end
+    Wait.time(function() doneLoading = true end, 0.5)
+  end, 10)
 end
 
 -- MARK: START MENU UI
 
+function createGlobalXml()
+  local uiTable = {}
+
+  -- Categories for the main scoreboard column
+  local scoreboardCategories = {
+    "Player",
+    "Research Tokens",
+    "Temple Tiles",
+    "Idols",
+    "Guardians",
+    "Items and Artifacts",
+    "Fear",
+    "Total"
+  }
+
+  -- Player colors, offsetXY, and initial values for the player scoreboards
+  local playerScores = {
+    { color = "Red",    offsetXY = "190 -140" },
+    { color = "Blue",   offsetXY = "260 -140" },
+    { color = "Green",  offsetXY = "330 -140" },
+    { color = "Yellow", offsetXY = "400 -140" }
+  }
+
+  --- 1. Scoreboard (Labels Column)
+  local scoreboardLabels = {
+    tag        = "TableLayout",
+    attributes = {
+      id                  = "scoreboard",
+      active              = false,
+      rectAlignment       = "UpperLeft",
+      offsetXY            = "70 -140",
+      height              = "208",
+      width               = "140", -- Width for the labels column
+      cellPadding         = "5 5 0 0",
+      cellBackgroundColor = "clear",
+      rowBackgroundColor  = "rgba(0, 0, 0, 0.97)"
+    },
+    children   = {}
+  }
+
+  -- Generate the rows for the labels column
+  for _, label in ipairs(scoreboardCategories) do
+    table.insert(scoreboardLabels.children, {
+      tag = "Row",
+      children = {
+        {
+          tag = "Cell",
+          children = {
+            {
+              tag = "Text",
+              attributes = {
+                color     = "white",
+                alignment = "MiddleRight",
+                text      = label
+              }
+            }
+          }
+        }
+      }
+    })
+  end
+
+  table.insert(uiTable, scoreboardLabels)
+
+  --- 2. Player Scoreboards (Red, Blue, Green, Yellow)
+
+  -- IDs/prefixes corresponding to the categories (excluding "Player")
+  local scoreIds = {
+    "name",
+    "research",
+    "temple",
+    "idol",
+    "guardian",
+    "cards",
+    "fear",
+    "total"
+  }
+
+  for _, playerData in ipairs(playerScores) do
+    local colorName = playerData.color
+    local scoreboard = {
+      tag        = "TableLayout",
+      attributes = {
+        id                  = "scoreboard" .. colorName,
+        active              = false,
+        rectAlignment       = "UpperLeft",
+        offsetXY            = playerData.offsetXY,
+        height              = "208",
+        width               = "70", -- Width for the player score columns
+        cellPadding         = "5 5 0 0",
+        cellBackgroundColor = "clear",
+        rowBackgroundColor  = "rgba(0, 0, 0, 0.97)",
+      },
+      children   = {}
+    }
+
+    -- Generate the rows for the player score column
+    for i, idPrefix in ipairs(scoreIds) do
+      local initialValue = (idPrefix == "name") and "" or "0"
+
+      table.insert(scoreboard.children, {
+        tag = "Row",
+        children = {
+          {
+            tag = "Cell",
+            children = {
+              {
+                tag = "Text",
+                attributes = {
+                  id        = idPrefix .. colorName,
+                  color     = colorName,
+                  alignment = "MiddleCenter",
+                  text      = initialValue
+                }
+              }
+            }
+          }
+        }
+      })
+    end
+
+    table.insert(uiTable, scoreboard)
+  end
+
+  --- 3. Options Menu Top Panel
+  table.insert(uiTable, {
+    tag        = "Panel",
+    attributes = {
+      id            = "optionsMenuTop",
+      active        = false,
+      rectAlignment = "LowerRight",
+      offsetXY      = "0 475",
+      height        = "40",
+      width         = "435",
+      color         = "rgb(0, 0.39, 0.65)"
+    },
+    children   = {
+      {
+        tag = "Text",
+        attributes = {
+          color    = "White",
+          fontSize = "16",
+          text     = "Select Game Options"
+        }
+      }
+    }
+  })
+
+  --- 4. Options Menu Left Table
+  local leftOptions = {
+    {
+      title   = "Board",
+      height  = "150",
+      toggles = {
+        { id = "board1", text = "Bird Temple" },
+        { id = "board2", text = "Snake Temple" },
+        { id = "board3", text = "Spider Temple" },
+        { id = "board4", text = "Owl Temple" },
+        { id = "board5", text = "Random",       isOn = "True" }
+      }
+    },
+    {
+      title = "Research Track",
+      height = "290",
+      toggles = {
+        { id = "research1", text = "Bird Temple" },
+        { id = "research2", text = "Snake Temple" },
+        { id = "research3", text = "Monkey Temple" },
+        { id = "research4", text = "Lizard Temple" },
+        { id = "research5", text = "Tree Temple" },
+        { id = "research6", text = "Waterfall Temple" },
+        { id = "research7", text = "Spider Temple" },
+        { id = "research8", text = "Owl Temple" },
+        { id = "research9", text = "Randomize Temple", isOn = "True" }
+      }
+    },
+  }
+
+  local optionsMenuLeft = {
+    tag = "TableLayout",
+    attributes = {
+      id                  = "optionsMenuLeft",
+      active              = false,
+      rectAlignment       = "LowerRight",
+      offsetXY            = "-210 35",
+      height              = "440",
+      width               = "225",
+      cellPadding         = "24 0 12 12",
+      cellBackgroundColor = "clear",
+      rowBackgroundColor  = "rgba(1, 1, 1, 0.85)",
+    },
+    children = {}
+  }
+
+  for _, section in ipairs(leftOptions) do
+    -- 1. Create the base vertical layout structure for the section
+    local verticalLayoutChildren = {
+      {
+        tag = "Text",
+        attributes = {
+          fontStyle = "Bold",
+          alignment = "MiddleLeft",
+          text = section.title
+        }
+      }
+    }
+
+    -- 2. Loop through all toggles in this section and add them to the verticalLayoutChildren
+    for _, toggle in ipairs(section.toggles) do
+      table.insert(verticalLayoutChildren, {
+        tag        = "Toggle",
+        attributes = {
+          onValueChanged = "uiToggle",
+          id             = toggle.id,
+          text           = toggle.text,
+          isOn           = toggle.isOn
+        }
+      })
+    end
+
+    -- 3. Construct the Row structure using the complete verticalLayoutChildren
+    local row = {
+      tag = "Row",
+      attributes = { preferredHeight = section.height },
+      children = {
+        {
+          tag = "Cell",
+          children = {
+            tag = "ToggleGroup",
+            children = {
+              tag      = "VerticalLayout",
+              children = verticalLayoutChildren
+            }
+          }
+        }
+      }
+    }
+
+    table.insert(optionsMenuLeft.children, row)
+  end
+
+  table.insert(uiTable, optionsMenuLeft)
+
+  --- 5. Options Menu Right Table
+  local rightOptions = {
+    {
+      title = "Moon Staff",
+      height = "110",
+      group = true,
+      toggles = {
+        { id = "staff1", text = "Blue" },
+        { id = "staff2", text = "Red", isOn = "True" },
+      }
+    },
+    {
+      title = "Leader Selection",
+      height = "110",
+      group = true,
+      toggles = {
+        { id = "leaders1", text = "Random", isOn = "True" },
+        { id = "leaders2", text = "Manual" }
+      }
+    },
+    {
+      title = "Expansion Selection",
+      height = "160",
+      group = false,
+      toggles = {
+        { id = "expeditionLeaders", text = "Expedition Leaders",     isOn = "True" },
+        { id = "missingExpedition", text = "The Missing Expedition", isOn = "True" },
+        { id = "twistedPaths",      text = "Twisted Paths",          isOn = "True" },
+        { id = "promos",            text = "Promos",                 isOn = "True" }
+      }
+    },
+  }
+
+  local optionsMenuRight = {
+    tag = "TableLayout",
+    attributes = {
+      id                  = "optionsMenuRight",
+      active              = false,
+      rectAlignment       = "LowerRight",
+      offsetXY            = "0 35",
+      height              = "440",
+      width               = "210",
+      cellPadding         = "0 0 12 12",
+      cellBackgroundColor = "clear",
+      rowBackgroundColor  = "rgba(1, 1, 1, 0.85)"
+    },
+    children = {}
+  }
+
+  for _, section in ipairs(rightOptions) do
+    local rowContent = {
+      tag = (section.group and "ToggleGroup" or "VerticalLayout"),
+      children = {
+        tag = "VerticalLayout",
+        children = {
+          {
+            tag = "Text",
+            attributes = {
+              fontStyle = "Bold",
+              alignment = "MiddleLeft",
+              text      = section.title
+            }
+          }
+        }
+      }
+    }
+
+    for _, toggle in ipairs(section.toggles) do
+      table.insert(rowContent.children.children, {
+        tag        = "Toggle",
+        attributes = {
+          onValueChanged = "uiToggle",
+          id             = toggle.id,
+          text           = toggle.text,
+          isOn           = toggle.isOn
+        }
+      })
+    end
+
+    table.insert(optionsMenuRight.children, {
+      tag = "Row",
+      attributes = { preferredHeight = section.height },
+      children = {
+        {
+          tag = "Cell",
+          children = rowContent
+        }
+      }
+    })
+  end
+
+  -- Final empty row in optionsMenuRight
+  table.insert(optionsMenuRight.children, {
+    tag = "Row",
+    attributes = { preferredHeight = "60" }
+  })
+
+  table.insert(uiTable, optionsMenuRight)
+
+  --- 6. Options Menu Buttons Panel
+  table.insert(uiTable, {
+    tag = "Panel",
+    attributes = {
+      id            = "optionsMenuButtons",
+      active        = false,
+      rectAlignment = "LowerRight",
+      height        = "40",
+      width         = "435",
+      color         = "rgba(1, 1, 1, 0.85)"
+    },
+    children = {
+      tag = "HorizontalLayout",
+      children = {
+        {
+          tag = "Button",
+          attributes = {
+            onClick   = "menuStart(1)",
+            color     = "Green",
+            textColor = "white",
+            fontSize  = "16",
+            text      = "Setup Campaign"
+          }
+        },
+        {
+          tag = "Button",
+          attributes = {
+            onClick   = "menuStart(2)",
+            color     = "Green",
+            textColor = "white",
+            fontSize  = "16",
+            text      = "Setup Standard Game"
+          }
+        }
+      }
+    }
+  })
+
+  --- 7. Continue Menu Table
+  table.insert(uiTable, {
+    tag = "TableLayout",
+    attributes = {
+      id                  = "continueMenu",
+      active              = false,
+      rectAlignment       = "LowerRight",
+      offsetXY            = "0 80",
+      height              = "192",
+      width               = "290",
+      columnWidths        = "25 135 130",
+      cellPadding         = "10 10 0 0",
+      cellBackgroundColor = "clear",
+      rowBackgroundColor  = "rgba(1, 1, 1, 0.85)",
+    },
+    children = {
+      {
+        tag = "Row",
+        attributes = { preferredHeight = "115" },
+        children = {
+          {
+            tag = "Cell",
+            attributes = { columnSpan = "3" },
+            children = {
+              tag = "Text",
+              attributes = {
+                alignment = "MiddleCenter",
+                text =
+                "Click 'Continue' after all players have selected different expedition leaders.\n\nTo select a leader, right-click your player board and select a state:\n\t"
+              }
+            }
+          }
+        }
+      },
+      {
+        tag = "Row",
+        attributes = { preferredHeight = "77" },
+        children = {
+          { tag = "Cell" },
+          {
+            tag = "Cell",
+            children = {
+              tag = "Text",
+              attributes = {
+                alignment = "UpperLeft",
+                text = "\t1 - Captain\n\t2 - Falconer\n\t3 - Baroness\n\t4 - Professor\n\t5 - Explorer\n\t"
+              }
+            }
+          },
+          {
+            tag = "Cell",
+            children = {
+              tag = "Text",
+              attributes = {
+                alignment = "UpperLeft",
+                text = "\t6 - Mystic\n\t7 - Journalist\n\t8 - Mechanic\n\t9 - Random\n\t"
+              }
+            }
+          }
+        }
+      }
+    }
+  })
+
+  --- 8. Continue Menu Buttons Table
+  local continueMenuButtonsData = {
+    {
+      onClick = "menuStart(4)",
+      color   = "Green",
+      text    = "Continue"
+    },
+    {
+      onClick = "menuOptions",
+      color   = "rgb(0.67, 0.08, 0.07)",
+      text    = "Back"
+    }
+  }
+
+  local continueMenuButtons = {
+    tag = "TableLayout",
+    attributes = {
+      id                  = "continueMenuButtons",
+      active              = false,
+      rectAlignment       = "LowerRight",
+      height              = "80",
+      width               = "290",
+      cellBackgroundColor = "clear",
+      rowBackgroundColor  = "rgba(1, 1, 1, 0.85)"
+    },
+    children = {}
+  }
+
+  for _, buttonData in ipairs(continueMenuButtonsData) do
+    table.insert(continueMenuButtons.children, {
+      tag = "Row",
+      attributes = { preferredHeight = "40" },
+      children = {
+        {
+          tag = "Cell",
+          attributes = { columnSpan = "3" },
+          children = {
+            tag = "Button",
+            attributes = {
+              onClick   = buttonData.onClick,
+              color     = buttonData.color,
+              textColor = "white",
+              fontSize  = "16",
+              text      = buttonData.text
+            }
+          }
+        }
+      }
+    })
+  end
+
+  table.insert(uiTable, continueMenuButtons)
+
+  --- 9. Solo Menu Table
+  local soloMenuSliders = {
+    { id = "red",    text = "Red Actions: 0",    sliderId = "redSlider",    minValue = "0", maxValue = "5", value = "0" },
+    { id = "purple", text = "Purple Actions: 0", sliderId = "purpleSlider", minValue = "0", maxValue = "5", value = "0" }
+  }
+
+  local soloMenu = {
+    tag        = "TableLayout",
+    attributes = {
+      id                  = "soloMenu",
+      active              = false,
+      rectAlignment       = "LowerRight",
+      height              = "279",
+      width               = "270",
+      columnWidths        = "20 230 20",
+      cellBackgroundColor = "clear",
+      rowBackgroundColor  = "rgba(1, 1, 1, 0.85)"
+    },
+    children   = {
+      { tag = "Row", attributes = { preferredHeight = "10" }, children = { { tag = "Cell" }, { tag = "Cell" }, { tag = "Cell" } } },
+      {
+        tag = "Row",
+        attributes = { preferredHeight = "30" },
+        children = {
+          {
+            tag = "Cell",
+            attributes = { columnSpan = "3" },
+            children = {
+              tag = "Text",
+              attributes = {
+                fontStyle = "Bold",
+                alignment = "MiddleCenter",
+                text      = "Choose Rival Strength"
+              }
+            }
+          }
+        }
+      },
+    }
+  }
+
+  for _, item in ipairs(soloMenuSliders) do
+    table.insert(soloMenu.children, {
+      tag = "Row",
+      attributes = { preferredHeight = "30" },
+      children = {
+        { tag = "Cell" },
+        {
+          tag = "Cell",
+          children = {
+            tag = "Text",
+            attributes = {
+              id        = item.id .. "Text",
+              alignment = "MiddleLeft",
+              text      = item.text
+            }
+          }
+        },
+        { tag = "Cell" }
+      }
+    })
+    table.insert(soloMenu.children, {
+      tag = "Row",
+      attributes = { preferredHeight = "20" },
+      children = {
+        { tag = "Cell" },
+        {
+          tag = "Cell",
+          children = {
+            tag = "Slider",
+            attributes = {
+              id             = item.sliderId,
+              onValueChanged = "uiSlider",
+              minValue       = item.minValue,
+              maxValue       = item.maxValue,
+              value          = item.value,
+              wholeNumbers   = "true"
+            }
+          }
+        },
+        { tag = "Cell" }
+      }
+    })
+  end
+
+  table.insert(soloMenu.children,
+    { tag = "Row", attributes = { preferredHeight = "5" }, children = { { tag = "Cell" }, { tag = "Cell" }, { tag = "Cell" } } })
+
+  -- Difficulty Row
+  table.insert(soloMenu.children, {
+    tag = "Row",
+    attributes = { preferredHeight = "30" },
+    children = {
+      { tag = "Cell" },
+      {
+        tag = "Cell",
+        children = {
+          tag        = "Text",
+          attributes = {
+            id        = "rivalDifficulty",
+            alignment = "MiddleLeft",
+            text      = "Difficulty: 0"
+          }
+        }
+      },
+      { tag = "Cell" }
+    }
+  })
+
+  -- Objectives Row and Slider
+  table.insert(soloMenu.children, {
+    tag = "Row",
+    attributes = { preferredHeight = "30" },
+    children = {
+      { tag = "Cell" },
+      {
+        tag = "Cell",
+        children = {
+          tag        = "Text",
+          attributes = {
+            id        = "objectiveText",
+            alignment = "MiddleLeft",
+            text      = "Objectives: 3"
+          }
+        }
+      },
+      { tag = "Cell" }
+    }
+  })
+
+  table.insert(soloMenu.children, {
+    tag = "Row",
+    attributes = { preferredHeight = "20" },
+    children = {
+      { tag = "Cell" },
+      {
+        tag = "Cell",
+        children = {
+          tag        = "Slider",
+          attributes = {
+            id             = "objectiveSlider",
+            onValueChanged = "uiSlider",
+            minValue       = "0",
+            maxValue       = "4",
+            value          = "3",
+            wholeNumbers   = "true"
+          }
+        }
+      },
+      { tag = "Cell" }
+    }
+  })
+
+  table.insert(soloMenu.children,
+    {
+      tag = "Row",
+      attributes = { preferredHeight = "14" },
+      children = {
+        { tag = "Cell" },
+        { tag = "Cell" },
+        { tag = "Cell" }
+      }
+    })
+
+  -- Start Game Button
+  table.insert(soloMenu.children, {
+    tag = "Row",
+    attributes = { preferredHeight = "40" },
+    children = {
+      {
+        tag = "Cell",
+        attributes = { columnSpan = "3" },
+        children = {
+          tag = "Button",
+          attributes = {
+            onClick   = "menuStartSolo",
+            color     = "Green",
+            textColor = "white",
+            fontSize  = "16",
+            text      = "Start Game"
+          }
+        }
+      }
+    }
+  })
+
+  table.insert(uiTable, soloMenu)
+
+  UI.setXmlTable(uiTable)
+end
+
 function uiOff()
-  UI.setAttribute('optionsMenuTop', 'active', 'false')
-  UI.setAttribute('optionsMenuLeft', 'active', 'false')
-  UI.setAttribute('optionsMenuRight', 'active', 'false')
-  UI.setAttribute('optionsMenuButtons', 'active', 'false')
-  UI.setAttribute('continueMenu', 'active', 'false')
-  UI.setAttribute('continueMenuButtons', 'active', 'false')
-  UI.setAttribute('soloMenu', 'active', 'false')
+  UI.setAttribute('optionsMenuTop', 'active', false)
+  UI.setAttribute('optionsMenuLeft', 'active', false)
+  UI.setAttribute('optionsMenuRight', 'active', false)
+  UI.setAttribute('optionsMenuButtons', 'active', false)
+  UI.setAttribute('continueMenu', 'active', false)
+  UI.setAttribute('continueMenuButtons', 'active', false)
+  UI.setAttribute('soloMenu', 'active', false)
 end
 
 function menuClose()
@@ -992,10 +1684,10 @@ end
 
 function menuOptions()
   uiOff()
-  UI.setAttribute('optionsMenuTop', 'active', 'true')
-  UI.setAttribute('optionsMenuLeft', 'active', 'true')
-  UI.setAttribute('optionsMenuRight', 'active', 'true')
-  UI.setAttribute('optionsMenuButtons', 'active', 'true')
+  UI.setAttribute('optionsMenuTop', 'active', true)
+  UI.setAttribute('optionsMenuLeft', 'active', true)
+  UI.setAttribute('optionsMenuRight', 'active', true)
+  UI.setAttribute('optionsMenuButtons', 'active', true)
 end
 
 function uiToggle(_, value, id)
@@ -1007,15 +1699,15 @@ function uiSlider(_, value, id)
   Wait.time(function()
     if id == 'objectiveSlider' then
       local objectives = UI.getAttribute('objectiveSlider', 'value')
-      UI.setValue('objectiveText', 'Objectives: ' .. objectives)
+      UI.setAttribute('objectiveText', "text", 'Objectives: ' .. objectives)
     else
       local red = UI.getAttribute('redSlider', 'value')
       local purple = UI.getAttribute('purpleSlider', 'value')
-      UI.setValue('redText', 'Red Actions: ' .. red)
-      UI.setValue('purpleText', 'Purple Actions: ' .. purple)
+      UI.setAttribute('redText', "text", 'Red Actions: ' .. red)
+      UI.setAttribute('purpleText', "text", 'Purple Actions: ' .. purple)
       local difficulty = 'N/A'
       if red + purple <= 5 then difficulty = red + 2 * purple end
-      UI.setValue('rivalDifficulty', 'Difficulty: ' .. difficulty)
+      UI.setAttribute('rivalDifficulty', "text", 'Difficulty: ' .. difficulty)
     end
   end, 0.01)
 end
@@ -1690,7 +2382,7 @@ function setupMiscThings()
   end
 
   if options.solo then
-    UI.setAttribute('soloMenu', 'active', 'true')
+    UI.setAttribute('soloMenu', 'active', true)
   else
     for _, playerColor in ipairs(seatedPlayerColors) do
       if options.playerBoards[playerColor] == 3 then
@@ -2260,12 +2952,12 @@ function menuStart(_, value, _)
     options.expansions.expeditionLeaders = true
     options.expansions.missingExpedition = true
     options.expansions.twistedPaths      = true
-    UI.setAttribute('continueMenu', 'active', 'true')
-    UI.setAttribute('continueMenuButtons', 'active', 'true')
+    UI.setAttribute('continueMenu', 'active', true)
+    UI.setAttribute('continueMenuButtons', 'active', true)
   elseif menuChoice == 2 and checkToggle('leaders2') then
     -- Only show the manual choice menu if player chose that during setup options
-    UI.setAttribute('continueMenu', 'active', 'true')
-    UI.setAttribute('continueMenuButtons', 'active', 'true')
+    UI.setAttribute('continueMenu', 'active', true)
+    UI.setAttribute('continueMenuButtons', 'active', true)
   else
     startLuaCoroutine(Global, "setupGame")
   end
@@ -3672,15 +4364,15 @@ function calculateScores()
       local total = 0
       for category, subscore in pairs(subscores) do
         total = total + subscore
-        UI.setValue(category .. playerColor, tostring(subscore))
+        UI.setAttribute(category .. playerColor, "text", tostring(subscore))
       end
-      UI.setValue('total' .. playerColor, total)
-      UI.setValue('name' .. playerColor, getPlayerName(playerColor, true))
+      UI.setAttribute('total' .. playerColor, "text", total)
+      UI.setAttribute('name' .. playerColor, "text", getPlayerName(playerColor, true))
 
       if total > top.score then
         tiebreaker = false
-        top = { score = total, templeOrder = templeOrder, research = subscores.research }
-        winners = { playerColor }
+        top        = { score = total, templeOrder = templeOrder, research = subscores.research }
+        winners    = { playerColor }
       elseif total == top.score then
         tiebreaker = true
         if templeOrder < top.templeOrder then
@@ -3717,12 +4409,12 @@ function calculateScores()
     if #buttonZone.getButtons() < 3 then
       local params = {
         function_owner = self,
-        label = 'Toggle Scoreboard',
+        label          = 'Toggle Scoreboard',
         click_function = 'toggleScoreboardButton',
-        position = { 8.23, 0, -4.25 },
-        width = 2400,
-        height = 500,
-        font_size = 250
+        position       = { 8.23, 0, -4.25 },
+        width          = 2400,
+        height         = 500,
+        font_size      = 250
       }
       buttonZone.createButton(params)
     end
