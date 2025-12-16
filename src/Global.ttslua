@@ -276,18 +276,18 @@ idolSlotData = {
 seatedPlayerColors = {}
 startPlayerIndex = 0
 hexColors = {
-  White = '[ffffff]',
-  Brown = '[713b17]',
-  Red = '[da1a18]',
+  White  = '[ffffff]',
+  Brown  = '[713b17]',
+  Red    = '[da1a18]',
   Orange = '[f4641d]',
   Yellow = '[e7e52c]',
-  Green = '[31b32b]',
-  Teal = '[21b19b]',
-  Blue = '[1e87ff]',
+  Green  = '[31b32b]',
+  Teal   = '[21b19b]',
+  Blue   = '[1e87ff]',
   Purple = '[a020f0]',
-  Pink = '[f570ce]',
-  Black = '[404040]',
-  Grey = '[808080]'
+  Pink   = '[f570ce]',
+  Black  = '[404040]',
+  Grey   = '[808080]'
 }
 
 starterDeck = {
@@ -305,18 +305,19 @@ starterDeck = {
   Journalist = { "2005", "2006", "2007", "2008" }
 }
 options = {
-  solo = false,
-  objectives = 3,
-  playerBoards = {},
-  board = 1,
+  solo          = false,
+  objectives    = 3,
+  playerBoards  = {},
+  board         = 1,
   researchTrack = 1,
-  staff = 1,
-  leaders = 'random',
-  campaign = false,
-  expansions = {
+  staff         = 1,
+  leaders       = 'random',
+  campaign      = false,
+  expansions    = {
     expeditionLeaders = true,
     missingExpedition = true,
-    promos = true
+    twistedPaths      = true,
+    promos            = true
   }
 }
 bags = {
@@ -356,18 +357,25 @@ idolDeckGuid = 'ab4a80'
 expansionDecks = {
   expeditionLeaders = {
     assistants = 'cf87b7',
-    idols = '9988c4',
-    sites1 = '37a6dd',
-    sites2 = '486402',
-    guardians = 'b876d5'
-
+    idols      = '9988c4',
+    sites1     = '37a6dd',
+    sites2     = '486402',
+    guardians  = 'b876d5'
   },
   missingExpedition = {
     assistants = 'b640aa',
-    idols = '2e956e',
-    sites1 = '408800',
-    sites2 = '10d945',
-    guardians = '6fbe77'
+    idols      = '2e956e',
+    sites1     = '408800',
+    sites2     = '10d945',
+    guardians  = '6fbe77'
+  },
+  -- TODO
+  twistedPaths = {
+    assistants = '',
+    idols      = '',
+    sites1     = '',
+    sites2     = '',
+    guardians  = ''
   }
 }
 
@@ -965,7 +973,7 @@ function onLoad(saveState)
   Wait.time(function() doneLoading = true end, 0.5)
 end
 
----------------------- START MENU UI
+-- MARK: START MENU UI
 
 function uiOff()
   UI.setAttribute('optionsMenuTop', 'active', 'false')
@@ -1019,7 +1027,7 @@ function checkToggle(id, var)
   return value
 end
 
----------------------- SETUP
+-- MARK: SETUP
 
 function setupGame()
   setupInProgress = true
@@ -1081,7 +1089,7 @@ function checkDoneSpawning()
 end
 
 function getOptionsFromUI()
-  local expansions = { 'expeditionLeaders', 'missingExpedition', 'promos' }
+  local expansions = { 'expeditionLeaders', 'missingExpedition', "twistedPaths", 'promos' }
   for _, expansion in ipairs(expansions) do
     checkToggle(expansion, options.expansions)
   end
@@ -1141,6 +1149,8 @@ function optionOverride()
     broadcastToAll('Not enough real leaders available, enabling Expedition Leaders.')
     options.expansions.expeditionLeaders = true
   end
+
+  -- TODO: Twisted Paths handling
 end
 
 function detectSeatedPlayers()
@@ -1338,8 +1348,8 @@ function setupArtifactsItemsFear()
   -- get positions from zones
   local deckPos = {
     Artifact = getObjectFromGUID(deckZones.artifacts).getPosition(),
-    Item = getObjectFromGUID(deckZones.items).getPosition(),
-    Fear = getObjectFromGUID(deckZones.fear).getPosition()
+    Item     = getObjectFromGUID(deckZones.items).getPosition(),
+    Fear     = getObjectFromGUID(deckZones.fear).getPosition()
   }
 
   for _, cardType in ipairs({ "Artifact", "Item" }) do
@@ -1446,12 +1456,10 @@ function setupPlayerAreas()
       end
       getPlayerBoard(playerColor).destruct()
       soloBag.takeObject({
-        guid = solo.board,
-        position = solo.boardPosition,
-        rotation = faceup,
-        callback_function = function(x)
-          x.setLock(true)
-        end
+        guid              = solo.board,
+        position          = solo.boardPosition,
+        rotation          = faceup,
+        callback_function = function(x) x.setLock(true) end
       })
     else
       -- If not the solo player board
@@ -1633,6 +1641,10 @@ function setupMiscThings()
     totalAssistantCount = totalAssistantCount + 4
   end
 
+  if options.expansions.twistedPaths then
+    totalAssistantCount = totalAssistantCount + 8
+  end
+
   -- snake temple has one assistant per player in a special spot
   if options.researchTrack == 2 then
     totalAssistantCount = totalAssistantCount - #seatedPlayers
@@ -1703,12 +1715,12 @@ function setupButtonsMisc()
   local buttonZone = getObjectFromGUID(deckZones.fear)
   params = {
     function_owner = self,
-    label = 'Take',
+    label          = 'Take',
     click_function = 'takeFearButton',
-    position = { 0, 0, -2.9 },
-    width = 800,
-    height = 380,
-    font_size = 200
+    position       = { 0, 0, -2.9 },
+    width          = 800,
+    height         = 380,
+    font_size      = 200
   }
   buttonZone.createButton(params)
 
@@ -2242,11 +2254,12 @@ function menuStart(_, value, _)
   local menuChoice = tonumber(value)
   if menuChoice == 1 then
     -- If the player chose campaign set a variety of options then show the manual leader choosing UI
-    options.campaign = true
-    options.leaders = 'choose'
-    options.solo = true
+    options.campaign                     = true
+    options.leaders                      = 'choose'
+    options.solo                         = true
     options.expansions.expeditionLeaders = true
     options.expansions.missingExpedition = true
+    options.expansions.twistedPaths      = true
     UI.setAttribute('continueMenu', 'active', 'true')
     UI.setAttribute('continueMenuButtons', 'active', 'true')
   elseif menuChoice == 2 and checkToggle('leaders2') then
@@ -2364,7 +2377,7 @@ function drawLines()
   Global.setVectorLines(vectorLines)
 end
 
----------------------- BUTTONS
+-- MARK: BUTTONS
 --Create buttons primarily used for standard play
 function setupButtons()
   local params = {
@@ -2951,7 +2964,7 @@ function setupButtonRivalTurn()
   end
 end
 
----------------------- ROUNDS
+-- MARK: ROUNDS
 
 function guardianFearCoroutine()
   local warmask = nil
@@ -3420,7 +3433,7 @@ function nextRoundButton(obj, clickColor, alt)
   end
 end
 
----------------------- SCORING
+-- MARK: SCORING
 
 function calculateScoresButton(buttonZone, clickColor, alt)
   if not doneLoading or not isSeated(clickColor) and clickColor ~= 'Black' then return end
@@ -3769,7 +3782,7 @@ function toggleScoreboardButton(obj, clickColor, alt)
   end
 end
 
----------------------- EVENTS
+-- MARK: EVENTS
 
 function onPlayerChangeColor(playerColor)
   if playerColor == 'Grey' then return end
@@ -3841,7 +3854,7 @@ function filterObjectEnterContainer(container, object)
   return true
 end
 
----------------------- CONTEXT MENU
+-- MARK: CONTEXT MENU
 
 function addExileMenu(object)
   if object.type == 'Tile' and object.getName() == 'Fear' or object.type == 'Card' and (#object.getTags() == 0 or object.hasTag('artifact') or object.hasTag('item')) then
@@ -3965,7 +3978,7 @@ function trash(playerColor, object)
   end
 end
 
----------------------- SOLO RIVAL
+-- MARK: SOLO RIVAL
 
 function rivalBuy(action, buyHighestPoints)
   local startIndex = 1
@@ -4531,7 +4544,7 @@ function rivalTurnButton(buttonZone, clickColor, alt)
   if button.label == buttonLabelsRival.ready then startLuaCoroutine(Global, 'rivalTurnCoroutine') end
 end
 
----------------------- UTIL
+-- MARK: UTIL
 
 function getDeckZoneGuid(playerColor)
   local vars = playerVars[playerColor]
