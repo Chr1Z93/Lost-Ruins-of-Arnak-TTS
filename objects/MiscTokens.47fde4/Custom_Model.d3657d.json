@@ -48,6 +48,7 @@
   "Nickname": "",
   "Snap": true,
   "Sticky": true,
+  "Tags": ["Wheel"],
   "Tooltip": true,
   "Transform": {
     "posX": 49.833,

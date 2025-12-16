@@ -1,3 +1,16 @@
+local POSITION_OFFSET = {
+  north = Vector(0, 0.18, 3.9),
+  east  = Vector(3.9, 0.18, 0),
+  south = Vector(0, 0.18, -3.9),
+  west  = Vector(-3.9, 0.18, 0)
+}
+local ROTATION = {
+  north = Vector(0, 180, 0),
+  east  = Vector(0, 270, 0),
+  south = Vector(0, 0, 0),
+  west  = Vector(0, 90, 0)
+}
+
 local buttonParameters = {
   function_owner = self,
   rotation       = { 0, 180, 0 },
@@ -6,8 +19,13 @@ local buttonParameters = {
 }
 
 function onLoad()
-  buttonParameters.label = "N"
-  buttonParameters.position = { 0, 1, -2.50 }
+  _G["attachNorth"]               = function() attachToWheel("north") end
+  _G["attachEast"]                = function() attachToWheel("east") end
+  _G["attachSouth"]               = function() attachToWheel("south") end
+  _G["attachWest"]                = function() attachToWheel("west") end
+
+  buttonParameters.label          = "N"
+  buttonParameters.position       = { 0, 1, -2.50 }
   buttonParameters.click_function = "attachNorth"
   self.createButton(buttonParameters)
 
@@ -27,77 +45,22 @@ function onLoad()
   self.createButton(buttonParameters)
 end
 
-function attachNorth()
-  local wheel = getObjectFromGUID('d3657d')
+function attachToWheel(dir)
+  local wheel = getObjectByTag("Wheel")
   if wheel ~= nil then
-    local wheelPos = wheel.getPosition()
-    local northPos = { wheelPos[1], wheelPos[2] + 0.18, wheelPos[3] + 3.9 }
-    local northRot = { 0, 180, 0 }
     if self.getQuantity() > 0 then
       self.takeObject({
-        position          = northPos,
-        rotation          = northRot,
+        position          = wheel.getPosition() + POSITION_OFFSET[dir],
+        rotation          = ROTATION[dir],
         smooth            = true,
-        callback_function = attachSelf
+        callback_function = function(o) wheel.addAttachment(o) end
       })
     end
   end
 end
 
-function attachEast()
-  local wheel = getObjectFromGUID('d3657d')
-  if wheel ~= nil then
-    local wheelPos = wheel.getPosition()
-    local eastPos = { wheelPos[1] + 3.93, wheelPos[2] + 0.18, wheelPos[3] }
-    local eastRot = { 0, 270, 0 }
-    if self.getQuantity() > 0 then
-      self.takeObject({
-        position          = eastPos,
-        rotation          = eastRot,
-        smooth            = true,
-        callback_function = attachSelf
-      })
-    end
-  end
-end
-
-function attachSouth()
-  local wheel = getObjectFromGUID('d3657d')
-  if wheel ~= nil then
-    local wheelPos = wheel.getPosition()
-    local southPos = { wheelPos[1], wheelPos[2] + 0.18, wheelPos[3] - 3.9 }
-    local southRot = { 0, 0, 0 }
-    if self.getQuantity() > 0 then
-      self.takeObject({
-        position          = southPos,
-        rotation          = southRot,
-        smooth            = true,
-        callback_function = attachSelf
-      })
-    end
-  end
-end
-
-function attachWest()
-  local wheel = getObjectFromGUID('d3657d')
-  if wheel ~= nil then
-    local wheelPos = wheel.getPosition()
-    local westPos = { wheelPos[1] - 3.91, wheelPos[2] + 0.18, wheelPos[3] }
-    local westRot = { 0, 90, 0 }
-    if self.getQuantity() > 0 then
-      self.takeObject({
-        position          = westPos,
-        rotation          = westRot,
-        smooth            = true,
-        callback_function = attachSelf
-      })
-    end
-  end
-end
-
-function attachSelf(x)
-  local wheel = getObjectFromGUID('d3657d')
-  if wheel ~= nil and x ~= nil then
-    wheel.addAttachment(x)
+function getObjectByTag(tag)
+  for _, o in ipairs(getObjectsWithTag(tag)) do
+    return o
   end
 end
