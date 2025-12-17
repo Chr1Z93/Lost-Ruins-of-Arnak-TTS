@@ -3172,9 +3172,9 @@ end
 function drawLines()
   local vectorLines = {}
   for _, playerColor in ipairs(seatedPlayerColors) do
-    local zone = getObjectFromGUID(playerVars[playerColor].playAreaZoneGuid)
-    local pos = zone.getPosition()
-    local scale = zone.getScale()
+    local zone       = getObjectFromGUID(playerVars[playerColor].playAreaZoneGuid)
+    local pos        = zone.getPosition()
+    local scale      = zone.getScale()
     local vectorLine = { points = {}, color = playerColor, thickness = 0.2, rotation = { 0, 0, 0 } }
     table.insert(vectorLine.points, { pos.x - scale.x / 2, 1.5, pos.z + scale.z / 2 })
     table.insert(vectorLine.points, { pos.x + scale.x / 2, 1.5, pos.z + scale.z / 2 })
@@ -3191,12 +3191,12 @@ end
 function setupButtons()
   local params = {
     function_owner = self,
-    label = 'Setup Round ' .. round + 1,
+    label          = 'Setup Round ' .. round + 1,
     click_function = 'nextRoundButton',
-    position = { 8.23, 0, -3 },
-    width = 2400,
-    height = 500,
-    font_size = 250
+    position       = { 8.23, 0, -3 },
+    width          = 2400,
+    height         = 500,
+    font_size      = 250
   }
   if round == 5 then
     params.label = 'Calculate Scores'
@@ -3210,11 +3210,11 @@ function setupButtons()
   -- buy card row
   params = {
     function_owner = self,
-    label = 'Take / Buy',
-    position = { 0, 0, -2.5 },
-    width = 1000,
-    height = 350,
-    font_size = 190
+    label          = 'Take / Buy',
+    position       = { 0, 0, -2.5 },
+    width          = 1000,
+    height         = 350,
+    font_size      = 190
   }
 
   for i, guid in ipairs(cardRowZoneGuids) do
@@ -3226,10 +3226,10 @@ function setupButtons()
   -- place pawns
   params = {
     function_owner = self,
-    label = '+',
-    width = 600,
-    height = 600,
-    font_size = 500
+    label          = '+',
+    width          = 600,
+    height         = 600,
+    font_size      = 500
   }
   for i, level in ipairs(siteLevels) do
     for j, siteInfo in ipairs(level) do
@@ -3255,9 +3255,9 @@ function setupButtons()
   -- discover sites button creation
   params = {
     function_owner = self,
-    width = 1200,
-    height = 280,
-    font_size = 150
+    width          = 1200,
+    height         = 280,
+    font_size      = 150
   }
   for i = 1, 3 do
     for _, siteInfo in ipairs(siteLevels[i]) do
