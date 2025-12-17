@@ -2,12 +2,12 @@
 -- originally scripted by jkk - https://steamcommunity.com/id/creamymello/myworkshopfiles/
 -- updated by Chr1Z and covertskippy55 for the missing expedition
 
-testVars = {
-  defineSeated = false,
+testVars             = {
+  defineSeated  = true,
   seatedPlayers = { 'Blue', 'Green', 'Yellow', 'Red' }
 }
 
-playerVars = {
+playerVars           = {
   Red = {
     allZoneGuid = 'b32bc6',
     playAreaZoneGuid = '472eb8',
@@ -206,7 +206,7 @@ playerVars = {
 }
 
 -- data for idols slots: points and local position
-idolSlotData = {
+idolSlotData         = {
   -- captain
   {
     { points = 1, localPos = Vector(-0.149, 0, -0.672) },
@@ -273,24 +273,9 @@ idolSlotData = {
     { points = 4, localPos = Vector(-2.478, 0, -0.634) }
   }
 }
-seatedPlayerColors = {}
-startPlayerIndex = 0
-hexColors = {
-  White  = '[ffffff]',
-  Brown  = '[713b17]',
-  Red    = '[da1a18]',
-  Orange = '[f4641d]',
-  Yellow = '[e7e52c]',
-  Green  = '[31b32b]',
-  Teal   = '[21b19b]',
-  Blue   = '[1e87ff]',
-  Purple = '[a020f0]',
-  Pink   = '[f570ce]',
-  Black  = '[404040]',
-  Grey   = '[808080]'
-}
-
-starterDeck = {
+seatedPlayerColors   = {}
+startPlayerIndex     = 0
+starterDeck          = {
   Yellow     = { "0001", "0002", "0003", "0004" },
   Green      = { "0005", "0006", "0007", "0008" },
   Blue       = { "0009", "0010", "0011", "0012" },
@@ -304,7 +289,7 @@ starterDeck = {
   Mechanic   = { "2001", "2002", "2003", "2004" },
   Journalist = { "2005", "2006", "2007", "2008" }
 }
-options = {
+options              = {
   solo          = false,
   objectives    = 3,
   playerBoards  = {},
@@ -320,7 +305,7 @@ options = {
     promos            = true
   }
 }
-bags = {
+bags                 = {
   resources = {
     t = '831df9',
     a = '84369b',
@@ -338,7 +323,7 @@ bags = {
   soloTempleTiles = 'c13fff',
   campaignItems = '5c483d'
 }
-deckZones = {
+deckZones            = {
   artifacts = 'c19201',
   items = 'cd21a5',
   fear = '1fcdb3',
@@ -351,10 +336,10 @@ deckZones = {
   bonus4 = "bonus4",
   bonus5 = "bonus5"
 }
-assistantDeckGuid = '538a5c'
-idolDeckGuid = 'ab4a80'
+assistantDeckGuid    = '538a5c'
+idolDeckGuid         = 'ab4a80'
 
-expansionDecks = {
+expansionDecks       = {
   expeditionLeaders = {
     assistants = 'cf87b7',
     idols      = '9988c4',
@@ -379,7 +364,7 @@ expansionDecks = {
   }
 }
 
-playerDecks = {
+playerDecks          = {
   base = {
     Red = 'cbf743',
     Blue = 'aaed1a',
@@ -388,7 +373,7 @@ playerDecks = {
   },
   leaders = { '1e21bd', '99385f', 'd0d33f', 'a42e51', '64471d', '2c1dc4', '5c5fc9', '302d5d' }
 }
-tokens = {
+tokens               = {
   falcon                    = '9ef0a8',
   suitcase                  = 'f78694',
   food                      = { '4c7454', '7ae3bf', 'a4129d' },
@@ -400,25 +385,25 @@ tokens = {
   MechanicGoldTokens        = '428f5c',
   MechanicGoldTokenAttacher = '3cc576'
 }
-cards = {
+cards                = {
   baroness = '49e35e'
 }
 suitcaseResourceBags = {
   t = 'da4493',
   s = '4ecc7c'
 }
-falconRotations = { { 0, 225, 0 }, { 0, 190, 0 }, { 0, 148, 0 }, { 0, 115, 0 }, { 0, 90, 0 } }
-assistantPositions = { { 9.15, 1.63, -30.73 }, { 13.83, 1.63, -30.73 }, { 18.52, 1.63, -30.73 } }
-assistantZones = { 'a432ac', 'a44647', '3ffbd7' }
+falconRotations      = { { 0, 225, 0 }, { 0, 190, 0 }, { 0, 148, 0 }, { 0, 115, 0 }, { 0, 90, 0 } }
+assistantPositions   = { { 9.15, 1.63, -30.73 }, { 13.83, 1.63, -30.73 }, { 18.52, 1.63, -30.73 } }
+assistantZones       = { 'a432ac', 'a44647', '3ffbd7' }
 
-cardRowZoneGuids = { '8ae6f2', '6103ae', 'cea4b5', '99cfc2', '8a1a02', 'dbf266' }
-staffPositions = { { -14.61, 1.63, 20.23 }, { -7.37, 1.63, 20.23 }, { -0.03, 1.63, 20.23 }, { 7.23, 1.63, 20.23 }, { 14.51, 1.63, 20.23 } }
-exileZoneGuids = {
+cardRowZoneGuids     = { '8ae6f2', '6103ae', 'cea4b5', '99cfc2', '8a1a02', 'dbf266' }
+staffPositions       = { { -14.61, 1.63, 20.23 }, { -7.37, 1.63, 20.23 }, { -0.03, 1.63, 20.23 }, { 7.23, 1.63, 20.23 }, { 14.51, 1.63, 20.23 } }
+exileZoneGuids       = {
   artifacts = '19f28c',
-  items = 'ec5c7a',
-  other = 'bcb533'
+  items     = 'ec5c7a',
+  other     = 'bcb533'
 }
-siteLevels = {
+siteLevels           = {
   {
     { guid = '102294', pawnSpaces = { 'd8ae82' } },
     { guid = '836103', pawnSpaces = { '7b9a3a' } },
@@ -446,10 +431,10 @@ siteLevels = {
   }
 }
 
-templeTileZoneGuids = { 'fc3aea', '6b0f38', 'aa7dfd', 'e573c3', 'bb0b10', '599983' }
+templeTileZoneGuids  = { 'fc3aea', '6b0f38', 'aa7dfd', 'e573c3', 'bb0b10', '599983' }
 templeSpaceZoneGuids = { '9c9b90', 'efc726', '024b25', '13d709' }
-researchZoneGuid = '5de995'
-researchTracks = {
+researchZoneGuid     = '5de995'
+researchTracks       = {
   {
     bonusPositions = {
       { { 9.08, 1.68, -18.72 },  { 13.77, 1.68, -18.73 }, { 9.11, 1.68, -9.83 }, { 13.22, 1.68, -9.84 }, { 17.23, 1.68, -9.84 }, { 9.34, 1.68, -1.65 }, { 14.05, 1.68, -1.65 } },
@@ -854,7 +839,7 @@ researchTracks = {
   }
 }
 
-solo = {
+solo                 = {
   board = 'a30382',
   boardPosition = { -43.26, 1.53, 18.96 },
   objectives = 'd8547e',
@@ -863,17 +848,17 @@ solo = {
     deck = '7196a9',
     discard = '0ecbe9',
     idol = {
-      c = '184e31',
-      p = 'de4ec0',
-      s = '7fa25b',
-      fa = '6892c0',
-      ftt = '1caf8d',
-      g = '6892c0',
-      d = '53c99c',
-      t = '500131',
-      r = 'af87d7',
-      e = '69ed89',
-      u = 'fdf87e',
+      c    = '184e31',
+      p    = 'de4ec0',
+      s    = '7fa25b',
+      fa   = '6892c0',
+      ftt  = '1caf8d',
+      g    = '6892c0',
+      d    = '53c99c',
+      t    = '500131',
+      r    = 'af87d7',
+      e    = '69ed89',
+      u    = 'fdf87e',
       dupe = '91df7a'
     },
     delete = '0a61ed',
@@ -894,43 +879,47 @@ solo = {
   deckPositions = { { -52.57, 1.65, 17.70 }, { -48.58, 1.60, 17.70 } },
   setupPositions = { { -52.57, 1.53, 42.48 }, { -48.58, 1.53, 42.48 } },
   acquiredStuffPositions = {
-    idolA = { -34.85, 1.50, 10.15 },
-    researchBonus = { -32.16, 2.28, 10.15 },
-    templeTile = { { -45.60, 1.93, 11 }, { -42, 1.93, 11 }, { -38.40, 1.93, 11 }, { -45.60, 1.93, 9.30 }, { -42, 1.93, 9.30 }, { -38.40, 1.93, 9.30 } },
+    idolA            = { -34.85, 1.50, 10.15 },
+    researchBonus    = { -32.16, 2.28, 10.15 },
+    templeTile       = { { -45.60, 1.93, 11 }, { -42, 1.93, 11 }, { -38.40, 1.93, 11 }, { -45.60, 1.93, 9.30 }, { -42, 1.93, 9.30 }, { -38.40, 1.93, 9.30 } },
     templeTileSilver = { -49.90, 1.93, 10.15 },
-    templeTileGold = { -54.10, 1.93, 10.15 },
-    guardian = { -42.25, 2.1, 17.71 },
-    buy = { -35.12, 2.1, 18.95 },
-    assistant = { -26.50, 2, 10.15 }
+    templeTileGold   = { -54.10, 1.93, 10.15 },
+    guardian         = { -42.25, 2.1, 17.71 },
+    buy              = { -35.12, 2.1, 18.95 },
+    assistant        = { -26.50, 2, 10.15 }
   }
 }
-soloStatus = {
-  firstTurn = true,
+soloStatus           = {
+  firstTurn           = true,
   fulfilledObjectives = {},
-  pawnsOut = 0,
-  magnifying = { row = 0, path = 0 },
-  notebook = { row = 0, path = 0 }
+  pawnsOut            = 0,
+  magnifying          = { row = 0, path = 0 },
+  notebook            = { row = 0, path = 0 }
 }
 
-tableY = 1.50
-tileY = 1.60
-pawnY = 2.30
-faceup = { 0, 180, 0 }
-facedown = { 0, 180, 180 }
-buttonLabels = {
+function addColorToString(playerColor, str)
+  return "[" .. Color.fromString(playerColor):toHex() .. "]" .. (str or playerColor) .. "[-]"
+end
+
+tableY               = 1.5
+tileY                = 1.6
+pawnY                = 2.3
+faceup               = { 0, 180, 0 }
+facedown             = { 0, 180, 180 }
+buttonLabels         = {
   ready1  = 'Calculate Scores',
   ready2  = 'Recalculate Scores',
-  confirm = hexColors.Green .. 'Confirm[-]',
-  busy    = hexColors.Red .. 'Scoring[-]'
+  confirm = addColorToString("Green", "Confirm"),
+  busy    = addColorToString("Red", "Scoring")
 }
-buttonLabelsRival = { ready = 'Rival Turn', busy = hexColors.Red .. 'Busy[-]' }
+buttonLabelsRival    = { ready = 'Rival Turn', busy = addColorToString("Red", "Busy") }
 
-round = 0
-doneLoading = false
-setupInProgress = false
-movingRow = false
-discovering = false
-turn = nil -- tts bug: the player turn is not set correctly when loading/rewinding
+round                = 0
+doneLoading          = false
+setupInProgress      = false
+movingRow            = false
+discovering          = false
+turn                 = nil -- tts bug: the player turn is not set correctly when loading/rewinding
 
 function onSave()
   return JSON.encode({
@@ -1723,10 +1712,10 @@ end
 
 function setupGame()
   setupInProgress = true
-  AllCardsBag = getObjectFromGUID("4bfea4")
-  fearDeckZone = getObjectFromGUID(deckZones.fear)
-  decks = {}
-  boards = {}
+  AllCardsBag     = getObjectFromGUID("4bfea4")
+  fearDeckZone    = getObjectFromGUID(deckZones.fear)
+  decks           = {}
+  boards          = {}
   if options.campaign == true then
     detectSeatedPlayers()
     wait(0.1)
@@ -1868,12 +1857,11 @@ function detectSeatedPlayers()
         local stateId = playerBoard.getStateId()
         options.playerBoards[color] = stateId
         if stateId ~= 9 then
-          if not leaders[stateId] then
-            leaders[stateId] = true
-          else
+          if leaders[stateId] then
             broadcastToAll('Duplicate expedition leaders were chosen.')
             return
           end
+          leaders[stateId] = true
         end
       end
     end
@@ -2408,7 +2396,7 @@ function setupButtonsMisc()
   params = {
     function_owner = self,
     label          = 'Take',
-    click_function = 'takeFearButton',
+    click_function = 'getFearCard',
     position       = { 0, 0, -2.9 },
     width          = 800,
     height         = 380,
@@ -2597,6 +2585,7 @@ function setupCampaignMisc()
   for _, playerColor in ipairs(seatedPlayerColors) do
     if playerColor ~= 'Red' then
       if options.playerBoards[playerColor] == 3 then
+        -- Special handling for the Baroness
         decks[playerColor].takeObject({ guid = cards.baroness }).deal(1, playerColor)
         decks[playerColor].deal(4, playerColor)
       else
@@ -2644,9 +2633,9 @@ function setupCampaignMisc()
   -- Set turn to randomized player and begin game!
   broadcastToAll('Campaign Starts!')
   Turns.turn_color = firstPlayerColor
-  Turns.enable = true
-  setupInProgress = false
-  round = 1
+  Turns.enable     = true
+  setupInProgress  = false
+  round            = 1
 end
 
 function setupStartingResources()
@@ -2703,7 +2692,7 @@ function setupStartingResources()
         elseif playerBoardState == 2 then -- Setup for the falcon
           cardList = starterDeck["Falconer"]
           tokenBag.takeObject({
-            guid = tokens.falcon,
+            guid     = tokens.falcon,
             position = vars.falconPositions[2],
             rotation = falconRotations[2]
           })
@@ -2713,7 +2702,7 @@ function setupStartingResources()
           cardList = starterDeck["Professor"]
           local profStuff = {}
           local suitcase = tokenBag.takeObject({
-            guid = tokens.suitcase,
+            guid     = tokens.suitcase,
             position = vars.suitcasePosition,
             rotation = faceup
           })
@@ -2721,7 +2710,7 @@ function setupStartingResources()
           for resource, guid in pairs(suitcaseResourceBags) do -- Place and setup the professor's Bag
             local toPos = getObjectFromGUID(vars.suitcaseResourceBagZones[resource]).getPosition()
             local resourceBag = tokenBag.takeObject({
-              guid = guid,
+              guid     = guid,
               position = { toPos[1], 1.63, toPos[3] },
               rotation = faceup
             })
@@ -2821,15 +2810,15 @@ function setupStartingResources()
               local offsets = nil
               if playerColor == "Blue" or playerColor == "Green" then
                 offsets = {
-                  Vector(13.5, 0.2, 7.2),
+                  Vector(13.50, 0.2, 7.2),
                   Vector(16.25, 0.2, 7.2),
-                  Vector(19, 0.2, 7.2)
+                  Vector(19.00, 0.2, 7.2)
                 }
               elseif playerColor == "Red" or playerColor == "Yellow" then
                 offsets = {
-                  Vector(-13.5, 0.2, 7.2),
+                  Vector(-13.50, 0.2, 7.2),
                   Vector(-16.25, 0.2, 7.2),
-                  Vector(-19, 0.2, 7.2)
+                  Vector(-19.00, 0.2, 7.2)
                 }
               end
 
@@ -3186,13 +3175,12 @@ function takeResourceButton(resource, clickColor, alt)
   end
 end
 
-function takeFearButton(zone, clickColor)
-  if not doneLoading or not isSeated(clickColor) then return end
-  local card = drawCard(zone)
-  if card == nil then card = getObjectFromGUID(bags.fear).takeObject() end
-  local toPos = getObjectFromGUID(playerVars[clickColor].playAreaZoneGuid).getPosition()
+function getFearCard(zone, playerColor)
+  if not doneLoading or not isSeated(playerColor) then return end
+  local card    = drawCard(zone) or getObjectFromGUID(bags.fear).takeObject()
+  local toPos   = getObjectFromGUID(playerVars[playerColor].playAreaZoneGuid).getPosition()
   local xOffset = 16.5
-  if clickColor == 'Red' or clickColor == 'Yellow' then xOffset = 0 - xOffset end
+  if playerColor == 'Red' or playerColor == 'Yellow' then xOffset = 0 - xOffset end
   card.setPositionSmooth({ toPos[1] + xOffset, tableY + 0.5, toPos[3] }, false, true)
 end
 
@@ -3524,7 +3512,7 @@ function deliverRewards(playerColor, obj)
       -- exception for miners helmet
       if not hasMinersHelmetActive(playerColor) then
         broadcastToAll(getPlayerName(playerColor) .. ' gets a fear card.')
-        takeFearButton(getObjectFromGUID(deckZones.fear), playerColor)
+        getFearCard(getObjectFromGUID(deckZones.fear), playerColor)
         wait(0.3)
       else
         broadcastToAll(getPlayerName(playerColor) .. " does not get a fear card due to an active Miner's Helmet.")
@@ -3669,7 +3657,6 @@ function guardianFearCoroutine()
           break
         end
       end
-      if warmask ~= nil then break end
     end
   end
 
@@ -3686,7 +3673,10 @@ function guardianFearCoroutine()
       if #playerColors > 0 then
         local hasGuardian = false
         for _, object in ipairs(getObjectFromGUID(siteInfo.guid).getObjects()) do
-          if object.hasTag('guardian') then hasGuardian = true end
+          if object.hasTag('guardian') then
+            hasGuardian = true
+            break
+          end
           if object.type == 'Deck' then
             for _, card in ipairs(object.getObjects()) do
               if #card.tags > 0 and card.tags[1] == 'guardian' then
@@ -3700,7 +3690,7 @@ function guardianFearCoroutine()
         if hasGuardian then
           for _, playerColor in ipairs(playerColors) do
             broadcastToAll(getPlayerName(playerColor) .. ' gets Fear.')
-            takeFearButton(getObjectFromGUID(deckZones.fear), playerColor)
+            getFearCard(getObjectFromGUID(deckZones.fear), playerColor)
             wait(0.5)
           end
         end
@@ -3726,7 +3716,7 @@ function guardianFearCoroutine()
               local posZ = token.getPosition()[3]
               if posZ < researchTracks[4].rows[4].z and posZ > researchTracks[4].rows[5].z then
                 broadcastToAll(getPlayerName(playerColor) .. ' gets Fear from the temple guardian.')
-                takeFearButton(getObjectFromGUID(deckZones.fear), playerColor)
+                getFearCard(getObjectFromGUID(deckZones.fear), playerColor)
                 wait(0.5)
               end
             end
@@ -5290,9 +5280,10 @@ function drawCard(zone, rotation, position, checkOnly)
 end
 
 function getPlayerName(playerColor, excludeHexColor)
-  local name = Player[playerColor].steam_name
-  if name == nil then name = playerColor end
-  if not excludeHexColor and hexColors[playerColor] ~= nil then name = hexColors[playerColor] .. name .. '[-]' end
+  local name = Player[playerColor].steam_name or playerColor
+  if not excludeHexColor then
+    return addColorToString(playerColor, name)
+  end
   return name
 end
 
