@@ -3761,13 +3761,13 @@ function setupButtonRivalTurn()
   if buttonZone.getButtons() == nil or #buttonZone.getButtons() == 0 then
     local params = {
       function_owner = self,
-      label = buttonLabelsRival.ready,
+      label          = buttonLabelsRival.ready,
       click_function = 'rivalTurnButton',
-      scale = { 2 / scale[1], 1 / scale[2], 2 / scale[3] },
-      position = { 15.5 / scale[1], -0.44, 3.65 / scale[3] },
-      width = 1800,
-      height = 500,
-      font_size = 250
+      scale          = { 2 / scale[1], 1 / scale[2], 2 / scale[3] },
+      position       = { 15.5 / scale[1], -0.44, 3.65 / scale[3] },
+      width          = 1800,
+      height         = 500,
+      font_size      = 250
     }
     buttonZone.createButton(params)
   else
@@ -5454,4 +5454,17 @@ function temp() end
 function wait(t)
   local now = Time.time
   repeat coroutine.yield(0) until Time.time > now + t
+end
+
+function moveObjects()
+  for _, o in ipairs(getObjects()) do
+    local pos = o.getPosition()
+    if pos.z < 33 and pos.z > -41 and (o.interactable or o.type == "Scripting" or o.type == "Hand") then
+      if pos.x > 23 then
+        o.setPosition(pos + Vector(8, 0, 0))
+      elseif pos.x < -23 then
+        o.setPosition(pos - Vector(8, 0, 0))
+      end
+    end
+  end
 end

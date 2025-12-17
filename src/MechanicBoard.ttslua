@@ -6,7 +6,7 @@ local ROT_OFFSET = {
 function onLoad()
   self.createButton({
     label          = "↻",
-    click_function = function() rotate("cw") end,
+    click_function = "rotateCW",
     function_owner = self,
     tooltip        = "Rotate the wheel clockwise.",
     position       = { 2.67, 0.35, 0.08 },
@@ -18,7 +18,7 @@ function onLoad()
 
   self.createButton({
     label          = "Undo",
-    click_function = function() rotate("ccw") end,
+    click_function = "rotateCCW",
     function_owner = self,
     tooltip        = "Rotate the wheel counter-clockwise.",
     position       = { 2.67, 0.35, -0.03 },
@@ -28,6 +28,10 @@ function onLoad()
     height         = 450
   })
 end
+
+function rotateCW() rotate("cw") end
+
+function rotateCCW() rotate("ccw") end
 
 function rotate(dir)
   if WAIT then return end
