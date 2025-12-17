@@ -901,25 +901,25 @@ function addColorToString(playerColor, str)
   return "[" .. Color.fromString(playerColor):toHex() .. "]" .. (str or playerColor) .. "[-]"
 end
 
-tableY               = 1.5
-tileY                = 1.6
-pawnY                = 2.3
-faceup               = { 0, 180, 0 }
-facedown             = { 0, 180, 180 }
-buttonLabels         = {
+tableY            = 1.5
+tileY             = 1.6
+pawnY             = 2.3
+faceup            = { 0, 180, 0 }
+facedown          = { 0, 180, 180 }
+buttonLabels      = {
   ready1  = 'Calculate Scores',
   ready2  = 'Recalculate Scores',
   confirm = addColorToString("Green", "Confirm"),
   busy    = addColorToString("Red", "Scoring")
 }
-buttonLabelsRival    = { ready = 'Rival Turn', busy = addColorToString("Red", "Busy") }
+buttonLabelsRival = { ready = 'Rival Turn', busy = addColorToString("Red", "Busy") }
 
-round                = 0
-doneLoading          = false
-setupInProgress      = false
-movingRow            = false
-discovering          = false
-turn                 = nil -- tts bug: the player turn is not set correctly when loading/rewinding
+round             = 0
+doneLoading       = false
+setupInProgress   = false
+movingRow         = false
+discovering       = false
+turn              = nil -- tts bug: the player turn is not set correctly when loading/rewinding
 
 function onSave()
   return JSON.encode({
@@ -1120,7 +1120,7 @@ function createGlobalXml()
   local leftOptions = {
     {
       title   = "Board",
-      height  = "150",
+      height  = "180",
       toggles = {
         { id = "board1", text = "Bird Temple" },
         { id = "board2", text = "Snake Temple" },
@@ -1131,7 +1131,7 @@ function createGlobalXml()
     },
     {
       title = "Research Track",
-      height = "290",
+      height = "260",
       toggles = {
         { id = "research1", text = "Bird Temple" },
         { id = "research2", text = "Snake Temple" },
@@ -1139,8 +1139,6 @@ function createGlobalXml()
         { id = "research4", text = "Lizard Temple" },
         { id = "research5", text = "Tree Temple" },
         { id = "research6", text = "Waterfall Temple" },
-        { id = "research7", text = "Spider Temple" },
-        { id = "research8", text = "Owl Temple" },
         { id = "research9", text = "Randomize Temple", isOn = "True" }
       }
     },
@@ -1170,7 +1168,7 @@ function createGlobalXml()
         attributes = {
           fontStyle = "Bold",
           alignment = "MiddleLeft",
-          text = section.title
+          text      = section.title
         }
       }
     }
@@ -1701,10 +1699,10 @@ function uiSlider(_, value, id)
   end, 0.01)
 end
 
-function checkToggle(id, var)
+function checkToggle(id, tbl)
   local value = false
   if UI.getAttribute(id, 'isOn') == 'True' then value = true end
-  if var ~= nil then var[id] = value end
+  if tbl ~= nil then tbl[id] = value end
   return value
 end
 
@@ -1775,49 +1773,24 @@ function getOptionsFromUI()
     checkToggle(expansion, options.expansions)
   end
 
-  if checkToggle('leaders1') then
-    options.leaders = 'random'
-  elseif checkToggle('leaders2') then
-    options.leaders = 'choose'
+  for i = 1, 6 do
+    if checkToggle('board' .. i) then
+      options.board = i
+      break
+    end
   end
 
-  if checkToggle('board1') then
-    options.board = 1
-  elseif checkToggle('board2') then
-    options.board = 2
-  elseif checkToggle('board3') then
-    options.board = 3
-  elseif checkToggle('board4') then
-    options.board = 4
-  elseif checkToggle('board5') then
-    options.board = math.random(1, 2)
+  for i = 1, 6 do
+    if checkToggle('research' .. i) then
+      options.researchTrack = i
+      break
+    end
   end
 
-  if checkToggle('research1') then
-    options.researchTrack = 1
-  elseif checkToggle('research2') then
-    options.researchTrack = 2
-  elseif checkToggle('research3') then
-    options.researchTrack = 3
-  elseif checkToggle('research4') then
-    options.researchTrack = 4
-  elseif checkToggle('research5') then
-    options.researchTrack = 5
-  elseif checkToggle('research6') then
-    options.researchTrack = 6
-  elseif checkToggle('research7') then
-    options.researchTrack = 7
-  elseif checkToggle('research8') then
-    options.researchTrack = 8
-  elseif checkToggle('research9') then
-    options.researchTrack = math.random(1, 6)
-  end
-
-  if checkToggle('staff1') then
-    options.staff = 1
-  elseif checkToggle('staff2') then
-    options.staff = 2
-  end
+  options.board         = options.board or math.random(4)
+  options.researchTrack = options.researchTrack or math.random(6)
+  options.leaders       = checkToggle('leaders1') and 'random' or 'choose'
+  options.staff         = checkToggle('staff1') and 1 or 2
 end
 
 function optionOverride()
@@ -1831,7 +1804,16 @@ function optionOverride()
     options.expansions.expeditionLeaders = true
   end
 
-  -- TODO: Twisted Paths handling
+  -- Twisted Paths handling
+  if options.board == 3 then
+    broadcastToAll('The Spider Temple has been selected. Twisted Paths expansion will be used.')
+    options.researchTrack = 7
+    options.expansions.twistedPaths = true
+  elseif options.board == 4 then
+    broadcastToAll('The Owl Temple has been selected. Twisted Paths expansion will be used.')
+    options.researchTrack = 8
+    options.expansions.twistedPaths = true
+  end
 end
 
 function detectSeatedPlayers()
