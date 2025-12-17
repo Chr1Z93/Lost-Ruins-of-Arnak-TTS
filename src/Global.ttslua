@@ -836,6 +836,152 @@ researchTracks       = {
     templePoints = { 20, 18, 17, 16 },
     site1pos = { 10.34, 1.69, -10.75 },
     waterfallPositions = { { { 11.21, 1.69, -2.19 }, { 14.93, 1.69, -2.26 } }, { { 11.04, 1.69, -18.88 }, { 14.81, 1.69, -18.88 } } }
+  },
+  -- Spider Temple
+  {
+    bonusPositions = {
+      -- always place these
+      { { 11.38, 1.78, 2.44 },  { 16.67, 1.78, 2.43 },  { 11.85, 1.78, -4.45 }, { 14.20, 1.78, -4.47 }, { 12.03, 1.78, -16.93 }, { 14.33, 1.68, -16.98 } },
+      -- only place these for 3+ player
+      { { 9.60, 1.78, -4.47 },  { 9.75, 1.78, -16.95 } },
+      -- only place these for 4+ players
+      { { 16.45, 1.78, -4.47 }, { 16.55, 1.78, -16.95 } },
+      -- place one tile per player
+      { { 19.66, 1.78, 5.58 } }
+    },
+    -- z-position in the following table is for research token detection (scoring)
+    -- magnifying / notebook indicates the points for reaching that row
+    -- assistant indicates whether the rival will remove an assistant
+    rows = {
+      {
+        z        = 4.1,
+        bonusPos = { 19.66, 1.78, 5.58 }
+      },
+      {
+        z          = 1.1,
+        magnifying = 13,
+        notebook   = 18
+      },
+      {
+        z          = -2.25,
+        magnifying = 10,
+        notebook   = 14,
+        paths      = { { pos = { 11.38, 1.68, 2.44 }, forward = { 1 } }, { pos = { 16.67, 1.68, 2.43 }, forward = { 1 } } }
+      },
+      {
+        z          = -6.3,
+        magnifying = 8,
+        notebook   = 11,
+        paths      = { { pos = { 13.73, 1.73, -0.55 }, forward = { 1, 2 }, bonus = true } }
+
+      },
+      {
+        z          = -10.6,
+        magnifying = 5,
+        notebook   = 9,
+        paths      = { { pos = { 9.60, 1.68, -4.47 }, forward = { 1 } } }
+      },
+      {
+        z          = -14.8,
+        magnifying = 5,
+        notebook   = 7,
+        paths      = { { pos = { 10.34, 1.81, -10.75 }, forward = { 1 } } }
+      },
+      {
+        z          = -18.6,
+        magnifying = 3,
+        notebook   = 5,
+        paths      = { { pos = { 9.75, 1.68, -16.95 }, forward = { 1 }, bonus = true } }
+      },
+      {
+        z          = -22.1,
+        magnifying = 3,
+        notebook   = 3,
+        paths      = { { pos = { 12.73, 1.73, -20.41 }, forward = { 1 } } }
+      },
+      {
+        z          = -25.3,
+        magnifying = 1,
+        notebook   = 0,
+        paths      = { { pos = { 9.23, 1.73, -23.53 }, forward = { 1 } }, { pos = { 14.75, 1.73, -23.63 }, forward = { 1, 2 } } }
+      }
+    },
+    templePoints = { 20, 18, 17, 16 },
+    site1pos = { 10.34, 1.69, -10.75 },
+    waterfallPositions = { { { 11.21, 1.69, -2.19 }, { 14.93, 1.69, -2.26 } }, { { 11.04, 1.69, -18.88 }, { 14.81, 1.69, -18.88 } } }
+  },
+  -- Owl Temple
+  {
+    bonusPositions = {
+      -- always place these
+      { { 11.38, 1.78, 2.44 },  { 16.67, 1.78, 2.43 },  { 11.85, 1.78, -4.45 }, { 14.20, 1.78, -4.47 }, { 12.03, 1.78, -16.93 }, { 14.33, 1.68, -16.98 } },
+      -- only place these for 3+ player
+      { { 9.60, 1.78, -4.47 },  { 9.75, 1.78, -16.95 } },
+      -- only place these for 4+ players
+      { { 16.45, 1.78, -4.47 }, { 16.55, 1.78, -16.95 } },
+      -- place one tile per player
+      { { 19.66, 1.78, 5.58 } }
+    },
+    -- z-position in the following table is for research token detection (scoring)
+    -- magnifying / notebook indicates the points for reaching that row
+    -- assistant indicates whether the rival will remove an assistant
+    rows = {
+      {
+        z        = 4.1,
+        bonusPos = { 19.66, 1.78, 5.58 }
+      },
+      {
+        z          = 1.1,
+        magnifying = 13,
+        notebook   = 18
+      },
+      {
+        z          = -2.25,
+        magnifying = 10,
+        notebook   = 14,
+        paths      = { { pos = { 11.38, 1.68, 2.44 }, forward = { 1 } }, { pos = { 16.67, 1.68, 2.43 }, forward = { 1 } } }
+      },
+      {
+        z          = -6.3,
+        magnifying = 8,
+        notebook   = 11,
+        paths      = { { pos = { 13.73, 1.73, -0.55 }, forward = { 1, 2 }, bonus = true } }
+
+      },
+      {
+        z          = -10.6,
+        magnifying = 5,
+        notebook   = 9,
+        paths      = { { pos = { 9.60, 1.68, -4.47 }, forward = { 1 } } }
+      },
+      {
+        z          = -14.8,
+        magnifying = 5,
+        notebook   = 7,
+        paths      = { { pos = { 10.34, 1.81, -10.75 }, forward = { 1 } } }
+      },
+      {
+        z          = -18.6,
+        magnifying = 3,
+        notebook   = 5,
+        paths      = { { pos = { 9.75, 1.68, -16.95 }, forward = { 1 }, bonus = true } }
+      },
+      {
+        z          = -22.1,
+        magnifying = 3,
+        notebook   = 3,
+        paths      = { { pos = { 12.73, 1.73, -20.41 }, forward = { 1 } } }
+      },
+      {
+        z          = -25.3,
+        magnifying = 1,
+        notebook   = 0,
+        paths      = { { pos = { 9.23, 1.73, -23.53 }, forward = { 1 } }, { pos = { 14.75, 1.73, -23.63 }, forward = { 1, 2 } } }
+      }
+    },
+    templePoints = { 20, 18, 17, 16 },
+    site1pos = { 10.34, 1.69, -10.75 },
+    waterfallPositions = { { { 11.21, 1.69, -2.19 }, { 14.93, 1.69, -2.26 } }, { { 11.04, 1.69, -18.88 }, { 14.81, 1.69, -18.88 } } }
   }
 }
 
