@@ -11,25 +11,15 @@
     "r": 0.71324
   },
   "ContainedObjects_order": [
-    "CardCustom.736863",
     "CardCustom.8fd9db",
     "CardCustom.28dfe8"
   ],
-  "ContainedObjects_path": "GuardiansMissingExpedition.6fbe77",
+  "ContainedObjects_path": "GuardiansTwistedPaths.d8eb77",
   "CustomDeck": {
     "486": {
       "BackIsHidden": true,
       "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/2496761664831300390/C8D86F0A0306DF066C913A50DEA75A77F4B3354C/",
       "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/2501267173192017673/38F4A1944F6CA32004D784ABFA4EC026ACD6DF18/",
-      "NumHeight": 1,
-      "NumWidth": 1,
-      "Type": 0,
-      "UniqueBack": false
-    },
-    "487": {
-      "BackIsHidden": true,
-      "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/2496761664831300390/C8D86F0A0306DF066C913A50DEA75A77F4B3354C/",
-      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/2501267173192017465/3BD345BF3AE4165B74E6BD32533A36A29EE26CCE/",
       "NumHeight": 1,
       "NumWidth": 1,
       "Type": 0,
@@ -46,14 +36,13 @@
     }
   },
   "DeckIDs": [
-    48700,
     48800,
     48600
   ],
   "Description": "",
   "DragSelectable": true,
   "GMNotes": "",
-  "GUID": "6fbe77",
+  "GUID": "d8eb77",
   "Grid": true,
   "GridProjection": false,
   "Hands": false,
@@ -65,7 +54,7 @@
   "LuaScriptState": "",
   "MeasureMovement": false,
   "Name": "Deck",
-  "Nickname": "Guardians (Missing Expedition)",
+  "Nickname": "Guardians (Twisted Paths)",
   "SidewaysCard": false,
   "Snap": true,
   "Sticky": true,
@@ -74,8 +63,8 @@
   ],
   "Tooltip": true,
   "Transform": {
-    "posX": 26,
-    "posY": 1.517,
+    "posX": 33,
+    "posY": 1.512,
     "posZ": -46,
     "rotX": 0,
     "rotY": 180,

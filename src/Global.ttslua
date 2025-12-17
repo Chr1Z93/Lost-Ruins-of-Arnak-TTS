@@ -356,11 +356,11 @@ expansionDecks       = {
   },
   -- TODO
   twistedPaths = {
-    assistants = '',
-    idols      = '',
-    sites1     = '',
-    sites2     = '',
-    guardians  = ''
+    assistants = '629725',
+    idols      = 'b2f00e',
+    sites1     = 'eb952d',
+    sites2     = '632057',
+    guardians  = 'd8eb77'
   }
 }
 

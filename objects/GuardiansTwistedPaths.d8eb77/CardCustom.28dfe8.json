@@ -5,17 +5,17 @@
     "z": 0
   },
   "Autoraise": true,
-  "CardID": 2600,
+  "CardID": 48600,
   "ColorDiffuse": {
     "b": 0.71324,
     "g": 0.71324,
     "r": 0.71324
   },
   "CustomDeck": {
-    "26": {
+    "486": {
       "BackIsHidden": true,
-      "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/1862806463732172872/5034C020F5B15999C6B4E7648F1D5B659EAB30A7/",
-      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/2450601677147917335/3A69052FD8C9993783141E5D21C868A6008E1EFA/",
+      "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/2496761664831300390/C8D86F0A0306DF066C913A50DEA75A77F4B3354C/",
+      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/2501267173192017673/38F4A1944F6CA32004D784ABFA4EC026ACD6DF18/",
       "NumHeight": 1,
       "NumWidth": 1,
       "Type": 0,
@@ -24,11 +24,11 @@
   },
   "Description": "",
   "DragSelectable": true,
-  "GMNotes": "fj5",
-  "GUID": "10d945",
+  "GMNotes": "",
+  "GUID": "28dfe8",
   "Grid": true,
   "GridProjection": false,
-  "Hands": false,
+  "Hands": true,
   "HideWhenFaceDown": true,
   "IgnoreFoW": false,
   "LayoutGroupSortIndex": 0,
@@ -42,19 +42,19 @@
   "Snap": true,
   "Sticky": true,
   "Tags": [
-    "site2"
+    "guardian"
   ],
   "Tooltip": true,
   "Transform": {
-    "posX": 47,
-    "posY": 1.495,
-    "posZ": -46,
+    "posX": 50.763,
+    "posY": 2.306,
+    "posZ": -40.428,
     "rotX": 0,
     "rotY": 180,
-    "rotZ": 180,
-    "scaleX": 2.3,
+    "rotZ": 181,
+    "scaleX": 2,
     "scaleY": 1,
-    "scaleZ": 2.3
+    "scaleZ": 2
   },
   "Value": 0,
   "XmlUI": ""

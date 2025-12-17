@@ -11,35 +11,15 @@
     "r": 0.71324
   },
   "ContainedObjects_order": [
-    "CardCustom.95e021",
-    "CardCustom.653368",
     "CardCustom.1eee42",
     "CardCustom.9b43e6"
   ],
-  "ContainedObjects_path": "Level1SitesMissingExpedition.408800",
+  "ContainedObjects_path": "Level1SitesTwistedPaths.eb952d",
   "CustomDeck": {
     "22": {
       "BackIsHidden": true,
       "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/1862806463732172505/0F010A85A45CF2B263F8F88A03BC6E6B6C379E0F/",
       "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/62582467384956348/2B8EFF735B82F362F625FC1680D21E28752D0878/",
-      "NumHeight": 1,
-      "NumWidth": 1,
-      "Type": 0,
-      "UniqueBack": false
-    },
-    "23": {
-      "BackIsHidden": true,
-      "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/1862806463732172505/0F010A85A45CF2B263F8F88A03BC6E6B6C379E0F/",
-      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/62582467384956503/B21C185EF56497F0C4ECA800C2D7AC6A428A7D31/",
-      "NumHeight": 1,
-      "NumWidth": 1,
-      "Type": 0,
-      "UniqueBack": false
-    },
-    "24": {
-      "BackIsHidden": true,
-      "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/1862806463732172505/0F010A85A45CF2B263F8F88A03BC6E6B6C379E0F/",
-      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/62582467384956617/A1825523F05640656BD3CAC06AA5E3747C8C673B/",
       "NumHeight": 1,
       "NumWidth": 1,
       "Type": 0,
@@ -56,15 +36,13 @@
     }
   },
   "DeckIDs": [
-    2300,
-    2400,
     2200,
     2500
   ],
   "Description": "",
   "DragSelectable": true,
   "GMNotes": "",
-  "GUID": "408800",
+  "GUID": "eb952d",
   "Grid": true,
   "GridProjection": false,
   "Hands": false,
@@ -76,14 +54,14 @@
   "LuaScriptState": "",
   "MeasureMovement": false,
   "Name": "Deck",
-  "Nickname": "Level 1 Sites (Missing Expedition)",
+  "Nickname": "Level 1 Sites (Twisted Paths)",
   "SidewaysCard": false,
   "Snap": true,
   "Sticky": true,
   "Tooltip": true,
   "Transform": {
-    "posX": 6,
-    "posY": 1.522,
+    "posX": 12,
+    "posY": 1.512,
     "posZ": -46,
     "rotX": 0,
     "rotY": 180,

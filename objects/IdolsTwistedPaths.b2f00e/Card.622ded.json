@@ -5,32 +5,14 @@
     "z": 0
   },
   "Autoraise": true,
+  "CardID": 42106,
   "ColorDiffuse": {
     "b": 0.71324,
     "g": 0.71324,
     "r": 0.71324
   },
-  "ContainedObjects_order": [
-    "Card.cfd844",
-    "Card.97947a",
-    "Card.a8ad26",
-    "Card.94eddf",
-    "Card.0a80b4",
-    "Card.958e59",
-    "Card.c0fa5a",
-    "Card.d326e6",
-    "Card.3aaada",
-    "Card.f74e8e",
-    "Card.146a14",
-    "Card.b52d80",
-    "Card.6d644f",
-    "Card.45b986",
-    "Card.579b83",
-    "Card.31a249"
-  ],
-  "ContainedObjects_path": "Idols.ab4a80",
   "CustomDeck": {
-    "274": {
+    "54": {
       "BackIsHidden": true,
       "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/2450601762292603667/2EB5C4C210DE7B65E9797AAB2C52DFFB7ABDC13D/",
       "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/1862806807529131015/7441E9C03BBAF473630051D8B3F635D7012DE400/",
@@ -40,28 +22,10 @@
       "UniqueBack": false
     }
   },
-  "DeckIDs": [
-    27402,
-    27400,
-    27403,
-    27400,
-    27403,
-    27405,
-    27401,
-    27401,
-    27402,
-    27404,
-    27400,
-    27401,
-    27404,
-    27403,
-    27402,
-    27405
-  ],
   "Description": "",
   "DragSelectable": true,
-  "GMNotes": "",
-  "GUID": "ab4a80",
+  "GMNotes": "fa",
+  "GUID": "622ded",
   "Grid": true,
   "GridProjection": false,
   "Hands": false,
@@ -72,22 +36,22 @@
   "LuaScript": "",
   "LuaScriptState": "",
   "MeasureMovement": false,
-  "Name": "Deck",
-  "Nickname": "Idols",
+  "Name": "Card",
+  "Nickname": "",
   "SidewaysCard": false,
   "Snap": true,
   "Sticky": true,
   "Tags": [
     "idol"
   ],
-  "Tooltip": true,
+  "Tooltip": false,
   "Transform": {
-    "posX": -27,
-    "posY": 1.579,
-    "posZ": -46,
-    "rotX": 0,
+    "posX": -14.922,
+    "posY": 1.56,
+    "posZ": -50.164,
+    "rotX": 359,
     "rotY": 180,
-    "rotZ": 180,
+    "rotZ": 0,
     "scaleX": 0.75,
     "scaleY": 1,
     "scaleZ": 0.75

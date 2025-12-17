@@ -342,7 +342,12 @@
     "ScriptingTrigger.f203ae",
     "PlayerBoard.7bc85f",
     "PlayerBoard.2425fa",
-    "ScriptingTrigger.32a539"
+    "ScriptingTrigger.32a539",
+    "IdolsTwistedPaths.b2f00e",
+    "AssistantsTwistedPaths.629725",
+    "Level1SitesTwistedPaths.eb952d",
+    "GuardiansTwistedPaths.d8eb77",
+    "Level2SitesTwistedPaths.632057"
   ],
   "PlayArea": 0.5,
   "PlayerCounts": [
@@ -368,5 +373,5 @@
     "English"
   ],
   "Turns_path": "Turns.json",
-  "VersionNumber": "v14.0"
+  "VersionNumber": "v14.0.3"
 }
