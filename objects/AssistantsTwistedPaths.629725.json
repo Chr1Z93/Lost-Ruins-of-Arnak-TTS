@@ -12,21 +12,10 @@
   },
   "ContainedObjects_order": [
     "CardCustom.51ad0d",
-    "CardCustom.edfd74",
-    "CardCustom.b22096",
-    "CardCustom.8e4638"
+    "CardCustom.edfd74"
   ],
-  "ContainedObjects_path": "AssistantsMissingExpedition.b640aa",
+  "ContainedObjects_path": "AssistantsTwistedPaths.629725",
   "CustomDeck": {
-    "253": {
-      "BackIsHidden": true,
-      "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/2496761664830639865/8B399B8FFB07C7782B2953949C5355252C0BC6A1/",
-      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/2496761664830639964/F1B0E4B232438BD46DDEBB8C5645E4F4A0B9428C/",
-      "NumHeight": 1,
-      "NumWidth": 1,
-      "Type": 0,
-      "UniqueBack": false
-    },
     "271": {
       "BackIsHidden": true,
       "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/2496761664830640285/D54F7CE4CCF9656541659015E7235E0EEC43D154/",
@@ -44,27 +33,16 @@
       "NumWidth": 1,
       "Type": 0,
       "UniqueBack": false
-    },
-    "579": {
-      "BackIsHidden": true,
-      "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/2496761664830640086/D4AB7BF19BE484719AFC75F826CDD698C7F47D35/",
-      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/2496761664830640212/B79E761CF041A10489B34AE6BAA0BC2A8DB454D8/",
-      "NumHeight": 1,
-      "NumWidth": 1,
-      "Type": 0,
-      "UniqueBack": false
     }
   },
   "DeckIDs": [
     27100,
-    27600,
-    57900,
-    25300
+    27600
   ],
   "Description": "",
   "DragSelectable": true,
   "GMNotes": "",
-  "GUID": "b640aa",
+  "GUID": "629725",
   "Grid": true,
   "GridProjection": false,
   "Hands": false,
@@ -76,7 +54,7 @@
   "LuaScriptState": "",
   "MeasureMovement": false,
   "Name": "Deck",
-  "Nickname": "Assistants (Missing Expedition)",
+  "Nickname": "Assistants (Twisted Paths)",
   "SidewaysCard": false,
   "Snap": true,
   "Sticky": true,
@@ -85,8 +63,8 @@
   ],
   "Tooltip": true,
   "Transform": {
-    "posX": -10,
-    "posY": 1.522,
+    "posX": -6,
+    "posY": 1.512,
     "posZ": -46,
     "rotX": 0,
     "rotY": 180,

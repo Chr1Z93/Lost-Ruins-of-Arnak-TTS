@@ -2,12 +2,12 @@
 -- originally scripted by jkk - https://steamcommunity.com/id/creamymello/myworkshopfiles/
 -- updated by Chr1Z and covertskippy55 for the missing expedition
 
-testVars = {
-  defineSeated = false,
+testVars             = {
+  defineSeated  = true,
   seatedPlayers = { 'Blue', 'Green', 'Yellow', 'Red' }
 }
 
-playerVars = {
+playerVars           = {
   Red = {
     allZoneGuid = 'b32bc6',
     playAreaZoneGuid = '472eb8',
@@ -206,7 +206,7 @@ playerVars = {
 }
 
 -- data for idols slots: points and local position
-idolSlotData = {
+idolSlotData         = {
   -- captain
   {
     { points = 1, localPos = Vector(-0.149, 0, -0.672) },
@@ -273,24 +273,9 @@ idolSlotData = {
     { points = 4, localPos = Vector(-2.478, 0, -0.634) }
   }
 }
-seatedPlayerColors = {}
-startPlayerIndex = 0
-hexColors = {
-  White  = '[ffffff]',
-  Brown  = '[713b17]',
-  Red    = '[da1a18]',
-  Orange = '[f4641d]',
-  Yellow = '[e7e52c]',
-  Green  = '[31b32b]',
-  Teal   = '[21b19b]',
-  Blue   = '[1e87ff]',
-  Purple = '[a020f0]',
-  Pink   = '[f570ce]',
-  Black  = '[404040]',
-  Grey   = '[808080]'
-}
-
-starterDeck = {
+seatedPlayerColors   = {}
+startPlayerIndex     = 0
+starterDeck          = {
   Yellow     = { "0001", "0002", "0003", "0004" },
   Green      = { "0005", "0006", "0007", "0008" },
   Blue       = { "0009", "0010", "0011", "0012" },
@@ -304,7 +289,7 @@ starterDeck = {
   Mechanic   = { "2001", "2002", "2003", "2004" },
   Journalist = { "2005", "2006", "2007", "2008" }
 }
-options = {
+options              = {
   solo          = false,
   objectives    = 3,
   playerBoards  = {},
@@ -320,7 +305,7 @@ options = {
     promos            = true
   }
 }
-bags = {
+bags                 = {
   resources = {
     t = '831df9',
     a = '84369b',
@@ -338,7 +323,7 @@ bags = {
   soloTempleTiles = 'c13fff',
   campaignItems = '5c483d'
 }
-deckZones = {
+deckZones            = {
   artifacts = 'c19201',
   items = 'cd21a5',
   fear = '1fcdb3',
@@ -351,10 +336,10 @@ deckZones = {
   bonus4 = "bonus4",
   bonus5 = "bonus5"
 }
-assistantDeckGuid = '538a5c'
-idolDeckGuid = 'ab4a80'
+assistantDeckGuid    = '538a5c'
+idolDeckGuid         = 'ab4a80'
 
-expansionDecks = {
+expansionDecks       = {
   expeditionLeaders = {
     assistants = 'cf87b7',
     idols      = '9988c4',
@@ -371,15 +356,15 @@ expansionDecks = {
   },
   -- TODO
   twistedPaths = {
-    assistants = '',
-    idols      = '',
-    sites1     = '',
-    sites2     = '',
-    guardians  = ''
+    assistants = '629725',
+    idols      = 'b2f00e',
+    sites1     = 'eb952d',
+    sites2     = '632057',
+    guardians  = 'd8eb77'
   }
 }
 
-playerDecks = {
+playerDecks          = {
   base = {
     Red = 'cbf743',
     Blue = 'aaed1a',
@@ -388,7 +373,7 @@ playerDecks = {
   },
   leaders = { '1e21bd', '99385f', 'd0d33f', 'a42e51', '64471d', '2c1dc4', '5c5fc9', '302d5d' }
 }
-tokens = {
+tokens               = {
   falcon                    = '9ef0a8',
   suitcase                  = 'f78694',
   food                      = { '4c7454', '7ae3bf', 'a4129d' },
@@ -400,25 +385,25 @@ tokens = {
   MechanicGoldTokens        = '428f5c',
   MechanicGoldTokenAttacher = '3cc576'
 }
-cards = {
+cards                = {
   baroness = '49e35e'
 }
 suitcaseResourceBags = {
   t = 'da4493',
   s = '4ecc7c'
 }
-falconRotations = { { 0, 225, 0 }, { 0, 190, 0 }, { 0, 148, 0 }, { 0, 115, 0 }, { 0, 90, 0 } }
-assistantPositions = { { 9.15, 1.63, -30.73 }, { 13.83, 1.63, -30.73 }, { 18.52, 1.63, -30.73 } }
-assistantZones = { 'a432ac', 'a44647', '3ffbd7' }
+falconRotations      = { { 0, 225, 0 }, { 0, 190, 0 }, { 0, 148, 0 }, { 0, 115, 0 }, { 0, 90, 0 } }
+assistantPositions   = { { 9.15, 1.63, -30.73 }, { 13.83, 1.63, -30.73 }, { 18.52, 1.63, -30.73 } }
+assistantZones       = { 'a432ac', 'a44647', '3ffbd7' }
 
-cardRowZoneGuids = { '8ae6f2', '6103ae', 'cea4b5', '99cfc2', '8a1a02', 'dbf266' }
-staffPositions = { { -14.61, 1.63, 20.23 }, { -7.37, 1.63, 20.23 }, { -0.03, 1.63, 20.23 }, { 7.23, 1.63, 20.23 }, { 14.51, 1.63, 20.23 } }
-exileZoneGuids = {
+cardRowZoneGuids     = { '8ae6f2', '6103ae', 'cea4b5', '99cfc2', '8a1a02', 'dbf266' }
+staffPositions       = { { -14.61, 1.63, 20.23 }, { -7.37, 1.63, 20.23 }, { -0.03, 1.63, 20.23 }, { 7.23, 1.63, 20.23 }, { 14.51, 1.63, 20.23 } }
+exileZoneGuids       = {
   artifacts = '19f28c',
-  items = 'ec5c7a',
-  other = 'bcb533'
+  items     = 'ec5c7a',
+  other     = 'bcb533'
 }
-siteLevels = {
+siteLevels           = {
   {
     { guid = '102294', pawnSpaces = { 'd8ae82' } },
     { guid = '836103', pawnSpaces = { '7b9a3a' } },
@@ -446,10 +431,10 @@ siteLevels = {
   }
 }
 
-templeTileZoneGuids = { 'fc3aea', '6b0f38', 'aa7dfd', 'e573c3', 'bb0b10', '599983' }
+templeTileZoneGuids  = { 'fc3aea', '6b0f38', 'aa7dfd', 'e573c3', 'bb0b10', '599983' }
 templeSpaceZoneGuids = { '9c9b90', 'efc726', '024b25', '13d709' }
-researchZoneGuid = '5de995'
-researchTracks = {
+researchZoneGuid     = '5de995'
+researchTracks       = {
   {
     bonusPositions = {
       { { 9.08, 1.68, -18.72 },  { 13.77, 1.68, -18.73 }, { 9.11, 1.68, -9.83 }, { 13.22, 1.68, -9.84 }, { 17.23, 1.68, -9.84 }, { 9.34, 1.68, -1.65 }, { 14.05, 1.68, -1.65 } },
@@ -854,7 +839,7 @@ researchTracks = {
   }
 }
 
-solo = {
+solo                 = {
   board = 'a30382',
   boardPosition = { -43.26, 1.53, 18.96 },
   objectives = 'd8547e',
@@ -863,17 +848,17 @@ solo = {
     deck = '7196a9',
     discard = '0ecbe9',
     idol = {
-      c = '184e31',
-      p = 'de4ec0',
-      s = '7fa25b',
-      fa = '6892c0',
-      ftt = '1caf8d',
-      g = '6892c0',
-      d = '53c99c',
-      t = '500131',
-      r = 'af87d7',
-      e = '69ed89',
-      u = 'fdf87e',
+      c    = '184e31',
+      p    = 'de4ec0',
+      s    = '7fa25b',
+      fa   = '6892c0',
+      ftt  = '1caf8d',
+      g    = '6892c0',
+      d    = '53c99c',
+      t    = '500131',
+      r    = 'af87d7',
+      e    = '69ed89',
+      u    = 'fdf87e',
       dupe = '91df7a'
     },
     delete = '0a61ed',
@@ -894,43 +879,47 @@ solo = {
   deckPositions = { { -52.57, 1.65, 17.70 }, { -48.58, 1.60, 17.70 } },
   setupPositions = { { -52.57, 1.53, 42.48 }, { -48.58, 1.53, 42.48 } },
   acquiredStuffPositions = {
-    idolA = { -34.85, 1.50, 10.15 },
-    researchBonus = { -32.16, 2.28, 10.15 },
-    templeTile = { { -45.60, 1.93, 11 }, { -42, 1.93, 11 }, { -38.40, 1.93, 11 }, { -45.60, 1.93, 9.30 }, { -42, 1.93, 9.30 }, { -38.40, 1.93, 9.30 } },
+    idolA            = { -34.85, 1.50, 10.15 },
+    researchBonus    = { -32.16, 2.28, 10.15 },
+    templeTile       = { { -45.60, 1.93, 11 }, { -42, 1.93, 11 }, { -38.40, 1.93, 11 }, { -45.60, 1.93, 9.30 }, { -42, 1.93, 9.30 }, { -38.40, 1.93, 9.30 } },
     templeTileSilver = { -49.90, 1.93, 10.15 },
-    templeTileGold = { -54.10, 1.93, 10.15 },
-    guardian = { -42.25, 2.1, 17.71 },
-    buy = { -35.12, 2.1, 18.95 },
-    assistant = { -26.50, 2, 10.15 }
+    templeTileGold   = { -54.10, 1.93, 10.15 },
+    guardian         = { -42.25, 2.1, 17.71 },
+    buy              = { -35.12, 2.1, 18.95 },
+    assistant        = { -26.50, 2, 10.15 }
   }
 }
-soloStatus = {
-  firstTurn = true,
+soloStatus           = {
+  firstTurn           = true,
   fulfilledObjectives = {},
-  pawnsOut = 0,
-  magnifying = { row = 0, path = 0 },
-  notebook = { row = 0, path = 0 }
+  pawnsOut            = 0,
+  magnifying          = { row = 0, path = 0 },
+  notebook            = { row = 0, path = 0 }
 }
 
-tableY = 1.50
-tileY = 1.60
-pawnY = 2.30
-faceup = { 0, 180, 0 }
-facedown = { 0, 180, 180 }
-buttonLabels = {
+function addColorToString(playerColor, str)
+  return "[" .. Color.fromString(playerColor):toHex() .. "]" .. (str or playerColor) .. "[-]"
+end
+
+tableY               = 1.5
+tileY                = 1.6
+pawnY                = 2.3
+faceup               = { 0, 180, 0 }
+facedown             = { 0, 180, 180 }
+buttonLabels         = {
   ready1  = 'Calculate Scores',
   ready2  = 'Recalculate Scores',
-  confirm = hexColors.Green .. 'Confirm[-]',
-  busy    = hexColors.Red .. 'Scoring[-]'
+  confirm = addColorToString("Green", "Confirm"),
+  busy    = addColorToString("Red", "Scoring")
 }
-buttonLabelsRival = { ready = 'Rival Turn', busy = hexColors.Red .. 'Busy[-]' }
+buttonLabelsRival    = { ready = 'Rival Turn', busy = addColorToString("Red", "Busy") }
 
-round = 0
-doneLoading = false
-setupInProgress = false
-movingRow = false
-discovering = false
-turn = nil -- tts bug: the player turn is not set correctly when loading/rewinding
+round                = 0
+doneLoading          = false
+setupInProgress      = false
+movingRow            = false
+discovering          = false
+turn                 = nil -- tts bug: the player turn is not set correctly when loading/rewinding
 
 function onSave()
   return JSON.encode({
@@ -956,33 +945,725 @@ function onLoad(saveState)
     turn               = loadedData.turn
   end
 
-  if round == 0 then
-    menuOptions()
-  elseif round > 0 then
-    drawLines()
-    setupButtons()
-    for _, object in ipairs(getObjects()) do
-      addExileMenu(object)
-      addGetRewardsMenu(object)
-      addReturnMenu(object)
-      addTrashMenu(object)
+  createGlobalXml()
+
+  Wait.frames(function()
+    if round == 0 then
+      menuOptions()
+    elseif round > 0 then
+      drawLines()
+      setupButtons()
+      for _, object in ipairs(getObjects()) do
+        addExileMenu(object)
+        addGetRewardsMenu(object)
+        addReturnMenu(object)
+        addTrashMenu(object)
+      end
+      addAssistantCycleMenu()
     end
-    addAssistantCycleMenu()
-  end
-  if turn ~= nil and Turns.enable and Turns.turn_color ~= turn then Turns.turn_color = turn end
-  Wait.time(function() doneLoading = true end, 0.5)
+    if turn ~= nil and Turns.enable and Turns.turn_color ~= turn then Turns.turn_color = turn end
+    Wait.time(function() doneLoading = true end, 0.5)
+  end, 10)
 end
 
 -- MARK: START MENU UI
 
+function createGlobalXml()
+  local uiTable = {}
+
+  -- Categories for the main scoreboard column
+  local scoreboardCategories = {
+    "Player",
+    "Research Tokens",
+    "Temple Tiles",
+    "Idols",
+    "Guardians",
+    "Items and Artifacts",
+    "Fear",
+    "Total"
+  }
+
+  -- Player colors, offsetXY, and initial values for the player scoreboards
+  local playerScores = {
+    { color = "Red",    offsetXY = "190 -140" },
+    { color = "Blue",   offsetXY = "260 -140" },
+    { color = "Green",  offsetXY = "330 -140" },
+    { color = "Yellow", offsetXY = "400 -140" }
+  }
+
+  --- 1. Scoreboard (Labels Column)
+  local scoreboardLabels = {
+    tag        = "TableLayout",
+    attributes = {
+      id                  = "scoreboard",
+      active              = false,
+      rectAlignment       = "UpperLeft",
+      offsetXY            = "70 -140",
+      height              = "208",
+      width               = "140", -- Width for the labels column
+      cellPadding         = "5 5 0 0",
+      cellBackgroundColor = "clear",
+      rowBackgroundColor  = "rgba(0, 0, 0, 0.97)"
+    },
+    children   = {}
+  }
+
+  -- Generate the rows for the labels column
+  for _, label in ipairs(scoreboardCategories) do
+    table.insert(scoreboardLabels.children, {
+      tag = "Row",
+      children = {
+        {
+          tag = "Cell",
+          children = {
+            {
+              tag = "Text",
+              attributes = {
+                color     = "white",
+                alignment = "MiddleRight",
+                text      = label
+              }
+            }
+          }
+        }
+      }
+    })
+  end
+
+  table.insert(uiTable, scoreboardLabels)
+
+  --- 2. Player Scoreboards (Red, Blue, Green, Yellow)
+
+  -- IDs/prefixes corresponding to the categories (excluding "Player")
+  local scoreIds = {
+    "name",
+    "research",
+    "temple",
+    "idol",
+    "guardian",
+    "cards",
+    "fear",
+    "total"
+  }
+
+  for _, playerData in ipairs(playerScores) do
+    local colorName = playerData.color
+    local scoreboard = {
+      tag        = "TableLayout",
+      attributes = {
+        id                  = "scoreboard" .. colorName,
+        active              = false,
+        rectAlignment       = "UpperLeft",
+        offsetXY            = playerData.offsetXY,
+        height              = "208",
+        width               = "70", -- Width for the player score columns
+        cellPadding         = "5 5 0 0",
+        cellBackgroundColor = "clear",
+        rowBackgroundColor  = "rgba(0, 0, 0, 0.97)",
+      },
+      children   = {}
+    }
+
+    -- Generate the rows for the player score column
+    for i, idPrefix in ipairs(scoreIds) do
+      local initialValue = (idPrefix == "name") and "" or "0"
+
+      table.insert(scoreboard.children, {
+        tag = "Row",
+        children = {
+          {
+            tag = "Cell",
+            children = {
+              {
+                tag = "Text",
+                attributes = {
+                  id        = idPrefix .. colorName,
+                  color     = colorName,
+                  alignment = "MiddleCenter",
+                  text      = initialValue
+                }
+              }
+            }
+          }
+        }
+      })
+    end
+
+    table.insert(uiTable, scoreboard)
+  end
+
+  --- 3. Options Menu Top Panel
+  table.insert(uiTable, {
+    tag        = "Panel",
+    attributes = {
+      id            = "optionsMenuTop",
+      active        = false,
+      rectAlignment = "LowerRight",
+      offsetXY      = "0 475",
+      height        = "40",
+      width         = "435",
+      color         = "rgb(0, 0.39, 0.65)"
+    },
+    children   = {
+      {
+        tag = "Text",
+        attributes = {
+          color    = "White",
+          fontSize = "16",
+          text     = "Select Game Options"
+        }
+      }
+    }
+  })
+
+  --- 4. Options Menu Left Table
+  local leftOptions = {
+    {
+      title   = "Board",
+      height  = "150",
+      toggles = {
+        { id = "board1", text = "Bird Temple" },
+        { id = "board2", text = "Snake Temple" },
+        { id = "board3", text = "Spider Temple" },
+        { id = "board4", text = "Owl Temple" },
+        { id = "board5", text = "Random",       isOn = "True" }
+      }
+    },
+    {
+      title = "Research Track",
+      height = "290",
+      toggles = {
+        { id = "research1", text = "Bird Temple" },
+        { id = "research2", text = "Snake Temple" },
+        { id = "research3", text = "Monkey Temple" },
+        { id = "research4", text = "Lizard Temple" },
+        { id = "research5", text = "Tree Temple" },
+        { id = "research6", text = "Waterfall Temple" },
+        { id = "research7", text = "Spider Temple" },
+        { id = "research8", text = "Owl Temple" },
+        { id = "research9", text = "Randomize Temple", isOn = "True" }
+      }
+    },
+  }
+
+  local optionsMenuLeft = {
+    tag = "TableLayout",
+    attributes = {
+      id                  = "optionsMenuLeft",
+      active              = false,
+      rectAlignment       = "LowerRight",
+      offsetXY            = "-210 35",
+      height              = "440",
+      width               = "225",
+      cellPadding         = "24 0 12 12",
+      cellBackgroundColor = "clear",
+      rowBackgroundColor  = "rgba(1, 1, 1, 0.85)",
+    },
+    children = {}
+  }
+
+  for _, section in ipairs(leftOptions) do
+    -- 1. Create the base vertical layout structure for the section
+    local verticalLayoutChildren = {
+      {
+        tag = "Text",
+        attributes = {
+          fontStyle = "Bold",
+          alignment = "MiddleLeft",
+          text = section.title
+        }
+      }
+    }
+
+    -- 2. Loop through all toggles in this section and add them to the verticalLayoutChildren
+    for _, toggle in ipairs(section.toggles) do
+      table.insert(verticalLayoutChildren, {
+        tag        = "Toggle",
+        attributes = {
+          onValueChanged = "uiToggle",
+          id             = toggle.id,
+          text           = toggle.text,
+          isOn           = toggle.isOn
+        }
+      })
+    end
+
+    -- 3. Construct the Row structure using the complete verticalLayoutChildren
+    local row = {
+      tag = "Row",
+      attributes = { preferredHeight = section.height },
+      children = {
+        {
+          tag = "Cell",
+          children = {
+            tag = "ToggleGroup",
+            children = {
+              tag      = "VerticalLayout",
+              children = verticalLayoutChildren
+            }
+          }
+        }
+      }
+    }
+
+    table.insert(optionsMenuLeft.children, row)
+  end
+
+  table.insert(uiTable, optionsMenuLeft)
+
+  --- 5. Options Menu Right Table
+  local rightOptions = {
+    {
+      title = "Moon Staff",
+      height = "110",
+      group = true,
+      toggles = {
+        { id = "staff1", text = "Blue" },
+        { id = "staff2", text = "Red", isOn = "True" },
+      }
+    },
+    {
+      title = "Leader Selection",
+      height = "110",
+      group = true,
+      toggles = {
+        { id = "leaders1", text = "Random", isOn = "True" },
+        { id = "leaders2", text = "Manual" }
+      }
+    },
+    {
+      title = "Expansion Selection",
+      height = "160",
+      group = false,
+      toggles = {
+        { id = "expeditionLeaders", text = "Expedition Leaders",     isOn = "True" },
+        { id = "missingExpedition", text = "The Missing Expedition", isOn = "True" },
+        { id = "twistedPaths",      text = "Twisted Paths",          isOn = "True" },
+        { id = "promos",            text = "Promos",                 isOn = "True" }
+      }
+    },
+  }
+
+  local optionsMenuRight = {
+    tag = "TableLayout",
+    attributes = {
+      id                  = "optionsMenuRight",
+      active              = false,
+      rectAlignment       = "LowerRight",
+      offsetXY            = "0 35",
+      height              = "440",
+      width               = "210",
+      cellPadding         = "0 0 12 12",
+      cellBackgroundColor = "clear",
+      rowBackgroundColor  = "rgba(1, 1, 1, 0.85)"
+    },
+    children = {}
+  }
+
+  for _, section in ipairs(rightOptions) do
+    local rowContent = {
+      tag = (section.group and "ToggleGroup" or "VerticalLayout"),
+      children = {
+        tag = "VerticalLayout",
+        children = {
+          {
+            tag = "Text",
+            attributes = {
+              fontStyle = "Bold",
+              alignment = "MiddleLeft",
+              text      = section.title
+            }
+          }
+        }
+      }
+    }
+
+    for _, toggle in ipairs(section.toggles) do
+      table.insert(rowContent.children.children, {
+        tag        = "Toggle",
+        attributes = {
+          onValueChanged = "uiToggle",
+          id             = toggle.id,
+          text           = toggle.text,
+          isOn           = toggle.isOn
+        }
+      })
+    end
+
+    table.insert(optionsMenuRight.children, {
+      tag = "Row",
+      attributes = { preferredHeight = section.height },
+      children = {
+        {
+          tag = "Cell",
+          children = rowContent
+        }
+      }
+    })
+  end
+
+  -- Final empty row in optionsMenuRight
+  table.insert(optionsMenuRight.children, {
+    tag = "Row",
+    attributes = { preferredHeight = "60" }
+  })
+
+  table.insert(uiTable, optionsMenuRight)
+
+  --- 6. Options Menu Buttons Panel
+  table.insert(uiTable, {
+    tag = "Panel",
+    attributes = {
+      id            = "optionsMenuButtons",
+      active        = false,
+      rectAlignment = "LowerRight",
+      height        = "40",
+      width         = "435",
+      color         = "rgba(1, 1, 1, 0.85)"
+    },
+    children = {
+      tag = "HorizontalLayout",
+      children = {
+        {
+          tag = "Button",
+          attributes = {
+            onClick   = "menuStart(1)",
+            color     = "Green",
+            textColor = "white",
+            fontSize  = "16",
+            text      = "Setup Campaign"
+          }
+        },
+        {
+          tag = "Button",
+          attributes = {
+            onClick   = "menuStart(2)",
+            color     = "Green",
+            textColor = "white",
+            fontSize  = "16",
+            text      = "Setup Standard Game"
+          }
+        }
+      }
+    }
+  })
+
+  --- 7. Continue Menu Table
+  table.insert(uiTable, {
+    tag = "TableLayout",
+    attributes = {
+      id                  = "continueMenu",
+      active              = false,
+      rectAlignment       = "LowerRight",
+      offsetXY            = "0 80",
+      height              = "192",
+      width               = "290",
+      columnWidths        = "25 135 130",
+      cellPadding         = "10 10 0 0",
+      cellBackgroundColor = "clear",
+      rowBackgroundColor  = "rgba(1, 1, 1, 0.85)",
+    },
+    children = {
+      {
+        tag = "Row",
+        attributes = { preferredHeight = "115" },
+        children = {
+          {
+            tag = "Cell",
+            attributes = { columnSpan = "3" },
+            children = {
+              tag = "Text",
+              attributes = {
+                alignment = "MiddleCenter",
+                text =
+                "Click 'Continue' after all players have selected different expedition leaders.\n\nTo select a leader, right-click your player board and select a state:\n\t"
+              }
+            }
+          }
+        }
+      },
+      {
+        tag = "Row",
+        attributes = { preferredHeight = "77" },
+        children = {
+          { tag = "Cell" },
+          {
+            tag = "Cell",
+            children = {
+              tag = "Text",
+              attributes = {
+                alignment = "UpperLeft",
+                text = "\t1 - Captain\n\t2 - Falconer\n\t3 - Baroness\n\t4 - Professor\n\t5 - Explorer\n\t"
+              }
+            }
+          },
+          {
+            tag = "Cell",
+            children = {
+              tag = "Text",
+              attributes = {
+                alignment = "UpperLeft",
+                text = "\t6 - Mystic\n\t7 - Journalist\n\t8 - Mechanic\n\t9 - Random\n\t"
+              }
+            }
+          }
+        }
+      }
+    }
+  })
+
+  --- 8. Continue Menu Buttons Table
+  local continueMenuButtonsData = {
+    {
+      onClick = "menuStart(4)",
+      color   = "Green",
+      text    = "Continue"
+    },
+    {
+      onClick = "menuOptions",
+      color   = "rgb(0.67, 0.08, 0.07)",
+      text    = "Back"
+    }
+  }
+
+  local continueMenuButtons = {
+    tag = "TableLayout",
+    attributes = {
+      id                  = "continueMenuButtons",
+      active              = false,
+      rectAlignment       = "LowerRight",
+      height              = "80",
+      width               = "290",
+      cellBackgroundColor = "clear",
+      rowBackgroundColor  = "rgba(1, 1, 1, 0.85)"
+    },
+    children = {}
+  }
+
+  for _, buttonData in ipairs(continueMenuButtonsData) do
+    table.insert(continueMenuButtons.children, {
+      tag = "Row",
+      attributes = { preferredHeight = "40" },
+      children = {
+        {
+          tag = "Cell",
+          attributes = { columnSpan = "3" },
+          children = {
+            tag = "Button",
+            attributes = {
+              onClick   = buttonData.onClick,
+              color     = buttonData.color,
+              textColor = "white",
+              fontSize  = "16",
+              text      = buttonData.text
+            }
+          }
+        }
+      }
+    })
+  end
+
+  table.insert(uiTable, continueMenuButtons)
+
+  --- 9. Solo Menu Table
+  local soloMenuSliders = {
+    { id = "red",    text = "Red Actions: 0",    sliderId = "redSlider",    minValue = "0", maxValue = "5", value = "0" },
+    { id = "purple", text = "Purple Actions: 0", sliderId = "purpleSlider", minValue = "0", maxValue = "5", value = "0" }
+  }
+
+  local soloMenu = {
+    tag        = "TableLayout",
+    attributes = {
+      id                  = "soloMenu",
+      active              = false,
+      rectAlignment       = "LowerRight",
+      height              = "279",
+      width               = "270",
+      columnWidths        = "20 230 20",
+      cellBackgroundColor = "clear",
+      rowBackgroundColor  = "rgba(1, 1, 1, 0.85)"
+    },
+    children   = {
+      { tag = "Row", attributes = { preferredHeight = "10" }, children = { { tag = "Cell" }, { tag = "Cell" }, { tag = "Cell" } } },
+      {
+        tag = "Row",
+        attributes = { preferredHeight = "30" },
+        children = {
+          {
+            tag = "Cell",
+            attributes = { columnSpan = "3" },
+            children = {
+              tag = "Text",
+              attributes = {
+                fontStyle = "Bold",
+                alignment = "MiddleCenter",
+                text      = "Choose Rival Strength"
+              }
+            }
+          }
+        }
+      },
+    }
+  }
+
+  for _, item in ipairs(soloMenuSliders) do
+    table.insert(soloMenu.children, {
+      tag = "Row",
+      attributes = { preferredHeight = "30" },
+      children = {
+        { tag = "Cell" },
+        {
+          tag = "Cell",
+          children = {
+            tag = "Text",
+            attributes = {
+              id        = item.id .. "Text",
+              alignment = "MiddleLeft",
+              text      = item.text
+            }
+          }
+        },
+        { tag = "Cell" }
+      }
+    })
+    table.insert(soloMenu.children, {
+      tag = "Row",
+      attributes = { preferredHeight = "20" },
+      children = {
+        { tag = "Cell" },
+        {
+          tag = "Cell",
+          children = {
+            tag = "Slider",
+            attributes = {
+              id             = item.sliderId,
+              onValueChanged = "uiSlider",
+              minValue       = item.minValue,
+              maxValue       = item.maxValue,
+              value          = item.value,
+              wholeNumbers   = "true"
+            }
+          }
+        },
+        { tag = "Cell" }
+      }
+    })
+  end
+
+  table.insert(soloMenu.children,
+    { tag = "Row", attributes = { preferredHeight = "5" }, children = { { tag = "Cell" }, { tag = "Cell" }, { tag = "Cell" } } })
+
+  -- Difficulty Row
+  table.insert(soloMenu.children, {
+    tag = "Row",
+    attributes = { preferredHeight = "30" },
+    children = {
+      { tag = "Cell" },
+      {
+        tag = "Cell",
+        children = {
+          tag        = "Text",
+          attributes = {
+            id        = "rivalDifficulty",
+            alignment = "MiddleLeft",
+            text      = "Difficulty: 0"
+          }
+        }
+      },
+      { tag = "Cell" }
+    }
+  })
+
+  -- Objectives Row and Slider
+  table.insert(soloMenu.children, {
+    tag = "Row",
+    attributes = { preferredHeight = "30" },
+    children = {
+      { tag = "Cell" },
+      {
+        tag = "Cell",
+        children = {
+          tag        = "Text",
+          attributes = {
+            id        = "objectiveText",
+            alignment = "MiddleLeft",
+            text      = "Objectives: 3"
+          }
+        }
+      },
+      { tag = "Cell" }
+    }
+  })
+
+  table.insert(soloMenu.children, {
+    tag = "Row",
+    attributes = { preferredHeight = "20" },
+    children = {
+      { tag = "Cell" },
+      {
+        tag = "Cell",
+        children = {
+          tag        = "Slider",
+          attributes = {
+            id             = "objectiveSlider",
+            onValueChanged = "uiSlider",
+            minValue       = "0",
+            maxValue       = "4",
+            value          = "3",
+            wholeNumbers   = "true"
+          }
+        }
+      },
+      { tag = "Cell" }
+    }
+  })
+
+  table.insert(soloMenu.children,
+    {
+      tag = "Row",
+      attributes = { preferredHeight = "14" },
+      children = {
+        { tag = "Cell" },
+        { tag = "Cell" },
+        { tag = "Cell" }
+      }
+    })
+
+  -- Start Game Button
+  table.insert(soloMenu.children, {
+    tag = "Row",
+    attributes = { preferredHeight = "40" },
+    children = {
+      {
+        tag = "Cell",
+        attributes = { columnSpan = "3" },
+        children = {
+          tag = "Button",
+          attributes = {
+            onClick   = "menuStartSolo",
+            color     = "Green",
+            textColor = "white",
+            fontSize  = "16",
+            text      = "Start Game"
+          }
+        }
+      }
+    }
+  })
+
+  table.insert(uiTable, soloMenu)
+
+  UI.setXmlTable(uiTable)
+end
+
 function uiOff()
-  UI.setAttribute('optionsMenuTop', 'active', 'false')
-  UI.setAttribute('optionsMenuLeft', 'active', 'false')
-  UI.setAttribute('optionsMenuRight', 'active', 'false')
-  UI.setAttribute('optionsMenuButtons', 'active', 'false')
-  UI.setAttribute('continueMenu', 'active', 'false')
-  UI.setAttribute('continueMenuButtons', 'active', 'false')
-  UI.setAttribute('soloMenu', 'active', 'false')
+  UI.setAttribute('optionsMenuTop', 'active', false)
+  UI.setAttribute('optionsMenuLeft', 'active', false)
+  UI.setAttribute('optionsMenuRight', 'active', false)
+  UI.setAttribute('optionsMenuButtons', 'active', false)
+  UI.setAttribute('continueMenu', 'active', false)
+  UI.setAttribute('continueMenuButtons', 'active', false)
+  UI.setAttribute('soloMenu', 'active', false)
 end
 
 function menuClose()
@@ -992,10 +1673,10 @@ end
 
 function menuOptions()
   uiOff()
-  UI.setAttribute('optionsMenuTop', 'active', 'true')
-  UI.setAttribute('optionsMenuLeft', 'active', 'true')
-  UI.setAttribute('optionsMenuRight', 'active', 'true')
-  UI.setAttribute('optionsMenuButtons', 'active', 'true')
+  UI.setAttribute('optionsMenuTop', 'active', true)
+  UI.setAttribute('optionsMenuLeft', 'active', true)
+  UI.setAttribute('optionsMenuRight', 'active', true)
+  UI.setAttribute('optionsMenuButtons', 'active', true)
 end
 
 function uiToggle(_, value, id)
@@ -1007,15 +1688,15 @@ function uiSlider(_, value, id)
   Wait.time(function()
     if id == 'objectiveSlider' then
       local objectives = UI.getAttribute('objectiveSlider', 'value')
-      UI.setValue('objectiveText', 'Objectives: ' .. objectives)
+      UI.setAttribute('objectiveText', "text", 'Objectives: ' .. objectives)
     else
       local red = UI.getAttribute('redSlider', 'value')
       local purple = UI.getAttribute('purpleSlider', 'value')
-      UI.setValue('redText', 'Red Actions: ' .. red)
-      UI.setValue('purpleText', 'Purple Actions: ' .. purple)
+      UI.setAttribute('redText', "text", 'Red Actions: ' .. red)
+      UI.setAttribute('purpleText', "text", 'Purple Actions: ' .. purple)
       local difficulty = 'N/A'
       if red + purple <= 5 then difficulty = red + 2 * purple end
-      UI.setValue('rivalDifficulty', 'Difficulty: ' .. difficulty)
+      UI.setAttribute('rivalDifficulty', "text", 'Difficulty: ' .. difficulty)
     end
   end, 0.01)
 end
@@ -1031,10 +1712,10 @@ end
 
 function setupGame()
   setupInProgress = true
-  AllCardsBag = getObjectFromGUID("4bfea4")
-  fearDeckZone = getObjectFromGUID(deckZones.fear)
-  decks = {}
-  boards = {}
+  AllCardsBag     = getObjectFromGUID("4bfea4")
+  fearDeckZone    = getObjectFromGUID(deckZones.fear)
+  decks           = {}
+  boards          = {}
   if options.campaign == true then
     detectSeatedPlayers()
     wait(0.1)
@@ -1176,12 +1857,11 @@ function detectSeatedPlayers()
         local stateId = playerBoard.getStateId()
         options.playerBoards[color] = stateId
         if stateId ~= 9 then
-          if not leaders[stateId] then
-            leaders[stateId] = true
-          else
+          if leaders[stateId] then
             broadcastToAll('Duplicate expedition leaders were chosen.')
             return
           end
+          leaders[stateId] = true
         end
       end
     end
@@ -1690,7 +2370,7 @@ function setupMiscThings()
   end
 
   if options.solo then
-    UI.setAttribute('soloMenu', 'active', 'true')
+    UI.setAttribute('soloMenu', 'active', true)
   else
     for _, playerColor in ipairs(seatedPlayerColors) do
       if options.playerBoards[playerColor] == 3 then
@@ -1716,7 +2396,7 @@ function setupButtonsMisc()
   params = {
     function_owner = self,
     label          = 'Take',
-    click_function = 'takeFearButton',
+    click_function = 'getFearCard',
     position       = { 0, 0, -2.9 },
     width          = 800,
     height         = 380,
@@ -1905,6 +2585,7 @@ function setupCampaignMisc()
   for _, playerColor in ipairs(seatedPlayerColors) do
     if playerColor ~= 'Red' then
       if options.playerBoards[playerColor] == 3 then
+        -- Special handling for the Baroness
         decks[playerColor].takeObject({ guid = cards.baroness }).deal(1, playerColor)
         decks[playerColor].deal(4, playerColor)
       else
@@ -1952,9 +2633,9 @@ function setupCampaignMisc()
   -- Set turn to randomized player and begin game!
   broadcastToAll('Campaign Starts!')
   Turns.turn_color = firstPlayerColor
-  Turns.enable = true
-  setupInProgress = false
-  round = 1
+  Turns.enable     = true
+  setupInProgress  = false
+  round            = 1
 end
 
 function setupStartingResources()
@@ -2011,7 +2692,7 @@ function setupStartingResources()
         elseif playerBoardState == 2 then -- Setup for the falcon
           cardList = starterDeck["Falconer"]
           tokenBag.takeObject({
-            guid = tokens.falcon,
+            guid     = tokens.falcon,
             position = vars.falconPositions[2],
             rotation = falconRotations[2]
           })
@@ -2021,7 +2702,7 @@ function setupStartingResources()
           cardList = starterDeck["Professor"]
           local profStuff = {}
           local suitcase = tokenBag.takeObject({
-            guid = tokens.suitcase,
+            guid     = tokens.suitcase,
             position = vars.suitcasePosition,
             rotation = faceup
           })
@@ -2029,7 +2710,7 @@ function setupStartingResources()
           for resource, guid in pairs(suitcaseResourceBags) do -- Place and setup the professor's Bag
             local toPos = getObjectFromGUID(vars.suitcaseResourceBagZones[resource]).getPosition()
             local resourceBag = tokenBag.takeObject({
-              guid = guid,
+              guid     = guid,
               position = { toPos[1], 1.63, toPos[3] },
               rotation = faceup
             })
@@ -2129,15 +2810,15 @@ function setupStartingResources()
               local offsets = nil
               if playerColor == "Blue" or playerColor == "Green" then
                 offsets = {
-                  Vector(13.5, 0.2, 7.2),
+                  Vector(13.50, 0.2, 7.2),
                   Vector(16.25, 0.2, 7.2),
-                  Vector(19, 0.2, 7.2)
+                  Vector(19.00, 0.2, 7.2)
                 }
               elseif playerColor == "Red" or playerColor == "Yellow" then
                 offsets = {
-                  Vector(-13.5, 0.2, 7.2),
+                  Vector(-13.50, 0.2, 7.2),
                   Vector(-16.25, 0.2, 7.2),
-                  Vector(-19, 0.2, 7.2)
+                  Vector(-19.00, 0.2, 7.2)
                 }
               end
 
@@ -2260,12 +2941,12 @@ function menuStart(_, value, _)
     options.expansions.expeditionLeaders = true
     options.expansions.missingExpedition = true
     options.expansions.twistedPaths      = true
-    UI.setAttribute('continueMenu', 'active', 'true')
-    UI.setAttribute('continueMenuButtons', 'active', 'true')
+    UI.setAttribute('continueMenu', 'active', true)
+    UI.setAttribute('continueMenuButtons', 'active', true)
   elseif menuChoice == 2 and checkToggle('leaders2') then
     -- Only show the manual choice menu if player chose that during setup options
-    UI.setAttribute('continueMenu', 'active', 'true')
-    UI.setAttribute('continueMenuButtons', 'active', 'true')
+    UI.setAttribute('continueMenu', 'active', true)
+    UI.setAttribute('continueMenuButtons', 'active', true)
   else
     startLuaCoroutine(Global, "setupGame")
   end
@@ -2494,13 +3175,12 @@ function takeResourceButton(resource, clickColor, alt)
   end
 end
 
-function takeFearButton(zone, clickColor)
-  if not doneLoading or not isSeated(clickColor) then return end
-  local card = drawCard(zone)
-  if card == nil then card = getObjectFromGUID(bags.fear).takeObject() end
-  local toPos = getObjectFromGUID(playerVars[clickColor].playAreaZoneGuid).getPosition()
+function getFearCard(zone, playerColor)
+  if not doneLoading or not isSeated(playerColor) then return end
+  local card    = drawCard(zone) or getObjectFromGUID(bags.fear).takeObject()
+  local toPos   = getObjectFromGUID(playerVars[playerColor].playAreaZoneGuid).getPosition()
   local xOffset = 16.5
-  if clickColor == 'Red' or clickColor == 'Yellow' then xOffset = 0 - xOffset end
+  if playerColor == 'Red' or playerColor == 'Yellow' then xOffset = 0 - xOffset end
   card.setPositionSmooth({ toPos[1] + xOffset, tableY + 0.5, toPos[3] }, false, true)
 end
 
@@ -2832,7 +3512,7 @@ function deliverRewards(playerColor, obj)
       -- exception for miners helmet
       if not hasMinersHelmetActive(playerColor) then
         broadcastToAll(getPlayerName(playerColor) .. ' gets a fear card.')
-        takeFearButton(getObjectFromGUID(deckZones.fear), playerColor)
+        getFearCard(getObjectFromGUID(deckZones.fear), playerColor)
         wait(0.3)
       else
         broadcastToAll(getPlayerName(playerColor) .. " does not get a fear card due to an active Miner's Helmet.")
@@ -2977,7 +3657,6 @@ function guardianFearCoroutine()
           break
         end
       end
-      if warmask ~= nil then break end
     end
   end
 
@@ -2994,7 +3673,10 @@ function guardianFearCoroutine()
       if #playerColors > 0 then
         local hasGuardian = false
         for _, object in ipairs(getObjectFromGUID(siteInfo.guid).getObjects()) do
-          if object.hasTag('guardian') then hasGuardian = true end
+          if object.hasTag('guardian') then
+            hasGuardian = true
+            break
+          end
           if object.type == 'Deck' then
             for _, card in ipairs(object.getObjects()) do
               if #card.tags > 0 and card.tags[1] == 'guardian' then
@@ -3008,7 +3690,7 @@ function guardianFearCoroutine()
         if hasGuardian then
           for _, playerColor in ipairs(playerColors) do
             broadcastToAll(getPlayerName(playerColor) .. ' gets Fear.')
-            takeFearButton(getObjectFromGUID(deckZones.fear), playerColor)
+            getFearCard(getObjectFromGUID(deckZones.fear), playerColor)
             wait(0.5)
           end
         end
@@ -3034,7 +3716,7 @@ function guardianFearCoroutine()
               local posZ = token.getPosition()[3]
               if posZ < researchTracks[4].rows[4].z and posZ > researchTracks[4].rows[5].z then
                 broadcastToAll(getPlayerName(playerColor) .. ' gets Fear from the temple guardian.')
-                takeFearButton(getObjectFromGUID(deckZones.fear), playerColor)
+                getFearCard(getObjectFromGUID(deckZones.fear), playerColor)
                 wait(0.5)
               end
             end
@@ -3672,15 +4354,15 @@ function calculateScores()
       local total = 0
       for category, subscore in pairs(subscores) do
         total = total + subscore
-        UI.setValue(category .. playerColor, tostring(subscore))
+        UI.setAttribute(category .. playerColor, "text", tostring(subscore))
       end
-      UI.setValue('total' .. playerColor, total)
-      UI.setValue('name' .. playerColor, getPlayerName(playerColor, true))
+      UI.setAttribute('total' .. playerColor, "text", total)
+      UI.setAttribute('name' .. playerColor, "text", getPlayerName(playerColor, true))
 
       if total > top.score then
         tiebreaker = false
-        top = { score = total, templeOrder = templeOrder, research = subscores.research }
-        winners = { playerColor }
+        top        = { score = total, templeOrder = templeOrder, research = subscores.research }
+        winners    = { playerColor }
       elseif total == top.score then
         tiebreaker = true
         if templeOrder < top.templeOrder then
@@ -3717,12 +4399,12 @@ function calculateScores()
     if #buttonZone.getButtons() < 3 then
       local params = {
         function_owner = self,
-        label = 'Toggle Scoreboard',
+        label          = 'Toggle Scoreboard',
         click_function = 'toggleScoreboardButton',
-        position = { 8.23, 0, -4.25 },
-        width = 2400,
-        height = 500,
-        font_size = 250
+        position       = { 8.23, 0, -4.25 },
+        width          = 2400,
+        height         = 500,
+        font_size      = 250
       }
       buttonZone.createButton(params)
     end
@@ -4598,9 +5280,10 @@ function drawCard(zone, rotation, position, checkOnly)
 end
 
 function getPlayerName(playerColor, excludeHexColor)
-  local name = Player[playerColor].steam_name
-  if name == nil then name = playerColor end
-  if not excludeHexColor and hexColors[playerColor] ~= nil then name = hexColors[playerColor] .. name .. '[-]' end
+  local name = Player[playerColor].steam_name or playerColor
+  if not excludeHexColor then
+    return addColorToString(playerColor, name)
+  end
   return name
 end
 

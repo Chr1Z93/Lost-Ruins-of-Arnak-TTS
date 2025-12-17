@@ -5,27 +5,35 @@
     "z": 0
   },
   "Autoraise": true,
-  "CardID": 2600,
   "ColorDiffuse": {
     "b": 0.71324,
     "g": 0.71324,
     "r": 0.71324
   },
+  "ContainedObjects_order": [
+    "Card.196176",
+    "Card.4bae7c"
+  ],
+  "ContainedObjects_path": "Level2SitesTwistedPaths.632057",
   "CustomDeck": {
-    "26": {
+    "15": {
       "BackIsHidden": true,
       "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/1862806463732172872/5034C020F5B15999C6B4E7648F1D5B659EAB30A7/",
-      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/2450601677147917335/3A69052FD8C9993783141E5D21C868A6008E1EFA/",
-      "NumHeight": 1,
-      "NumWidth": 1,
+      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/1862806463732172928/BBD24A07F11F22AA890B074BC903CFDE7EF5FB7F/",
+      "NumHeight": 2,
+      "NumWidth": 3,
       "Type": 0,
       "UniqueBack": false
     }
   },
+  "DeckIDs": [
+    1502,
+    1500
+  ],
   "Description": "",
   "DragSelectable": true,
-  "GMNotes": "fj5",
-  "GUID": "10d945",
+  "GMNotes": "",
+  "GUID": "632057",
   "Grid": true,
   "GridProjection": false,
   "Hands": false,
@@ -36,8 +44,8 @@
   "LuaScript": "",
   "LuaScriptState": "",
   "MeasureMovement": false,
-  "Name": "CardCustom",
-  "Nickname": "",
+  "Name": "Deck",
+  "Nickname": "Level 2 Sites (Twisted Paths)",
   "SidewaysCard": false,
   "Snap": true,
   "Sticky": true,
@@ -46,8 +54,8 @@
   ],
   "Tooltip": true,
   "Transform": {
-    "posX": 47,
-    "posY": 1.495,
+    "posX": 54,
+    "posY": 1.512,
     "posZ": -46,
     "rotX": 0,
     "rotY": 180,
