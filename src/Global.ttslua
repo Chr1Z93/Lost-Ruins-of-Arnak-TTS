@@ -2059,7 +2059,10 @@ function setupResearchTrack()
   -- Check the research board and if its not what was chosen via options, change it
   for _, object in ipairs(getObjectFromGUID(researchTracks[4].guardianZone).getObjects()) do
     if object.getName() == 'Research Track' then
-      if object.getStateId() ~= options.researchTrack then
+      if options.researchTrack == 7 or options.researchTrack == 8 then
+        -- Spider / Owl Temple are build into the board
+        object.destruct()
+      elseif object.getStateId() ~= options.researchTrack then
         boards.researchBoard = object.setState(options.researchTrack)
       end
       break

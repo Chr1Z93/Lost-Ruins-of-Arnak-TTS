@@ -1145,9 +1145,9 @@
   ],
   "Autoraise": true,
   "ColorDiffuse": {
-    "b": 0.24999,
-    "g": 0.24999,
-    "r": 0.24999
+    "b": 0.25,
+    "g": 0.25,
+    "r": 0.25
   },
   "ContainedObjects_path": "Board.47d4f6",
   "CustomImage": {
@@ -1180,7 +1180,9 @@
   "Nickname": "Board",
   "Snap": true,
   "States_path": {
-    "2": "Board.7e22ff"
+    "2": "Board.7e22ff",
+    "3": "Board.7e22gg",
+    "4": "Board.7e22hh"
   },
   "Sticky": true,
   "Tooltip": false,
