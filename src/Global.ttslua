@@ -1030,9 +1030,9 @@ solo                 = {
     templeTile       = { { -45.60, 1.93, 11 }, { -42, 1.93, 11 }, { -38.40, 1.93, 11 }, { -45.60, 1.93, 9.30 }, { -42, 1.93, 9.30 }, { -38.40, 1.93, 9.30 } },
     templeTileSilver = { -49.90, 1.93, 10.15 },
     templeTileGold   = { -54.10, 1.93, 10.15 },
-    guardian         = { -42.25, 2.1, 17.71 },
-    buy              = { -35.12, 2.1, 18.95 },
-    assistant        = { -26.50, 2, 10.15 }
+    guardian         = { -42.25, 2.10, 17.71 },
+    buy              = { -35.12, 2.10, 18.95 },
+    assistant        = { -26.50, 2.00, 10.15 }
   }
 }
 soloStatus           = {
@@ -4596,13 +4596,6 @@ function toggleScoreboardButton(obj, clickColor, alt)
 end
 
 -- MARK: EVENTS
-
-function onPlayerChangeColor(playerColor)
-  if playerColor == 'Grey' then return end
-  Wait.time(function()
-    Player[playerColor].lookAt({ position = { 0, 0, -7 }, pitch = 75, yaw = 0, distance = 66 })
-  end, 0.01)
-end
 
 function onPlayerTurn(player, previousPlayer)
   -- tts bug: when rewinding time or saving a script, onPlayerTurn triggers with non-nil player that has '' color
