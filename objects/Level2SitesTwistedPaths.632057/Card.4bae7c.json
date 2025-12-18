@@ -5,26 +5,26 @@
     "z": 0
   },
   "Autoraise": true,
-  "CardID": 1500,
+  "CardID": 15100,
   "ColorDiffuse": {
     "b": 0.71324,
     "g": 0.71324,
     "r": 0.71324
   },
   "CustomDeck": {
-    "15": {
+    "151": {
       "BackIsHidden": true,
       "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/1862806463732172872/5034C020F5B15999C6B4E7648F1D5B659EAB30A7/",
-      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/1862806463732172928/BBD24A07F11F22AA890B074BC903CFDE7EF5FB7F/",
-      "NumHeight": 2,
-      "NumWidth": 3,
+      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/17457307286804594899/53416D2761438340343DDF0EFD5DD070B122E985/",
+      "NumHeight": 1,
+      "NumWidth": 1,
       "Type": 0,
       "UniqueBack": false
     }
   },
   "Description": "",
   "DragSelectable": true,
-  "GMNotes": "fsaj",
+  "GMNotes": "jz",
   "GUID": "4bae7c",
   "Grid": true,
   "GridProjection": false,

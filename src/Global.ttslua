@@ -3506,10 +3506,10 @@ end
 
 -- function that checks the gm notes to determine what rewards the player should get
 function deliverRewards(playerColor, obj)
-  local rewards = obj.getGMNotes()
-  local resourceLabels = { t = 'tablet', a = 'arrowhead', j = 'jewel', c = 'coin', s = 'compass' }
-  local resourceCount = {}
-  local deliveredAll = true
+  local rewards            = obj.getGMNotes()
+  local resourceLabels     = { t = 'tablet', a = 'arrowhead', j = 'jewel', c = 'coin', s = 'compass' }
+  local resourceCount      = {}
+  local deliveredAll       = true
   local deliveredResources = false
   for i = 1, string.len(rewards) do
     local reward = string.sub(rewards, i, i)
@@ -3540,6 +3540,14 @@ function deliverRewards(playerColor, obj)
     elseif reward == 'r' then
       broadcastToAll(getPlayerName(playerColor) .. ' may refresh an assistant.')
       deliveredAll = false
+    elseif reward == 'y' then
+      broadcastToAll(getPlayerName(playerColor) ..
+      ' gets to use the effect on the silver side of one assistant available in the supply.')
+      deliveredAll = false
+    elseif reward == 'z' then
+      broadcastToAll(getPlayerName(playerColor) ..
+      ' gets to use the effect on the gold side of one assistant available in the supply.')
+      deliveredAll = false
     elseif reward == 'e' then
       broadcastToAll(getPlayerName(playerColor) .. ' may exile a card.')
       deliveredAll = false
@@ -3569,6 +3577,7 @@ function deliverRewards(playerColor, obj)
     end
     wait(0.16)
   end
+
   if deliveredResources then
     local message = getPlayerName(playerColor) .. ' gets '
     local textList = {}
@@ -3585,6 +3594,7 @@ function deliverRewards(playerColor, obj)
     end
     broadcastToAll(message .. listToText(textList) .. '.')
   end
+
   return deliveredAll
 end
 
