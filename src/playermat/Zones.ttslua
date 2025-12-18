@@ -11,6 +11,11 @@ do
   commonZones["Food1"]                 = Vector(2.442, 0, -0.623)
   commonZones["Food2"]                 = Vector(2.442, 0, 0)
   commonZones["Food3"]                 = Vector(2.442, 0, 0.619)
+  commonZones["Falcon1"]               = Vector(-0.526, 0, 0.293)
+  commonZones["Falcon2"]               = Vector(-0.036, 0, 0.52)
+  commonZones["Falcon3"]               = Vector(0.472, 0, 0.385)
+  commonZones["Falcon4"]               = Vector(0.701, 0, -0.051)
+  commonZones["Falcon5"]               = Vector(0.745, 0, -0.569)
 
   -- local coordinates for Blue / Green (inverted X for Red / Yellow)
   local mirrorZones                    = {}

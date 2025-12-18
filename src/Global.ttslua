@@ -43,7 +43,6 @@ playerVars            = {
       s = '4b2360'
     },
     suitcasePosition = { -26.50, 1.53, 8.80 },
-    falconPositions = { { -44.93, 1.63, 17.46 }, { -42.37, 1.63, 16.26 }, { -39.69, 1.63, 16.98 }, { -38.49, 1.63, 19.27 }, { -38.26, 1.63, 21.99 } },
     archivePositions = { { -67, 1.50, 20.30 }, { -67, 1.50, 13.10 }, { -67, 1.50, 5.90 } },
     articlePosition = { -24, 1.57, 16.80 },
     goldenTeethPosition = { -24, 1.57, 16.80 },
@@ -77,7 +76,6 @@ playerVars            = {
       s = '7c33b6'
     },
     suitcasePosition = { 26.60, 1.53, 8.80 },
-    falconPositions = { { 48.21, 1.63, 17.42 }, { 50.81, 1.63, 16.26 }, { 53.48, 1.63, 17.01 }, { 54.66, 1.63, 19.34 }, { 54.86, 1.63, 22.07 } },
     archivePositions = { { 67, 1.50, 20.30 }, { 67, 1.50, 13.10 }, { 67, 1.50, 5.90 } },
     articlePosition = { 29.20, 1.57, 16.80 },
     goldenTeethPosition = { 29.20, 1.57, 16.80 },
@@ -111,7 +109,6 @@ playerVars            = {
       s = '9e8531'
     },
     suitcasePosition = { 26.60, 1.53, -32.20 },
-    falconPositions = { { 48.21, 1.63, -23.58 }, { 50.81, 1.63, -24.74 }, { 53.48, 1.63, -23.99 }, { 54.66, 1.63, -21.66 }, { 54.86, 1.63, -18.93 } },
     archivePositions = { { 67, 1.50, -20.70 }, { 67, 1.50, -27.90 }, { 67, 1.50, -35.10 } },
     articlePosition = { 29.20, 1.57, -24.20 },
     goldenTeethPosition = { 29.20, 1.57, -24.20 },
@@ -145,7 +142,6 @@ playerVars            = {
       s = '75c07f'
     },
     suitcasePosition = { -26.60, 1.53, -32.20 },
-    falconPositions = { { -44.93, 1.63, -23.54 }, { -42.37, 1.63, -24.73 }, { -39.69, 1.63, -24.02 }, { -38.49, 1.63, -21.73 }, { -38.26, 1.63, -19.01 } },
     archivePositions = { { -67, 1.50, -20.70 }, { -67, 1.50, -27.90 }, { -67, 1.50, -35.10 } },
     articlePosition = { -24, 1.57, -24.20 },
     goldenTeethPosition = { -24, 1.57, -24.20 },
@@ -2765,7 +2761,7 @@ function setupStartingResources()
           cardList = starterDeck["Falconer"]
           tokenBag.takeObject({
             guid     = tokens.falcon,
-            position = vars.falconPositions[2],
+            position = PlayermatApi.getZonePosition(playerColor, "Falcon" .. 2),
             rotation = falconRotations[2]
           })
         elseif playerBoardState == 3 then -- Setup for the baroness
@@ -3978,24 +3974,25 @@ function nextRoundButton(obj, clickColor, alt)
       if options.playerBoards[playerColor] == 2 then
         local falcon = getObjectFromGUID(tokens.falcon)
         local falconPosIndex = nil
-        local falconPositions = playerVars[playerColor].falconPositions
         if falcon ~= nil then
-          for i, pos in ipairs(falconPositions) do
-            if positionIsClose(pos, falcon.getPosition()) then
+          local currentPos = falcon.getPosition()
+          for i = 1, 5 do
+            local falconPos = PlayermatApi.getZonePosition(playerColor, "Falcon" .. i)
+            if positionIsClose(falconPos, currentPos) then
               falconPosIndex = i
               break
             end
           end
         end
+
         if falconPosIndex == nil then
           broadcastToAll('Unable to locate falcon.', playerColor)
-          wait(0.5)
         elseif falconPosIndex < 5 then
           broadcastToAll(getPlayerName(playerColor) .. ' moves their falcon.')
           falcon.setRotationSmooth(falconRotations[falconPosIndex + 1], false, true)
-          falcon.setPositionSmooth(falconPositions[falconPosIndex + 1], false, true)
-          wait(0.5)
+          falcon.setPositionSmooth(PlayermatApi.getZonePosition(playerColor, "Falcon" .. falconPosIndex + 1), false, true)
         end
+        wait(0.5)
       elseif options.playerBoards[playerColor] == 3 then
         broadcastToAll(getPlayerName(playerColor) .. ' gets income of 1 coin.')
         takeResourceButton('c', playerColor)
