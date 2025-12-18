@@ -57,7 +57,6 @@ playerVars           = {
     allZoneGuid = 'd9da53',
     playAreaZoneGuid = '67c9fd',
     refZoneGuid = '9ba49e',
-    assistantZoneGuid = 'ca1026',
     researchTokens = {
       magnifying = '1a305e',
       notebook = '96a124'
@@ -96,7 +95,6 @@ playerVars           = {
     allZoneGuid = '05b782',
     playAreaZoneGuid = 'df8647',
     refZoneGuid = '25eec1',
-    assistantZoneGuid = '1d601a',
     researchTokens = {
       magnifying = '975b98',
       notebook = '6cf350'
@@ -4064,14 +4062,10 @@ function nextRoundButton(obj, clickColor, alt)
     for _, playerColor in ipairs(seatedPlayerColors) do
       if not (options.solo and playerColor == 'Red') then
         local vars = playerVars[playerColor]
-        local assistantZoneGuid = vars.allZoneGuid
-        if options.playerBoards[playerColor] == 6 and vars.assistantZoneGuid ~= nil then
-          assistantZoneGuid = vars.assistantZoneGuid
-        end
-        for _, object in ipairs(getObjectFromGUID(assistantZoneGuid).getObjects()) do
+        for _, object in ipairs(getObjectFromGUID(vars.allZoneGuid).getObjects()) do
           if object.hasTag('assistant') then
-            local rotation = object.getRotation()
-            object.setRotationSmooth({ 0, 180, rotation[3] }, false, false)
+            local rotation = object.getRotation():setAt("y", 180)
+            object.setRotationSmooth(rotation, false, false)
           end
         end
       end
