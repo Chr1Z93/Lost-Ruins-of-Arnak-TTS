@@ -16,13 +16,11 @@ playerVars            = {
   Red = {
     allZoneGuid = 'b32bc6',
     playAreaZoneGuid = '472eb8',
-    refZoneGuid = '545a04',
     pawns = { 'b2d015', '47658b', 'bfb9eb' },
     pawnPositions = {
-      { -24.91, 2.30, 24.03 },
-      { -28.33, 2.30, 24.41 },
-      { -26.38, 2.30, 25.02 } },
-    tentGuid = '2cbeb3',
+      { -36.33, 2.30, 24.41 },
+      { -32.91, 2.30, 24.03 },
+      { -34.38, 2.30, 25.02 } },
     trashGuid = 'b0f01b',
     resourceBags = {
       t = '7cf312',
@@ -38,19 +36,17 @@ playerVars            = {
       c = 'cbf8fd',
       s = '0a749b'
     },
-    archivePositions = { { -67, 1.50, 20.30 }, { -67, 1.50, 13.10 }, { -67, 1.50, 5.90 } },
-    articlePosition = { -24, 1.57, 16.80 },
-    goldenTeethPosition = { -24, 1.57, 16.80 },
-    refPositions = { { -53, 1.48, 28.5 }, { -47, 1.48, 28.5 } },
-    firstPlayerPosition = { -26.60, 1.53, 28.75 }
+    archivePositions = { { -75, 1.50, 20.30 }, { -75, 1.50, 13.10 }, { -75, 1.50, 5.90 } },
+    articlePosition = { -32, 1.57, 16.80 },
+    goldenTeethPosition = { -32, 1.57, 16.80 },
+    refPositions = { { -61, 1.48, 28.5 }, { -55, 1.48, 28.5 } },
+    firstPlayerPosition = { -34.60, 1.53, 28.75 }
   },
   Blue = {
     allZoneGuid = 'd9da53',
     playAreaZoneGuid = '67c9fd',
-    refZoneGuid = '9ba49e',
     pawns = { 'c8a97b', 'ddd08f', '822412' },
-    pawnPositions = { { 28.29, 2.30, 24.02 }, { 24.87, 2.30, 24.41 }, { 26.82, 2.30, 25.02 } },
-    tentGuid = '46fb5e',
+    pawnPositions = { { 36.29, 2.30, 24.02 }, { 32.87, 2.30, 24.41 }, { 34.82, 2.30, 25.02 } },
     trashGuid = 'c1c247',
     resourceBags = {
       t = 'd40949',
@@ -66,19 +62,17 @@ playerVars            = {
       c = '12d02d',
       s = '5c8abb'
     },
-    archivePositions = { { 67, 1.50, 20.30 }, { 67, 1.50, 13.10 }, { 67, 1.50, 5.90 } },
-    articlePosition = { 29.20, 1.57, 16.80 },
-    goldenTeethPosition = { 29.20, 1.57, 16.80 },
-    refPositions = { { 53, 1.48, 28.5 }, { 47, 1.48, 28.5 } },
-    firstPlayerPosition = { 26.60, 1.53, 28.75 }
+    archivePositions = { { 75, 1.50, 20.30 }, { 75, 1.50, 13.10 }, { 75, 1.50, 5.90 } },
+    articlePosition = { 37.20, 1.57, 16.80 },
+    goldenTeethPosition = { 37.20, 1.57, 16.80 },
+    refPositions = { { 61, 1.48, 28.5 }, { 55, 1.48, 28.5 } },
+    firstPlayerPosition = { 34.60, 1.53, 28.75 }
   },
   Green = {
     allZoneGuid = '05b782',
     playAreaZoneGuid = 'df8647',
-    refZoneGuid = '25eec1',
     pawns = { '609cfd', 'ddc20b', 'b4abfd' },
-    pawnPositions = { { 28.29, 2.30, -16.98 }, { 24.87, 2.30, -16.59 }, { 26.82, 2.30, -15.98 } },
-    tentGuid = '5a9adf',
+    pawnPositions = { { 36.29, 2.30, -16.98 }, { 32.87, 2.30, -16.59 }, { 34.82, 2.30, -15.98 } },
     trashGuid = '9c24a7',
     resourceBags = {
       t = '9bf040',
@@ -94,19 +88,17 @@ playerVars            = {
       c = '4eab66',
       s = 'b8b628'
     },
-    archivePositions = { { 67, 1.50, -20.70 }, { 67, 1.50, -27.90 }, { 67, 1.50, -35.10 } },
-    articlePosition = { 29.20, 1.57, -24.20 },
-    goldenTeethPosition = { 29.20, 1.57, -24.20 },
-    refPositions = { { 53, 1.48, -12.5 }, { 47, 1.48, -12.5 } },
-    firstPlayerPosition = { 26.60, 1.53, -12.25 }
+    archivePositions = { { 75, 1.50, -20.70 }, { 75, 1.50, -27.90 }, { 75, 1.50, -35.10 } },
+    articlePosition = { 37.20, 1.57, -24.20 },
+    goldenTeethPosition = { 37.20, 1.57, -24.20 },
+    refPositions = { { 61, 1.48, -12.5 }, { 55, 1.48, -12.5 } },
+    firstPlayerPosition = { 34.60, 1.53, -12.25 }
   },
   Yellow = {
     allZoneGuid = '19cc4f',
     playAreaZoneGuid = '7a5b2c',
-    refZoneGuid = '332924',
     pawns = { 'e94bc0', 'dabf30', 'b5f37c' },
-    pawnPositions = { { -24.91, 2.30, -16.98 }, { -28.33, 2.30, -16.59 }, { -26.38, 2.30, -15.98 } },
-    tentGuid = '1da514',
+    pawnPositions = { { -36.33, 2.30, -16.59 }, { -32.91, 2.30, -16.98 }, { -34.38, 2.30, -15.98 } },
     trashGuid = '66b07c',
     resourceBags = {
       t = 'cf6aea',
@@ -122,11 +114,11 @@ playerVars            = {
       c = '71fc56',
       s = 'f0ec52'
     },
-    archivePositions = { { -67, 1.50, -20.70 }, { -67, 1.50, -27.90 }, { -67, 1.50, -35.10 } },
-    articlePosition = { -24, 1.57, -24.20 },
-    goldenTeethPosition = { -24, 1.57, -24.20 },
-    refPositions = { { -53, 1.48, -12.5 }, { -47, 1.48, -12.5 } },
-    firstPlayerPosition = { -26.60, 1.53, -12.25 }
+    archivePositions = { { -75, 1.50, -20.70 }, { -75, 1.50, -27.90 }, { -75, 1.50, -35.10 } },
+    articlePosition = { -32, 1.57, -24.20 },
+    goldenTeethPosition = { -32, 1.57, -24.20 },
+    refPositions = { { -61, 1.48, -12.5 }, { -55, 1.48, -12.5 } },
+    firstPlayerPosition = { -34.60, 1.53, -12.25 }
   }
 }
 
@@ -2428,7 +2420,7 @@ function setupMiscThings()
         decks[playerColor].deal(5, playerColor)
       end
       if options.playerBoards[playerColor] == 6 then decks.fear.deal(1, playerColor) end
-      getObjectFromGUID(playerVars[playerColor].tentGuid).unlock()
+      getTent(playerColor).unlock()
     end
     broadcastToAll('Starting Round 1')
     Turns.turn_color = firstPlayerColor
@@ -2486,7 +2478,9 @@ function setupButtonsMisc()
         _G['clickResourceBag' .. resource .. playerColor] = function(obj, clickColor, alt)
           if not doneLoading or clickColor ~= playerColor then return end
           if alt then
-            if bag.getQuantity() > 0 then getObjectFromGUID(vars.trashGuid).putObject(bag.takeObject()) end
+            if bag.getQuantity() > 0 then
+              trashObject(playerColor, bag.takeObject())
+            end
           else
             takeResourceButton(resource, clickColor)
           end
@@ -2503,7 +2497,9 @@ function setupButtonsMisc()
             _G['clickResourceBag' .. resource .. 'Suitcase'] = function(obj, clickColor, alt)
               if not doneLoading or clickColor ~= playerColor then return end
               if alt then
-                if bag.getQuantity() > 0 then getObjectFromGUID(vars.trashGuid).putObject(bag.takeObject()) end
+                if bag.getQuantity() > 0 then
+                  trashObject(playerColor, bag.takeObject())
+                end
               else
                 takeResourceButton(resource, clickColor, true)
               end
@@ -2690,7 +2686,6 @@ function setupStartingResources()
   -- distribute starting player decks and tokens
   local tokenBag = getObjectFromGUID(bags.miscTokens)
   local refBag = getObjectFromGUID(bags.leaderRef)
-  local references = {}
   for _, playerColor in ipairs(seatedPlayerColors) do
     if options.solo and playerColor == 'Red' then -- if playing solo and this is the red player, setup the pawns
       for i, guid in ipairs(solo.pawns) do
@@ -2719,20 +2714,23 @@ function setupStartingResources()
       local deckPos = PlayermatApi.getZonePosition(playerColor, "Deck")
       local boardLocation = PlayermatApi.getPlayermats(playerColor).getPosition()
 
-      -- The mechanic and journalist need a small adjustment to their deck placement location if blue or green player
-      if (playerBoardState == 7 or playerBoardState == 8) and (playerColor == "Green" or playerColor == "Blue") then
-        deckPos = deckPos - Vector(0.08, 0, 0)
-      end
-
       if playerBoardState == 9 then
         -- if the player board is the base board, grab the player deck for the board color
         cardList = starterDeck[playerColor]
       else
         local refIndex = playerBoardState * 2 - 2
         for i = 1, 2 do
-          local ref = refBag.takeObject({ position = vars.refPositions[i], rotation = faceup, smooth = false })
-          wait(0.01)
-          table.insert(references, { obj = ref, state = refIndex + i })
+          refBag.takeObject({
+            position          = vars.refPositions[i],
+            rotation          = faceup,
+            smooth            = false,
+            callback_function = function(o)
+              if refIndex ~= 0 then
+                o = o.setState(refIndex + 1)
+                o.lock()
+              end
+            end
+          })
         end
 
         if playerBoardState == 1 then     -- Setup for the captain
@@ -2824,10 +2822,9 @@ function setupStartingResources()
             end
           })
           -- As journalist place article tokens on to the player board for "featured articles". 3 or more players sets only two articles and 2 or less set all 3 articles.
-          local articlePosition = vars.articlePosition
           tokenBag.takeObject({
             guid              = tokens.journalistArticles,
-            position          = articlePosition,
+            position          = vars.articlePosition,
             smooth            = true,
             callback_function = function(x)
               local boardArticleLocations = {
@@ -2851,9 +2848,8 @@ function setupStartingResources()
           })
         elseif playerBoardState == 8 then -- Setup for the mechanic
           cardList = starterDeck["Mechanic"]
-          local goldenTeethPosition = vars.goldenTeethPosition
           tokenBag.takeObject({
-            position          = goldenTeethPosition,
+            position          = vars.goldenTeethPosition,
             smooth            = true,
             guid              = tokens.MechanicGoldTokens,
             rotation          = facedown,
@@ -2921,22 +2917,6 @@ function setupStartingResources()
         rotation = facedown,
         position = deckPos
       })
-    end
-  end
-
-  wait(0.4)
-
-  for _, ref in ipairs(references) do
-    if ref.state ~= 1 then ref.obj.setState(ref.state) end
-  end
-
-  wait(0.4)
-
-  for _, playerColor in ipairs(seatedPlayerColors) do
-    if not (options.solo and playerColor == 'Red') then
-      for _, object in ipairs(getObjectFromGUID(playerVars[playerColor].refZoneGuid).getObjects()) do
-        if object.type == 'Tile' then object.lock() end
-      end
     end
   end
 
@@ -3081,7 +3061,7 @@ function menuStartSolo()
           drawCard(deckZones.fear).deal(1, playerColor)
         end
 
-        getObjectFromGUID(playerVars[playerColor].tentGuid).unlock()
+        getTent(playerColor).unlock()
       end
     end
     broadcastToAll('Starting Round 1')
@@ -3281,9 +3261,8 @@ function buyButton(zone, clickColor, alt)
       end
 
       broadcastToAll(coloredName .. ' spends ' .. md.cost .. suffix .. ' to buy ' .. card.getName() .. ".")
-      local trash = getObjectFromGUID(vars.trashGuid)
       for i = 1, md.cost do
-        Wait.time(function() trash.putObject(bag.takeObject()) end, i * 0.1)
+        Wait.time(function() trashObject(clickColor, bag.takeObject()) end, i * 0.1)
       end
     end
 
@@ -3381,7 +3360,6 @@ end
 function getTent(playerColor)
   for _, tent in ipairs(getObjectsWithTag("tent")) do
     local tentColor = PlayermatApi.getMatColorByPosition(tent.getPosition())
-
     if tentColor == playerColor then
       return tent
     end
@@ -3467,7 +3445,7 @@ function placePawn(playerColor, zone, siteInfo, level, alt)
         broadcastToAll(getPlayerName(playerColor) .. ' spends ' .. compassCost .. ' compasses to discover a site.')
         for i = 1, compassCost do
           if bag.getQuantity() > 0 then
-            getObjectFromGUID(vars.trashGuid).putObject(bag.takeObject())
+            trashObject(playerColor, bag.takeObject())
             wait(0.16)
           end
         end
@@ -4528,7 +4506,7 @@ function onPlayerTurn(player, previousPlayer)
     local currentPlayerTent = nil
     local atLeastOneFaceupTent = false
     for _, playerColor in ipairs(seatedPlayerColors) do
-      local tent = getObjectFromGUID(playerVars[playerColor].tentGuid)
+      local tent = getTent(playerColor)
       if tent ~= nil then
         if playerColor == player.color then currentPlayerTent = tent end
         if not tent.is_face_down then atLeastOneFaceupTent = true end
@@ -4616,7 +4594,7 @@ end
 
 function addTrashMenu(object)
   if object.hasTag('research') and object.getDescription() == '' then
-    object.addContextMenuItem('Trash', function(playerColor) trash(playerColor, object) end)
+    object.addContextMenuItem('Trash', function(playerColor) trashObject(playerColor, object) end)
   end
 end
 
@@ -4701,9 +4679,12 @@ function cycleAssistant(object)
   object.takeObject({ position = object.getPosition():setAt("y", tileY), rotation = object.getRotation() })
 end
 
-function trash(playerColor, object)
-  if isSeated(playerColor) then
-    getObjectFromGUID(playerVars[playerColor].trashGuid).putObject(object)
+function trashObject(playerColor, object)
+  if playerVars[playerColor] and playerVars[playerColor].trashGuid then
+    local trash = getObjectFromGUID(playerVars[playerColor].trashGuid)
+    if trash ~= nil then
+      trash.putObject(object)
+    end
   end
 end
 
@@ -5071,7 +5052,7 @@ function rivalTurnCoroutine()
   end
   soloStatus.firstTurn = false
 
-  local tent = getObjectFromGUID(playerVars[seatedPlayerColors[1]].tentGuid)
+  local tent = getTent(seatedPlayerColors[1])
   if tent == nil or not tent.is_face_down or drawCard(solo.zones.deck, nil, nil, true) == nil then
     broadcastToAll(getPlayerName(seatedPlayerColors[1], true) .. "'s turn.", seatedPlayerColors[1])
     setupButtonRivalTurn()
