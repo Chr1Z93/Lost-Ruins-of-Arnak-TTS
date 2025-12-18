@@ -26,7 +26,6 @@ playerVars           = {
       { -28.33, 2.30, 24.41 },
       { -26.38, 2.30, 25.02 } },
     tentGuid = '2cbeb3',
-    tentZoneGuid = 'cc542a',
     trashGuid = 'b0f01b',
     resourceBags = {
       t = '7cf312',
@@ -66,7 +65,6 @@ playerVars           = {
     pawns = { 'c8a97b', 'ddd08f', '822412' },
     pawnPositions = { { 28.29, 2.30, 24.02 }, { 24.87, 2.30, 24.41 }, { 26.82, 2.30, 25.02 } },
     tentGuid = '46fb5e',
-    tentZoneGuid = '2b78f5',
     trashGuid = 'c1c247',
     resourceBags = {
       t = 'd40949',
@@ -106,7 +104,6 @@ playerVars           = {
     pawns = { '609cfd', 'ddc20b', 'b4abfd' },
     pawnPositions = { { 28.29, 2.30, -16.98 }, { 24.87, 2.30, -16.59 }, { 26.82, 2.30, -15.98 } },
     tentGuid = '5a9adf',
-    tentZoneGuid = '5717d6',
     trashGuid = '9c24a7',
     resourceBags = {
       t = '9bf040',
@@ -145,7 +142,6 @@ playerVars           = {
     pawns = { 'e94bc0', 'dabf30', 'b5f37c' },
     pawnPositions = { { -24.91, 2.30, -16.98 }, { -28.33, 2.30, -16.59 }, { -26.38, 2.30, -15.98 } },
     tentGuid = '1da514',
-    tentZoneGuid = 'b6e97f',
     trashGuid = '66b07c',
     resourceBags = {
       t = 'cf6aea',
@@ -3426,6 +3422,16 @@ function refillRowCoroutine()
   return 1
 end
 
+function getTent(playerColor)
+  for _, tent in ipairs(getObjectsWithTag("tent")) do
+    local tentColor = PlayermatApi.getMatColorByPosition(tent.getPosition())
+
+    if tentColor == playerColor then
+      return tent
+    end
+  end
+end
+
 function placePawn(playerColor, zone, siteInfo, level, alt)
   -- check occupied
   for _, obj in ipairs(zone.getObjects()) do
@@ -3445,12 +3451,13 @@ function placePawn(playerColor, zone, siteInfo, level, alt)
       return
     end
   else
-    for _, obj in ipairs(getObjectFromGUID(vars.tentZoneGuid).getObjects()) do
+    for _, obj in ipairs(SearchLib.onObject(getTent(playerColor))) do
       if obj.hasTag('pawn') and obj.getDescription() == playerColor then
         pawn = obj
         break
       end
     end
+
     if pawn == nil then
       broadcastToColor('No archaeologists found near your tent space.', playerColor)
       return
