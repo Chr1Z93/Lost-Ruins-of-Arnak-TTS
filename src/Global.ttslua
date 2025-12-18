@@ -16,13 +16,6 @@ playerVars           = {
     allZoneGuid = 'b32bc6',
     playAreaZoneGuid = '472eb8',
     refZoneGuid = '545a04',
-    deckZoneGuids = {
-      base = 'fb8591',
-      leader = '474558',
-      mystic = '06e359',
-      journo_Mech = 'f203ae'
-    },
-    mysticRitualPosition = { -66.15, 1.6, 20.72 },
     researchTokens = {
       magnifying = '3ac5a9',
       notebook = 'a70c8f'
@@ -66,14 +59,6 @@ playerVars           = {
     playAreaZoneGuid = '67c9fd',
     refZoneGuid = '9ba49e',
     assistantZoneGuid = 'ca1026',
-    deckZoneGuids = {
-      base = '251ebb',
-      leader = 'c59a9b',
-      mystic = 'a3aaf8',
-      ritual = '339af9',
-      journo_Mech = 'c59a9b'
-    },
-    mysticRitualPosition = { 35.85, 1.60, 20.72 },
     researchTokens = {
       magnifying = '1a305e',
       notebook = '96a124'
@@ -114,14 +99,6 @@ playerVars           = {
     playAreaZoneGuid = 'df8647',
     refZoneGuid = '25eec1',
     assistantZoneGuid = '1d601a',
-    deckZoneGuids = {
-      base = '033194',
-      leader = '56a26a',
-      mystic = '1947cf',
-      ritual = '603a7b',
-      journo_Mech = '56a26a'
-    },
-    mysticRitualPosition = { 35.85, 1.60, -20.28 },
     researchTokens = {
       magnifying = '975b98',
       notebook = '6cf350'
@@ -161,13 +138,6 @@ playerVars           = {
     allZoneGuid = '19cc4f',
     playAreaZoneGuid = '7a5b2c',
     refZoneGuid = '332924',
-    deckZoneGuids = {
-      base = 'ec6a31',
-      leader = 'a0aebd',
-      mystic = 'eae7fa',
-      journo_Mech = '30eb87',
-    },
-    mysticRitualPosition = { -66.15, 1.59, -20.28 },
     researchTokens = {
       magnifying = 'ca9cc3',
       notebook = '5db4d4'
@@ -5442,6 +5412,20 @@ function moveObjects()
         o.setPosition(pos + Vector(8, 0, 0))
       elseif pos.x < -23 then
         o.setPosition(pos - Vector(8, 0, 0))
+      end
+    end
+  end
+end
+
+function removeDeckZones()
+  for color, data in pairs(playerVars) do
+    for name, guid in pairs(data.deckZoneGuids) do
+      local o = getObjectFromGUID(guid)
+      if o ~= nil then
+        o.destruct()
+        log("removed " .. guid)
+      else
+        log("didn't find " .. guid)
       end
     end
   end

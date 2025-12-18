@@ -71,6 +71,10 @@
     {
       "displayed": "waterfall",
       "normalized": "waterfall"
+    },
+    {
+      "displayed": "Playermat",
+      "normalized": "playermat"
     }
   ]
 }
