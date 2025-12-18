@@ -3,23 +3,20 @@
 -- updated by Chr1Z and covertskippy55 for the missing expedition
 -- updated by Chr1Z for twisted paths
 
-local PlayermatApi   = require("playermat/PlayermatApi")
-local SearchLib      = require("util/SearchLib")
+local PlayermatApi    = require("playermat/PlayermatApi")
+local SearchLib       = require("util/SearchLib")
 
-testVars             = {
+testVars              = {
   defineSeated  = true,
   seatedPlayers = { 'Blue', 'Green', 'Yellow', 'Red' }
 }
 
-playerVars           = {
+RESEARCH_TOKENS       = { "magnifying", "journal", "lantern" }
+playerVars            = {
   Red = {
     allZoneGuid = 'b32bc6',
     playAreaZoneGuid = '472eb8',
     refZoneGuid = '545a04',
-    researchTokens = {
-      magnifying = '3ac5a9',
-      notebook = 'a70c8f'
-    },
     pawns = { 'b2d015', '47658b', 'bfb9eb' },
     pawnPositions = {
       { -24.91, 2.30, 24.03 },
@@ -57,10 +54,6 @@ playerVars           = {
     allZoneGuid = 'd9da53',
     playAreaZoneGuid = '67c9fd',
     refZoneGuid = '9ba49e',
-    researchTokens = {
-      magnifying = '1a305e',
-      notebook = '96a124'
-    },
     pawns = { 'c8a97b', 'ddd08f', '822412' },
     pawnPositions = { { 28.29, 2.30, 24.02 }, { 24.87, 2.30, 24.41 }, { 26.82, 2.30, 25.02 } },
     tentGuid = '46fb5e',
@@ -95,10 +88,6 @@ playerVars           = {
     allZoneGuid = '05b782',
     playAreaZoneGuid = 'df8647',
     refZoneGuid = '25eec1',
-    researchTokens = {
-      magnifying = '975b98',
-      notebook = '6cf350'
-    },
     pawns = { '609cfd', 'ddc20b', 'b4abfd' },
     pawnPositions = { { 28.29, 2.30, -16.98 }, { 24.87, 2.30, -16.59 }, { 26.82, 2.30, -15.98 } },
     tentGuid = '5a9adf',
@@ -133,10 +122,6 @@ playerVars           = {
     allZoneGuid = '19cc4f',
     playAreaZoneGuid = '7a5b2c',
     refZoneGuid = '332924',
-    researchTokens = {
-      magnifying = 'ca9cc3',
-      notebook = '5db4d4'
-    },
     pawns = { 'e94bc0', 'dabf30', 'b5f37c' },
     pawnPositions = { { -24.91, 2.30, -16.98 }, { -28.33, 2.30, -16.59 }, { -26.38, 2.30, -15.98 } },
     tentGuid = '1da514',
@@ -170,7 +155,7 @@ playerVars           = {
 }
 
 -- data for idols slots: points and local position
-idolSlotData         = {
+idolSlotData          = {
   -- captain
   {
     { points = 1, localPos = Vector(-0.149, 0, -0.672) },
@@ -237,9 +222,9 @@ idolSlotData         = {
     { points = 4, localPos = Vector(-2.478, 0, -0.634) }
   }
 }
-seatedPlayerColors   = {}
-startPlayerIndex     = 0
-starterDeck          = {
+seatedPlayerColors    = {}
+startPlayerIndex      = 0
+starterDeck           = {
   Yellow     = { "0001", "0002", "0003", "0004" },
   Green      = { "0005", "0006", "0007", "0008" },
   Blue       = { "0009", "0010", "0011", "0012" },
@@ -253,7 +238,7 @@ starterDeck          = {
   Mechanic   = { "2001", "2002", "2003", "2004" },
   Journalist = { "2005", "2006", "2007", "2008" }
 }
-options              = {
+options               = {
   solo          = false,
   objectives    = 3,
   playerBoards  = {},
@@ -269,41 +254,40 @@ options              = {
     promos            = true
   }
 }
-bags                 = {
-  resources = {
+bags                  = {
+  resources       = {
     t = '831df9',
     a = '84369b',
     j = 'e283e9',
     c = '1ee5ea',
     s = 'c85087'
   },
-  fear = '69002b',
-  blocking = '8c3f25',
-  researchBonus = 'e90e2a',
-  leaderRef = '0a5188',
-  miscTokens = '47fde4',
-  replaced = 'bb923d',
-  solo = 'cabb5b',
+  fear            = '69002b',
+  blocking        = '8c3f25',
+  researchBonus   = 'e90e2a',
+  leaderRef       = '0a5188',
+  miscTokens      = '47fde4',
+  solo            = 'cabb5b',
   soloTempleTiles = 'c13fff',
-  campaignItems = '5c483d'
+  campaignItems   = '5c483d'
 }
-deckZones            = {
+deckZones             = {
   artifacts = 'c19201',
-  items = 'cd21a5',
-  fear = '1fcdb3',
-  sites1 = '702902',
-  sites2 = 'e0c338',
+  items     = 'cd21a5',
+  fear      = '1fcdb3',
+  sites1    = '702902',
+  sites2    = 'e0c338',
   guardians = 'b51480',
-  bonus1 = "bonus1",
-  bonus2 = "bonus2",
-  bonus3 = "bonus3",
-  bonus4 = "bonus4",
-  bonus5 = "bonus5"
+  bonus1    = "bonus1",
+  bonus2    = "bonus2",
+  bonus3    = "bonus3",
+  bonus4    = "bonus4",
+  bonus5    = "bonus5"
 }
-assistantDeckGuid    = '538a5c'
-idolDeckGuid         = 'ab4a80'
+assistantDeckGuid     = '538a5c'
+idolDeckGuid          = 'ab4a80'
 
-expansionDecks       = {
+expansionDecks        = {
   expeditionLeaders = {
     assistants = 'cf87b7',
     idols      = '9988c4',
@@ -328,16 +312,7 @@ expansionDecks       = {
   }
 }
 
-playerDecks          = {
-  base = {
-    Red = 'cbf743',
-    Blue = 'aaed1a',
-    Green = '47fe07',
-    Yellow = '34c052'
-  },
-  leaders = { '1e21bd', '99385f', 'd0d33f', 'a42e51', '64471d', '2c1dc4', '5c5fc9', '302d5d' }
-}
-tokens               = {
+tokens                = {
   falcon                    = '9ef0a8',
   suitcase                  = 'f78694',
   food                      = { '4c7454', '7ae3bf', 'a4129d' },
@@ -349,25 +324,23 @@ tokens               = {
   MechanicGoldTokens        = '428f5c',
   MechanicGoldTokenAttacher = '3cc576'
 }
-cards                = {
-  baroness = '49e35e'
-}
-suitcaseResourceBags = {
+SPECIAL_DELIVERY_GUID = '49e35e'
+suitcaseResourceBags  = {
   t = 'da4493',
   s = '4ecc7c'
 }
-falconRotations      = { { 0, 225, 0 }, { 0, 190, 0 }, { 0, 148, 0 }, { 0, 115, 0 }, { 0, 90, 0 } }
-assistantPositions   = { { 9.15, 1.63, -30.73 }, { 13.83, 1.63, -30.73 }, { 18.52, 1.63, -30.73 } }
-assistantZones       = { 'a432ac', 'a44647', '3ffbd7' }
+falconRotations       = { { 0, 225, 0 }, { 0, 190, 0 }, { 0, 148, 0 }, { 0, 115, 0 }, { 0, 90, 0 } }
+assistantPositions    = { { 9.15, 1.63, -30.73 }, { 13.83, 1.63, -30.73 }, { 18.52, 1.63, -30.73 } }
+assistantZones        = { 'a432ac', 'a44647', '3ffbd7' }
 
-cardRowZoneGuids     = { '8ae6f2', '6103ae', 'cea4b5', '99cfc2', '8a1a02', 'dbf266' }
-staffPositions       = { { -14.61, 1.63, 20.23 }, { -7.37, 1.63, 20.23 }, { -0.03, 1.63, 20.23 }, { 7.23, 1.63, 20.23 }, { 14.51, 1.63, 20.23 } }
-exileZoneGuids       = {
+cardRowZoneGuids      = { '8ae6f2', '6103ae', 'cea4b5', '99cfc2', '8a1a02', 'dbf266' }
+staffPositions        = { { -14.61, 1.63, 20.23 }, { -7.37, 1.63, 20.23 }, { -0.03, 1.63, 20.23 }, { 7.23, 1.63, 20.23 }, { 14.51, 1.63, 20.23 } }
+exileZoneGuids        = {
   artifacts = '19f28c',
   items     = 'ec5c7a',
   other     = 'bcb533'
 }
-siteLevels           = {
+siteLevels            = {
   {
     { guid = '102294', pawnSpaces = { 'd8ae82' } },
     { guid = '836103', pawnSpaces = { '7b9a3a' } },
@@ -395,10 +368,10 @@ siteLevels           = {
   }
 }
 
-templeTileZoneGuids  = { 'fc3aea', '6b0f38', 'aa7dfd', 'e573c3', 'bb0b10', '599983' }
-templeSpaceZoneGuids = { '9c9b90', 'efc726', '024b25', '13d709' }
-researchZoneGuid     = '5de995'
-researchTracks       = {
+templeTileZoneGuids   = { 'fc3aea', '6b0f38', 'aa7dfd', 'e573c3', 'bb0b10', '599983' }
+templeSpaceZoneGuids  = { '9c9b90', 'efc726', '024b25', '13d709' }
+researchZoneGuid      = '5de995'
+researchTracks        = {
   {
     bonusPositions = {
       { { 9.08, 1.68, -18.72 },  { 13.77, 1.68, -18.73 }, { 9.11, 1.68, -9.83 }, { 13.22, 1.68, -9.84 }, { 17.23, 1.68, -9.84 }, { 9.34, 1.68, -1.65 }, { 14.05, 1.68, -1.65 } },
@@ -949,7 +922,7 @@ researchTracks       = {
   }
 }
 
-solo                 = {
+solo                  = {
   board = 'a30382',
   boardPosition = { -43.26, 1.53, 18.96 },
   objectives = 'd8547e',
@@ -999,7 +972,7 @@ solo                 = {
     assistant        = { -26.50, 2.00, 10.15 }
   }
 }
-soloStatus           = {
+soloStatus            = {
   firstTurn           = true,
   fulfilledObjectives = {},
   pawnsOut            = 0,
@@ -1030,6 +1003,8 @@ setupInProgress   = false
 movingRow         = false
 discovering       = false
 turn              = nil -- tts bug: the player turn is not set correctly when loading/rewinding
+
+-- MARK: GENERAL CODE
 
 function onSave()
   return JSON.encode({
@@ -1981,8 +1956,9 @@ function detectSeatedPlayers()
     for _, object in ipairs(getObjectFromGUID(vars.allZoneGuid).getObjects()) do
       object.destruct()
     end
-    for _, guid in pairs(vars.researchTokens) do
-      local token = getObjectFromGUID(guid)
+
+    for _, name in ipairs(RESEARCH_TOKENS) do
+      local token = getResearchToken(name, playerColor)
       if token ~= nil then token.destruct() end
     end
   end
@@ -1998,12 +1974,13 @@ function setupBoard()
   end
 
   -- distribute idols to the tier 1 and tier 2 sites. Tier 2 sites get 2 (one face up one face down)
+  local offset = Vector(0.97, 0, 0)
   for i = 1, 3 do
     for _, siteZone in ipairs(siteLevels[i]) do
       local pos = getObjectFromGUID(siteZone.guid).getPosition()
       if i == 1 then
-        decks.idols.takeObject({ position = pos + Vector(-0.97, 0, 0), rotation = faceup, smooth = true })
-        decks.idols.takeObject({ position = pos + Vector(0.97, 0, 0), rotation = facedown, smooth = true })
+        decks.idols.takeObject({ position = pos - offset, rotation = faceup, smooth = true })
+        decks.idols.takeObject({ position = pos + offset, rotation = facedown, smooth = true })
       else
         decks.idols.takeObject({ position = pos, rotation = faceup, smooth = true })
       end
@@ -2469,7 +2446,7 @@ function setupMiscThings()
   else
     for _, playerColor in ipairs(seatedPlayerColors) do
       if options.playerBoards[playerColor] == 3 then
-        decks[playerColor].takeObject({ guid = cards.baroness }).deal(1, playerColor)
+        decks[playerColor].takeObject({ guid = SPECIAL_DELIVERY_GUID }).deal(1, playerColor)
         decks[playerColor].deal(4, playerColor)
       else
         decks[playerColor].deal(5, playerColor)
@@ -2681,7 +2658,7 @@ function setupCampaignMisc()
     if playerColor ~= 'Red' then
       if options.playerBoards[playerColor] == 3 then
         -- Special handling for the Baroness
-        decks[playerColor].takeObject({ guid = cards.baroness }).deal(1, playerColor)
+        decks[playerColor].takeObject({ guid = SPECIAL_DELIVERY_GUID }).deal(1, playerColor)
         decks[playerColor].deal(4, playerColor)
       else
         decks[playerColor].deal(5, playerColor)
@@ -3113,7 +3090,7 @@ function menuStartSolo()
         local deck = SearchLib.atPosition(deckPos, "isDeck")[1]
 
         if options.playerBoards[playerColor] == 3 then
-          deck.takeObject({ guid = cards.baroness }).deal(1, playerColor)
+          deck.takeObject({ guid = SPECIAL_DELIVERY_GUID }).deal(1, playerColor)
           deck.deal(4, playerColor)
         else
           deck.deal(5, playerColor)
@@ -3428,6 +3405,13 @@ function getTent(playerColor)
       return tent
     end
   end
+end
+
+function getResearchToken(type, playerColor)
+  if type == "magnifying" then type = "Magnifying Glass" end
+  if type == "journal" then type = "Journal" end
+  if type == "lantern" then type = "Lantern" end
+  return getObjectByName(type .. " " .. playerColor)
 end
 
 function placePawn(playerColor, zone, siteInfo, level, alt)
@@ -3810,8 +3794,8 @@ function guardianFearCoroutine()
     if hasGuardian then
       for _, playerColor in ipairs(seatedPlayerColors) do
         if not (options.solo and playerColor == 'Red') and warmask ~= playerColor then
-          for _, guid in pairs(playerVars[playerColor].researchTokens) do
-            local token = getObjectFromGUID(guid)
+          for _, name in ipairs(RESEARCH_TOKENS) do
+            local token = getResearchToken(name, playerColor)
             if token ~= nil then
               local posZ = token.getPosition()[3]
               if posZ < researchTracks[4].rows[4].z and posZ > researchTracks[4].rows[5].z then
@@ -4111,11 +4095,11 @@ function nextRoundButton(obj, clickColor, alt)
         local drawn = #Player[playerColor].getHandObjects()
         if options.playerBoards[playerColor] == 3 then
           -- return special delivery to the hand of the Baroness
-          local specialDelivery = getObjectFromGUID(cards.baroness)
+          local specialDelivery = getObjectFromGUID(SPECIAL_DELIVERY_GUID)
           if specialDelivery == nil then
             local deckPos = PlayermatApi.getZonePosition(playerColor, "Deck")
             for _, object in ipairs(SearchLib.atPosition(deckPos, "isDeck")) do
-              specialDelivery = object.takeObject({ guid = cards.baroness })
+              specialDelivery = object.takeObject({ guid = SPECIAL_DELIVERY_GUID })
               break
             end
           end
@@ -4123,7 +4107,7 @@ function nextRoundButton(obj, clickColor, alt)
           if specialDelivery == nil then
             for _, object in ipairs(getObjectFromGUID(exileZoneGuids.other).getObjects()) do
               if object.type == 'Deck' then
-                specialDelivery = object.takeObject({ guid = cards.baroness })
+                specialDelivery = object.takeObject({ guid = SPECIAL_DELIVERY_GUID })
                 break
               end
             end
@@ -4265,8 +4249,8 @@ function calculateScores()
       end
 
       -- score the research position of the magnifying glass / journal
-      for name, guid in pairs(vars.researchTokens) do
-        local token = getObjectFromGUID(guid)
+      for _, name in ipairs(RESEARCH_TOKENS) do
+        local token = getResearchToken(name, playerColor)
         if token ~= nil then
           local posZ = token.getPosition()[3]
           for i, row in ipairs(researchTracks[options.researchTrack].rows) do
@@ -5121,7 +5105,7 @@ function rivalResearch(id, doNotTakeAssistant)
   broadcastToAll('Rival researches with its ' .. tokenName .. '.')
   wait(0.5)
 
-  local token = getObjectFromGUID(playerVars.Red.researchTokens[id])
+  local token = getResearchToken(id, "Red")
   if token == nil then
     broadcastToAll('Error: unable to locate ' .. tokenName .. '.')
     return false
