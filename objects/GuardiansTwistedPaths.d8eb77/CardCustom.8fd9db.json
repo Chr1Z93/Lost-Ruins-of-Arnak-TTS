@@ -5,17 +5,17 @@
     "z": 0
   },
   "Autoraise": true,
-  "CardID": 48800,
+  "CardID": 17100,
   "ColorDiffuse": {
     "b": 0.71324,
     "g": 0.71324,
     "r": 0.71324
   },
   "CustomDeck": {
-    "488": {
+    "171": {
       "BackIsHidden": true,
       "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/2496761664831300390/C8D86F0A0306DF066C913A50DEA75A77F4B3354C/",
-      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/2501267173192017320/4ABFDD49AF80A5D9EC003CFD80660261310761F5/",
+      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/9569540418121059877/1871FBF01AD34DD9EC3723D146C925583A829C9A/",
       "NumHeight": 1,
       "NumWidth": 1,
       "Type": 0,

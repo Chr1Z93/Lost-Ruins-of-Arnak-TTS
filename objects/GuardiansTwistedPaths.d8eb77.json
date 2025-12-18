@@ -12,23 +12,43 @@
   },
   "ContainedObjects_order": [
     "CardCustom.8fd9db",
-    "CardCustom.28dfe8"
+    "CardCustom.28dfe8",
+    "CardCustom.28dfe9",
+    "CardCustom.28dfea"
   ],
   "ContainedObjects_path": "GuardiansTwistedPaths.d8eb77",
   "CustomDeck": {
-    "486": {
+    "171": {
       "BackIsHidden": true,
       "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/2496761664831300390/C8D86F0A0306DF066C913A50DEA75A77F4B3354C/",
-      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/2501267173192017673/38F4A1944F6CA32004D784ABFA4EC026ACD6DF18/",
+      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/9569540418121059877/1871FBF01AD34DD9EC3723D146C925583A829C9A/",
       "NumHeight": 1,
       "NumWidth": 1,
       "Type": 0,
       "UniqueBack": false
     },
-    "488": {
+    "172": {
       "BackIsHidden": true,
       "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/2496761664831300390/C8D86F0A0306DF066C913A50DEA75A77F4B3354C/",
-      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/2501267173192017320/4ABFDD49AF80A5D9EC003CFD80660261310761F5/",
+      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/17515677407867456060/A6111A466FFA710CC20DA4AC7D7E3DDDCDB79B19/",
+      "NumHeight": 1,
+      "NumWidth": 1,
+      "Type": 0,
+      "UniqueBack": false
+    },
+    "173": {
+      "BackIsHidden": true,
+      "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/2496761664831300390/C8D86F0A0306DF066C913A50DEA75A77F4B3354C/",
+      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/17758478774741065502/A0962966852050032CFFE5772411C441247AC315/",
+      "NumHeight": 1,
+      "NumWidth": 1,
+      "Type": 0,
+      "UniqueBack": false
+    },
+    "174": {
+      "BackIsHidden": true,
+      "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/2496761664831300390/C8D86F0A0306DF066C913A50DEA75A77F4B3354C/",
+      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/10861870065076903983/1C2FBBD51561706FE98B08BDBD596F9397B127E9/",
       "NumHeight": 1,
       "NumWidth": 1,
       "Type": 0,
@@ -36,8 +56,10 @@
     }
   },
   "DeckIDs": [
-    48800,
-    48600
+    17100,
+    17200,
+    17300,
+    17400
   ],
   "Description": "",
   "DragSelectable": true,
