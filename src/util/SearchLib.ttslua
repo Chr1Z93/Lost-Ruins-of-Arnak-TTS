@@ -1,0 +1,104 @@
+do
+  local SearchLib = {}
+  local FILTER_FUNCTIONS = {
+    isCard           = function(x) return x.type == "Card" end,
+    isDeck           = function(x) return x.type == "Deck" end,
+    isCardOrDeck     = function(x) return x.type == "Card" or x.type == "Deck" end,
+    isInteractable   = function(x) return x.interactable end,
+    isTileOrToken    = function(x) return not x.Book and (x.type == "Tile" or x.type == "Generic") end,
+    isUniversalToken = function(x) return x.getMemo() == "universalActionAbility" end,
+  }
+
+  -- performs the actual search and returns a filtered list of object references
+  ---@param params table Table with parameters:
+  --- pos tts__Vector Global position
+  --- rot? tts__Vector Global rotation
+  --- size? table Size
+  --- filter? string|function Name of the filter function or custom filter function
+  --- direction? table Direction (positive is up)
+  --- maxDistance? number Distance for the cast
+  --- debug? boolean Whether the debug boxes should be shown
+  local function performSearch(params)
+    if not params or not params.pos then return {} end
+
+    local filterFunc
+    if type(params.filter) == "string" then
+      filterFunc = FILTER_FUNCTIONS[params.filter]
+    elseif type(params.filter) == "function" then
+      filterFunc = params.filter
+    end
+
+    local searchResult = Physics.cast({
+      type         = 3,
+      origin       = params.pos,
+      orientation  = params.rot or { 0, 0, 0 },
+      size         = params.size or { 0.1, 2, 0.1 },
+      direction    = params.direction or { 0, 1, 0 },
+      max_distance = params.maxDistance or 0,
+      debug        = params.debug or false
+    })
+
+    local objList = {}
+    for _, data in ipairs(searchResult) do
+      local o = data.hit_object
+      if (not filterFunc or filterFunc(o)) then
+        table.insert(objList, o)
+      end
+    end
+    return objList
+  end
+
+  -- searches the specified area
+  function SearchLib.inArea(pos, rot, size, filter, debug)
+    return performSearch({
+      pos    = pos,
+      rot    = rot,
+      size   = size,
+      filter = filter,
+      debug  = debug
+    })
+  end
+
+  -- searches the area on an object
+  function SearchLib.onObject(obj, filter, scale, debug)
+    return performSearch({
+      pos    = obj.getPosition() + Vector(0, 1, 0), -- offset by half the cast's height
+      size   = obj.getBounds().size:scale(scale or 1):setAt("y", 2),
+      filter = filter,
+      debug  = debug
+    })
+  end
+
+  -- searches the area directly below an object
+  function SearchLib.belowObject(obj, filter, scale, debug)
+    local objPos = obj.getPosition()
+    return performSearch({
+      pos    = objPos + Vector(0, -objPos.y / 2, 0), -- offset by half the cast's height
+      size   = obj.getBounds().size:scale(scale or 1):setAt("y", objPos.y),
+      filter = filter,
+      debug  = debug
+    })
+  end
+
+  -- searches the specified position (a single point)
+  function SearchLib.atPosition(pos, filter, debug)
+    return performSearch({
+      pos    = pos,
+      filter = filter,
+      debug  = debug
+    })
+  end
+
+  -- searches below the specified position (downwards until y = 0)
+  function SearchLib.belowPosition(pos, filter, debug)
+    return performSearch({
+      pos         = pos,
+      filter      = filter,
+      direction   = { 0, -1, 0 },
+      maxDistance = pos.y,
+      debug       = debug
+    })
+  end
+
+  return SearchLib
+end

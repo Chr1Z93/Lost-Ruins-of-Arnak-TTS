@@ -179,6 +179,9 @@
   "Nickname": "Player Board",
   "Snap": true,
   "Sticky": true,
+  "Tags": [
+    "Playermat"
+  ],
   "Tooltip": true,
   "Transform": {
     "posX": -51,

@@ -145,6 +145,9 @@
     "8": "PlayerBoard.4e38ab"
   },
   "Sticky": true,
+  "Tags": [
+    "Playermat"
+  ],
   "Tooltip": true,
   "Transform": {
     "posX": -59,

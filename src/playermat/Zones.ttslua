@@ -1,0 +1,44 @@
+do
+  local Zones                          = {}
+
+  -- local coordinates for each player mat
+  local commonZones                    = {}
+  commonZones["DeckBase"]              = Vector(-1.82, 0, 0)
+  commonZones["DeckExpeditionLeaders"] = Vector(-3.08, 0, -0.136)
+  commonZones["DeckMystic"]            = Vector(-1.404, 0, -0.114)
+  commonZones["DeckMissingExpedition"] = Vector(-3.116, 0, -0.107)
+  commonZones["Ritual"]                = Vector(-2.886, 0, -0.328)
+  commonZones["Food1"]                 = Vector(2.442, 0, -0.623)
+  commonZones["Food2"]                 = Vector(2.442, 0, 0)
+  commonZones["Food3"]                 = Vector(2.442, 0, 0.619)
+
+  -- local coordinates for Blue / Green (inverted X for Red / Yellow)
+  local mirrorZones                    = {}
+  mirrorZones["SetAside1"]             = Vector(2.35, 0, -0.520)
+
+  local zoneData                       = {}
+  zoneData["Blue"]                     = {}
+  zoneData["Red"]                      = {}
+
+  -- copy common coordinates
+  for zoneName, zonePos in pairs(commonZones) do
+    zoneData["Blue"][zoneName] = zonePos
+    zoneData["Red"][zoneName]  = zonePos
+  end
+
+  -- copy mirrored coordinates
+  for zoneName, zonePos in pairs(mirrorZones) do
+    zoneData["Blue"][zoneName] = zonePos
+    zoneData["Red"][zoneName]  = zonePos * Vector(-1, 1, 1)
+  end
+
+  -- Green positions are the same as White and Red the same as Orange
+  zoneData["Green"]  = zoneData["Blue"]
+  zoneData["Yellow"] = zoneData["Red"]
+
+  function Zones.getLocalZoneData(matColor, zoneName)
+    return zoneData[matColor][zoneName]
+  end
+
+  return Zones
+end

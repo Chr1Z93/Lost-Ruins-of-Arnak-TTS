@@ -374,5 +374,5 @@
   ],
   "Turns_path": "Turns.json",
   "VersionNumber": "v14.0.3",
-  "XmlUI_path": "Root.xml"
+  "XmlUI": "<!-- empty -->"
 }

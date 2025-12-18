@@ -1,6 +1,10 @@
 ---@diagnostic disable: param-type-mismatch, assign-type-mismatch
 -- originally scripted by jkk - https://steamcommunity.com/id/creamymello/myworkshopfiles/
 -- updated by Chr1Z and covertskippy55 for the missing expedition
+-- updated by Chr1Z for twisted paths
+
+local PlayermatApi   = require("playermat/PlayermatApi")
+local SearchLib      = require("util/SearchLib")
 
 testVars             = {
   defineSeated  = true,
@@ -52,7 +56,6 @@ playerVars           = {
     suitcasePosition = { -26.50, 1.53, 8.80 },
     falconPositions = { { -44.93, 1.63, 17.46 }, { -42.37, 1.63, 16.26 }, { -39.69, 1.63, 16.98 }, { -38.49, 1.63, 19.27 }, { -38.26, 1.63, 21.99 } },
     archivePositions = { { -67, 1.50, 20.30 }, { -67, 1.50, 13.10 }, { -67, 1.50, 5.90 } },
-    foodPositions = { { -38.18, 1.63, 22.27 }, { -38.18, 1.63, 19 }, { -38.18, 1.63, 15.75 } },
     articlePosition = { -24, 1.57, 16.80 },
     goldenTeethPosition = { -24, 1.57, 16.80 },
     refPositions = { { -53, 1.48, 28.5 }, { -47, 1.48, 28.5 } },
@@ -101,7 +104,6 @@ playerVars           = {
     suitcasePosition = { 26.60, 1.53, 8.80 },
     falconPositions = { { 48.21, 1.63, 17.42 }, { 50.81, 1.63, 16.26 }, { 53.48, 1.63, 17.01 }, { 54.66, 1.63, 19.34 }, { 54.86, 1.63, 22.07 } },
     archivePositions = { { 67, 1.50, 20.30 }, { 67, 1.50, 13.10 }, { 67, 1.50, 5.90 } },
-    foodPositions = { { 54.99, 1.63, 22.30 }, { 54.99, 1.63, 19.03 }, { 54.99, 1.63, 15.78 } },
     articlePosition = { 29.20, 1.57, 16.80 },
     goldenTeethPosition = { 29.20, 1.57, 16.80 },
     refPositions = { { 53, 1.48, 28.5 }, { 47, 1.48, 28.5 } },
@@ -150,7 +152,6 @@ playerVars           = {
     suitcasePosition = { 26.60, 1.53, -32.20 },
     falconPositions = { { 48.21, 1.63, -23.58 }, { 50.81, 1.63, -24.74 }, { 53.48, 1.63, -23.99 }, { 54.66, 1.63, -21.66 }, { 54.86, 1.63, -18.93 } },
     archivePositions = { { 67, 1.50, -20.70 }, { 67, 1.50, -27.90 }, { 67, 1.50, -35.10 } },
-    foodPositions = { { 54.99, 1.63, -18.70 }, { 54.99, 1.63, -21.97 }, { 54.99, 1.63, -25.22 } },
     articlePosition = { 29.20, 1.57, -24.20 },
     goldenTeethPosition = { 29.20, 1.57, -24.20 },
     refPositions = { { 53, 1.48, -12.5 }, { 47, 1.48, -12.5 } },
@@ -197,7 +198,6 @@ playerVars           = {
     suitcasePosition = { -26.60, 1.53, -32.20 },
     falconPositions = { { -44.93, 1.63, -23.54 }, { -42.37, 1.63, -24.73 }, { -39.69, 1.63, -24.02 }, { -38.49, 1.63, -21.73 }, { -38.26, 1.63, -19.01 } },
     archivePositions = { { -67, 1.50, -20.70 }, { -67, 1.50, -27.90 }, { -67, 1.50, -35.10 } },
-    foodPositions = { { -38.18, 1.63, -18.73 }, { -38.18, 1.63, -22 }, { -38.18, 1.63, -25.25 } },
     articlePosition = { -24, 1.57, -24.20 },
     goldenTeethPosition = { -24, 1.57, -24.20 },
     refPositions = { { -53, 1.48, -12.5 }, { -47, 1.48, -12.5 } },
@@ -1981,7 +1981,7 @@ function detectSeatedPlayers()
       if seatedPlayerColor == color then
         seated = true
         table.insert(seatedPlayerColors, color)
-        local playerBoard = getPlayerBoard(color)
+        local playerBoard = PlayermatApi.getPlayermats(color)
         local stateId = playerBoard.getStateId()
         options.playerBoards[color] = stateId
         if stateId ~= 9 then
@@ -2245,7 +2245,7 @@ function setupPlayerAreas()
   -- track manual leader selection
   if options.leaders == 'choose' then
     for _, playerColor in ipairs(seatedPlayerColors) do
-      local stateId = getPlayerBoard(playerColor).getStateId()
+      local stateId = PlayermatApi.getPlayermats(playerColor).getStateId()
       if stateId ~= 9 then
         -- remove leader from pool
         for i, id in ipairs(availableLeaders) do
@@ -2265,7 +2265,7 @@ function setupPlayerAreas()
       for _, object in ipairs(getObjectFromGUID(playerVars[playerColor].allZoneGuid).getObjects()) do
         if object.getName() ~= 'Red Archaeologist' then object.destruct() end
       end
-      getPlayerBoard(playerColor).destruct()
+      PlayermatApi.getPlayermats(playerColor).destruct()
       soloBag.takeObject({
         guid              = solo.board,
         position          = solo.boardPosition,
@@ -2274,7 +2274,7 @@ function setupPlayerAreas()
       })
     else
       -- If not the solo player board
-      local playerBoard = getPlayerBoard(playerColor)
+      local playerBoard = PlayermatApi.getPlayermats(playerColor)
       if playerBoard == nil then
         broadcastToAll('Cannot find ' .. playerColor .. "'s player board. Please reload the mod.")
         return 1
@@ -2315,7 +2315,7 @@ function waitForBoardLoading()
   end
 
   for _, playerColor in ipairs(seatedPlayerColors) do
-    boards[playerColor] = getPlayerBoard(playerColor)
+    boards[playerColor] = PlayermatApi.getPlayermats(playerColor)
   end
 
   repeat coroutine.yield(0) until checkDoneSpawning()
@@ -2799,8 +2799,8 @@ function setupStartingResources()
 
       -- collect data for deck spawning
       local cardList
-      local deckPos = getObjectFromGUID(getDeckZoneGuid(playerColor)).getPosition()
-      local boardLocation = getPlayerBoard(playerColor).getPosition()
+      local deckPos = PlayermatApi.getZonePosition(playerColor, "Deck")
+      local boardLocation = PlayermatApi.getPlayermats(playerColor).getPosition()
 
       -- The mechanic and journalist need a small adjustment to their deck placement location if blue or green player
       if (playerBoardState == 7 or playerBoardState == 8) and (playerColor == "Green" or playerColor == "Blue") then
@@ -2871,11 +2871,11 @@ function setupStartingResources()
           local pawn = getObjectFromGUID(vars.pawns[2])
           if pawn ~= nil then pawn.destruct() end
           for i, guid in ipairs(tokens.food) do
-            local pos = vars.foodPositions[i]
+            local foodPos = PlayermatApi.getZonePosition(playerColor, "Food" .. i)
             if i == 3 then
-              pos = { 4.89, 1.53, 40 }
+              foodPos = { 4.89, 1.53, 40 }
             end
-            tokenBag.takeObject({ guid = guid, position = pos, rotation = faceup, smooth = true })
+            tokenBag.takeObject({ guid = guid, position = foodPos, rotation = faceup, smooth = true })
           end
         elseif playerBoardState == 6 then -- Setup for the mystic
           cardList = starterDeck["Mystic"]
@@ -3134,11 +3134,10 @@ function menuStartSolo()
     end
     for _, playerColor in ipairs(seatedPlayerColors) do
       if playerColor ~= 'Red' then
-        for _, object in ipairs(getObjectFromGUID(getDeckZoneGuid(playerColor)).getObjects()) do
-          if object.type == 'Deck' then
-            object.shuffle()
-            break
-          end
+        local deckPos = PlayermatApi.getZonePosition(playerColor, "Deck")
+        for _, object in ipairs(SearchLib.atPosition(deckPos, "isDeck")) do
+          object.shuffle()
+          break
         end
       end
     end
@@ -3146,20 +3145,20 @@ function menuStartSolo()
 
     for _, playerColor in ipairs(seatedPlayerColors) do
       if playerColor ~= 'Red' then
-        local deck = nil
-        for _, object in ipairs(getObjectFromGUID(getDeckZoneGuid(playerColor)).getObjects()) do
-          if object.type == 'Deck' then
-            deck = object
-            break
-          end
-        end
+        local deckPos = PlayermatApi.getZonePosition(playerColor, "Deck")
+        local deck = SearchLib.atPosition(deckPos, "isDeck")[1]
+
         if options.playerBoards[playerColor] == 3 then
           deck.takeObject({ guid = cards.baroness }).deal(1, playerColor)
           deck.deal(4, playerColor)
         else
           deck.deal(5, playerColor)
         end
-        if options.playerBoards[playerColor] == 6 then drawCard(deckZones.fear).deal(1, playerColor) end
+
+        if options.playerBoards[playerColor] == 6 then
+          drawCard(deckZones.fear).deal(1, playerColor)
+        end
+
         getObjectFromGUID(playerVars[playerColor].tentGuid).unlock()
       end
     end
@@ -3374,17 +3373,16 @@ function buyButton(zone, clickColor, alt)
       end
       card.setPositionSmooth({ toPos[1] + xOffset, tableY + 0.5, toPos[3] }, false, true)
     else
-      local deckZone = getObjectFromGUID(getDeckZoneGuid(clickColor))
-      local toPos = deckZone.getPosition()
+      local deckPos = PlayermatApi.getZonePosition(clickColor, "Deck")
+      local toPos = deckPos
       local deck = nil
-      for _, object in ipairs(deckZone.getObjects()) do
+      for _, object in ipairs(SearchLib.atPosition(deckPos, "isCardOrDeck")) do
         if object.type == 'Deck' then
           deck = object
-          break
-        elseif object.type == 'Card' then
+        else
           object.setPositionSmooth({ toPos[1], tileY + 0.5, toPos[3] }, false, true)
-          break
         end
+        break
       end
       if deck == nil then
         card.setRotationSmooth(facedown, false, true)
@@ -3578,7 +3576,7 @@ function placePawn(playerColor, zone, siteInfo, level, alt)
 end
 
 function getGlobalPosForIdolSlot(playerColor, points)
-  local board = getPlayerBoard(playerColor)
+  local board = PlayermatApi.getPlayermats(playerColor)
   local idolData = idolSlotData[options.playerBoards[playerColor]]
 
   for _, data in ipairs(idolData) do
@@ -3649,11 +3647,7 @@ function deliverRewards(playerColor, obj)
         broadcastToAll(getPlayerName(playerColor) .. " does not get a fear card due to an active Miner's Helmet.")
       end
     elseif reward == 'd' then -- draw a card automatically for the player
-      local card = drawCard(getDeckZoneGuid(playerColor))
-      if card ~= nil then
-        card.deal(1, playerColor)
-        wait(0.3)
-      end
+      PlayermatApi.drawCard(playerColor)
     end
     wait(0.16)
   end
@@ -3897,28 +3891,13 @@ function nextRoundButton(obj, clickColor, alt)
     refillRowCoroutine()
     guardianFearCoroutine()
 
-    -- lift decks, reset tents
-    local playerDeckZones = {}
-    local decks = {}
-    for _, playerColor in ipairs(seatedPlayerColors) do
-      if not (options.solo and playerColor == 'Red') then
-        local vars = playerVars[playerColor]
-        local deckZone = getObjectFromGUID(getDeckZoneGuid(playerColor))
-        local toPos = deckZone.getPosition()
-        playerDeckZones[playerColor] = deckZone
-        for _, object in ipairs(deckZone.getObjects()) do
-          if object.type == 'Card' or object.type == 'Deck' then
-            decks[playerColor] = object
-            object.setPosition({ toPos[1], tileY + 0.6, toPos[3] })
-            object.lock()
-            break
-          end
-        end
-
-        local tent = getObjectFromGUID(vars.tentGuid)
-        if tent.is_face_down then tent.flip() end
+    -- reset tents
+    for _, tent in ipairs(getObjectsWithTag("tent")) do
+      if tent.is_face_down then
+        tent.flip()
       end
     end
+
     wait(0.6)
 
     -- return pawns and tokens
@@ -3930,6 +3909,7 @@ function nextRoundButton(obj, clickColor, alt)
         pawns = solo.pawns
         pawnPositions = solo.pawnPositions
       end
+
       for i, guid in ipairs(pawns) do
         local pawn = getObjectFromGUID(guid)
         if pawn ~= nil then
@@ -3937,18 +3917,23 @@ function nextRoundButton(obj, clickColor, alt)
           pawn.setPositionSmooth(pawnPositions[i], false, false)
         end
       end
+
+      -- snack token handling for Explorer
       if options.playerBoards[playerColor] == 5 then
         for i, guid in ipairs(tokens.food) do
           if i < 3 or round > 1 then
             local food = getObjectFromGUID(guid)
             if food ~= nil then
               food.setRotationSmooth(faceup, false, true)
-              food.setPositionSmooth(vars.foodPositions[i], false, false)
+
+              local foodPos = PlayermatApi.getZonePosition(playerColor, "Food" .. i)
+              food.setPositionSmooth(foodPos, false, false)
             end
           end
         end
       end
     end
+
     wait(0.5)
 
     function goesInDeck(object)
@@ -3964,19 +3949,19 @@ function nextRoundButton(obj, clickColor, alt)
 
       if #cardTags == 0 then return true end
       for _, tag in ipairs(excludeTags) do
-        if tostring(cardTags[1]) == tag then return false end
+        if cardTags[1] == tag then return false end
       end
       return true
     end
 
     for _, playerColor in ipairs(seatedPlayerColors) do
       if not (options.solo and playerColor == 'Red') then
-        local toPos = playerDeckZones[playerColor].getPosition()
+        local toPos = PlayermatApi.getZonePosition(playerColor, "Deck"):setAt("y", tileY)
         for _, object in ipairs(getObjectFromGUID(playerVars[playerColor].playAreaZoneGuid).getObjects()) do
           if object.type == 'Card' then
             if goesInDeck(object) then
               object.setRotation(facedown)
-              object.setPositionSmooth({ toPos[1], tileY, toPos[3] }, false, true)
+              object.setPositionSmooth(toPos, false, true)
             end
           elseif object.type == 'Deck' then
             -- check deck contents in case assistants/idols/sites/guardians were grouped
@@ -3999,12 +3984,13 @@ function nextRoundButton(obj, clickColor, alt)
               wait(0.01)
               cardToMove.setScale({ 2.3, 1, 2.3 })
               cardToMove.setRotation(facedown)
-              cardToMove.setPositionSmooth({ toPos[1], tileY, toPos[3] }, false, true)
+              cardToMove.setPositionSmooth(toPos, false, true)
             end
           end
         end
       end
     end
+
     if options.solo then
       local toPos = solo.deckPositions[1]
       for _, object in ipairs(getObjectFromGUID(solo.zones.discard).getObjects()) do
@@ -4015,17 +4001,17 @@ function nextRoundButton(obj, clickColor, alt)
       end
 
       if options.objectives > 0 then
-        toPos = solo.objectivePosition
         for _, guid in ipairs(solo.zones.objectives) do
           for _, object in ipairs(getObjectFromGUID(guid).getObjects()) do
             if object.type == 'Card' or object.type == 'Deck' then
               object.setRotation(facedown)
-              object.setPositionSmooth(toPos, false, true)
+              object.setPositionSmooth(solo.objectivePosition, false, true)
             end
           end
         end
       end
     end
+
     wait(0.4)
 
     -- get income
@@ -4068,17 +4054,15 @@ function nextRoundButton(obj, clickColor, alt)
       end
     end
 
-    -- shuffle
-    for playerColor, deckZone in pairs(playerDeckZones) do
-      if decks[playerColor] ~= nil then
-        for _, object in ipairs(deckZone.getObjects()) do
-          if object.type == 'Deck' and object.getGUID() ~= decks[playerColor].guid then
-            object.shuffle()
-            break
-          end
-        end
+    -- shuffle decks
+    for _, playerColor in ipairs(seatedPlayerColors) do
+      local deckPos = PlayermatApi.getZonePosition(playerColor, "Deck")
+      local searchResult = SearchLib.atPosition(deckPos, "isDeck")
+      if #searchResult > 0 then
+        searchResult[1].shuffle()
       end
     end
+
     if options.solo then
       for _, object in ipairs(getObjectFromGUID(solo.zones.deck).getObjects()) do
         if object.type == 'Deck' then
@@ -4086,6 +4070,7 @@ function nextRoundButton(obj, clickColor, alt)
           break
         end
       end
+
       if options.objectives > 0 then
         for _, object in ipairs(getObjectFromGUID(solo.zones.objectivesDeck).getObjects()) do
           if object.type == 'Deck' then
@@ -4095,10 +4080,8 @@ function nextRoundButton(obj, clickColor, alt)
         end
       end
     end
+
     wait(0.2)
-    for _, deck in pairs(decks) do
-      deck.unlock()
-    end
 
     -- refresh assistants
     for _, playerColor in ipairs(seatedPlayerColors) do
@@ -4150,36 +4133,40 @@ function nextRoundButton(obj, clickColor, alt)
     end
     wait(0.4)
 
-    -- draw
-    for playerColor, zone in pairs(playerDeckZones) do
+    -- draw up to 5 cards
+    for _, playerColor in ipairs(seatedPlayerColors) do
       if not (options.solo and playerColor == 'Red') then
         local handSize = 5
         local drawn = #Player[playerColor].getHandObjects()
         if options.playerBoards[playerColor] == 3 then
-          local card = getObjectFromGUID(cards.baroness)
-          if card == nil then
-            for _, object in ipairs(zone.getObjects()) do
-              if object.type == 'Deck' then
-                card = object.takeObject({ guid = cards.baroness })
-                break
-              end
+          -- return special delivery to the hand of the Baroness
+          local specialDelivery = getObjectFromGUID(cards.baroness)
+          if specialDelivery == nil then
+            local deckPos = PlayermatApi.getZonePosition(playerColor, "Deck")
+            for _, object in ipairs(SearchLib.atPosition(deckPos, "isDeck")) do
+              specialDelivery = object.takeObject({ guid = cards.baroness })
+              break
             end
           end
-          if card == nil then
+
+          if specialDelivery == nil then
             for _, object in ipairs(getObjectFromGUID(exileZoneGuids.other).getObjects()) do
               if object.type == 'Deck' then
-                card = object.takeObject({ guid = cards.baroness })
+                specialDelivery = object.takeObject({ guid = cards.baroness })
                 break
               end
             end
           end
-          if card ~= nil then
-            card.deal(1, playerColor)
+
+          if specialDelivery ~= nil then
+            specialDelivery.deal(1, playerColor)
             drawn = drawn + 1
             wait(0.01)
           end
         end
-        for _, object in ipairs(zone.getObjects()) do
+
+        local deckPos = PlayermatApi.getZonePosition(playerColor, "Deck")
+        for _, object in ipairs(SearchLib.atPosition(deckPos, "isCardOrDeck")) do
           if drawn >= handSize then break end
           if object.type == 'Card' then
             object.deal(1, playerColor)
@@ -4194,6 +4181,7 @@ function nextRoundButton(obj, clickColor, alt)
             object.deal(numberToDraw, playerColor)
           end
         end
+
         if options.playerBoards[playerColor] == 6 and drawn < 6 then
           local card = drawCard(deckZones.fear)
           if card == nil then
@@ -4326,9 +4314,10 @@ function calculateScores()
 
       -- helper functions
       local excludeGuids = {}
-      if options.playerBoards[playerColor] == 6 and vars.deckZoneGuids.ritual ~= nil then
-        for _, object in ipairs(getObjectFromGUID(vars.deckZoneGuids.ritual).getObjects()) do
-          if object.type == 'Deck' or object.getName() == 'Fear' then table.insert(excludeGuids, object.getGUID()) end
+      if options.playerBoards[playerColor] == 6 then
+        local ritualPosition = PlayermatApi.getZonePosition(playerColor, "Ritual")
+        for _, object in ipairs(SearchLib.atPosition(ritualPosition, "isCardOrDeck")) do
+          table.insert(excludeGuids, object.getGUID())
         end
       end
 
@@ -4403,18 +4392,15 @@ function calculateScores()
       -- additionally, get the deck for left sitting mechanic / journalist
       if (playerColor == "Red" or playerColor == "Yellow") and
           (options.playerBoards[playerColor] == 7 or options.playerBoards[playerColor] == 8) then
-        local deckZoneGUID = playerVars[playerColor].deckZoneGuids.journo_Mech
-        local deckZone = getObjectFromGUID(deckZoneGUID)
-        for _, object in ipairs(deckZone.getObjects()) do
-          if object.type == 'Card' or object.type == 'Deck' then
-            table.insert(scoreTheseObjects, object)
-          end
+        local deckPosition = PlayermatApi.getZonePosition(playerColor, "Deck")
+        for _, object in ipairs(SearchLib.atPosition(deckPosition, "isCardOrDeck")) do
+          table.insert(scoreTheseObjects, object)
         end
       end
 
       -- additionally, get the idols for right sitting journalist
       if (playerColor == "Green" or playerColor == "Blue") and options.playerBoards[playerColor] == 7 then
-        local board = getPlayerBoard(playerColor)
+        local board = PlayermatApi.getPlayermats(playerColor)
         local idolData = idolSlotData[options.playerBoards[playerColor]]
 
         for _, data in ipairs(idolData) do
@@ -4548,7 +4534,7 @@ end
 -- score empty idol slots
 function scoreUncoveredIdolSlots(playerColor)
   local idolSlotPoints = 0
-  local board = getPlayerBoard(playerColor)
+  local board = PlayermatApi.getPlayermats(playerColor)
   local idolData = idolSlotData[options.playerBoards[playerColor]]
 
   for _, data in ipairs(idolData) do
@@ -5352,24 +5338,22 @@ end
 
 -- MARK: UTIL
 
-function getDeckZoneGuid(playerColor)
-  local vars = playerVars[playerColor]
-  if options.playerBoards[playerColor] == 9 then return vars.deckZoneGuids.base end
-  if options.playerBoards[playerColor] == 6 then return vars.deckZoneGuids.mystic end
-  if options.playerBoards[playerColor] == 7 or options.playerBoards[playerColor] == 8 then
-    return vars.deckZoneGuids.journo_Mech
+function getObjectByName(name)
+  for _, o in ipairs(getObjects()) do
+    if o.getName() == name then
+      return o
+    end
   end
-  -- TODO: maybe add additional scripting zones for journalist and mechanic
-  --if options.playerBoards[playerColor] == 7 then return vars.deckZoneGuids.journalist end
-  --if options.playerBoards[playerColor] == 8 then return vars.deckZoneGuids.mechanic end
-  return vars.deckZoneGuids.leader
 end
 
-function getPlayerBoard(playerColor)
-  for _, object in ipairs(getObjectFromGUID(playerVars[playerColor].allZoneGuid).getObjects()) do
-    if object.getName() == 'Player Board' then return object end
+function getObjectsWithName(name)
+  local list = {}
+  for _, o in ipairs(getObjects()) do
+    if o.getName() == name then
+      table.insert(list, o)
+    end
   end
-  return nil
+  return list
 end
 
 function positionIsClose(pos1, pos2)
@@ -5449,6 +5433,7 @@ function wait(t)
   repeat coroutine.yield(0) until Time.time > now + t
 end
 
+-- TODO: remove
 function moveObjects()
   for _, o in ipairs(getObjects()) do
     local pos = o.getPosition()

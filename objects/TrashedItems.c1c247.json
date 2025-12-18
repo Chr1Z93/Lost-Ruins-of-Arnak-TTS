@@ -20,9 +20,9 @@
     "CustomShader": {
       "FresnelStrength": 0,
       "SpecularColor": {
-        "b": 0.09803922,
-        "g": 0.09803922,
-        "r": 0.09803922
+        "b": 0.098,
+        "g": 0.098,
+        "r": 0.098
       },
       "SpecularIntensity": 3,
       "SpecularSharpness": 2
@@ -56,7 +56,7 @@
   "Sticky": true,
   "Tooltip": true,
   "Transform": {
-    "posX": 26.6,
+    "posX": 34.6,
     "posY": 1.637,
     "posZ": 33,
     "rotX": 0,
