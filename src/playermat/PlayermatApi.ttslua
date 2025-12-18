@@ -55,20 +55,27 @@ do
 
   function PlayermatApi.getZonePosition(matColor, zoneName)
     local mat = PlayermatApi.getPlayermats(matColor)
-    local leader = mat.getDescription()
 
-    local key = ""
-    if leader == "Mystic" then
-      key = "Mystic"
-    elseif leader == "Journalist" or leader == "Mechanic" then
-      key = "MissingExpedition"
-    elseif leader ~= "Base" then
-      key = "ExpeditionLeaders"
+    local localPos = Zones.getLocalZoneData(matColor, zoneName)
+
+    if not localPos then
+      local leader = mat.getDescription()
+      local key = ""
+      if leader == "Mystic" then
+        key = "Mystic"
+      elseif leader == "Journalist" or leader == "Mechanic" then
+        key = "MissingExpedition"
+      elseif leader ~= "Base" then
+        key = "ExpeditionLeaders"
+      end
+      localPos = Zones.getLocalZoneData(matColor, zoneName .. key)
     end
 
-    -- default to the regular position
-    local localPos = Zones.getLocalZoneData(matColor, zoneName .. key) or Zones.getLocalZoneData(matColor, zoneName)
-    return mat.positionToWorld(localPos)
+    if not localPos then
+      log("error getting location for " .. zoneName)
+    else
+      return mat.positionToWorld(localPos)
+    end
   end
 
   -- Transforms a local position into a global position

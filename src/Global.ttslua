@@ -38,11 +38,6 @@ playerVars            = {
       c = 'cbf8fd',
       s = '0a749b'
     },
-    suitcaseResourceBagZones = {
-      t = '223031',
-      s = '4b2360'
-    },
-    suitcasePosition = { -26.50, 1.53, 8.80 },
     archivePositions = { { -67, 1.50, 20.30 }, { -67, 1.50, 13.10 }, { -67, 1.50, 5.90 } },
     articlePosition = { -24, 1.57, 16.80 },
     goldenTeethPosition = { -24, 1.57, 16.80 },
@@ -71,11 +66,6 @@ playerVars            = {
       c = '12d02d',
       s = '5c8abb'
     },
-    suitcaseResourceBagZones = {
-      t = 'f923b7',
-      s = '7c33b6'
-    },
-    suitcasePosition = { 26.60, 1.53, 8.80 },
     archivePositions = { { 67, 1.50, 20.30 }, { 67, 1.50, 13.10 }, { 67, 1.50, 5.90 } },
     articlePosition = { 29.20, 1.57, 16.80 },
     goldenTeethPosition = { 29.20, 1.57, 16.80 },
@@ -104,11 +94,6 @@ playerVars            = {
       c = '4eab66',
       s = 'b8b628'
     },
-    suitcaseResourceBagZones = {
-      t = '4d7b3f',
-      s = '9e8531'
-    },
-    suitcasePosition = { 26.60, 1.53, -32.20 },
     archivePositions = { { 67, 1.50, -20.70 }, { 67, 1.50, -27.90 }, { 67, 1.50, -35.10 } },
     articlePosition = { 29.20, 1.57, -24.20 },
     goldenTeethPosition = { 29.20, 1.57, -24.20 },
@@ -137,11 +122,6 @@ playerVars            = {
       c = '71fc56',
       s = 'f0ec52'
     },
-    suitcaseResourceBagZones = {
-      t = '3c308e',
-      s = '75c07f'
-    },
-    suitcasePosition = { -26.60, 1.53, -32.20 },
     archivePositions = { { -67, 1.50, -20.70 }, { -67, 1.50, -27.90 }, { -67, 1.50, -35.10 } },
     articlePosition = { -24, 1.57, -24.20 },
     goldenTeethPosition = { -24, 1.57, -24.20 },
@@ -2518,7 +2498,7 @@ function setupButtonsMisc()
           if bag ~= nil then
             params.label = tostring(bag.getQuantity())
             params.click_function = 'clickResourceBag' .. resource .. 'Suitcase'
-            getObjectFromGUID(vars.suitcaseResourceBagZones[resource]).createButton(params)
+            bag.createButton(params)
 
             _G['clickResourceBag' .. resource .. 'Suitcase'] = function(obj, clickColor, alt)
               if not doneLoading or clickColor ~= playerColor then return end
@@ -2771,12 +2751,13 @@ function setupStartingResources()
           local profStuff = {}
           local suitcase = tokenBag.takeObject({
             guid     = tokens.suitcase,
-            position = vars.suitcasePosition,
+            position = PlayermatApi.getZonePosition(playerColor, "Suitcase"),
             rotation = faceup
           })
           table.insert(profStuff, suitcase)
+
           for resource, guid in pairs(suitcaseResourceBags) do -- Place and setup the professor's Bag
-            local toPos = getObjectFromGUID(vars.suitcaseResourceBagZones[resource]).getPosition()
+            local toPos = PlayermatApi.getZonePosition(playerColor, "Suitcase_" .. resource)
             local resourceBag = tokenBag.takeObject({
               guid     = guid,
               position = { toPos[1], 1.63, toPos[3] },
@@ -2784,7 +2765,9 @@ function setupStartingResources()
             })
             table.insert(profStuff, resourceBag)
           end
+
           wait(0.3)
+
           for _, obj in ipairs(profStuff) do
             obj.setDescription(playerColor)
             obj.lock()
@@ -2799,7 +2782,9 @@ function setupStartingResources()
             card.setPositionSmooth(playerVars[playerColor].archivePositions[i], false, true)
             table.insert(archive, card)
           end
+
           wait(0.4)
+
           for _, card in ipairs(archive) do
             card.use_hands = true
           end
@@ -4581,13 +4566,13 @@ function editResourceBagCounter(container)
   if round > 0 and container.hasTag('resource') and container.type == 'Bag' then -- stacks count as containers, so need to specify bags
     local playerColor = container.getDescription()
     local resource = container.getGMNotes()
-    local buttonZone = nil
+    local buttonParent = nil
     if container.getName() == 'suitcase' then
-      buttonZone = getObjectFromGUID(playerVars[playerColor].suitcaseResourceBagZones[resource])
+      buttonParent = container
     else
-      buttonZone = getObjectFromGUID(playerVars[playerColor].resourceBagZones[resource])
+      buttonParent = getObjectFromGUID(playerVars[playerColor].resourceBagZones[resource])
     end
-    buttonZone.editButton({ index = 0, label = container.getQuantity() })
+    buttonParent.editButton({ index = 0, label = container.getQuantity() })
   end
 end
 
