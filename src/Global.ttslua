@@ -2466,7 +2466,7 @@ function setupButtonsMisc()
 
     _G['takeResource' .. resource] = function(obj, clickColor, alt)
       if not doneLoading or not isSeated(clickColor) then return end
-      takeResourceButton(resource, clickColor)
+      gainResource(resource, clickColor)
     end
   end
 
@@ -2494,7 +2494,7 @@ function setupButtonsMisc()
               trashObject(playerColor, bag.takeObject())
             end
           else
-            takeResourceButton(resource, clickColor)
+            gainResource(resource, clickColor)
           end
         end
       end
@@ -2513,7 +2513,7 @@ function setupButtonsMisc()
                   trashObject(playerColor, bag.takeObject())
                 end
               else
-                takeResourceButton(resource, clickColor, true)
+                gainResource(resource, clickColor, true)
               end
             end
           end
@@ -2949,8 +2949,8 @@ function setupStartingResources()
   end
 
   if options.solo and (options.campaign == false or options.campaign == nil) and #seatedPlayerColors == 2 then
-    takeResourceButton('c', seatedPlayerColors[1])
-    takeResourceButton('s', seatedPlayerColors[1])
+    gainResource('c', seatedPlayerColors[1])
+    gainResource('s', seatedPlayerColors[1])
   else
     local passedFirstPlayer = false
     local turnOrder = 0
@@ -2965,7 +2965,7 @@ function setupStartingResources()
           turnOrder = turnOrder + 1
           for resource, count in pairs(resourcesPerTurnOrder[turnOrder]) do
             for j = 1, count do
-              takeResourceButton(resource, playerColor)
+              gainResource(resource, playerColor)
               wait(0.1)
             end
           end
@@ -3204,16 +3204,22 @@ function setupButtons()
   if options.solo then setupButtonRivalTurn() end
 end
 
-function takeResourceButton(resource, clickColor, alt)
+function gainResource(resource, playerColor, remove)
+  if resource == "dark tablet" then
+    -- TODO: special handling
+
+    return
+  end
+
   local fromBag = getObjectFromGUID(bags.resources[resource])
   if fromBag == nil then return end
 
-  if alt then
+  if remove then
     local toBag = getObjectFromGUID(suitcaseResourceBags[resource])
     if toBag == nil then return end
     toBag.putObject(fromBag.takeObject())
   else
-    local toBag = getObjectFromGUID(playerVars[clickColor].resourceBags[resource])
+    local toBag = getObjectFromGUID(playerVars[playerColor].resourceBags[resource])
     if toBag == nil then return end
     toBag.putObject(fromBag.takeObject())
   end
@@ -3519,7 +3525,7 @@ end
 -- function that checks the gm notes to determine what rewards the player should get
 function deliverRewards(playerColor, obj)
   local rewards            = obj.getGMNotes()
-  local resourceLabels     = { t = 'tablet', a = 'arrowhead', j = 'jewel', c = 'coin', s = 'compass' }
+  local resourceLabels     = { t = 'tablet', a = 'arrowhead', j = 'jewel', c = 'coin', s = 'compass', z = 'dark tablet' }
   local resourceCount      = {}
   local deliveredAll       = true
   local deliveredResources = false
@@ -3528,7 +3534,7 @@ function deliverRewards(playerColor, obj)
 
     -- these resources are automatically given to the player
     if resourceLabels[reward] ~= nil then
-      takeResourceButton(reward, playerColor)
+      gainResource(reward, playerColor)
       if resourceCount[reward] == nil then
         resourceCount[reward] = 1
       else
@@ -3983,7 +3989,7 @@ function nextRoundButton(obj, clickColor, alt)
         wait(0.5)
       elseif options.playerBoards[playerColor] == 3 then
         broadcastToAll(getPlayerName(playerColor) .. ' gets income of 1 coin.')
-        takeResourceButton('c', playerColor)
+        gainResource('c', playerColor)
         wait(0.5)
       elseif options.playerBoards[playerColor] == 4 then
         local resource = 's'
@@ -3993,7 +3999,7 @@ function nextRoundButton(obj, clickColor, alt)
           resourceLabel = 'tablet'
         end
         broadcastToAll(getPlayerName(playerColor) .. ' adds 1 ' .. resourceLabel .. ' to their suitcase.')
-        takeResourceButton(resource, playerColor, true)
+        gainResource(resource, playerColor, true)
         wait(0.5)
       end
     end
