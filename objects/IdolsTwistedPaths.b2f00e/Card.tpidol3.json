@@ -5,24 +5,12 @@
     "z": 0
   },
   "Autoraise": true,
+  "CardID": 5404,
   "ColorDiffuse": {
     "b": 0.71324,
     "g": 0.71324,
     "r": 0.71324
   },
-  "ContainedObjects_order": [
-    "Card.tpidol1",
-    "Card.tpidol2",
-    "Card.tpidol3",
-    "Card.tpidol4",
-    "Card.tpidol5",
-    "Card.tpidol6",
-    "Card.tpidol7",
-    "Card.tpidol8",
-    "Card.tpidol9",
-    "Card.tpidol10"
-  ],
-  "ContainedObjects_path": "IdolsTwistedPaths.b2f00e",
   "CustomDeck": {
     "54": {
       "BackIsHidden": true,
@@ -32,33 +20,12 @@
       "NumWidth": 6,
       "Type": 0,
       "UniqueBack": false
-    },
-    "59": {
-      "BackIsHidden": true,
-      "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/2450601762292603667/2EB5C4C210DE7B65E9797AAB2C52DFFB7ABDC13D/",
-      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/9566010955180285045/8F315F6B964DB71D71BAA06CA2967F61BE414A31/",
-      "NumHeight": 1,
-      "NumWidth": 3,
-      "Type": 0,
-      "UniqueBack": false
     }
   },
-  "DeckIDs": [
-    5401,
-    5400,
-    5404,
-    5402,
-    5403,
-    5900,
-    5901,
-    5902,
-    5902,
-    5902
-  ],
   "Description": "",
   "DragSelectable": true,
-  "GMNotes": "",
-  "GUID": "b2f00e",
+  "GMNotes": "u",
+  "GUID": "tpidol3",
   "Grid": true,
   "GridProjection": false,
   "Hands": false,
@@ -69,22 +36,22 @@
   "LuaScript": "",
   "LuaScriptState": "",
   "MeasureMovement": false,
-  "Name": "Deck",
-  "Nickname": "Idols (Twisted Paths)",
+  "Name": "Card",
+  "Nickname": "",
   "SidewaysCard": false,
   "Snap": true,
   "Sticky": true,
   "Tags": [
     "idol"
   ],
-  "Tooltip": true,
+  "Tooltip": false,
   "Transform": {
-    "posX": -21,
-    "posY": 1.512,
-    "posZ": -46,
-    "rotX": 0,
+    "posX": -14.922,
+    "posY": 1.56,
+    "posZ": -50.164,
+    "rotX": 359,
     "rotY": 180,
-    "rotZ": 180,
+    "rotZ": 0,
     "scaleX": 0.75,
     "scaleY": 1,
     "scaleZ": 0.75

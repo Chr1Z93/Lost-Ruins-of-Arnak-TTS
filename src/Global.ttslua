@@ -3549,6 +3549,9 @@ function deliverRewards(playerColor, obj)
     elseif reward == 'u' then
       broadcastToAll(getPlayerName(playerColor) .. ' may upgrade one resource.')
       deliveredAll = false
+    elseif reward == 'o' then
+      broadcastToAll(getPlayerName(playerColor) .. ' may gain 1 coin or 1 compass.')
+      deliveredAll = false
     elseif reward == 'r' then
       broadcastToAll(getPlayerName(playerColor) .. ' may refresh an assistant.')
       deliveredAll = false
@@ -3576,8 +3579,8 @@ function deliverRewards(playerColor, obj)
       broadcastToAll(getPlayerName(playerColor) .. ' may take one 2-point temple tile from any stack for free.')
       deliveredAll = false
     elseif reward == 'f' then -- give fear cards automatically to the player
-      -- exception for miners helmet
-      if not hasMinersHelmetActive(playerColor) then
+      -- exception for miners helmet (but not for idols)
+      if obj.hasTag("idol") or not hasMinersHelmetActive(playerColor) then
         broadcastToAll(getPlayerName(playerColor) .. ' gets a fear card.')
         getFearCard(getObjectFromGUID(deckZones.fear), playerColor)
         wait(0.3)
