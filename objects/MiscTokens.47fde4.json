@@ -14,6 +14,10 @@
     "r": 0.70588
   },
   "ContainedObjects_order": [
+    "GreenLantern.lanterng",
+    "RedLantern.lanternr",
+    "BlueLantern.lanternb",
+    "YellowLantern.lanterny",
     "Custom_Token.6a89dd",
     "Waterfall.fa97ae",
     "Waterfall.dcf0e1",
