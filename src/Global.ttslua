@@ -1980,6 +1980,18 @@ function setupResearchTrack()
 
   -- place bonusses
   local bag = getObjectFromGUID(bags.researchBonus)
+
+  -- maybe remove Twisted Paths bonus tiles
+  if not options.expansions.twistedPaths then
+    local bagData = bag.getData()
+    for i = #bagData.ContainedObjects, 1, -1 do
+      local objData = bagData.ContainedObjects[i]
+      if objData.Memo == "tp" then
+        bag.takeObject({ index = i - 1 }).destruct()
+      end
+    end
+  end
+
   bag.shuffle()
 
   local trackInfo = researchTracks[options.researchTrack]
@@ -3542,11 +3554,11 @@ function deliverRewards(playerColor, obj)
       deliveredAll = false
     elseif reward == 'y' then
       broadcastToAll(getPlayerName(playerColor) ..
-      ' gets to use the effect on the silver side of one assistant available in the supply.')
+        ' gets to use the effect on the silver side of one assistant available in the supply.')
       deliveredAll = false
     elseif reward == 'z' then
       broadcastToAll(getPlayerName(playerColor) ..
-      ' gets to use the effect on the gold side of one assistant available in the supply.')
+        ' gets to use the effect on the gold side of one assistant available in the supply.')
       deliveredAll = false
     elseif reward == 'e' then
       broadcastToAll(getPlayerName(playerColor) .. ' may exile a card.')
