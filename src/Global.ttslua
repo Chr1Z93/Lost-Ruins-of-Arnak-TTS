@@ -890,11 +890,33 @@ researchTracks        = {
   }
 }
 
+inverseBoardScale = Vector(1 / 30, 1, 1 / 30)
+
 boardData             = {
   base = {
-    camp = {},
-    lvl1 = {},
-    lvl2 = {}
+    camp = {
+      { pos = Vector(-18.06, 0, -21.30), reward = "cc" },
+      { pos = Vector(-12.50, 0, -20.40), reward = "ss" },
+      { pos = Vector(-6.94, 0, -19.39),  reward = "tt" },
+      { pos = Vector(-1.36, 0, -20.28),  reward = "a" },
+      { pos = Vector(4.20, 0, -21.37),   reward = "j" }
+    },
+    lvl1 = {
+      { pos = Vector(-17.46, 0, -11.15) },
+      { pos = Vector(-10.35, 0, -9.11) },
+      { pos = Vector(-3.30, 0, -10.61) },
+      { pos = Vector(3.48, 0, -10.88) },
+      { pos = Vector(-17.70, 0, -1.10) },
+      { pos = Vector(-10.62, 0, -0.38) },
+      { pos = Vector(-3.87, 0, -1.82) },
+      { pos = Vector(3.72, 0, -2.03) }
+    },
+    lvl2 = {
+      { pos = Vector(-17.49, 0, 9.61) },
+      { pos = Vector(-10.47, 0, 10.21) },
+      { pos = Vector(-3.36, 0, 11.23) },
+      { pos = Vector(3.54, 0, 9.49) }
+    }
   },
   spider = {
     camp = {},
@@ -908,10 +930,19 @@ boardData             = {
   }
 }
 
+-- global offsets
 SITE_OFFSETS          = {
-  camp1 = Vector(0, 0, 0),
-  camp2 = Vector(0, 0, 0),
-  other = Vector(0, 0, 0)
+  camp1       = Vector(-1.1, 0, -3.54),
+  camp2       = Vector(1.1, 0, -3.54),
+  other       = Vector(0, 0, -3.65),
+  guardian    = Vector(0, 0, 0.5),
+  spot2       = Vector(0, 0, 0.45),
+  idolLeft    = Vector(-1, 0, -2.1),
+  idolRight   = Vector(1, 0, -2.1),
+  idolMiddle  = Vector(0, 0, -1.76),
+  buttonShift = Vector(0, 0, 0.25),
+  below       = Vector(0, 0, -1.42),
+  right       = Vector(1.65, 0, 0)
 }
 
 solo                  = {
@@ -1041,6 +1072,131 @@ function onLoad(saveState)
     if turn ~= nil and Turns.enable and Turns.turn_color ~= turn then Turns.turn_color = turn end
     Wait.time(function() doneLoading = true end, 0.5)
   end, 10)
+end
+
+function onObjectSpawn(obj)
+  if obj.getName() == "Board" then
+    createBoardButtons(obj)
+  end
+end
+
+function getBoardData(board)
+  local stateId = board.getStateId()
+
+  if stateId == 3 then
+    return boardData.spider
+  elseif stateId == 4 then
+    return boardData.owl
+  end
+
+  return boardData.base
+end
+
+function createBoardButtons(board)
+  local data = getBoardData(board)
+  boardButtonIndex = 0
+
+  -- camp site buttons
+  for _, site in ipairs(data.camp) do
+    addMoveButton(board, site.pos, SITE_OFFSETS.camp1, SITE_OFFSETS.below, site.reward)
+    addMoveButton(board, site.pos, SITE_OFFSETS.camp2, SITE_OFFSETS.below, site.reward)
+  end
+
+  -- lvl 1 site buttons
+  for _, site in ipairs(data.lvl1) do
+    addMoveButton(board, site.pos, SITE_OFFSETS.other, SITE_OFFSETS.right)
+    addSiteButton(board, site.pos, 1)
+    addSiteAndGuardianButton(board, site.pos, 1)
+  end
+
+  -- lvl 2 site buttons
+  for _, site in ipairs(data.lvl2) do
+    addMoveButton(board, site.pos, SITE_OFFSETS.other - SITE_OFFSETS.spot2, SITE_OFFSETS.right)
+    addSiteButton(board, site.pos, 2)
+    addSiteAndGuardianButton(board, site.pos, 2)
+  end
+end
+
+function attemptMove(playerColor, spotPos, sitePos, reward)
+  log(playerColor)
+  log(spotPos)
+  log(sitePos)
+  log(reward)
+end
+
+function placeSite(playerColor, sitePos, lvl)
+  log(playerColor)
+  log(sitePos)
+  log(lvl)
+end
+
+function placeGuardian(playerColor, guardianPos)
+  log(playerColor)
+  log(guardianPos)
+end
+
+function getBoardFuncName()
+  boardButtonIndex = boardButtonIndex + 1
+  return "boardButton" .. boardButtonIndex
+end
+
+function addMoveButton(board, sitePos, spotOffset, buttonOffset, reward)
+  local funcName = getBoardFuncName()
+  local spotPos  = sitePos + spotOffset
+
+  _G[funcName]   = function(_, playerColor) attemptMove(playerColor, spotPos, sitePos, reward) end
+
+  board.createButton({
+    click_function = funcName,
+    label          = "+",
+    position       = convertGlobalPosToBoard(spotPos + buttonOffset),
+    scale          = inverseBoardScale,
+    font_size      = 450,
+    width          = 520,
+    height         = 520
+  })
+end
+
+function addSiteButton(board, sitePos, lvl)
+  local funcName = getBoardFuncName()
+
+  _G[funcName]   = function(_, playerColor) placeSite(playerColor, sitePos, lvl) end
+
+  board.createButton({
+    click_function = funcName,
+    label          = "+ Site Only",
+    position       = convertGlobalPosToBoard(sitePos - SITE_OFFSETS.buttonShift),
+    scale          = inverseBoardScale,
+    font_size      = 325,
+    width          = 2250,
+    height         = 400
+  })
+end
+
+function addSiteAndGuardianButton(board, sitePos, lvl)
+  local funcName    = getBoardFuncName()
+  local guardianPos = sitePos + SITE_OFFSETS.guardian
+
+  _G[funcName]      = function(_, playerColor)
+    local success = placeSite(playerColor, sitePos, lvl)
+    if success then
+      placeGuardian(playerColor, guardianPos)
+    end
+  end
+
+  board.createButton({
+    click_function = funcName,
+    label          = "+ Site & Guardian",
+    position       = convertGlobalPosToBoard(guardianPos + SITE_OFFSETS.buttonShift),
+    scale          = inverseBoardScale,
+    font_size      = 275,
+    width          = 2250,
+    height         = 400
+  })
+end
+
+function convertGlobalPosToBoard(pos)
+  return (pos - Vector(0, 0, 4)):scale(inverseBoardScale):scale(Vector(1, 1, -1)):setAt("y", 0.11)
 end
 
 -- MARK: START MENU UI
@@ -1965,6 +2121,7 @@ function setupBoard()
     end
   end
 
+  -- TODO: Update for new boards
   -- distribute idols to the tier 1 and tier 2 sites. Tier 2 sites get 2 (one face up one face down)
   local offset = Vector(0.97, 0, 0)
   for i = 1, 3 do
@@ -4739,8 +4896,10 @@ function trashObject(playerColor, object)
     local trash = getObjectFromGUID(playerVars[playerColor].trashGuid)
     if trash ~= nil then
       trash.putObject(object)
+      return
     end
   end
+  broadcastToColor("Couldn't find the trash for you!", playerColor, "Red")
 end
 
 -- MARK: SOLO RIVAL
