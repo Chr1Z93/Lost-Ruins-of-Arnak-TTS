@@ -890,6 +890,30 @@ researchTracks        = {
   }
 }
 
+boardData             = {
+  base = {
+    camp = {},
+    lvl1 = {},
+    lvl2 = {}
+  },
+  spider = {
+    camp = {},
+    lvl1 = {},
+    lvl2 = {}
+  },
+  owl = {
+    camp = {},
+    lvl1 = {},
+    lvl2 = {}
+  }
+}
+
+SITE_OFFSETS          = {
+  camp1 = Vector(0, 0, 0),
+  camp2 = Vector(0, 0, 0),
+  other = Vector(0, 0, 0)
+}
+
 solo                  = {
   board = 'a30382',
   boardPosition = { -43.26, 1.53, 18.96 },
