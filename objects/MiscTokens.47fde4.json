@@ -14,6 +14,9 @@
     "r": 0.70588
   },
   "ContainedObjects_order": [
+    "Custom_Token.owl10",
+    "Custom_Token.owl5",
+    "Custom_Token.owl1",
     "GreenLantern.lanterng",
     "RedLantern.lanternr",
     "BlueLantern.lanternb",
