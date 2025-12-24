@@ -270,7 +270,6 @@ expansionDecks        = {
     sites2     = '10d945',
     guardians  = '6fbe77'
   },
-  -- TODO
   twistedPaths = {
     assistants = '629725',
     idols      = 'b2f00e',
@@ -890,33 +889,35 @@ researchTracks        = {
   }
 }
 
-inverseBoardScale = Vector(1 / 30, 1, 1 / 30)
+inverseBoardScale     = Vector(1 / 30, 1, 1 / 30)
 
 boardData             = {
   base = {
     camp = {
-      { pos = Vector(-18.06, 0, -21.30), reward = "cc" },
-      { pos = Vector(-12.50, 0, -20.40), reward = "ss" },
-      { pos = Vector(-6.94, 0, -19.39),  reward = "tt" },
-      { pos = Vector(-1.36, 0, -20.28),  reward = "a" },
-      { pos = Vector(4.20, 0, -21.37),   reward = "j" }
+      { pos = Vector(-18.06, 1.6, -21.30), reward = "cc" },
+      { pos = Vector(-12.50, 1.6, -20.40), reward = "ss" },
+      { pos = Vector(-6.94, 1.6, -19.39),  reward = "tt" },
+      { pos = Vector(-1.36, 1.6, -20.28),  reward = "a" },
+      { pos = Vector(4.20, 1.6, -21.37),   reward = "j" }
     },
     lvl1 = {
-      { pos = Vector(-17.46, 0, -11.15) },
-      { pos = Vector(-10.35, 0, -9.11) },
-      { pos = Vector(-3.30, 0, -10.61) },
-      { pos = Vector(3.48, 0, -10.88) },
-      { pos = Vector(-17.70, 0, -1.10) },
-      { pos = Vector(-10.62, 0, -0.38) },
-      { pos = Vector(-3.87, 0, -1.82) },
-      { pos = Vector(3.72, 0, -2.03) }
+      { pos = Vector(-17.46, 1.6, -11.15) },
+      { pos = Vector(-10.35, 1.6, -9.11) },
+      { pos = Vector(-3.30, 1.6, -10.61) },
+      { pos = Vector(3.48, 1.6, -10.88) },
+      { pos = Vector(-17.70, 1.6, -1.10) },
+      { pos = Vector(-10.62, 1.6, -0.38) },
+      { pos = Vector(-3.87, 1.6, -1.82) },
+      { pos = Vector(3.72, 1.6, -2.03) }
     },
     lvl2 = {
-      { pos = Vector(-17.49, 0, 9.61) },
-      { pos = Vector(-10.47, 0, 10.21) },
-      { pos = Vector(-3.36, 0, 11.23) },
-      { pos = Vector(3.54, 0, 9.49) }
-    }
+      { pos = Vector(-17.49, 1.6, 9.61) },
+      { pos = Vector(-10.47, 1.6, 10.21) },
+      { pos = Vector(-3.36, 1.6, 11.23) },
+      { pos = Vector(3.54, 1.6, 9.49) }
+    },
+    marketStart = Vector(-18.18, 1.6, 19.6),
+    marketEnd = Vector(18.18, 1.6, 19.6)
   },
   spider = {
     camp = {},
@@ -932,17 +933,18 @@ boardData             = {
 
 -- global offsets
 SITE_OFFSETS          = {
-  camp1       = Vector(-1.1, 0, -3.54),
-  camp2       = Vector(1.1, 0, -3.54),
-  other       = Vector(0, 0, -3.65),
-  guardian    = Vector(0, 0, 0.5),
-  spot2       = Vector(0, 0, 0.45),
-  idolLeft    = Vector(-1, 0, -2.1),
-  idolRight   = Vector(1, 0, -2.1),
-  idolMiddle  = Vector(0, 0, -1.76),
-  buttonShift = Vector(0, 0, 0.25),
-  below       = Vector(0, 0, -1.42),
-  right       = Vector(1.65, 0, 0)
+  camp1         = Vector(-1.1, 0, -3.54),
+  camp2         = Vector(1.1, 0, -3.54),
+  other         = Vector(0, 0, -3.65),
+  guardian      = Vector(0, 0.05, 0.7),
+  spot2         = Vector(0, 0, 0.45),
+  idolLeft      = Vector(-1, 0, -2.1),
+  idolRight     = Vector(1, 0, -2.1),
+  idolMiddle    = Vector(0, 0, -1.76),
+  buttonShift   = Vector(0, 0, 0.225),
+  buttonUpShift = Vector(0, 0, 0.2),
+  below         = Vector(0, 0, -1.42),
+  right         = Vector(1.65, 0, 0)
 }
 
 solo                  = {
@@ -1081,6 +1083,11 @@ function onObjectSpawn(obj)
 end
 
 function getBoardData(board)
+  if not board then
+    board = getObjectByName("Board")
+  end
+  if not board then return {} end
+
   local stateId = board.getStateId()
 
   if stateId == 3 then
@@ -1093,6 +1100,8 @@ function getBoardData(board)
 end
 
 function createBoardButtons(board)
+  board.clearButtons()
+
   local data = getBoardData(board)
   boardButtonIndex = 0
 
@@ -1115,24 +1124,128 @@ function createBoardButtons(board)
     addSiteButton(board, site.pos, 2)
     addSiteAndGuardianButton(board, site.pos, 2)
   end
+
+  -- buy buttons
+  for i = 1, 6 do
+    addMarketButton(board, i)
+  end
+end
+
+function addMarketButton(board, i)
+  local marketPos = getMarketPos(i)
+
+  local funcName  = "buy" .. i
+  _G[funcName]    = function(_, playerColor, alt) buyFromMarket(playerColor, marketPos, alt) end
+
+  board.createButton({
+    click_function = funcName,
+    label          = "Take / Buy",
+    position       = convertGlobalPosToBoard(marketPos + Vector(0, 0, 5.2)),
+    scale          = inverseBoardScale,
+    font_size      = 390,
+    width          = 2125,
+    height         = 600
+  })
 end
 
 function attemptMove(playerColor, spotPos, sitePos, reward)
-  log(playerColor)
-  log(spotPos)
-  log(sitePos)
-  log(reward)
+  -- check for available pawn
+  local pawn = getAvailableArcheologist(playerColor)
+  if not pawn then return end
+
+  -- check if space is occupied
+  local occupants = SearchLib.atPosition(spotPos, "isPawn")
+  if #occupants > 0 then
+    broadcastToColor("This space is already occupied!", playerColor, "Red")
+    return
+  end
+
+  -- move pawn
+  pawn.setPositionSmooth(spotPos:setAt("y", pawnY))
+
+  -- if there's a reward defined (camp spots), gain it
+  if reward then
+    deliverRewards(playerColor, nil, reward)
+  end
+
+  -- search for site tile / idols and gain rewards
+  for _, obj in ipairs(SearchLib.inArea(sitePos, nil, Vector(3, 1, 3), nil, true)) do
+    if obj.hasTag("site1") or obj.hasTag("site2") then
+      deliverRewards(playerColor, obj)
+    elseif obj.hasTag("idol") then
+      local delivered = true
+      if not obj.is_face_down then
+        delivered = deliverRewards(playerColor, obj)
+      end
+
+      if delivered then
+        local idolPosition4 = getGlobalPosForIdolSlot(playerColor, 4) - Vector(0, 0, 3)
+        local toPosFacedown = idolPosition4:setAt("y", tileY + 0.3)
+        obj.setRotation(facedown)
+        obj.setPositionSmooth(toPosFacedown, false, false)
+      else
+        local idolPosition3 = getGlobalPosForIdolSlot(playerColor, 3) - Vector(0, 0, 3)
+        local toPosFaceup   = idolPosition3:setAt("y", tileY + 0.3)
+        obj.setRotation(faceup)
+        obj.setPositionSmooth(toPosFaceup, false, false)
+      end
+    end
+  end
 end
 
 function placeSite(playerColor, sitePos, lvl)
-  log(playerColor)
-  log(sitePos)
-  log(lvl)
+  -- ensure the player's pawn is placed
+  local searchPos = sitePos:copy():setAt("y", pawnY) + SITE_OFFSETS.other
+  if lvl == 2 then
+    searchPos = searchPos - SITE_OFFSETS.spot2
+  end
+
+  local legal = false
+  for _, obj in ipairs(SearchLib.inArea(searchPos, nil, Vector(3, 1, 1), "isPawn", true)) do
+    if obj.getDescription() == playerColor then
+      legal = true
+      break
+    end
+  end
+
+  if not legal then
+    broadcastToColor("You need to have an archeologist at this site!", playerColor, "Red")
+    return
+  end
+
+  -- place site
+  local site = placeCardFromZone(deckZones["sites" .. lvl], sitePos, faceup)
+  if not site then
+    broadcastToColor("Couldn't find a suitable site!", playerColor, "Red")
+    return
+  end
+  site.setLock(true)
+
+  -- gain rewards
+  local delivered = deliverRewards(playerColor, site)
+  return delivered
 end
 
 function placeGuardian(playerColor, guardianPos)
-  log(playerColor)
-  log(guardianPos)
+  local guardian = placeCardFromZone(deckZones.guardians, guardianPos, faceup)
+  guardian.setLock(true)
+end
+
+function placeCardFromZone(zoneGuid, position, rotation)
+  local zone = getObjectFromGUID(zoneGuid)
+  if not zone or not position then return end
+
+  for _, obj in ipairs(zone.getObjects()) do
+    if obj.type == "Deck" then
+      return obj.takeObject({ position = position, rotation = rotation })
+    elseif obj.type == "Card" then
+      obj.setRotation(rotation)
+      obj.setPositionSmooth(position)
+      return obj
+    end
+  end
+
+  return false
 end
 
 function getBoardFuncName()
@@ -1165,7 +1278,7 @@ function addSiteButton(board, sitePos, lvl)
   board.createButton({
     click_function = funcName,
     label          = "+ Site Only",
-    position       = convertGlobalPosToBoard(sitePos - SITE_OFFSETS.buttonShift),
+    position       = convertGlobalPosToBoard(sitePos - SITE_OFFSETS.buttonShift + SITE_OFFSETS.buttonUpShift),
     scale          = inverseBoardScale,
     font_size      = 325,
     width          = 2250,
@@ -1181,13 +1294,15 @@ function addSiteAndGuardianButton(board, sitePos, lvl)
     local success = placeSite(playerColor, sitePos, lvl)
     if success then
       placeGuardian(playerColor, guardianPos)
+    else
+      broadcastToAll("Place a Guardian after resolving choices from the rewards.")
     end
   end
 
   board.createButton({
     click_function = funcName,
     label          = "+ Site & Guardian",
-    position       = convertGlobalPosToBoard(guardianPos + SITE_OFFSETS.buttonShift),
+    position       = convertGlobalPosToBoard(guardianPos + SITE_OFFSETS.buttonShift + SITE_OFFSETS.buttonUpShift),
     scale          = inverseBoardScale,
     font_size      = 275,
     width          = 2250,
@@ -2622,14 +2737,18 @@ function setupMiscThings()
   end
 end
 
---Create buttons that are used for both standard play and campaign play
+function onClick_getFearCard(_, playerColor)
+  getFearCard(playerColor)
+end
+
+-- Create buttons that are used for both standard play and campaign play
 function setupButtonsMisc()
   -- take fear button
   local buttonZone = getObjectFromGUID(deckZones.fear)
   params = {
     function_owner = self,
     label          = 'Take',
-    click_function = 'getFearCard',
+    click_function = 'onClick_getFearCard',
     position       = { 0, 0, -2.9 },
     width          = 800,
     height         = 380,
@@ -3284,7 +3403,7 @@ function drawLines()
 end
 
 -- MARK: BUTTONS
---Create buttons primarily used for standard play
+-- Create buttons primarily used for standard play
 function setupButtons()
   local params = {
     function_owner = self,
@@ -3304,22 +3423,8 @@ function setupButtons()
 
   setupButtonsMisc()
 
-  -- buy card row
-  params = {
-    function_owner = self,
-    label          = 'Take / Buy',
-    position       = { 0, 0, -2.5 },
-    width          = 1000,
-    height         = 350,
-    font_size      = 190
-  }
-
-  for i, guid in ipairs(cardRowZoneGuids) do
-    params.click_function = 'buy' .. i
-    getObjectFromGUID(guid).createButton(params)
-    _G['buy' .. i] = function(obj, clickColor, alt) buyButton(obj, clickColor, alt) end
-  end
-
+  -- TODO: REMOVE
+  --[[
   -- place pawns
   params = {
     function_owner = self,
@@ -3348,7 +3453,11 @@ function setupButtons()
       end
     end
   end
+]]
 
+
+  -- TODO: REMOVE
+  --[[
   -- discover sites button creation
   params = {
     function_owner = self,
@@ -3382,6 +3491,7 @@ function setupButtons()
     end
   end
 
+  ]]
   if options.solo then setupButtonRivalTurn() end
 end
 
@@ -3406,8 +3516,9 @@ function gainResource(resource, playerColor, remove)
   end
 end
 
-function getFearCard(zone, playerColor)
+function getFearCard(playerColor)
   if not doneLoading or not isSeated(playerColor) then return end
+  local zone    = getObjectFromGUID(deckZones.fear)
   local card    = drawCard(zone) or getObjectFromGUID(bags.fear).takeObject()
   local toPos   = getObjectFromGUID(playerVars[playerColor].playAreaZoneGuid).getPosition()
   local xOffset = 16.5
@@ -3428,83 +3539,90 @@ function getMetaData(card)
   return md
 end
 
-function buyButton(zone, clickColor, alt)
-  if not doneLoading or setupInProgress or movingRow or not isSeated(clickColor) then return end
+function buyFromMarket(playerColor, marketPos, isRightClick)
+  if not doneLoading or setupInProgress or movingRow or not isSeated(playerColor) then return end
 
   movingRow = true
-  local card = drawCard(zone)
-  local vars = playerVars[clickColor]
-  local coloredName = getPlayerName(clickColor)
-  if card ~= nil then
-    local md = getMetaData(card)
-    local suffix
-    if md.resource == "compass" then
-      suffix = ' compass' .. (md.cost > 1 and "es" or "")
-    elseif md.resource == "coin" then
-      suffix = ' coin' .. (md.cost > 1 and "s" or "")
-    end
+  local card = drawCardFromPosition(marketPos)
+  local vars = playerVars[playerColor]
+  local coloredName = getPlayerName(playerColor)
+  if not card then return end
 
-    if alt then
-      -- right-click -> "buy": automatically remove resources
-      local bag
-      if md.resource == "compass" then
-        bag = getObjectFromGUID(vars.resourceBags.s)
-      elseif md.resource == "coin" then
-        bag = getObjectFromGUID(vars.resourceBags.c)
-      end
-
-      if bag.getQuantity() < md.cost then
-        broadcastToColor('You do not have enough' .. suffix .. ' to buy ' .. card.getName() .. ".", clickColor)
-        movingRow = false
-        return
-      end
-
-      broadcastToAll(coloredName .. ' spends ' .. md.cost .. suffix .. ' to buy ' .. card.getName() .. ".")
-      for i = 1, md.cost do
-        Wait.time(function() trashObject(clickColor, bag.takeObject()) end, i * 0.1)
-      end
-    end
-
-    if md.type == "Artifact" then
-      local toPos = getObjectFromGUID(vars.playAreaZoneGuid).getPosition()
-      local xOffset = 11.5
-      if clickColor == 'Red' or clickColor == 'Yellow' then
-        xOffset = 0 - xOffset
-      end
-      card.setPositionSmooth({ toPos[1] + xOffset, tableY + 0.5, toPos[3] }, false, true)
-    else
-      local deckPos = PlayermatApi.getZonePosition(clickColor, "Deck")
-      local toPos = deckPos
-      local deck = nil
-      for _, object in ipairs(SearchLib.atPosition(deckPos, "isCardOrDeck")) do
-        if object.type == 'Deck' then
-          deck = object
-        else
-          object.setPositionSmooth({ toPos[1], tileY + 0.5, toPos[3] }, false, true)
-        end
-        break
-      end
-      if deck == nil then
-        card.setRotationSmooth(facedown, false, true)
-        card.setPositionSmooth({ toPos[1], tileY, toPos[3] }, false, true)
-      else
-        deck.putObject(card)
-      end
-    end
-    broadcastToAll(coloredName .. ' bought ' .. card.getName() .. ' (' .. md.cost .. suffix .. ").")
-    Wait.time(function() movingRow = false end, 0.5)
+  local md = getMetaData(card)
+  local suffix
+  if md.resource == "compass" then
+    suffix = ' compass' .. (md.cost > 1 and "es" or "")
+  elseif md.resource == "coin" then
+    suffix = ' coin' .. (md.cost > 1 and "s" or "")
   end
+
+  if isRightClick then
+    -- right-click -> "buy": automatically remove resources
+    local bag
+    if md.resource == "compass" then
+      bag = getObjectFromGUID(vars.resourceBags.s)
+    elseif md.resource == "coin" then
+      bag = getObjectFromGUID(vars.resourceBags.c)
+    end
+
+    if bag.getQuantity() < md.cost then
+      broadcastToColor('You do not have enough' .. suffix .. ' to buy ' .. card.getName() .. ".", playerColor)
+      movingRow = false
+      return
+    end
+
+    broadcastToAll(coloredName .. ' spends ' .. md.cost .. suffix .. ' to buy ' .. card.getName() .. ".")
+    for i = 1, md.cost do
+      Wait.time(function() trashObject(playerColor, bag.takeObject()) end, i * 0.1)
+    end
+  end
+
+  if md.type == "Artifact" then
+    local toPos = getObjectFromGUID(vars.playAreaZoneGuid).getPosition()
+    local xOffset = 11.5
+    if playerColor == 'Red' or playerColor == 'Yellow' then
+      xOffset = 0 - xOffset
+    end
+    card.setPositionSmooth({ toPos[1] + xOffset, tableY + 0.5, toPos[3] }, false, true)
+  else
+    local deckPos = PlayermatApi.getZonePosition(playerColor, "Deck")
+    local toPos = deckPos
+    local deck = nil
+    for _, object in ipairs(SearchLib.atPosition(deckPos, "isCardOrDeck")) do
+      if object.type == 'Deck' then
+        deck = object
+      else
+        object.setPositionSmooth({ toPos[1], tileY + 0.5, toPos[3] }, false, true)
+      end
+      break
+    end
+    if deck == nil then
+      card.setRotationSmooth(facedown, false, true)
+      card.setPositionSmooth({ toPos[1], tileY, toPos[3] }, false, true)
+    else
+      deck.putObject(card)
+    end
+  end
+  broadcastToAll(coloredName .. ' bought ' .. card.getName() .. ' (' .. md.cost .. suffix .. ").")
+  Wait.time(function() movingRow = false end, 0.5)
+end
+
+-- i goes from 1 to 6
+function getMarketPos(i)
+  local data = getBoardData()
+  return data.marketStart + (data.marketEnd - data.marketStart) * (i - 1) * 0.2
 end
 
 function refillRowCoroutine()
   if movingRow then return 1 end
-  movingRow = true
+  movingRow       = true
 
   -- get cards/decks in the row
   local artifacts = {}
-  local items = {}
-  for i, guid in ipairs(cardRowZoneGuids) do
-    for _, object in ipairs(getObjectFromGUID(guid).getObjects()) do
+  local items     = {}
+
+  for i = 1, 6 do
+    for _, object in ipairs(SearchLib.atPosition(getMarketPos(i), "isCard")) do
       if object.type == 'Card' or object.type == 'Deck' then
         if i <= round then
           table.insert(artifacts, object)
@@ -3521,13 +3639,13 @@ function refillRowCoroutine()
     -- shift
     if #artifacts > 0 and #artifacts < round then
       for i = 1, #artifacts do
-        local toPos = getObjectFromGUID(cardRowZoneGuids[round - i + 1]).getPosition()
+        local toPos = getMarketPos(round - i + 1)
         artifacts[#artifacts - i + 1].setPositionSmooth({ toPos[1], tileY, toPos[3] }, false, true)
       end
     end
     if #items > 0 and #items < 6 - round then
       for i = 1, #items do
-        local toPos = getObjectFromGUID(cardRowZoneGuids[round + i]).getPosition()
+        local toPos = getMarketPos(round + i)
         items[i].setPositionSmooth({ toPos[1], tileY, toPos[3] }, false, true)
       end
     end
@@ -3536,7 +3654,7 @@ function refillRowCoroutine()
     -- refill
     if #artifacts < round then
       for i = 1, round - #artifacts do
-        local toPos = getObjectFromGUID(cardRowZoneGuids[i]).getPosition()
+        local toPos = getMarketPos(i)
         local card = drawCard(deckZones.artifacts, faceup, { toPos[1], tileY, toPos[3] })
         if card == nil then break end
         wait(0.16)
@@ -3544,7 +3662,7 @@ function refillRowCoroutine()
     end
     if #items < 6 - round then
       for i = round + #items + 1, 6 do
-        local toPos = getObjectFromGUID(cardRowZoneGuids[i]).getPosition()
+        local toPos = getMarketPos(i)
         local card = drawCard(deckZones.items, faceup, { toPos[1], tileY, toPos[3] })
         if card == nil then break end
         wait(0.16)
@@ -3554,6 +3672,21 @@ function refillRowCoroutine()
   end
   movingRow = false
   return 1
+end
+
+function getAvailableArcheologist(playerColor)
+  if options.playerBoards[playerColor] == 5 then
+    local pawn = getObjectByName(playerColor .. " Archaeologist")
+    if pawn ~= nil then return pawn end
+    broadcastToColor('Your archaeologist was not found.', playerColor)
+  else
+    for _, obj in ipairs(SearchLib.onObject(getTent(playerColor))) do
+      if obj.hasTag('pawn') and obj.getDescription() == playerColor then
+        return obj
+      end
+    end
+    broadcastToColor('No archaeologists found on your tent.', playerColor)
+  end
 end
 
 function getTent(playerColor)
@@ -3572,126 +3705,6 @@ function getResearchToken(type, playerColor)
   return getObjectByName(type .. " " .. playerColor)
 end
 
-function placePawn(playerColor, zone, siteInfo, level, alt)
-  -- check occupied
-  for _, obj in ipairs(zone.getObjects()) do
-    if obj.hasTag('pawn') then
-      broadcastToColor('This space is occupied.', playerColor)
-      return
-    end
-  end
-
-  -- look for a free pawn
-  local vars = playerVars[playerColor]
-  local pawn = nil
-  if options.playerBoards[playerColor] == 5 then
-    pawn = getObjectFromGUID(vars.pawns[1])
-    if pawn == nil then
-      broadcastToColor('Your archaeologist was not found.', playerColor)
-      return
-    end
-  else
-    for _, obj in ipairs(SearchLib.onObject(getTent(playerColor))) do
-      if obj.hasTag('pawn') and obj.getDescription() == playerColor then
-        pawn = obj
-        break
-      end
-    end
-
-    if pawn == nil then
-      broadcastToColor('No archaeologists found near your tent space.', playerColor)
-      return
-    end
-  end
-
-  -- check for idol/site
-  local idolFaceup = nil
-  local idolFacedown = nil
-  local site = nil
-  for _, obj in ipairs(getObjectFromGUID(siteInfo.guid).getObjects()) do
-    if obj.hasTag('idol') then
-      if obj.type == 'Deck' or obj.is_face_down and idolFacedown ~= nil or not obj.is_face_down and idolFaceup ~= nil then
-        local faceMsg = 'face-up'
-        if obj.is_face_down then faceMsg = 'face-down' end
-        broadcastToAll('More than one ' .. faceMsg .. ' idol found at this location.')
-        return
-      end
-      if obj.is_face_down then
-        idolFacedown = obj
-      else
-        idolFaceup = obj
-      end
-    elseif obj.hasTag('site1') or obj.hasTag('site2') then
-      if obj.type == 'Deck' or site ~= nil then
-        broadcastToAll('More than one site card found at this location.')
-        return
-      end
-      site = obj
-    end
-  end
-  if (idolFaceup ~= nil or idolFacedown ~= nil) and site ~= nil then
-    broadcastToAll('Idol and site card both found at this location.')
-    return
-  end
-
-  function placePawnCoroutine()
-    discovering = true
-    if level < 4 and alt and (idolFaceup ~= nil or idolFacedown ~= nil) then
-      local compassCost = 3
-      if level == 1 then compassCost = 6 end
-      local bag = getObjectFromGUID(vars.resourceBags.s)
-      if bag.getQuantity() >= compassCost then
-        broadcastToAll(getPlayerName(playerColor) .. ' spends ' .. compassCost .. ' compasses to discover a site.')
-        for i = 1, compassCost do
-          if bag.getQuantity() > 0 then
-            trashObject(playerColor, bag.takeObject())
-            wait(0.16)
-          end
-        end
-        wait(0.5)
-      else
-        broadcastToColor('You do not have enough compass tokens to discover this site.', playerColor)
-        discovering = false
-        return 1
-      end
-    end
-    local toPos = zone.getPosition()
-    pawn.setRotationSmooth(faceup, false, true)
-    pawn.setPositionSmooth({ toPos[1], pawnY, toPos[3] }, false, false)
-    wait(0.6)
-    if idolFaceup ~= nil or idolFacedown ~= nil then
-      local idolPosition3 = getGlobalPosForIdolSlot(playerColor, 3) - Vector(0, 0, 3)
-      local idolPosition4 = getGlobalPosForIdolSlot(playerColor, 4) - Vector(0, 0, 3)
-      local toPosFaceup = idolPosition3:setAt("y", tileY + 0.3)
-      local toPosFacedown = idolPosition4:setAt("y", tileY + 0.3)
-
-      if idolFaceup ~= nil then
-        local delivered = deliverRewards(playerColor, idolFaceup)
-        wait(0.5)
-        if delivered then
-          idolFaceup.setRotation(facedown)
-          idolFaceup.setPositionSmooth(toPosFacedown, false, false)
-        else
-          idolFaceup.setRotation(faceup)
-          idolFaceup.setPositionSmooth(toPosFaceup, false, false)
-        end
-      end
-      if idolFacedown ~= nil then
-        idolFacedown.setRotation(facedown)
-        idolFacedown.setPositionSmooth(toPosFacedown, false, false)
-      end
-    elseif site ~= nil then
-      deliverRewards(playerColor, site)
-    elseif tonumber(zone.getName()) == 4 then
-      deliverRewards(playerColor, zone)
-    end
-    discovering = false
-    return 1
-  end
-
-  startLuaCoroutine(Global, 'placePawnCoroutine')
-end
-
 function getGlobalPosForIdolSlot(playerColor, points)
   local board = PlayermatApi.getPlayermats(playerColor)
   local idolData = idolSlotData[options.playerBoards[playerColor]]
@@ -3704,23 +3717,23 @@ function getGlobalPosForIdolSlot(playerColor, points)
 end
 
 -- function that checks the gm notes to determine what rewards the player should get
-function deliverRewards(playerColor, obj)
-  local rewards            = obj.getGMNotes()
+function deliverRewards(playerColor, obj, str)
+  local rewards = obj and obj.getGMNotes() or str
+  if not rewards or rewards == "" then return true end
+
   local resourceLabels     = { t = 'tablet', a = 'arrowhead', j = 'jewel', c = 'coin', s = 'compass', z = 'dark tablet' }
   local resourceCount      = {}
   local deliveredAll       = true
   local deliveredResources = false
+  local p                  = getPlayerName(playerColor)
+
   for i = 1, string.len(rewards) do
     local reward = string.sub(rewards, i, i)
 
     -- these resources are automatically given to the player
     if resourceLabels[reward] ~= nil then
       gainResource(reward, playerColor)
-      if resourceCount[reward] == nil then
-        resourceCount[reward] = 1
-      else
-        resourceCount[reward] = resourceCount[reward] + 1
-      end
+      resourceCount[reward] = (resourceCount[reward] or 0) + 1
       deliveredResources = true
 
       -- for these rewards the player must manually take action on
@@ -3729,59 +3742,54 @@ function deliverRewards(playerColor, obj)
       local card = drawCard(deckZones["bonus" .. tonumber(reward)])
       if card ~= nil then
         card.deal(1, playerColor)
-        wait(0.3)
       end
-      broadcastToAll(getPlayerName(playerColor) .. ' has to choose an option from the dealt bonus card.')
+      broadcastToAll(p .. ' has to choose an option from the dealt bonus card.')
       deliveredAll = false
     elseif reward == 'u' then
-      broadcastToAll(getPlayerName(playerColor) .. ' may upgrade one resource.')
+      broadcastToAll(p .. ' may upgrade one resource.')
       deliveredAll = false
     elseif reward == 'o' then
-      broadcastToAll(getPlayerName(playerColor) .. ' may gain 1 coin or 1 compass.')
+      broadcastToAll(p .. ' may gain 1 coin or 1 compass.')
       deliveredAll = false
     elseif reward == 'r' then
-      broadcastToAll(getPlayerName(playerColor) .. ' may refresh an assistant.')
+      broadcastToAll(p .. ' may refresh an assistant.')
       deliveredAll = false
     elseif reward == 'y' then
-      broadcastToAll(getPlayerName(playerColor) ..
-        ' gets to use the effect on the silver side of one assistant available in the supply.')
+      broadcastToAll(p .. ' gets to use the effect on the silver side of one assistant available in the supply.')
       deliveredAll = false
     elseif reward == 'z' then
-      broadcastToAll(getPlayerName(playerColor) ..
-        ' gets to use the effect on the gold side of one assistant available in the supply.')
+      broadcastToAll(p .. ' gets to use the effect on the gold side of one assistant available in the supply.')
       deliveredAll = false
     elseif reward == 'e' then
-      broadcastToAll(getPlayerName(playerColor) .. ' may exile a card.')
+      broadcastToAll(p .. ' may exile a card.')
       deliveredAll = false
     elseif reward == 'i' then
-      broadcastToAll(getPlayerName(playerColor) .. ' may return two compasses to take an item for free.')
+      broadcastToAll(p .. ' may return two compasses to take an item for free.')
       deliveredAll = false
     elseif reward == 'm' then
-      broadcastToAll(getPlayerName(playerColor) .. ' may activate a campsite.')
+      broadcastToAll(p .. ' may activate a campsite.')
       deliveredAll = false
     elseif reward == 'g' then
-      broadcastToAll(getPlayerName(playerColor) .. ' may flip an expended guardian for reuse.')
+      broadcastToAll(p .. ' may flip an expended guardian for reuse.')
       deliveredAll = false
     elseif reward == 'p' then
-      broadcastToAll(getPlayerName(playerColor) .. ' may take one 2-point temple tile from any stack for free.')
+      broadcastToAll(p .. ' may take one 2-point temple tile from any stack for free.')
       deliveredAll = false
     elseif reward == 'f' then -- give fear cards automatically to the player
       -- exception for miners helmet (but not for idols)
       if obj.hasTag("idol") or not hasMinersHelmetActive(playerColor) then
-        broadcastToAll(getPlayerName(playerColor) .. ' gets a fear card.')
-        getFearCard(getObjectFromGUID(deckZones.fear), playerColor)
-        wait(0.3)
+        broadcastToAll(p .. ' gets a Fear card.')
+        getFearCard(playerColor)
       else
-        broadcastToAll(getPlayerName(playerColor) .. " does not get a fear card due to an active Miner's Helmet.")
+        broadcastToAll(p .. " does not get a fear card due to an active Miner's Helmet.")
       end
     elseif reward == 'd' then -- draw a card automatically for the player
       PlayermatApi.drawCard(playerColor)
     end
-    wait(0.16)
   end
 
   if deliveredResources then
-    local message = getPlayerName(playerColor) .. ' gets '
+    local message = p .. ' gets '
     local textList = {}
     for code, count in pairs(resourceCount) do
       local label = resourceLabels[code]
@@ -3798,85 +3806,6 @@ function deliverRewards(playerColor, obj)
   end
 
   return deliveredAll
-end
-
-function discoverButton(zone, clickColor, alt)
-  for _, object in ipairs(zone.getObjects()) do
-    if object.hasTag('idol') then
-      broadcastToColor('One or more idols are still at this location.', clickColor)
-      return
-    end
-  end
-
-  local level = tonumber(zone.getName())
-  local siteNum = tonumber(zone.getDescription())
-  local foundPawn = false
-  for _, object in ipairs(getObjectFromGUID(siteLevels[level][siteNum].pawnSpaces[1]).getObjects()) do
-    if object.hasTag('pawn') and object.getDescription() == clickColor then foundPawn = true end
-  end
-  if not foundPawn then
-    broadcastToColor('Your archaeologist not found at this location.', clickColor)
-    return
-  end
-
-  local guardianDeckZone = getObjectFromGUID(deckZones.guardians)
-  local siteDeckZone = nil
-  if level == 1 then
-    siteDeckZone = getObjectFromGUID(deckZones.sites2)
-  else
-    siteDeckZone = getObjectFromGUID(deckZones.sites1)
-  end
-
-  if not drawCard(siteDeckZone, nil, nil, true) then
-    broadcastToColor('Site cards not found.', clickColor)
-    return
-  end
-  if not alt and not drawCard(guardianDeckZone, nil, nil, true) then
-    broadcastToColor('Guardian cards not found.', clickColor)
-    return
-  end
-  discovering = true
-  zone.removeButton(1)
-  zone.removeButton(0)
-
-  function discoverCoroutine()
-    local zonePos = zone.getPosition()
-    local siteOffsetZ = 1.77
-    local guardianOffsetZ = 2.53
-    if level == 1 then
-      siteOffsetZ = 2.1
-      guardianOffsetZ = 2.6
-    end
-    local site = drawCard(siteDeckZone)
-    site.interactable = false
-    site.setRotation(faceup)
-    site.setPositionSmooth({ zonePos[1], tileY, zonePos[3] + siteOffsetZ }, false, true)
-    wait(0.5)
-    site.lock()
-    site.interactable = true
-    siteLevels[level][siteNum].discovered = true
-
-    local deliveredAll = true
-    if not (options.solo and clickColor == 'Red') then
-      if not alt then wait(0.5) end
-      deliveredAll = deliverRewards(clickColor, site)
-    end
-
-    -- place guardian if all rewards were dealt
-    if not alt then
-      if deliveredAll then
-        local guardian = drawCard(guardianDeckZone)
-        guardian.setRotation(faceup)
-        guardian.setPositionSmooth({ zonePos[1], 1.63, zonePos[3] + guardianOffsetZ }, false, true)
-      else
-        broadcastToAll("Place a Guardian after resolving choices from the rewards.")
-      end
-    end
-    discovering = false
-    return 1
-  end
-
-  startLuaCoroutine(Global, 'discoverCoroutine')
 end
 
 function setupButtonRivalTurn()
@@ -3944,8 +3873,8 @@ function guardianFearCoroutine()
         end
         if hasGuardian then
           for _, playerColor in ipairs(playerColors) do
-            broadcastToAll(getPlayerName(playerColor) .. ' gets Fear.')
-            getFearCard(getObjectFromGUID(deckZones.fear), playerColor)
+            broadcastToAll(getPlayerName(playerColor) .. ' gets a Fear card.')
+            getFearCard(playerColor)
             wait(0.5)
           end
         end
@@ -3971,7 +3900,7 @@ function guardianFearCoroutine()
               local posZ = token.getPosition()[3]
               if posZ < researchTracks[4].rows[4].z and posZ > researchTracks[4].rows[5].z then
                 broadcastToAll(getPlayerName(playerColor) .. ' gets Fear from the temple guardian.')
-                getFearCard(getObjectFromGUID(deckZones.fear), playerColor)
+                getFearCard(playerColor)
                 wait(0.5)
               end
             end
@@ -4233,7 +4162,7 @@ function nextRoundButton(obj, clickColor, alt)
     local rowEnd = round + options.staff
     if rowEnd > 6 then rowEnd = 6 end
     for i = rowStart, rowEnd do
-      local waitUntilAfterSetPos = exile(drawCard(cardRowZoneGuids[i]))
+      local waitUntilAfterSetPos = exile(drawCardFromPosition(getMarketPos(i)))
       if waitUntilAfterSetPos then wait(0.16) end
       wait(0.16)
     end
@@ -4917,24 +4846,23 @@ function rivalBuy(action, buyHighestPoints)
   local lowest = 5
   local lowestCards = {}
   for i = startIndex, endIndex do
-    local card = drawCard(cardRowZoneGuids[i], nil, nil, true)
-    if card.type == 'Card' then
-      --local points = card.getVar('points')
-      local points = JSON.decode(card.getGMNotes()).points
-      if points > highest then
-        highest = points
-        highestCards = { card }
-      elseif points == highest then
-        table.insert(highestCards, card)
-      end
-      if points < lowest then
-        lowest = points
-        lowestCards = { card }
-      elseif points == lowest then
-        table.insert(lowestCards, card)
-      end
+    local card   = SearchLib.atPosition(getMarketPos(i), "isCard")[1]
+    local points = JSON.decode(card.getGMNotes()).points
+    if points > highest then
+      highest = points
+      highestCards = { card }
+    elseif points == highest then
+      table.insert(highestCards, card)
+    end
+
+    if points < lowest then
+      lowest = points
+      lowestCards = { card }
+    elseif points == lowest then
+      table.insert(lowestCards, card)
     end
   end
+
   if buyHighestPoints then
     broadcastToAll('Rival buys an ' .. action .. ' with highest point value.')
     highestCards[math.random(1, #highestCards)].setPositionSmooth(solo.acquiredStuffPositions.buy, false, false)
@@ -5127,7 +5055,7 @@ function rivalTurnCoroutine()
           elseif gmNotes == 'red' and (round == 2 or round == 4) then
             alt = false
           end
-          discoverButton(siteZone, 'Red', alt)
+          -- TODO: Fix this -- discoverButton(siteZone, 'Red', alt)
           soloStatus.fulfilledObjectives.site = true
           if not alt then wait(0.5) end
         end
@@ -5490,6 +5418,20 @@ end
 
 function positionIsClose(pos1, pos2)
   return math.abs(pos1[1] - pos2[1]) < 0.1 and math.abs(pos1[3] - pos2[3]) < 0.1
+end
+
+function drawCardFromPosition(deckPosition, position, rotation)
+  for _, object in ipairs(SearchLib.atPosition(deckPosition, "isCardOrDeck")) do
+    if object.type == 'Card' then
+      if position then
+        object.setRotation(rotation)
+        object.setPositionSmooth(position, false, true)
+      end
+      return object
+    elseif object.type == 'Deck' then
+      return object.takeObject({ position = position, rotation = rotation })
+    end
+  end
 end
 
 function drawCard(zone, rotation, position, checkOnly)
