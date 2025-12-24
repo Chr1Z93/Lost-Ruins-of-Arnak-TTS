@@ -292,16 +292,11 @@ tokens                = {
   MechanicGoldTokenAttacher = '3cc576'
 }
 SPECIAL_DELIVERY_GUID = '49e35e'
-suitcaseResourceBags  = {
-  t = 'da4493',
-  s = '4ecc7c'
-}
+suitcaseResourceBags  = { t = 'da4493', s = '4ecc7c' }
 falconRotations       = { { 0, 225, 0 }, { 0, 190, 0 }, { 0, 148, 0 }, { 0, 115, 0 }, { 0, 90, 0 } }
 assistantPositions    = { { 9.15, 1.63, -30.73 }, { 13.83, 1.63, -30.73 }, { 18.52, 1.63, -30.73 } }
 assistantZones        = { 'a432ac', 'a44647', '3ffbd7' }
 
-cardRowZoneGuids      = { '8ae6f2', '6103ae', 'cea4b5', '99cfc2', '8a1a02', 'dbf266' }
-staffPositions        = { { -14.61, 1.63, 20.23 }, { -7.37, 1.63, 20.23 }, { -0.03, 1.63, 20.23 }, { 7.23, 1.63, 20.23 }, { 14.51, 1.63, 20.23 } }
 exileZoneGuids        = {
   artifacts = '19f28c',
   items     = 'ec5c7a',
@@ -969,7 +964,6 @@ solo                  = {
       u    = 'fdf87e',
       dupe = '91df7a'
     },
-    delete = '0a61ed',
     objectivesDeck = '250afb',
     objectives = { 'd18d8f', 'c9584b', '36d489', '08da31' }
   },
@@ -2699,14 +2693,6 @@ function setupMiscThings()
   wait(0.2)
   setupButtons()
   wait(0.2)
-
-  -- delete bags
-  for _, object in ipairs(getObjectFromGUID(solo.zones.delete).getObjects()) do
-    if not (options.solo and (object.getName() == 'Solo Components' or object.getName() == 'Solo Temple Tiles')) then
-      object.destruct()
-    end
-  end
-  getObjectFromGUID(bags.campaignItems).destruct()
   addAssistantCycleMenu()
 
   -- start player
@@ -3343,9 +3329,6 @@ function menuStartSolo()
 
     actionDeck.shuffle()
     if options.objectives > 0 then getObjectFromGUID(solo.objectives).shuffle() end
-    for _, object in ipairs(getObjectFromGUID(solo.zones.delete).getObjects()) do
-      if not (options.objectives > 0 and object.getName() == 'Solo Temple Tiles') then object.destruct() end
-    end
     for _, playerColor in ipairs(seatedPlayerColors) do
       if playerColor ~= 'Red' then
         local deckPos = PlayermatApi.getZonePosition(playerColor, "Deck")
@@ -4172,7 +4155,7 @@ function nextRoundButton(obj, clickColor, alt)
     -- move staff
     local staff = getStaff()
     if staff then
-      staff.setPositionSmooth(staffPositions[round], false, true)
+      staff.setPositionSmooth(getMarketPos(round + 0.5), false, true)
     end
 
     wait(0.5)
