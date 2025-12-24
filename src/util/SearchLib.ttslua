@@ -6,6 +6,7 @@ do
     isCardOrDeck   = function(x) return x.type == "Card" or x.type == "Deck" end,
     isInteractable = function(x) return x.interactable end,
     isTileOrToken  = function(x) return not x.Book and (x.type == "Tile" or x.type == "Generic") end,
+    isGuardian     = function(x) return x.hasTag("guardian") end,
     isIdol         = function(x) return x.hasTag("idol") end,
     isPawn         = function(x) return x.hasTag("pawn") end,
     isSite         = function(x) return x.hasTag("site1") or x.hasTag("site2") end

@@ -1187,15 +1187,19 @@ function attemptMove(playerColor, spotPos, sitePos, reward)
   end
 end
 
-function placeSite(playerColor, sitePos, lvl)
-  -- ensure the player's pawn is placed
+function getSitePawns(sitePos, lvl)
   local searchPos = sitePos:copy():setAt("y", pawnY) + SITE_OFFSETS.other
   if lvl == 2 then
     searchPos = searchPos - SITE_OFFSETS.spot2
   end
 
+  return SearchLib.inArea(searchPos, nil, Vector(3, 1, 1), "isPawn")
+end
+
+function placeSite(playerColor, sitePos, lvl)
+  -- ensure the player's pawn is placed
   local legal = false
-  for _, obj in ipairs(SearchLib.inArea(searchPos, nil, Vector(3, 1, 1), "isPawn", true)) do
+  for _, obj in ipairs(getSitePawns(sitePos, lvl)) do
     if obj.getDescription() == playerColor then
       legal = true
       break
@@ -3438,43 +3442,6 @@ function setupButtons()
   end
 ]]
 
-
-  -- TODO: REMOVE
-  --[[
-  -- discover sites button creation
-  params = {
-    function_owner = self,
-    width          = 1200,
-    height         = 280,
-    font_size      = 150
-  }
-  for i = 1, 3 do
-    for _, siteInfo in ipairs(siteLevels[i]) do
-      if not siteInfo.discovered then
-        params.label = '+Site & Guardian'
-        params.click_function = 'discoverSG' .. siteInfo.guid
-        params.position = { 0, 0, -1.5 }
-        getObjectFromGUID(siteInfo.guid).createButton(params)
-
-        params.label = '+Site Only'
-        params.click_function = 'discoverS' .. siteInfo.guid
-        params.position = { 0, 0, -0.9 }
-        getObjectFromGUID(siteInfo.guid).createButton(params)
-
-        _G['discoverSG' .. siteInfo.guid] = function(obj, clickColor, alt)
-          if discovering or not doneLoading or setupInProgress or not isSeated(clickColor) and clickColor ~= 'Black' then return end
-          discoverButton(obj, clickColor)
-        end
-
-        _G['discoverS' .. siteInfo.guid] = function(obj, clickColor, alt)
-          if discovering or not doneLoading or setupInProgress or not isSeated(clickColor) and clickColor ~= 'Black' then return end
-          discoverButton(obj, clickColor, true)
-        end
-      end
-    end
-  end
-
-  ]]
   if options.solo then setupButtonRivalTurn() end
 end
 
@@ -3827,35 +3794,14 @@ function guardianFearCoroutine()
     end
   end
 
-  for _, siteLevel in ipairs(siteLevels) do
-    for _, siteInfo in ipairs(siteLevel) do
-      local playerColors = {}
-      for _, guid in ipairs(siteInfo.pawnSpaces) do
-        for _, object in ipairs(getObjectFromGUID(guid).getObjects()) do
-          if object.hasTag('pawn') and warmask ~= object.getDescription() and not (options.solo and object.getDescription() == 'Red') then
-            table.insert(playerColors, object.getDescription())
-          end
-        end
-      end
-      if #playerColors > 0 then
-        local hasGuardian = false
-        for _, object in ipairs(getObjectFromGUID(siteInfo.guid).getObjects()) do
-          if object.hasTag('guardian') then
-            hasGuardian = true
-            break
-          end
-          if object.type == 'Deck' then
-            for _, card in ipairs(object.getObjects()) do
-              if #card.tags > 0 and card.tags[1] == 'guardian' then
-                hasGuardian = true
-                break
-              end
-            end
-          end
-          if hasGuardian then break end
-        end
-        if hasGuardian then
-          for _, playerColor in ipairs(playerColors) do
+  local data = getBoardData()
+  for _, siteType in ipairs({"camp", "lvl1", "lvl2"}) do
+    for _, site in ipairs(data[siteType]) do
+      local searchResult = SearchLib.atPosition(site.pos, "isGuardian")
+      if #searchResult > 0 then
+        for _, pawn in ipairs(getSitePawns(site.pos, (siteType == "lvl2") and 2 or nil)) do
+          local playerColor = pawn.getDescription()
+          if warmask ~= playerColor and not (options.solo and playerColor == "Red") then
             broadcastToAll(getPlayerName(playerColor) .. ' gets a Fear card.')
             getFearCard(playerColor)
             wait(0.5)
@@ -4856,6 +4802,8 @@ function rivalBuy(action, buyHighestPoints)
 end
 
 function rivalCheckSiteForResource(siteInfo, resource, campsite)
+  -- TODO: Fix this
+  --[[
   function rivalCheckSiteForOpenPawnPos(pawnSpaceGuid)
     local pawnZone = getObjectFromGUID(pawnSpaceGuid)
     local zonePos = pawnZone.getPosition()
@@ -4881,6 +4829,8 @@ function rivalCheckSiteForResource(siteInfo, resource, campsite)
       end
     end
   end
+  ]]
+
   return nil
 end
 
@@ -4990,7 +4940,12 @@ function rivalTurnCoroutine()
         local siteInfo = possibleSiteInfos[math.random(1, #possibleSiteInfos)]
         broadcastToAll('Rival discovers a random level ' .. level .. ' site.')
         wait(0.5)
+
+        -- TODO: Fix this
+        local toPos = Vector(0, 0, 0)
+        --[[
         local toPos = getObjectFromGUID(siteInfo.pawnSpaces[1]).getPosition()
+        ]]
         local success = rivalMovePawn({ toPos[1], pawnY, toPos[3] })
         if soloStatus.pawnsOut > 2 then soloStatus.fulfilledObjectives.arch = true end
 
@@ -5079,15 +5034,19 @@ function rivalTurnCoroutine()
                 end
               end
               if guardian ~= nil then
+                -- TODO: Repair this
+                --[[
                 for _, object in ipairs(getObjectFromGUID(siteInfo.pawnSpaces[1]).getObjects()) do
                   if object.hasTag('pawn') then
                     if object.getDescription() == 'Red' then table.insert(possibleGuardians, guardian) end
                     break
                   end
                 end
+                ]]
               end
             end
           end
+
           if #possibleGuardians > 0 then
             local guardian = possibleGuardians[math.random(1, #possibleGuardians)]
             broadcastToAll('Rival overcomes a guardian.')
@@ -5099,12 +5058,14 @@ function rivalTurnCoroutine()
           end
         end
       end
+
       if not soloStatus.fulfilledObjectives.guardian then
         -- research with magnifying
         broadcastToAll('No guardians to overcome.')
         wait(1)
         soloStatus.fulfilledObjectives.research = rivalResearch('magnifying', true)
       end
+
       if gmNotes == 'purple' then
         -- research with notebook
         wait(1.5)
@@ -5141,10 +5102,10 @@ function rivalTurnCoroutine()
 
     local objectiveMessages = {
       artifact = 'buy an artifact.',
-      item = 'buy an item.',
-      site = 'discover a new site.',
+      item     = 'buy an item.',
+      site     = 'discover a new site.',
       research = 'advance your magnifying glass.',
-      arch = 'send many archaeologists to the main board.'
+      arch     = 'send many archaeologists to the main board.'
     }
     for _, guid in ipairs(solo.zones.objectives) do
       local objectiveCardZone = getObjectFromGUID(guid)
