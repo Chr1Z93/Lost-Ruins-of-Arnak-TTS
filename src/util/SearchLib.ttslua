@@ -10,7 +10,8 @@ do
     isIdol          = function(x) return x.hasTag("idol") end,
     isPawn          = function(x) return x.hasTag("pawn") end,
     isPawnOrBlocked = function(x) return x.hasTag("pawn") or x.hasTag("blocked") end,
-    isSite          = function(x) return x.hasTag("site1") or x.hasTag("site2") end
+    isSite          = function(x) return x.hasTag("site1") or x.hasTag("site2") end,
+    isTempleTile    = function(x) return x.hasTag("temple") end
   }
 
   -- performs the actual search and returns a filtered list of object references

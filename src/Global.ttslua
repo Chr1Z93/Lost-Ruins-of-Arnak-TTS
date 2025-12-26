@@ -366,7 +366,28 @@ researchTracks        = {
         paths = { { pos = { 9.31, 1.73, -23.28 }, forward = { 1, 2 } }, { pos = { 17.53, 1.73, -23.28 }, forward = { 2 } } }
       }
     },
-    templePoints = { 23, 21, 20, 19 }
+    templePoints = { 23, 21, 20, 19 },
+    templeTileData = {
+      {
+        value     = 2,
+        positions = {
+          Vector(9.57, 2, 9.31),
+          Vector(13.21, 2, 9.31),
+          Vector(16.84, 2, 9.31)
+        }
+      },
+      {
+        value     = 6,
+        positions = {
+          Vector(11.42, 2, 11.54),
+          Vector(15.12, 2, 11.54)
+        }
+      },
+      {
+        value     = 11,
+        positions = { Vector(13.2, 2, 14.07) }
+      }
+    }
   },
   {
     bonusPositions = {
@@ -429,7 +450,27 @@ researchTracks        = {
     },
     templePoints = { 23, 21, 20, 19 },
     assistantPos = { 12.86, 1.72, -10.47 },
-    assistantZone = '7f2184',
+    templeTileData = {
+      {
+        value     = 2,
+        positions = {
+          Vector(9.57, 2, 9.31),
+          Vector(13.21, 2, 9.31),
+          Vector(16.84, 2, 9.31)
+        }
+      },
+      {
+        value     = 6,
+        positions = {
+          Vector(11.42, 2, 11.54),
+          Vector(15.12, 2, 11.54)
+        }
+      },
+      {
+        value     = 11,
+        positions = { Vector(13.2, 2, 14.07) }
+      }
+    }
   },
   {
     bonusPositions = {
@@ -495,7 +536,28 @@ researchTracks        = {
       }
     },
     templePoints = { 23, 21, 20, 19 },
-    artifactPos = { 10.36, 1.69, -10.37 }
+    artifactPos = { 10.36, 1.69, -10.37 },
+    templeTileData = {
+      {
+        value     = 2,
+        positions = {
+          Vector(9.57, 2, 9.31),
+          Vector(13.21, 2, 9.31),
+          Vector(16.84, 2, 9.31)
+        }
+      },
+      {
+        value     = 6,
+        positions = {
+          Vector(11.42, 2, 11.54),
+          Vector(15.12, 2, 11.54)
+        }
+      },
+      {
+        value     = 11,
+        positions = { Vector(13.2, 2, 14.07) }
+      }
+    }
   },
   -- Lizard Temple
   {
@@ -505,7 +567,7 @@ researchTracks        = {
       { { 16.98, 1.68, -4.61 }, { 17.35, 1.68, 2.56 } },
       { { 19.84, 1.68, 6.11 } }
     },
-    rows = {
+    rows           = {
       {
         z = 4.20,
         bonusPos = { 19.84, 1.78, 6.11 }
@@ -557,10 +619,30 @@ researchTracks        = {
         paths = { { pos = { 7.97, 1.73, -23.29 }, forward = { 1 } }, { pos = { 11.94, 1.73, -23.29 }, forward = { 1, 2 } }, { pos = { 16.19, 1.73, -23.29 }, forward = { 2 } } }
       }
     },
-    templePoints = { 28, 26, 25, 24 },
-    guardianPos = { 14.90, 1.69, -10.51 },
-    guardianZone = '7f2184',
-    idolPositions = { { 18.54, 1.72, -0.97 } }
+    templePoints   = { 28, 26, 25, 24 },
+    guardianPos    = { 14.90, 1.69, -10.51 },
+    idolPositions  = { { 18.54, 1.72, -0.97 } },
+    templeTileData = {
+      {
+        value     = 2,
+        positions = {
+          Vector(9.57, 2, 9.31),
+          Vector(13.21, 2, 9.31),
+          Vector(16.84, 2, 9.31)
+        }
+      },
+      {
+        value     = 6,
+        positions = {
+          Vector(11.42, 2, 11.54),
+          Vector(15.12, 2, 11.54)
+        }
+      },
+      {
+        value     = 11,
+        positions = { Vector(13.2, 2, 14.07) }
+      }
+    }
   },
   -- Tree Temple
   {
@@ -630,7 +712,28 @@ researchTracks        = {
       }
     },
     templePoints = { 27, 25, 24, 23 },
-    idolPositions = { { 19.86, 1.69, -15.77 }, { 19.89, 1.69, -6.18 } }
+    idolPositions = { { 19.86, 1.69, -15.77 }, { 19.89, 1.69, -6.18 } },
+    templeTileData = {
+      {
+        value     = 2,
+        positions = {
+          Vector(9.57, 2, 9.31),
+          Vector(13.21, 2, 9.31),
+          Vector(16.84, 2, 9.31)
+        }
+      },
+      {
+        value     = 6,
+        positions = {
+          Vector(11.42, 2, 11.54),
+          Vector(15.12, 2, 11.54)
+        }
+      },
+      {
+        value     = 11,
+        positions = { Vector(13.2, 2, 14.07) }
+      }
+    }
   },
   -- Waterfall Temple
   {
@@ -707,7 +810,28 @@ researchTracks        = {
     },
     templePoints = { 20, 18, 17, 16 },
     site1pos = { 10.34, 1.69, -10.75 },
-    waterfallPositions = { { { 11.21, 1.69, -2.19 }, { 14.93, 1.69, -2.26 } }, { { 11.04, 1.69, -18.88 }, { 14.81, 1.69, -18.88 } } }
+    waterfallPositions = { { { 11.21, 1.69, -2.19 }, { 14.93, 1.69, -2.26 } }, { { 11.04, 1.69, -18.88 }, { 14.81, 1.69, -18.88 } } },
+    templeTileData = {
+      {
+        value     = 2,
+        positions = {
+          Vector(9.57, 2, 9.31),
+          Vector(13.21, 2, 9.31),
+          Vector(16.84, 2, 9.31)
+        }
+      },
+      {
+        value     = 6,
+        positions = {
+          Vector(11.42, 2, 11.54),
+          Vector(15.12, 2, 11.54)
+        }
+      },
+      {
+        value     = 11,
+        positions = { Vector(13.2, 2, 14.07) }
+      }
+    }
   },
   -- Spider Temple
   {
@@ -779,8 +903,27 @@ researchTracks        = {
       }
     },
     templePoints = { 20, 18, 17, 16 },
-    site1pos = { 10.34, 1.69, -10.75 },
-    waterfallPositions = { { { 11.21, 1.69, -2.19 }, { 14.93, 1.69, -2.26 } }, { { 11.04, 1.69, -18.88 }, { 14.81, 1.69, -18.88 } } }
+    templeTileData = {
+      {
+        value     = 2,
+        positions = {
+          Vector(9.57, 2, 9.31),
+          Vector(13.21, 2, 9.31),
+          Vector(16.84, 2, 9.31)
+        }
+      },
+      {
+        value     = 6,
+        positions = {
+          Vector(11.42, 2, 11.54),
+          Vector(15.12, 2, 11.54)
+        }
+      },
+      {
+        value     = 11,
+        positions = { Vector(13.2, 2, 14.07) }
+      }
+    }
   },
   -- Owl Temple
   {
@@ -852,8 +995,27 @@ researchTracks        = {
       }
     },
     templePoints = { 20, 18, 17, 16 },
-    site1pos = { 10.34, 1.69, -10.75 },
-    waterfallPositions = { { { 11.21, 1.69, -2.19 }, { 14.93, 1.69, -2.26 } }, { { 11.04, 1.69, -18.88 }, { 14.81, 1.69, -18.88 } } }
+    templeTileData = {
+      {
+        value     = 2,
+        positions = {
+          Vector(9.57, 2, 9.31),
+          Vector(13.21, 2, 9.31),
+          Vector(16.84, 2, 9.31)
+        }
+      },
+      {
+        value     = 6,
+        positions = {
+          Vector(11.42, 2, 11.54),
+          Vector(15.12, 2, 11.54)
+        }
+      },
+      {
+        value     = 11,
+        positions = { Vector(13.2, 2, 14.07) }
+      }
+    }
   }
 }
 
@@ -1091,8 +1253,10 @@ function createBoardButtons(board)
   end
 
   -- buy buttons
-  for i = 1, 6 do
-    addMarketButton(board, i)
+  if data.marketStart and data.marketEnd then
+    for i = 1, 6 do
+      addMarketButton(board, i)
+    end
   end
 end
 
@@ -2238,8 +2402,10 @@ function setupMoonstaff()
 end
 
 function setupResearchTrack()
+  local trackInfo = researchTracks[options.researchTrack]
+
   -- Check the research board and if its not what was chosen via options, change it
-  for _, object in ipairs(getObjectFromGUID(researchTracks[4].guardianZone).getObjects()) do
+  for _, object in ipairs(getObjects()) do
     if object.getName() == 'Research Track' then
       if options.researchTrack == 7 or options.researchTrack == 8 then
         -- Spider / Owl Temple are build into the board
@@ -2251,33 +2417,53 @@ function setupResearchTrack()
     end
   end
 
-  -- place bonusses
-  local bag = getObjectFromGUID(bags.researchBonus)
+  -- place boni
+  local bonusBag = getObjectFromGUID(bags.researchBonus)
 
   -- maybe remove Twisted Paths bonus tiles
   if not options.expansions.twistedPaths then
-    local bagData = bag.getData()
+    local bagData = bonusBag.getData()
     for i = #bagData.ContainedObjects, 1, -1 do
       local objData = bagData.ContainedObjects[i]
       if objData.Memo == "tp" then
-        bag.takeObject({ index = i - 1 }).destruct()
+        bonusBag.takeObject({ index = i - 1 }).destruct()
       end
     end
   end
 
-  bag.shuffle()
+  bonusBag.shuffle()
 
-  local trackInfo = researchTracks[options.researchTrack]
   for i, list in ipairs(trackInfo.bonusPositions) do
     if i == 4 then
       for _, pos in ipairs(list) do
         for j = 1, #seatedPlayerColors do
-          bag.takeObject({ position = Vector(pos) + Vector(0, j * 0.1, 0), rotation = facedown, smooth = true })
+          bonusBag.takeObject({ position = Vector(pos) + Vector(0, j * 0.1, 0), rotation = facedown, smooth = true })
         end
       end
     elseif i == 1 or #seatedPlayerColors > i then
       for _, pos in ipairs(list) do
-        bag.takeObject({ position = pos, rotation = faceup, smooth = true })
+        bonusBag.takeObject({ position = pos, rotation = faceup, smooth = true })
+      end
+    end
+  end
+
+  -- place temple tiles
+  local tokenBag = getObjectFromGUID(bags.miscTokens)
+  local templeTileData = {}
+
+  for _, tokenData in ipairs(tokenBag.getData().ContainedObjects) do
+    if tokenData.Tags and tokenData.Tags[1] == "temple" then
+      templeTileData[tokenData.Description] = tokenData
+    end
+  end
+
+  for _, data in ipairs(trackInfo.templeTileData) do
+    for _, templeTilePosition in ipairs(data.positions) do
+      for i = 1, #seatedPlayerColors do
+        spawnObjectData({
+          data = templeTileData[tostring(data.value)],
+          position = templeTilePosition:setAt("y", tileY + (i - 1) * 0.11)
+        })
       end
     end
   end
@@ -2590,19 +2776,6 @@ function setupMiscThings()
         end
       end
       break
-    end
-  end
-
-  -- remove temple tiles
-  for _, guid in ipairs(templeTileZoneGuids) do
-    local count = 0
-    for _, object in ipairs(getObjectFromGUID(guid).getObjects()) do -- zones have tag 'temple'
-      count = count + 1
-      if count > #seatedPlayerColors then
-        object.destruct()
-      else
-        object.unlock()
-      end
     end
   end
 
@@ -3747,19 +3920,21 @@ end
 
 -- MARK: ROUNDS
 
-function guardianFearCoroutine()
-  local warmask = nil
+function getWarMaskOwner()
   for _, playerColor in ipairs(seatedPlayerColors) do
     if not (options.solo and playerColor == 'Red') then
       for _, object in ipairs(getObjectFromGUID(PLAYER_VARS[playerColor].playAreaZoneGuid).getObjects()) do
         if object.getName() == 'War Mask' then
-          warmask = ''
-          if not object.is_face_down then warmask = playerColor end
-          break
+          return playerColor
         end
       end
     end
   end
+  return ""
+end
+
+function resolveFearFromGuardians()
+  local warMaskOwner = getWarMaskOwner()
 
   local data = getBoardData()
   for _, siteType in ipairs({ "camp", "lvl1", "lvl2" }) do
@@ -3768,10 +3943,9 @@ function guardianFearCoroutine()
       if #searchResult > 0 then
         for _, pawn in ipairs(getSitePawns(site.pos, (siteType == "lvl2") and 2 or nil)) do
           local playerColor = pawn.getDescription()
-          if warmask ~= playerColor and not (options.solo and playerColor == "Red") then
-            broadcastToAll(getPlayerName(playerColor) .. ' gets a Fear card.')
+          if warMaskOwner ~= playerColor and not (options.solo and playerColor == "Red") then
+            broadcastToAll(getPlayerName(playerColor) .. ' gets a Fear card from a guardian.')
             getFearCard(playerColor)
-            wait(0.5)
           end
         end
       end
@@ -3779,17 +3953,11 @@ function guardianFearCoroutine()
   end
 
   if options.researchTrack == 4 then
-    local hasGuardian = false
-    local guardianZone = getObjectFromGUID(researchTracks[4].guardianZone)
-    for _, object in ipairs(guardianZone.getObjects()) do
-      if object.hasTag('guardian') then
-        if not object.is_face_down then hasGuardian = true end
-        break
-      end
-    end
-    if hasGuardian then
+    -- handle Lizard Temple guardian
+    local searchResult = SearchLib.atPosition(researchTracks[4].guardianPos, "isGuardian")
+    if #searchResult > 0 and not searchResult[1].is_face_down then
       for _, playerColor in ipairs(seatedPlayerColors) do
-        if not (options.solo and playerColor == 'Red') and warmask ~= playerColor then
+        if not (options.solo and playerColor == 'Red') and warMaskOwner ~= playerColor then
           for _, name in ipairs(RESEARCH_TOKENS) do
             local token = getResearchToken(name, playerColor)
             if token ~= nil then
@@ -3797,7 +3965,6 @@ function guardianFearCoroutine()
               if posZ < researchTracks[4].rows[4].z and posZ > researchTracks[4].rows[5].z then
                 broadcastToAll(getPlayerName(playerColor) .. ' gets Fear from the temple guardian.')
                 getFearCard(playerColor)
-                wait(0.5)
               end
             end
           end
@@ -3805,18 +3972,13 @@ function guardianFearCoroutine()
       end
     end
   end
-  return 1
 end
 
 -- helper function to detect if a player has a faceup miners helmet in his play area
 function hasMinersHelmetActive(playerColor)
   for _, object in ipairs(getObjectFromGUID(PLAYER_VARS[playerColor].playAreaZoneGuid).getObjects()) do
     if object.getName() == "Miner's Helmet" then
-      if not object.is_face_down then
-        return true
-      else
-        return false
-      end
+      return not object.is_face_down
     end
   end
   return false
@@ -3827,24 +3989,26 @@ function getStaff()
   if #staffList == 0 then
     broadcastToAll("Staff not found.")
     return nil
-  else
-    if #staffList > 1 then
-      broadcastToAll("Multiple staffs found!")
-    end
-    return staffList[1]
   end
+
+  if #staffList > 1 then
+    broadcastToAll("Multiple staffs found!")
+  end
+  return staffList[1]
 end
 
 function nextRoundButton(obj, clickColor, alt)
   if (not isSeated(clickColor) and clickColor ~= 'Black') or movingRow or setupInProgress or (UI.getAttribute('soloMenu', 'active') == 'true') then return end
+
   if options.solo then
     local button = getObjectFromGUID(PLAYER_VARS.Red.playAreaZoneGuid).getButtons()[1]
     if button.label == buttonLabelsRival.busy then return end
   end
+
   function nextRoundCoroutine()
     setupInProgress = true
     refillRowCoroutine()
-    guardianFearCoroutine()
+    resolveFearFromGuardians()
 
     -- reset tents
     for _, tent in ipairs(getObjectsWithTag("tent")) do
@@ -4221,7 +4385,7 @@ end
 
 function calculateScores()
   function calculateScoresCoroutine()
-    guardianFearCoroutine()
+    resolveFearFromGuardians()
     local winners = {}
     local top = { score = 0, templeOrder = 9, research = 0 }
     local tiebreaker = false
@@ -4974,16 +5138,13 @@ function rivalTurnCoroutine()
     else
       if options.researchTrack == 4 and soloStatus.magnifying.row == 5 then
         -- overcome lizard temple guardian first
-        local guardianZone = getObjectFromGUID(researchTracks[4].guardianZone)
-        for _, object in ipairs(guardianZone.getObjects()) do
-          if object.hasTag('guardian') then
-            broadcastToAll('Rival overcomes the Lizard Temple guardian.')
-            wait(0.5)
-            object.setRotation(faceup)
-            object.setPositionSmooth(solo.acquiredStuffPositions.guardian, false, false)
-            soloStatus.fulfilledObjectives.guardian = true
-            break
-          end
+        local searchResult = SearchLib.atPosition(researchTracks[4].guardianPos, "isGuardian")
+        if #searchResult > 0 and not searchResult[1].is_face_down then
+          broadcastToAll('Rival overcomes the Lizard Temple guardian.')
+          wait(0.5)
+          searchResult[1].setRotation(faceup)
+          searchResult[1].setPositionSmooth(solo.acquiredStuffPositions.guardian, false, false)
+          soloStatus.fulfilledObjectives.guardian = true
         end
       end
 
@@ -5144,11 +5305,14 @@ function rivalResearch(id, doNotTakeAssistant)
   if id == 'magnifying' and soloStatus[id].row == 1 or id == 'notebook' and soloStatus[id].row == 2 then
     wait(1.2)
     function moveSilver(index)
-      for _, object in ipairs(getObjectFromGUID(templeTileZoneGuids[index]).getObjects()) do -- zones have tag 'temple'
-        broadcastToAll('Rival takes a silver temple tile.')
-        object.setRotation(faceup)
-        object.setPositionSmooth(solo.acquiredStuffPositions.templeTileSilver, false, false)
-        return true
+      for _, templeTilePosition in ipairs(track.templeTileData[2].positions) do
+        local searchResult = SearchLib.atPosition(templeTilePosition, "isTempleTile")
+        if #searchResult > 0 then
+          broadcastToAll('Rival takes a silver temple tile.')
+          searchResult[1].setRotation(faceup)
+          searchResult[1].setPositionSmooth(solo.acquiredStuffPositions.templeTileSilver, false, false)
+          return true
+        end
       end
       return false
     end
@@ -5251,7 +5415,7 @@ function rivalResearch(id, doNotTakeAssistant)
   if id == 'magnifying' and nextRow.assistant then
     wait(1.2)
     if options.researchTrack == 2 and soloStatus[id].row == 5 then
-      local card = drawCard(track.assistantZone, faceup, solo.acquiredStuffPositions.assistant)
+      local card = drawCardFromPosition(track.assistantPos, solo.acquiredStuffPositions.assistant, faceup)
       if card ~= nil then
         broadcastToAll('Rival rescues an assistant from the research track.')
         wait(1.2)
@@ -5444,6 +5608,18 @@ function removeDeckZones()
       else
         log("didn't find " .. guid)
       end
+    end
+  end
+end
+
+function removeTempleTileZones()
+  for _, guid in ipairs(templeTileZoneGuids) do
+    local o = getObjectFromGUID(guid)
+    if o ~= nil then
+      o.destruct()
+      log("removed " .. guid)
+    else
+      log("didn't find " .. guid)
     end
   end
 end
