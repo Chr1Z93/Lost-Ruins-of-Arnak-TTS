@@ -54,6 +54,10 @@
   "Number": 0,
   "Snap": true,
   "Sticky": true,
+  "Tags": [
+    "Trash",
+    "Green"
+  ],
   "Tooltip": true,
   "Transform": {
     "posX": 34.6,
