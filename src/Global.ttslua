@@ -6,13 +6,13 @@
 local PlayermatApi    = require("playermat/PlayermatApi")
 local SearchLib       = require("util/SearchLib")
 
-testVars              = {
+TEST_VARS             = {
   defineSeated  = true,
   seatedPlayers = { 'Blue', 'Green', 'Yellow', 'Red' }
 }
 
 RESEARCH_TOKENS       = { "magnifying", "journal", "lantern" }
-playerVars            = {
+PLAYER_VARS           = {
   Red = {
     allZoneGuid         = 'b32bc6',
     playAreaZoneGuid    = '472eb8',
@@ -116,7 +116,7 @@ playerVars            = {
 }
 
 -- data for idols slots: points and local position
-idolSlotData          = {
+IDOL_SLOT_DATA        = {
   -- captain
   {
     { points = 1, localPos = Vector(-0.149, 0, -0.672) },
@@ -185,7 +185,7 @@ idolSlotData          = {
 }
 seatedPlayerColors    = {}
 startPlayerIndex      = 0
-starterDeck           = {
+STARTER_DECK_DATA     = {
   Yellow     = { "0001", "0002", "0003", "0004" },
   Green      = { "0005", "0006", "0007", "0008" },
   Blue       = { "0009", "0010", "0011", "0012" },
@@ -248,7 +248,7 @@ deckZones             = {
 assistantDeckGuid     = '538a5c'
 idolDeckGuid          = 'ab4a80'
 
-expansionDecks        = {
+EXPANSION_DECKS       = {
   expeditionLeaders = {
     assistants = 'cf87b7',
     idols      = '9988c4',
@@ -272,7 +272,7 @@ expansionDecks        = {
   }
 }
 
-tokens                = {
+TOKEN_GUIDS           = {
   falcon                    = '9ef0a8',
   suitcase                  = 'f78694',
   food                      = { '4c7454', '7ae3bf', 'a4129d' },
@@ -286,6 +286,13 @@ tokens                = {
 }
 SPECIAL_DELIVERY_GUID = '49e35e'
 suitcaseResourceBags  = { t = 'da4493', s = '4ecc7c' }
+
+BOARD_ARTICLE_OFFSET  = {
+  Vector(8.87, 0.06, 4.54),
+  Vector(11.76, 0.06, 4.54),
+  Vector(14.61, 0.06, 4.54)
+}
+
 falconRotations       = { { 0, 225, 0 }, { 0, 190, 0 }, { 0, 148, 0 }, { 0, 115, 0 }, { 0, 90, 0 } }
 assistantPositions    = { { 9.15, 1.63, -30.73 }, { 13.83, 1.63, -30.73 }, { 18.52, 1.63, -30.73 } }
 assistantZones        = { 'a432ac', 'a44647', '3ffbd7' }
@@ -921,18 +928,19 @@ boardData             = {
 
 -- global offsets
 SITE_OFFSETS          = {
-  camp1         = Vector(-1.1, 0, -3.54),
-  camp2         = Vector(1.1, 0, -3.54),
-  other         = Vector(0, 0, -3.65),
+  spotLeft      = Vector(-1.1, 0, -3.54),
+  spotRight     = Vector(1.1, 0, -3.54),
+  spotLvl1      = Vector(0, 0, -3.65),
+  spotLvl2      = Vector(0, 0, -4.1),
   guardian      = Vector(0, 0.05, 0.7),
-  spot2         = Vector(0, 0, 0.45),
   idolLeft      = Vector(-1, 0, -2.1),
   idolRight     = Vector(1, 0, -2.1),
   idolMiddle    = Vector(0, 0, -1.76),
   buttonShift   = Vector(0, 0, 0.225),
   buttonUpShift = Vector(0, 0, 0.2),
   below         = Vector(0, 0, -1.42),
-  right         = Vector(1.65, 0, 0)
+  right         = Vector(1.65, 0, 0),
+  left          = Vector(-2.2, 0, 0)
 }
 
 solo                  = {
@@ -1013,7 +1021,6 @@ round             = 0
 doneLoading       = false
 setupInProgress   = false
 movingRow         = false
-discovering       = false
 turn              = nil -- tts bug: the player turn is not set correctly when loading/rewinding
 
 -- MARK: GENERAL CODE
@@ -1024,7 +1031,6 @@ function onSave()
     startPlayerIndex   = startPlayerIndex,
     options            = options,
     round              = round,
-    siteLevels         = siteLevels,
     soloStatus         = soloStatus,
     turn               = turn
   })
@@ -1037,7 +1043,6 @@ function onLoad(saveState)
     startPlayerIndex   = loadedData.startPlayerIndex
     options            = loadedData.options
     round              = loadedData.round
-    siteLevels         = loadedData.siteLevels
     soloStatus         = loadedData.soloStatus
     turn               = loadedData.turn
   end
@@ -1094,20 +1099,20 @@ function createBoardButtons(board)
 
   -- camp site buttons
   for _, site in ipairs(data.camp) do
-    addMoveButton(board, site.pos, SITE_OFFSETS.camp1, SITE_OFFSETS.below, site.reward)
-    addMoveButton(board, site.pos, SITE_OFFSETS.camp2, SITE_OFFSETS.below, site.reward)
+    addMoveButton(board, site.pos, SITE_OFFSETS.spotLeft, SITE_OFFSETS.below, site.reward)
+    addMoveButton(board, site.pos, SITE_OFFSETS.spotRight, SITE_OFFSETS.below, site.reward)
   end
 
   -- lvl 1 site buttons
   for _, site in ipairs(data.lvl1) do
-    addMoveButton(board, site.pos, SITE_OFFSETS.other, SITE_OFFSETS.right)
+    addMoveButton(board, site.pos, SITE_OFFSETS.spotLvl1, SITE_OFFSETS.right)
     addSiteButton(board, site.pos, 1)
     addSiteAndGuardianButton(board, site.pos, 1)
   end
 
   -- lvl 2 site buttons
   for _, site in ipairs(data.lvl2) do
-    addMoveButton(board, site.pos, SITE_OFFSETS.other - SITE_OFFSETS.spot2, SITE_OFFSETS.right)
+    addMoveButton(board, site.pos, SITE_OFFSETS.spotLvl2, SITE_OFFSETS.right)
     addSiteButton(board, site.pos, 2)
     addSiteAndGuardianButton(board, site.pos, 2)
   end
@@ -1181,9 +1186,11 @@ function attemptMove(playerColor, spotPos, sitePos, reward)
 end
 
 function getSitePawns(sitePos, lvl)
-  local searchPos = sitePos:copy():setAt("y", pawnY) + SITE_OFFSETS.other
+  local searchPos = sitePos:copy():setAt("y", pawnY)
   if lvl == 2 then
-    searchPos = searchPos - SITE_OFFSETS.spot2
+    searchPos = searchPos + SITE_OFFSETS.spotLvl2
+  else
+    searchPos = searchPos + SITE_OFFSETS.spotLvl1
   end
 
   return SearchLib.inArea(searchPos, nil, Vector(3, 1, 1), "isPawn")
@@ -2160,8 +2167,8 @@ function detectSeatedPlayers()
   seatedPlayerColors = {}
   local absentColors = {}
 
-  if testVars.defineSeated then
-    seatedPlayers = testVars.seatedPlayers
+  if TEST_VARS.defineSeated then
+    seatedPlayers = TEST_VARS.seatedPlayers
   else
     seatedPlayers = getSeatedPlayers()
   end
@@ -2206,8 +2213,7 @@ function detectSeatedPlayers()
 
   -- delete not seated
   for _, playerColor in ipairs(absentColors) do
-    local vars = playerVars[playerColor]
-    for _, object in ipairs(getObjectFromGUID(vars.allZoneGuid).getObjects()) do
+    for _, object in ipairs(getObjectFromGUID(PLAYER_VARS[playerColor].allZoneGuid).getObjects()) do
       object.destruct()
     end
 
@@ -2220,24 +2226,25 @@ end
 
 function setupBoard()
   -- Check the current board and if its not what was chosen via options, change it
-  for _, object in ipairs(fearDeckZone.getObjects()) do
+  for _, object in ipairs(getObjects()) do
     if object.getName() == 'Board' then
-      if object.getStateId() ~= options.board then object.setState(options.board) end
+      if object.getStateId() ~= options.board then
+        object = object.setState(options.board)
+      end
+      createBoardButtons(object)
       break
     end
   end
 
-  -- TODO: Update for new boards
   -- distribute idols to the tier 1 and tier 2 sites. Tier 2 sites get 2 (one face up one face down)
-  local offset = Vector(0.97, 0, 0)
-  for i = 1, 3 do
-    for _, siteZone in ipairs(siteLevels[i]) do
-      local pos = getObjectFromGUID(siteZone.guid).getPosition()
-      if i == 1 then
-        decks.idols.takeObject({ position = pos - offset, rotation = faceup, smooth = true })
-        decks.idols.takeObject({ position = pos + offset, rotation = facedown, smooth = true })
+  local data = getBoardData()
+  for _, siteType in ipairs({ "lvl1", "lvl2" }) do
+    for _, site in ipairs(data[siteType]) do
+      if siteType == "lvl2" or site.doubleIdol then
+        decks.idols.takeObject({ position = site.pos + SITE_OFFSETS.idolLeft, rotation = faceup, smooth = true })
+        decks.idols.takeObject({ position = site.pos + SITE_OFFSETS.idolRight, rotation = facedown, smooth = true })
       else
-        decks.idols.takeObject({ position = pos, rotation = faceup, smooth = true })
+        decks.idols.takeObject({ position = site.pos + SITE_OFFSETS.idolMiddle, rotation = faceup, smooth = true })
       end
     end
   end
@@ -2470,7 +2477,7 @@ function setupPlayerAreas()
     if options.solo and playerColor == 'Red' then
       -- Setup the solo player board
       local soloBag = getObjectFromGUID(bags.solo)
-      for _, object in ipairs(getObjectFromGUID(playerVars[playerColor].allZoneGuid).getObjects()) do
+      for _, object in ipairs(getObjectFromGUID(PLAYER_VARS[playerColor].allZoneGuid).getObjects()) do
         if object.getName() ~= 'Red Archaeologist' then object.destruct() end
       end
       PlayermatApi.getPlayermats(playerColor).destruct()
@@ -2547,7 +2554,7 @@ function setupDecks()
   end
 
   -- Go through the expansion dictionary which holds multiple dictionaries containing the guids for various expansion decks/items
-  for expansion, subTable in pairs(expansionDecks) do
+  for expansion, subTable in pairs(EXPANSION_DECKS) do
     for option, guid in pairs(subTable) do
       local expansionDeck = getObjectFromGUID(guid)
       local deck = nil
@@ -2638,7 +2645,7 @@ function setupMiscThings()
       local randomIndex = math.random(1, #selection)
       local siteInfo    = boardData.camp[selection[randomIndex]]
       local block       = blockBag.takeObject({
-        position = (siteInfo.pos + SITE_OFFSETS.camp2):setAt("y", 1.63),
+        position = (siteInfo.pos + SITE_OFFSETS.spotRight):setAt("y", 1.63),
         rotation = faceup
       })
       block.lock()
@@ -2689,11 +2696,11 @@ function setupMiscThings()
   addAssistantCycleMenu()
 
   -- start player
-  local firstPlayerMarker = getObjectFromGUID(tokens.firstPlayer)
+  local firstPlayerMarker = getObjectFromGUID(TOKEN_GUIDS.firstPlayer)
   if firstPlayerMarker ~= nil then
     firstPlayerMarker.lock()
     firstPlayerMarker.setRotation(faceup)
-    firstPlayerMarker.setPositionSmooth(playerVars[firstPlayerColor].firstPlayerPosition, false, false)
+    firstPlayerMarker.setPositionSmooth(PLAYER_VARS[firstPlayerColor].firstPlayerPosition, false, false)
   end
 
   if options.solo then
@@ -2759,7 +2766,7 @@ function setupButtonsMisc()
   }
   for _, playerColor in ipairs(seatedPlayerColors) do
     if not (options.solo and playerColor == 'Red') then
-      local vars = playerVars[playerColor]
+      local vars = PLAYER_VARS[playerColor]
       for resource, guid in pairs(vars.resourceBagZones) do
         local bag = getObjectFromGUID(vars.resourceBags[resource])
         params.label = tostring(bag.getQuantity())
@@ -2869,7 +2876,7 @@ function setupCampaignMisc()
     })
   end
 
-  -- If two players are playing place the pidgeon tokens on the board
+  -- If two players are playing place the pidgeon TOKEN_GUIDS on the board
   if #seatedPlayerColors == 3 then
     campaignBag.takeObject({
       position = { -15.00, 1.51, 36.50 },
@@ -2883,7 +2890,7 @@ function setupCampaignMisc()
   -- Grab the decks of the base game belonging to each of those types, then add the expansion decks to the base decks
   local baseDeck = nil
   local expDeck = nil
-  for key, value in pairs(expansionDecks) do    -- Outer table containing the list of expansions
+  for key, value in pairs(EXPANSION_DECKS) do   -- Outer table containing the list of expansions
     for deckType, guidString in pairs(value) do -- Inner table containing the deck types and guids per expansion from outer table
       -- Delete the missing expedition site decks as they cannot be used in the campaign
       if key == 'missingExpedition' and (deckType == 'sites1' or deckType == 'sites2') then
@@ -2974,9 +2981,9 @@ function setupCampaignMisc()
 end
 
 function setupStartingResources()
-  -- distribute starting player decks and tokens
+  -- distribute starting player decks and TOKEN_GUIDS
   local tokenBag = getObjectFromGUID(bags.miscTokens)
-  local refBag = getObjectFromGUID(bags.leaderRef)
+  local refBag   = getObjectFromGUID(bags.leaderRef)
   for _, playerColor in ipairs(seatedPlayerColors) do
     if options.solo and playerColor == 'Red' then -- if playing solo and this is the red player, setup the pawns
       for i, guid in ipairs(solo.pawns) do
@@ -2993,10 +3000,8 @@ function setupStartingResources()
       end
     else
       local playerBoardState = options.playerBoards[playerColor]
-      local vars = playerVars[playerColor]
-
       if playerBoardState ~= 1 then
-        local pawn = getObjectFromGUID(vars.pawns[3])
+        local pawn = getObjectFromGUID(PLAYER_VARS[playerColor].pawns[3])
         if pawn ~= nil then pawn.destruct() end
       end
 
@@ -3007,12 +3012,12 @@ function setupStartingResources()
 
       if playerBoardState == 9 then
         -- if the player board is the base board, grab the player deck for the board color
-        cardList = starterDeck[playerColor]
+        cardList = STARTER_DECK_DATA[playerColor]
       else
         local refIndex = playerBoardState * 2 - 2
         for i = 1, 2 do
           refBag.takeObject({
-            position          = vars.refPositions[i],
+            position          = PLAYER_VARS[playerColor].refPositions[i],
             rotation          = faceup,
             smooth            = false,
             callback_function = function(o)
@@ -3025,21 +3030,21 @@ function setupStartingResources()
         end
 
         if playerBoardState == 1 then     -- Setup for the captain
-          cardList = starterDeck["Captain"]
+          cardList = STARTER_DECK_DATA["Captain"]
         elseif playerBoardState == 2 then -- Setup for the falcon
-          cardList = starterDeck["Falconer"]
+          cardList = STARTER_DECK_DATA["Falconer"]
           tokenBag.takeObject({
-            guid     = tokens.falcon,
+            guid     = TOKEN_GUIDS.falcon,
             position = PlayermatApi.getZonePosition(playerColor, "Falcon" .. 2),
             rotation = falconRotations[2]
           })
         elseif playerBoardState == 3 then -- Setup for the baroness
-          cardList = starterDeck["Baroness"]
+          cardList = STARTER_DECK_DATA["Baroness"]
         elseif playerBoardState == 4 then -- Setup for the professor
-          cardList = starterDeck["Professor"]
+          cardList = STARTER_DECK_DATA["Professor"]
           local profStuff = {}
           local suitcase = tokenBag.takeObject({
-            guid     = tokens.suitcase,
+            guid     = TOKEN_GUIDS.suitcase,
             position = PlayermatApi.getZonePosition(playerColor, "Suitcase"),
             rotation = faceup
           })
@@ -3068,7 +3073,7 @@ function setupStartingResources()
             local card = drawCard(deckZones.artifacts)
             card.use_hands = false
             card.setRotationSmooth(faceup, false, true)
-            card.setPositionSmooth(playerVars[playerColor].archivePositions[i], false, true)
+            card.setPositionSmooth(PLAYER_VARS[playerColor].archivePositions[i], false, true)
             table.insert(archive, card)
           end
 
@@ -3078,10 +3083,10 @@ function setupStartingResources()
             card.use_hands = true
           end
         elseif playerBoardState == 5 then -- Setup for the explorer
-          cardList = starterDeck["Explorer"]
-          local pawn = getObjectFromGUID(vars.pawns[2])
+          cardList = STARTER_DECK_DATA["Explorer"]
+          local pawn = getObjectFromGUID(PLAYER_VARS[playerColor].pawns[2])
           if pawn ~= nil then pawn.destruct() end
-          for i, guid in ipairs(tokens.food) do
+          for i, guid in ipairs(TOKEN_GUIDS.food) do
             local foodPos = PlayermatApi.getZonePosition(playerColor, "Food" .. i)
             if i == 3 then
               foodPos = { 4.89, 1.53, 40 }
@@ -3089,12 +3094,12 @@ function setupStartingResources()
             tokenBag.takeObject({ guid = guid, position = foodPos, rotation = faceup, smooth = true })
           end
         elseif playerBoardState == 6 then -- Setup for the mystic
-          cardList = starterDeck["Mystic"]
+          cardList = STARTER_DECK_DATA["Mystic"]
         elseif playerBoardState == 7 then -- Setup for the journalist
-          cardList = starterDeck["Journalist"]
+          cardList = STARTER_DECK_DATA["Journalist"]
           -- Grab the newspaper token deck, shuffle, then place two newspapers into their location relative to the player board
           tokenBag.takeObject({
-            guid              = tokens.journalistNewspapers,
+            guid              = TOKEN_GUIDS.journalistNewspapers,
             position          = Vector(-55.98, 1.55, 53.02),
             smooth            = true,
             callback_function = function(x)
@@ -3112,55 +3117,52 @@ function setupStartingResources()
               x.destruct()
             end
           })
-          -- As journalist place article tokens on to the player board for "featured articles". 3 or more players sets only two articles and 2 or less set all 3 articles.
+          -- As journalist place article TOKEN_GUIDS on to the player board for "featured articles". 3 or more players sets only two articles and 2 or less set all 3 articles.
           tokenBag.takeObject({
-            guid              = tokens.journalistArticles,
-            position          = vars.articlePosition,
+            guid              = TOKEN_GUIDS.journalistArticles,
+            position          = PLAYER_VARS[playerColor].articlePosition,
             smooth            = true,
             callback_function = function(x)
-              local boardArticleLocations = {
-                Vector(8.87, 0.06, 4.54),
-                Vector(11.76, 0.06, 4.54),
-                Vector(14.61, 0.06, 4.54)
-              }
-              local count = 2
-              if #seatedPlayers <= 2 then count = 3 end
+              local count = (#seatedPlayers <= 2) and 3 or 2
+
               for i = 1, count do
-                x.takeObject({ position = boardLocation + boardArticleLocations[i] })
+                x.takeObject({ position = boardLocation + BOARD_ARTICLE_OFFSET[i] })
               end
-              -- Use the pre-defined pawn placement location array and place the remaining article tokens to the left of them
-              for i = 1, 3 do
-                for _, siteData in ipairs(siteLevels[i]) do
-                  local pos = getObjectFromGUID(siteData.pawnSpaces[1]).getPosition()
-                  x.takeObject({ position = pos + Vector(-2.25, 0, -0.08) })
+
+              -- place the remaining article TOKEN_GUIDS to the left of each site
+              local data = getBoardData()
+              for _, siteType in ipairs({ "lvl1", "lvl2" }) do
+                for _, site in ipairs(data[siteType]) do
+                  if siteType == "lvl1" then
+                    x.takeObject({ position = site.pos + SITE_OFFSETS.spotLvl1 + SITE_OFFSETS.left })
+                  else
+                    x.takeObject({ position = site.pos + SITE_OFFSETS.spotLvl2 + SITE_OFFSETS.left })
+                  end
                 end
               end
             end
           })
         elseif playerBoardState == 8 then -- Setup for the mechanic
-          cardList = starterDeck["Mechanic"]
+          cardList = STARTER_DECK_DATA["Mechanic"]
           tokenBag.takeObject({
-            position          = vars.goldenTeethPosition,
+            position          = PLAYER_VARS[playerColor].goldenTeethPosition,
             smooth            = true,
-            guid              = tokens.MechanicGoldTokens,
+            guid              = TOKEN_GUIDS.MechanicGoldTokens,
             rotation          = facedown,
             callback_function = function(x)
               -- Here we take the golden teeth deck and shuffle it, split it into 4 stacks of two each and move 3 of those 4 stacks to above the player board
               x.shuffle()
-              local offsets = nil
-              if playerColor == "Blue" or playerColor == "Green" then
-                offsets = {
-                  Vector(13.50, 0.2, 7.2),
-                  Vector(16.25, 0.2, 7.2),
-                  Vector(19.00, 0.2, 7.2)
-                }
-              elseif playerColor == "Red" or playerColor == "Yellow" then
-                offsets = {
-                  Vector(-13.50, 0.2, 7.2),
-                  Vector(-16.25, 0.2, 7.2),
-                  Vector(-19.00, 0.2, 7.2)
-                }
+
+              local scaleVector = Vector(1, 1, 1)
+              if playerColor == "Red" or playerColor == "Yellow" then
+                scaleVector = Vector(-1, 1, 1)
               end
+
+              local offsets = {
+                Vector(13.50, 0.2, 7.2):scale(scaleVector),
+                Vector(16.25, 0.2, 7.2):scale(scaleVector),
+                Vector(19.00, 0.2, 7.2):scale(scaleVector)
+              }
 
               for _, offset in ipairs(offsets) do
                 for i = 1, 2 do
@@ -3178,13 +3180,13 @@ function setupStartingResources()
           tokenBag.takeObject({
             position = boardLocation + monkeyPosOffsets[1],
             smooth   = true,
-            guid     = tokens.MechanicMonkey
+            guid     = TOKEN_GUIDS.MechanicMonkey
           })
           tokenBag.takeObject({
             position          = boardLocation + monkeyPosOffsets[2],
             rotation          = { 0, 0, 0 },
             smooth            = true,
-            guid              = tokens.MechanicGoldTokenAttacher,
+            guid              = TOKEN_GUIDS.MechanicGoldTokenAttacher,
             callback_function = function(x) x.setLock(true) end
           })
 
@@ -3193,11 +3195,12 @@ function setupStartingResources()
             position          = boardLocation + Vector(13.88, 0.05, -0.09),
             rotation          = { 0, 316.32, 0 },
             smooth            = true,
-            guid              = tokens.MechanicWheel,
+            guid              = TOKEN_GUIDS.MechanicWheel,
             callback_function = function(x) x.setLock(true) end
           })
         end
       end
+
       -- add two fear cards to the deck
       table.insert(cardList, "0000")
       table.insert(cardList, "0000")
@@ -3364,7 +3367,7 @@ end
 function drawLines()
   local vectorLines = {}
   for _, playerColor in ipairs(seatedPlayerColors) do
-    local zone       = getObjectFromGUID(playerVars[playerColor].playAreaZoneGuid)
+    local zone       = getObjectFromGUID(PLAYER_VARS[playerColor].playAreaZoneGuid)
     local pos        = zone.getPosition()
     local scale      = zone.getScale()
     local vectorLine = { points = {}, color = playerColor, thickness = 0.2, rotation = { 0, 0, 0 } }
@@ -3422,7 +3425,7 @@ function setupButtons()
           getObjectFromGUID(guid).createButton(params)
 
           _G['placePawn' .. i .. j .. k] = function(obj, clickColor, alt)
-            if discovering or not doneLoading or setupInProgress or not isSeated(clickColor) then return end
+            if not doneLoading or setupInProgress or not isSeated(clickColor) then return end
             placePawn(clickColor, obj, siteInfo, i, alt)
           end
         end
@@ -3449,7 +3452,7 @@ function gainResource(resource, playerColor, remove)
     if toBag == nil then return end
     toBag.putObject(fromBag.takeObject())
   else
-    local toBag = getObjectFromGUID(playerVars[playerColor].resourceBags[resource])
+    local toBag = getObjectFromGUID(PLAYER_VARS[playerColor].resourceBags[resource])
     if toBag == nil then return end
     toBag.putObject(fromBag.takeObject())
   end
@@ -3459,7 +3462,7 @@ function getFearCard(playerColor)
   if not doneLoading or not isSeated(playerColor) then return end
   local zone    = getObjectFromGUID(deckZones.fear)
   local card    = drawCard(zone) or getObjectFromGUID(bags.fear).takeObject()
-  local toPos   = getObjectFromGUID(playerVars[playerColor].playAreaZoneGuid).getPosition()
+  local toPos   = getObjectFromGUID(PLAYER_VARS[playerColor].playAreaZoneGuid).getPosition()
   local xOffset = 16.5
   if playerColor == 'Red' or playerColor == 'Yellow' then xOffset = 0 - xOffset end
   card.setPositionSmooth({ toPos[1] + xOffset, tableY + 0.5, toPos[3] }, false, true)
@@ -3483,7 +3486,7 @@ function buyFromMarket(playerColor, marketPos, isRightClick)
 
   movingRow = true
   local card = drawCardFromPosition(marketPos)
-  local vars = playerVars[playerColor]
+  local vars = PLAYER_VARS[playerColor]
   local coloredName = getPlayerName(playerColor)
   if not card then return end
 
@@ -3646,7 +3649,7 @@ end
 
 function getGlobalPosForIdolSlot(playerColor, points)
   local board = PlayermatApi.getPlayermats(playerColor)
-  local idolData = idolSlotData[options.playerBoards[playerColor]]
+  local idolData = IDOL_SLOT_DATA[options.playerBoards[playerColor]]
 
   for _, data in ipairs(idolData) do
     if data.points == points then
@@ -3748,7 +3751,7 @@ function deliverRewards(playerColor, obj, str)
 end
 
 function setupButtonRivalTurn()
-  local buttonZone = getObjectFromGUID(playerVars.Red.playAreaZoneGuid)
+  local buttonZone = getObjectFromGUID(PLAYER_VARS.Red.playAreaZoneGuid)
   local scale = buttonZone.getScale()
   if buttonZone.getButtons() == nil or #buttonZone.getButtons() == 0 then
     local params = {
@@ -3773,7 +3776,7 @@ function guardianFearCoroutine()
   local warmask = nil
   for _, playerColor in ipairs(seatedPlayerColors) do
     if not (options.solo and playerColor == 'Red') then
-      for _, object in ipairs(getObjectFromGUID(playerVars[playerColor].playAreaZoneGuid).getObjects()) do
+      for _, object in ipairs(getObjectFromGUID(PLAYER_VARS[playerColor].playAreaZoneGuid).getObjects()) do
         if object.getName() == 'War Mask' then
           warmask = ''
           if not object.is_face_down then warmask = playerColor end
@@ -3832,7 +3835,7 @@ end
 
 -- helper function to detect if a player has a faceup miners helmet in his play area
 function hasMinersHelmetActive(playerColor)
-  for _, object in ipairs(getObjectFromGUID(playerVars[playerColor].playAreaZoneGuid).getObjects()) do
+  for _, object in ipairs(getObjectFromGUID(PLAYER_VARS[playerColor].playAreaZoneGuid).getObjects()) do
     if object.getName() == "Miner's Helmet" then
       if not object.is_face_down then
         return true
@@ -3860,7 +3863,7 @@ end
 function nextRoundButton(obj, clickColor, alt)
   if (not isSeated(clickColor) and clickColor ~= 'Black') or movingRow or setupInProgress or (UI.getAttribute('soloMenu', 'active') == 'true') then return end
   if options.solo then
-    local button = getObjectFromGUID(playerVars.Red.playAreaZoneGuid).getButtons()[1]
+    local button = getObjectFromGUID(PLAYER_VARS.Red.playAreaZoneGuid).getButtons()[1]
     if button.label == buttonLabelsRival.busy then return end
   end
   function nextRoundCoroutine()
@@ -3877,11 +3880,10 @@ function nextRoundButton(obj, clickColor, alt)
 
     wait(0.6)
 
-    -- return pawns and tokens
+    -- return pawns and TOKEN_GUIDS
     for _, playerColor in ipairs(seatedPlayerColors) do
-      local vars = playerVars[playerColor]
-      local pawns = vars.pawns
-      local pawnPositions = vars.pawnPositions
+      local pawns         = PLAYER_VARS[playerColor].pawns
+      local pawnPositions = PLAYER_VARS[playerColor].pawnPositions
       if options.solo and playerColor == 'Red' then
         pawns = solo.pawns
         pawnPositions = solo.pawnPositions
@@ -3897,7 +3899,7 @@ function nextRoundButton(obj, clickColor, alt)
 
       -- snack token handling for Explorer
       if options.playerBoards[playerColor] == 5 then
-        for i, guid in ipairs(tokens.food) do
+        for i, guid in ipairs(TOKEN_GUIDS.food) do
           if i < 3 or round > 1 then
             local food = getObjectFromGUID(guid)
             if food ~= nil then
@@ -3934,7 +3936,7 @@ function nextRoundButton(obj, clickColor, alt)
     for _, playerColor in ipairs(seatedPlayerColors) do
       if not (options.solo and playerColor == 'Red') then
         local toPos = PlayermatApi.getZonePosition(playerColor, "Deck"):setAt("y", tileY)
-        for _, object in ipairs(getObjectFromGUID(playerVars[playerColor].playAreaZoneGuid).getObjects()) do
+        for _, object in ipairs(getObjectFromGUID(PLAYER_VARS[playerColor].playAreaZoneGuid).getObjects()) do
           if object.type == 'Card' then
             if goesInDeck(object) then
               object.setRotation(facedown)
@@ -3994,7 +3996,7 @@ function nextRoundButton(obj, clickColor, alt)
     -- get income
     for _, playerColor in ipairs(seatedPlayerColors) do
       if options.playerBoards[playerColor] == 2 then
-        local falcon = getObjectFromGUID(tokens.falcon)
+        local falcon = getObjectFromGUID(TOKEN_GUIDS.falcon)
         local falconPosIndex = nil
         if falcon ~= nil then
           local currentPos = falcon.getPosition()
@@ -4064,8 +4066,7 @@ function nextRoundButton(obj, clickColor, alt)
     -- refresh assistants
     for _, playerColor in ipairs(seatedPlayerColors) do
       if not (options.solo and playerColor == 'Red') then
-        local vars = playerVars[playerColor]
-        for _, object in ipairs(getObjectFromGUID(vars.allZoneGuid).getObjects()) do
+        for _, object in ipairs(getObjectFromGUID(PLAYER_VARS[playerColor].allZoneGuid).getObjects()) do
           if object.hasTag('assistant') then
             local rotation = object.getRotation():setAt("y", 180)
             object.setRotationSmooth(rotation, false, false)
@@ -4102,8 +4103,8 @@ function nextRoundButton(obj, clickColor, alt)
       startPlayerIndex = startPlayerIndex + 1
       if startPlayerIndex > #seatedPlayerColors then startPlayerIndex = 1 end
       firstPlayerColor = seatedPlayerColors[startPlayerIndex]
-      local token = getObjectFromGUID(tokens.firstPlayer)
-      if token ~= nil then token.setPositionSmooth(playerVars[firstPlayerColor].firstPlayerPosition, false, false) end
+      local token = getObjectFromGUID(TOKEN_GUIDS.firstPlayer)
+      if token ~= nil then token.setPositionSmooth(PLAYER_VARS[firstPlayerColor].firstPlayerPosition, false, false) end
     end
     wait(0.4)
 
@@ -4250,7 +4251,7 @@ function calculateScores()
     local top = { score = 0, templeOrder = 9, research = 0 }
     local tiebreaker = false
     for _, playerColor in ipairs(seatedPlayerColors) do
-      local vars = playerVars[playerColor]
+      local vars = PLAYER_VARS[playerColor]
       local subscores = { research = 0, temple = 0, idol = 0, guardian = 0, cards = 0, fear = 0 }
       local templeOrder = 9
 
@@ -4267,7 +4268,7 @@ function calculateScores()
         end
       end
 
-      -- score the research position of the magnifying glass / journal
+      -- score the research position of the magnifying glass / journal / lantern
       for _, name in ipairs(RESEARCH_TOKENS) do
         local token = getResearchToken(name, playerColor)
         if token ~= nil then
@@ -4375,7 +4376,7 @@ function calculateScores()
       -- additionally, get the idols for right sitting journalist
       if (playerColor == "Green" or playerColor == "Blue") and options.playerBoards[playerColor] == 7 then
         local board = PlayermatApi.getPlayermats(playerColor)
-        local idolData = idolSlotData[options.playerBoards[playerColor]]
+        local idolData = IDOL_SLOT_DATA[options.playerBoards[playerColor]]
 
         for _, data in ipairs(idolData) do
           -- get all objects in this spot
@@ -4509,7 +4510,7 @@ end
 function scoreUncoveredIdolSlots(playerColor)
   local idolSlotPoints = 0
   local board = PlayermatApi.getPlayermats(playerColor)
-  local idolData = idolSlotData[options.playerBoards[playerColor]]
+  local idolData = IDOL_SLOT_DATA[options.playerBoards[playerColor]]
 
   for _, data in ipairs(idolData) do
     -- get all objects in this spot
@@ -4544,7 +4545,7 @@ function toggleScoreboardButton(obj, clickColor, alt)
   if setupInProgress or not isSeated(clickColor) and clickColor ~= 'Black' then return end
   if UI.getAttribute('scoreboard', 'active') == 'true' or UI.getAttribute('scoreboard', 'active') == 'True' then
     UI.setAttribute('scoreboard', 'active', false)
-    for playerColor, _ in pairs(playerVars) do
+    for playerColor, _ in pairs(PLAYER_VARS) do
       UI.setAttribute('scoreboard' .. playerColor, 'active', false)
     end
   else
@@ -4607,7 +4608,7 @@ function editResourceBagCounter(container)
     if container.getName() == 'suitcase' then
       buttonParent = container
     else
-      buttonParent = getObjectFromGUID(playerVars[playerColor].resourceBagZones[resource])
+      buttonParent = getObjectFromGUID(PLAYER_VARS[playerColor].resourceBagZones[resource])
     end
     buttonParent.editButton({ index = 0, label = container.getQuantity() })
   end
@@ -4835,8 +4836,7 @@ function rivalMovePawn(toPos)
 end
 
 function rivalTurnCoroutine()
-  getObjectFromGUID(playerVars.Red.playAreaZoneGuid).editButton({ index = 0, label = buttonLabelsRival.busy })
-  wait(0.2)
+  getObjectFromGUID(PLAYER_VARS.Red.playAreaZoneGuid).editButton({ index = 0, label = buttonLabelsRival.busy })
   broadcastToAll("Rival's turn.", 'Red')
   wait(0.5)
   local deckPos = solo.deckPositions[2]
@@ -4848,7 +4848,6 @@ function rivalTurnCoroutine()
     setupButtonRivalTurn()
     return 1
   end
-  wait(0.8)
 
   local action = actionCard.getDescription()
   local gmNotes = actionCard.getGMNotes()
@@ -4873,6 +4872,9 @@ function rivalTurnCoroutine()
   elseif action == 'arch' then
     local placedPawn = false
     local resourceText = { t = 'a tablet', a = 'an arrowhead', j = 'a jewel', c = 'a coin', s = 'a compass' }
+
+    -- TODO: Fix this
+    --[[
     for i = 1, 4 do
       local possiblePawnPos = {}
       local campsite = false
@@ -4892,18 +4894,22 @@ function rivalTurnCoroutine()
       end
     end
     if not placedPawn then broadcastToAll('No available site that offers ' .. resourceText[gmNotes] .. '.') end
+    ]]
   elseif action == 'site' then
     if gmNotes == 'green' and round == 5 then
       broadcastToAll('Rival does not take this action in round 5.')
     else
       local startIndex = 2
-      local endIndex = 3
-      local level = 1
+      local endIndex   = 3
+      local level      = 1
       if round > 3 then
         startIndex = 1
-        endIndex = 1
-        level = 2
+        endIndex   = 1
+        level      = 2
       end
+
+      -- TODO: Fix this
+      --[[
 
       local possibleSiteInfos = {}
       for i = startIndex, endIndex do
@@ -4923,16 +4929,13 @@ function rivalTurnCoroutine()
           end
         end
       end
+
       if #possibleSiteInfos > 0 then
         local siteInfo = possibleSiteInfos[math.random(1, #possibleSiteInfos)]
         broadcastToAll('Rival discovers a random level ' .. level .. ' site.')
         wait(0.5)
 
-        -- TODO: Fix this
-        local toPos = Vector(0, 0, 0)
-        --[[
         local toPos = getObjectFromGUID(siteInfo.pawnSpaces[1]).getPosition()
-        ]]
         local success = rivalMovePawn({ toPos[1], pawnY, toPos[3] })
         if soloStatus.pawnsOut > 2 then soloStatus.fulfilledObjectives.arch = true end
 
@@ -4987,6 +4990,8 @@ function rivalTurnCoroutine()
       else
         broadcastToAll('No available site to discover.')
       end
+
+      ]]
     end
   elseif action == 'guardian' then
     if gmNotes == 'green' and round == 5 then
@@ -5006,8 +5011,12 @@ function rivalTurnCoroutine()
           end
         end
       end
+
       if not soloStatus.fulfilledObjectives.guardian then
         -- overcome a guardian on the main board
+
+        -- TODO: Repair this
+        --[[
         for i, siteLevel in ipairs(siteLevels) do
           local possibleGuardians = {}
           for _, siteInfo in ipairs(siteLevel) do
@@ -5021,15 +5030,13 @@ function rivalTurnCoroutine()
                 end
               end
               if guardian ~= nil then
-                -- TODO: Repair this
-                --[[
+
                 for _, object in ipairs(getObjectFromGUID(siteInfo.pawnSpaces[1]).getObjects()) do
                   if object.hasTag('pawn') then
                     if object.getDescription() == 'Red' then table.insert(possibleGuardians, guardian) end
                     break
                   end
                 end
-                ]]
               end
             end
           end
@@ -5044,6 +5051,8 @@ function rivalTurnCoroutine()
             break
           end
         end
+
+        ]]
       end
 
       if not soloStatus.fulfilledObjectives.guardian then
@@ -5453,7 +5462,7 @@ function moveObjects()
 end
 
 function removeDeckZones()
-  for color, data in pairs(playerVars) do
+  for color, data in pairs(PLAYER_VARS) do
     for name, guid in pairs(data.deckZoneGuids) do
       local o = getObjectFromGUID(guid)
       if o ~= nil then
