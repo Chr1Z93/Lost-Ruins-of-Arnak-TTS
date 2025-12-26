@@ -46,7 +46,7 @@ do
   end
 
   function PlayermatApi.drawCard(playerColor)
-    local deckPos = Zones.getZonePosition(playerColor, "Deck")
+    local deckPos = PlayermatApi.getZonePosition(playerColor, "Deck")
     local searchResult = SearchLib.atPosition(deckPos, "isCardOrDeck")
     if #searchResult > 0 then
       searchResult[1].deal(1, playerColor)
@@ -55,7 +55,6 @@ do
 
   function PlayermatApi.getZonePosition(matColor, zoneName)
     local mat = PlayermatApi.getPlayermats(matColor)
-
     local localPos = Zones.getLocalZoneData(matColor, zoneName)
 
     if not localPos then
