@@ -1141,6 +1141,8 @@ function addMarketButton(board, i)
 end
 
 function attemptMove(playerColor, spotPos, sitePos, reward)
+  if not isSeated(playerColor) then return end
+
   -- check for available pawn
   local pawn = getAvailableArcheologist(playerColor)
   if not pawn then return end
@@ -1197,6 +1199,8 @@ function getSitePawns(sitePos, lvl)
 end
 
 function placeSite(playerColor, sitePos, lvl)
+  if not isSeated(playerColor) then return end
+
   -- ensure the player's pawn is placed
   local legal = false
   for _, obj in ipairs(getSitePawns(sitePos, lvl)) do
@@ -1225,6 +1229,8 @@ function placeSite(playerColor, sitePos, lvl)
 end
 
 function placeGuardian(playerColor, guardianPos)
+  if not isSeated(playerColor) then return end
+
   local guardian = placeCardFromZone(deckZones.guardians, guardianPos, faceup)
   guardian.setLock(true)
 end
@@ -3564,15 +3570,12 @@ function refillRowCoroutine()
   local items     = {}
 
   for i = 1, 6 do
-    for _, object in ipairs(SearchLib.atPosition(getMarketPos(i), "isCard")) do
-      if object.type == 'Card' or object.type == 'Deck' then
-        if i <= round then
-          table.insert(artifacts, object)
-        else
-          table.insert(items, object)
-        end
-        cardExists = true
-        break
+    local searchResult = SearchLib.atPosition(getMarketPos(i), "isCard")
+    if #searchResult > 0 then
+      if i <= round then
+        table.insert(artifacts, searchResult[1])
+      else
+        table.insert(items, searchResult[1])
       end
     end
   end
@@ -3581,31 +3584,30 @@ function refillRowCoroutine()
     -- shift
     if #artifacts > 0 and #artifacts < round then
       for i = 1, #artifacts do
-        local toPos = getMarketPos(round - i + 1)
-        artifacts[#artifacts - i + 1].setPositionSmooth({ toPos[1], tileY, toPos[3] }, false, true)
+        artifacts[#artifacts - i + 1].setPositionSmooth(getMarketPos(round - i + 1):setAt("y", tileY), false, true)
       end
     end
+
     if #items > 0 and #items < 6 - round then
       for i = 1, #items do
-        local toPos = getMarketPos(round + i)
-        items[i].setPositionSmooth({ toPos[1], tileY, toPos[3] }, false, true)
+        items[i].setPositionSmooth(getMarketPos(round + i):setAt("y", tileY), false, true)
       end
     end
+
     if #artifacts > 0 and #artifacts < round or #items > 0 and #items < 6 - round then wait(0.26) end
 
     -- refill
     if #artifacts < round then
       for i = 1, round - #artifacts do
-        local toPos = getMarketPos(i)
-        local card = drawCard(deckZones.artifacts, faceup, { toPos[1], tileY, toPos[3] })
+        local card = drawCard(deckZones.artifacts, faceup, getMarketPos(i):setAt("y", tileY))
         if card == nil then break end
         wait(0.16)
       end
     end
+
     if #items < 6 - round then
       for i = round + #items + 1, 6 do
-        local toPos = getMarketPos(i)
-        local card = drawCard(deckZones.items, faceup, { toPos[1], tileY, toPos[3] })
+        local card = drawCard(deckZones.items, faceup, getMarketPos(i):setAt("y", tileY))
         if card == nil then break end
         wait(0.16)
       end
