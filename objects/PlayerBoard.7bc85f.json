@@ -148,7 +148,7 @@
   "Tags": [
     "Playermat"
   ],
-  "Tooltip": true,
+  "Tooltip": false,
   "Transform": {
     "posX": -59,
     "posY": 1.531,
