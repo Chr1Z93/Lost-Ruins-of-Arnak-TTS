@@ -5442,8 +5442,6 @@ function listToText(list, getPlayerNames)
   return text
 end
 
-function temp() end
-
 function wait(t)
   local now = Time.time
   repeat coroutine.yield(0) until Time.time > now + t
@@ -5472,6 +5470,20 @@ function removeDeckZones()
         log("removed " .. guid)
       else
         log("didn't find " .. guid)
+      end
+    end
+  end
+end
+
+function removeSiteZones()
+  for i, siteLevel in ipairs(siteLevels) do
+    for _, siteInfo in ipairs(siteLevel) do
+      local o = getObjectFromGUID(siteInfo.guid)
+      if o ~= nil then
+        o.destruct()
+        log("removed " .. siteInfo.guid)
+      else
+        log("didn't find " .. siteInfo.guid)
       end
     end
   end

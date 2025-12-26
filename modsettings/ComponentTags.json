@@ -75,6 +75,26 @@
     {
       "displayed": "Playermat",
       "normalized": "playermat"
+    },
+    {
+      "displayed": "Trash",
+      "normalized": "trash"
+    },
+    {
+      "displayed": "Red",
+      "normalized": "red"
+    },
+    {
+      "displayed": "Blue",
+      "normalized": "blue"
+    },
+    {
+      "displayed": "Green",
+      "normalized": "green"
+    },
+    {
+      "displayed": "Yellow",
+      "normalized": "yellow"
     }
   ]
 }

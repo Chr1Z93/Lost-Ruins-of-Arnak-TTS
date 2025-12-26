@@ -40,7 +40,9 @@
   "Nickname": "",
   "Snap": true,
   "Sticky": true,
-  "Tags": ["blocked"],
+  "Tags": [
+    "blocked"
+  ],
   "Tooltip": true,
   "Transform": {
     "posX": -69.05,
