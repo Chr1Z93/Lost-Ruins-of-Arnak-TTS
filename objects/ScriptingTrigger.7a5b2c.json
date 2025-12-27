@@ -31,13 +31,13 @@
   "Sticky": true,
   "Tooltip": true,
   "Transform": {
-    "posX": -50,
+    "posX": -54,
     "posY": 2.4,
     "posZ": -32.5,
     "rotX": 0,
     "rotY": 180,
     "rotZ": 0,
-    "scaleX": 39,
+    "scaleX": 47,
     "scaleY": 2,
     "scaleZ": 10
   },
