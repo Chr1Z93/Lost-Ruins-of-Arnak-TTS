@@ -5,6 +5,7 @@
 
 require("util/TtsLuaAdditions")
 local DeckLib         = require("util/DeckLib")
+local MathLib         = require("util/MathLib")
 local PlayermatApi    = require("playermat/PlayermatApi")
 local SearchLib       = require("util/SearchLib")
 
@@ -182,6 +183,16 @@ IDOL_SLOT_DATA        = {
     { points = 4, localPos = Vector(-2.478, 0, -0.634) }
   }
 }
+
+DARK_TABLET_DATA      = {
+  bucketSize     = Vector(2.25, 2, 3),
+  leftBucketPos  = Vector(-24.97, 1.7, -21.7),
+  rightBucketPos = Vector(-0.14, 1.7, -21.7),
+  offsetX        = 1.65,
+  offsetZ        = 2.15,
+  bucketVp       = { -1, -2, -2, -3, -3, -4, -5 }
+}
+
 seatedPlayerColors    = {}
 startPlayerIndex      = 0
 STARTER_DECK_DATA     = {
@@ -201,7 +212,12 @@ STARTER_DECK_DATA     = {
 options               = {
   solo          = false,
   objectives    = 3,
-  playerBoards  = {},
+  playerBoards  = {
+    Blue   = 9,
+    Green  = 9,
+    Yellow = 9,
+    Red    = 9
+  },
   board         = 1,
   researchTrack = 1,
   staff         = 1,
@@ -284,13 +300,6 @@ TOKEN_GUIDS           = {
 }
 SPECIAL_DELIVERY_GUID = '49e35e'
 suitcaseResourceBags  = { t = 'da4493', s = '4ecc7c' }
-
-BOARD_ARTICLE_OFFSET  = {
-  Vector(8.87, 0.06, 4.54),
-  Vector(11.76, 0.06, 4.54),
-  Vector(14.61, 0.06, 4.54)
-}
-
 falconRotations       = { { 0, 225, 0 }, { 0, 190, 0 }, { 0, 148, 0 }, { 0, 115, 0 }, { 0, 90, 0 } }
 assistantPositions    = { { 9.15, 1.63, -30.73 }, { 13.83, 1.63, -30.73 }, { 18.52, 1.63, -30.73 } }
 assistantZones        = { 'a432ac', 'a44647', '3ffbd7' }
@@ -1243,7 +1252,7 @@ end
 
 function onLoad(saveState)
   local loadedData = JSON.decode(saveState)
-  if loadedData ~= nil and loadedData.seatedPlayerColors ~= nil then
+  if loadedData ~= nil and loadedData.seatedPlayerColors ~= nil and loadedData.round > 0 then
     seatedPlayerColors = loadedData.seatedPlayerColors
     startPlayerIndex   = loadedData.startPlayerIndex
     options            = loadedData.options
@@ -3414,7 +3423,7 @@ function setupStartingResources()
               local count = (#seatedPlayers <= 2) and 3 or 2
 
               for i = 1, count do
-                x.takeObject({ position = boardLocation + BOARD_ARTICLE_OFFSET[i] })
+                x.takeObject({ position = boardLocation + Vector(5.98 + i * 2.89, 0.06, 4.54) })
               end
 
               -- place the remaining article TOKEN_GUIDS to the left of each site
@@ -3697,8 +3706,28 @@ end
 
 function gainResource(resource, playerColor, remove)
   if resource == "dark tablet" then
-    -- TODO: special handling
+    -- special handling for Dark Tablets from the Spider Temple
+    if remove then
+      broadcastToAll(getPlayerName(playerColor) .. " needs to manually return a Dark Tablet.", "White")
+      return
+    end
 
+    for i = 1, 7 do
+      local bucketPos = getDarkTabletBucketPos(i)
+      local searchResult = SearchLib.inArea(bucketPos, nil, DARK_TABLET_DATA.bucketSize, "isResource")
+      if #searchResult > 0 then
+        local targetPos = getGlobalPosForIdolSlot(playerColor, 3):setAt("y", 2.5) - Vector(0, 0, 3)
+        searchResult[1].setPositionSmooth(targetPos)
+        broadcastToAll(getPlayerName(playerColor) .. " gained a dark tablet from slot no. " .. i .. ".")
+
+        if #searchResult == 1 then
+          printToAll("Dark Tablet VP updated to " .. DARK_TABLET_DATA.bucketVp[i], "White")
+        end
+        return
+      end
+    end
+
+    broadcastToAll("Couldn't locate Dark Tablets!", "Red")
     return
   end
 
@@ -3809,7 +3838,27 @@ end
 -- i goes from 1 to 6
 function getMarketPos(i)
   local data = getBoardData()
-  return data.marketStart + (data.marketEnd - data.marketStart) * (i - 1) * 0.2
+  return Vector.lerp(data.marketStart, data.marketStart, (i - 1) / 5)
+end
+
+-- i goes from 1 to 7
+function getDarkTabletBucketPos(i)
+  return Vector.lerp(DARK_TABLET_DATA.leftBucketPos, DARK_TABLET_DATA.rightBucketPos, (i - 1) / 6)
+end
+
+-- i goes from 1 to 4
+function getDarkTabletOffset(i)
+  local xMult = 1
+  if i == 1 or i == 3 then
+    xMult = -1
+  end
+
+  local zMult = 1
+  if i == 3 or i == 4 then
+    zMult = -1
+  end
+
+  return Vector(DARK_TABLET_DATA.offsetX / 2 * xMult, 0, DARK_TABLET_DATA.offsetZ / 2 * zMult)
 end
 
 function refillRowCoroutine()
@@ -3901,11 +3950,9 @@ function getResearchToken(type, playerColor)
 end
 
 function getGlobalPosForIdolSlot(playerColor, points)
-  local board = PlayermatApi.getPlayermats(playerColor)
-  local idolData = IDOL_SLOT_DATA[options.playerBoards[playerColor]]
-
-  for _, data in ipairs(idolData) do
+  for _, data in ipairs(IDOL_SLOT_DATA[options.playerBoards[playerColor]]) do
     if data.points == points then
+      local board = PlayermatApi.getPlayermats(playerColor)
       return board.positionToWorld(data.localPos)
     end
   end
@@ -4610,39 +4657,6 @@ function calculateScores()
       -- get objects from hand
       for _, object in ipairs(Player[playerColor].getHandObjects()) do
         table.insert(scoreTheseObjects, object)
-      end
-
-      -- additionally, get the deck for left sitting mechanic / journalist
-      if (playerColor == "Red" or playerColor == "Yellow") and
-          (options.playerBoards[playerColor] == 7 or options.playerBoards[playerColor] == 8) then
-        local deckPosition = PlayermatApi.getZonePosition(playerColor, "Deck")
-        for _, object in ipairs(SearchLib.atPosition(deckPosition, "isCardOrDeck")) do
-          table.insert(scoreTheseObjects, object)
-        end
-      end
-
-      -- additionally, get the idols for right sitting journalist
-      if (playerColor == "Green" or playerColor == "Blue") and options.playerBoards[playerColor] == 7 then
-        local board = PlayermatApi.getPlayermats(playerColor)
-        local idolData = IDOL_SLOT_DATA[options.playerBoards[playerColor]]
-
-        for _, data in ipairs(idolData) do
-          -- get all objects in this spot
-          local searchResult = Physics.cast({
-            origin       = board.positionToWorld(data.localPos):setAt("y", 2),
-            direction    = { 0, -1, 0 },
-            orientation  = { 0, 0, 0 },
-            type         = 3,
-            size         = { 0.1, 2, 0.1 },
-            max_distance = 2
-          })
-
-          for _, hit in ipairs(searchResult) do
-            if hit.hit_object.hasTag("idol") then
-              table.insert(scoreTheseObjects, hit.hit_object)
-            end
-          end
-        end
       end
 
       -- perform the scoring
@@ -5669,6 +5683,7 @@ function listToText(list, getPlayerNames)
         end
       end
     end
+
     if getPlayerNames then
       text = text .. getPlayerName(item)
     else

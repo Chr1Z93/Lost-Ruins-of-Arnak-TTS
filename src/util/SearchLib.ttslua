@@ -11,6 +11,7 @@ do
     isPawn          = function(x) return x.hasTag("pawn") end,
     isPawnOrBlocked = function(x) return x.hasTag("pawn") or x.hasTag("blocked") end,
     isResearchTile  = function(x) return x.hasTag("research") end,
+    isResource      = function(x) return x.hasTag("resource") end,
     isSite          = function(x) return x.hasTag("site1") or x.hasTag("site2") end,
     isTempleTile    = function(x) return x.hasTag("temple") end
   }
