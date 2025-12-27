@@ -10,6 +10,7 @@ local SearchLib       = require("util/SearchLib")
 
 TEST_VARS             = {
   defineSeated  = true,
+  hideSplash    = false,
   seatedPlayers = { 'Blue', 'Green', 'Yellow', 'Red' }
 }
 
@@ -2232,7 +2233,77 @@ function createGlobalXml()
 
   table.insert(uiTable, soloMenu)
 
+  if round > 0 then
+    TEST_VARS.hideSplash = true
+  end
+
+  -- splash screen creation
+  local splashXml = {
+    tag = "Panel",
+    attributes = {
+      id              = "SplashScreen",
+      width           = 750,
+      height          = 750,
+      rectAlignment   = "MiddleCenter",
+      backgroundColor = "rgba(0,0,0,0.9)",
+      padding         = "20 20 20 20",
+      image           =
+      "https://steamusercontent-a.akamaihd.net/ugc/10804150965801777798/4350B9F445190EA9D8AA126C853C66EE4BDA2217/",
+      active          = not TEST_VARS.hideSplash
+    },
+    children = {
+      {
+        tag = "Button",
+        attributes = {
+          ignoreLayout = true,
+          offsetXY     = "335 335",
+          width        = 40,
+          height       = 40,
+          text         = "X",
+          onClick      = "closeSplashScreen",
+          colors       = "#DDDDDD|#FFFFFF|#AAAAAA|#888888"
+        }
+      },
+      {
+        tag = "Panel",
+        attributes = {
+          ignoreLayout = true,
+          offsetXY     = "0 -250",
+          width        = 700,
+          height       = 200,
+          color        = "#FFFFFF55"
+        },
+        children = {
+          {
+            tag = "Text",
+            attributes = {
+              fontSize      = 20,
+              fontStyle     = "Bold",
+              font          =
+              "https://steamusercontent-a.akamaihd.net/ugc/11580651411710945045/C51521EBDE5474EBF3788016FF6D11C30E5D5634/",
+              text          =
+              [[This mod includes the 'Expedition Leaders', 'The Missing Expedition' and 'Twisted Paths' expansions.
+
+If you encounter any broken scripts or missing textures, please report them on the Steam Workshop page or contact 'chr1z' on Discord.
+
+The latest expansion required a lot of code to be rewritten, so please bear with me if something is not working. Note: Solo mode is NOT working yet!]],
+              textAlignment = "LowerLeft",
+              textColor     = "Black"
+            }
+          }
+        }
+      }
+    }
+  }
+
+  table.insert(uiTable, splashXml)
+
   UI.setXmlTable(uiTable)
+end
+
+-- Function called by the button to hide the UI
+function closeSplashScreen(player, value, id)
+  UI.setAttribute("SplashScreen", "active", false)
 end
 
 function uiOff()
