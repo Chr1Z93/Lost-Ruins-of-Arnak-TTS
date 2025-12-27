@@ -10,111 +10,107 @@ local SearchLib       = require("util/SearchLib")
 
 TEST_VARS             = {
   defineSeated  = true,
-  hideSplash    = false,
+  hideSplash    = true,
   seatedPlayers = { 'Blue', 'Green', 'Yellow', 'Red' }
 }
 
 RESEARCH_TOKENS       = { "magnifying", "journal", "lantern" }
 PLAYER_VARS           = {
   Red = {
-    allZoneGuid         = 'b32bc6',
-    playAreaZoneGuid    = '472eb8',
-    pawns               = { 'b2d015', '47658b', 'bfb9eb' },
-    pawnPositions       = { { -36.33, 2.30, 24.41 }, { -32.91, 2.30, 24.03 }, { -34.38, 2.30, 25.02 } },
-    resourceBags        = {
+    allZoneGuid          = 'b32bc6',
+    playAreaZoneGuid     = '472eb8',
+    pawns                = { 'b2d015', '47658b', 'bfb9eb' },
+    pawnPositions        = { { -36.33, 2.30, 24.41 }, { -32.91, 2.30, 24.03 }, { -34.38, 2.30, 25.02 } },
+    resourceBags         = {
       t = '7cf312',
       a = 'b5027a',
       j = '2e0235',
       c = 'ea5777',
       s = 'e10365'
     },
-    resourceBagZones    = {
+    resourceBagZones     = {
       t = 'e757ed',
       a = 'd0f92a',
       j = 'b56916',
       c = 'cbf8fd',
       s = '0a749b'
     },
-    archivePositions    = { { -75, 1.50, 20.30 }, { -75, 1.50, 13.10 }, { -75, 1.50, 5.90 } },
-    articlePosition     = { -32, 1.57, 16.80 },
-    goldenTeethPosition = { -32, 1.57, 16.80 },
-    refPositions        = { { -61, 1.48, 28.5 }, { -55, 1.48, 28.5 } },
-    firstPlayerPosition = { -34.60, 1.53, 28.75 }
+    archivePositions     = { { -75, 1.50, 20.30 }, { -75, 1.50, 13.10 }, { -75, 1.50, 5.90 } },
+    articleToothPosition = { -32, 1.57, 16.80 },
+    refPositions         = { { -61, 1.48, 28.5 }, { -55, 1.48, 28.5 } },
+    firstPlayerPosition  = { -34.60, 1.53, 28.75 }
   },
   Blue = {
-    allZoneGuid         = 'd9da53',
-    playAreaZoneGuid    = '67c9fd',
-    pawns               = { 'c8a97b', 'ddd08f', '822412' },
-    pawnPositions       = { { 36.29, 2.30, 24.02 }, { 32.87, 2.30, 24.41 }, { 34.82, 2.30, 25.02 } },
-    resourceBags        = {
+    allZoneGuid          = 'd9da53',
+    playAreaZoneGuid     = '67c9fd',
+    pawns                = { 'c8a97b', 'ddd08f', '822412' },
+    pawnPositions        = { { 36.29, 2.30, 24.02 }, { 32.87, 2.30, 24.41 }, { 34.82, 2.30, 25.02 } },
+    resourceBags         = {
       t = 'd40949',
       a = '20ff93',
       j = '70714a',
       c = 'bcf902',
       s = '65efcd'
     },
-    resourceBagZones    = {
+    resourceBagZones     = {
       t = 'c197da',
       a = '2e1fe3',
       j = '8e0e22',
       c = '12d02d',
       s = '5c8abb'
     },
-    archivePositions    = { { 75, 1.50, 20.30 }, { 75, 1.50, 13.10 }, { 75, 1.50, 5.90 } },
-    articlePosition     = { 37.20, 1.57, 16.80 },
-    goldenTeethPosition = { 37.20, 1.57, 16.80 },
-    refPositions        = { { 61, 1.48, 28.5 }, { 55, 1.48, 28.5 } },
-    firstPlayerPosition = { 34.60, 1.53, 28.75 }
+    archivePositions     = { { 75, 1.50, 20.30 }, { 75, 1.50, 13.10 }, { 75, 1.50, 5.90 } },
+    articleToothPosition = { 37.20, 1.57, 16.80 },
+    refPositions         = { { 61, 1.48, 28.5 }, { 55, 1.48, 28.5 } },
+    firstPlayerPosition  = { 34.60, 1.53, 28.75 }
   },
   Green = {
-    allZoneGuid         = '05b782',
-    playAreaZoneGuid    = 'df8647',
-    pawns               = { '609cfd', 'ddc20b', 'b4abfd' },
-    pawnPositions       = { { 36.29, 2.30, -16.98 }, { 32.87, 2.30, -16.59 }, { 34.82, 2.30, -15.98 } },
-    resourceBags        = {
+    allZoneGuid          = '05b782',
+    playAreaZoneGuid     = 'df8647',
+    pawns                = { '609cfd', 'ddc20b', 'b4abfd' },
+    pawnPositions        = { { 36.29, 2.30, -16.98 }, { 32.87, 2.30, -16.59 }, { 34.82, 2.30, -15.98 } },
+    resourceBags         = {
       t = '9bf040',
       a = '64418c',
       j = 'da3f08',
       c = '590b1a',
       s = '8b0cb8'
     },
-    resourceBagZones    = {
+    resourceBagZones     = {
       t = 'f4d753',
       a = '067ec4',
       j = '37db2d',
       c = '4eab66',
       s = 'b8b628'
     },
-    archivePositions    = { { 75, 1.50, -20.70 }, { 75, 1.50, -27.90 }, { 75, 1.50, -35.10 } },
-    articlePosition     = { 37.20, 1.57, -24.20 },
-    goldenTeethPosition = { 37.20, 1.57, -24.20 },
-    refPositions        = { { 61, 1.48, -12.5 }, { 55, 1.48, -12.5 } },
-    firstPlayerPosition = { 34.60, 1.53, -12.25 }
+    archivePositions     = { { 75, 1.50, -20.70 }, { 75, 1.50, -27.90 }, { 75, 1.50, -35.10 } },
+    articleToothPosition = { 37.20, 1.57, -24.20 },
+    refPositions         = { { 61, 1.48, -12.5 }, { 55, 1.48, -12.5 } },
+    firstPlayerPosition  = { 34.60, 1.53, -12.25 }
   },
   Yellow = {
-    allZoneGuid         = '19cc4f',
-    playAreaZoneGuid    = '7a5b2c',
-    pawns               = { 'e94bc0', 'dabf30', 'b5f37c' },
-    pawnPositions       = { { -36.33, 2.30, -16.59 }, { -32.91, 2.30, -16.98 }, { -34.38, 2.30, -15.98 } },
-    resourceBags        = {
+    allZoneGuid          = '19cc4f',
+    playAreaZoneGuid     = '7a5b2c',
+    pawns                = { 'e94bc0', 'dabf30', 'b5f37c' },
+    pawnPositions        = { { -36.33, 2.30, -16.59 }, { -32.91, 2.30, -16.98 }, { -34.38, 2.30, -15.98 } },
+    resourceBags         = {
       t = 'cf6aea',
       a = 'd28bcd',
       j = '355261',
       c = '57c250',
       s = 'f20389'
     },
-    resourceBagZones    = {
+    resourceBagZones     = {
       t = '9b072b',
       a = 'dba428',
       j = 'f72570',
       c = '71fc56',
       s = 'f0ec52'
     },
-    archivePositions    = { { -75, 1.50, -20.70 }, { -75, 1.50, -27.90 }, { -75, 1.50, -35.10 } },
-    articlePosition     = { -32, 1.57, -24.20 },
-    goldenTeethPosition = { -32, 1.57, -24.20 },
-    refPositions        = { { -61, 1.48, -12.5 }, { -55, 1.48, -12.5 } },
-    firstPlayerPosition = { -34.60, 1.53, -12.25 }
+    archivePositions     = { { -75, 1.50, -20.70 }, { -75, 1.50, -27.90 }, { -75, 1.50, -35.10 } },
+    articleToothPosition = { -32, 1.57, -24.20 },
+    refPositions         = { { -61, 1.48, -12.5 }, { -55, 1.48, -12.5 } },
+    firstPlayerPosition  = { -34.60, 1.53, -12.25 }
   }
 }
 
@@ -3412,7 +3408,7 @@ function setupStartingResources()
           -- As journalist place article TOKEN_GUIDS on to the player board for "featured articles". 3 or more players sets only two articles and 2 or less set all 3 articles.
           tokenBag.takeObject({
             guid              = TOKEN_GUIDS.journalistArticles,
-            position          = PLAYER_VARS[playerColor].articlePosition,
+            position          = PLAYER_VARS[playerColor].articleToothPosition,
             smooth            = true,
             callback_function = function(x)
               local count = (#seatedPlayers <= 2) and 3 or 2
@@ -3437,7 +3433,7 @@ function setupStartingResources()
         elseif playerBoardState == 8 then -- Setup for the mechanic
           cardList = STARTER_DECK_DATA["Mechanic"]
           tokenBag.takeObject({
-            position          = PLAYER_VARS[playerColor].goldenTeethPosition,
+            position          = PLAYER_VARS[playerColor].articleToothPosition,
             smooth            = true,
             guid              = TOKEN_GUIDS.MechanicGoldTokens,
             rotation          = facedown,
