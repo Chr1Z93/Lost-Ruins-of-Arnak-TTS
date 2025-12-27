@@ -18,14 +18,16 @@ do
   commonZones["Falcon5"]               = Vector(-0.745, 0, -0.569)
 
   -- local coordinates for Blue / Green (inverted X for Red / Yellow)
-  local mirrorZones         = {}
-  mirrorZones["Suitcase"]   = Vector(6.172, 0, 1.943)
-  mirrorZones["Suitcase_t"] = Vector(4.371, 0, 2.19)
-  mirrorZones["Suitcase_s"] = Vector(4.867, 0, 2.19)
+  local mirrorZones                    = {}
+  mirrorZones["Suitcase"]              = Vector(4.62, 0, 1.5238)
+  mirrorZones["Suitcase_t"]            = Vector(4.37, 0, 2.19)
+  mirrorZones["Suitcase_s"]            = Vector(4.87, 0, 2.19)
+  mirrorZones["Monkey"]                = Vector(-16.25, 0, -11.35) / 5.25
+  mirrorZones["GoldToothAttacher"]     = Vector(-16.12, 0, 6.74) / 5.25
 
-  local zoneData            = {}
-  zoneData["Blue"]          = {}
-  zoneData["Red"]           = {}
+  local zoneData                       = {}
+  zoneData["Blue"]                     = {}
+  zoneData["Red"]                      = {}
 
   -- copy common coordinates
   for zoneName, zonePos in pairs(commonZones) do

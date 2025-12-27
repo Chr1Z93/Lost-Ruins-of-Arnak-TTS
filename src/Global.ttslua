@@ -36,7 +36,7 @@ PLAYER_VARS           = {
       c = 'cbf8fd',
       s = '0a749b'
     },
-    archivePositions     = { { -75, 1.50, 20.30 }, { -75, 1.50, 13.10 }, { -75, 1.50, 5.90 } },
+    archivePositions     = { { -76, 1.50, 20.30 }, { -76, 1.50, 13.10 }, { -76, 1.50, 5.90 } },
     articleToothPosition = { -32, 1.57, 16.80 },
     refPositions         = { { -61, 1.48, 28.5 }, { -55, 1.48, 28.5 } },
     firstPlayerPosition  = { -34.60, 1.53, 28.75 }
@@ -60,7 +60,7 @@ PLAYER_VARS           = {
       c = '12d02d',
       s = '5c8abb'
     },
-    archivePositions     = { { 75, 1.50, 20.30 }, { 75, 1.50, 13.10 }, { 75, 1.50, 5.90 } },
+    archivePositions     = { { 76, 1.50, 20.30 }, { 76, 1.50, 13.10 }, { 76, 1.50, 5.90 } },
     articleToothPosition = { 37.20, 1.57, 16.80 },
     refPositions         = { { 61, 1.48, 28.5 }, { 55, 1.48, 28.5 } },
     firstPlayerPosition  = { 34.60, 1.53, 28.75 }
@@ -84,7 +84,7 @@ PLAYER_VARS           = {
       c = '4eab66',
       s = 'b8b628'
     },
-    archivePositions     = { { 75, 1.50, -20.70 }, { 75, 1.50, -27.90 }, { 75, 1.50, -35.10 } },
+    archivePositions     = { { 76, 1.50, -20.70 }, { 76, 1.50, -27.90 }, { 76, 1.50, -35.10 } },
     articleToothPosition = { 37.20, 1.57, -24.20 },
     refPositions         = { { 61, 1.48, -12.5 }, { 55, 1.48, -12.5 } },
     firstPlayerPosition  = { 34.60, 1.53, -12.25 }
@@ -108,7 +108,7 @@ PLAYER_VARS           = {
       c = '71fc56',
       s = 'f0ec52'
     },
-    archivePositions     = { { -75, 1.50, -20.70 }, { -75, 1.50, -27.90 }, { -75, 1.50, -35.10 } },
+    archivePositions     = { { -76, 1.50, -20.70 }, { -76, 1.50, -27.90 }, { -76, 1.50, -35.10 } },
     articleToothPosition = { -32, 1.57, -24.20 },
     refPositions         = { { -61, 1.48, -12.5 }, { -55, 1.48, -12.5 } },
     firstPlayerPosition  = { -34.60, 1.53, -12.25 }
@@ -1282,12 +1282,6 @@ function onLoad(saveState)
   end, 10)
 end
 
-function onObjectSpawn(obj)
-  if obj.getName() == "Board" then
-    createBoardButtons(obj)
-  end
-end
-
 function getCardBoardLocation(cardType, state)
   if state ~= "exiled" then
     state = "reserve"
@@ -1314,6 +1308,11 @@ function getBoardData(board)
 end
 
 function createBoardButtons(board)
+  if board == nil then
+    log("Board not found!")
+    return
+  end
+
   board.clearButtons()
 
   local data = getBoardData(board)
@@ -2543,20 +2542,22 @@ function setupBoard()
     board = board.setState(options.board)
   end
 
-  createBoardButtons(board)
+  Wait.frames(function()
+    createBoardButtons(board)
 
-  -- distribute idols to the tier 1 and tier 2 sites. Tier 2 sites get 2 (one face up one face down)
-  local data = getBoardData()
-  for _, siteType in ipairs({ "lvl1", "lvl2" }) do
-    for _, site in ipairs(data[siteType]) do
-      if siteType == "lvl2" or site.doubleIdol then
-        decks.idols.takeObject({ position = site.pos + SITE_OFFSETS.idolLeft, rotation = faceup, smooth = true })
-        decks.idols.takeObject({ position = site.pos + SITE_OFFSETS.idolRight, rotation = facedown, smooth = true })
-      else
-        decks.idols.takeObject({ position = site.pos + SITE_OFFSETS.idolMiddle, rotation = faceup, smooth = true })
+    -- distribute idols to the tier 1 and tier 2 sites. Tier 2 sites get 2 (one face up one face down)
+    local data = getBoardData()
+    for _, siteType in ipairs({ "lvl1", "lvl2" }) do
+      for _, site in ipairs(data[siteType]) do
+        if siteType == "lvl2" or site.doubleIdol then
+          decks.idols.takeObject({ position = site.pos + SITE_OFFSETS.idolLeft, rotation = faceup, smooth = true })
+          decks.idols.takeObject({ position = site.pos + SITE_OFFSETS.idolRight, rotation = facedown, smooth = true })
+        else
+          decks.idols.takeObject({ position = site.pos + SITE_OFFSETS.idolMiddle, rotation = faceup, smooth = true })
+        end
       end
     end
-  end
+  end, 20)
 
   -- place dark tablet reserve
   if options.board == 3 then
@@ -3491,19 +3492,15 @@ function setupStartingResources()
               end
             end
           })
-          -- Place the mechanic monkey assistant
-          local monkeyPosOffsets = { Vector(-15.3, 0.02, 11.35), Vector(-14.12, 0, -6.74) }
-          if playerColor == "Green" or playerColor == "Blue" then
-            monkeyPosOffsets = { Vector(15.3, 0.02, 11.35), Vector(14.12, 0, -6.74) }
-          end
 
+          -- Place the mechanic monkey assistant
           tokenBag.takeObject({
-            position = boardLocation + monkeyPosOffsets[1],
+            position = PlayermatApi.getZonePosition(playerColor, "Monkey"),
             smooth   = true,
             guid     = TOKEN_GUIDS.MechanicMonkey
           })
           tokenBag.takeObject({
-            position          = boardLocation + monkeyPosOffsets[2],
+            position          = PlayermatApi.getZonePosition(playerColor, "GoldToothAttacher"),
             rotation          = { 0, 0, 0 },
             smooth            = true,
             guid              = TOKEN_GUIDS.MechanicGoldTokenAttacher,
