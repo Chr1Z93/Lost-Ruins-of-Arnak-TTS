@@ -706,7 +706,7 @@ researchTracks        = {
       { { 10.66, 1.78, 2.70 }, { 16.82, 1.78, 2.70 },  { 11.91, 1.78, -9.80 }, { 14.39, 1.78, -9.77 }, { 9.42, 1.78, -19.80 }, { 16.82, 1.78, -19.80 } },
       -- only place these for 3+ player
       { { 9.40, 1.78, -9.80 }, { 12.18, 1.78, -19.80 } },
-      -- only place these for 4+ players
+      -- only place these for 4 players
       { { 16.97, 1.78, -9.80 } },
       -- place one tile per player
       { { 19.75, 1.78, 5.90 } }
@@ -803,7 +803,7 @@ researchTracks        = {
       { { 11.38, 1.78, 2.44 },  { 16.67, 1.78, 2.43 },  { 11.85, 1.78, -4.45 }, { 14.20, 1.78, -4.47 }, { 12.03, 1.78, -16.93 }, { 14.33, 1.68, -16.98 } },
       -- only place these for 3+ player
       { { 9.60, 1.78, -4.47 },  { 9.75, 1.78, -16.95 } },
-      -- only place these for 4+ players
+      -- only place these for 4 players
       { { 16.45, 1.78, -4.47 }, { 16.55, 1.78, -16.95 } },
       -- place one tile per player
       { { 19.66, 1.78, 5.58 } }
@@ -904,97 +904,142 @@ researchTracks        = {
   {
     bonusPositions = {
       -- always place these
-      { { 11.38, 1.78, 2.44 },  { 16.67, 1.78, 2.43 },  { 11.85, 1.78, -4.45 }, { 14.20, 1.78, -4.47 }, { 12.03, 1.78, -16.93 }, { 14.33, 1.68, -16.98 } },
+      { { 2.59, 1.68, -6.74 }, { 20.75, 1.68, -6.70 }, { 8.92, 1.68, -1.74 }, { 25.54, 1.68, 3.62 }, { 14.61, 1.68, 13.61 }, { 19.39, 1.68, 13.65 } },
       -- only place these for 3+ player
-      { { 9.60, 1.78, -4.47 },  { 9.75, 1.78, -16.95 } },
-      -- only place these for 4+ players
-      { { 16.45, 1.78, -4.47 }, { 16.55, 1.78, -16.95 } },
+      { { 9.71, 1.68, 13.61 } },
+      -- only place these for 4 players
+      { { 23.84, 1.68, 13.61 } },
       -- place one tile per player
-      { { 19.66, 1.78, 5.58 } }
+      { { 28.10, 1.68, 17.95 } }
     },
     -- z-position in the following table is for research token detection (scoring)
     -- magnifying / notebook indicates the points for reaching that row
     -- assistant indicates whether the rival will remove an assistant
     rows = {
       {
-        z        = 4.1,
-        bonusPos = { 19.66, 1.78, 5.58 }
+        bucketData = { -- TODO
+          size = { 23, 1, 4.00 },
+          pos  = { 15.65, 2.08, 13.52 }
+        },
+        magnifying = 20,
+        notebook   = 20
       },
       {
-        z          = 1.1,
-        magnifying = 13,
-        notebook   = 18
+        bucketData = {
+          size = { 3, 1, 4.00 },
+          pos  = { 20.09, 2.08, 8.85 }
+        },
+        magnifying = 15,
+        notebook   = 17
       },
       {
-        z          = -2.25,
+        bucketData = {
+          size = { 3, 1, 4.00 },
+          pos  = { 2.68, 2.08, 8.85 }
+        },
+        magnifying = 14,
+        notebook   = 16
+      },
+      {
+        bucketData = {
+          size = { 3, 1, 4.00 },
+          pos  = { 2.68, 2.08, 3.28 }
+        },
+        magnifying = 12,
+        notebook   = 12
+      },
+      {
+        bucketData = {
+          size = { 3, 1, 4.00 },
+          pos  = { 14.33, 2.08, 3.28 }
+        },
+        magnifying = 12,
+        notebook   = 11
+      },
+      {
+        bucketData = {
+          size = { 3, 1, 4.00 },
+          pos  = { 25.63, 2.08, 3.28 }
+        },
         magnifying = 10,
-        notebook   = 14,
-        paths      = { { pos = { 11.38, 1.68, 2.44 }, forward = { 1 } }, { pos = { 16.67, 1.68, 2.43 }, forward = { 1 } } }
+        notebook   = 11
       },
       {
-        z          = -6.3,
+        bucketData = {
+          size = { 3, 1, 4.00 },
+          pos  = { 25.63, 2.08, -1.91 }
+        },
+        magnifying = 9,
+        notebook   = 8
+      },
+      {
+        bucketData = {
+          size = { 14, 1, 4.00 },
+          pos  = { 8.70, 2.08, -1.91 }
+        },
         magnifying = 8,
-        notebook   = 11,
-        paths      = { { pos = { 13.73, 1.73, -0.55 }, forward = { 1, 2 }, bonus = true } }
-
+        notebook   = 8
       },
       {
-        z          = -10.6,
+        bucketData = {
+          size = { 14, 1, 4.00 },
+          pos  = { 20.23, 2.08, -6.94 }
+        },
         magnifying = 5,
-        notebook   = 9,
-        paths      = { { pos = { 9.60, 1.68, -4.47 }, forward = { 1 } } }
+        notebook   = 4
       },
       {
-        z          = -14.8,
+        bucketData = {
+          size = { 4, 1, 4.00 },
+          pos  = { 2.53, 2.08, -6.94 }
+        },
         magnifying = 5,
-        notebook   = 7,
-        paths      = { { pos = { 10.34, 1.81, -10.75 }, forward = { 1 } } }
+        notebook   = 4
       },
       {
-        z          = -18.6,
+        bucketData = {
+          size = { 4, 1, 4.00 },
+          pos  = { 2.53, 2.08, -12.06 }
+        },
         magnifying = 3,
-        notebook   = 5,
-        paths      = { { pos = { 9.75, 1.68, -16.95 }, forward = { 1 }, bonus = true } }
+        notebook   = 3
       },
       {
-        z          = -22.1,
+        bucketData = {
+          size = { 7, 1, 4.00 },
+          pos  = { 16.57, 2.08, -12.06 }
+        },
         magnifying = 3,
-        notebook   = 3,
-        paths      = { { pos = { 12.73, 1.73, -20.41 }, forward = { 1 } } }
+        notebook   = 3
       },
       {
-        z          = -25.3,
+        bucketData = {
+          size = { 12, 1, 4 },
+          pos  = { 8.57, 2.08, -17.31 }
+        },
         magnifying = 1,
-        notebook   = 0,
-        paths      = { { pos = { 9.23, 1.73, -23.53 }, forward = { 1 } }, { pos = { 14.75, 1.73, -23.63 }, forward = { 1, 2 } } }
+        notebook   = 0
       }
     },
-    templePoints = { 20, 18, 17, 16 },
+    templePoints = { 31, 29, 28, 27 },
     templePositions = {
-      Vector(9.57, 2, 6),
-      Vector(11.74, 2, 6),
-      Vector(13.94, 2, 6),
-      Vector(16.19, 2, 6),
+      Vector(18.75, 2, 18),
+      Vector(20.98, 2, 18),
+      Vector(23.38, 2, 18),
+      Vector(25.56, 2, 18),
     },
     templeTileData = {
       {
         value     = 2,
-        positions = {
-          Vector(9.57, 2, 9.31),
-          Vector(13.21, 2, 9.31),
-          Vector(16.84, 2, 9.31)
-        }
+        positions = {        }
       },
       {
         value     = 6,
-        positions = {
-          Vector(11.42, 2, 11.54),
-          Vector(15.12, 2, 11.54)
-        }
+        positions = {        }
       },
       {
         value     = 11,
-        positions = { Vector(13.2, 2, 14.07) }
+        positions = {  }
       }
     }
   },
@@ -1002,97 +1047,79 @@ researchTracks        = {
   {
     bonusPositions = {
       -- always place these
-      { { 11.38, 1.78, 2.44 },  { 16.67, 1.78, 2.43 },  { 11.85, 1.78, -4.45 }, { 14.20, 1.78, -4.47 }, { 12.03, 1.78, -16.93 }, { 14.33, 1.68, -16.98 } },
+      { { 7.19, 1.68, 3.89 }, { 21.20, 1.68, 3.95 }, { 12.84, 1.73, 8.56 }, { 18.36, 1.68, 18.04 } },
       -- only place these for 3+ player
-      { { 9.60, 1.78, -4.47 },  { 9.75, 1.78, -16.95 } },
-      -- only place these for 4+ players
-      { { 16.45, 1.78, -4.47 }, { 16.55, 1.78, -16.95 } },
+      { { 21.18, 1.68, 18.04 }, { 9.56, 1.68, -14.87 } },
+      -- only place these for 4 players
+      { { 15.40, 1.68, 8.53 } },
       -- place one tile per player
-      { { 19.66, 1.78, 5.58 } }
+      {}
     },
     -- z-position in the following table is for research token detection (scoring)
     -- magnifying / notebook indicates the points for reaching that row
     -- assistant indicates whether the rival will remove an assistant
     rows = {
       {
-        z        = 4.1,
-        bonusPos = { 19.66, 1.78, 5.58 }
+        z          = 15.5,
+        magnifying = 25,
+        notebook   = 19
       },
       {
-        z          = 1.1,
-        magnifying = 13,
-        notebook   = 18
+        z          = 11,
+        magnifying = 20,
+        notebook   = 16
       },
       {
-        z          = -2.25,
-        magnifying = 10,
-        notebook   = 14,
-        paths      = { { pos = { 11.38, 1.68, 2.44 }, forward = { 1 } }, { pos = { 16.67, 1.68, 2.43 }, forward = { 1 } } }
+        z          = 6.5,
+        magnifying = 16,
+        notebook   = 12
       },
       {
-        z          = -6.3,
-        magnifying = 8,
-        notebook   = 11,
-        paths      = { { pos = { 13.73, 1.73, -0.55 }, forward = { 1, 2 }, bonus = true } }
+        z          = 1.5,
+        magnifying = 11,
+        notebook   = 8
 
       },
       {
-        z          = -10.6,
-        magnifying = 5,
-        notebook   = 9,
-        paths      = { { pos = { 9.60, 1.68, -4.47 }, forward = { 1 } } }
+        z          = -3,
+        magnifying = 8,
+        notebook   = 6
       },
       {
-        z          = -14.8,
-        magnifying = 5,
-        notebook   = 7,
-        paths      = { { pos = { 10.34, 1.81, -10.75 }, forward = { 1 } } }
+        z          = -7.5,
+        magnifying = 4,
+        notebook   = 2
       },
       {
-        z          = -18.6,
+        z          = -12.5,
         magnifying = 3,
-        notebook   = 5,
-        paths      = { { pos = { 9.75, 1.68, -16.95 }, forward = { 1 }, bonus = true } }
+        notebook   = 1
       },
       {
-        z          = -22.1,
-        magnifying = 3,
-        notebook   = 3,
-        paths      = { { pos = { 12.73, 1.73, -20.41 }, forward = { 1 } } }
+        z          = -17,
+        magnifying = 2,
+        notebook   = 1
       },
       {
-        z          = -25.3,
+        z          = -22,
         magnifying = 1,
-        notebook   = 0,
-        paths      = { { pos = { 9.23, 1.73, -23.53 }, forward = { 1 } }, { pos = { 14.75, 1.73, -23.63 }, forward = { 1, 2 } } }
+        notebook   = 0
       }
     },
-    templePoints = { 20, 18, 17, 16 },
-    templePositions = {
-      Vector(9.57, 2, 6),
-      Vector(11.74, 2, 6),
-      Vector(13.94, 2, 6),
-      Vector(16.19, 2, 6),
-    },
+    templePoints = {},
+    templePositions = {},
     templeTileData = {
       {
-        value     = 2,
-        positions = {
-          Vector(9.57, 2, 9.31),
-          Vector(13.21, 2, 9.31),
-          Vector(16.84, 2, 9.31)
-        }
+        value     = 1,
+        positions = {}
       },
       {
-        value     = 6,
-        positions = {
-          Vector(11.42, 2, 11.54),
-          Vector(15.12, 2, 11.54)
-        }
+        value     = 5,
+        positions = {}
       },
       {
-        value     = 11,
-        positions = { Vector(13.2, 2, 14.07) }
+        value     = 10,
+        positions = {}
       }
     }
   }
@@ -1203,7 +1230,7 @@ solo                  = {
     templeTileGold   = { -54.10, 1.93, 10.15 },
     guardian         = { -42.25, 2.10, 17.71 },
     buy              = { -35.12, 2.10, 18.95 },
-    assistant        = { -26.50, 2.00, 10.15 }
+    assistant        = { -26.50, 2, 10.15 }
   }
 }
 soloStatus            = {
@@ -3156,10 +3183,10 @@ function setupCampaignMisc()
 
   -- place the chapter 6 encounter deck on the board
   campaignBag.takeObject({
-    position = { 18.5, 1.54, 47.00 },
+    position = { 18.5, 1.54, 47 },
     guid     = '0ac1dc',
     smooth   = false,
-    rotation = { 0.00, 180.00, 180.00 }
+    rotation = { 0, 180, 180 }
   })
 
   -- place the campaign book at the edge of the table
@@ -3167,8 +3194,8 @@ function setupCampaignMisc()
     position          = { -27.86, 1.50, 50.34 },
     callback_function = function(x)
       x.setLock(true)
-      x.setPositionSmooth({ 36.00, 6.80, 55.00 })
-      x.setRotationSmooth({ 60.00, 180.00, 0.00 })
+      x.setPositionSmooth({ 36, 6.80, 55 })
+      x.setRotationSmooth({ 60, 180, 0 })
     end,
     smooth            = true,
     guid              = '0cf9c7',
@@ -3179,8 +3206,8 @@ function setupCampaignMisc()
     position          = { -27.86, 1.50, 50.34 },
     callback_function = function(x)
       x.setLock(true)
-      x.setPositionSmooth({ 45.00, 6.80, 55.00 })
-      x.setRotationSmooth({ 60.00, 180.00, 0.00 })
+      x.setPositionSmooth({ 45, 6.80, 55 })
+      x.setRotationSmooth({ 60, 180, 0 })
     end,
     smooth            = true,
     guid              = 'c64617',
@@ -3198,7 +3225,7 @@ function setupCampaignMisc()
     end
     campaignBag.takeObject({
       position = newLoc,
-      rotation = { 0.00, 180.00, 180.00 },
+      rotation = { 0, 180, 180 },
       smooth   = false,
       guid     = g,
     })
@@ -3207,9 +3234,9 @@ function setupCampaignMisc()
   -- If two players are playing place the pidgeon TOKEN_GUIDS on the board
   if #seatedPlayerColors == 3 then
     campaignBag.takeObject({
-      position = { -15.00, 1.51, 36.50 },
+      position = { -15, 1.51, 36.50 },
       smooth   = true,
-      rotation = { 0.00, 180.00, 180.00 },
+      rotation = { 0, 180, 180 },
       guid     = '20c269',
     })
   end
@@ -3482,7 +3509,7 @@ function setupStartingResources()
               local offsets = {
                 Vector(13.50, 0.2, 7.2):scale(scaleVector),
                 Vector(16.25, 0.2, 7.2):scale(scaleVector),
-                Vector(19.00, 0.2, 7.2):scale(scaleVector)
+                Vector(19, 0.2, 7.2):scale(scaleVector)
               }
 
               for _, offset in ipairs(offsets) do
