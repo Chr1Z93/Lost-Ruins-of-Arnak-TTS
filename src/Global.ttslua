@@ -1231,7 +1231,7 @@ boardData             = {
       { pos = Vector(-25.27, 1.6, 5.55) },
       { pos = Vector(-18.36, 1.6, 6.25) },
       { pos = Vector(-11.62, 1.6, 4.90) },
-      { pos = Vector(-4.03, 1.6, 4.70),  reward = "fq" }
+      { pos = Vector(-4.03, 1.6, 4.70),  reward = "$" }
     },
     lvl2        = {
       { pos = Vector(-25.19, 1.6, 16.41) },
@@ -1476,7 +1476,7 @@ function createBoardButtons(board)
 
   -- lvl 2 site buttons
   for i, site in ipairs(data.lvl2) do
-    local extraOffset = (isSpiderTemple and i == 4 ) and SITE_OFFSETS.below or Vector(0, 0, 0)
+    local extraOffset = (isSpiderTemple and i == 4) and SITE_OFFSETS.below or Vector(0, 0, 0)
     addMoveButton(board, site.pos, SITE_OFFSETS.spotLvl2, SITE_OFFSETS.right + extraOffset)
     addSiteButton(board, site.pos, 2)
     addSiteAndGuardianButton(board, site.pos, 2)
@@ -1710,6 +1710,7 @@ function createGlobalXml()
     "Guardians",
     "Items and Artifacts",
     "Fear",
+    "Miscellaneous",
     "Total"
   }
 
@@ -1729,8 +1730,8 @@ function createGlobalXml()
       active              = false,
       rectAlignment       = "UpperLeft",
       offsetXY            = "70 -140",
-      height              = "208",
-      width               = "140", -- Width for the labels column
+      height              = 208,
+      width               = 140,
       cellPadding         = "5 5 0 0",
       cellBackgroundColor = "clear",
       rowBackgroundColor  = "rgba(0, 0, 0, 0.97)"
@@ -1764,7 +1765,7 @@ function createGlobalXml()
 
   --- 2. Player Scoreboards (Red, Blue, Green, Yellow)
 
-  -- IDs/prefixes corresponding to the categories (excluding "Player")
+  -- IDs/prefixes corresponding to the categories
   local scoreIds = {
     "name",
     "research",
@@ -1773,6 +1774,7 @@ function createGlobalXml()
     "guardian",
     "cards",
     "fear",
+    "misc",
     "total"
   }
 
@@ -1785,8 +1787,8 @@ function createGlobalXml()
         active              = false,
         rectAlignment       = "UpperLeft",
         offsetXY            = playerData.offsetXY,
-        height              = "208",
-        width               = "70", -- Width for the player score columns
+        height              = 208,
+        width               = 70,
         cellPadding         = "5 5 0 0",
         cellBackgroundColor = "clear",
         rowBackgroundColor  = "rgba(0, 0, 0, 0.97)",
@@ -1830,8 +1832,8 @@ function createGlobalXml()
       active        = false,
       rectAlignment = "LowerRight",
       offsetXY      = "0 475",
-      height        = "40",
-      width         = "435",
+      height        = 40,
+      width         = 435,
       color         = "rgb(0, 0.39, 0.65)"
     },
     children   = {
@@ -1839,7 +1841,7 @@ function createGlobalXml()
         tag = "Text",
         attributes = {
           color    = "White",
-          fontSize = "16",
+          fontSize = 16,
           text     = "Select Game Options"
         }
       }
@@ -1881,8 +1883,8 @@ function createGlobalXml()
       active              = false,
       rectAlignment       = "LowerRight",
       offsetXY            = "-210 35",
-      height              = "440",
-      width               = "225",
+      height              = 440,
+      width               = 225,
       cellPadding         = "24 0 12 12",
       cellBackgroundColor = "clear",
       rowBackgroundColor  = "rgba(1, 1, 1, 0.85)",
@@ -1943,7 +1945,7 @@ function createGlobalXml()
   local rightOptions = {
     {
       title = "Moon Staff",
-      height = "110",
+      height = 110,
       group = true,
       toggles = {
         { id = "staff1", text = "Blue" },
@@ -1952,7 +1954,7 @@ function createGlobalXml()
     },
     {
       title = "Leader Selection",
-      height = "110",
+      height = 110,
       group = true,
       toggles = {
         { id = "leaders1", text = "Random", isOn = "True" },
@@ -1961,7 +1963,7 @@ function createGlobalXml()
     },
     {
       title = "Expansion Selection",
-      height = "160",
+      height = 160,
       group = false,
       toggles = {
         { id = "expeditionLeaders", text = "Expedition Leaders",     isOn = "True" },
@@ -1979,8 +1981,8 @@ function createGlobalXml()
       active              = false,
       rectAlignment       = "LowerRight",
       offsetXY            = "0 35",
-      height              = "440",
-      width               = "210",
+      height              = 440,
+      width               = 210,
       cellPadding         = "0 0 12 12",
       cellBackgroundColor = "clear",
       rowBackgroundColor  = "rgba(1, 1, 1, 0.85)"
@@ -2031,10 +2033,7 @@ function createGlobalXml()
   end
 
   -- Final empty row in optionsMenuRight
-  table.insert(optionsMenuRight.children, {
-    tag = "Row",
-    attributes = { preferredHeight = "60" }
-  })
+  table.insert(optionsMenuRight.children, { tag = "Row", attributes = { preferredHeight = 60 } })
 
   table.insert(uiTable, optionsMenuRight)
 
@@ -2045,8 +2044,8 @@ function createGlobalXml()
       id            = "optionsMenuButtons",
       active        = false,
       rectAlignment = "LowerRight",
-      height        = "40",
-      width         = "435",
+      height        = 40,
+      width         = 435,
       color         = "rgba(1, 1, 1, 0.85)"
     },
     children = {
@@ -2058,7 +2057,7 @@ function createGlobalXml()
             onClick   = "menuStart(1)",
             color     = "Green",
             textColor = "white",
-            fontSize  = "16",
+            fontSize  = 16,
             text      = "Setup Campaign"
           }
         },
@@ -2068,7 +2067,7 @@ function createGlobalXml()
             onClick   = "menuStart(2)",
             color     = "Green",
             textColor = "white",
-            fontSize  = "16",
+            fontSize  = 16,
             text      = "Setup Standard Game"
           }
         }
@@ -2084,8 +2083,8 @@ function createGlobalXml()
       active              = false,
       rectAlignment       = "LowerRight",
       offsetXY            = "0 80",
-      height              = "192",
-      width               = "290",
+      height              = 192,
+      width               = 290,
       columnWidths        = "25 135 130",
       cellPadding         = "10 10 0 0",
       cellBackgroundColor = "clear",
@@ -2094,11 +2093,11 @@ function createGlobalXml()
     children = {
       {
         tag = "Row",
-        attributes = { preferredHeight = "115" },
+        attributes = { preferredHeight = 115 },
         children = {
           {
             tag = "Cell",
-            attributes = { columnSpan = "3" },
+            attributes = { columnSpan = 3 },
             children = {
               tag = "Text",
               attributes = {
@@ -2112,7 +2111,7 @@ function createGlobalXml()
       },
       {
         tag = "Row",
-        attributes = { preferredHeight = "77" },
+        attributes = { preferredHeight = 77 },
         children = {
           { tag = "Cell" },
           {
@@ -2160,8 +2159,8 @@ function createGlobalXml()
       id                  = "continueMenuButtons",
       active              = false,
       rectAlignment       = "LowerRight",
-      height              = "80",
-      width               = "290",
+      height              = 80,
+      width               = 290,
       cellBackgroundColor = "clear",
       rowBackgroundColor  = "rgba(1, 1, 1, 0.85)"
     },
@@ -2171,18 +2170,18 @@ function createGlobalXml()
   for _, buttonData in ipairs(continueMenuButtonsData) do
     table.insert(continueMenuButtons.children, {
       tag = "Row",
-      attributes = { preferredHeight = "40" },
+      attributes = { preferredHeight = 40 },
       children = {
         {
           tag = "Cell",
-          attributes = { columnSpan = "3" },
+          attributes = { columnSpan = 3 },
           children = {
             tag = "Button",
             attributes = {
               onClick   = buttonData.onClick,
               color     = buttonData.color,
               textColor = "white",
-              fontSize  = "16",
+              fontSize  = 16,
               text      = buttonData.text
             }
           }
@@ -2205,21 +2204,21 @@ function createGlobalXml()
       id                  = "soloMenu",
       active              = false,
       rectAlignment       = "LowerRight",
-      height              = "279",
-      width               = "270",
+      height              = 279,
+      width               = 270,
       columnWidths        = "20 230 20",
       cellBackgroundColor = "clear",
       rowBackgroundColor  = "rgba(1, 1, 1, 0.85)"
     },
     children   = {
-      { tag = "Row", attributes = { preferredHeight = "10" }, children = { { tag = "Cell" }, { tag = "Cell" }, { tag = "Cell" } } },
+      { tag = "Row", attributes = { preferredHeight = 10 }, children = { { tag = "Cell" }, { tag = "Cell" }, { tag = "Cell" } } },
       {
         tag = "Row",
-        attributes = { preferredHeight = "30" },
+        attributes = { preferredHeight = 30 },
         children = {
           {
             tag = "Cell",
-            attributes = { columnSpan = "3" },
+            attributes = { columnSpan = 3 },
             children = {
               tag = "Text",
               attributes = {
@@ -2237,7 +2236,7 @@ function createGlobalXml()
   for _, item in ipairs(soloMenuSliders) do
     table.insert(soloMenu.children, {
       tag = "Row",
-      attributes = { preferredHeight = "30" },
+      attributes = { preferredHeight = 30 },
       children = {
         { tag = "Cell" },
         {
@@ -2256,7 +2255,7 @@ function createGlobalXml()
     })
     table.insert(soloMenu.children, {
       tag = "Row",
-      attributes = { preferredHeight = "20" },
+      attributes = { preferredHeight = 20 },
       children = {
         { tag = "Cell" },
         {
@@ -2279,7 +2278,7 @@ function createGlobalXml()
   end
 
   table.insert(soloMenu.children,
-    { tag = "Row", attributes = { preferredHeight = "5" }, children = { { tag = "Cell" }, { tag = "Cell" }, { tag = "Cell" } } })
+    { tag = "Row", attributes = { preferredHeight = 5 }, children = { { tag = "Cell" }, { tag = "Cell" }, { tag = "Cell" } } })
 
   -- Difficulty Row
   table.insert(soloMenu.children, {
@@ -2305,7 +2304,7 @@ function createGlobalXml()
   -- Objectives Row and Slider
   table.insert(soloMenu.children, {
     tag = "Row",
-    attributes = { preferredHeight = "30" },
+    attributes = { preferredHeight = 30 },
     children = {
       { tag = "Cell" },
       {
@@ -2325,7 +2324,7 @@ function createGlobalXml()
 
   table.insert(soloMenu.children, {
     tag = "Row",
-    attributes = { preferredHeight = "20" },
+    attributes = { preferredHeight = 20 },
     children = {
       { tag = "Cell" },
       {
@@ -2335,9 +2334,9 @@ function createGlobalXml()
           attributes = {
             id             = "objectiveSlider",
             onValueChanged = "uiSlider",
-            minValue       = "0",
-            maxValue       = "4",
-            value          = "3",
+            minValue       = 0,
+            maxValue       = 4,
+            value          = 3,
             wholeNumbers   = "true"
           }
         }
@@ -2349,7 +2348,7 @@ function createGlobalXml()
   table.insert(soloMenu.children,
     {
       tag = "Row",
-      attributes = { preferredHeight = "14" },
+      attributes = { preferredHeight = 14 },
       children = {
         { tag = "Cell" },
         { tag = "Cell" },
@@ -2360,18 +2359,18 @@ function createGlobalXml()
   -- Start Game Button
   table.insert(soloMenu.children, {
     tag = "Row",
-    attributes = { preferredHeight = "40" },
+    attributes = { preferredHeight = 40 },
     children = {
       {
         tag = "Cell",
-        attributes = { columnSpan = "3" },
+        attributes = { columnSpan = 3 },
         children = {
           tag = "Button",
           attributes = {
             onClick   = "menuStartSolo",
             color     = "Green",
             textColor = "white",
-            fontSize  = "16",
+            fontSize  = 16,
             text      = "Start Game"
           }
         }
@@ -4184,6 +4183,22 @@ function getGlobalPosForIdolSlot(playerColor, points)
   end
 end
 
+TEXT_REWARDS = {
+  ["u"] = ' may upgrade one resource.',
+  ["o"] = ' may gain 1 coin or 1 compass.',
+  ["r"] = ' may refresh an assistant.',
+  ["y"] = ' gets to use the effect on the silver side of one assistant available in the supply.',
+  ["z"] = ' gets to use the effect on the gold side of one assistant available in the supply.',
+  ["e"] = ' may exile a card.',
+  ["i"] = ' may return two compasses to take an item for free.',
+  ["m"] = ' may activate a campsite.',
+  ["g"] = ' may flip an expended guardian for reuse.',
+  ["%"] = ' may gain the reward from an available idol on the board.',
+  ["~"] = ' may discard a card to gain a dark tablet.',
+  ["#"] = ' may pay a coin to gain a dark tablet.',
+  ["p"] = ' may take one 2-point temple tile from any stack for free.'
+}
+
 -- function that checks the gm notes to determine what rewards the player should get
 function deliverRewards(playerColor, obj, str)
   local rewards = obj and obj.getGMNotes() or str
@@ -4191,7 +4206,7 @@ function deliverRewards(playerColor, obj, str)
 
   local resourceLabels     = { t = 'tablet', a = 'arrowhead', j = 'jewel', c = 'coin', s = 'compass', q = 'dark tablet' }
   local resourceCount      = {}
-  local deliveredAll       = true
+  local deliveredAll       = false
   local deliveredResources = false
   local p                  = getPlayerName(playerColor)
 
@@ -4211,46 +4226,14 @@ function deliverRewards(playerColor, obj, str)
       if card ~= nil then card.deal(1, playerColor) end
       broadcastToAll(p .. ' has to choose an option from the dealt bonus card.')
       deliveredAll = false
-    elseif reward == 'u' then
-      broadcastToAll(p .. ' may upgrade one resource.')
+    elseif TEXT_REWARDS[reward] then
+      broadcastToAll(p .. TEXT_REWARDS[reward])
       deliveredAll = false
-    elseif reward == 'o' then
-      broadcastToAll(p .. ' may gain 1 coin or 1 compass.')
-      deliveredAll = false
-    elseif reward == 'r' then
-      broadcastToAll(p .. ' may refresh an assistant.')
-      deliveredAll = false
-    elseif reward == 'y' then
-      broadcastToAll(p .. ' gets to use the effect on the silver side of one assistant available in the supply.')
-      deliveredAll = false
-    elseif reward == 'z' then
-      broadcastToAll(p .. ' gets to use the effect on the gold side of one assistant available in the supply.')
-      deliveredAll = false
-    elseif reward == 'e' then
-      broadcastToAll(p .. ' may exile a card.')
-      deliveredAll = false
-    elseif reward == 'i' then
-      broadcastToAll(p .. ' may return two compasses to take an item for free.')
-      deliveredAll = false
-    elseif reward == 'm' then
-      broadcastToAll(p .. ' may activate a campsite.')
-      deliveredAll = false
-    elseif reward == 'g' then
-      broadcastToAll(p .. ' may flip an expended guardian for reuse.')
-      deliveredAll = false
-    elseif reward == '%' then
-      broadcastToAll(p .. ' may gain the reward from an available idol on the board.')
-      deliveredAll = false
-    elseif reward == '~' then
-      broadcastToAll(p .. ' may discard a card to gain a dark tablet.')
-      deliveredAll = false
-    elseif reward == '#' then
-      broadcastToAll(p .. ' may pay a coin to gain a dark tablet.')
-      deliveredAll = false
-    elseif reward == 'p' then
-      broadcastToAll(p .. ' may take one 2-point temple tile from any stack for free.')
-      deliveredAll = false
-    elseif reward == 'f' then -- give fear cards automatically to the player
+    elseif reward == "$" then
+      broadcastToAll(p .. ' gets a Fear card and a dark tablet.')
+      getFearCard(playerColor)
+      gainResource("q", playerColor)
+    elseif reward == 'f' then
       -- exception for miners helmet (but not for idols)
       if obj.hasTag("idol") or not hasMinersHelmetActive(playerColor) then
         broadcastToAll(p .. ' gets a Fear card.')
@@ -4258,7 +4241,7 @@ function deliverRewards(playerColor, obj, str)
       else
         broadcastToAll(p .. " does not get a fear card due to an active Miner's Helmet.")
       end
-    elseif reward == 'd' then -- draw a card automatically for the player
+    elseif reward == 'd' then
       PlayermatApi.drawCard(playerColor)
     end
   end
