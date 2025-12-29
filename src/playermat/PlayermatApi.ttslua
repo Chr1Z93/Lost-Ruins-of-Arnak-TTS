@@ -73,7 +73,7 @@ do
     if not localPos then
       log("error getting location for " .. zoneName)
     else
-      return mat.positionToWorld(localPos)
+      return (mat.getBounds().center - localPos * 5.25):setAt("y", 1.6)
     end
   end
 

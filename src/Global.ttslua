@@ -3575,7 +3575,7 @@ function setupStartingResources()
           })
         end
 
-        getObjectFromGUID(PLAYER_VARS[playerColor].leaderOverview).Book.setPage(refIndex + 1)
+        getObjectFromGUID(PLAYER_VARS[playerColor].leaderOverview).Book.setPage(refIndex)
 
         if playerBoardState == 1 then     -- Setup for the captain
           cardList = STARTER_DECK_DATA["Captain"]
@@ -3691,7 +3691,7 @@ function setupStartingResources()
             guid              = TOKEN_GUIDS.MechanicGoldTokens,
             rotation          = facedown,
             callback_function = function(x)
-              -- Here we take the golden teeth deck and shuffle it, split it into 4 stacks of two each and move 3 of those 4 stacks to above the player board
+              -- shuffle golden teeth deck, split it into 4 stacks of two each and move 3 of those 4 stacks to above the player board
               x.shuffle()
 
               local scaleVector = Vector(1, 1, 1)

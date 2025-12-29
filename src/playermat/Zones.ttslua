@@ -4,18 +4,18 @@ do
   -- local coordinates for each player mat
   local commonZones                    = {}
   commonZones["DeckBase"]              = Vector(1.82, 0, 0)
-  commonZones["DeckExpeditionLeaders"] = Vector(1.41, 0, -0.136) -- Vector(3.08, 0, -0.136)
+  commonZones["DeckExpeditionLeaders"] = Vector(11.86, 0, -0.68) / 5.25
   commonZones["DeckMystic"]            = Vector(1.404, 0, -0.114)
   commonZones["DeckMissingExpedition"] = Vector(3.116, 0, -0.107)
   commonZones["Ritual"]                = Vector(2.886, 0, -0.328)
-  commonZones["Food1"]                 = Vector(-2.442, 0.1, -0.623)
-  commonZones["Food2"]                 = Vector(-2.442, 0.1, 0)
-  commonZones["Food3"]                 = Vector(-2.442, 0.1, 0.619)
-  commonZones["Falcon1"]               = Vector(0.526, 0, 0.293)
-  commonZones["Falcon2"]               = Vector(0.036, 0, 0.52)
-  commonZones["Falcon3"]               = Vector(-0.472, 0, 0.385)
-  commonZones["Falcon4"]               = Vector(-0.701, 0, -0.051)
-  commonZones["Falcon5"]               = Vector(-0.745, 0, -0.569)
+  commonZones["Food1"]                 = Vector(46.17 - 54.56, 0, -22.26 + 19) / 5.25
+  commonZones["Food2"]                 = Vector(46.17 - 54.56, 0, -18.99 + 19) / 5.25
+  commonZones["Food3"]                 = Vector(46.17 - 54.56, 0, -15.75 + 19) / 5.25
+  commonZones["Falcon1"]               = Vector(52.93 - 54.56, 0, 1.54) / 5.25
+  commonZones["Falcon2"]               = Vector(50.36 - 54.56, 0, 2.72) / 5.25
+  commonZones["Falcon3"]               = Vector(47.69 - 54.56, 0, 2.02) / 5.25
+  commonZones["Falcon4"]               = Vector(46.49 - 54.56, 0, -0.27) / 5.25
+  commonZones["Falcon5"]               = Vector(46.26 - 54.56, 0, -2.99) / 5.25
 
   -- local coordinates for Blue / Green (inverted X for Red / Yellow)
   local mirrorZones                    = {}
