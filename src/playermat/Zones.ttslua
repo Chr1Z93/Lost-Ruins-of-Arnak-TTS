@@ -4,13 +4,13 @@ do
   -- local coordinates for each player mat
   local commonZones                    = {}
   commonZones["DeckBase"]              = Vector(1.82, 0, 0)
-  commonZones["DeckExpeditionLeaders"] = Vector(3.08, 0, -0.136)
+  commonZones["DeckExpeditionLeaders"] = Vector(1.41, 0, -0.136) -- Vector(3.08, 0, -0.136)
   commonZones["DeckMystic"]            = Vector(1.404, 0, -0.114)
   commonZones["DeckMissingExpedition"] = Vector(3.116, 0, -0.107)
   commonZones["Ritual"]                = Vector(2.886, 0, -0.328)
-  commonZones["Food1"]                 = Vector(-2.442, 0, -0.623)
-  commonZones["Food2"]                 = Vector(-2.442, 0, 0)
-  commonZones["Food3"]                 = Vector(-2.442, 0, 0.619)
+  commonZones["Food1"]                 = Vector(-2.442, 0.1, -0.623)
+  commonZones["Food2"]                 = Vector(-2.442, 0.1, 0)
+  commonZones["Food3"]                 = Vector(-2.442, 0.1, 0.619)
   commonZones["Falcon1"]               = Vector(0.526, 0, 0.293)
   commonZones["Falcon2"]               = Vector(0.036, 0, 0.52)
   commonZones["Falcon3"]               = Vector(-0.472, 0, 0.385)

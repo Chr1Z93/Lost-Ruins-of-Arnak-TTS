@@ -77,12 +77,5 @@ do
     end
   end
 
-  -- Transforms a local position into a global position
-  ---@param localPos table Local position to be transformed
-  ---@param matColor string Does not support "All"
-  function PlayermatApi.transformLocalPosition(localPos, matColor)
-    return PlayermatApi.getPlayermats(matColor).positionToWorld(localPos):setAt("y", 1.6)
-  end
-
   return PlayermatApi
 end

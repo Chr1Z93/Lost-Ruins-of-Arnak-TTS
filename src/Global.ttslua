@@ -38,6 +38,7 @@ PLAYER_VARS           = {
     archivePositions     = { { -76, 1.50, 20.30 }, { -76, 1.50, 13.10 }, { -76, 1.50, 5.90 } },
     articleToothPosition = { -32, 1.57, 16.80 },
     refPositions         = { { -61, 1.48, 28.5 }, { -55, 1.48, 28.5 } },
+    leaderOverview       = "c30ae7",
     firstPlayerPosition  = { -34.60, 1.53, 28.75 }
   },
   Blue = {
@@ -62,6 +63,7 @@ PLAYER_VARS           = {
     archivePositions     = { { 76, 1.50, 20.30 }, { 76, 1.50, 13.10 }, { 76, 1.50, 5.90 } },
     articleToothPosition = { 37.20, 1.57, 16.80 },
     refPositions         = { { 61, 1.48, 28.5 }, { 55, 1.48, 28.5 } },
+    leaderOverview       = "c4dd33",
     firstPlayerPosition  = { 34.60, 1.53, 28.75 }
   },
   Green = {
@@ -86,6 +88,7 @@ PLAYER_VARS           = {
     archivePositions     = { { 76, 1.50, -20.70 }, { 76, 1.50, -27.90 }, { 76, 1.50, -35.10 } },
     articleToothPosition = { 37.20, 1.57, -24.20 },
     refPositions         = { { 61, 1.48, -12.5 }, { 55, 1.48, -12.5 } },
+    leaderOverview       = "47e8e6",
     firstPlayerPosition  = { 34.60, 1.53, -12.25 }
   },
   Yellow = {
@@ -110,6 +113,7 @@ PLAYER_VARS           = {
     archivePositions     = { { -76, 1.50, -20.70 }, { -76, 1.50, -27.90 }, { -76, 1.50, -35.10 } },
     articleToothPosition = { -32, 1.57, -24.20 },
     refPositions         = { { -61, 1.48, -12.5 }, { -55, 1.48, -12.5 } },
+    leaderOverview       = "d40f4c",
     firstPlayerPosition  = { -34.60, 1.53, -12.25 }
   }
 }
@@ -3564,12 +3568,14 @@ function setupStartingResources()
             smooth            = false,
             callback_function = function(o)
               if refIndex ~= 0 then
-                o = o.setState(refIndex + 1)
+                o = o.setState(refIndex + i)
                 o.lock()
               end
             end
           })
         end
+
+        getObjectFromGUID(PLAYER_VARS[playerColor].leaderOverview).Book.setPage(refIndex + 1)
 
         if playerBoardState == 1 then     -- Setup for the captain
           cardList = STARTER_DECK_DATA["Captain"]
@@ -3624,7 +3630,7 @@ function setupStartingResources()
           for i, guid in ipairs(TOKEN_GUIDS.food) do
             local foodPos = PlayermatApi.getZonePosition(playerColor, "Food" .. i)
             if i == 3 then
-              foodPos = { 4.89, 1.53, 40 }
+              foodPos = { 4.89, 1.6, 40 }
             end
             tokenBag.takeObject({ guid = guid, position = foodPos, rotation = faceup })
           end
