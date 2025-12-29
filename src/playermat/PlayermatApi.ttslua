@@ -54,12 +54,12 @@ do
   end
 
   function PlayermatApi.getZonePosition(matColor, zoneName)
-    local mat = PlayermatApi.getPlayermats(matColor)
+    local mat      = PlayermatApi.getPlayermats(matColor)
     local localPos = Zones.getLocalZoneData(matColor, zoneName)
 
     if not localPos then
       local leader = mat.getDescription()
-      local key = ""
+      local key = "Base"
       if leader == "Mystic" then
         key = "Mystic"
       elseif leader == "Journalist" or leader == "Mechanic" then

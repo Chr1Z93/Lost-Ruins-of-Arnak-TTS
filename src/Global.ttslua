@@ -2572,7 +2572,7 @@ function getOptionsFromUI()
     checkToggle(expansion, options.expansions)
   end
 
-  for i = 1, 6 do
+  for i = 1, 4 do
     if checkToggle('board' .. i) then
       options.board = i
       break
@@ -2743,7 +2743,7 @@ function setupMoonstaff()
   if not staff then return end
 
   -- ensure correct position
-  staff.setPosition(getMarketPos(0.5))
+  staff.setPosition(getMarketPos(1.5))
 
   -- check the moon staff and if its not what was chosen via options, change it
   if staff.getStateId() ~= options.staff then
@@ -4073,7 +4073,7 @@ end
 -- i goes from 1 to 6
 function getMarketPos(i)
   local data = getBoardData()
-  return Vector.lerp(data.marketStart, data.marketStart, (i - 1) / 5)
+  return Vector.lerp(data.marketStart, data.marketEnd, (i - 1) / 5)
 end
 
 -- i goes from 1 to 7
