@@ -3320,15 +3320,25 @@ function setupButtonsMisc()
         for resource, guid in pairs(suitcaseResourceBags) do
           local bag = getObjectFromGUID(guid)
           if bag ~= nil then
-            params.label = tostring(bag.getQuantity())
-            params.click_function = 'clickResourceBag' .. resource .. 'Suitcase'
-            bag.createButton(params)
+            local fName    = 'clickResourceBag' .. resource .. 'Suitcase'
+            local bagScale = bag.getScale()
 
-            _G['clickResourceBag' .. resource .. 'Suitcase'] = function(obj, clickColor, alt)
+            bag.createButton({
+              function_owner = self,
+              position       = { 0, 0, 1.9 / bagScale.z },
+              width          = 700,
+              height         = 700,
+              font_size      = 400,
+              label          = tostring(bag.getQuantity()),
+              click_function = fName,
+              scale          = Vector(1 / bagScale.x, 1 / bagScale.y, 1 / bagScale.z)
+            })
+
+            _G[fName] = function(obj, clickColor, alt)
               if not doneLoading or clickColor ~= playerColor then return end
               if alt then
-                if bag.getQuantity() > 0 then
-                  trashObject(playerColor, bag.takeObject())
+                if obj.getQuantity() > 0 then
+                  trashObject(playerColor, obj.takeObject())
                 end
               else
                 gainResource(resource, clickColor, true)
