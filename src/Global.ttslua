@@ -2704,12 +2704,12 @@ function setupBoard()
   end, 20)
 
   -- place dark tablet reserve
-  if options.board == 3 then
+  if options.researchTrack == 7 then
     local tokenBag = getObjectFromGUID(bags.miscTokens)
     local tokenData
 
     for _, objData in ipairs(tokenBag.getData().ContainedObjects) do
-      if objData.GMNotes == "z" then
+      if objData.GMNotes == "q" then
         tokenData = objData
         break
       end
