@@ -189,8 +189,8 @@ IDOL_SLOT_DATA        = {
 
 DARK_TABLET_DATA      = {
   bucketSize     = Vector(2.25, 2, 3),
-  leftBucketPos  = Vector(-24.97, 1.7, -21.7),
-  rightBucketPos = Vector(-0.14, 1.7, -21.7),
+  leftBucketPos  = Vector(-25.5, 1.7, -22.4),
+  rightBucketPos = Vector(0.17, 1.7, -22.4),
   offsetX        = 1.65,
   offsetZ        = 2.15,
   bucketVp       = { -1, -2, -2, -3, -3, -4, -5 }
@@ -2746,11 +2746,13 @@ function setupResearchTrack()
   -- Check the research board and if its not what was chosen via options, change it
   local researchTrack = getObjectByName("Research Track")
 
-  if options.researchTrack == 7 or options.researchTrack == 8 then
-    -- Spider / Owl Temple are build into the board
-    researchTrack.destruct()
-  elseif researchTrack.getStateId() ~= options.researchTrack then
-    boards.researchTrack = researchTrack.setState(options.researchTrack)
+  if researchTrack then
+    if options.researchTrack == 7 or options.researchTrack == 8 then
+      -- Spider / Owl Temple are build into the board
+      researchTrack.destruct()
+    elseif researchTrack.getStateId() ~= options.researchTrack then
+      boards.researchTrack = researchTrack.setState(options.researchTrack)
+    end
   end
 
   -- place boni
