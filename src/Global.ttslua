@@ -9,8 +9,8 @@ local PlayermatApi    = require("playermat/PlayermatApi")
 local SearchLib       = require("util/SearchLib")
 
 TEST_VARS             = {
-  defineSeated  = true,
-  hideSplash    = true,
+  defineSeated  = false,
+  hideSplash    = false,
   seatedPlayers = { 'Blue', 'Green', 'Yellow', 'Red' }
 }
 
@@ -2395,6 +2395,7 @@ function createGlobalXml()
           offsetXY     = "335 335",
           width        = 40,
           height       = 40,
+          fontSize     = 35,
           text         = "X",
           onClick      = "closeSplashScreen",
           colors       = "#DDDDDD|#FFFFFF|#AAAAAA|#888888"
@@ -2420,7 +2421,7 @@ function createGlobalXml()
               text          =
               [[This mod includes the 'Expedition Leaders', 'The Missing Expedition' and 'Twisted Paths' expansions.
 
-If you encounter any broken scripts or missing textures, please report them on the Steam Workshop page or contact 'chr1z' on Discord.
+If you encounter any broken scripts or missing textures, please report them on the Steam Workshop page or contact 'Chr1Z' on Discord.
 
 The latest expansion required a lot of code to be rewritten, so please bear with me if something is not working. Note: Solo mode is NOT working yet!]],
               textAlignment = "LowerLeft",
