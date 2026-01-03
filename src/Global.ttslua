@@ -888,21 +888,21 @@ researchTracks        = {
       {
         value     = 2,
         positions = {
-          Vector(9.57, 2, 9.31),
-          Vector(13.21, 2, 9.31),
-          Vector(16.84, 2, 9.31)
+          Vector(9.57, 2, 9.08),
+          Vector(13.21, 2, 9.08),
+          Vector(16.84, 2, 9.08)
         }
       },
       {
         value     = 6,
         positions = {
-          Vector(11.42, 2, 11.54),
-          Vector(15.12, 2, 11.54)
+          Vector(11.42, 2, 11.27),
+          Vector(15.12, 2, 11.27)
         }
       },
       {
         value     = 11,
-        positions = { Vector(13.2, 2, 14.07) }
+        positions = { Vector(13.2, 2, 13.77) }
       }
     }
   },
@@ -2838,7 +2838,7 @@ function setupResearchTrack()
     coinBag.takeObject({ position = { 7.06, 1.65, 17.45 }, rotation = facedown })
 
     -- place lanterns
-    local miscBag = getObjectFromGUID(bags.misc)
+    local miscBag = getObjectFromGUID(bags.miscTokens)
     for i, playerColor in ipairs(seatedPlayerColors) do
       local firstChar = playerColor:sub(1, 1):lower()
       miscBag.takeObject({
@@ -4373,335 +4373,342 @@ function getStaff()
   return staffList[1]
 end
 
-function nextRoundButton(obj, clickColor, alt)
-  if (not isSeated(clickColor) and clickColor ~= 'Black') or movingRow or setupInProgress or (UI.getAttribute('soloMenu', 'active') == 'true') then return end
+function nextRoundCoroutine()
+  setupInProgress = true
+  refillRowCoroutine()
+  resolveFearFromGuardians()
 
-  if options.solo then
-    local button = getObjectFromGUID(PLAYER_VARS.Red.playAreaZoneGuid).getButtons()[1]
-    if button.label == buttonLabelsRival.busy then return end
+  -- reset tents
+  for _, tent in ipairs(getObjectsWithTag("tent")) do
+    if tent.is_face_down then
+      tent.flip()
+    end
   end
 
-  function nextRoundCoroutine()
-    setupInProgress = true
-    refillRowCoroutine()
-    resolveFearFromGuardians()
+  wait(0.6)
 
-    -- reset tents
-    for _, tent in ipairs(getObjectsWithTag("tent")) do
-      if tent.is_face_down then
-        tent.flip()
+  -- return pawns and TOKEN_GUIDS
+  for _, playerColor in ipairs(seatedPlayerColors) do
+    local pawns         = PLAYER_VARS[playerColor].pawns
+    local pawnPositions = PLAYER_VARS[playerColor].pawnPositions
+    if options.solo and playerColor == 'Red' then
+      pawns = solo.pawns
+      pawnPositions = solo.pawnPositions
+    end
+
+    for i, guid in ipairs(pawns) do
+      local pawn = getObjectFromGUID(guid)
+      if pawn ~= nil then
+        pawn.setRotationSmooth(faceup, false, true)
+        pawn.setPositionSmooth(pawnPositions[i], false, false)
       end
     end
 
-    wait(0.6)
+    -- snack token handling for Explorer
+    if options.playerBoards[playerColor] == 5 then
+      for i, guid in ipairs(TOKEN_GUIDS.food) do
+        if i < 3 or round > 1 then
+          local food = getObjectFromGUID(guid)
+          if food ~= nil then
+            food.setRotationSmooth(faceup, false, true)
 
-    -- return pawns and TOKEN_GUIDS
-    for _, playerColor in ipairs(seatedPlayerColors) do
-      local pawns         = PLAYER_VARS[playerColor].pawns
-      local pawnPositions = PLAYER_VARS[playerColor].pawnPositions
-      if options.solo and playerColor == 'Red' then
-        pawns = solo.pawns
-        pawnPositions = solo.pawnPositions
-      end
-
-      for i, guid in ipairs(pawns) do
-        local pawn = getObjectFromGUID(guid)
-        if pawn ~= nil then
-          pawn.setRotationSmooth(faceup, false, true)
-          pawn.setPositionSmooth(pawnPositions[i], false, false)
-        end
-      end
-
-      -- snack token handling for Explorer
-      if options.playerBoards[playerColor] == 5 then
-        for i, guid in ipairs(TOKEN_GUIDS.food) do
-          if i < 3 or round > 1 then
-            local food = getObjectFromGUID(guid)
-            if food ~= nil then
-              food.setRotationSmooth(faceup, false, true)
-
-              local foodPos = PlayermatApi.getZonePosition(playerColor, "Food" .. i)
-              food.setPositionSmooth(foodPos, false, false)
-            end
+            local foodPos = PlayermatApi.getZonePosition(playerColor, "Food" .. i)
+            food.setPositionSmooth(foodPos, false, false)
           end
         end
       end
     end
+  end
 
-    wait(0.5)
+  wait(0.5)
 
-    function goesInDeck(object)
-      if object == nil then return false end
-      local excludeTags = { 'assistant', 'idol', 'site1', 'site2', 'guardian' }
+  function goesInDeck(object)
+    if object == nil then return false end
+    local excludeTags = { 'assistant', 'idol', 'site1', 'site2', 'guardian' }
 
-      local cardTags = nil
-      if object.type == 'Card' then
-        cardTags = object.getTags()
-      else
-        cardTags = object.tags
-      end
-
-      if #cardTags == 0 then return true end
-      for _, tag in ipairs(excludeTags) do
-        if cardTags[1] == tag then return false end
-      end
-      return true
+    local cardTags = nil
+    if object.type == 'Card' then
+      cardTags = object.getTags()
+    else
+      cardTags = object.tags
     end
 
-    for _, playerColor in ipairs(seatedPlayerColors) do
-      if not (options.solo and playerColor == 'Red') then
-        local toPos = PlayermatApi.getZonePosition(playerColor, "Deck"):setAt("y", tileY)
-        for _, object in ipairs(getObjectFromGUID(PLAYER_VARS[playerColor].playAreaZoneGuid).getObjects()) do
-          if object.type == 'Card' then
-            if goesInDeck(object) then
-              object.setRotation(facedown)
-              object.setPositionSmooth(toPos, false, true)
-            end
-          elseif object.type == 'Deck' then
-            -- check deck contents in case assistants/idols/sites/guardians were grouped
-            local guidsToMove = {}
-            for _, card in ipairs(object.getObjects()) do
-              if goesInDeck(card) then table.insert(guidsToMove, card.guid) end
-            end
+    if #cardTags == 0 then return true end
+    for _, tag in ipairs(excludeTags) do
+      if cardTags[1] == tag then return false end
+    end
+    return true
+  end
 
-            -- ttsbug(?): if object disappears inside this for-loop, object becomes a non-nil reference that doesn't have an instance
-            -- so get the deck/object each time a card needs to be removed from it
-            local deckGuid = object.getGUID()
-            for _, guid in ipairs(guidsToMove) do
-              local deck = getObjectFromGUID(deckGuid)
-              local cardToMove = nil
-              if deck == nil then
-                cardToMove = getObjectFromGUID(guid)
-              else
-                cardToMove = deck.takeObject({ guid = guid })
-              end
-              wait(0.01)
-              cardToMove.setScale({ 2.3, 1, 2.3 })
-              cardToMove.setRotation(facedown)
-              cardToMove.setPositionSmooth(toPos, false, true)
+  for _, playerColor in ipairs(seatedPlayerColors) do
+    if not (options.solo and playerColor == 'Red') then
+      local toPos = PlayermatApi.getZonePosition(playerColor, "Deck"):setAt("y", tileY)
+      for _, object in ipairs(getObjectFromGUID(PLAYER_VARS[playerColor].playAreaZoneGuid).getObjects()) do
+        if object.type == 'Card' then
+          if goesInDeck(object) then
+            object.setRotation(facedown)
+            object.setPositionSmooth(toPos, false, true)
+          end
+        elseif object.type == 'Deck' then
+          -- check deck contents in case assistants/idols/sites/guardians were grouped
+          local guidsToMove = {}
+          for _, card in ipairs(object.getObjects()) do
+            if goesInDeck(card) then table.insert(guidsToMove, card.guid) end
+          end
+
+          -- ttsbug(?): if object disappears inside this for-loop, object becomes a non-nil reference that doesn't have an instance
+          -- so get the deck/object each time a card needs to be removed from it
+          local deckGuid = object.getGUID()
+          for _, guid in ipairs(guidsToMove) do
+            local deck = getObjectFromGUID(deckGuid)
+            local cardToMove = nil
+            if deck == nil then
+              cardToMove = getObjectFromGUID(guid)
+            else
+              cardToMove = deck.takeObject({ guid = guid })
             end
+            wait(0.01)
+            cardToMove.setScale({ 2.3, 1, 2.3 })
+            cardToMove.setRotation(facedown)
+            cardToMove.setPositionSmooth(toPos, false, true)
           end
         end
       end
     end
+  end
 
-    if options.solo then
-      local toPos = solo.deckPositions[1]
-      for _, object in ipairs(getObjectFromGUID(solo.zones.discard).getObjects()) do
-        if object.type == 'Card' or object.type == 'Deck' then
-          object.setRotation(facedown)
-          object.setPositionSmooth({ toPos[1], tileY + 0.2, toPos[3] }, false, true)
-        end
+  if options.solo then
+    local toPos = solo.deckPositions[1]
+    for _, object in ipairs(getObjectFromGUID(solo.zones.discard).getObjects()) do
+      if object.type == 'Card' or object.type == 'Deck' then
+        object.setRotation(facedown)
+        object.setPositionSmooth({ toPos[1], tileY + 0.2, toPos[3] }, false, true)
       end
+    end
 
-      if options.objectives > 0 then
-        for _, guid in ipairs(solo.zones.objectives) do
-          for _, object in ipairs(getObjectFromGUID(guid).getObjects()) do
-            if object.type == 'Card' or object.type == 'Deck' then
-              object.setRotation(facedown)
-              object.setPositionSmooth(solo.objectivePosition, false, true)
-            end
+    if options.objectives > 0 then
+      for _, guid in ipairs(solo.zones.objectives) do
+        for _, object in ipairs(getObjectFromGUID(guid).getObjects()) do
+          if object.type == 'Card' or object.type == 'Deck' then
+            object.setRotation(facedown)
+            object.setPositionSmooth(solo.objectivePosition, false, true)
           end
         end
       end
     end
+  end
 
-    wait(0.4)
+  wait(0.4)
 
-    -- get income
-    for _, playerColor in ipairs(seatedPlayerColors) do
-      if options.playerBoards[playerColor] == 2 then
-        local falcon = getObjectFromGUID(TOKEN_GUIDS.falcon)
-        local falconPosIndex = nil
-        if falcon ~= nil then
-          local currentPos = falcon.getPosition()
-          for i = 1, 5 do
-            local falconPos = PlayermatApi.getZonePosition(playerColor, "Falcon" .. i)
-            if positionIsClose(falconPos, currentPos) then
-              falconPosIndex = i
-              break
-            end
+  -- get income
+  for _, playerColor in ipairs(seatedPlayerColors) do
+    if options.playerBoards[playerColor] == 2 then
+      local falcon = getObjectFromGUID(TOKEN_GUIDS.falcon)
+      local falconPosIndex = nil
+      if falcon ~= nil then
+        local currentPos = falcon.getPosition()
+        for i = 1, 5 do
+          local falconPos = PlayermatApi.getZonePosition(playerColor, "Falcon" .. i)
+          if positionIsClose(falconPos, currentPos) then
+            falconPosIndex = i
+            break
           end
         end
+      end
 
-        if falconPosIndex == nil then
-          broadcastToAll('Unable to locate falcon.', playerColor)
-        elseif falconPosIndex < 5 then
-          broadcastToAll(getPlayerName(playerColor) .. ' moves their falcon.')
-          falcon.setRotationSmooth(falconRotations[falconPosIndex + 1], false, true)
-          falcon.setPositionSmooth(PlayermatApi.getZonePosition(playerColor, "Falcon" .. falconPosIndex + 1), false, true)
-        end
-        wait(0.5)
-      elseif options.playerBoards[playerColor] == 3 then
-        broadcastToAll(getPlayerName(playerColor) .. ' gets income of 1 coin.')
-        gainResource('c', playerColor)
-        wait(0.5)
-      elseif options.playerBoards[playerColor] == 4 then
-        local resource = 's'
-        local resourceLabel = 'compass'
-        if round == 2 or round == 4 then
-          resource = 't'
-          resourceLabel = 'tablet'
-        end
-        broadcastToAll(getPlayerName(playerColor) .. ' adds 1 ' .. resourceLabel .. ' to their suitcase.')
-        gainResource(resource, playerColor, true)
-        wait(0.5)
+      if falconPosIndex == nil then
+        broadcastToAll('Unable to locate falcon.', playerColor)
+      elseif falconPosIndex < 5 then
+        broadcastToAll(getPlayerName(playerColor) .. ' moves their falcon.')
+        falcon.setRotationSmooth(falconRotations[falconPosIndex + 1], false, true)
+        falcon.setPositionSmooth(PlayermatApi.getZonePosition(playerColor, "Falcon" .. falconPosIndex + 1), false, true)
+      end
+      wait(0.5)
+    elseif options.playerBoards[playerColor] == 3 then
+      broadcastToAll(getPlayerName(playerColor) .. ' gets income of 1 coin.')
+      gainResource('c', playerColor)
+      wait(0.5)
+    elseif options.playerBoards[playerColor] == 4 then
+      local resource = 's'
+      local resourceLabel = 'compass'
+      if round == 2 or round == 4 then
+        resource = 't'
+        resourceLabel = 'tablet'
+      end
+      broadcastToAll(getPlayerName(playerColor) .. ' adds 1 ' .. resourceLabel .. ' to their suitcase.')
+      gainResource(resource, playerColor, true)
+      wait(0.5)
+    end
+  end
+
+  -- shuffle decks
+  for _, playerColor in ipairs(seatedPlayerColors) do
+    local deckPos = PlayermatApi.getZonePosition(playerColor, "Deck")
+    local searchResult = SearchLib.atPosition(deckPos, "isDeck")
+    if #searchResult > 0 then
+      searchResult[1].shuffle()
+    end
+  end
+
+  if options.solo then
+    for _, object in ipairs(getObjectFromGUID(solo.zones.deck).getObjects()) do
+      if object.type == 'Deck' then
+        object.shuffle()
+        break
       end
     end
 
-    -- shuffle decks
-    for _, playerColor in ipairs(seatedPlayerColors) do
-      local deckPos = PlayermatApi.getZonePosition(playerColor, "Deck")
-      local searchResult = SearchLib.atPosition(deckPos, "isDeck")
-      if #searchResult > 0 then
-        searchResult[1].shuffle()
-      end
-    end
-
-    if options.solo then
-      for _, object in ipairs(getObjectFromGUID(solo.zones.deck).getObjects()) do
+    if options.objectives > 0 then
+      for _, object in ipairs(getObjectFromGUID(solo.zones.objectivesDeck).getObjects()) do
         if object.type == 'Deck' then
           object.shuffle()
           break
         end
       end
+    end
+  end
 
-      if options.objectives > 0 then
-        for _, object in ipairs(getObjectFromGUID(solo.zones.objectivesDeck).getObjects()) do
-          if object.type == 'Deck' then
-            object.shuffle()
+  wait(0.2)
+
+  -- refresh assistants
+  for _, playerColor in ipairs(seatedPlayerColors) do
+    if not (options.solo and playerColor == 'Red') then
+      for _, object in ipairs(getObjectFromGUID(PLAYER_VARS[playerColor].allZoneGuid).getObjects()) do
+        if object.hasTag('assistant') then
+          local rotation = object.getRotation():setAt("y", 180)
+          object.setRotationSmooth(rotation, false, false)
+        end
+      end
+    end
+  end
+
+  -- card row
+  local rowStart = round - options.staff + 1
+  if rowStart < 1 then rowStart = 1 end
+  local rowEnd = round + options.staff
+  if rowEnd > 6 then rowEnd = 6 end
+  for i = rowStart, rowEnd do
+    local waitUntilAfterSetPos = exile(drawCardFromPosition(getMarketPos(i)))
+    if waitUntilAfterSetPos then wait(0.16) end
+    wait(0.16)
+  end
+  wait(0.4)
+  round = round + 1
+
+  -- move staff
+  local staff = getStaff()
+  if staff then
+    staff.setPositionSmooth(getMarketPos(round + 0.5), false, true)
+  end
+
+  wait(0.5)
+  refillRowCoroutine()
+
+  -- starting player
+  firstPlayerColor = nil
+  if not (options.solo and #seatedPlayerColors == 2) then
+    startPlayerIndex = startPlayerIndex + 1
+    if startPlayerIndex > #seatedPlayerColors then startPlayerIndex = 1 end
+    firstPlayerColor = seatedPlayerColors[startPlayerIndex]
+    local token = getObjectFromGUID(TOKEN_GUIDS.firstPlayer)
+    if token ~= nil then token.setPositionSmooth(PLAYER_VARS[firstPlayerColor].firstPlayerPosition, false, false) end
+  end
+  wait(0.4)
+
+  -- draw up to 5 cards
+  for _, playerColor in ipairs(seatedPlayerColors) do
+    if not (options.solo and playerColor == 'Red') then
+      local handSize = 5
+      local drawn = #Player[playerColor].getHandObjects()
+      if options.playerBoards[playerColor] == 3 then
+        -- return special delivery to the hand of the Baroness
+        local specialDelivery = getObjectFromGUID(SPECIAL_DELIVERY_GUID)
+        if specialDelivery == nil then
+          local deckPos = PlayermatApi.getZonePosition(playerColor, "Deck")
+          for _, object in ipairs(SearchLib.atPosition(deckPos, "isDeck")) do
+            specialDelivery = object.takeObject({ guid = SPECIAL_DELIVERY_GUID })
             break
           end
         end
-      end
-    end
 
-    wait(0.2)
-
-    -- refresh assistants
-    for _, playerColor in ipairs(seatedPlayerColors) do
-      if not (options.solo and playerColor == 'Red') then
-        for _, object in ipairs(getObjectFromGUID(PLAYER_VARS[playerColor].allZoneGuid).getObjects()) do
-          if object.hasTag('assistant') then
-            local rotation = object.getRotation():setAt("y", 180)
-            object.setRotationSmooth(rotation, false, false)
+        if specialDelivery == nil then
+          for _, object in ipairs(SearchLib.atPosition(OTHER_EXILED_SPOT.pos, "isDeck")) do
+            specialDelivery = object.takeObject({ guid = SPECIAL_DELIVERY_GUID })
           end
+        end
+
+        if specialDelivery ~= nil then
+          specialDelivery.deal(1, playerColor)
+          drawn = drawn + 1
+          wait(0.01)
         end
       end
-    end
 
-    -- card row
-    local rowStart = round - options.staff + 1
-    if rowStart < 1 then rowStart = 1 end
-    local rowEnd = round + options.staff
-    if rowEnd > 6 then rowEnd = 6 end
-    for i = rowStart, rowEnd do
-      local waitUntilAfterSetPos = exile(drawCardFromPosition(getMarketPos(i)))
-      if waitUntilAfterSetPos then wait(0.16) end
-      wait(0.16)
-    end
-    wait(0.4)
-    round = round + 1
-
-    -- move staff
-    local staff = getStaff()
-    if staff then
-      staff.setPositionSmooth(getMarketPos(round + 0.5), false, true)
-    end
-
-    wait(0.5)
-    refillRowCoroutine()
-
-    -- starting player
-    firstPlayerColor = nil
-    if not (options.solo and #seatedPlayerColors == 2) then
-      startPlayerIndex = startPlayerIndex + 1
-      if startPlayerIndex > #seatedPlayerColors then startPlayerIndex = 1 end
-      firstPlayerColor = seatedPlayerColors[startPlayerIndex]
-      local token = getObjectFromGUID(TOKEN_GUIDS.firstPlayer)
-      if token ~= nil then token.setPositionSmooth(PLAYER_VARS[firstPlayerColor].firstPlayerPosition, false, false) end
-    end
-    wait(0.4)
-
-    -- draw up to 5 cards
-    for _, playerColor in ipairs(seatedPlayerColors) do
-      if not (options.solo and playerColor == 'Red') then
-        local handSize = 5
-        local drawn = #Player[playerColor].getHandObjects()
-        if options.playerBoards[playerColor] == 3 then
-          -- return special delivery to the hand of the Baroness
-          local specialDelivery = getObjectFromGUID(SPECIAL_DELIVERY_GUID)
-          if specialDelivery == nil then
-            local deckPos = PlayermatApi.getZonePosition(playerColor, "Deck")
-            for _, object in ipairs(SearchLib.atPosition(deckPos, "isDeck")) do
-              specialDelivery = object.takeObject({ guid = SPECIAL_DELIVERY_GUID })
-              break
-            end
-          end
-
-          if specialDelivery == nil then
-            for _, object in ipairs(SearchLib.atPosition(OTHER_EXILED_SPOT.pos, "isDeck")) do
-              specialDelivery = object.takeObject({ guid = SPECIAL_DELIVERY_GUID })
-            end
-          end
-
-          if specialDelivery ~= nil then
-            specialDelivery.deal(1, playerColor)
-            drawn = drawn + 1
-            wait(0.01)
-          end
-        end
-
-        local deckPos = PlayermatApi.getZonePosition(playerColor, "Deck")
-        for _, object in ipairs(SearchLib.atPosition(deckPos, "isCardOrDeck")) do
-          if drawn >= handSize then break end
-          if object.type == 'Card' then
-            object.deal(1, playerColor)
-            drawn = drawn + 1
-          elseif object.type == 'Deck' then
-            local numberToDraw = handSize - drawn
-            if object.getQuantity() >= numberToDraw then
-              drawn = drawn + numberToDraw
-            else
-              drawn = drawn + object.getQuantity()
-            end
-            object.deal(numberToDraw, playerColor)
-          end
-        end
-
-        if options.playerBoards[playerColor] == 6 and drawn < 6 then
-          local card = drawCardFromPosition(getCardBoardLocation("Fear"))
-          if card == nil then
-            broadcastToAll('No fear cards left for ' .. getPlayerName(playerColor) .. ' to draw.')
+      local deckPos = PlayermatApi.getZonePosition(playerColor, "Deck")
+      for _, object in ipairs(SearchLib.atPosition(deckPos, "isCardOrDeck")) do
+        if drawn >= handSize then break end
+        if object.type == 'Card' then
+          object.deal(1, playerColor)
+          drawn = drawn + 1
+        elseif object.type == 'Deck' then
+          local numberToDraw = handSize - drawn
+          if object.getQuantity() >= numberToDraw then
+            drawn = drawn + numberToDraw
           else
-            broadcastToAll(getPlayerName(playerColor) .. ' draws a fear card.')
-            card.deal(1, playerColor)
+            drawn = drawn + object.getQuantity()
           end
-          wait(0.5)
+          object.deal(numberToDraw, playerColor)
         end
       end
+
+      if options.playerBoards[playerColor] == 6 and drawn < 6 then
+        local card = drawCardFromPosition(getCardBoardLocation("Fear"))
+        if card == nil then
+          broadcastToAll('No fear cards left for ' .. getPlayerName(playerColor) .. ' to draw.')
+        else
+          broadcastToAll(getPlayerName(playerColor) .. ' draws a fear card.')
+          card.deal(1, playerColor)
+        end
+        wait(0.5)
+      end
     end
+  end
 
-    broadcastToAll('Starting Round ' .. round)
-    if not (options.solo and #seatedPlayerColors == 2) then Turns.turn_color = firstPlayerColor end
+  broadcastToAll('Starting Round ' .. round)
+  if not (options.solo and #seatedPlayerColors == 2) then Turns.turn_color = firstPlayerColor end
 
-    local buttonBlock = getObjectFromGUID(BUTTON_BLOCK_GUID)
-    if round == 5 then
-      buttonBlock.editButton({ index = 0, label = buttonLabels.ready1, click_function = 'calculateScoresButton' })
-    else
-      buttonBlock.editButton({ index = 0, label = 'Setup Round ' .. round + 1 })
-    end
+  local buttonBlock = getObjectFromGUID(BUTTON_BLOCK_GUID)
+  if round == 5 then
+    buttonBlock.editButton({ index = 0, label = buttonLabels.ready1, click_function = 'calculateScoresButton' })
+  else
+    buttonBlock.editButton({ index = 0, label = 'Setup Round ' .. round + 1 })
+  end
 
-    setupInProgress = false
+  setupInProgress = false
 
-    if options.solo then
-      soloStatus.firstTurn = true
-      soloStatus.fulfilledObjectives = {}
-      soloStatus.pawnsOut = 0
-      if #seatedPlayerColors == 2 then rivalTurnCoroutine() end
-    end
+  if options.solo then
+    soloStatus.firstTurn = true
+    soloStatus.fulfilledObjectives = {}
+    soloStatus.pawnsOut = 0
+    if #seatedPlayerColors == 2 then rivalTurnCoroutine() end
+  end
 
-    return 1
+  return 1
+end
+
+function nextRoundButton(obj, clickColor, alt)
+  local soloMenuActive = UI.getAttribute('soloMenu', 'active')
+  if soloMenuActive == "false" or soloMenuActive == "False" then
+    soloMenuActive = false
+  elseif soloMenuActive == "true" or soloMenuActive == "True" then
+    soloMenuActive = true
+  end
+
+  if (not isSeated(clickColor) and clickColor ~= 'Black') or movingRow or setupInProgress or soloMenuActive then return end
+
+  if options.solo then
+    local button = getObjectFromGUID(PLAYER_VARS.Red.playAreaZoneGuid).getButtons()[1]
+    if button.label == buttonLabelsRival.busy then return end
   end
 
   -- check for hand cards and prompt to continue
