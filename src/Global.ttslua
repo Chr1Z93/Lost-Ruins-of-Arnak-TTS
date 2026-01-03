@@ -330,11 +330,11 @@ CARD_BOARD_DATA       = {
     rot = Vector(0, 0, 0)
   },
   reserveArtifact = {
-    pos = Vector(-4.413, 2, -0.012),
+    pos = Vector(4.413, 2, -0.012),
     rot = Vector(0, 0, 0)
   },
   reserveItem = {
-    pos = Vector(4.413, 2, -0.012),
+    pos = Vector(-4.413, 2, -0.012),
     rot = Vector(0, 0, 0)
   },
   reserveFear = {
@@ -1058,11 +1058,11 @@ researchTracks        = {
       }
     },
     altarData = {
-      { value = 2, position = Vector({20.78, 1.6, -19.36}) },
-      { value = 2, position = Vector({26.94, 1.6, -13.88}) },
-      { value = 3, position = Vector({9.90, 1.6, -9.16}) },
-      { value = 3, position = Vector({21.34, 1.6, 1.74}) },
-      { value = 4, position = Vector({9.75, 1.6, 6.95}) }
+      { value = 2, position = Vector({ 20.78, 1.6, -19.36 }) },
+      { value = 2, position = Vector({ 26.94, 1.6, -13.88 }) },
+      { value = 3, position = Vector({ 9.90, 1.6, -9.16 }) },
+      { value = 3, position = Vector({ 21.34, 1.6, 1.74 }) },
+      { value = 4, position = Vector({ 9.75, 1.6, 6.95 }) }
     },
     altarOffsets = {
       Vector(-2.2, 0, -4.7),
@@ -2439,7 +2439,7 @@ The latest expansion required a lot of code to be rewritten, so please bear with
 end
 
 -- Function called by the button to hide the UI
-function closeSplashScreen(player, value, id)
+function closeSplashScreen()
   UI.setAttribute("SplashScreen", "active", false)
 end
 
@@ -2562,6 +2562,7 @@ function getOptionsFromUI()
     checkToggle(expansion, options.expansions)
   end
 
+  options.board = nil
   for i = 1, 4 do
     if checkToggle('board' .. i) then
       options.board = i
@@ -2569,6 +2570,7 @@ function getOptionsFromUI()
     end
   end
 
+  options.researchTrack = nil
   for i = 1, 6 do
     if checkToggle('research' .. i) then
       options.researchTrack = i
@@ -2641,6 +2643,7 @@ function detectSeatedPlayers()
 
   if #seatedPlayerColors == 0 then
     broadcastToAll('All players must select colors before setup.')
+    menuOptions()
     return
   elseif #seatedPlayerColors == 1 or options.campaign == true then
     for _, seatedPlayer in ipairs(seatedPlayerColors) do
@@ -3784,6 +3787,7 @@ end
 
 function menuStart(_, value, _)
   uiOff()
+  closeSplashScreen()
   local menuChoice = tonumber(value)
   if menuChoice == 1 then
     -- If the player chose campaign set a variety of options then show the manual leader choosing UI
@@ -4128,7 +4132,7 @@ function refillRowCoroutine()
     -- refill
     if #artifacts < round then
       for i = 1, round - #artifacts do
-        local card = drawCardFromPosition(getCardBoardLocation("Artifact"), faceup, getMarketPos(i):setAt("y", tileY))
+        local card = drawCardFromPosition(getCardBoardLocation("Artifact"), getMarketPos(i):setAt("y", tileY), faceup)
         if card == nil then break end
         wait(0.16)
       end
@@ -4136,7 +4140,7 @@ function refillRowCoroutine()
 
     if #items < 6 - round then
       for i = round + #items + 1, 6 do
-        local card = drawCardFromPosition(getCardBoardLocation("Item"), faceup, getMarketPos(i):setAt("y", tileY))
+        local card = drawCardFromPosition(getCardBoardLocation("Item"), getMarketPos(i):setAt("y", tileY), faceup)
         if card == nil then break end
         wait(0.16)
       end
@@ -5144,9 +5148,11 @@ function onPlayerTurn(player, previousPlayer)
         if not tent.is_face_down then atLeastOneFaceupTent = true end
       end
     end
+
     if atLeastOneFaceupTent and currentPlayerTent ~= nil and currentPlayerTent.is_face_down then
       Turns.turn_color = Turns.getNextTurnColor()
     end
+
     startLuaCoroutine(Global, "refillRowCoroutine")
   end, 0.01)
 end
@@ -5923,7 +5929,7 @@ function positionIsClose(pos1, pos2)
 end
 
 function drawCardFromPosition(deckPosition, position, rotation)
-  for _, object in ipairs(SearchLib.atPosition(deckPosition, "isCardOrDeck")) do
+  for _, object in ipairs(SearchLib.atPosition(deckPosition:setAt("y", 1.5), "isCardOrDeck")) do
     if object.type == 'Card' then
       if position then
         object.setRotation(rotation)
