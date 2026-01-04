@@ -4725,9 +4725,21 @@ function nextRoundButton(obj, clickColor, alt)
   if emptyHands then
     startLuaCoroutine(Global, 'nextRoundCoroutine')
   else
-    Player[clickColor].showConfirmDialog("Some players have cards in their hand. Continue?",
+    local dialogColor = findRealPlayerColor(clickColor)
+    Player[dialogColor].showConfirmDialog("Some players have cards in their hand. Continue?",
       function() startLuaCoroutine(Global, 'nextRoundCoroutine') end)
   end
+end
+
+-- this attempts to find the first instance of a player to handle hotseat mess
+function findRealPlayerColor(searchColor)
+  local searchSteamId = Player[searchColor].steam_id
+  for _, playerColor in ipairs(getSeatedPlayers()) do
+    if Player[playerColor].steam_id == searchSteamId then
+      return playerColor
+    end
+  end
+  return searchColor
 end
 
 -- MARK: SCORING
