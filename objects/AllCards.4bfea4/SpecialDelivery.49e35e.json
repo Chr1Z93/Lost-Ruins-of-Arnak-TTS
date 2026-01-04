@@ -41,6 +41,9 @@
   "SidewaysCard": false,
   "Snap": true,
   "Sticky": true,
+  "Tags": [
+    "SpecialDelivery"
+  ],
   "Tooltip": true,
   "Transform": {
     "posX": 74.841,

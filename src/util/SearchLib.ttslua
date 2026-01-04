@@ -90,7 +90,7 @@ do
   -- searches the specified position (a single point)
   function SearchLib.atPosition(pos, filter, debug)
     return performSearch({
-      pos    = pos,
+      pos    = pos:setAt("y", 1.5),
       filter = filter,
       debug  = debug
     })

@@ -318,11 +318,11 @@ OTHER_EXILED_SPOT     = {
 -- local data for the card board
 CARD_BOARD_DATA       = {
   exiledArtifact = {
-    pos = Vector(-2.2, 2, -0.012),
+    pos = Vector(2.2, 2, -0.012),
     rot = Vector(0, 90, 0)
   },
   exiledItem = {
-    pos = Vector(2.2, 2, -0.012),
+    pos = Vector(-2.2, 2, -0.012),
     rot = Vector(0, -90, 0)
   },
   exiledFear = {
@@ -1201,8 +1201,8 @@ MAIN_BOARD_DATA       = {
       { pos = Vector(-3.36, 1.6, 11.23) },
       { pos = Vector(3.54, 1.6, 9.49) }
     },
-    marketStart = Vector(-18.18, 1.6, 19.6),
-    marketEnd   = Vector(18.18, 1.6, 19.6)
+    marketStart = Vector(-18.18, 1.65, 19.6),
+    marketEnd   = Vector(18.18, 1.65, 19.6)
   },
   spider = {
     camp        = {
@@ -1228,8 +1228,8 @@ MAIN_BOARD_DATA       = {
       { pos = Vector(-11.63, 1.6, 17.88) },
       { pos = Vector(-4.54, 1.6, 16.53), reward = "q" }
     },
-    marketStart = Vector(-25.93, 1.6, 25.96),
-    marketEnd   = Vector(10.90, 1.6, 25.96)
+    marketStart = Vector(-25.93, 1.65, 25.96),
+    marketEnd   = Vector(10.90, 1.65, 25.96)
   },
   owl = {
     camp        = {
@@ -1255,8 +1255,8 @@ MAIN_BOARD_DATA       = {
       { pos = Vector(-11.20, 1.6, 16.95) },
       { pos = Vector(-4.28, 1.6, 16.20) }
     },
-    marketStart = Vector(-24.98, 1.6, 25.35),
-    marketEnd   = Vector(10.95, 1.6, 25.35)
+    marketStart = Vector(-24.98, 1.65, 25.35),
+    marketEnd   = Vector(10.95, 1.65, 25.35)
   }
 }
 
@@ -1267,9 +1267,9 @@ SITE_OFFSETS          = {
   spotLvl1      = Vector(0, 0, -3.65),
   spotLvl2      = Vector(0, 0, -4.1),
   guardian      = Vector(0, 0.05, 0.7),
-  idolLeft      = Vector(-1, 0, -2.1),
-  idolRight     = Vector(1, 0, -2.1),
-  idolMiddle    = Vector(0, 0, -1.76),
+  idolLeft      = Vector(-1, 0.2, -2.1),
+  idolRight     = Vector(1, 0.2, -2.1),
+  idolMiddle    = Vector(0, 0.2, -1.76),
   buttonShift   = Vector(0, 0, 0.225),
   buttonUpShift = Vector(0, 0, 0.25),
   below         = Vector(0, 0, -1.42),
@@ -1451,14 +1451,14 @@ function createBoardButtons(board)
   for i, site in ipairs(data.camp) do
     local extraOffset1 = Vector((isSpiderTemple and i == 3) and -1.1 or 0, 0, 0)
     local extraOffset2 = Vector((isSpiderTemple and i == 3) and 1.1 or 0, 0, 0)
-    addMoveButton(board, site.pos, SITE_OFFSETS.spotLeft, SITE_OFFSETS.below + extraOffset1, site.reward)
-    addMoveButton(board, site.pos, SITE_OFFSETS.spotRight, SITE_OFFSETS.below + extraOffset2, site.reward)
+    addMoveButton(board, site.pos, SITE_OFFSETS.spotLeft, SITE_OFFSETS.below + extraOffset1, site.reward, true)
+    addMoveButton(board, site.pos, SITE_OFFSETS.spotRight, SITE_OFFSETS.below + extraOffset2, site.reward, true)
   end
 
   -- lvl 1 site buttons
   for i, site in ipairs(data.lvl1) do
     local offset = (isSpiderTemple and (i == 4 or i == 8)) and SITE_OFFSETS.below or SITE_OFFSETS.right
-    addMoveButton(board, site.pos, SITE_OFFSETS.spotLvl1, offset)
+    addMoveButton(board, site.pos, SITE_OFFSETS.spotLvl1, offset, site.reward)
     addSiteButton(board, site.pos, 1)
     addSiteAndGuardianButton(board, site.pos, 1)
   end
@@ -1466,7 +1466,7 @@ function createBoardButtons(board)
   -- lvl 2 site buttons
   for i, site in ipairs(data.lvl2) do
     local offset = (isSpiderTemple and i == 4) and SITE_OFFSETS.below or SITE_OFFSETS.right
-    addMoveButton(board, site.pos, SITE_OFFSETS.spotLvl2, offset)
+    addMoveButton(board, site.pos, SITE_OFFSETS.spotLvl2, offset, site.reward)
     addSiteButton(board, site.pos, 2)
     addSiteAndGuardianButton(board, site.pos, 2)
   end
@@ -1496,7 +1496,7 @@ function addMarketButton(board, i)
   })
 end
 
-function attemptMove(playerColor, spotPos, sitePos, reward)
+function attemptMove(playerColor, spotPos, sitePos, reward, isCamp)
   if not doneLoading or setupInProgress or not isSeated(playerColor) then return end
 
   -- check for available pawn
@@ -1515,40 +1515,42 @@ function attemptMove(playerColor, spotPos, sitePos, reward)
   end
 
   -- search for site tile / idols and gain rewards
-  local siteFound = false
-  for _, obj in ipairs(SearchLib.inArea(sitePos, nil, Vector(3, 1, 3))) do
-    if obj.hasTag("site1") or obj.hasTag("site2") then
-      deliverRewards(playerColor, obj)
-      siteFound = true
-    elseif obj.hasTag("idol") then
-      local delivered = true
-      if not obj.is_face_down then
-        delivered = deliverRewards(playerColor, obj)
-      end
+  if not isCamp then
+    local siteFound = false
+    for _, obj in ipairs(SearchLib.inArea(sitePos, nil, Vector(3, 1, 3))) do
+      if obj.hasTag("site1") or obj.hasTag("site2") then
+        deliverRewards(playerColor, obj)
+        siteFound = true
+      elseif obj.hasTag("idol") then
+        local delivered = true
+        if not obj.is_face_down then
+          delivered = deliverRewards(playerColor, obj)
+        end
 
-      if delivered then
-        local idolPosition4 = getGlobalPosForIdolSlot(playerColor, 4) - Vector(0, 0, 3)
-        local toPosFacedown = idolPosition4:setAt("y", tileY + 0.3)
-        obj.setRotation(facedown)
-        obj.setPositionSmooth(toPosFacedown, false, false)
-      else
-        local idolPosition3 = getGlobalPosForIdolSlot(playerColor, 3) - Vector(0, 0, 3)
-        local toPosFaceup   = idolPosition3:setAt("y", tileY + 0.3)
-        obj.setRotation(faceup)
-        obj.setPositionSmooth(toPosFaceup, false, false)
+        if delivered then
+          local idolPosition4 = getGlobalPosForIdolSlot(playerColor, 4) - Vector(0, 0, 3)
+          local toPosFacedown = idolPosition4:setAt("y", tileY + 0.3)
+          obj.setRotation(facedown)
+          obj.setPositionSmooth(toPosFacedown, false, false)
+        else
+          local idolPosition3 = getGlobalPosForIdolSlot(playerColor, 3) - Vector(0, 0, 3)
+          local toPosFaceup   = idolPosition3:setAt("y", tileY + 0.3)
+          obj.setRotation(faceup)
+          obj.setPositionSmooth(toPosFaceup, false, false)
+        end
       end
     end
-  end
 
-  -- notify for discover costs
-  if not siteFound then
-    printToAll(getPlayerName(playerColor) .. " needs to pay costs for discovering a new site!", "White")
+    -- notify for discover costs
+    if not siteFound then
+      printToAll(getPlayerName(playerColor) .. " needs to pay costs for discovering a new site!", "White")
+    end
   end
 
   -- move pawn
   pawn.setPositionSmooth(spotPos:setAt("y", pawnY))
 
-  -- if there's a reward defined (camp spots), gain it
+  -- if there's a reward defined (camp spots / dark tablets), gain it
   if reward then
     deliverRewards(playerColor, nil, reward)
   end
@@ -1624,11 +1626,11 @@ function getBoardFuncName()
   return "boardButton" .. boardButtonIndex
 end
 
-function addMoveButton(board, sitePos, spotOffset, buttonOffset, reward)
+function addMoveButton(board, sitePos, spotOffset, buttonOffset, reward, isCamp)
   local funcName = getBoardFuncName()
   local spotPos  = sitePos + spotOffset
 
-  _G[funcName]   = function(_, playerColor) attemptMove(playerColor, spotPos, sitePos, reward) end
+  _G[funcName]   = function(_, playerColor) attemptMove(playerColor, spotPos, sitePos, reward, isCamp) end
 
   board.createButton({
     click_function = funcName,
@@ -2660,7 +2662,9 @@ function detectSeatedPlayers()
   -- delete not seated
   for _, playerColor in ipairs(absentColors) do
     for _, object in ipairs(getObjectFromGUID(PLAYER_VARS[playerColor].allZoneGuid).getObjects()) do
-      object.destruct()
+      if object.getGUID() ~= "4ee1f2" then
+        object.destruct()
+      end
     end
 
     for _, name in ipairs(RESEARCH_TOKENS) do
@@ -3938,7 +3942,7 @@ function setupButtons()
 end
 
 function gainResource(resource, playerColor, remove)
-  if resource == "dark tablet" then
+  if resource == "q" then
     -- special handling for Dark Tablets from the Spider Temple
     if remove then
       broadcastToAll(getPlayerName(playerColor) .. " needs to manually return a Dark Tablet.", "White")
@@ -4003,10 +4007,11 @@ end
 function buyFromMarket(playerColor, marketPos, isRightClick)
   if not doneLoading or setupInProgress or movingRow or not isSeated(playerColor) then return end
 
-  movingRow = true
-  local card = drawCardFromPosition(marketPos)
-  local vars = PLAYER_VARS[playerColor]
+  movingRow         = true
+  local card        = drawCardFromPosition(marketPos)
+  local vars        = PLAYER_VARS[playerColor]
   local coloredName = getPlayerName(playerColor)
+
   if not card then return end
 
   local md = getMetaData(card)
@@ -4044,25 +4049,10 @@ function buyFromMarket(playerColor, marketPos, isRightClick)
     if playerColor == 'Red' or playerColor == 'Yellow' then
       xOffset = 0 - xOffset
     end
-    card.setPositionSmooth({ toPos[1] + xOffset, tableY + 0.5, toPos[3] }, false, true)
+    DeckLib.placeOrMergeIntoDeck(card, { toPos[1] + xOffset, tableY + 0.5, toPos[3] })
   else
     local deckPos = PlayermatApi.getZonePosition(playerColor, "Deck")
-    local toPos = deckPos
-    local deck = nil
-    for _, object in ipairs(SearchLib.atPosition(deckPos, "isCardOrDeck")) do
-      if object.type == 'Deck' then
-        deck = object
-      else
-        object.setPositionSmooth({ toPos[1], tileY + 0.5, toPos[3] }, false, true)
-      end
-      break
-    end
-    if deck == nil then
-      card.setRotationSmooth(facedown, false, true)
-      card.setPositionSmooth({ toPos[1], tileY, toPos[3] }, false, true)
-    else
-      deck.putObject(card)
-    end
+    DeckLib.placeOrMergeIntoDeck(card, deckPos, facedown, true)
   end
   broadcastToAll(coloredName .. ' bought ' .. card.getName() .. ' (' .. md.cost .. suffix .. ").")
   Wait.time(function() movingRow = false end, 0.5)
@@ -4214,7 +4204,7 @@ function deliverRewards(playerColor, obj, str)
 
   local resourceLabels     = { t = 'tablet', a = 'arrowhead', j = 'jewel', c = 'coin', s = 'compass', q = 'dark tablet' }
   local resourceCount      = {}
-  local deliveredAll       = false
+  local deliveredAll       = true
   local deliveredResources = false
   local p                  = getPlayerName(playerColor)
 
@@ -4243,7 +4233,7 @@ function deliverRewards(playerColor, obj, str)
       gainResource("q", playerColor)
     elseif reward == 'f' then
       -- exception for miners helmet (but not for idols)
-      if obj.hasTag("idol") or not hasMinersHelmetActive(playerColor) then
+      if (obj and obj.hasTag("idol")) or not hasMinersHelmetActive(playerColor) then
         broadcastToAll(p .. ' gets a Fear card.')
         getFearCard(playerColor)
       else
@@ -4373,6 +4363,27 @@ function getStaff()
   return staffList[1]
 end
 
+function goesInDeck(object)
+  if object == nil then return false end
+
+  local excludeTags = { 'assistant', 'idol', 'site1', 'site2', 'guardian', "SpecialDelivery" }
+
+  local cardTags = nil
+  if object.type == 'Card' then
+    cardTags = object.getTags()
+  else
+    cardTags = object.tags
+  end
+
+  if not cardTags or #cardTags == 0 then return true end
+
+  for _, tag in ipairs(excludeTags) do
+    if cardTags[1] == tag then return false end
+  end
+
+  return true
+end
+
 function nextRoundCoroutine()
   setupInProgress = true
   refillRowCoroutine()
@@ -4410,7 +4421,7 @@ function nextRoundCoroutine()
         if i < 3 or round > 1 then
           local food = getObjectFromGUID(guid)
           if food ~= nil then
-            food.setRotationSmooth(faceup, false, true)
+            food.setRotation(faceup)
 
             local foodPos = PlayermatApi.getZonePosition(playerColor, "Food" .. i)
             food.setPositionSmooth(foodPos, false, false)
@@ -4422,32 +4433,14 @@ function nextRoundCoroutine()
 
   wait(0.5)
 
-  function goesInDeck(object)
-    if object == nil then return false end
-    local excludeTags = { 'assistant', 'idol', 'site1', 'site2', 'guardian' }
-
-    local cardTags = nil
-    if object.type == 'Card' then
-      cardTags = object.getTags()
-    else
-      cardTags = object.tags
-    end
-
-    if #cardTags == 0 then return true end
-    for _, tag in ipairs(excludeTags) do
-      if cardTags[1] == tag then return false end
-    end
-    return true
-  end
-
   for _, playerColor in ipairs(seatedPlayerColors) do
     if not (options.solo and playerColor == 'Red') then
-      local toPos = PlayermatApi.getZonePosition(playerColor, "Deck"):setAt("y", tileY)
+      local cards = {}
       for _, object in ipairs(getObjectFromGUID(PLAYER_VARS[playerColor].playAreaZoneGuid).getObjects()) do
         if object.type == 'Card' then
           if goesInDeck(object) then
             object.setRotation(facedown)
-            object.setPositionSmooth(toPos, false, true)
+            table.insert(cards, object)
           end
         elseif object.type == 'Deck' then
           -- check deck contents in case assistants/idols/sites/guardians were grouped
@@ -4464,15 +4457,24 @@ function nextRoundCoroutine()
             local cardToMove = nil
             if deck == nil then
               cardToMove = getObjectFromGUID(guid)
+              cardToMove.setRotation(facedown)
             else
-              cardToMove = deck.takeObject({ guid = guid })
+              cardToMove = deck.takeObject({ guid = guid, rotation = facedown })
             end
             wait(0.01)
-            cardToMove.setScale({ 2.3, 1, 2.3 })
-            cardToMove.setRotation(facedown)
-            cardToMove.setPositionSmooth(toPos, false, true)
+            table.insert(cards, cardToMove)
           end
         end
+      end
+
+      -- group the cards, shuffle them and put below deck
+      if #cards > 0 then
+        local list = group(cards)
+        wait(0.3)
+        list[1].shuffle()
+
+        local deckPos = PlayermatApi.getZonePosition(playerColor, "Deck")
+        DeckLib.placeOrMergeIntoDeck(list[1], deckPos, facedown, true)
       end
     end
   end
@@ -4538,15 +4540,6 @@ function nextRoundCoroutine()
       broadcastToAll(getPlayerName(playerColor) .. ' adds 1 ' .. resourceLabel .. ' to their suitcase.')
       gainResource(resource, playerColor, true)
       wait(0.5)
-    end
-  end
-
-  -- shuffle decks
-  for _, playerColor in ipairs(seatedPlayerColors) do
-    local deckPos = PlayermatApi.getZonePosition(playerColor, "Deck")
-    local searchResult = SearchLib.atPosition(deckPos, "isDeck")
-    if #searchResult > 0 then
-      searchResult[1].shuffle()
     end
   end
 
@@ -4634,6 +4627,7 @@ function nextRoundCoroutine()
         if specialDelivery == nil then
           for _, object in ipairs(SearchLib.atPosition(OTHER_EXILED_SPOT.pos, "isDeck")) do
             specialDelivery = object.takeObject({ guid = SPECIAL_DELIVERY_GUID })
+            break
           end
         end
 
@@ -5948,12 +5942,16 @@ function positionIsClose(pos1, pos2)
 end
 
 function drawCardFromPosition(deckPosition, position, rotation)
-  for _, object in ipairs(SearchLib.atPosition(deckPosition:setAt("y", 1.5), "isCardOrDeck")) do
+  for _, object in ipairs(SearchLib.atPosition(deckPosition, "isCardOrDeck")) do
     if object.type == 'Card' then
-      if position then
+      if rotation then
         object.setRotation(rotation)
+      end
+
+      if position then
         object.setPositionSmooth(position, false, true)
       end
+
       return object
     elseif object.type == 'Deck' then
       return object.takeObject({ position = position, rotation = rotation })
