@@ -1069,7 +1069,9 @@ researchTracks        = {
       Vector(-0.73, 0, -4.7),
       Vector(0.73, 0, -4.7),
       Vector(2.2, 0, -4.7)
-    }
+    },
+    researchTokenLeft = Vector(8.49, 1.65, -22.5),
+    researchTokenRight = Vector(15.49, 1.65, -22.5)
   },
   -- Owl Temple
   {
@@ -1170,7 +1172,9 @@ researchTracks        = {
           Vector(22.76, 1.63, -14.96)
         }
       }
-    }
+    },
+    researchTokenLeft = Vector(12.05, 1.65, -24.36),
+    researchTokenRight = Vector(18.95, 1.65, -24.36)
   }
 }
 
@@ -1359,12 +1363,6 @@ turn              = nil -- tts bug: the player turn is not set correctly when lo
 
 -- MARK: GENERAL CODE
 
-function onObjectSpawn(obj)
-  if obj.getName() == "Board" then
-    createBoardButtons(obj)
-  end
-end
-
 function onSave()
   return JSON.encode({
     seatedPlayerColors = seatedPlayerColors,
@@ -1395,6 +1393,7 @@ function onLoad(saveState)
     elseif round > 0 then
       drawLines()
       setupButtons()
+      createBoardButtons(getObjectByName("Board"))
       for _, object in ipairs(getObjects()) do
         addExileMenu(object)
         addGetRewardsMenu(object)
@@ -1711,7 +1710,7 @@ function addSiteAndGuardianButton(board, sitePos, lvl)
 end
 
 function convertGlobalPosToBoard(pos)
-  return (pos - Vector(0, 0, 4)):scale(INVERSE_BOARD_SCALE):scale(Vector(1, 1, -1)):setAt("y", 0.1)
+  return (pos - Vector(0, 0, 4)):scale(INVERSE_BOARD_SCALE):scale(Vector(1, 1, -1)):setAt("y", 0.11)
 end
 
 -- MARK: START MENU UI
@@ -2904,6 +2903,22 @@ function setupResearchTrack()
     end
   end
 
+  -- special position for research tokens for Spider Temple / Owl Temple
+  if trackInfo.researchTokenLeft then
+    for i, playerColor in ipairs({"Blue", "Red", "Yellow", "Green"}) do
+      local basePos = Vector.lerp(trackInfo.researchTokenLeft, trackInfo.researchTokenRight, (i - 1) / 3)
+      local journal = getResearchToken("journal", playerColor)
+      if journal then
+        journal.setPositionSmooth(basePos)
+      end
+
+      local magnifying = getResearchToken("magnifying", playerColor)
+      if magnifying then
+        magnifying.setPositionSmooth(basePos + Vector(0, 0.15, 0))
+      end
+    end
+  end
+
   -- maybe place assistants equal to the number of players
   if trackInfo.assistantPos then
     local newDecks = decks.assistants.cut(#seatedPlayerColors)
@@ -2955,6 +2970,7 @@ function setupResearchTrack()
   -- set idols aside
   if decks.idols ~= nil then
     decks.idols.setPosition(Vector(-5, 1.6, 39))
+    decks.idols.setName("Idol Reserve")
   end
 
   -- maybe place waterfall tiles
@@ -3963,7 +3979,7 @@ function setupButtons()
     function_owner = self,
     label          = 'Setup Round ' .. round + 1,
     click_function = 'nextRoundButton',
-    position       = { 0, 1.5, 0 },
+    position       = { 0, 1.2, 0 },
     width          = 2400,
     height         = 500,
     font_size      = 250
@@ -3975,6 +3991,7 @@ function setupButtons()
   end
 
   local buttonBlock = getObjectFromGUID(BUTTON_BLOCK_GUID)
+  buttonBlock.interactable = false
   buttonBlock.createButton(params)
 
   setupButtonsMisc()
