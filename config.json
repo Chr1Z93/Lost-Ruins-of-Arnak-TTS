@@ -35,6 +35,7 @@
   "Lighting_path": "Lighting.json",
   "LuaScript": "require(\"Global\")",
   "LuaScriptState_path": "LuaScriptState.luascriptstate",
+  "MusicPlayer_path": "MusicPlayer.json",
   "Note_path": "Note.luascriptstate",
   "ObjectStates_order": [
     "HandTrigger.85c87e",

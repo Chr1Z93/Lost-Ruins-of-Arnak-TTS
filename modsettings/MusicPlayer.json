@@ -1,7 +1,16 @@
 {
-  "AudioLibrary": [],
-  "CurrentAudioTitle": "Unknown Title",
-  "CurrentAudioURL": "",
-  "PlaylistEntry": -1,
+  "AudioLibrary": [
+    {
+      "Item1": "https://steamusercontent-a.akamaihd.net/ugc/11937432803361617622/E409AAEDC818F94A127B3919B4306E63369419F8/",
+      "Item2": "Lost Rainforest by the Fiechters"
+    },
+    {
+      "Item1": "https://steamusercontent-a.akamaihd.net/ugc/14207830487219693217/F2AE1E003F0956DF908405AEFFFE9D14E65EF581/",
+      "Item2": "Nymphs, Unicorns, Dryads by the Fiechters"
+    }
+  ],
+  "CurrentAudioTitle": "Lost Rainforest by the Fiechters",
+  "CurrentAudioURL": "https://steamusercontent-a.akamaihd.net/ugc/11937432803361617622/E409AAEDC818F94A127B3919B4306E63369419F8/",
+  "PlaylistEntry": 1,
   "RepeatSong": false
 }
