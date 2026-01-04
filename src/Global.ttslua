@@ -9,8 +9,8 @@ local PlayermatApi    = require("playermat/PlayermatApi")
 local SearchLib       = require("util/SearchLib")
 
 TEST_VARS             = {
-  defineSeated  = false,
-  hideSplash    = false,
+  defineSeated  = true,
+  hideSplash    = true,
   seatedPlayers = { 'Blue', 'Green', 'Yellow', 'Red' }
 }
 
@@ -1477,6 +1477,35 @@ function createBoardButtons(board)
       addMarketButton(board, i)
     end
   end
+
+  if isSpiderTemple then
+    local buttonPos = getDarkTabletBucketPos(8)
+    local funcName  = "gainDarkTablet"
+    _G[funcName]    = function(_, playerColor) gainResource("q", playerColor) end
+
+    board.createButton({
+      click_function = funcName,
+      label          = "Take DT",
+      position       = convertGlobalPosToBoard(buttonPos - Vector(0, 0, 1.4)),
+      scale          = INVERSE_BOARD_SCALE,
+      font_size      = 330,
+      width          = 1600,
+      height         = 600
+    })
+
+    funcName     = "returnDarkTablet"
+    _G[funcName] = function(_, playerColor) gainResource("q", playerColor, true) end
+
+    board.createButton({
+      click_function = funcName,
+      label          = "Return DT",
+      position       = convertGlobalPosToBoard(buttonPos - Vector(0, 0, 2.8)),
+      scale          = INVERSE_BOARD_SCALE,
+      font_size      = 330,
+      width          = 1600,
+      height         = 600
+    })
+  end
 end
 
 function addMarketButton(board, i)
@@ -1682,7 +1711,7 @@ function addSiteAndGuardianButton(board, sitePos, lvl)
 end
 
 function convertGlobalPosToBoard(pos)
-  return (pos - Vector(0, 0, 4)):scale(INVERSE_BOARD_SCALE):scale(Vector(1, 1, -1)):setAt("y", 0.06)
+  return (pos - Vector(0, 0, 4)):scale(INVERSE_BOARD_SCALE):scale(Vector(1, 1, -1)):setAt("y", 0.1)
 end
 
 -- MARK: START MENU UI
@@ -3953,11 +3982,38 @@ function setupButtons()
   if options.solo then setupButtonRivalTurn() end
 end
 
+function getLeftMostEmptyDarkTabletSpot()
+  for i = 1, 7 do
+    local bucketPos    = getDarkTabletBucketPos(i)
+    local bucketSearch = SearchLib.inArea(bucketPos, nil, DARK_TABLET_DATA.bucketSize, "isResource")
+
+    if #bucketSearch < #seatedPlayerColors then
+      for j = 1, #seatedPlayerColors do
+        local spotPos    = bucketPos + getDarkTabletOffset(j)
+        local spotSearch = SearchLib.atPosition(spotPos, "isResource")
+        if #spotSearch == 0 then return spotPos:setAt("y", 1.65) end
+      end
+    end
+  end
+end
+
 function gainResource(resource, playerColor, remove)
   if resource == "q" then
     -- special handling for Dark Tablets from the Spider Temple
     if remove then
-      broadcastToAll(getPlayerName(playerColor) .. " needs to manually return a Dark Tablet.", "White")
+      for _, obj in ipairs(getObjectFromGUID(PLAYER_VARS[playerColor].allZoneGuid).getObjects()) do
+        if obj.hasTag("resource") and obj.getGMNotes() == "q" then
+          local targetPos = getLeftMostEmptyDarkTabletSpot()
+
+          obj.setRotation(faceup)
+          obj.setPositionSmooth(targetPos)
+
+          broadcastToAll(getPlayerName(playerColor) .. " returned a Dark Tablet.", "White")
+          return
+        end
+      end
+
+      broadcastToColor("Couldn't find Dark Tablets in your play area.", playerColor, "Red")
       return
     end
 
