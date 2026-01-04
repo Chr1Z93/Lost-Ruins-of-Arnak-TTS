@@ -1206,27 +1206,27 @@ MAIN_BOARD_DATA       = {
   },
   spider = {
     camp        = {
-      { pos = Vector(-26.44, 1.6, -14.67), reward = "cc" },
-      { pos = Vector(-20.40, 1.6, -13.83), reward = "ss" },
-      { pos = Vector(-14.35, 1.6, -13.31), reward = "tt~" },
-      { pos = Vector(-8.60, 1.6, -13.54),  reward = "a" },
-      { pos = Vector(-2.96, 1.6, -14.45),  reward = "j" }
+      { pos = Vector(-26.44, 1.6, -14.77), reward = "cc" },
+      { pos = Vector(-20.40, 1.6, -13.93), reward = "ss" },
+      { pos = Vector(-14.35, 1.6, -13.41), reward = "tt~" },
+      { pos = Vector(-8.60, 1.6, -13.64),  reward = "a" },
+      { pos = Vector(-2.96, 1.6, -14.55),  reward = "*" }
     },
     lvl1        = {
-      { pos = Vector(-25.80, 1.6, -4.75) },
-      { pos = Vector(-18.47, 1.6, -2.61) },
-      { pos = Vector(-11.20, 1.6, -4.07) },
-      { pos = Vector(-4.31, 1.6, -4.30), reward = "#" },
-      { pos = Vector(-25.96, 1.6, 5.59) },
-      { pos = Vector(-18.75, 1.6, 6.31) },
-      { pos = Vector(-11.75, 1.6, 4.94) },
-      { pos = Vector(-4.08, 1.6, 4.71),  reward = "$" }
+      { pos = Vector(-25.80, 1.6, -4.85) },
+      { pos = Vector(-18.47, 1.6, -2.71) },
+      { pos = Vector(-11.20, 1.6, -4.17) },
+      { pos = Vector(-4.31, 1.6, -4.40), reward = "#" },
+      { pos = Vector(-25.96, 1.6, 5.49) },
+      { pos = Vector(-18.75, 1.6, 6.21) },
+      { pos = Vector(-11.75, 1.6, 4.84) },
+      { pos = Vector(-4.08, 1.6, 4.61),  reward = "$" }
     },
     lvl2        = {
-      { pos = Vector(-26.11, 1.6, 16.74) },
-      { pos = Vector(-18.88, 1.6, 17.33) },
-      { pos = Vector(-11.63, 1.6, 17.88) },
-      { pos = Vector(-4.54, 1.6, 16.53), reward = "q" }
+      { pos = Vector(-26.11, 1.6, 16.64) },
+      { pos = Vector(-18.88, 1.6, 17.23) },
+      { pos = Vector(-11.63, 1.6, 17.78) },
+      { pos = Vector(-4.54, 1.6, 16.43), reward = "q" }
     },
     marketStart = Vector(-25.93, 1.65, 25.96),
     marketEnd   = Vector(10.90, 1.65, 25.96)
@@ -1585,7 +1585,7 @@ function placeSite(playerColor, sitePos, lvl)
   end
 
   -- place site
-  local site = placeCardFromZone(DECK_ZONE_GUIDS["sites" .. lvl], sitePos, faceup)
+  local site = placeCardFromZone(DECK_ZONE_GUIDS["sites" .. lvl], sitePos:setAt("y", 1.6), faceup)
   if not site then
     broadcastToColor("Couldn't find a suitable site!", playerColor, "Red")
     return
@@ -1597,11 +1597,9 @@ function placeSite(playerColor, sitePos, lvl)
   return delivered
 end
 
-function placeGuardian(playerColor, guardianPos)
+function placeGuardian(playerColor, guardianPos, allRewardsDelivered)
   if not isSeated(playerColor) then return end
-
-  local guardian = placeCardFromZone(DECK_ZONE_GUIDS.guardians, guardianPos, faceup)
-  guardian.setLock(true)
+  placeCardFromZone(DECK_ZONE_GUIDS.guardians, guardianPos, allRewardsDelivered and faceup or facedown)
 end
 
 function placeCardFromZone(zoneGuid, position, rotation)
@@ -1665,10 +1663,10 @@ function addSiteAndGuardianButton(board, sitePos, lvl)
 
   _G[funcName]      = function(_, playerColor)
     local success = placeSite(playerColor, sitePos, lvl)
-    if success then
-      placeGuardian(playerColor, guardianPos)
-    else
-      broadcastToAll("Place a Guardian after resolving choices from the rewards.")
+    placeGuardian(playerColor, guardianPos, success)
+
+    if not success then
+      broadcastToAll("Flip the Guardian after resolving choices from the rewards.")
     end
   end
 
@@ -1684,7 +1682,7 @@ function addSiteAndGuardianButton(board, sitePos, lvl)
 end
 
 function convertGlobalPosToBoard(pos)
-  return (pos - Vector(0, 0, 4)):scale(INVERSE_BOARD_SCALE):scale(Vector(1, 1, -1)):setAt("y", 0.11)
+  return (pos - Vector(0, 0, 4)):scale(INVERSE_BOARD_SCALE):scale(Vector(1, 1, -1)):setAt("y", 0.06)
 end
 
 -- MARK: START MENU UI
@@ -1889,6 +1887,7 @@ function createGlobalXml()
       {
         tag = "Text",
         attributes = {
+          id        = section.title:gsub("%s+", "") .. "Title",
           fontStyle = "Bold",
           alignment = "MiddleLeft",
           text      = section.title
@@ -2470,6 +2469,18 @@ end
 
 function uiToggle(_, value, id)
   UI.setAttribute(id, 'isOn', value)
+
+  if value == "True" or value == "true" or value == true then
+    if (id == "board3" or id == "board4") then
+      -- grey out research track selection
+      UI.setAttribute("ResearchTrackTitle", "color", "#99999999")
+      UI.setAttribute("ResearchTrackTitle", "text", "Research Track (disabled)")
+    elseif (id == "board1" or id == "board2" or id == "board5") then
+      -- enable research track selection
+      UI.setAttribute("ResearchTrackTitle", "color", "Black")
+      UI.setAttribute("ResearchTrackTitle", "text", "Research Track")
+    end
+  end
 end
 
 function uiSlider(_, value, id)
@@ -2912,9 +2923,9 @@ function setupResearchTrack()
     end
   end
 
-  -- won't need idols after this
+  -- set idols aside
   if decks.idols ~= nil then
-    decks.idols.destruct()
+    decks.idols.setPosition(Vector(-5, 1.6, 39))
   end
 
   -- maybe place waterfall tiles
@@ -3031,7 +3042,7 @@ function setupPlayerAreas()
       -- Setup the solo player board
       local soloBag = getObjectFromGUID(bags.solo)
       for _, object in ipairs(getObjectFromGUID(PLAYER_VARS[playerColor].allZoneGuid).getObjects()) do
-        if object.getName() ~= 'Red Archaeologist' then object.destruct() end
+        if object.getGUID() ~= "4ee1f2" and object.getName() ~= 'Red Archaeologist' then object.destruct() end
       end
       PlayermatApi.getPlayermats(playerColor).destruct()
       soloBag.takeObject({
@@ -3910,6 +3921,7 @@ function drawLines()
     table.insert(vectorLine.points, { pos.x + scale.x / 2, 1.5, pos.z - scale.z / 2 })
     table.insert(vectorLine.points, { pos.x - scale.x / 2, 1.5, pos.z - scale.z / 2 })
     table.insert(vectorLine.points, { pos.x - scale.x / 2, 1.5, pos.z + scale.z / 2 })
+    table.insert(vectorLine.points, { pos.x + scale.x / 2, 1.5, pos.z + scale.z / 2 })
     table.insert(vectorLines, vectorLine)
   end
   Global.setVectorLines(vectorLines)
@@ -4007,7 +4019,9 @@ end
 function buyFromMarket(playerColor, marketPos, isRightClick)
   if not doneLoading or setupInProgress or movingRow or not isSeated(playerColor) then return end
 
-  movingRow         = true
+  movingRow = true
+  Wait.time(function() movingRow = false end, 0.5)
+
   local card        = drawCardFromPosition(marketPos)
   local vars        = PLAYER_VARS[playerColor]
   local coloredName = getPlayerName(playerColor)
@@ -4033,7 +4047,6 @@ function buyFromMarket(playerColor, marketPos, isRightClick)
 
     if bag.getQuantity() < md.cost then
       broadcastToColor('You do not have enough' .. suffix .. ' to buy ' .. card.getName() .. ".", playerColor)
-      movingRow = false
       return
     end
 
@@ -4049,13 +4062,12 @@ function buyFromMarket(playerColor, marketPos, isRightClick)
     if playerColor == 'Red' or playerColor == 'Yellow' then
       xOffset = 0 - xOffset
     end
-    DeckLib.placeOrMergeIntoDeck(card, { toPos[1] + xOffset, tableY + 0.5, toPos[3] })
+    DeckLib.placeOrMergeIntoDeck(card, Vector(toPos[1] + xOffset, tableY + 0.5, toPos[3]))
   else
     local deckPos = PlayermatApi.getZonePosition(playerColor, "Deck")
     DeckLib.placeOrMergeIntoDeck(card, deckPos, facedown, true)
   end
   broadcastToAll(coloredName .. ' bought ' .. card.getName() .. ' (' .. md.cost .. suffix .. ").")
-  Wait.time(function() movingRow = false end, 0.5)
 end
 
 -- i goes from 1 to 6
@@ -4086,7 +4098,8 @@ end
 
 function refillRowCoroutine()
   if movingRow then return 1 end
-  movingRow       = true
+  movingRow = true
+  Wait.time(function() movingRow = false end, 0.5)
 
   -- get cards/decks in the row
   local artifacts = {}
@@ -4137,7 +4150,6 @@ function refillRowCoroutine()
     end
     wait(0.2)
   end
-  movingRow = false
   return 1
 end
 
@@ -4169,7 +4181,7 @@ function getResearchToken(type, playerColor)
   if type == "magnifying" then type = "Magnifying Glass" end
   if type == "journal" then type = "Journal" end
   if type == "lantern" then type = "Lantern" end
-  return getObjectByName(type .. " " .. playerColor)
+  return getObjectByName(playerColor .. " " .. type)
 end
 
 function getGlobalPosForIdolSlot(playerColor, points)
@@ -4194,6 +4206,7 @@ TEXT_REWARDS = {
   ["%"] = ' may gain the reward from an available idol on the board.',
   ["~"] = ' may discard a card to gain a dark tablet.',
   ["#"] = ' may pay a coin to gain a dark tablet.',
+  ["$"] = ' may take a Fear card to get a dark tablet.',
   ["p"] = ' may take one 2-point temple tile from any stack for free.'
 }
 
@@ -4227,17 +4240,21 @@ function deliverRewards(playerColor, obj, str)
     elseif TEXT_REWARDS[reward] then
       broadcastToAll(p .. TEXT_REWARDS[reward])
       deliveredAll = false
-    elseif reward == "$" then
-      broadcastToAll(p .. ' gets a Fear card and a dark tablet.')
-      getFearCard(playerColor)
-      gainResource("q", playerColor)
+    elseif reward == "*" then
+      local bag = getObjectFromGUID(PLAYER_VARS[playerColor].resourceBags.c)
+      if not bag or bag.getQuantity() == 0 then
+        broadcastToColor("You do not have 1 coin to get a jewel.", playerColor)
+      else
+        broadcastToAll(p .. " pays a coin to get a jewel.")
+        gainResource("j", playerColor)
+      end
     elseif reward == 'f' then
       -- exception for miners helmet (but not for idols)
       if (obj and obj.hasTag("idol")) or not hasMinersHelmetActive(playerColor) then
         broadcastToAll(p .. ' gets a Fear card.')
         getFearCard(playerColor)
       else
-        broadcastToAll(p .. " does not get a fear card due to an active Miner's Helmet.")
+        broadcastToAll(p .. " does not get a Fear card due to an active Miner's Helmet.")
       end
     elseif reward == 'd' then
       PlayermatApi.drawCard(playerColor)
@@ -5257,7 +5274,7 @@ function exile(object)
     local pos, rot
     local md = getMetaData(object)
 
-    if md.type == "Starter" then
+    if not md or not md.type or md.type == "Starter" then
       pos = OTHER_EXILED_SPOT.pos
       rot = OTHER_EXILED_SPOT.rot
     else

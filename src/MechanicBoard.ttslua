@@ -6,34 +6,19 @@ local ROT_OFFSET = {
 function onLoad()
   self.createButton({
     label          = "↻",
-    click_function = "rotateCW",
+    click_function = "rotateWheel",
     function_owner = self,
-    tooltip        = "Rotate the wheel clockwise.",
-    position       = { 2.67, 0.35, 0.08 },
-    font_size      = 300,
-    scale          = { 0.1, 0.1, 0.1 },
-    width          = 1000,
-    height         = 450
-  })
-
-  self.createButton({
-    label          = "Undo",
-    click_function = "rotateCCW",
-    function_owner = self,
-    tooltip        = "Rotate the wheel counter-clockwise.",
-    position       = { 2.67, 0.35, -0.03 },
-    font_size      = 300,
+    tooltip        = "Rotate the wheel clockwise.\nRight-click to undo.",
+    position       = { 2.67, 0.35, 0 },
+    font_size      = 325,
     scale          = { 0.1, 0.1, 0.1 },
     width          = 1000,
     height         = 450
   })
 end
 
-function rotateCW() rotate("cw") end
-
-function rotateCCW() rotate("ccw") end
-
-function rotate(dir)
+function rotateWheel(_, _, isRightClick)
+  local dir = isRightClick and "ccw" or "cw"
   if WAIT then return end
   local wheel = getObjectByTag("Wheel")
   if wheel ~= nil then
