@@ -9,8 +9,8 @@ local PlayermatApi    = require("playermat/PlayermatApi")
 local SearchLib       = require("util/SearchLib")
 
 TEST_VARS             = {
-  defineSeated  = true,
-  hideSplash    = true,
+  defineSeated  = false,
+  hideSplash    = false,
   seatedPlayers = { 'Blue', 'Green', 'Yellow', 'Red' }
 }
 
@@ -118,73 +118,34 @@ PLAYER_VARS           = {
   }
 }
 
--- data for idols slots: points and local position
+-- points for idol slots
 IDOL_SLOT_DATA        = {
   -- captain
-  {
-    { points = 1, localPos = Vector(-0.149, 0, -0.672) },
-    { points = 2, localPos = Vector(-0.549, 0, -0.672) },
-    { points = 3, localPos = Vector(-1.025, 0, -0.672) },
-    { points = 4, localPos = Vector(-1.427, 0, -0.672) }
-  },
+  { 1, 2, 3, 4 },
+
   -- falconer
-  {
-    { points = 1, localPos = Vector(-0.149, 0, -0.672) },
-    { points = 2, localPos = Vector(-0.549, 0, -0.672) },
-    { points = 3, localPos = Vector(-1.025, 0, -0.672) },
-    { points = 4, localPos = Vector(-1.427, 0, -0.672) }
-  },
+  { 1, 2, 3, 4 },
+
   -- baroness
-  {
-    { points = 1, localPos = Vector(-0.149, 0, -0.672) },
-    { points = 2, localPos = Vector(-0.549, 0, -0.672) },
-    { points = 3, localPos = Vector(-1.025, 0, -0.672) },
-    { points = 4, localPos = Vector(-1.427, 0, -0.672) }
-  },
+  { 1, 2, 3, 4 },
+
   -- professor
-  {
-    { points = 1, localPos = Vector(-0.149, 0, -0.672) },
-    { points = 2, localPos = Vector(-0.549, 0, -0.672) },
-    { points = 3, localPos = Vector(-1.025, 0, -0.672) },
-    { points = 4, localPos = Vector(-1.427, 0, -0.672) }
-  },
+  { 1, 2, 3, 4 },
+
   -- explorer
-  {
-    { points = 1, localPos = Vector(-0.149, 0, -0.672) },
-    { points = 2, localPos = Vector(-0.549, 0, -0.672) },
-    { points = 3, localPos = Vector(-1.025, 0, -0.672) },
-    { points = 4, localPos = Vector(-1.427, 0, -0.672) }
-  },
+  { 1, 2, 3, 4 },
+
   -- mystic
-  {
-    { points = 1, localPos = Vector(-0.120, 0, -0.663) },
-    { points = 2, localPos = Vector(-0.514, 0, -0.663) },
-    { points = 2, localPos = Vector(-0.992, 0, -0.663) },
-    { points = 3, localPos = Vector(-1.396, 0, -0.663) },
-    { points = 4, localPos = Vector(-1.798, 0, -0.663) }
-  },
+  { 1, 2, 2, 3, 4 },
+
   -- journalist
-  {
-    { points = 2, localPos = Vector(1.644, 0, -0.674) },
-    { points = 3, localPos = Vector(1.225, 0, -0.674) },
-    { points = 4, localPos = Vector(0.800, 0, -0.674) },
-    { points = 0, localPos = Vector(-3.485, 0, -0.254) },
-    { points = 0, localPos = Vector(-3.494, 0, 0.249) }
-  },
+  { 2, 3, 4, 0, 0 },
+
   -- mechanic
-  {
-    { points = 1, localPos = Vector(1.621, 0, -0.677) },
-    { points = 2, localPos = Vector(1.231, 0, -0.677) },
-    { points = 3, localPos = Vector(0.770, 0, -0.677) },
-    { points = 4, localPos = Vector(0.378, 0, -0.677) }
-  },
+  { 1, 2, 3, 4 },
+
   -- base game board
-  {
-    { points = 1, localPos = Vector(-1.330, 0, -0.634) },
-    { points = 2, localPos = Vector(-1.714, 0, -0.634) },
-    { points = 3, localPos = Vector(-2.097, 0, -0.634) },
-    { points = 4, localPos = Vector(-2.478, 0, -0.634) }
-  }
+  { 1, 2, 3, 4 }
 }
 
 DARK_TABLET_DATA      = {
@@ -2905,7 +2866,7 @@ function setupResearchTrack()
 
   -- special position for research tokens for Spider Temple / Owl Temple
   if trackInfo.researchTokenLeft then
-    for i, playerColor in ipairs({"Blue", "Red", "Yellow", "Green"}) do
+    for i, playerColor in ipairs({ "Blue", "Red", "Yellow", "Green" }) do
       local basePos = Vector.lerp(trackInfo.researchTokenLeft, trackInfo.researchTokenRight, (i - 1) / 3)
       local journal = getResearchToken("journal", playerColor)
       if journal then
@@ -4257,11 +4218,28 @@ function getResearchToken(type, playerColor)
   return getObjectByName(playerColor .. " " .. type)
 end
 
+function getLocalIdolSlotPositions(playerColor)
+  local mat               = PlayermatApi.getPlayermats(playerColor)
+  local idolSnapPositions = {}
+
+  for _, snap in ipairs(mat.getSnapPoints()) do
+    if snap.tags[1] == "idol" then
+      table.insert(idolSnapPositions, snap.position)
+    end
+  end
+
+  table.sort(idolSnapPositions, function(a, b) return a.x > b.x end)
+
+  return idolSnapPositions
+end
+
 function getGlobalPosForIdolSlot(playerColor, points)
-  for _, data in ipairs(IDOL_SLOT_DATA[options.playerBoards[playerColor]]) do
-    if data.points == points then
-      local board = PlayermatApi.getPlayermats(playerColor)
-      return board.positionToWorld(data.localPos)
+  local mat               = PlayermatApi.getPlayermats(playerColor)
+  local idolSnapPositions = getLocalIdolSlotPositions(playerColor)
+
+  for i, slotPoints in ipairs(IDOL_SLOT_DATA[options.playerBoards[playerColor]]) do
+    if slotPoints == points then
+      return mat.positionToWorld(idolSnapPositions[i])
     end
   end
 end
@@ -5187,36 +5165,21 @@ end
 
 -- score empty idol slots
 function scoreUncoveredIdolSlots(playerColor)
-  local idolSlotPoints = 0
-  local board = PlayermatApi.getPlayermats(playerColor)
-  local idolData = IDOL_SLOT_DATA[options.playerBoards[playerColor]]
+  local idolSlotPoints    = 0
+  local mat               = PlayermatApi.getPlayermats(playerColor)
+  local idolData          = IDOL_SLOT_DATA[options.playerBoards[playerColor]]
+  local idolSnapPositions = getLocalIdolSlotPositions(playerColor)
 
-  for _, data in ipairs(idolData) do
+  for i, points in ipairs(idolData) do
     -- get all objects in this spot
-    local searchResult = Physics.cast({
-      origin       = board.positionToWorld(data.localPos):setAt("y", 2),
-      direction    = { 0, -1, 0 },
-      orientation  = { 0, 0, 0 },
-      type         = 3,
-      size         = { 0.1, 2, 0.1 },
-      max_distance = 2
-    })
-
-    -- check if occupied by idol or deck of idols
-    local empty = true
-    for _, hit in ipairs(searchResult) do
-      local obj = hit.hit_object
-      if obj.hasTag("idol") then
-        empty = false
-        break
-      end
-    end
+    local searchResult = SearchLib.atPosition(mat.positionToWorld(idolSnapPositions[i]), "isIdol")
 
     -- give points if empty
-    if empty then
-      idolSlotPoints = idolSlotPoints + data.points
+    if #searchResult == 0 then
+      idolSlotPoints = idolSlotPoints + points
     end
   end
+
   return idolSlotPoints
 end
 
