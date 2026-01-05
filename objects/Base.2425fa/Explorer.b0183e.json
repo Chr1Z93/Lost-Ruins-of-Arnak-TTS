@@ -1,0 +1,199 @@
+{
+  "AltLookAngle": {
+    "x": 0,
+    "y": 0,
+    "z": 0
+  },
+  "AttachedSnapPoints": [
+    {
+      "Position": {
+        "x": -3.183,
+        "y": 0.05,
+        "z": 0.442
+      },
+      "Tags": [
+        "assistant"
+      ]
+    },
+    {
+      "Position": {
+        "x": -3.183,
+        "y": 0.05,
+        "z": -0.455
+      },
+      "Tags": [
+        "assistant"
+      ]
+    },
+    {
+      "Position": {
+        "x": -0.149,
+        "y": 0.05,
+        "z": -0.672
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "idol"
+      ]
+    },
+    {
+      "Position": {
+        "x": -0.549,
+        "y": 0.05,
+        "z": -0.672
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "idol"
+      ]
+    },
+    {
+      "Position": {
+        "x": -1.025,
+        "y": 0.05,
+        "z": -0.672
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "idol"
+      ]
+    },
+    {
+      "Position": {
+        "x": -1.427,
+        "y": 0.05,
+        "z": -0.672
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "idol"
+      ]
+    },
+    {
+      "Position": {
+        "x": 1.41,
+        "y": 0.05,
+        "z": -0.13
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      }
+    },
+    {
+      "Position": {
+        "x": -2.442,
+        "y": 0.05,
+        "z": -0.623
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Tags": [
+        "food"
+      ]
+    },
+    {
+      "Position": {
+        "x": -2.442,
+        "y": 0.05,
+        "z": 0
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Tags": [
+        "food"
+      ]
+    },
+    {
+      "Position": {
+        "x": -2.442,
+        "y": 0.05,
+        "z": 0.619
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Tags": [
+        "food"
+      ]
+    }
+  ],
+  "Autoraise": true,
+  "ColorDiffuse": {
+    "b": 1,
+    "g": 1,
+    "r": 1
+  },
+  "CustomImage": {
+    "CustomToken": {
+      "MergeDistancePixels": 15,
+      "Stackable": false,
+      "StandUp": false,
+      "Thickness": 0.1
+    },
+    "ImageScalar": 1,
+    "ImageSecondaryURL": "",
+    "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/1862807092245592625/68C58E762EEC7BB273D92CDEB3339545CC1082CF/",
+    "WidthScale": 0
+  },
+  "Description": "",
+  "DragSelectable": true,
+  "GMNotes": "",
+  "GUID": "b0183e",
+  "Grid": true,
+  "GridProjection": false,
+  "Hands": false,
+  "HideWhenFaceDown": false,
+  "IgnoreFoW": false,
+  "LayoutGroupSortIndex": 0,
+  "Locked": true,
+  "LuaScript": "",
+  "LuaScriptState": "",
+  "MeasureMovement": false,
+  "Name": "Custom_Token",
+  "Nickname": "Explorer",
+  "Snap": true,
+  "Sticky": true,
+  "Tags": [
+    "Playermat"
+  ],
+  "Tooltip": false,
+  "Transform": {
+    "posX": -51,
+    "posY": 1.531,
+    "posZ": -22,
+    "rotX": 0,
+    "rotY": 180,
+    "rotZ": 0,
+    "scaleX": 5.25,
+    "scaleY": 1,
+    "scaleZ": 5.25
+  },
+  "Value": 0,
+  "XmlUI": ""
+}

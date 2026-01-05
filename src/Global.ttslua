@@ -1897,7 +1897,7 @@ function setupResearchTrack()
   local trackInfo = RESEARCH_TRACK_DATA[options.researchTrack]
 
   -- Check the research board and if its not what was chosen via options, change it
-  local researchTrack = getObjectByName("Research Track")
+  local researchTrack = getObjectByTag("ResearchTrack")
 
   if researchTrack then
     if options.researchTrack == 7 or options.researchTrack == 8 then
@@ -2191,11 +2191,11 @@ function setupPlayerAreas()
   for _, playerColor in ipairs(seatedPlayerColors) do
     if options.solo and playerColor == 'Red' then
       -- Setup the solo player board
-      local soloBag = getObjectFromGUID(BAG_GUIDS.solo)
       for _, object in ipairs(getObjectFromGUID(PLAYER_VARS[playerColor].allZoneGuid).getObjects()) do
         if object.getGUID() ~= "4ee1f2" and object.getName() ~= 'Red Archaeologist' then object.destruct() end
       end
-      PlayermatApi.getPlayermats(playerColor).destruct()
+
+      local soloBag = getObjectFromGUID(BAG_GUIDS.solo)
       soloBag.takeObject({
         guid              = solo.board,
         position          = solo.boardPosition,

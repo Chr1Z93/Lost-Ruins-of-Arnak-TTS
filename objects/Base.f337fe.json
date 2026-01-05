@@ -1,0 +1,165 @@
+{
+  "AltLookAngle": {
+    "x": 0,
+    "y": 0,
+    "z": 0
+  },
+  "AttachedSnapPoints": [
+    {
+      "Position": {
+        "x": 1.589,
+        "y": 0.05,
+        "z": -0.634
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "idol"
+      ]
+    },
+    {
+      "Position": {
+        "x": 1.206,
+        "y": 0.05,
+        "z": -0.634
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "idol"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.819,
+        "y": 0.05,
+        "z": -0.634
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "idol"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.44,
+        "y": 0.05,
+        "z": -0.634
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "idol"
+      ]
+    },
+    {
+      "Position": {
+        "x": 3.059,
+        "y": 0.05,
+        "z": -0.002
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      }
+    },
+    {
+      "Position": {
+        "x": -0.278,
+        "y": 0.05,
+        "z": 0.425
+      },
+      "Tags": [
+        "assistant"
+      ]
+    },
+    {
+      "Position": {
+        "x": -0.278,
+        "y": 0.05,
+        "z": -0.44
+      },
+      "Tags": [
+        "assistant"
+      ]
+    }
+  ],
+  "Autoraise": true,
+  "ColorDiffuse": {
+    "b": 1,
+    "g": 1,
+    "r": 1
+  },
+  "ContainedObjects_path": "Base.f337fe",
+  "CustomImage": {
+    "CustomToken": {
+      "MergeDistancePixels": 15,
+      "Stackable": false,
+      "StandUp": false,
+      "Thickness": 0.1
+    },
+    "ImageScalar": 1,
+    "ImageSecondaryURL": "",
+    "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/1862807092245592790/C87906346BDF7E875A1FE7066A0085B7ED1C202F/",
+    "WidthScale": 0
+  },
+  "Description": "",
+  "DragSelectable": true,
+  "GMNotes": "",
+  "GUID": "f337fe",
+  "Grid": true,
+  "GridProjection": false,
+  "Hands": false,
+  "HideWhenFaceDown": false,
+  "IgnoreFoW": false,
+  "LayoutGroupSortIndex": 0,
+  "Locked": true,
+  "LuaScript": "",
+  "LuaScriptState": "",
+  "MeasureMovement": false,
+  "Name": "Custom_Token",
+  "Nickname": "Base",
+  "Snap": true,
+  "States_path": {
+    "1": "Captain.a66116",
+    "2": "Falconer.f7cf22",
+    "3": "Baroness.7621f8",
+    "4": "Professor.cd6f6e",
+    "5": "Explorer.fb822c",
+    "6": "Mystic.eba262",
+    "7": "Journalist.161ec5",
+    "8": "Mechanic.89782a"
+  },
+  "Sticky": true,
+  "Tags": [
+    "Playermat"
+  ],
+  "Tooltip": false,
+  "Transform": {
+    "posX": 59,
+    "posY": 1.531,
+    "posZ": -22,
+    "rotX": 0,
+    "rotY": 180,
+    "rotZ": 0,
+    "scaleX": 5.25,
+    "scaleY": 1,
+    "scaleZ": 5.25
+  },
+  "Value": 0,
+  "XmlUI": ""
+}
