@@ -320,46 +320,46 @@ researchTracks        = {
       {
         z = 0.95,
         magnifying = 16,
-        notebook = 10,
+        journal = 10,
         paths = { { pos = { 9.29, 1.78, 2.43 }, forward = { 1 }, bonus = true }, { pos = { 16.64, 1.78, 2.43 }, forward = { 1 }, bonus = true } }
       },
       {
         z = -3.16,
         magnifying = 12,
-        notebook = 8,
+        journal = 8,
         paths = { { pos = { 9.34, 1.78, -1.65 }, forward = { 1 }, bonus = true }, { pos = { 14.05, 1.78, -1.65 }, forward = { 1, 2 }, bonus = true } }
       },
       {
         z = -7.36,
         magnifying = 9,
-        notebook = 6,
+        journal = 6,
         paths = { { pos = { 11.45, 1.78, -5.71 }, forward = { 1, 2 }, bonus = true } }
       },
       {
         z = -11.44,
         magnifying = 6,
-        notebook = 4,
+        journal = 4,
         assistant = true,
         paths = { { pos = { 9.11, 1.78, -9.83 }, forward = { 1 }, bonus = true }, { pos = { 13.22, 1.78, -9.84 }, forward = { 1 }, bonus = true }, { pos = { 17.23, 1.78, -9.84 }, forward = { 1 }, bonus = true } }
       },
       {
         z = -15.93,
         magnifying = 4,
-        notebook = 2,
+        journal = 2,
         assistant = true,
         paths = { { pos = { 13.01, 1.78, -14.25 }, forward = { 1, 2, 3 }, bonus = true } }
       },
       {
         z = -20.50,
         magnifying = 2,
-        notebook = 1,
+        journal = 1,
         assistant = true,
         paths = { { pos = { 9.08, 1.78, -18.72 }, forward = { 1 }, bonus = true }, { pos = { 13.77, 1.78, -18.73 }, forward = { 1 }, bonus = true } }
       },
       {
         z = -24.93,
         magnifying = 1,
-        notebook = 0,
+        journal = 0,
         assistant = true,
         paths = { { pos = { 9.31, 1.73, -23.28 }, forward = { 1, 2 } }, { pos = { 17.53, 1.73, -23.28 }, forward = { 2 } } }
       }
@@ -408,46 +408,46 @@ researchTracks        = {
       {
         z = 0.66,
         magnifying = 15,
-        notebook = 15,
+        journal = 15,
         paths = { { forward = { 1 }, bonusPos = { { 9.07, 1.78, 2.38 }, { 13.08, 1.78, 2.38 }, { 16.90, 1.78, 2.38 } } } }
       },
       {
         z = -3.47,
         magnifying = 10,
-        notebook = 12,
+        journal = 12,
         paths = { { pos = { 9.06, 1.78, -1.92 }, forward = { 1 }, bonus = true }, { pos = { 15.33, 1.78, -1.92 }, forward = { 1 }, bonus = true } }
       },
       {
         z = -7.51,
         magnifying = 5,
-        notebook = 8,
+        journal = 8,
         assistant = true,
         paths = { { pos = { 9.07, 1.78, -6.02 }, forward = { 1, 2 }, bonus = true }, { pos = { 16.93, 1.78, -6.02 }, forward = { 2 }, bonus = true } }
       },
       {
         z = -12.46,
         magnifying = 4,
-        notebook = 5,
+        journal = 5,
         assistant = true,
         paths = { { pos = { 17.37, 1.73, -10.84 }, forward = { 1, 2 } } }
       },
       {
         z = -16.61,
         magnifying = 3,
-        notebook = 4,
+        journal = 4,
         assistant = true,
         paths = { { pos = { 9.06, 1.78, -15.03 }, forward = { 1 }, bonus = true }, { pos = { 16.91, 1.78, -15.03 }, forward = { 1 }, bonus = true } }
       },
       {
         z = -20.93,
         magnifying = 2,
-        notebook = 3,
+        journal = 3,
         paths = { { pos = { 9.05, 1.78, -19.26 }, forward = { 1 }, bonus = true }, { pos = { 13.16, 1.78, -19.26 }, forward = { 1, 2 }, bonus = true }, { pos = { 16.90, 1.78, -19.26 }, forward = { 2 }, bonus = true } }
       },
       {
         z = -25.04,
         magnifying = 1,
-        notebook = 0,
+        journal = 0,
         assistant = true,
         paths = { { pos = { 8.69, 1.73, -23.36 }, forward = { 1, 2 } }, { pos = { 14.50, 1.73, -23.23 }, forward = { 2, 3 } } }
       }
@@ -495,52 +495,52 @@ researchTracks        = {
       {
         z = 1.48,
         magnifying = 15,
-        notebook = 16,
+        journal = 16,
         paths = { { pos = { 9.42, 1.73, 3 }, forward = { 1 } }, { pos = { 15.75, 1.73, 3 }, forward = { 1 } } }
       },
       {
         z = -1.89,
         magnifying = 9,
-        notebook = 9,
+        journal = 9,
         assistant = true,
         paths = { { pos = { 8.53, 1.73, -0.47 }, forward = { 1 } }, { pos = { 13.74, 1.73, -0.47 }, forward = { 1, 2 } } }
       },
       {
         z = -5.4,
         magnifying = 8,
-        notebook = 7,
+        journal = 7,
         paths = { { pos = { 12.79, 1.78, -3.99 }, forward = { 1, 2 }, bonus = true } }
       },
       {
         z = -9.87,
         magnifying = 5,
-        notebook = 4,
+        journal = 4,
         paths = { { pos = { 16.51, 1.73, -7.80 }, forward = { 1 } } }
       },
       {
         z = -14.5,
         magnifying = 5,
-        notebook = 2,
+        journal = 2,
         assistant = true,
         paths = { { pos = { 16.44, 1.73, -12.55 }, forward = { 1 } } }
       },
       {
         z = -18.14,
         magnifying = 4,
-        notebook = 1,
+        journal = 1,
         paths = { { pos = { 13.50, 1.78, -16.70 }, forward = { 1 }, bonus = true } }
       },
       {
         z = -21.8,
         magnifying = 3,
-        notebook = 0,
+        journal = 0,
         assistant = true,
         paths = { { pos = { 8.23, 1.73, -20.30 }, forward = { 1 } }, { pos = { 13.20, 1.73, -20.30 }, forward = { 1 } }, { pos = { 16.68, 1.73, -20.30 }, forward = { 1 } } }
       },
       {
         z = -24.98,
         magnifying = 1,
-        notebook = 0,
+        journal = 0,
         assistant = true,
         paths = { { pos = { 8.48, 1.73, -23.76 }, forward = { 1 } }, { pos = { 11.74, 1.73, -23.80 }, forward = { 1, 2 } }, { pos = { 15.24, 1.73, -23.76 }, forward = { 2, 3 } } }
       }
@@ -591,46 +591,46 @@ researchTracks        = {
       {
         z = 1.12,
         magnifying = 20,
-        notebook = 13,
+        journal = 13,
         paths = { { forward = { 1 }, bonusPos = { { 9.02, 1.78, 2.57 }, { 11.37, 1.78, 2.57 }, { 15.01, 1.78, 2.56 }, { 17.35, 1.78, 2.56 } } } }
       },
       {
         z = -2.13,
         magnifying = 12,
-        notebook = 10,
+        journal = 10,
         paths = { { pos = { 8.75, 1.73, -0.96 }, forward = { 1 } }, { pos = { 15.73, 1.73, -0.96 }, forward = { 1 } } }
       },
       {
         z = -6.21,
         magnifying = 8,
-        notebook = 7,
+        journal = 7,
         assistant = true,
         paths = { { forward = { 1, 2 }, bonusPos = { { 9.33, 1.78, -4.60 }, { 11.89, 1.78, -4.60 }, { 14.44, 1.78, -4.61 }, { 17, 1.78, -4.61 } } } }
       },
       {
         z = -13.94,
         magnifying = 4,
-        notebook = 3,
+        journal = 3,
         assistant = true,
         paths = { { pos = { 9.37, 1.78, -9.19 }, forward = { 1 }, bonus = true } }
       },
       {
         z = -17.54,
         magnifying = 3,
-        notebook = 3,
+        journal = 3,
         paths = { { pos = { 9.15, 1.78, -16.18 }, forward = { 1 }, bonus = true }, { pos = { 13.19, 1.73, -16.18 }, forward = { 1 } }, { pos = { 16.93, 1.78, -16.18 }, forward = { 1 }, bonus = true } }
       },
       {
         z = -21.18,
         magnifying = 2,
-        notebook = 1,
+        journal = 1,
         assistant = true,
         paths = { { pos = { 9.15, 1.78, -19.77 }, forward = { 1, 2 }, bonus = true }, { pos = { 16.97, 1.78, -19.80 }, forward = { 2, 3 }, bonus = true } }
       },
       {
         z = -24.96,
         magnifying = 1,
-        notebook = 0,
+        journal = 0,
         assistant = true,
         paths = { { pos = { 7.97, 1.73, -23.29 }, forward = { 1 } }, { pos = { 11.94, 1.73, -23.29 }, forward = { 1, 2 } }, { pos = { 16.19, 1.73, -23.29 }, forward = { 2 } } }
       }
@@ -679,7 +679,7 @@ researchTracks        = {
       { { 19.75, 1.78, 5.90 } }
     },
     -- z-position in the following table is for research token detection (scoring)
-    -- magnifying / notebook indicates the points for reaching that row
+    -- magnifying / journal indicates the points for reaching that row
     -- assistant indicates whether the rival will remove an assistant
     rows = {
       {
@@ -689,46 +689,46 @@ researchTracks        = {
       {
         z = 0.65,
         magnifying = 19,
-        notebook = 13,
+        journal = 13,
         paths = { { pos = { 10.66, 1.73, 2.70 }, forward = { 1 }, bonus = true }, { pos = { 16.82, 1.73, 2.70 }, forward = { 1 }, bonus = true } }
       },
       {
         z = -3.1,
         magnifying = 15,
-        notebook = 10,
+        journal = 10,
         assistant = true,
         paths = { { pos = { 10.37, 1.73, -1.44 }, forward = { 1, 2 } }, { pos = { 16.80, 1.73, -1.42 }, forward = { 1, 2 } } }
       },
       {
         z = -7.7,
         magnifying = 12,
-        notebook = 6,
+        journal = 6,
         paths = { { pos = { 8.92, 1.73, -5.16 }, forward = { 1, 2 }, bonus = true }, { pos = { 11.42, 1.73, -5.05 }, forward = { 1, 2 }, bonus = true }, { pos = { 14.79, 1.73, -4.94 }, forward = { 1, 2 }, bonus = true }, { pos = { 17.45, 1.73, -5.16 }, forward = { 1, 2 }, bonus = true } }
       },
       {
         z = -11.6,
         magnifying = 9,
-        notebook = 5,
+        journal = 5,
         assistant = true,
         paths = { { pos = { 11.91, 1.73, -9.80 }, forward = { 1, 2, 3, 4 }, bonus = true }, { pos = { 14.39, 1.73, -9.77 }, forward = { 1, 2, 3, 4 }, bonus = true } }
       },
       {
         z = -17.9,
         magnifying = 6,
-        notebook = 3,
+        journal = 3,
         paths = { { pos = { 9.79, 1.73, -13.91 }, forward = { 1, 2 }, bonus = true }, { pos = { 11.88, 1.73, -14.68 }, forward = { 1, 2 }, bonus = true }, { pos = { 14.37, 1.73, -14.64 }, forward = { 1, 2 }, bonus = true }, { pos = { 16.78, 1.73, -13.96 }, forward = { 1, 2 }, bonus = true } }
       },
       {
         z = -21.4,
         magnifying = 3,
-        notebook = 1,
+        journal = 1,
         assistant = true,
         paths = { { pos = { 9.42, 1.73, -19.80 }, forward = { 1, 2, 3, 4 }, bonus = true }, { pos = { 16.82, 1.73, -19.80 }, forward = { 1, 2, 3, 4 }, bonus = true } }
       },
       {
         z = -26,
         magnifying = 1,
-        notebook = 0,
+        journal = 0,
         assistant = true,
         paths = { { pos = { 9.22, 1.73, -23.25 }, forward = { 1 } }, { pos = { 15.69, 1.73, -23.44 }, forward = { 1, 2 } } }
       }
@@ -776,7 +776,7 @@ researchTracks        = {
       { { 19.66, 1.78, 5.58 } }
     },
     -- z-position in the following table is for research token detection (scoring)
-    -- magnifying / notebook indicates the points for reaching that row
+    -- magnifying / journal indicates the points for reaching that row
     -- assistant indicates whether the rival will remove an assistant
     rows = {
       {
@@ -786,52 +786,52 @@ researchTracks        = {
       {
         z = 1.1,
         magnifying = 13,
-        notebook = 18
+        journal = 18
       },
       {
         z = -2.25,
         magnifying = 10,
-        notebook = 14,
+        journal = 14,
         assistant = true,
         paths = { { pos = { 11.38, 1.68, 2.44 }, forward = { 1 } }, { pos = { 16.67, 1.68, 2.43 }, forward = { 1 } } }
       },
       {
         z = -6.3,
         magnifying = 8,
-        notebook = 11,
+        journal = 11,
         paths = { { pos = { 13.73, 1.73, -0.55 }, forward = { 1, 2 }, bonus = true } }
 
       },
       {
         z = -10.6,
         magnifying = 5,
-        notebook = 9,
+        journal = 9,
         paths = { { pos = { 9.60, 1.68, -4.47 }, forward = { 1 } } }
       },
       {
         z = -14.8,
         magnifying = 5,
-        notebook = 7,
+        journal = 7,
         assistant = true,
         paths = { { pos = { 10.34, 1.81, -10.75 }, forward = { 1 } } }
       },
       {
         z = -18.6,
         magnifying = 3,
-        notebook = 5,
+        journal = 5,
         assistant = true,
         paths = { { pos = { 9.75, 1.68, -16.95 }, forward = { 1 }, bonus = true } }
       },
       {
         z = -22.1,
         magnifying = 3,
-        notebook = 3,
+        journal = 3,
         paths = { { pos = { 12.73, 1.73, -20.41 }, forward = { 1 } } }
       },
       {
         z = -25.3,
         magnifying = 1,
-        notebook = 0,
+        journal = 0,
         assistant = true,
         paths = { { pos = { 9.23, 1.73, -23.53 }, forward = { 1 } }, { pos = { 14.75, 1.73, -23.63 }, forward = { 1, 2 } } }
       }
@@ -880,7 +880,7 @@ researchTracks        = {
       { { 28.69, 1.68, 18.57 } }
     },
     -- z-position in the following table is for research token detection (scoring)
-    -- magnifying / notebook indicates the points for reaching that row
+    -- magnifying / journal indicates the points for reaching that row
     -- assistant indicates whether the rival will remove an assistant
     rows = {
       {
@@ -889,7 +889,7 @@ researchTracks        = {
           pos  = { 16.28, 2.08, 14.16 }
         },
         magnifying = 20,
-        notebook   = 22
+        journal    = 22
       },
       {
         bucketData = {
@@ -897,7 +897,7 @@ researchTracks        = {
           pos  = { 20.44, 2.08, 9.05 }
         },
         magnifying = 15,
-        notebook   = 17
+        journal    = 17
       },
       {
         bucketData = {
@@ -905,7 +905,7 @@ researchTracks        = {
           pos  = { 2.42, 2.08, 8.98 }
         },
         magnifying = 14,
-        notebook   = 16
+        journal    = 16
       },
       {
         bucketData = {
@@ -913,7 +913,7 @@ researchTracks        = {
           pos  = { 2.42, 2.08, 3.37 }
         },
         magnifying = 12,
-        notebook   = 11
+        journal    = 11
       },
       {
         bucketData = {
@@ -921,7 +921,7 @@ researchTracks        = {
           pos  = { 14.18, 2.08, 3.63 }
         },
         magnifying = 12,
-        notebook   = 11
+        journal    = 11
       },
       {
         bucketData = {
@@ -929,7 +929,7 @@ researchTracks        = {
           pos  = { 26.10, 2.08, 3.63 }
         },
         magnifying = 11,
-        notebook   = 12
+        journal    = 12
       },
       {
         bucketData = {
@@ -937,7 +937,7 @@ researchTracks        = {
           pos  = { 26.01, 2.08, -1.80 }
         },
         magnifying = 9,
-        notebook   = 8
+        journal    = 8
       },
       {
         bucketData = {
@@ -945,7 +945,7 @@ researchTracks        = {
           pos  = { 8.63, 2.08, -1.80 }
         },
         magnifying = 8,
-        notebook   = 8
+        journal    = 8
       },
       {
         bucketData = {
@@ -953,7 +953,7 @@ researchTracks        = {
           pos  = { 20.48, 2.08, -7.02 }
         },
         magnifying = 5,
-        notebook   = 4
+        journal    = 4
       },
       {
         bucketData = {
@@ -961,7 +961,7 @@ researchTracks        = {
           pos  = { 2.66, 2.08, -6.98 }
         },
         magnifying = 5,
-        notebook   = 4
+        journal    = 4
       },
       {
         bucketData = {
@@ -969,7 +969,7 @@ researchTracks        = {
           pos  = { 2.66, 2.08, -12.39 }
         },
         magnifying = 3,
-        notebook   = 3
+        journal    = 3
       },
       {
         bucketData = {
@@ -977,7 +977,7 @@ researchTracks        = {
           pos  = { 16.91, 2.08, -12.14 }
         },
         magnifying = 3,
-        notebook   = 3
+        journal    = 3
       },
       {
         bucketData = {
@@ -985,7 +985,7 @@ researchTracks        = {
           pos  = { 9.55, 2.08, -17.65 }
         },
         magnifying = 1,
-        notebook   = 0
+        journal    = 0
       }
     },
     templePoints = { 31, 29, 28, 27 },
@@ -1047,54 +1047,54 @@ researchTracks        = {
       {}
     },
     -- z-position in the following table is for research token detection (scoring)
-    -- magnifying / notebook indicates the points for reaching that row
+    -- magnifying / journal indicates the points for reaching that row
     -- assistant indicates whether the rival will remove an assistant
     rows = {
       {
         z          = 15.5,
         magnifying = 25,
-        notebook   = 19
+        journal    = 19
       },
       {
         z          = 11,
         magnifying = 20,
-        notebook   = 16
+        journal    = 16
       },
       {
         z          = 6.5,
         magnifying = 16,
-        notebook   = 12
+        journal    = 12
       },
       {
         z          = 1.5,
         magnifying = 11,
-        notebook   = 8
+        journal    = 8
 
       },
       {
         z          = -3,
         magnifying = 8,
-        notebook   = 6
+        journal    = 6
       },
       {
         z          = -7.5,
         magnifying = 4,
-        notebook   = 2
+        journal    = 2
       },
       {
         z          = -12.5,
         magnifying = 3,
-        notebook   = 1
+        journal    = 1
       },
       {
         z          = -17,
         magnifying = 2,
-        notebook   = 1
+        journal    = 1
       },
       {
         z          = -22,
         magnifying = 1,
-        notebook   = 0
+        journal    = 0
       }
     },
     templeTileData = {
@@ -1296,7 +1296,7 @@ soloStatus            = {
   fulfilledObjectives = {},
   pawnsOut            = 0,
   magnifying          = { row = 0, path = 0 },
-  notebook            = { row = 0, path = 0 }
+  journal             = { row = 0, path = 0 }
 }
 
 function addColorToString(playerColor, str)
@@ -4993,7 +4993,7 @@ function calculateScores()
             for i, row in ipairs(trackInfo.rows) do
               -- check if the token is in the defined bucket
               if isPointInBucket(token.getPosition(), row.bucketData) then
-                subscores.research = subscores.research + row[name]
+                subscores.research = subscores.research + (row[name] or 0)
               end
             end
           else
@@ -5002,7 +5002,7 @@ function calculateScores()
               if posZ >= row.z then
                 -- take the magnifying glass score for lantern
                 if name == "lantern" then name = "magnifying" end
-                if i > 1 then subscores.research = subscores.research + row[name] end
+                if i > 1 then subscores.research = subscores.research + (row[name] or 0) end
                 break
               end
             end
@@ -5690,10 +5690,10 @@ function rivalTurnCoroutine()
       end
 
       if gmNotes == 'purple' then
-        -- research with notebook
+        -- research with journal
         wait(1.5)
-        if soloStatus.notebook.row > soloStatus.magnifying.row or soloStatus.notebook.row == 0 and soloStatus.magnifying.row > 0 then
-          rivalResearch('notebook', true)
+        if soloStatus.journal.row > soloStatus.magnifying.row or soloStatus.journal.row == 0 and soloStatus.magnifying.row > 0 then
+          rivalResearch('journal', true)
         end
       end
     end
@@ -5793,7 +5793,7 @@ function rivalResearch(id, doNotTakeAssistant)
     return true
   end
 
-  if id == 'magnifying' and soloStatus[id].row == 1 or id == 'notebook' and soloStatus[id].row == 2 then
+  if id == 'magnifying' and soloStatus[id].row == 1 or id == 'journal' and soloStatus[id].row == 2 then
     wait(1.2)
     function moveSilver(index)
       for _, templeTilePosition in ipairs(track.templeTileData[2].positions) do
