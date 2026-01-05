@@ -10,7 +10,7 @@ local SearchLib             = require("util/SearchLib")
 RESEARCH_TRACK_DATA         = require("ResearchTrackData")
 
 TEST_VARS                   = {
-  defineSeated  = true,
+  defineSeated  = false,
   hideSplash    = false,
   seatedPlayers = { 'Blue', 'Green', 'Yellow', 'Red' }
 }
