@@ -19,11 +19,12 @@ do
 
   -- local coordinates for Blue / Green (inverted X for Red / Yellow)
   local mirrorZones                    = {}
-  mirrorZones["Suitcase"]              = Vector(4.62, 0, 1.5238) - Vector(3, 0, 0) / 5.25
-  mirrorZones["Suitcase_t"]            = Vector(4.37, 0, 2.19) - Vector(3, 0, 0) / 5.25
-  mirrorZones["Suitcase_s"]            = Vector(4.87, 0, 2.19) - Vector(3, 0, 0) / 5.25
+  mirrorZones["Suitcase"]              = Vector(4.62, 0, 1.5238) - Vector(3, 0, -0.5) / 5.25
+  mirrorZones["Suitcase_t"]            = Vector(4.37, 0, 2.19) - Vector(3, 0, -0.5) / 5.25
+  mirrorZones["Suitcase_s"]            = Vector(4.87, 0, 2.19) - Vector(3, 0, -0.5) / 5.25
   mirrorZones["Monkey"]                = Vector(-16.25, 0, -11.35) / 5.25
   mirrorZones["GoldToothAttacher"]     = Vector(-16.12, 0, 6.74) / 5.25
+  mirrorZones["Time"]                  = Vector(24.4, 0, -8.5) / 5.25
 
   local zoneData                       = {}
   zoneData["Blue"]                     = {}

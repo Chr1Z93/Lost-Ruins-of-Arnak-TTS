@@ -28,11 +28,14 @@
   "Nickname": "ButtonBlock",
   "Snap": true,
   "Sticky": true,
+  "Tags": [
+    "NotInteractable"
+  ],
   "Tooltip": true,
   "Transform": {
     "posX": 16.25,
     "posY": 0.5,
-    "posZ": 36.5,
+    "posZ": 39,
     "rotX": 0,
     "rotY": 180,
     "rotZ": 0,

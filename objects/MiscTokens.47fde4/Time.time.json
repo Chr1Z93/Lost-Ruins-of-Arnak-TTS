@@ -1,0 +1,53 @@
+{
+  "GUID": "time",
+  "Name": "Digital_Clock",
+  "Transform": {
+    "posX": -16.5,
+    "posY": 0.5,
+    "posZ": -24.0,
+    "rotX": 90.0,
+    "rotY": 0.0,
+    "rotZ": 0.0,
+    "scaleX": 1.2,
+    "scaleY": 1.2,
+    "scaleZ": 1.2
+  },
+  "Nickname": "Time",
+  "Description": "",
+  "GMNotes": "",
+  "AltLookAngle": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "ColorDiffuse": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0
+  },
+  "Tags": [
+    "Time"
+  ],
+  "LayoutGroupSortIndex": 0,
+  "Value": 0,
+  "Locked": false,
+  "Grid": true,
+  "Snap": true,
+  "IgnoreFoW": false,
+  "MeasureMovement": false,
+  "DragSelectable": true,
+  "Autoraise": true,
+  "Sticky": true,
+  "Tooltip": true,
+  "GridProjection": false,
+  "HideWhenFaceDown": false,
+  "Hands": false,
+  "Clock": {
+    "Mode": 2,
+    "SecondsPassed": 0,
+    "Paused": true
+  },
+  "LuaScript": "",
+  "LuaScriptState": "",
+  "XmlUI": ""
+}

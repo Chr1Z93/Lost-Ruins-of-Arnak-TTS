@@ -15,6 +15,8 @@ TEST_VARS                   = {
   seatedPlayers = { 'Blue', 'Green', 'Yellow', 'Red' }
 }
 
+COLOR_LIST                  = { "Blue", "Red", "Yellow", "Green" }
+
 RESEARCH_TOKENS             = { "magnifying", "journal", "lantern" }
 
 PLAYER_VARS                 = {
@@ -41,7 +43,7 @@ PLAYER_VARS                 = {
     articleToothPosition = { -32, 1.57, 16.80 },
     refPositions         = { { -61, 1.48, 28.5 }, { -55, 1.48, 28.5 } },
     leaderOverview       = "c30ae7",
-    firstPlayerPosition  = { -34.60, 1.53, 28.75 }
+    firstPlayerPosition  = { -38, 1.53, 33 }
   },
   Blue = {
     allZoneGuid          = 'd9da53',
@@ -66,7 +68,7 @@ PLAYER_VARS                 = {
     articleToothPosition = { 37.20, 1.57, 16.80 },
     refPositions         = { { 61, 1.48, 28.5 }, { 55, 1.48, 28.5 } },
     leaderOverview       = "c4dd33",
-    firstPlayerPosition  = { 34.60, 1.53, 28.75 }
+    firstPlayerPosition  = { 38, 1.53, 33 }
   },
   Green = {
     allZoneGuid          = '05b782',
@@ -91,7 +93,7 @@ PLAYER_VARS                 = {
     articleToothPosition = { 37.20, 1.57, -24.20 },
     refPositions         = { { 61, 1.48, -12.5 }, { 55, 1.48, -12.5 } },
     leaderOverview       = "47e8e6",
-    firstPlayerPosition  = { 34.60, 1.53, -12.25 }
+    firstPlayerPosition  = { 38, 1.53, -8 }
   },
   Yellow = {
     allZoneGuid          = '19cc4f',
@@ -116,7 +118,7 @@ PLAYER_VARS                 = {
     articleToothPosition = { -32, 1.57, -24.20 },
     refPositions         = { { -61, 1.48, -12.5 }, { -55, 1.48, -12.5 } },
     leaderOverview       = "d40f4c",
-    firstPlayerPosition  = { -34.60, 1.53, -12.25 }
+    firstPlayerPosition  = { -38, 1.53, -8 }
   }
 }
 
@@ -464,6 +466,7 @@ buttonLabels      = {
 }
 buttonLabelsRival = { ready = 'Rival Turn', busy = addColorToString("Red", "Busy") }
 
+waitQueue         = {}
 round             = 0
 doneLoading       = false
 setupInProgress   = false
@@ -494,6 +497,10 @@ function onLoad(saveState)
     turn               = loadedData.turn
   end
 
+  for _, obj in ipairs(getObjects()) do
+    onObjectSpawn(obj)
+  end
+
   createGlobalXml()
 
   Wait.frames(function()
@@ -514,6 +521,12 @@ function onLoad(saveState)
     if turn ~= nil and Turns.enable and Turns.turn_color ~= turn then Turns.turn_color = turn end
     Wait.time(function() doneLoading = true end, 0.5)
   end, 10)
+end
+
+function onObjectSpawn(obj)
+  if obj.hasTag("NotInteractable") then
+    obj.interactable = false
+  end
 end
 
 function getCardBoardLocation(cardType, state)
@@ -1091,7 +1104,7 @@ function createGlobalXml()
       group = true,
       toggles = {
         { id = "time1", text = "Enabled", isOn = "True" },
-        { id = "time2",  text = "Disabled" }
+        { id = "time2", text = "Disabled" }
       }
     },
     {
@@ -1738,6 +1751,7 @@ function getOptionsFromUI()
   options.researchTrack = options.researchTrack or math.random(6)
   options.leaders       = checkToggle('leaders1') and 'random' or 'choose'
   options.staff         = checkToggle('staff1') and 1 or 2
+  options.timeTracking  = checkToggle('time1')
 end
 
 function optionOverride()
@@ -2020,7 +2034,7 @@ function setupResearchTrack()
 
   -- special position for research tokens for Spider Temple / Owl Temple
   if trackInfo.researchTokenLeft then
-    for i, playerColor in ipairs({ "Blue", "Red", "Yellow", "Green" }) do
+    for i, playerColor in ipairs(COLOR_LIST) do
       local basePos = Vector.lerp(trackInfo.researchTokenLeft, trackInfo.researchTokenRight, (i - 1) / 3)
       local journal = getResearchToken("journal", playerColor)
       if journal then
@@ -2197,6 +2211,16 @@ function setupPlayerAreas()
     end
   end
 
+  local bag = getObjectFromGUID(BAG_GUIDS.miscTokens)
+  local clockData
+  for _, objData in ipairs(bag.getData().ContainedObjects) do
+    if objData["Nickname"] == "Time" then
+      clockData = objData
+      clockData["Locked"] = true
+      break
+    end
+  end
+
   for _, playerColor in ipairs(seatedPlayerColors) do
     if options.solo and playerColor == 'Red' then
       -- Setup the solo player board
@@ -2239,8 +2263,26 @@ function setupPlayerAreas()
       else
         options.playerBoards[playerColor] = playerBoard.getStateId()
       end
+
+      -- maybe spawn clocks
+      if options.timeTracking then
+        clockData["Tags"] = { "NotInteractable", "Time", playerColor }
+        clockData["ColorDiffuse"] = Color[playerColor]
+        local pos = PlayermatApi.getZonePosition(playerColor, "Time")
+        clockData.Transform.posX = pos.x
+        clockData.Transform.posY = 0.5
+        clockData.Transform.posZ = pos.z
+        spawnObjectData({ data = clockData })
+      end
     end
   end
+end
+
+function pauseClocks()
+  for _, playerColor in ipairs(COLOR_LIST) do
+    editClockQueue(playerColor, true)
+  end
+  broadcastToAll("All clocks have been paused. They will resume at the start of the next turn.")
 end
 
 function waitForBoardLoading()
@@ -2402,7 +2444,7 @@ function setupMiscThings()
   if firstPlayerMarker ~= nil then
     firstPlayerMarker.lock()
     firstPlayerMarker.setRotation(faceup)
-    firstPlayerMarker.setPositionSmooth(PLAYER_VARS[firstPlayerColor].firstPlayerPosition, false, false)
+    firstPlayerMarker.setPositionSmooth(PLAYER_VARS[firstPlayerColor].firstPlayerPosition)
   end
 
   if options.solo then
@@ -2791,7 +2833,7 @@ function setupStartingResources()
           for i, guid in ipairs(TOKEN_GUIDS.food) do
             local foodPos = PlayermatApi.getZonePosition(playerColor, "Food" .. i)
             if i == 3 then
-              foodPos = { 4.89, 1.6, 40 }
+              foodPos = { 5, 1.6, 39 }
             end
             tokenBag.takeObject({ guid = guid, position = foodPos, rotation = faceup })
           end
@@ -3097,8 +3139,15 @@ function setupButtons()
   end
 
   local buttonBlock = getObjectFromGUID(BUTTON_BLOCK_GUID)
-  buttonBlock.interactable = false
   buttonBlock.createButton(params)
+
+  -- pause clocks button
+  if options.timeTracking then
+    params.label          = "Pause Clocks"
+    params.click_function = "pauseClocks"
+    params.position       = { 0, 1.2, 1.5 }
+    buttonBlock.createButton(params)
+  end
 
   setupButtonsMisc()
 
@@ -3821,7 +3870,9 @@ function nextRoundCoroutine()
     if startPlayerIndex > #seatedPlayerColors then startPlayerIndex = 1 end
     firstPlayerColor = seatedPlayerColors[startPlayerIndex]
     local token = getObjectFromGUID(TOKEN_GUIDS.firstPlayer)
-    if token ~= nil then token.setPositionSmooth(PLAYER_VARS[firstPlayerColor].firstPlayerPosition, false, false) end
+    if token ~= nil then
+      token.setPositionSmooth(PLAYER_VARS[firstPlayerColor].firstPlayerPosition)
+    end
   end
   wait(0.4)
 
@@ -4095,7 +4146,7 @@ function calculateScores()
         local altarTablets = {}
 
         -- count tablets for this altar
-        for i, playerColor in ipairs({ "Blue", "Red", "Yellow", "Green" }) do
+        for i, playerColor in ipairs(COLOR_LIST) do
           local tabletPos               = data.position + trackInfo.altarOffsets[i]
           local tabletHits              = SearchLib.atPosition(tabletPos, "isResource")
           altarTablets[playerColor]     = (altarTablets[playerColor] or 0) + #tabletHits
@@ -4364,8 +4415,14 @@ function onPlayerTurn(player, previousPlayer)
       end
     end
 
+    -- handle passing
     if atLeastOneFaceupTent and currentPlayerTent ~= nil and currentPlayerTent.is_face_down then
       Turns.turn_color = Turns.getNextTurnColor()
+      return
+    end
+
+    for _, playerColor in ipairs(COLOR_LIST) do
+      editClockQueue(playerColor, playerColor ~= player.color)
     end
 
     startLuaCoroutine(Global, "refillRowCoroutine")
@@ -5142,6 +5199,25 @@ end
 function getObjectByTag(tag)
   for _, o in ipairs(getObjectsWithTag(tag)) do
     return o
+  end
+end
+
+function editClockQueue(playerColor, pauseState)
+  local waitName = "clock" .. playerColor
+
+  if waitQueue[waitName] then
+    Wait.stop(waitQueue[waitName])
+  end
+
+  waitQueue[waitName] = Wait.time(function() editClock(playerColor, pauseState) end, 0.1)
+end
+
+function editClock(playerColor, pauseState)
+  local objects = getObjectsWithAllTags({ playerColor, "Time" })
+  if #objects ~= 1 then return end
+
+  if pauseState ~= nil then
+    objects[1].Clock.paused = pauseState
   end
 end
 
