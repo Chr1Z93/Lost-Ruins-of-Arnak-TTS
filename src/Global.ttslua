@@ -846,7 +846,8 @@ function createGlobalXml()
     "Guardians",
     "Items and Artifacts",
     "Fear",
-    "Miscellaneous",
+    "Dark Tablets",
+    "Altars",
     "Total"
   }
 
@@ -910,7 +911,8 @@ function createGlobalXml()
     "guardian",
     "cards",
     "fear",
-    "misc",
+    "darkTablets",
+    "altars",
     "total"
   }
 
@@ -4163,7 +4165,7 @@ function calculateScores()
   end
 
   for _, playerColor in ipairs(seatedPlayerColors) do
-    local subscores             = { research = 0, temple = 0, idol = 0, guardian = 0, cards = 0, fear = 0, misc = 0 }
+    local subscores             = { research = 0, temple = 0, idol = 0, guardian = 0, cards = 0, fear = 0 }
     local templeOrder           = 9
     local scoredMagnifyingGlass = false
 
@@ -4287,7 +4289,8 @@ function calculateScores()
     end
 
     -- score altars / dark tablets for Spider Temple
-    subscores.misc = subscores.misc + totalDarkTablets[playerColor] * darkTabletValue + altarVp[playerColor]
+    subscores.darkTablets = (totalDarkTablets[playerColor] * darkTabletValue) or 0
+    subscores.altars      = altarVp[playerColor] or 0
 
     -- score idols for solo rival
     if options.solo and playerColor == 'Red' then
