@@ -2158,7 +2158,7 @@
     "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/9372488410312942013/9039D43D3C41FF286C9B9547E1464BD26BFCBB95/",
     "WidthScale": 0
   },
-  "Description": "Spider Temple",
+  "Description": "",
   "DragSelectable": true,
   "GMNotes": "",
   "GUID": "7e22gg",
@@ -2173,9 +2173,12 @@
   "LuaScriptState": "",
   "MeasureMovement": false,
   "Name": "Custom_Tile",
-  "Nickname": "Board",
+  "Nickname": "Spider Temple",
   "Snap": true,
   "Sticky": true,
+  "Tags": [
+    "MainBoard"
+  ],
   "Tooltip": false,
   "Transform": {
     "posX": 0,

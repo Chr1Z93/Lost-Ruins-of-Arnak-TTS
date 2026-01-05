@@ -22,7 +22,7 @@
     "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/17739230418989828916/70EB01C5F134B2A92102CE38A310ED5E120FEF38/",
     "WidthScale": 0
   },
-  "Description": "Owl Temple",
+  "Description": "",
   "DragSelectable": true,
   "GMNotes": "",
   "GUID": "7e22hh",
@@ -37,9 +37,12 @@
   "LuaScriptState": "",
   "MeasureMovement": false,
   "Name": "Custom_Tile",
-  "Nickname": "Board",
+  "Nickname": "Owl Temple",
   "Snap": true,
   "Sticky": true,
+  "Tags": [
+    "MainBoard"
+  ],
   "Tooltip": false,
   "Transform": {
     "posX": 0,

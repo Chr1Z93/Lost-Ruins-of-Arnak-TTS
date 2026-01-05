@@ -7,54 +7,156 @@
   "AttachedSnapPoints": [
     {
       "Position": {
-        "x": -0.135,
+        "x": -0.275,
         "y": 0.1,
-        "z": -0.705
+        "z": -0.54
       },
       "Rotation": {
         "x": 0,
         "y": 0,
-        "z": 0
+        "z": 180
+      }
+    },
+    {
+      "Position": {
+        "x": -0.134,
+        "y": 0.1,
+        "z": -0.386
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
       },
       "Tags": [
-        "temple"
+        "research"
       ]
     },
     {
       "Position": {
-        "x": 0.041,
+        "x": 0.164,
         "y": 0.1,
-        "z": -0.705
+        "z": -0.386
       },
       "Rotation": {
         "x": 0,
         "y": 0,
-        "z": 0
+        "z": 180
       },
       "Tags": [
-        "temple"
+        "research"
       ]
     },
     {
       "Position": {
-        "x": 0.216,
+        "x": 0.225,
         "y": 0.1,
-        "z": -0.705
+        "z": 0.218
       },
       "Rotation": {
         "x": 0,
         "y": 0,
-        "z": 0
+        "z": 180
       },
       "Tags": [
-        "temple"
+        "research"
       ]
     },
     {
       "Position": {
-        "x": -0.052,
+        "x": 0.103,
         "y": 0.1,
-        "z": -0.813
+        "z": 0.218
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "research"
+      ]
+    },
+    {
+      "Position": {
+        "x": -0.017,
+        "y": 0.1,
+        "z": 0.217
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "research"
+      ]
+    },
+    {
+      "Position": {
+        "x": -0.141,
+        "y": 0.1,
+        "z": 0.218
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "research"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.224,
+        "y": 0.1,
+        "z": 0.701
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "research"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.09,
+        "y": 0.1,
+        "z": 0.701
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "research"
+      ]
+    },
+    {
+      "Position": {
+        "x": -0.134,
+        "y": 0.1,
+        "z": 0.701
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "research"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.212,
+        "y": 0.1,
+        "z": -0.539
       },
       "Rotation": {
         "x": 0,
@@ -62,14 +164,277 @@
         "z": 0
       },
       "Tags": [
-        "temple"
+        "research"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.109,
+        "y": 0.1,
+        "z": -0.539
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Tags": [
+        "research"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.001,
+        "y": 0.1,
+        "z": -0.539
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Tags": [
+        "research"
+      ]
+    },
+    {
+      "Position": {
+        "x": -0.109,
+        "y": 0.1,
+        "z": -0.539
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Tags": [
+        "research"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.178,
+        "y": 0.1,
+        "z": -0.186
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Tags": [
+        "research"
+      ]
+    },
+    {
+      "Position": {
+        "x": -0.133,
+        "y": 0.1,
+        "z": -0.186
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Tags": [
+        "research"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.234,
+        "y": 0.1,
+        "z": 0.868
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Tags": [
+        "research"
+      ]
+    },
+    {
+      "Position": {
+        "x": -0.079,
+        "y": 0.1,
+        "z": 0.877
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Tags": [
+        "research"
+      ]
+    },
+    {
+      "Position": {
+        "x": -0.28,
+        "y": 0.1,
+        "z": 0.507
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "idol"
+      ]
+    },
+    {
+      "Position": {
+        "x": -0.282,
+        "y": 0.1,
+        "z": 0.043
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "idol"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.248,
+        "y": 0.1,
+        "z": -0.006
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "research",
+        "idol"
       ]
     },
     {
       "Position": {
         "x": 0.127,
         "y": 0.1,
-        "z": -0.813
+        "z": -0.011
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "research",
+        "idol"
+      ]
+    },
+    {
+      "Position": {
+        "x": -0.04,
+        "y": 0.1,
+        "z": -0.011
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "research",
+        "idol"
+      ]
+    },
+    {
+      "Position": {
+        "x": -0.164,
+        "y": 0.1,
+        "z": -0.006
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "research",
+        "idol"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.206,
+        "y": 0.1,
+        "z": 0.417
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "research",
+        "idol"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.105,
+        "y": 0.1,
+        "z": 0.454
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "research",
+        "idol"
+      ]
+    },
+    {
+      "Position": {
+        "x": -0.015,
+        "y": 0.1,
+        "z": 0.452
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "research",
+        "idol"
+      ]
+    },
+    {
+      "Position": {
+        "x": -0.132,
+        "y": 0.1,
+        "z": 0.419
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "research",
+        "idol"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.209,
+        "y": 0.1,
+        "z": -0.699
       },
       "Rotation": {
         "x": 0,
@@ -82,9 +447,9 @@
     },
     {
       "Position": {
-        "x": 0.041,
+        "x": 0.037,
         "y": 0.1,
-        "z": -0.935
+        "z": -0.701
       },
       "Rotation": {
         "x": 0,
@@ -97,9 +462,9 @@
     },
     {
       "Position": {
-        "x": 0.216,
+        "x": 0.123,
         "y": 0.1,
-        "z": -0.551
+        "z": -0.804
       },
       "Rotation": {
         "x": 0,
@@ -107,14 +472,14 @@
         "z": 0
       },
       "Tags": [
-        "research"
+        "temple"
       ]
     },
     {
       "Position": {
-        "x": 0.112,
+        "x": -0.06,
         "y": 0.1,
-        "z": -0.551
+        "z": -0.805
       },
       "Rotation": {
         "x": 0,
@@ -122,14 +487,14 @@
         "z": 0
       },
       "Tags": [
-        "research"
+        "temple"
       ]
     },
     {
       "Position": {
-        "x": 0.005,
+        "x": 0.033,
         "y": 0.1,
-        "z": -0.551
+        "z": -0.926
       },
       "Rotation": {
         "x": 0,
@@ -137,14 +502,14 @@
         "z": 0
       },
       "Tags": [
-        "research"
+        "temple"
       ]
     },
     {
       "Position": {
-        "x": -0.103,
+        "x": -0.138,
         "y": 0.1,
-        "z": -0.551
+        "z": -0.698
       },
       "Rotation": {
         "x": 0,
@@ -152,227 +517,16 @@
         "z": 0
       },
       "Tags": [
-        "research"
-      ]
-    },
-    {
-      "Position": {
-        "x": -0.27,
-        "y": 0.1,
-        "z": -0.552
-      },
-      "Rotation": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "Tags": [
-        "research"
-      ]
-    },
-    {
-      "Position": {
-        "x": -0.125,
-        "y": 0.1,
-        "z": -0.373
-      },
-      "Rotation": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "Tags": [
-        "research"
-      ]
-    },
-    {
-      "Position": {
-        "x": 0.23,
-        "y": 0.1,
-        "z": -0.372
-      },
-      "Rotation": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "Tags": [
-        "research"
-      ]
-    },
-    {
-      "Position": {
-        "x": 0.227,
-        "y": 0.1,
-        "z": -0.176
-      },
-      "Rotation": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "Tags": [
-        "research"
-      ]
-    },
-    {
-      "Position": {
-        "x": 0,
-        "y": 0.1,
-        "z": -0.175
-      },
-      "Rotation": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "Tags": [
-        "research"
-      ]
-    },
-    {
-      "Position": {
-        "x": 0.126,
-        "y": 0.1,
-        "z": 0.021
-      },
-      "Rotation": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "Tags": [
-        "research"
-      ]
-    },
-    {
-      "Position": {
-        "x": 0.239,
-        "y": 0.1,
-        "z": 0.22
-      },
-      "Rotation": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "Tags": [
-        "research"
-      ]
-    },
-    {
-      "Position": {
-        "x": 0.04,
-        "y": 0.1,
-        "z": 0.22
-      },
-      "Rotation": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "Tags": [
-        "research"
-      ]
-    },
-    {
-      "Position": {
-        "x": -0.154,
-        "y": 0.1,
-        "z": 0.22
-      },
-      "Rotation": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "Tags": [
-        "research"
-      ]
-    },
-    {
-      "Position": {
-        "x": 0.05,
-        "y": 0.1,
-        "z": 0.434
-      },
-      "Rotation": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "Tags": [
-        "research"
-      ]
-    },
-    {
-      "Position": {
-        "x": 0.013,
-        "y": 0.1,
-        "z": 0.65
-      },
-      "Rotation": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "Tags": [
-        "research"
-      ]
-    },
-    {
-      "Position": {
-        "x": 0.24,
-        "y": 0.1,
-        "z": 0.65
-      },
-      "Rotation": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "Tags": [
-        "research"
-      ]
-    },
-    {
-      "Position": {
-        "x": 0.159,
-        "y": 0.1,
-        "z": 0.865
-      },
-      "Rotation": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "Tags": [
-        "research"
-      ]
-    },
-    {
-      "Position": {
-        "x": -0.108,
-        "y": 0.1,
-        "z": 0.869
-      },
-      "Rotation": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "Tags": [
-        "research"
+        "temple"
       ]
     }
   ],
   "Autoraise": true,
   "ColorDiffuse": {
-    "b": 0.09,
-    "g": 0.23099,
-    "r": 0.44299
+    "b": 1,
+    "g": 1,
+    "r": 1
   },
-  "ContainedObjects_path": "ResearchTrack.b575a0",
   "CustomImage": {
     "CustomTile": {
       "Stackable": false,
@@ -382,13 +536,13 @@
     },
     "ImageScalar": 1,
     "ImageSecondaryURL": "",
-    "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/1862806463732175356/9296BB174F20A40911209B10609C4AA624EA19E4/",
+    "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/2496761664832597090/38CB96641EBF63FBC8CEBA83C10D5A99D536418E/",
     "WidthScale": 0
   },
-  "Description": "Bird Temple",
+  "Description": "",
   "DragSelectable": true,
   "GMNotes": "",
-  "GUID": "b575a0",
+  "GUID": "3fa5f4",
   "Grid": true,
   "GridProjection": false,
   "Hands": false,
@@ -400,20 +554,16 @@
   "LuaScriptState": "",
   "MeasureMovement": false,
   "Name": "Custom_Tile",
-  "Nickname": "Research Track",
+  "Nickname": "Tree Temple",
   "Snap": true,
-  "States_path": {
-    "2": "ResearchTrack.ac8b76",
-    "3": "ResearchTrack.977cdb",
-    "4": "ResearchTrack.d95da2",
-    "5": "ResearchTrack.3fa5f4",
-    "6": "ResearchTrack.8715ec"
-  },
   "Sticky": true,
-  "Tooltip": false,
+  "Tags": [
+    "ResearchTrack"
+  ],
+  "Tooltip": true,
   "Transform": {
     "posX": 14.05,
-    "posY": 1.51,
+    "posY": 1.58,
     "posZ": -5.28,
     "rotX": 0,
     "rotY": 180,

@@ -7,99 +7,9 @@
   "AttachedSnapPoints": [
     {
       "Position": {
-        "x": -0.135,
+        "x": 0.221,
         "y": 0.1,
-        "z": -0.705
-      },
-      "Rotation": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "Tags": [
-        "temple"
-      ]
-    },
-    {
-      "Position": {
-        "x": 0.041,
-        "y": 0.1,
-        "z": -0.705
-      },
-      "Rotation": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "Tags": [
-        "temple"
-      ]
-    },
-    {
-      "Position": {
-        "x": 0.216,
-        "y": 0.1,
-        "z": -0.705
-      },
-      "Rotation": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "Tags": [
-        "temple"
-      ]
-    },
-    {
-      "Position": {
-        "x": -0.052,
-        "y": 0.1,
-        "z": -0.813
-      },
-      "Rotation": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "Tags": [
-        "temple"
-      ]
-    },
-    {
-      "Position": {
-        "x": 0.127,
-        "y": 0.1,
-        "z": -0.813
-      },
-      "Rotation": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "Tags": [
-        "temple"
-      ]
-    },
-    {
-      "Position": {
-        "x": 0.041,
-        "y": 0.1,
-        "z": -0.935
-      },
-      "Rotation": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "Tags": [
-        "temple"
-      ]
-    },
-    {
-      "Position": {
-        "x": 0.216,
-        "y": 0.1,
-        "z": -0.551
+        "z": -0.531
       },
       "Rotation": {
         "x": 0,
@@ -112,156 +22,9 @@
     },
     {
       "Position": {
-        "x": 0.112,
+        "x": 0.116,
         "y": 0.1,
-        "z": -0.551
-      },
-      "Rotation": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "Tags": [
-        "research"
-      ]
-    },
-    {
-      "Position": {
-        "x": 0.005,
-        "y": 0.1,
-        "z": -0.551
-      },
-      "Rotation": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "Tags": [
-        "research"
-      ]
-    },
-    {
-      "Position": {
-        "x": -0.103,
-        "y": 0.1,
-        "z": -0.551
-      },
-      "Rotation": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "Tags": [
-        "research"
-      ]
-    },
-    {
-      "Position": {
-        "x": 0.027,
-        "y": 0.1,
-        "z": 0.552
-      },
-      "Rotation": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "Tags": [
-        "research"
-      ]
-    },
-    {
-      "Position": {
-        "x": 0.061,
-        "y": 0.1,
-        "z": -0.062
-      },
-      "Rotation": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "Tags": [
-        "research"
-      ]
-    },
-    {
-      "Position": {
-        "x": -0.274,
-        "y": 0.1,
-        "z": -0.548
-      },
-      "Rotation": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "Tags": [
-        "research"
-      ]
-    },
-    {
-      "Position": {
-        "x": 0.178,
-        "y": 0.1,
-        "z": 0.246
-      },
-      "Rotation": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      }
-    },
-    {
-      "Position": {
-        "x": 0.232,
-        "y": 0.1,
-        "z": 0.886
-      },
-      "Rotation": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "Tags": [
-        "research"
-      ]
-    },
-    {
-      "Position": {
-        "x": 0.084,
-        "y": 0.1,
-        "z": 0.896
-      },
-      "Rotation": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "Tags": [
-        "research"
-      ]
-    },
-    {
-      "Position": {
-        "x": -0.124,
-        "y": 0.1,
-        "z": 0.888
-      },
-      "Rotation": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "Tags": [
-        "research"
-      ]
-    },
-    {
-      "Position": {
-        "x": -0.159,
-        "y": 0.1,
-        "z": 0.727
+        "z": -0.528
       },
       "Rotation": {
         "x": 0,
@@ -276,7 +39,7 @@
       "Position": {
         "x": 0.009,
         "y": 0.1,
-        "z": 0.723
+        "z": -0.529
       },
       "Rotation": {
         "x": 0,
@@ -289,9 +52,9 @@
     },
     {
       "Position": {
-        "x": 0.194,
+        "x": -0.102,
         "y": 0.1,
-        "z": 0.726
+        "z": -0.529
       },
       "Rotation": {
         "x": 0,
@@ -304,14 +67,14 @@
     },
     {
       "Position": {
-        "x": -0.156,
+        "x": -0.271,
         "y": 0.1,
-        "z": 0.342
+        "z": -0.525
       },
       "Rotation": {
         "x": 0,
         "y": 0,
-        "z": 0
+        "z": 180
       },
       "Tags": [
         "research"
@@ -319,14 +82,14 @@
     },
     {
       "Position": {
-        "x": -0.156,
+        "x": -0.127,
         "y": 0.1,
-        "z": 0.133
+        "z": -0.373
       },
       "Rotation": {
         "x": 0,
         "y": 0,
-        "z": 0
+        "z": 180
       },
       "Tags": [
         "research"
@@ -334,14 +97,14 @@
     },
     {
       "Position": {
-        "x": -0.137,
+        "x": 0.129,
         "y": 0.1,
-        "z": -0.386
+        "z": -0.373
       },
       "Rotation": {
         "x": 0,
         "y": 0,
-        "z": 0
+        "z": 180
       },
       "Tags": [
         "research"
@@ -349,7 +112,7 @@
     },
     {
       "Position": {
-        "x": -0.113,
+        "x": 0.016,
         "y": 0.1,
         "z": -0.229
       },
@@ -364,9 +127,111 @@
     },
     {
       "Position": {
+        "x": 0.215,
+        "y": 0.1,
+        "z": -0.039
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "research"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.106,
+        "y": 0.1,
+        "z": -0.04
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "research"
+      ]
+    },
+    {
+      "Position": {
+        "x": -0.007,
+        "y": 0.1,
+        "z": -0.039
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "research"
+      ]
+    },
+    {
+      "Position": {
+        "x": -0.116,
+        "y": 0.1,
+        "z": -0.039
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "research"
+      ]
+    },
+    {
+      "Position": {
         "x": 0.137,
         "y": 0.1,
-        "z": -0.386
+        "z": -0.149
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Tags": [
+        "waterfall"
+      ]
+    },
+    {
+      "Position": {
+        "x": -0.042,
+        "y": 0.1,
+        "z": -0.146
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Tags": [
+        "waterfall"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.179,
+        "y": 0.1,
+        "z": 0.264
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      }
+    },
+    {
+      "Position": {
+        "x": -0.134,
+        "y": 0.1,
+        "z": 0.163
       },
       "Rotation": {
         "x": 0,
@@ -379,9 +244,9 @@
     },
     {
       "Position": {
-        "x": 0.214,
+        "x": -0.135,
         "y": 0.1,
-        "z": -0.222
+        "z": 0.354
       },
       "Rotation": {
         "x": 0,
@@ -391,13 +256,238 @@
       "Tags": [
         "research"
       ]
+    },
+    {
+      "Position": {
+        "x": 0.208,
+        "y": 0.1,
+        "z": 0.564
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "research"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.098,
+        "y": 0.1,
+        "z": 0.563
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "research"
+      ]
+    },
+    {
+      "Position": {
+        "x": -0.013,
+        "y": 0.1,
+        "z": 0.565
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "research"
+      ]
+    },
+    {
+      "Position": {
+        "x": -0.121,
+        "y": 0.1,
+        "z": 0.564
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 180
+      },
+      "Tags": [
+        "research"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.146,
+        "y": 0.1,
+        "z": 0.657
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Tags": [
+        "waterfall"
+      ]
+    },
+    {
+      "Position": {
+        "x": -0.037,
+        "y": 0.1,
+        "z": 0.657
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Tags": [
+        "waterfall"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.233,
+        "y": 0.1,
+        "z": 0.882
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Tags": [
+        "research"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.064,
+        "y": 0.1,
+        "z": 0.731
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Tags": [
+        "research"
+      ]
+    },
+    {
+      "Position": {
+        "x": -0.034,
+        "y": 0.1,
+        "z": 0.887
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Tags": [
+        "research"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.218,
+        "y": 0.1,
+        "z": -0.692
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Tags": [
+        "temple"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.128,
+        "y": 0.1,
+        "z": -0.798
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Tags": [
+        "temple"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.044,
+        "y": 0.1,
+        "z": -0.694
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Tags": [
+        "temple"
+      ]
+    },
+    {
+      "Position": {
+        "x": -0.052,
+        "y": 0.1,
+        "z": -0.799
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Tags": [
+        "temple"
+      ]
+    },
+    {
+      "Position": {
+        "x": -0.135,
+        "y": 0.1,
+        "z": -0.691
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Tags": [
+        "temple"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.041,
+        "y": 0.1,
+        "z": -0.926
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Tags": [
+        "temple"
+      ]
     }
   ],
   "Autoraise": true,
   "ColorDiffuse": {
-    "b": 0.09,
-    "g": 0.231,
-    "r": 0.443
+    "b": 1,
+    "g": 1,
+    "r": 1
   },
   "CustomImage": {
     "CustomTile": {
@@ -408,13 +498,13 @@
     },
     "ImageScalar": 1,
     "ImageSecondaryURL": "",
-    "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/1862806463732175453/5BF57321196D1E03E04359B5E48C0906F99086A5/",
+    "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/2496761664832598376/EF76B34456BB02A32FFFC2E563111D2B17A54F3F/",
     "WidthScale": 0
   },
-  "Description": "Monkey Temple",
+  "Description": "",
   "DragSelectable": true,
   "GMNotes": "",
-  "GUID": "977cdb",
+  "GUID": "8715ec",
   "Grid": true,
   "GridProjection": false,
   "Hands": false,
@@ -426,10 +516,13 @@
   "LuaScriptState": "",
   "MeasureMovement": false,
   "Name": "Custom_Tile",
-  "Nickname": "Research Track",
+  "Nickname": "Waterfall Temple",
   "Snap": true,
   "Sticky": true,
-  "Tooltip": false,
+  "Tags": [
+    "ResearchTrack"
+  ],
+  "Tooltip": true,
   "Transform": {
     "posX": 14.05,
     "posY": 1.58,

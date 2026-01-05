@@ -157,9 +157,9 @@
     },
     {
       "Position": {
-        "x": -0.271,
+        "x": -0.28,
         "y": 0.1,
-        "z": -0.552
+        "z": -0.55
       },
       "Rotation": {
         "x": 0,
@@ -172,9 +172,9 @@
     },
     {
       "Position": {
-        "x": -0.137,
+        "x": -0.159,
         "y": 0.1,
-        "z": -0.37
+        "z": -0.379
       },
       "Rotation": {
         "x": 0,
@@ -187,9 +187,9 @@
     },
     {
       "Position": {
-        "x": 0.047,
+        "x": -0.047,
         "y": 0.1,
-        "z": -0.37
+        "z": -0.379
       },
       "Rotation": {
         "x": 0,
@@ -202,9 +202,9 @@
     },
     {
       "Position": {
-        "x": 0.24,
+        "x": 0.129,
         "y": 0.1,
-        "z": -0.37
+        "z": -0.379
       },
       "Rotation": {
         "x": 0,
@@ -217,9 +217,9 @@
     },
     {
       "Position": {
-        "x": 0.241,
+        "x": 0.243,
         "y": 0.1,
-        "z": -0.162
+        "z": -0.379
       },
       "Rotation": {
         "x": 0,
@@ -232,9 +232,9 @@
     },
     {
       "Position": {
-        "x": -0.062,
+        "x": 0.228,
         "y": 0.1,
-        "z": -0.162
+        "z": -0.033
       },
       "Rotation": {
         "x": 0,
@@ -247,9 +247,9 @@
     },
     {
       "Position": {
-        "x": -0.139,
+        "x": 0.104,
         "y": 0.1,
-        "z": 0.036
+        "z": -0.033
       },
       "Rotation": {
         "x": 0,
@@ -262,9 +262,9 @@
     },
     {
       "Position": {
-        "x": 0.24,
+        "x": -0.019,
         "y": 0.1,
-        "z": 0.036
+        "z": -0.033
       },
       "Rotation": {
         "x": 0,
@@ -277,9 +277,9 @@
     },
     {
       "Position": {
-        "x": 0.241,
+        "x": -0.142,
         "y": 0.1,
-        "z": 0.471
+        "z": -0.033
       },
       "Rotation": {
         "x": 0,
@@ -292,9 +292,9 @@
     },
     {
       "Position": {
-        "x": -0.138,
+        "x": 0.226,
         "y": 0.1,
-        "z": 0.471
+        "z": 0.189
       },
       "Rotation": {
         "x": 0,
@@ -307,9 +307,9 @@
     },
     {
       "Position": {
-        "x": -0.138,
+        "x": 0.237,
         "y": 0.1,
-        "z": 0.675
+        "z": 0.526
       },
       "Rotation": {
         "x": 0,
@@ -322,9 +322,9 @@
     },
     {
       "Position": {
-        "x": 0.043,
+        "x": 0.237,
         "y": 0.1,
-        "z": 0.675
+        "z": 0.7
       },
       "Rotation": {
         "x": 0,
@@ -337,9 +337,9 @@
     },
     {
       "Position": {
-        "x": 0.242,
+        "x": -0.141,
         "y": 0.1,
-        "z": 0.675
+        "z": 0.701
       },
       "Rotation": {
         "x": 0,
@@ -352,22 +352,82 @@
     },
     {
       "Position": {
-        "x": 0.058,
+        "x": -0.14,
         "y": 0.1,
-        "z": 0.251
+        "z": 0.527
       },
       "Rotation": {
         "x": 0,
-        "y": 270,
+        "y": 0,
         "z": 0
       },
       "Tags": [
-        "assistant"
+        "research"
       ]
     },
     {
       "Position": {
-        "x": 0.19,
+        "x": -0.041,
+        "y": 0.1,
+        "z": 0.253
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Tags": [
+        "guardian"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.046,
+        "y": 0.1,
+        "z": 0.521
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Tags": [
+        "research"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.229,
+        "y": 0.1,
+        "z": 0.871
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Tags": [
+        "research"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.035,
+        "y": 0.1,
+        "z": 0.869
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Tags": [
+        "research"
+      ]
+    },
+    {
+      "Position": {
+        "x": -0.147,
         "y": 0.1,
         "z": 0.874
       },
@@ -382,9 +442,24 @@
     },
     {
       "Position": {
-        "x": -0.1,
+        "x": -0.14,
         "y": 0.1,
-        "z": 0.879
+        "z": -0.207
+      },
+      "Rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "Tags": [
+        "research"
+      ]
+    },
+    {
+      "Position": {
+        "x": 0.174,
+        "y": 0.1,
+        "z": -0.209
       },
       "Rotation": {
         "x": 0,
@@ -411,13 +486,13 @@
     },
     "ImageScalar": 1,
     "ImageSecondaryURL": "",
-    "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/1862806463732175407/B9B142A28C73DCB92A1FCDDED7C6A3A39EA0F526/",
+    "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/1862806463732175503/69B2E30EBA6D3BE339F5BC6903D27258ABAB2EBC/",
     "WidthScale": 0
   },
-  "Description": "Snake Temple",
+  "Description": "",
   "DragSelectable": true,
   "GMNotes": "",
-  "GUID": "ac8b76",
+  "GUID": "d95da2",
   "Grid": true,
   "GridProjection": false,
   "Hands": false,
@@ -429,9 +504,12 @@
   "LuaScriptState": "",
   "MeasureMovement": false,
   "Name": "Custom_Tile",
-  "Nickname": "Research Track",
+  "Nickname": "Lizard Temple",
   "Snap": true,
   "Sticky": true,
+  "Tags": [
+    "ResearchTrack"
+  ],
   "Tooltip": false,
   "Transform": {
     "posX": 14.05,

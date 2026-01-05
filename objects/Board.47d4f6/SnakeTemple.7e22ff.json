@@ -1089,7 +1089,6 @@
     "g": 0.25,
     "r": 0.25
   },
-  "ContainedObjects_path": "Board.47d4f6",
   "CustomImage": {
     "CustomTile": {
       "Stackable": false,
@@ -1099,13 +1098,13 @@
     },
     "ImageScalar": 1,
     "ImageSecondaryURL": "",
-    "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/1862806463732171498/C86632120BE908A5E659AC21071DB8CAFFEE481D/",
+    "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/1862806463732171557/46BC5CEA440365148D2A7C0153DE7A56E5F3806E/",
     "WidthScale": 0
   },
-  "Description": "Bird Temple",
+  "Description": "",
   "DragSelectable": true,
   "GMNotes": "",
-  "GUID": "47d4f6",
+  "GUID": "7e22ff",
   "Grid": true,
   "GridProjection": false,
   "Hands": false,
@@ -1117,14 +1116,12 @@
   "LuaScriptState": "",
   "MeasureMovement": false,
   "Name": "Custom_Tile",
-  "Nickname": "Board",
+  "Nickname": "Snake Temple",
   "Snap": true,
-  "States_path": {
-    "2": "Board.7e22ff",
-    "3": "Board.7e22gg",
-    "4": "Board.7e22hh"
-  },
   "Sticky": true,
+  "Tags": [
+    "MainBoard"
+  ],
   "Tooltip": false,
   "Transform": {
     "posX": 0,

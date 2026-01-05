@@ -4,18 +4,20 @@
 -- refactored by Chr1Z for twisted paths (playzones shifted by 8 units in x-direction)
 
 require("util/TtsLuaAdditions")
-local DeckLib         = require("util/DeckLib")
-local PlayermatApi    = require("playermat/PlayermatApi")
-local SearchLib       = require("util/SearchLib")
+local DeckLib               = require("util/DeckLib")
+local PlayermatApi          = require("playermat/PlayermatApi")
+local SearchLib             = require("util/SearchLib")
+RESEARCH_TRACK_DATA         = require("ResearchTrackData")
 
-TEST_VARS             = {
+TEST_VARS                   = {
   defineSeated  = false,
   hideSplash    = false,
   seatedPlayers = { 'Blue', 'Green', 'Yellow', 'Red' }
 }
 
-RESEARCH_TOKENS       = { "magnifying", "journal", "lantern" }
-PLAYER_VARS           = {
+RESEARCH_TOKENS             = { "magnifying", "journal", "lantern" }
+
+PLAYER_VARS                 = {
   Red = {
     allZoneGuid          = 'b32bc6',
     playAreaZoneGuid     = '472eb8',
@@ -119,36 +121,19 @@ PLAYER_VARS           = {
 }
 
 -- points for idol slots
-IDOL_SLOT_DATA        = {
-  -- captain
-  { 1, 2, 3, 4 },
-
-  -- falconer
-  { 1, 2, 3, 4 },
-
-  -- baroness
-  { 1, 2, 3, 4 },
-
-  -- professor
-  { 1, 2, 3, 4 },
-
-  -- explorer
-  { 1, 2, 3, 4 },
-
-  -- mystic
-  { 1, 2, 2, 3, 4 },
-
-  -- journalist
-  { 2, 3, 4, 0, 0 },
-
-  -- mechanic
-  { 1, 2, 3, 4 },
-
-  -- base game board
-  { 1, 2, 3, 4 }
+IDOL_SLOT_DATA              = {
+  Captain    = { 1, 2, 3, 4 },
+  Falconer   = { 1, 2, 3, 4 },
+  Baroness   = { 1, 2, 3, 4 },
+  Professor  = { 1, 2, 3, 4 },
+  Explorer   = { 1, 2, 3, 4 },
+  Mystic     = { 1, 2, 2, 3, 4 },
+  Journalist = { 2, 3, 4, 0, 0 },
+  Mechanic   = { 1, 2, 3, 4 },
+  Base       = { 1, 2, 3, 4 }
 }
 
-DARK_TABLET_DATA      = {
+DARK_TABLET_DATA            = {
   bucketSize     = Vector(2.25, 2, 3),
   leftBucketPos  = Vector(-25.5, 1.7, -22.4),
   rightBucketPos = Vector(0.17, 1.7, -22.4),
@@ -157,7 +142,7 @@ DARK_TABLET_DATA      = {
   bucketVp       = { -1, -2, -2, -3, -3, -4, -5 }
 }
 
-STARTER_DECK_DATA     = {
+STARTER_DECK_DATA           = {
   Yellow     = { "0001", "0002", "0003", "0004" },
   Green      = { "0005", "0006", "0007", "0008" },
   Blue       = { "0009", "0010", "0011", "0012" },
@@ -172,10 +157,10 @@ STARTER_DECK_DATA     = {
   Journalist = { "2005", "2006", "2007", "2008" }
 }
 
-seatedPlayerColors    = {}
-startPlayerIndex      = 0
+seatedPlayerColors          = {}
+startPlayerIndex            = 0
 
-options               = {
+options                     = {
   solo          = false,
   objectives    = 3,
   playerBoards  = {
@@ -197,7 +182,7 @@ options               = {
   }
 }
 
-bags                  = {
+BAG_GUIDS                   = {
   resources       = {
     t = '831df9',
     a = '84369b',
@@ -214,7 +199,8 @@ bags                  = {
   soloTempleTiles = 'c13fff',
   campaignItems   = '5c483d'
 }
-DECK_ZONE_GUIDS       = {
+
+DECK_ZONE_GUIDS             = {
   sites1    = '702902',
   sites2    = 'e0c338',
   guardians = 'b51480',
@@ -224,10 +210,11 @@ DECK_ZONE_GUIDS       = {
   bonus4    = "bonus4",
   bonus5    = "bonus5"
 }
-ASSISTANT_DECK_GUID   = '538a5c'
-IDOL_DECK_GUID        = 'ab4a80'
 
-EXPANSION_DECKS       = {
+ASSISTANT_DECK_GUID         = '538a5c'
+IDOL_DECK_GUID              = 'ab4a80'
+
+EXPANSION_DECKS             = {
   expeditionLeaders = {
     assistants = 'cf87b7',
     idols      = '9988c4',
@@ -251,9 +238,9 @@ EXPANSION_DECKS       = {
   }
 }
 
-BUTTON_BLOCK_GUID     = "b1c55f"
+BUTTON_BLOCK_GUID           = "b1c55f"
 
-TOKEN_GUIDS           = {
+TOKEN_GUIDS                 = {
   falcon                    = '9ef0a8',
   suitcase                  = 'f78694',
   food                      = { '4c7454', '7ae3bf', 'a4129d' },
@@ -265,883 +252,43 @@ TOKEN_GUIDS           = {
   MechanicGoldTokens        = '428f5c',
   MechanicGoldTokenAttacher = '3cc576'
 }
-SPECIAL_DELIVERY_GUID = '49e35e'
-suitcaseResourceBags  = { t = 'da4493', s = '4ecc7c' }
-falconRotations       = { { 0, 225, 0 }, { 0, 190, 0 }, { 0, 148, 0 }, { 0, 115, 0 }, { 0, 90, 0 } }
-assistantPositions    = { { 9.15, 1.63, -30.73 }, { 13.83, 1.63, -30.73 }, { 18.52, 1.63, -30.73 } }
-assistantZones        = { 'a432ac', 'a44647', '3ffbd7' }
 
-OTHER_EXILED_SPOT     = {
+SPECIAL_DELIVERY_GUID       = '49e35e'
+SUITCASE_RESOURCE_BAG_GUIDS = { t = 'da4493', s = '4ecc7c' }
+FALCON_ROTATIONS            = { { 0, 225, 0 }, { 0, 190, 0 }, { 0, 148, 0 }, { 0, 115, 0 }, { 0, 90, 0 } }
+ASSISTANT_POSITIONS         = { { 9.15, 1.63, -30.73 }, { 13.83, 1.63, -30.73 }, { 18.52, 1.63, -30.73 } }
+ASSISTANT_ZONES             = { 'a432ac', 'a44647', '3ffbd7' }
+
+PLAYERMAT_STATE_TO_LEADER   = {
+  [1] = "Captain",
+  [2] = "Falconer",
+  [3] = "Baroness",
+  [4] = "Professor",
+  [5] = "Explorer",
+  [6] = "Mystic",
+  [7] = "Journalist",
+  [8] = "Mechanic",
+  [9] = "Base"
+}
+
+OTHER_EXILED_SPOT           = {
   pos = Vector(-26.5, 2, 47),
   rot = Vector(0, 90, 0)
 }
 
 -- local data for the card board
-CARD_BOARD_DATA       = {
-  exiledArtifact = {
-    pos = Vector(2.2, 2, -0.012),
-    rot = Vector(0, 90, 0)
-  },
-  exiledItem = {
-    pos = Vector(-2.2, 2, -0.012),
-    rot = Vector(0, -90, 0)
-  },
-  exiledFear = {
-    pos = Vector(0, 2, -0.012),
-    rot = Vector(0, 0, 0)
-  },
-  reserveArtifact = {
-    pos = Vector(4.413, 2, -0.012),
-    rot = Vector(0, 0, 0)
-  },
-  reserveItem = {
-    pos = Vector(-4.413, 2, -0.012),
-    rot = Vector(0, 0, 0)
-  },
-  reserveFear = {
-    pos = Vector(0, 2, -0.012),
-    rot = Vector(0, 0, 0)
-  }
+CARD_BOARD_DATA             = {
+  exiledArtifact  = { pos = Vector(2.2, 2, -0.012), rot = Vector(0, 90, 0) },
+  exiledItem      = { pos = Vector(-2.2, 2, -0.012), rot = Vector(0, -90, 0) },
+  exiledFear      = { pos = Vector(0, 2, -0.012) },
+  reserveArtifact = { pos = Vector(4.413, 2, -0.012) },
+  reserveItem     = { pos = Vector(-4.413, 2, -0.012) },
+  reserveFear     = { pos = Vector(0, 2, -0.012) }
 }
 
-researchTracks        = {
-  {
-    bonusPositions = {
-      { { 9.08, 1.68, -18.72 },  { 13.77, 1.68, -18.73 }, { 9.11, 1.68, -9.83 }, { 13.22, 1.68, -9.84 }, { 17.23, 1.68, -9.84 }, { 9.34, 1.68, -1.65 }, { 14.05, 1.68, -1.65 } },
-      { { 9.29, 1.68, 2.43 },    { 16.64, 1.68, 2.43 } },
-      { { 13.01, 1.68, -14.25 }, { 11.45, 1.68, -5.71 } },
-      { { 19.63, 1.68, 6.15 } }
-    },
-    rows = {
-      {
-        z = 3.87,
-        bonusPos = { 19.63, 1.78, 6.15 }
-      },
-      {
-        z = 0.95,
-        magnifying = 16,
-        journal = 10,
-        paths = { { pos = { 9.29, 1.78, 2.43 }, forward = { 1 }, bonus = true }, { pos = { 16.64, 1.78, 2.43 }, forward = { 1 }, bonus = true } }
-      },
-      {
-        z = -3.16,
-        magnifying = 12,
-        journal = 8,
-        paths = { { pos = { 9.34, 1.78, -1.65 }, forward = { 1 }, bonus = true }, { pos = { 14.05, 1.78, -1.65 }, forward = { 1, 2 }, bonus = true } }
-      },
-      {
-        z = -7.36,
-        magnifying = 9,
-        journal = 6,
-        paths = { { pos = { 11.45, 1.78, -5.71 }, forward = { 1, 2 }, bonus = true } }
-      },
-      {
-        z = -11.44,
-        magnifying = 6,
-        journal = 4,
-        assistant = true,
-        paths = { { pos = { 9.11, 1.78, -9.83 }, forward = { 1 }, bonus = true }, { pos = { 13.22, 1.78, -9.84 }, forward = { 1 }, bonus = true }, { pos = { 17.23, 1.78, -9.84 }, forward = { 1 }, bonus = true } }
-      },
-      {
-        z = -15.93,
-        magnifying = 4,
-        journal = 2,
-        assistant = true,
-        paths = { { pos = { 13.01, 1.78, -14.25 }, forward = { 1, 2, 3 }, bonus = true } }
-      },
-      {
-        z = -20.50,
-        magnifying = 2,
-        journal = 1,
-        assistant = true,
-        paths = { { pos = { 9.08, 1.78, -18.72 }, forward = { 1 }, bonus = true }, { pos = { 13.77, 1.78, -18.73 }, forward = { 1 }, bonus = true } }
-      },
-      {
-        z = -24.93,
-        magnifying = 1,
-        journal = 0,
-        assistant = true,
-        paths = { { pos = { 9.31, 1.73, -23.28 }, forward = { 1, 2 } }, { pos = { 17.53, 1.73, -23.28 }, forward = { 2 } } }
-      }
-    },
-    templePoints = { 23, 21, 20, 19 },
-    templePositions = {
-      Vector(9.57, 2, 6),
-      Vector(11.74, 2, 6),
-      Vector(13.94, 2, 6),
-      Vector(16.19, 2, 6),
-    },
-    templeTileData = {
-      {
-        value     = 2,
-        positions = {
-          Vector(9.57, 2, 9.31),
-          Vector(13.21, 2, 9.31),
-          Vector(16.84, 2, 9.31)
-        }
-      },
-      {
-        value     = 6,
-        positions = {
-          Vector(11.42, 2, 11.54),
-          Vector(15.12, 2, 11.54)
-        }
-      },
-      {
-        value     = 11,
-        positions = { Vector(13.2, 2, 14.07) }
-      }
-    }
-  },
-  {
-    bonusPositions = {
-      { { 9.05, 1.68, -19.26 },  { 16.90, 1.68, -19.26 }, { 9.06, 1.68, -15.03 }, { 16.91, 1.68, -15.03 }, { 9.06, 1.68, -1.92 }, { 15.33, 1.68, -1.92 }, { 9.07, 1.68, 2.38 }, { 16.90, 1.68, 2.38 } },
-      { { 13.16, 1.68, -19.26 }, { 13.08, 1.68, 2.38 } },
-      { { 9.07, 1.68, -6.02 },   { 16.93, 1.68, -6.02 } },
-      { { 19.66, 1.68, 6.15 } }
-    },
-    rows = {
-      {
-        z = 4.20,
-        bonusPos = { 19.66, 1.78, 6.15 }
-      },
-      {
-        z = 0.66,
-        magnifying = 15,
-        journal = 15,
-        paths = { { forward = { 1 }, bonusPos = { { 9.07, 1.78, 2.38 }, { 13.08, 1.78, 2.38 }, { 16.90, 1.78, 2.38 } } } }
-      },
-      {
-        z = -3.47,
-        magnifying = 10,
-        journal = 12,
-        paths = { { pos = { 9.06, 1.78, -1.92 }, forward = { 1 }, bonus = true }, { pos = { 15.33, 1.78, -1.92 }, forward = { 1 }, bonus = true } }
-      },
-      {
-        z = -7.51,
-        magnifying = 5,
-        journal = 8,
-        assistant = true,
-        paths = { { pos = { 9.07, 1.78, -6.02 }, forward = { 1, 2 }, bonus = true }, { pos = { 16.93, 1.78, -6.02 }, forward = { 2 }, bonus = true } }
-      },
-      {
-        z = -12.46,
-        magnifying = 4,
-        journal = 5,
-        assistant = true,
-        paths = { { pos = { 17.37, 1.73, -10.84 }, forward = { 1, 2 } } }
-      },
-      {
-        z = -16.61,
-        magnifying = 3,
-        journal = 4,
-        assistant = true,
-        paths = { { pos = { 9.06, 1.78, -15.03 }, forward = { 1 }, bonus = true }, { pos = { 16.91, 1.78, -15.03 }, forward = { 1 }, bonus = true } }
-      },
-      {
-        z = -20.93,
-        magnifying = 2,
-        journal = 3,
-        paths = { { pos = { 9.05, 1.78, -19.26 }, forward = { 1 }, bonus = true }, { pos = { 13.16, 1.78, -19.26 }, forward = { 1, 2 }, bonus = true }, { pos = { 16.90, 1.78, -19.26 }, forward = { 2 }, bonus = true } }
-      },
-      {
-        z = -25.04,
-        magnifying = 1,
-        journal = 0,
-        assistant = true,
-        paths = { { pos = { 8.69, 1.73, -23.36 }, forward = { 1, 2 } }, { pos = { 14.50, 1.73, -23.23 }, forward = { 2, 3 } } }
-      }
-    },
-    templePoints = { 23, 21, 20, 19 },
-    templePositions = {
-      Vector(9.57, 2, 6),
-      Vector(11.74, 2, 6),
-      Vector(13.94, 2, 6),
-      Vector(16.19, 2, 6),
-    },
-    assistantPos = { 12.86, 1.72, -10.47 },
-    templeTileData = {
-      {
-        value     = 2,
-        positions = {
-          Vector(9.57, 2, 9.31),
-          Vector(13.21, 2, 9.31),
-          Vector(16.84, 2, 9.31)
-        }
-      },
-      {
-        value     = 6,
-        positions = {
-          Vector(11.42, 2, 11.54),
-          Vector(15.12, 2, 11.54)
-        }
-      },
-      {
-        value     = 11,
-        positions = { Vector(13.2, 2, 14.07) }
-      }
-    }
-  },
-  {
-    bonusPositions = {
-      {}, {}, {},
-      { { 13.50, 1.68, -16.70 }, { 12.80, 1.68, -3.99 }, { 19.73, 1.68, 6.06 } }
-    },
-    rows = {
-      {
-        z = 4.20,
-        bonusPos = { 19.73, 1.78, 6.06 }
-      },
-      {
-        z = 1.48,
-        magnifying = 15,
-        journal = 16,
-        paths = { { pos = { 9.42, 1.73, 3 }, forward = { 1 } }, { pos = { 15.75, 1.73, 3 }, forward = { 1 } } }
-      },
-      {
-        z = -1.89,
-        magnifying = 9,
-        journal = 9,
-        assistant = true,
-        paths = { { pos = { 8.53, 1.73, -0.47 }, forward = { 1 } }, { pos = { 13.74, 1.73, -0.47 }, forward = { 1, 2 } } }
-      },
-      {
-        z = -5.4,
-        magnifying = 8,
-        journal = 7,
-        paths = { { pos = { 12.79, 1.78, -3.99 }, forward = { 1, 2 }, bonus = true } }
-      },
-      {
-        z = -9.87,
-        magnifying = 5,
-        journal = 4,
-        paths = { { pos = { 16.51, 1.73, -7.80 }, forward = { 1 } } }
-      },
-      {
-        z = -14.5,
-        magnifying = 5,
-        journal = 2,
-        assistant = true,
-        paths = { { pos = { 16.44, 1.73, -12.55 }, forward = { 1 } } }
-      },
-      {
-        z = -18.14,
-        magnifying = 4,
-        journal = 1,
-        paths = { { pos = { 13.50, 1.78, -16.70 }, forward = { 1 }, bonus = true } }
-      },
-      {
-        z = -21.8,
-        magnifying = 3,
-        journal = 0,
-        assistant = true,
-        paths = { { pos = { 8.23, 1.73, -20.30 }, forward = { 1 } }, { pos = { 13.20, 1.73, -20.30 }, forward = { 1 } }, { pos = { 16.68, 1.73, -20.30 }, forward = { 1 } } }
-      },
-      {
-        z = -24.98,
-        magnifying = 1,
-        journal = 0,
-        assistant = true,
-        paths = { { pos = { 8.48, 1.73, -23.76 }, forward = { 1 } }, { pos = { 11.74, 1.73, -23.80 }, forward = { 1, 2 } }, { pos = { 15.24, 1.73, -23.76 }, forward = { 2, 3 } } }
-      }
-    },
-    templePoints = { 23, 21, 20, 19 },
-    templePositions = {
-      Vector(9.57, 2, 6),
-      Vector(11.74, 2, 6),
-      Vector(13.94, 2, 6),
-      Vector(16.19, 2, 6),
-    },
-    artifactPos = { 10.36, 1.69, -10.37 },
-    templeTileData = {
-      {
-        value     = 2,
-        positions = {
-          Vector(9.57, 2, 9.31),
-          Vector(13.21, 2, 9.31),
-          Vector(16.84, 2, 9.31)
-        }
-      },
-      {
-        value     = 6,
-        positions = {
-          Vector(11.42, 2, 11.54),
-          Vector(15.12, 2, 11.54)
-        }
-      },
-      {
-        value     = 11,
-        positions = { Vector(13.2, 2, 14.07) }
-      }
-    }
-  },
-  -- Lizard Temple
-  {
-    bonusPositions  = {
-      { { 9.15, 1.68, -19.77 }, { 16.97, 1.68, -19.80 }, { 9.15, 1.68, -16.18 }, { 16.94, 1.68, -16.20 }, { 9.37, 1.68, -9.19 }, { 11.89, 1.68, -4.60 }, { 14.44, 1.68, -4.61 }, { 11.37, 1.68, 2.57 }, { 15.01, 1.68, 2.56 } },
-      { { 9.33, 1.68, -4.60 },  { 9.02, 1.68, 2.57 } },
-      { { 16.98, 1.68, -4.61 }, { 17.35, 1.68, 2.56 } },
-      { { 19.84, 1.68, 6.11 } }
-    },
-    rows            = {
-      {
-        z = 4.20,
-        bonusPos = { 19.84, 1.78, 6.11 }
-      },
-      {
-        z = 1.12,
-        magnifying = 20,
-        journal = 13,
-        paths = { { forward = { 1 }, bonusPos = { { 9.02, 1.78, 2.57 }, { 11.37, 1.78, 2.57 }, { 15.01, 1.78, 2.56 }, { 17.35, 1.78, 2.56 } } } }
-      },
-      {
-        z = -2.13,
-        magnifying = 12,
-        journal = 10,
-        paths = { { pos = { 8.75, 1.73, -0.96 }, forward = { 1 } }, { pos = { 15.73, 1.73, -0.96 }, forward = { 1 } } }
-      },
-      {
-        z = -6.21,
-        magnifying = 8,
-        journal = 7,
-        assistant = true,
-        paths = { { forward = { 1, 2 }, bonusPos = { { 9.33, 1.78, -4.60 }, { 11.89, 1.78, -4.60 }, { 14.44, 1.78, -4.61 }, { 17, 1.78, -4.61 } } } }
-      },
-      {
-        z = -13.94,
-        magnifying = 4,
-        journal = 3,
-        assistant = true,
-        paths = { { pos = { 9.37, 1.78, -9.19 }, forward = { 1 }, bonus = true } }
-      },
-      {
-        z = -17.54,
-        magnifying = 3,
-        journal = 3,
-        paths = { { pos = { 9.15, 1.78, -16.18 }, forward = { 1 }, bonus = true }, { pos = { 13.19, 1.73, -16.18 }, forward = { 1 } }, { pos = { 16.93, 1.78, -16.18 }, forward = { 1 }, bonus = true } }
-      },
-      {
-        z = -21.18,
-        magnifying = 2,
-        journal = 1,
-        assistant = true,
-        paths = { { pos = { 9.15, 1.78, -19.77 }, forward = { 1, 2 }, bonus = true }, { pos = { 16.97, 1.78, -19.80 }, forward = { 2, 3 }, bonus = true } }
-      },
-      {
-        z = -24.96,
-        magnifying = 1,
-        journal = 0,
-        assistant = true,
-        paths = { { pos = { 7.97, 1.73, -23.29 }, forward = { 1 } }, { pos = { 11.94, 1.73, -23.29 }, forward = { 1, 2 } }, { pos = { 16.19, 1.73, -23.29 }, forward = { 2 } } }
-      }
-    },
-    templePoints    = { 28, 26, 25, 24 },
-    templePositions = {
-      Vector(9.57, 2, 6),
-      Vector(11.74, 2, 6),
-      Vector(13.94, 2, 6),
-      Vector(16.19, 2, 6),
-    },
-    guardianPos     = { 14.90, 1.69, -10.51 },
-    idolPositions   = { { 18.54, 1.72, -0.97 } },
-    templeTileData  = {
-      {
-        value     = 2,
-        positions = {
-          Vector(9.57, 2, 9.31),
-          Vector(13.21, 2, 9.31),
-          Vector(16.84, 2, 9.31)
-        }
-      },
-      {
-        value     = 6,
-        positions = {
-          Vector(11.42, 2, 11.54),
-          Vector(15.12, 2, 11.54)
-        }
-      },
-      {
-        value     = 11,
-        positions = { Vector(13.2, 2, 14.07) }
-      }
-    }
-  },
-  -- Tree Temple
-  {
-    bonusPositions = {
-      -- always place these
-      { { 10.66, 1.78, 2.70 }, { 16.82, 1.78, 2.70 },  { 11.91, 1.78, -9.80 }, { 14.39, 1.78, -9.77 }, { 9.42, 1.78, -19.80 }, { 16.82, 1.78, -19.80 } },
-      -- only place these for 3+ player
-      { { 9.40, 1.78, -9.80 }, { 12.18, 1.78, -19.80 } },
-      -- only place these for 4 players
-      { { 16.97, 1.78, -9.80 } },
-      -- place one tile per player
-      { { 19.75, 1.78, 5.90 } }
-    },
-    -- z-position in the following table is for research token detection (scoring)
-    -- magnifying / journal indicates the points for reaching that row
-    -- assistant indicates whether the rival will remove an assistant
-    rows = {
-      {
-        z = 4.4,
-        bonusPos = { 19.75, 1.73, 5.90 }
-      },
-      {
-        z = 0.65,
-        magnifying = 19,
-        journal = 13,
-        paths = { { pos = { 10.66, 1.73, 2.70 }, forward = { 1 }, bonus = true }, { pos = { 16.82, 1.73, 2.70 }, forward = { 1 }, bonus = true } }
-      },
-      {
-        z = -3.1,
-        magnifying = 15,
-        journal = 10,
-        assistant = true,
-        paths = { { pos = { 10.37, 1.73, -1.44 }, forward = { 1, 2 } }, { pos = { 16.80, 1.73, -1.42 }, forward = { 1, 2 } } }
-      },
-      {
-        z = -7.7,
-        magnifying = 12,
-        journal = 6,
-        paths = { { pos = { 8.92, 1.73, -5.16 }, forward = { 1, 2 }, bonus = true }, { pos = { 11.42, 1.73, -5.05 }, forward = { 1, 2 }, bonus = true }, { pos = { 14.79, 1.73, -4.94 }, forward = { 1, 2 }, bonus = true }, { pos = { 17.45, 1.73, -5.16 }, forward = { 1, 2 }, bonus = true } }
-      },
-      {
-        z = -11.6,
-        magnifying = 9,
-        journal = 5,
-        assistant = true,
-        paths = { { pos = { 11.91, 1.73, -9.80 }, forward = { 1, 2, 3, 4 }, bonus = true }, { pos = { 14.39, 1.73, -9.77 }, forward = { 1, 2, 3, 4 }, bonus = true } }
-      },
-      {
-        z = -17.9,
-        magnifying = 6,
-        journal = 3,
-        paths = { { pos = { 9.79, 1.73, -13.91 }, forward = { 1, 2 }, bonus = true }, { pos = { 11.88, 1.73, -14.68 }, forward = { 1, 2 }, bonus = true }, { pos = { 14.37, 1.73, -14.64 }, forward = { 1, 2 }, bonus = true }, { pos = { 16.78, 1.73, -13.96 }, forward = { 1, 2 }, bonus = true } }
-      },
-      {
-        z = -21.4,
-        magnifying = 3,
-        journal = 1,
-        assistant = true,
-        paths = { { pos = { 9.42, 1.73, -19.80 }, forward = { 1, 2, 3, 4 }, bonus = true }, { pos = { 16.82, 1.73, -19.80 }, forward = { 1, 2, 3, 4 }, bonus = true } }
-      },
-      {
-        z = -26,
-        magnifying = 1,
-        journal = 0,
-        assistant = true,
-        paths = { { pos = { 9.22, 1.73, -23.25 }, forward = { 1 } }, { pos = { 15.69, 1.73, -23.44 }, forward = { 1, 2 } } }
-      }
-    },
-    templePoints = { 27, 25, 24, 23 },
-    templePositions = {
-      Vector(9.57, 2, 6),
-      Vector(11.74, 2, 6),
-      Vector(13.94, 2, 6),
-      Vector(16.19, 2, 6),
-    },
-    idolPositions = { { 19.86, 1.69, -15.77 }, { 19.89, 1.69, -6.18 } },
-    templeTileData = {
-      {
-        value     = 2,
-        positions = {
-          Vector(9.57, 2, 9.31),
-          Vector(13.21, 2, 9.31),
-          Vector(16.84, 2, 9.31)
-        }
-      },
-      {
-        value     = 6,
-        positions = {
-          Vector(11.42, 2, 11.54),
-          Vector(15.12, 2, 11.54)
-        }
-      },
-      {
-        value     = 11,
-        positions = { Vector(13.2, 2, 14.07) }
-      }
-    }
-  },
-  -- Waterfall Temple
-  {
-    bonusPositions = {
-      -- always place these
-      { { 11.38, 1.78, 2.44 },  { 16.67, 1.78, 2.43 },  { 11.85, 1.78, -4.45 }, { 14.20, 1.78, -4.47 }, { 12.03, 1.78, -16.93 }, { 14.33, 1.68, -16.98 } },
-      -- only place these for 3+ player
-      { { 9.60, 1.78, -4.47 },  { 9.75, 1.78, -16.95 } },
-      -- only place these for 4 players
-      { { 16.45, 1.78, -4.47 }, { 16.55, 1.78, -16.95 } },
-      -- place one tile per player
-      { { 19.66, 1.78, 5.58 } }
-    },
-    -- z-position in the following table is for research token detection (scoring)
-    -- magnifying / journal indicates the points for reaching that row
-    -- assistant indicates whether the rival will remove an assistant
-    rows = {
-      {
-        z = 4.1,
-        bonusPos = { 19.66, 1.78, 5.58 }
-      },
-      {
-        z = 1.1,
-        magnifying = 13,
-        journal = 18
-      },
-      {
-        z = -2.25,
-        magnifying = 10,
-        journal = 14,
-        assistant = true,
-        paths = { { pos = { 11.38, 1.68, 2.44 }, forward = { 1 } }, { pos = { 16.67, 1.68, 2.43 }, forward = { 1 } } }
-      },
-      {
-        z = -6.3,
-        magnifying = 8,
-        journal = 11,
-        paths = { { pos = { 13.73, 1.73, -0.55 }, forward = { 1, 2 }, bonus = true } }
+INVERSE_BOARD_SCALE         = Vector(1 / 30, 1, 1 / 30)
 
-      },
-      {
-        z = -10.6,
-        magnifying = 5,
-        journal = 9,
-        paths = { { pos = { 9.60, 1.68, -4.47 }, forward = { 1 } } }
-      },
-      {
-        z = -14.8,
-        magnifying = 5,
-        journal = 7,
-        assistant = true,
-        paths = { { pos = { 10.34, 1.81, -10.75 }, forward = { 1 } } }
-      },
-      {
-        z = -18.6,
-        magnifying = 3,
-        journal = 5,
-        assistant = true,
-        paths = { { pos = { 9.75, 1.68, -16.95 }, forward = { 1 }, bonus = true } }
-      },
-      {
-        z = -22.1,
-        magnifying = 3,
-        journal = 3,
-        paths = { { pos = { 12.73, 1.73, -20.41 }, forward = { 1 } } }
-      },
-      {
-        z = -25.3,
-        magnifying = 1,
-        journal = 0,
-        assistant = true,
-        paths = { { pos = { 9.23, 1.73, -23.53 }, forward = { 1 } }, { pos = { 14.75, 1.73, -23.63 }, forward = { 1, 2 } } }
-      }
-    },
-    templePoints = { 20, 18, 17, 16 },
-    templePositions = {
-      Vector(9.57, 2, 6),
-      Vector(11.74, 2, 6),
-      Vector(13.94, 2, 6),
-      Vector(16.19, 2, 6),
-    },
-    site1pos = { 10.34, 1.69, -10.75 },
-    waterfallPositions = { { { 11.21, 1.69, -2.19 }, { 14.93, 1.69, -2.26 } }, { { 11.04, 1.69, -18.88 }, { 14.81, 1.69, -18.88 } } },
-    templeTileData = {
-      {
-        value     = 2,
-        positions = {
-          Vector(9.57, 2, 9.08),
-          Vector(13.21, 2, 9.08),
-          Vector(16.84, 2, 9.08)
-        }
-      },
-      {
-        value     = 6,
-        positions = {
-          Vector(11.42, 2, 11.27),
-          Vector(15.12, 2, 11.27)
-        }
-      },
-      {
-        value     = 11,
-        positions = { Vector(13.2, 2, 13.77) }
-      }
-    }
-  },
-  -- Spider Temple
-  {
-    bonusPositions = {
-      -- always place these
-      { { 2.68, 1.58, -6.89 }, { 21.32, 1.58, -6.86 }, { 8.60, 1.58, -1.74 }, { 26.02, 1.58, 3.61 }, { 13.74, 1.58, 14.04 }, { 18.48, 1.58, 13.95 } },
-      -- only place these for 3+ player
-      { { 9.99, 1.58, 13.97 } },
-      -- only place these for 4 players
-      { { 22.18, 1.58, 14.09 } },
-      -- place one tile per player
-      { { 28.69, 1.68, 18.57 } }
-    },
-    -- z-position in the following table is for research token detection (scoring)
-    -- magnifying / journal indicates the points for reaching that row
-    -- assistant indicates whether the rival will remove an assistant
-    rows = {
-      {
-        bucketData = {
-          size = { 23, 1, 4 },
-          pos  = { 16.28, 2.08, 14.16 }
-        },
-        magnifying = 20,
-        journal    = 22
-      },
-      {
-        bucketData = {
-          size = { 14, 1, 4 },
-          pos  = { 20.44, 2.08, 9.05 }
-        },
-        magnifying = 15,
-        journal    = 17
-      },
-      {
-        bucketData = {
-          size = { 3, 1, 4 },
-          pos  = { 2.42, 2.08, 8.98 }
-        },
-        magnifying = 14,
-        journal    = 16
-      },
-      {
-        bucketData = {
-          size = { 3, 1, 4 },
-          pos  = { 2.42, 2.08, 3.37 }
-        },
-        magnifying = 12,
-        journal    = 11
-      },
-      {
-        bucketData = {
-          size = { 3, 1, 4 },
-          pos  = { 14.18, 2.08, 3.63 }
-        },
-        magnifying = 12,
-        journal    = 11
-      },
-      {
-        bucketData = {
-          size = { 3, 1, 4 },
-          pos  = { 26.10, 2.08, 3.63 }
-        },
-        magnifying = 11,
-        journal    = 12
-      },
-      {
-        bucketData = {
-          size = { 3, 1, 4 },
-          pos  = { 26.01, 2.08, -1.80 }
-        },
-        magnifying = 9,
-        journal    = 8
-      },
-      {
-        bucketData = {
-          size = { 14, 1, 4 },
-          pos  = { 8.63, 2.08, -1.80 }
-        },
-        magnifying = 8,
-        journal    = 8
-      },
-      {
-        bucketData = {
-          size = { 14, 1, 4 },
-          pos  = { 20.48, 2.08, -7.02 }
-        },
-        magnifying = 5,
-        journal    = 4
-      },
-      {
-        bucketData = {
-          size = { 3, 1, 4 },
-          pos  = { 2.66, 2.08, -6.98 }
-        },
-        magnifying = 5,
-        journal    = 4
-      },
-      {
-        bucketData = {
-          size = { 3, 1, 4 },
-          pos  = { 2.66, 2.08, -12.39 }
-        },
-        magnifying = 3,
-        journal    = 3
-      },
-      {
-        bucketData = {
-          size = { 7, 1, 4 },
-          pos  = { 16.91, 2.08, -12.14 }
-        },
-        magnifying = 3,
-        journal    = 3
-      },
-      {
-        bucketData = {
-          size = { 12, 1, 4 },
-          pos  = { 9.55, 2.08, -17.65 }
-        },
-        magnifying = 1,
-        journal    = 0
-      }
-    },
-    templePoints = { 31, 29, 28, 27 },
-    templePositions = {
-      Vector(19, 2, 18.6),
-      Vector(21.33, 2, 18.6),
-      Vector(23.67, 2, 18.6),
-      Vector(26, 2, 18.6),
-    },
-    templeTileData = {
-      {
-        value     = 2,
-        positions = {
-          Vector(18.87, 1.63, 22.7),
-          Vector(22.85, 1.63, 22.7),
-          Vector(26.55, 1.63, 22.7)
-        }
-      },
-      {
-        value     = 6,
-        positions = {
-          Vector(21.06, 1.63, 24.95),
-          Vector(24.84, 1.63, 24.95)
-        }
-      },
-      {
-        value     = 11,
-        positions = {
-          Vector(22.81, 1.63, 27.5)
-        }
-      }
-    },
-    altarData = {
-      { value = 2, position = Vector({ 20.78, 1.6, -19.36 }) },
-      { value = 2, position = Vector({ 26.94, 1.6, -13.88 }) },
-      { value = 3, position = Vector({ 9.90, 1.6, -9.16 }) },
-      { value = 3, position = Vector({ 21.34, 1.6, 1.74 }) },
-      { value = 4, position = Vector({ 9.75, 1.6, 6.95 }) }
-    },
-    altarOffsets = {
-      Vector(-2.2, 0, -4.7),
-      Vector(-0.73, 0, -4.7),
-      Vector(0.73, 0, -4.7),
-      Vector(2.2, 0, -4.7)
-    },
-    researchTokenLeft = Vector(8.49, 1.65, -22.5),
-    researchTokenRight = Vector(15.49, 1.65, -22.5)
-  },
-  -- Owl Temple
-  {
-    bonusPositions = {
-      -- always place these
-      { { 7.19, 1.68, 3.89 },   { 21.20, 1.68, 3.95 }, { 12.84, 1.73, 8.56 }, { 18.36, 1.68, 18.04 } },
-      -- only place these for 3+ player
-      { { 21.18, 1.68, 18.04 }, { 9.56, 1.68, -14.87 } },
-      -- only place these for 4 players
-      { { 15.40, 1.68, 8.53 } },
-      -- place one tile per player
-      {}
-    },
-    -- z-position in the following table is for research token detection (scoring)
-    -- magnifying / journal indicates the points for reaching that row
-    -- assistant indicates whether the rival will remove an assistant
-    rows = {
-      {
-        z          = 15.5,
-        magnifying = 25,
-        journal    = 19
-      },
-      {
-        z          = 11,
-        magnifying = 20,
-        journal    = 16
-      },
-      {
-        z          = 6.5,
-        magnifying = 16,
-        journal    = 12
-      },
-      {
-        z          = 1.5,
-        magnifying = 11,
-        journal    = 8
-
-      },
-      {
-        z          = -3,
-        magnifying = 8,
-        journal    = 6
-      },
-      {
-        z          = -7.5,
-        magnifying = 4,
-        journal    = 2
-      },
-      {
-        z          = -12.5,
-        magnifying = 3,
-        journal    = 1
-      },
-      {
-        z          = -17,
-        magnifying = 2,
-        journal    = 1
-      },
-      {
-        z          = -22,
-        magnifying = 1,
-        journal    = 0
-      }
-    },
-    templeTileData = {
-      {
-        value     = 1,
-        positions = {
-          Vector(16.08, 1.63, 22.32), -- this will be repeated for 3rd / 4th player
-          Vector(23.64, 1.63, 22.30), -- this will be repeated for 3rd / 4th player
-          Vector(11.48, 1.63, -0.92),
-          Vector(3.71, 1.63, -2.25),
-          Vector(23.23, 1.63, -6.82),
-          Vector(3.64, 1.63, -11.74),
-          Vector(12.91, 1.63, -19.66),
-          Vector(23.04, 1.63, -19.68),
-        }
-      },
-      {
-        value     = 5,
-        positions = {
-          Vector(18.38, 1.63, 24.80),
-          Vector(21.69, 1.63, 24.75),
-          Vector(14.49, 1.63, 13.17),
-          Vector(23.30, 1.63, 13.08),
-          Vector(23.88, 1.63, 7.39),
-          Vector(23.01, 1.63, -0.85),
-          Vector(11.55, 1.63, -10.24),
-          Vector(22.57, 1.63, -10.35)
-        }
-      },
-      {
-        value     = 10,
-        positions = {
-          Vector(20.15, 1.63, 27.66),
-          Vector(14.52, 1.63, 3.80),
-          Vector(15.52, 1.63, -5.57), -- this will only be spawned for 3+ players
-          Vector(22.76, 1.63, -14.96)
-        }
-      }
-    },
-    researchTokenLeft = Vector(12.05, 1.65, -24.36),
-    researchTokenRight = Vector(18.95, 1.65, -24.36)
-  }
-}
-
-INVERSE_BOARD_SCALE   = Vector(1 / 30, 1, 1 / 30)
-
-MAIN_BOARD_DATA       = {
+MAIN_BOARD_DATA             = {
   base = {
     camp        = {
       { pos = Vector(-18.06, 1.6, -21.30), reward = "cc" },
@@ -1226,7 +373,7 @@ MAIN_BOARD_DATA       = {
 }
 
 -- global offsets
-SITE_OFFSETS          = {
+SITE_OFFSETS                = {
   spotLeft      = Vector(-1.1, 0, -3.54),
   spotRight     = Vector(1.1, 0, -3.54),
   spotLvl1      = Vector(0, 0, -3.65),
@@ -1242,7 +389,7 @@ SITE_OFFSETS          = {
   left          = Vector(-2.2, 0, 0)
 }
 
-solo                  = {
+solo                        = {
   board = 'a30382',
   boardPosition = { -43.26, 1.53, 18.96 },
   objectives = 'd8547e',
@@ -1272,8 +419,8 @@ solo                  = {
   actionDecks = { arch = 'f682fb', other = '52b0e5' },
   actionCards = {
     artifact = { '35cf03', '8643d5', '6862ec' },
-    item = { '0b253e', 'ff70b0', '344897' },
-    site = { '3e3e03', '0fe862', '79c5eb' },
+    item     = { '0b253e', 'ff70b0', '344897' },
+    site     = { '3e3e03', '0fe862', '79c5eb' },
     guardian = { 'ee3c46', '4a8a22', '5e9528' },
     research = { 'd5cc24', 'ea0b21', 'f06250' }
   },
@@ -1291,7 +438,8 @@ solo                  = {
     assistant        = { -26.50, 2, 10.15 }
   }
 }
-soloStatus            = {
+
+soloStatus                  = {
   firstTurn           = true,
   fulfilledObjectives = {},
   pawnsOut            = 0,
@@ -1306,8 +454,8 @@ end
 tableY            = 1.5
 tileY             = 1.6
 pawnY             = 2.3
-faceup            = { 0, 180, 0 }
-facedown          = { 0, 180, 180 }
+faceup            = Vector(0, 180, 0)
+facedown          = Vector(0, 180, 180)
 buttonLabels      = {
   ready1  = 'Calculate Scores',
   ready2  = 'Recalculate Scores',
@@ -1352,9 +500,9 @@ function onLoad(saveState)
     if round == 0 then
       menuOptions()
     elseif round > 0 then
-      drawLines()
+      drawPlayAreas()
       setupButtons()
-      createBoardButtons(getObjectByName("Board"))
+      createBoardButtons()
       for _, object in ipairs(getObjects()) do
         addExileMenu(object)
         addGetRewardsMenu(object)
@@ -1373,13 +521,11 @@ function getCardBoardLocation(cardType, state)
     state = "reserve"
   end
   local data = CARD_BOARD_DATA[state .. cardType]
-  return getObjectFromGUID("reserve").positionToWorld(data.pos), data.rot
+  return getObjectFromGUID("reserve").positionToWorld(data.pos), data.rot or Vector(0, 0, 0)
 end
 
 function getBoardData(board)
-  if not board then
-    board = getObjectByName("Board")
-  end
+  board = board or getObjectByTag("MainBoard")
   if not board then return {} end
 
   local stateId = board.getStateId()
@@ -1394,7 +540,9 @@ function getBoardData(board)
 end
 
 function createBoardButtons(board)
-  if board == nil then
+  board = board or getObjectByTag("MainBoard")
+
+  if not board then
     log("Board not found!")
     return
   end
@@ -1405,7 +553,7 @@ function createBoardButtons(board)
   boardButtonIndex = 0
 
   -- special handling for Spider Temple
-  local isSpiderTemple = board.getDescription() == "Spider Temple"
+  local isSpiderTemple = options.board == 3
 
   -- camp site buttons
   for i, site in ipairs(data.camp) do
@@ -1439,12 +587,11 @@ function createBoardButtons(board)
   end
 
   if isSpiderTemple then
-    local buttonPos = getDarkTabletBucketPos(8)
-    local funcName  = "gainDarkTablet"
-    _G[funcName]    = function(_, playerColor) gainResource("q", playerColor) end
+    local buttonPos      = getDarkTabletBucketPos(8)
 
+    _G["gainDarkTablet"] = function(_, playerColor) gainResource("q", playerColor) end
     board.createButton({
-      click_function = funcName,
+      click_function = "gainDarkTablet",
       label          = "Take DT",
       position       = convertGlobalPosToBoard(buttonPos - Vector(0, 0, 1.4)),
       scale          = INVERSE_BOARD_SCALE,
@@ -1453,11 +600,9 @@ function createBoardButtons(board)
       height         = 600
     })
 
-    funcName     = "returnDarkTablet"
-    _G[funcName] = function(_, playerColor) gainResource("q", playerColor, true) end
-
+    _G["returnDarkTablet"] = function(_, playerColor) gainResource("q", playerColor, true) end
     board.createButton({
-      click_function = funcName,
+      click_function = "returnDarkTablet",
       label          = "Return DT",
       position       = convertGlobalPosToBoard(buttonPos - Vector(0, 0, 2.8)),
       scale          = INVERSE_BOARD_SCALE,
@@ -2676,7 +1821,7 @@ end
 
 function setupBoard()
   -- Check the current board and if its not what was chosen via options, change it
-  local board = getObjectByName("Board")
+  local board = getObjectByTag("MainBoard")
 
   if board.getStateId() ~= options.board then
     board = board.setState(options.board)
@@ -2713,7 +1858,7 @@ function setupBoard()
 
   -- place dark tablet reserve
   if options.researchTrack == 7 then
-    local tokenBag = getObjectFromGUID(bags.miscTokens)
+    local tokenBag = getObjectFromGUID(BAG_GUIDS.miscTokens)
     local tokenData
 
     for _, objData in ipairs(tokenBag.getData().ContainedObjects) do
@@ -2749,7 +1894,7 @@ function setupMoonstaff()
 end
 
 function setupResearchTrack()
-  local trackInfo = researchTracks[options.researchTrack]
+  local trackInfo = RESEARCH_TRACK_DATA[options.researchTrack]
 
   -- Check the research board and if its not what was chosen via options, change it
   local researchTrack = getObjectByName("Research Track")
@@ -2764,7 +1909,7 @@ function setupResearchTrack()
   end
 
   -- place boni
-  local bonusBag = getObjectFromGUID(bags.researchBonus)
+  local bonusBag = getObjectFromGUID(BAG_GUIDS.researchBonus)
 
   -- maybe remove Twisted Paths bonus tiles
   if not options.expansions.twistedPaths then
@@ -2794,7 +1939,7 @@ function setupResearchTrack()
   end
 
   -- place temple tiles
-  local tokenBag = getObjectFromGUID(bags.miscTokens)
+  local tokenBag = getObjectFromGUID(BAG_GUIDS.miscTokens)
   local tileSpawnData = {}
 
   for _, tokenData in ipairs(tokenBag.getData().ContainedObjects) do
@@ -2838,11 +1983,11 @@ function setupResearchTrack()
     decks.idols.takeObject({ position = { 10.45, 1.6, 17.28 }, rotation = facedown })
     decks.idols.takeObject({ position = { 8.37, 1.6, 17.34 }, rotation = facedown })
 
-    local coinBag = getObjectFromGUID(bags.resources["c"])
+    local coinBag = getObjectFromGUID(BAG_GUIDS.resources["c"])
     coinBag.takeObject({ position = { 7.06, 1.65, 17.45 }, rotation = facedown })
 
     -- place lanterns
-    local miscBag = getObjectFromGUID(bags.miscTokens)
+    local miscBag = getObjectFromGUID(BAG_GUIDS.miscTokens)
     for i, playerColor in ipairs(seatedPlayerColors) do
       local firstChar = playerColor:sub(1, 1):lower()
       miscBag.takeObject({
@@ -3046,7 +2191,7 @@ function setupPlayerAreas()
   for _, playerColor in ipairs(seatedPlayerColors) do
     if options.solo and playerColor == 'Red' then
       -- Setup the solo player board
-      local soloBag = getObjectFromGUID(bags.solo)
+      local soloBag = getObjectFromGUID(BAG_GUIDS.solo)
       for _, object in ipairs(getObjectFromGUID(PLAYER_VARS[playerColor].allZoneGuid).getObjects()) do
         if object.getGUID() ~= "4ee1f2" and object.getName() ~= 'Red Archaeologist' then object.destruct() end
       end
@@ -3090,7 +2235,7 @@ function setupPlayerAreas()
 end
 
 function waitForBoardLoading()
-  boards.board = getObjectByName("Board")
+  boards.board = getObjectByTag("MainBoard")
 
   for _, playerColor in ipairs(seatedPlayerColors) do
     boards[playerColor] = PlayermatApi.getPlayermats(playerColor)
@@ -3105,7 +2250,7 @@ function waitForBoardLoading()
     end
   end
 
-  drawLines()
+  drawPlayAreas()
 end
 
 function setupDecks()
@@ -3182,7 +2327,7 @@ function setupMiscThings()
   end
 
   -- distribute blocking
-  local blockBag     = getObjectFromGUID(bags.blocking)
+  local blockBag     = getObjectFromGUID(BAG_GUIDS.blocking)
   local blockMapping = { [2] = 5, [3] = 3 }
   local blockAmount  = blockMapping[#seatedPlayerColors] or 0
 
@@ -3225,14 +2370,14 @@ function setupMiscThings()
   local newDecks = decks.assistants.cut(stackCount)
   wait(0.01)
   newDecks[2].setRotationSmooth(faceup, false, true)
-  newDecks[2].setPositionSmooth(assistantPositions[1], false, true)
+  newDecks[2].setPositionSmooth(ASSISTANT_POSITIONS[1], false, true)
 
   local moreNewDecks = newDecks[1].cut(stackCount)
   wait(0.01)
   moreNewDecks[2].setRotationSmooth(faceup, false, true)
-  moreNewDecks[2].setPositionSmooth(assistantPositions[2], false, true)
+  moreNewDecks[2].setPositionSmooth(ASSISTANT_POSITIONS[2], false, true)
   moreNewDecks[1].setRotationSmooth(faceup, false, true)
-  moreNewDecks[1].setPositionSmooth(assistantPositions[3], false, true)
+  moreNewDecks[1].setPositionSmooth(ASSISTANT_POSITIONS[3], false, true)
 
   -- fill market
   wait(0.4)
@@ -3294,7 +2439,7 @@ function setupButtonsMisc()
   params.label = 'Take'
   params.scale = { 2 / 1.5, 2, 2 / 1.5 }
   params.position = { 0, 0, 1.8 }
-  for resource, guid in pairs(bags.resources) do
+  for resource, guid in pairs(BAG_GUIDS.resources) do
     params.click_function = 'takeResource' .. resource
     getObjectFromGUID(guid).createButton(params)
 
@@ -3333,7 +2478,7 @@ function setupButtonsMisc()
         end
       end
       if options.playerBoards[playerColor] == 4 then
-        for resource, guid in pairs(suitcaseResourceBags) do
+        for resource, guid in pairs(SUITCASE_RESOURCE_BAG_GUIDS) do
           local bag = getObjectFromGUID(guid)
           if bag ~= nil then
             local fName    = 'clickResourceBag' .. resource .. 'Suitcase'
@@ -3369,7 +2514,7 @@ end
 
 --This function will do a variety of things to setup the campaign including moving campiagn related objects to the table, determining first player, etc
 function setupCampaignMisc()
-  local campaignBag = getObjectFromGUID(bags.campaignItems)
+  local campaignBag = getObjectFromGUID(BAG_GUIDS.campaignItems)
 
   -- shuffle bonus encounter cards and reposition them to make space for the chapter 6 deck
   for i = 1, 5 do
@@ -3495,7 +2640,7 @@ function setupCampaignMisc()
     end
   end
 
-  local soloBag = getObjectFromGUID(bags.solo)
+  local soloBag = getObjectFromGUID(BAG_GUIDS.solo)
   -- Place the bot player base action deck
   soloBag.takeObject({
     position = { -59.79, 1.50, -0.04 },
@@ -3540,8 +2685,8 @@ end
 
 function setupStartingResources()
   -- distribute starting player decks and TOKEN_GUIDS
-  local tokenBag = getObjectFromGUID(bags.miscTokens)
-  local refBag   = getObjectFromGUID(bags.leaderRef)
+  local tokenBag = getObjectFromGUID(BAG_GUIDS.miscTokens)
+  local refBag   = getObjectFromGUID(BAG_GUIDS.leaderRef)
   for _, playerColor in ipairs(seatedPlayerColors) do
     if options.solo and playerColor == 'Red' then -- if playing solo and this is the red player, setup the pawns
       for i, guid in ipairs(solo.pawns) do
@@ -3552,7 +2697,7 @@ function setupStartingResources()
             pawn.setPositionSmooth(solo.pawnPositions[i], false, true)
           end
         else -- take the rest of red pawns from the solo bag and set them up
-          local soloBag = getObjectFromGUID(bags.solo)
+          local soloBag = getObjectFromGUID(BAG_GUIDS.solo)
           soloBag.takeObject({ guid = guid, position = solo.pawnPositions[i], rotation = faceup })
         end
       end
@@ -3589,19 +2734,15 @@ function setupStartingResources()
 
         getObjectFromGUID(PLAYER_VARS[playerColor].leaderOverview).Book.setPage(refIndex)
 
-        if playerBoardState == 1 then     -- Setup for the captain
-          cardList = STARTER_DECK_DATA["Captain"]
-        elseif playerBoardState == 2 then -- Setup for the falcon
-          cardList = STARTER_DECK_DATA["Falconer"]
+        cardList = STARTER_DECK_DATA[PLAYERMAT_STATE_TO_LEADER[playerBoardState]]
+
+        if playerBoardState == 2 then -- Setup for the falcon
           tokenBag.takeObject({
             guid     = TOKEN_GUIDS.falcon,
             position = PlayermatApi.getZonePosition(playerColor, "Falcon" .. 2),
-            rotation = falconRotations[2]
+            rotation = FALCON_ROTATIONS[2]
           })
-        elseif playerBoardState == 3 then -- Setup for the baroness
-          cardList = STARTER_DECK_DATA["Baroness"]
         elseif playerBoardState == 4 then -- Setup for the professor
-          cardList = STARTER_DECK_DATA["Professor"]
           local profStuff = {}
           local suitcase = tokenBag.takeObject({
             guid     = TOKEN_GUIDS.suitcase,
@@ -3610,7 +2751,7 @@ function setupStartingResources()
           })
           table.insert(profStuff, suitcase)
 
-          for resource, guid in pairs(suitcaseResourceBags) do -- Place and setup the professor's Bag
+          for resource, guid in pairs(SUITCASE_RESOURCE_BAG_GUIDS) do -- Place and setup the professor's Bag
             local toPos = PlayermatApi.getZonePosition(playerColor, "Suitcase_" .. resource)
             local resourceBag = tokenBag.takeObject({
               guid     = guid,
@@ -3636,7 +2777,6 @@ function setupStartingResources()
             })
           end
         elseif playerBoardState == 5 then -- Setup for the explorer
-          cardList = STARTER_DECK_DATA["Explorer"]
           local pawn = getObjectFromGUID(PLAYER_VARS[playerColor].pawns[2])
           if pawn ~= nil then pawn.destruct() end
           for i, guid in ipairs(TOKEN_GUIDS.food) do
@@ -3646,10 +2786,7 @@ function setupStartingResources()
             end
             tokenBag.takeObject({ guid = guid, position = foodPos, rotation = faceup })
           end
-        elseif playerBoardState == 6 then -- Setup for the mystic
-          cardList = STARTER_DECK_DATA["Mystic"]
         elseif playerBoardState == 7 then -- Setup for the journalist
-          cardList = STARTER_DECK_DATA["Journalist"]
           -- Grab the newspaper token deck, shuffle, then place two newspapers into their location relative to the player board
           tokenBag.takeObject({
             guid              = TOKEN_GUIDS.journalistNewspapers,
@@ -3696,7 +2833,6 @@ function setupStartingResources()
             end
           })
         elseif playerBoardState == 8 then -- Setup for the mechanic
-          cardList = STARTER_DECK_DATA["Mechanic"]
           tokenBag.takeObject({
             position          = PLAYER_VARS[playerColor].articleToothPosition,
             smooth            = true,
@@ -3842,7 +2978,7 @@ function menuStartSolo()
   uiOff()
 
   function menuStartSoloCoroutine()
-    local bag = getObjectFromGUID(bags.solo)
+    local bag = getObjectFromGUID(BAG_GUIDS.solo)
     if options.objectives > 0 then
       bag.takeObject({
         guid = solo.objectives,
@@ -3915,7 +3051,7 @@ function menuStartSolo()
   startLuaCoroutine(Global, 'menuStartSoloCoroutine')
 end
 
-function drawLines()
+function drawPlayAreas()
   local vectorLines = {}
   for _, playerColor in ipairs(seatedPlayerColors) do
     local zone       = getObjectFromGUID(PLAYER_VARS[playerColor].playAreaZoneGuid)
@@ -4014,11 +3150,11 @@ function gainResource(resource, playerColor, remove)
     return
   end
 
-  local fromBag = getObjectFromGUID(bags.resources[resource])
+  local fromBag = getObjectFromGUID(BAG_GUIDS.resources[resource])
   if fromBag == nil then return end
 
   if remove then
-    local toBag = getObjectFromGUID(suitcaseResourceBags[resource])
+    local toBag = getObjectFromGUID(SUITCASE_RESOURCE_BAG_GUIDS[resource])
     if toBag == nil then return end
     toBag.putObject(fromBag.takeObject())
   else
@@ -4030,7 +3166,7 @@ end
 
 function getFearCard(playerColor)
   if not doneLoading or not isSeated(playerColor) then return end
-  local card    = drawCardFromPosition(getCardBoardLocation("Fear")) or getObjectFromGUID(bags.fear).takeObject()
+  local card    = drawCardFromPosition(getCardBoardLocation("Fear")) or getObjectFromGUID(BAG_GUIDS.fear).takeObject()
   local toPos   = getObjectFromGUID(PLAYER_VARS[playerColor].playAreaZoneGuid).getPosition()
   local xOffset = 16.5
   if playerColor == 'Red' or playerColor == 'Yellow' then xOffset = 0 - xOffset end
@@ -4236,8 +3372,9 @@ end
 function getGlobalPosForIdolSlot(playerColor, points)
   local mat               = PlayermatApi.getPlayermats(playerColor)
   local idolSnapPositions = getLocalIdolSlotPositions(playerColor)
+  local leader            = PLAYERMAT_STATE_TO_LEADER[options.playerBoards[playerColor]]
 
-  for i, slotPoints in ipairs(IDOL_SLOT_DATA[options.playerBoards[playerColor]]) do
+  for i, slotPoints in ipairs(IDOL_SLOT_DATA[leader]) do
     if slotPoints == points then
       return mat.positionToWorld(idolSnapPositions[i])
     end
@@ -4359,6 +3496,9 @@ function getWarMaskOwner()
     if not (options.solo and playerColor == 'Red') then
       for _, object in ipairs(getObjectFromGUID(PLAYER_VARS[playerColor].playAreaZoneGuid).getObjects()) do
         if object.getName() == 'War Mask' then
+          if object.is_face_down then
+            return ""
+          end
           return playerColor
         end
       end
@@ -4388,7 +3528,7 @@ function resolveFearFromGuardians()
 
   if options.researchTrack == 4 then
     -- handle Lizard Temple guardian
-    local searchResult = SearchLib.atPosition(researchTracks[4].guardianPos, "isGuardian")
+    local searchResult = SearchLib.atPosition(RESEARCH_TRACK_DATA[4].guardianPos, "isGuardian")
     if #searchResult > 0 and not searchResult[1].is_face_down then
       for _, playerColor in ipairs(seatedPlayerColors) do
         if not (options.solo and playerColor == 'Red') and warMaskOwner ~= playerColor then
@@ -4396,7 +3536,7 @@ function resolveFearFromGuardians()
             local token = getResearchToken(name, playerColor)
             if token ~= nil then
               local posZ = token.getPosition()[3]
-              if posZ < researchTracks[4].rows[4].z and posZ > researchTracks[4].rows[5].z then
+              if posZ < RESEARCH_TRACK_DATA[4].rows[4].z and posZ > RESEARCH_TRACK_DATA[4].rows[5].z then
                 broadcastToAll(getPlayerName(playerColor) .. ' gets Fear from the temple guardian.')
                 getFearCard(playerColor)
               end
@@ -4590,7 +3730,7 @@ function nextRoundCoroutine()
         broadcastToAll('Unable to locate falcon.', playerColor)
       elseif falconPosIndex < 5 then
         broadcastToAll(getPlayerName(playerColor) .. ' moves their falcon.')
-        falcon.setRotationSmooth(falconRotations[falconPosIndex + 1], false, true)
+        falcon.setRotationSmooth(FALCON_ROTATIONS[falconPosIndex + 1], false, true)
         falcon.setPositionSmooth(PlayermatApi.getZonePosition(playerColor, "Falcon" .. falconPosIndex + 1), false, true)
       end
       wait(0.5)
@@ -4932,7 +4072,7 @@ function calculateScores()
   local winners          = {}
   local top              = { score = 0, templeOrder = 9, research = 0 }
   local tiebreaker       = false
-  local trackInfo        = researchTracks[options.researchTrack]
+  local trackInfo        = RESEARCH_TRACK_DATA[options.researchTrack]
 
   local darkTabletValue  = getDarkTabletValue()
   local totalDarkTablets = {}
@@ -5167,10 +4307,10 @@ end
 function scoreUncoveredIdolSlots(playerColor)
   local idolSlotPoints    = 0
   local mat               = PlayermatApi.getPlayermats(playerColor)
-  local idolData          = IDOL_SLOT_DATA[options.playerBoards[playerColor]]
+  local leader            = PLAYERMAT_STATE_TO_LEADER[options.playerBoards[playerColor]]
   local idolSnapPositions = getLocalIdolSlotPositions(playerColor)
 
-  for i, points in ipairs(idolData) do
+  for i, points in ipairs(IDOL_SLOT_DATA[leader]) do
     -- get all objects in this spot
     local searchResult = SearchLib.atPosition(mat.positionToWorld(idolSnapPositions[i]), "isIdol")
 
@@ -5246,8 +4386,8 @@ end
 
 function editResourceBagCounter(container)
   if round > 0 and container.hasTag('resource') and container.type == 'Bag' then -- stacks count as containers, so need to specify bags
-    local playerColor = container.getDescription()
-    local resource = container.getGMNotes()
+    local playerColor  = container.getDescription()
+    local resource     = container.getGMNotes()
     local buttonParent = nil
     if container.getName() == 'suitcase' then
       buttonParent = container
@@ -5286,7 +4426,7 @@ function addReturnMenu(object)
 end
 
 function addAssistantCycleMenu()
-  for _, guid in ipairs(assistantZones) do
+  for _, guid in ipairs(ASSISTANT_ZONES) do
     for _, object in ipairs(getObjectFromGUID(guid).getObjects()) do
       if object.type == 'Deck' and object.hasTag('assistant') then
         object.addContextMenuItem('Cycle to Bottom', function() cycleAssistant(object) end)
@@ -5629,7 +4769,7 @@ function rivalTurnCoroutine()
     else
       if options.researchTrack == 4 and soloStatus.magnifying.row == 5 then
         -- overcome lizard temple guardian first
-        local searchResult = SearchLib.atPosition(researchTracks[4].guardianPos, "isGuardian")
+        local searchResult = SearchLib.atPosition(RESEARCH_TRACK_DATA[4].guardianPos, "isGuardian")
         if #searchResult > 0 and not searchResult[1].is_face_down then
           broadcastToAll('Rival overcomes the Lizard Temple guardian.')
           wait(0.5)
@@ -5747,7 +4887,7 @@ function rivalTurnCoroutine()
               wait(0.5)
               object.flip()
               wait(0.5)
-              getObjectFromGUID(bags.soloTempleTiles).takeObject({
+              getObjectFromGUID(BAG_GUIDS.soloTempleTiles).takeObject({
                 position = solo.acquiredStuffPositions.templeTile[math.random(1, 6)],
                 rotation = faceup
               })
@@ -5782,10 +4922,10 @@ function rivalResearch(id, doNotTakeAssistant)
     broadcastToAll('Error: unable to locate ' .. tokenName .. '.')
     return false
   end
-  local track = researchTracks[options.researchTrack]
+  local trackInfo = RESEARCH_TRACK_DATA[options.researchTrack]
 
   if options.researchTrack == 3 and soloStatus[id].row == 7 and id == 'magnifying' then
-    local toPos = track.artifactPos
+    local toPos = trackInfo.artifactPos
     token.setRotationSmooth(faceup, false, true)
     token.setPositionSmooth({ toPos[1], toPos[2] + 0.4, toPos[3] }, false, false)
     soloStatus[id].row = 5
@@ -5796,7 +4936,7 @@ function rivalResearch(id, doNotTakeAssistant)
   if id == 'magnifying' and soloStatus[id].row == 1 or id == 'journal' and soloStatus[id].row == 2 then
     wait(1.2)
     function moveSilver(index)
-      for _, templeTilePosition in ipairs(track.templeTileData[2].positions) do
+      for _, templeTilePosition in ipairs(trackInfo.templeTileData[2].positions) do
         local searchResult = SearchLib.atPosition(templeTilePosition, "isTempleTile")
         if #searchResult > 0 then
           broadcastToAll('Rival takes a silver temple tile.')
@@ -5820,7 +4960,7 @@ function rivalResearch(id, doNotTakeAssistant)
     if not silverFound then broadcastToAll('No silver temple tiles found.') end
     return false
   elseif id == 'magnifying' and soloStatus[id].row == 2 then
-    for i, pos in ipairs(track.templePositions) do
+    for i, pos in ipairs(trackInfo.templePositions) do
       local occupied = false
       for _, obj in ipairs(SearchLib.atPosition(pos)) do
         if string.find(obj.getName(), 'Magnifying') ~= nil then occupied = true end
@@ -5834,27 +4974,27 @@ function rivalResearch(id, doNotTakeAssistant)
         break
       end
     end
-    rivalTakeResearchBonus(track.rows[1].bonusPos)
+    rivalTakeResearchBonus(trackInfo.rows[1].bonusPos)
     return true
   end
 
   local nextRowIndex = nil
   local forwardPaths = nil
   if soloStatus[id].row == 0 then
-    nextRowIndex = #track.rows
+    nextRowIndex = #trackInfo.rows
     forwardPaths = {}
-    for i, _ in ipairs(track.rows[nextRowIndex].paths) do
+    for i, _ in ipairs(trackInfo.rows[nextRowIndex].paths) do
       table.insert(forwardPaths, i)
     end
   else
     nextRowIndex = soloStatus[id].row - 1
-    forwardPaths = track.rows[soloStatus[id].row].paths[soloStatus[id].path].forward
+    forwardPaths = trackInfo.rows[soloStatus[id].row].paths[soloStatus[id].path].forward
   end
 
-  local nextRow = track.rows[nextRowIndex]
+  local nextRow       = trackInfo.rows[nextRowIndex]
   local nextPathIndex = forwardPaths[math.random(1, #forwardPaths)]
-  local nextPath = nextRow.paths[nextPathIndex]
-  local toPos = nextPath.pos
+  local nextPath      = nextRow.paths[nextPathIndex]
+  local toPos         = nextPath.pos
 
   if toPos ~= nil then
     token.setRotationSmooth(faceup, false, true)
@@ -5905,7 +5045,7 @@ function rivalResearch(id, doNotTakeAssistant)
   if id == 'magnifying' and nextRow.assistant then
     wait(1.2)
     if options.researchTrack == 2 and soloStatus[id].row == 5 then
-      local card = drawCardFromPosition(track.assistantPos, solo.acquiredStuffPositions.assistant, faceup)
+      local card = drawCardFromPosition(trackInfo.assistantPos, solo.acquiredStuffPositions.assistant, faceup)
       if card ~= nil then
         broadcastToAll('Rival rescues an assistant from the research track.')
         wait(1.2)
@@ -5917,7 +5057,7 @@ function rivalResearch(id, doNotTakeAssistant)
     else
       local most = 0
       local possibleZones = {}
-      for _, guid in ipairs(assistantZones) do
+      for _, guid in ipairs(ASSISTANT_ZONES) do
         local zone = getObjectFromGUID(guid)
         local obj = drawCard(zone, nil, nil, true)
         if obj ~= nil then
@@ -5947,7 +5087,7 @@ end
 
 function getResearchObjects()
   if options.researchTrack < 7 then
-    local track = getObjectByName("Research Track")
+    local track = getObjectByTag("ResearchTrack")
     if track then
       return SearchLib.onObject(track, "isResearchTile")
     else
@@ -5987,6 +5127,12 @@ function getObjectByName(name)
     if o.getName() == name then
       return o
     end
+  end
+end
+
+function getObjectByTag(tag)
+  for _, o in ipairs(getObjectsWithTag(tag)) do
+    return o
   end
 end
 
