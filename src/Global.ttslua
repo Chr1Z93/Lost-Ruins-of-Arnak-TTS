@@ -954,7 +954,7 @@ function createGlobalXml()
       id            = "optionsMenuTop",
       active        = false,
       rectAlignment = "LowerRight",
-      offsetXY      = "0 475",
+      offsetXY      = "0 500",
       height        = 40,
       width         = 435,
       color         = "rgb(0, 0.39, 0.65)"
@@ -975,7 +975,7 @@ function createGlobalXml()
   local leftOptions = {
     {
       title   = "Board",
-      height  = "180",
+      height  = 200,
       toggles = {
         { id = "board1", text = "Bird Temple" },
         { id = "board2", text = "Snake Temple" },
@@ -986,7 +986,7 @@ function createGlobalXml()
     },
     {
       title = "Research Track",
-      height = "260",
+      height = 260,
       toggles = {
         { id = "research1", text = "Bird Temple" },
         { id = "research2", text = "Snake Temple" },
@@ -996,7 +996,7 @@ function createGlobalXml()
         { id = "research6", text = "Waterfall Temple" },
         { id = "research9", text = "Randomize Temple", isOn = "True" }
       }
-    },
+    }
   }
 
   local optionsMenuLeft = {
@@ -1005,8 +1005,8 @@ function createGlobalXml()
       id                  = "optionsMenuLeft",
       active              = false,
       rectAlignment       = "LowerRight",
-      offsetXY            = "-210 35",
-      height              = 440,
+      offsetXY            = "-210 10",
+      height              = 490,
       width               = 225,
       cellPadding         = "24 0 12 12",
       cellBackgroundColor = "clear",
@@ -1069,7 +1069,7 @@ function createGlobalXml()
   local rightOptions = {
     {
       title = "Moon Staff",
-      height = 110,
+      height = 100,
       group = true,
       toggles = {
         { id = "staff1", text = "Blue" },
@@ -1078,11 +1078,20 @@ function createGlobalXml()
     },
     {
       title = "Leader Selection",
-      height = 110,
+      height = 100,
       group = true,
       toggles = {
         { id = "leaders1", text = "Random", isOn = "True" },
         { id = "leaders2", text = "Manual" }
+      }
+    },
+    {
+      title = "Time Tracking",
+      height = 100,
+      group = true,
+      toggles = {
+        { id = "time1", text = "Enabled", isOn = "True" },
+        { id = "time2",  text = "Disabled" }
       }
     },
     {
@@ -1095,7 +1104,7 @@ function createGlobalXml()
         { id = "twistedPaths",      text = "Twisted Paths",          isOn = "True" },
         { id = "promos",            text = "Promos",                 isOn = "True" }
       }
-    },
+    }
   }
 
   local optionsMenuRight = {
@@ -1104,8 +1113,8 @@ function createGlobalXml()
       id                  = "optionsMenuRight",
       active              = false,
       rectAlignment       = "LowerRight",
-      offsetXY            = "0 35",
-      height              = 440,
+      offsetXY            = "0 10",
+      height              = 490,
       width               = 210,
       cellPadding         = "0 0 12 12",
       cellBackgroundColor = "clear",
