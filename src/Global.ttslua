@@ -10,7 +10,7 @@ local SearchLib             = require("util/SearchLib")
 RESEARCH_TRACK_DATA         = require("ResearchTrackData")
 
 TEST_VARS                   = {
-  defineSeated  = false,
+  defineSeated  = true,
   hideSplash    = false,
   seatedPlayers = { 'Blue', 'Green', 'Yellow', 'Red' }
 }
@@ -43,7 +43,8 @@ PLAYER_VARS                 = {
     articleToothPosition = { -32, 1.57, 16.80 },
     refPositions         = { { -61, 1.48, 28.5 }, { -55, 1.48, 28.5 } },
     leaderOverview       = "c30ae7",
-    firstPlayerPosition  = { -38, 1.53, 33 }
+    firstPlayerPosition  = { -38, 1.53, 33 },
+    clockPosition        = Vector(-34.60, 0.50, 27.50)
   },
   Blue = {
     allZoneGuid          = 'd9da53',
@@ -68,7 +69,8 @@ PLAYER_VARS                 = {
     articleToothPosition = { 37.20, 1.57, 16.80 },
     refPositions         = { { 61, 1.48, 28.5 }, { 55, 1.48, 28.5 } },
     leaderOverview       = "c4dd33",
-    firstPlayerPosition  = { 38, 1.53, 33 }
+    firstPlayerPosition  = { 38, 1.53, 33 },
+    clockPosition        = Vector(34.60, 0.50, 27.50)
   },
   Green = {
     allZoneGuid          = '05b782',
@@ -93,7 +95,8 @@ PLAYER_VARS                 = {
     articleToothPosition = { 37.20, 1.57, -24.20 },
     refPositions         = { { 61, 1.48, -12.5 }, { 55, 1.48, -12.5 } },
     leaderOverview       = "47e8e6",
-    firstPlayerPosition  = { 38, 1.53, -8 }
+    firstPlayerPosition  = { 38, 1.53, -8 },
+    clockPosition        = Vector(34.60, 0.50, -13.50)
   },
   Yellow = {
     allZoneGuid          = '19cc4f',
@@ -118,7 +121,8 @@ PLAYER_VARS                 = {
     articleToothPosition = { -32, 1.57, -24.20 },
     refPositions         = { { -61, 1.48, -12.5 }, { -55, 1.48, -12.5 } },
     leaderOverview       = "d40f4c",
-    firstPlayerPosition  = { -38, 1.53, -8 }
+    firstPlayerPosition  = { -38, 1.53, -8 },
+    clockPosition        = Vector(-34.60, 0.50, -13.50)
   }
 }
 
@@ -2270,9 +2274,9 @@ function setupPlayerAreas()
       if options.timeTracking then
         clockData["Tags"] = { "NotInteractable", "Time", playerColor }
         clockData["ColorDiffuse"] = Color[playerColor]
-        local pos = PlayermatApi.getZonePosition(playerColor, "Time")
+        local pos = PLAYER_VARS[playerColor].clockPosition
         clockData.Transform.posX = pos.x
-        clockData.Transform.posY = 0.5
+        clockData.Transform.posY = pos.y
         clockData.Transform.posZ = pos.z
         spawnObjectData({ data = clockData })
       end
