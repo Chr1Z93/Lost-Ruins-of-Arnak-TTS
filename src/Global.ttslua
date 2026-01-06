@@ -3160,8 +3160,8 @@ function setupButtons()
   if options.solo then setupButtonRivalTurn() end
 end
 
-function getLeftMostEmptyDarkTabletSpot()
-  for i = 1, 7 do
+function getRightMostEmptyDarkTabletSpot()
+  for i = 7, 1, -1 do
     local bucketPos    = getDarkTabletBucketPos(i)
     local bucketSearch = SearchLib.inArea(bucketPos, nil, DARK_TABLET_DATA.bucketSize, "isResource")
 
@@ -3181,7 +3181,7 @@ function gainResource(resource, playerColor, remove)
     if remove then
       for _, obj in ipairs(getObjectFromGUID(PLAYER_VARS[playerColor].allZoneGuid).getObjects()) do
         if obj.hasTag("resource") and obj.getGMNotes() == "q" then
-          local targetPos = getLeftMostEmptyDarkTabletSpot()
+          local targetPos = getRightMostEmptyDarkTabletSpot()
 
           obj.setRotation(faceup)
           obj.setPositionSmooth(targetPos)
