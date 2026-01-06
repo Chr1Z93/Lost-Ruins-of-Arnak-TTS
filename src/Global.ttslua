@@ -844,6 +844,7 @@ function createGlobalXml()
   -- Categories for the main scoreboard column
   local scoreboardCategories = {
     "Player",
+    "Leader",
     "Research Tokens",
     "Temple Tiles",
     "Idols",
@@ -871,8 +872,8 @@ function createGlobalXml()
       active              = false,
       rectAlignment       = "UpperLeft",
       offsetXY            = "70 -140",
-      height              = 208,
-      width               = 140,
+      height              = 300,
+      width               = 150,
       cellPadding         = "5 5 0 0",
       cellBackgroundColor = "clear",
       rowBackgroundColor  = "rgba(0, 0, 0, 0.97)"
@@ -884,6 +885,7 @@ function createGlobalXml()
   for _, label in ipairs(scoreboardCategories) do
     table.insert(scoreboardLabels.children, {
       tag = "Row",
+      attributes = { id = "ScoreboardRow-" .. label },
       children = {
         {
           tag = "Cell",
@@ -893,7 +895,7 @@ function createGlobalXml()
               attributes = {
                 color     = "white",
                 alignment = "MiddleRight",
-                text      = label
+                text      = label .. "  "
               }
             }
           }
@@ -909,6 +911,7 @@ function createGlobalXml()
   -- IDs/prefixes corresponding to the categories
   local scoreIds = {
     "name",
+    "leader",
     "research",
     "temple",
     "idol",
@@ -929,8 +932,8 @@ function createGlobalXml()
         active              = false,
         rectAlignment       = "UpperLeft",
         offsetXY            = playerData.offsetXY,
-        height              = 208,
-        width               = 70,
+        height              = 300,
+        width               = 80,
         cellPadding         = "5 5 0 0",
         cellBackgroundColor = "clear",
         rowBackgroundColor  = "rgba(0, 0, 0, 0.97)",
@@ -944,6 +947,7 @@ function createGlobalXml()
 
       table.insert(scoreboard.children, {
         tag = "Row",
+        attributes = { id = "ScoreboardRow-" .. idPrefix .. colorName },
         children = {
           {
             tag = "Cell",
@@ -4223,7 +4227,7 @@ function calculateScores()
       subscores.idol = subscores.idol + scoreUncoveredIdolSlots(playerColor)
     end
 
-    -- exluce ritual pile for the Mystic
+    -- exclude ritual pile for the Mystic
     local excludeMap = {}
     if options.playerBoards[playerColor] == 6 then
       local ritualPosition = PlayermatApi.getZonePosition(playerColor, "Ritual")
@@ -4294,7 +4298,7 @@ function calculateScores()
     end
 
     -- score altars / dark tablets for Spider Temple
-    subscores.darkTablets = (totalDarkTablets[playerColor] * darkTabletValue) or 0
+    subscores.darkTablets = ((totalDarkTablets[playerColor] or 0) * darkTabletValue) or 0
     subscores.altars      = altarVp[playerColor] or 0
 
     -- score idols for solo rival
@@ -4317,8 +4321,17 @@ function calculateScores()
       UI.setAttribute(category .. playerColor, "text", subscore)
     end
 
+    -- maybe hide Spider Temple rows
+    if options.researchTrack ~= 7 then
+      UI.setAttribute("ScoreboardRow-altars", "active", false)
+      UI.setAttribute("ScoreboardRow-darkTablets", "active", false)
+      UI.setAttribute("ScoreboardRow-altars" .. playerColor, "active", false)
+      UI.setAttribute("ScoreboardRow-darkTablets" .. playerColor, "active", false)
+    end
+
     UI.setAttribute('total' .. playerColor, "text", total)
     UI.setAttribute('name' .. playerColor, "text", getPlayerName(playerColor, true))
+    UI.setAttribute('leader' .. playerColor, "text", PLAYERMAT_STATE_TO_LEADER[options.playerBoards[playerColor]])
 
     if total > top.score then
       tiebreaker = false

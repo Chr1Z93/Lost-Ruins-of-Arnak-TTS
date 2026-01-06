@@ -339,7 +339,7 @@ return {
       Vector(13.94, 2, 6),
       Vector(16.19, 2, 6),
     },
-    guardianPos     = { 14.90, 1.69, -10.51 },
+    guardianPos     = Vector(14.90, 1.69, -10.51),
     idolPositions   = { { 18.54, 1.72, -0.97 } },
     templeTileData  = {
       {
