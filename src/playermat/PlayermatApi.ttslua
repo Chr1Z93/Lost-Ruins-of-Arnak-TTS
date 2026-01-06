@@ -58,7 +58,7 @@ do
     local localPos = Zones.getLocalZoneData(matColor, zoneName)
 
     if not localPos then
-      local leader = mat.getDescription()
+      local leader = mat.getName()
       local key = "Base"
       if leader == "Mystic" then
         key = "Mystic"
