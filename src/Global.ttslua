@@ -3498,6 +3498,7 @@ function deliverRewards(playerColor, obj, str)
         broadcastToColor("You do not have 1 coin to get a jewel.", playerColor)
       else
         broadcastToAll(p .. " pays a coin to get a jewel.")
+        trashObject(playerColor, bag.takeObject())
         gainResource("j", playerColor)
       end
     elseif reward == 'f' then
