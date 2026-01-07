@@ -751,7 +751,7 @@ return {
       {
         z          = 15.5,
         magnifying = 25,
-        journal    = 19
+        journal    = 18
       },
       {
         z          = 11,
@@ -766,13 +766,13 @@ return {
       {
         z          = 1.5,
         magnifying = 11,
-        journal    = 8
+        journal    = 9
 
       },
       {
         z          = -3,
         magnifying = 8,
-        journal    = 6
+        journal    = 7
       },
       {
         z          = -7.5,

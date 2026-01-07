@@ -1995,8 +1995,10 @@ function setupResearchTrack()
         end
 
         -- spawn additional copies of first two 1-point tiles
-        if data.value == 1 and i < 3 and #seatedPlayerColors > 2 then
-          for j = 1, (#seatedPlayerColors - 2) do
+        if data.value == 1 and i < 3 and #seatedPlayerColors > 1 then
+          local TILE_COUNT = { 0, 1, 1, 2 } -- one copy is already spawned by the code above
+
+          for j = 1, TILE_COUNT[#seatedPlayerColors] do
             spawnObjectData({
               data     = tileSpawnData[tostring(data.value)],
               position = templeTilePosition:setAt("y", tileY + j * 0.11)
@@ -2008,16 +2010,14 @@ function setupResearchTrack()
 
     -- super special hard-coded idol positions
     if #seatedPlayerColors > 1 then
-      for i = 1, (#seatedPlayerColors - 1) do
+      local IDOL_COUNT = { 0, 2, 2, 3 }
+      for i = 1, IDOL_COUNT[#seatedPlayerColors] do
         decks.idols.takeObject({ position = { 20.20, 1.6, 22.20 }, rotation = facedown })
       end
     end
 
     decks.idols.takeObject({ position = { 10.45, 1.6, 17.28 }, rotation = facedown })
     decks.idols.takeObject({ position = { 8.37, 1.6, 17.34 }, rotation = facedown })
-
-    local coinBag = getObjectFromGUID(BAG_GUIDS.resources["c"])
-    coinBag.takeObject({ position = { 7.06, 1.65, 17.45 }, rotation = facedown })
 
     -- place lanterns
     local miscBag = getObjectFromGUID(BAG_GUIDS.miscTokens)
