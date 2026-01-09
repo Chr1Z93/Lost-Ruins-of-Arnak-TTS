@@ -716,11 +716,11 @@ return {
       }
     },
     altarData          = {
-      { value = 2, position = Vector({ 20.78, 1.6, -19.36 }) },
-      { value = 2, position = Vector({ 26.94, 1.6, -13.88 }) },
-      { value = 3, position = Vector({ 9.90, 1.6, -9.16 }) },
-      { value = 3, position = Vector({ 21.34, 1.6, 1.74 }) },
-      { value = 4, position = Vector({ 9.75, 1.6, 6.95 }) }
+      { value = 2, position = Vector(20.78, 1.6, -19.36) },
+      { value = 2, position = Vector(26.94, 1.6, -13.88) },
+      { value = 3, position = Vector(9.90, 1.6, -9.16) },
+      { value = 3, position = Vector(21.34, 1.6, 1.74) },
+      { value = 4, position = Vector(9.75, 1.6, 6.95) }
     },
     altarOffsets       = {
       Vector(-2.2, 0, -4.7),
@@ -736,11 +736,11 @@ return {
   {
     bonusPositions = {
       -- always place these
-      { { 7.19, 1.68, 3.89 },   { 21.20, 1.68, 3.95 }, { 12.84, 1.73, 8.56 }, { 18.36, 1.68, 18.04 } },
+      { { 21.52, 1.68, 3.50 }, { 7.45, 1.68, 3.30 }, { 13.01, 1.68, 8.07 }, { 18.48, 1.68, 17.74 } },
       -- only place these for 3+ player
-      { { 21.18, 1.68, 18.04 }, { 9.56, 1.68, -14.87 } },
+      { { 9.92, 1.68, -15.54 }, { 21.33, 1.68, 17.78 } },
       -- only place these for 4 players
-      { { 15.40, 1.68, 8.53 } },
+      { { 15.64, 1.68, 8.02 } },
       -- place one tile per player
       {}
     },
@@ -751,41 +751,41 @@ return {
       {
         z          = 15.5,
         magnifying = 25,
-        journal    = 19
+        journal    = 18
       },
       {
-        z          = 11,
+        z          = 10.7,
         magnifying = 20,
         journal    = 16
       },
       {
-        z          = 6.5,
+        z          = 5.7,
         magnifying = 16,
         journal    = 12
       },
       {
-        z          = 1.5,
+        z          = 1,
         magnifying = 11,
-        journal    = 8
+        journal    = 9
 
       },
       {
-        z          = -3,
+        z          = -3.5,
         magnifying = 8,
-        journal    = 6
+        journal    = 7
       },
       {
-        z          = -7.5,
+        z          = -8.5,
         magnifying = 4,
         journal    = 2
       },
       {
-        z          = -12.5,
+        z          = -13,
         magnifying = 3,
         journal    = 1
       },
       {
-        z          = -17,
+        z          = -17.7,
         magnifying = 2,
         journal    = 1
       },
@@ -799,40 +799,40 @@ return {
       {
         value     = 1,
         positions = {
-          Vector(16.08, 1.63, 22.32), -- this will be repeated for 3rd / 4th player
-          Vector(23.64, 1.63, 22.30), -- this will be repeated for 3rd / 4th player
-          Vector(11.48, 1.63, -0.92),
-          Vector(3.71, 1.63, -2.25),
-          Vector(23.23, 1.63, -6.82),
-          Vector(3.64, 1.63, -11.74),
-          Vector(12.91, 1.63, -19.66),
-          Vector(23.04, 1.63, -19.68),
+          Vector(16.23, 1.63, 22.28), -- this will be repeated for 3rd / 4th player
+          Vector(23.83, 1.63, 22.31), -- this will be repeated for 3rd / 4th player
+          Vector(12.80, 1.63, -1.40),
+          Vector(4.32, 1.63, -2.85),
+          Vector(23.72, 1.63, -7.70),
+          Vector(3.94, 1.63, -12.42),
+          Vector(13.05, 1.63, -20.30),
+          Vector(23.37, 1.63, -20.19)
         }
       },
       {
         value     = 5,
         positions = {
-          Vector(18.38, 1.63, 24.80),
-          Vector(21.69, 1.63, 24.75),
-          Vector(14.49, 1.63, 13.17),
-          Vector(23.30, 1.63, 13.08),
-          Vector(23.88, 1.63, 7.39),
-          Vector(23.01, 1.63, -0.85),
-          Vector(11.55, 1.63, -10.24),
-          Vector(22.57, 1.63, -10.35)
+          Vector(18.26, 1.63, 24.81),
+          Vector(21.87, 1.63, 24.87),
+          Vector(14.67, 1.63, 12.71),
+          Vector(23.43, 1.63, 12.77),
+          Vector(24.12, 1.63, 6.98),
+          Vector(23.41, 1.63, -1.53),
+          Vector(11.67, 1.63, -10.78),
+          Vector(23.58, 1.63, -15.58)
         }
       },
       {
         value     = 10,
         positions = {
-          Vector(20.15, 1.63, 27.66),
-          Vector(14.52, 1.63, 3.80),
-          Vector(15.52, 1.63, -5.57), -- this will only be spawned for 3+ players
-          Vector(22.76, 1.63, -14.96)
+          Vector(20.27, 1.63, 27.92),
+          Vector(14.73, 1.63, 3.28),
+          Vector(15.80, 1.63, -6.29), -- this will only be spawned for 3+ players
+          Vector(23.76, 1.63, -10.83)
         }
       }
     },
-    researchTokenLeft = Vector(12.05, 1.65, -24.36),
-    researchTokenRight = Vector(18.95, 1.65, -24.36)
+    researchTokenLeft = Vector(12.63, 1.65, -25),
+    researchTokenRight = Vector(19.21, 1.65, -25)
   }
 }
