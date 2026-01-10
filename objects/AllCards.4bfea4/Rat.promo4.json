@@ -5,27 +5,27 @@
     "z": 0
   },
   "Autoraise": true,
-  "CardID": 4804,
+  "CardID": 12500,
   "ColorDiffuse": {
     "b": 0.71324,
     "g": 0.71324,
     "r": 0.71324
   },
   "CustomDeck": {
-    "48": {
+    "125": {
       "BackIsHidden": true,
       "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/1862806463732171728/E2EBDA19EAF2265F39F3F36C197C7104CA4802E3/",
-      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/1862806463732173205/CDA87849089B416B52ED6CBBBD02621A4F73492E/",
-      "NumHeight": 3,
-      "NumWidth": 6,
+      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/12628621389764624578/25E510205C34DE4BE3F2A2A0003B057D58780541/",
+      "NumHeight": 1,
+      "NumWidth": 1,
       "Type": 0,
       "UniqueBack": false
     }
   },
   "Description": "",
   "DragSelectable": true,
-  "GMNotes_path": "ReplacedCards.bb923d/StoneKey.315729.gmnotes",
-  "GUID": "315729",
+  "GMNotes_path": "AllCards.4bfea4/Rat.promo4.gmnotes",
+  "GUID": "promo4",
   "Grid": true,
   "GridProjection": false,
   "Hands": true,
@@ -37,15 +37,15 @@
   "LuaScriptState": "",
   "MeasureMovement": false,
   "Name": "Card",
-  "Nickname": "Stone Key",
+  "Nickname": "Rat",
   "SidewaysCard": false,
   "Snap": true,
   "Sticky": true,
   "Tooltip": true,
   "Transform": {
-    "posX": 80.458,
+    "posX": 116.458,
     "posY": 38.896,
-    "posZ": -40.065,
+    "posZ": -24.065,
     "rotX": 0,
     "rotY": 180,
     "rotZ": 0,
