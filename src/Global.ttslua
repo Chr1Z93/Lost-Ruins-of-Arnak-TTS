@@ -4257,7 +4257,7 @@ function calculateScores()
           end
         end
       elseif object.hasTag('temple') then
-        subscores.temple = subscores.temple + object.getDescription()
+        subscores.temple = subscores.temple + (tonumber(object.getDescription()) or 0)
       elseif object.hasTag('idol') then
         if scoreIdols then subscores.idol = subscores.idol + 3 end
       elseif object.hasTag('guardian') then
