@@ -1092,7 +1092,7 @@ function createGlobalXml()
   local rightOptions = {
     {
       title = "Moon Staff",
-      height = 100,
+      height = 95,
       group = true,
       toggles = {
         { id = "staff1", text = "Blue" },
@@ -1101,16 +1101,17 @@ function createGlobalXml()
     },
     {
       title = "Leader Selection",
-      height = 100,
+      height = 115,
       group = true,
       toggles = {
         { id = "leaders1", text = "Random", isOn = "True" },
-        { id = "leaders2", text = "Manual" }
+        { id = "leaders2", text = "Manual" },
+        { id = "leaders3", text = "None" }
       }
     },
     {
       title = "Time Tracking",
-      height = 100,
+      height = 95,
       group = true,
       toggles = {
         { id = "time1", text = "Enabled", isOn = "True" },
@@ -1119,7 +1120,7 @@ function createGlobalXml()
     },
     {
       title = "Expansion Selection",
-      height = 160,
+      height = 145,
       group = false,
       toggles = {
         { id = "expeditionLeaders", text = "Expedition Leaders",     isOn = "True" },
@@ -1757,9 +1758,16 @@ function getOptionsFromUI()
     end
   end
 
+  if checkToggle('leaders1') then
+    options.leaders = 'random'
+  elseif checkToggle('leader2') then
+    options.leaders = 'choose'
+  else
+    options.leaders = 'none'
+  end
+
   options.board         = options.board or math.random(4)
   options.researchTrack = options.researchTrack or math.random(6)
-  options.leaders       = checkToggle('leaders1') and 'random' or 'choose'
   options.staff         = checkToggle('staff1') and 1 or 2
   options.timeTracking  = checkToggle('time1')
 end
@@ -2012,12 +2020,12 @@ function setupResearchTrack()
     if #seatedPlayerColors > 1 then
       local IDOL_COUNT = { 0, 2, 2, 3 }
       for i = 1, IDOL_COUNT[#seatedPlayerColors] do
-        decks.idols.takeObject({ position = {20.16, 1.6, 22.46}, rotation = facedown })
+        decks.idols.takeObject({ position = { 20.16, 1.6, 22.46 }, rotation = facedown })
       end
     end
 
-    decks.idols.takeObject({ position = {8.37, 1.6, 16.72}, rotation = facedown })
-    decks.idols.takeObject({ position = {10.54, 1.6, 16.75}, rotation = facedown })
+    decks.idols.takeObject({ position = { 8.37, 1.6, 16.72 }, rotation = facedown })
+    decks.idols.takeObject({ position = { 10.54, 1.6, 16.75 }, rotation = facedown })
 
     -- place lanterns
     local miscBag = getObjectFromGUID(BAG_GUIDS.miscTokens)
@@ -2270,6 +2278,9 @@ function setupPlayerAreas()
         end
         options.playerBoards[playerColor] = leaderId
         if playerBoard.getStateId() ~= leaderId then playerBoard.setState(leaderId) end
+      elseif options.leaders == "none" then
+        options.playerBoards[playerColor] = 9
+        if playerBoard.getStateId() ~= 9 then playerBoard.setState(9) end
       else
         options.playerBoards[playerColor] = playerBoard.getStateId()
       end
@@ -4213,7 +4224,7 @@ function calculateScores()
               if posZ >= row.z then
                 -- take the magnifying glass score for lantern
                 if name == "lantern" then name = "magnifying" end
-                if i > 1 then subscores.research = subscores.research + (row[name] or 0) end
+                subscores.research = subscores.research + (row[name] or 0)
                 break
               end
             end

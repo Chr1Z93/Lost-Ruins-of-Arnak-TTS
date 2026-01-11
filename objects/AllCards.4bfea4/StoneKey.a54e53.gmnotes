@@ -4,5 +4,6 @@
   "plane": 1,
   "cost": 4,
   "points": 2,
-  "expansion": "Expedition Leaders"
+  "expansion": "Base Game",
+  "note": "This is intentionally set to base game!"
 }
