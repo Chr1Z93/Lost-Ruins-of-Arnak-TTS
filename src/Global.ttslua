@@ -10,7 +10,7 @@ local SearchLib             = require("util/SearchLib")
 RESEARCH_TRACK_DATA         = require("ResearchTrackData")
 
 TEST_VARS                   = {
-  defineSeated  = false,
+  defineSeated  = true,
   hideSplash    = false,
   seatedPlayers = { 'Blue', 'Red', 'Yellow', 'Green' }
 }
@@ -626,7 +626,7 @@ function createBoardButtons(board)
       height         = 600
     })
 
-    _G["returnDarkTablet"] = function(_, playerColor) gainResource("q", playerColor, true) end
+    _G["returnDarkTablet"] = function(_, playerColor) loseResource("q", playerColor) end
     board.createButton({
       click_function = "returnDarkTablet",
       label          = "Return DT",
@@ -891,10 +891,12 @@ function createGlobalXml()
       offsetXY            = "70 -140", -- Starting position
       height              = 450,
       width               = 600,       -- Total width (Labels + Icons + Players)
-      cellPadding         = "5 5 15 15",
-      cellBackgroundColor = "clear",
-      rowBackgroundColor  = "rgba(0, 0, 0, 0.97)",
-      columnWidths        = "150 50 100 100 100 100" -- Labels + Icons followed by 4 player cols
+      cellPadding         = "5 5 0 0",
+      cellSpacing         = 3,
+      cellBackgroundColor = "Black",
+      color               = "#C9B395F3",
+      columnWidths        = "150 50 100 100 100 100", -- Labels + Icons followed by 4 player cols
+      outline             = "Black"
     },
     children = {}
   }
@@ -914,7 +916,7 @@ function createGlobalXml()
             {
               tag = "Text",
               attributes = {
-                color     = "white",
+                color     = "Black",
                 alignment = "MiddleRight",
                 text      = cat.name .. "  "
               }
@@ -2530,29 +2532,28 @@ function setupButtonsMisc()
   }
   for _, playerColor in ipairs(seatedPlayerColors) do
     if not (options.solo and playerColor == 'Red') then
-      local vars = PLAYER_VARS[playerColor]
-      for resource, guid in pairs(vars.resourceBagZones) do
-        local bag = getObjectFromGUID(vars.resourceBags[resource])
+      for resource, guid in pairs(PLAYER_VARS[playerColor].resourceBagZones) do
+        local bag = getObjectFromGUID(PLAYER_VARS[playerColor].resourceBags[resource])
+        local fName = 'clickResourceBag' .. resource .. playerColor
         params.label = tostring(bag.getQuantity())
-        params.click_function = 'clickResourceBag' .. resource .. playerColor
+        params.click_function = fName
         getObjectFromGUID(guid).createButton(params)
 
-        _G['clickResourceBag' .. resource .. playerColor] = function(obj, clickColor, alt)
-          if not doneLoading or clickColor ~= playerColor then return end
-          if alt then
-            if bag.getQuantity() > 0 then
-              trashObject(playerColor, bag.takeObject())
-            end
-          else
-            gainResource(resource, clickColor)
-          end
+        _G[fName] = function(obj, clickColor, alt)
+          onClick_resourceBag(clickColor, alt, playerColor, resource)
         end
       end
+
       if options.playerBoards[playerColor] == 4 then
         for resource, guid in pairs(SUITCASE_RESOURCE_BAG_GUIDS) do
           local bag = getObjectFromGUID(guid)
           if bag ~= nil then
             local fName    = 'clickResourceBag' .. resource .. 'Suitcase'
+
+            _G[fName]      = function(obj, clickColor, alt)
+              onClick_resourceBag(clickColor, alt, playerColor, resource, true)
+            end
+
             local bagScale = bag.getScale()
 
             bag.createButton({
@@ -2565,17 +2566,6 @@ function setupButtonsMisc()
               click_function = fName,
               scale          = Vector(1 / bagScale.x, 1 / bagScale.y, 1 / bagScale.z)
             })
-
-            _G[fName] = function(obj, clickColor, alt)
-              if not doneLoading or clickColor ~= playerColor then return end
-              if alt then
-                if obj.getQuantity() > 0 then
-                  trashObject(playerColor, obj.takeObject())
-                end
-              else
-                gainResource(resource, clickColor, true)
-              end
-            end
           end
         end
       end
@@ -2583,7 +2573,44 @@ function setupButtonsMisc()
   end
 end
 
---This function will do a variety of things to setup the campaign including moving campiagn related objects to the table, determining first player, etc
+function onClick_resourceBag(clickColor, remove, playerColor, resource, useSuitcase)
+  if not doneLoading or clickColor ~= playerColor then return end
+
+  if remove then
+    loseResource(resource, playerColor, useSuitcase)
+  else
+    gainResource(resource, playerColor, useSuitcase)
+  end
+
+  -- construct feedback
+  local strList = {}
+  table.insert(strList, getPlayerName(playerColor))
+  table.insert(strList, " manually ")
+
+  if remove then
+    table.insert(strList, "spent")
+  else
+    table.insert(strList, "gained")
+  end
+
+  table.insert(strList, " 1 ")
+  table.insert(strList, RESOURCE_LABELS[resource])
+
+  if useSuitcase then
+    if remove then
+      table.insert(strList, " from")
+    else
+      table.insert(strList, " to")
+    end
+    table.insert(strList, " their suitcase")
+  end
+
+  table.insert(strList, ".")
+
+  printToAll(table.concat(strList))
+end
+
+-- This function will do a variety of things to setup the campaign including moving campiagn related objects to the table, determining first player, etc
 function setupCampaignMisc()
   local campaignBag = getObjectFromGUID(BAG_GUIDS.campaignItems)
 
@@ -3197,26 +3224,42 @@ function getRightMostEmptyDarkTabletSpot()
   end
 end
 
-function gainResource(resource, playerColor, remove)
+function loseResource(resource, playerColor, useSuitcase)
   if resource == "q" then
     -- special handling for Dark Tablets from the Spider Temple
-    if remove then
-      for _, obj in ipairs(getObjectFromGUID(PLAYER_VARS[playerColor].allZoneGuid).getObjects()) do
-        if obj.hasTag("resource") and obj.getGMNotes() == "q" then
-          local targetPos = getRightMostEmptyDarkTabletSpot()
+    for _, obj in ipairs(getObjectFromGUID(PLAYER_VARS[playerColor].allZoneGuid).getObjects()) do
+      if obj.hasTag("resource") and obj.getGMNotes() == "q" then
+        local targetPos = getRightMostEmptyDarkTabletSpot()
 
-          obj.setRotation(faceup)
-          obj.setPositionSmooth(targetPos)
+        obj.setRotation(faceup)
+        obj.setPositionSmooth(targetPos)
 
-          broadcastToAll(getPlayerName(playerColor) .. " returned a Dark Tablet.", "White")
-          return
-        end
+        broadcastToAll(getPlayerName(playerColor) .. " returned a Dark Tablet.", "White")
+        return
       end
-
-      broadcastToColor("Couldn't find Dark Tablets in your play area.", playerColor, "Red")
-      return
     end
 
+    broadcastToColor("Couldn't find Dark Tablets in your play area.", playerColor, "Red")
+    return
+  end
+
+  -- get reference to player's resource bag
+  local playerBag = getObjectFromGUID(PLAYER_VARS[playerColor].resourceBags[resource])
+  if useSuitcase then
+    playerBag = getObjectFromGUID(SUITCASE_RESOURCE_BAG_GUIDS[resource])
+  end
+
+  if playerBag == nil then return end
+
+  -- perform the action (gain / lose resource)
+  if playerBag.getQuantity() > 0 then
+    trashObject(playerColor, playerBag.takeObject())
+  end
+end
+
+function gainResource(resource, playerColor, useSuitcase)
+  if resource == "q" then
+    -- special handling for Dark Tablets from the Spider Temple
     for i = 1, 7 do
       local bucketPos = getDarkTabletBucketPos(i)
       local searchResult = SearchLib.inArea(bucketPos, nil, DARK_TABLET_DATA.bucketSize, "isResource")
@@ -3236,18 +3279,20 @@ function gainResource(resource, playerColor, remove)
     return
   end
 
-  local fromBag = getObjectFromGUID(BAG_GUIDS.resources[resource])
-  if fromBag == nil then return end
+  -- get reference to reserve
+  local reserveBag = getObjectFromGUID(BAG_GUIDS.resources[resource])
+  if reserveBag == nil then return end
 
-  if remove then
-    local toBag = getObjectFromGUID(SUITCASE_RESOURCE_BAG_GUIDS[resource])
-    if toBag == nil then return end
-    toBag.putObject(fromBag.takeObject())
-  else
-    local toBag = getObjectFromGUID(PLAYER_VARS[playerColor].resourceBags[resource])
-    if toBag == nil then return end
-    toBag.putObject(fromBag.takeObject())
+  -- get reference to player's resource bag
+  local playerBag = getObjectFromGUID(PLAYER_VARS[playerColor].resourceBags[resource])
+  if useSuitcase then
+    playerBag = getObjectFromGUID(SUITCASE_RESOURCE_BAG_GUIDS[resource])
   end
+
+  if playerBag == nil then return end
+
+  -- perform the action (gain / lose resource)
+  playerBag.putObject(reserveBag.takeObject())
 end
 
 function getFearCard(playerColor)
