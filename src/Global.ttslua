@@ -4310,7 +4310,7 @@ function calculateScores()
     -- get all objects in play zone
     for _, object in ipairs(getObjectFromGUID(PLAYER_VARS[playerColor].allZoneGuid).getObjects()) do
       -- exclude objects outside of the zone for the professor to not score artifacts in suitcase
-      if options.playerBoards[playerColor] ~= 4 or math.abs(object.getPosition().z) < 71.5 then
+      if options.playerBoards[playerColor] ~= 4 or math.abs(object.getPosition().x) < 71.5 then
         table.insert(scoreTheseObjects, object)
       end
     end
