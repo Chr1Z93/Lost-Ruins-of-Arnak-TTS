@@ -4,22 +4,22 @@
 -- refactored by Chr1Z for twisted paths (playzones shifted by 8 units in x-direction)
 
 require("util/TtsLuaAdditions")
-local DeckLib               = require("util/DeckLib")
-local PlayermatApi          = require("playermat/PlayermatApi")
-local SearchLib             = require("util/SearchLib")
-RESEARCH_TRACK_DATA         = require("ResearchTrackData")
+local DeckLib       = require("util/DeckLib")
+local PlayermatApi  = require("playermat/PlayermatApi")
+local SearchLib     = require("util/SearchLib")
+RESEARCH_TRACK_DATA = require("ResearchTrackData")
 
-TEST_VARS                   = {
+TEST_VARS           = {
   defineSeated  = false,
   hideSplash    = false,
   seatedPlayers = { 'Blue', 'Red', 'Yellow', 'Green' }
 }
 
-COLOR_LIST                  = { "Blue", "Red", "Yellow", "Green" }
+COLOR_LIST          = { "Blue", "Red", "Yellow", "Green" }
 
-RESEARCH_TOKENS             = { "magnifying", "journal", "lantern" }
+RESEARCH_TOKENS     = { "magnifying", "journal", "lantern" }
 
-PLAYER_VARS                 = {
+PLAYER_VARS         = {
   Red = {
     allZoneGuid          = 'b32bc6',
     playAreaZoneGuid     = '472eb8',
@@ -127,7 +127,7 @@ PLAYER_VARS                 = {
 }
 
 -- points for idol slots
-IDOL_SLOT_DATA              = {
+IDOL_SLOT_DATA      = {
   Captain    = { 1, 2, 3, 4 },
   Falconer   = { 1, 2, 3, 4 },
   Baroness   = { 1, 2, 3, 4 },
@@ -139,7 +139,7 @@ IDOL_SLOT_DATA              = {
   Base       = { 1, 2, 3, 4 }
 }
 
-DARK_TABLET_DATA            = {
+DARK_TABLET_DATA    = {
   bucketSize     = Vector(2.25, 2, 3),
   leftBucketPos  = Vector(-25.5, 1.7, -22.4),
   rightBucketPos = Vector(0.17, 1.7, -22.4),
@@ -148,7 +148,7 @@ DARK_TABLET_DATA            = {
   bucketVp       = { -1, -2, -2, -3, -3, -4, -5 }
 }
 
-STARTER_DECK_DATA           = {
+STARTER_DECK_DATA   = {
   Yellow     = { "0001", "0002", "0003", "0004" },
   Green      = { "0005", "0006", "0007", "0008" },
   Blue       = { "0009", "0010", "0011", "0012" },
@@ -161,6 +161,15 @@ STARTER_DECK_DATA           = {
   Captain    = { "1021", "1022", "1023", "1024" },
   Mechanic   = { "2001", "2002", "2003", "2004" },
   Journalist = { "2005", "2006", "2007", "2008" }
+}
+
+RESOURCE_LABELS     = {
+  t = 'tablet',
+  a = 'arrowhead',
+  j = 'jewel',
+  c = 'coin',
+  s = 'compass',
+  q = 'dark tablet'
 }
 
 seatedPlayerColors          = {}
@@ -856,58 +865,6 @@ function createGlobalXml()
     "Total"
   }
 
-  -- Player colors, offsetXY, and initial values for the player scoreboards
-  local playerScores = {
-    { color = "Red",    offsetXY = "190 -140" },
-    { color = "Blue",   offsetXY = "260 -140" },
-    { color = "Green",  offsetXY = "330 -140" },
-    { color = "Yellow", offsetXY = "400 -140" }
-  }
-
-  --- 1. Scoreboard (Labels Column)
-  local scoreboardLabels = {
-    tag        = "TableLayout",
-    attributes = {
-      id                  = "scoreboard",
-      active              = false,
-      rectAlignment       = "UpperLeft",
-      offsetXY            = "70 -140",
-      height              = 300,
-      width               = 150,
-      cellPadding         = "5 5 0 0",
-      cellBackgroundColor = "clear",
-      rowBackgroundColor  = "rgba(0, 0, 0, 0.97)"
-    },
-    children   = {}
-  }
-
-  -- Generate the rows for the labels column
-  for _, label in ipairs(scoreboardCategories) do
-    table.insert(scoreboardLabels.children, {
-      tag = "Row",
-      attributes = { id = "ScoreboardRow-" .. label },
-      children = {
-        {
-          tag = "Cell",
-          children = {
-            {
-              tag = "Text",
-              attributes = {
-                color     = "white",
-                alignment = "MiddleRight",
-                text      = label .. "  "
-              }
-            }
-          }
-        }
-      }
-    })
-  end
-
-  table.insert(uiTable, scoreboardLabels)
-
-  --- 2. Player Scoreboards (Red, Blue, Green, Yellow)
-
   -- IDs/prefixes corresponding to the categories
   local scoreIds = {
     "name",
@@ -923,52 +880,72 @@ function createGlobalXml()
     "total"
   }
 
-  for _, playerData in ipairs(playerScores) do
-    local colorName = playerData.color
-    local scoreboard = {
-      tag        = "TableLayout",
-      attributes = {
-        id                  = "scoreboard" .. colorName,
-        active              = false,
-        rectAlignment       = "UpperLeft",
-        offsetXY            = playerData.offsetXY,
-        height              = 300,
-        width               = 80,
-        cellPadding         = "5 5 0 0",
-        cellBackgroundColor = "clear",
-        rowBackgroundColor  = "rgba(0, 0, 0, 0.97)",
-      },
-      children   = {}
+  local mainTable = {
+    tag = "TableLayout",
+    attributes = {
+      id                  = "scoreboard",
+      active              = false,
+      rectAlignment       = "UpperLeft",
+      offsetXY            = "70 -140", -- Starting position
+      height              = 300,
+      width               = 550,       -- Total width (Labels + Players)
+      cellPadding         = "5 5 0 0",
+      cellBackgroundColor = "clear",
+      rowBackgroundColor  = "rgba(0, 0, 0, 0.97)",
+      columnWidths        = "150 100 100 100 100" -- Labels followed by 4 player cols
+    },
+    children = {}
+  }
+
+  -- Generate Rows: Each row contains 1 Label + 4 Player Cells
+  for i, label in ipairs(scoreboardCategories) do
+    local idPrefix = scoreIds[i]
+
+    local row = {
+      tag = "Row",
+      attributes = { id = "ScoreboardRow-" .. idPrefix },
+      children = {
+        -- 1. The Label Cell
+        {
+          tag = "Cell",
+          children = {
+            {
+              tag = "Text",
+              attributes = {
+                color     = "white",
+                alignment = "MiddleRight",
+                text      = label .. "  "
+              }
+            }
+          }
+        }
+      }
     }
 
-    -- Generate the rows for the player score column
-    for i, idPrefix in ipairs(scoreIds) do
+    -- 2. Add the 4 Player Cells to this same row
+    for _, colorName in ipairs(COLOR_LIST) do
       local initialValue = (idPrefix == "name") and "" or "0"
 
-      table.insert(scoreboard.children, {
-        tag = "Row",
-        attributes = { id = "ScoreboardRow-" .. idPrefix .. colorName },
+      table.insert(row.children, {
+        tag = "Cell",
         children = {
           {
-            tag = "Cell",
-            children = {
-              {
-                tag = "Text",
-                attributes = {
-                  id        = idPrefix .. colorName,
-                  color     = colorName,
-                  alignment = "MiddleCenter",
-                  text      = initialValue
-                }
-              }
+            tag = "Text",
+            attributes = {
+              id        = idPrefix .. colorName,
+              color     = colorName,
+              alignment = "MiddleCenter",
+              text      = initialValue
             }
           }
         }
       })
     end
 
-    table.insert(uiTable, scoreboard)
+    table.insert(mainTable.children, row)
   end
+
+  table.insert(uiTable, mainTable)
 
   --- 3. Options Menu Top Panel
   table.insert(uiTable, {
@@ -1760,7 +1737,7 @@ function getOptionsFromUI()
 
   if checkToggle('leaders1') then
     options.leaders = 'random'
-  elseif checkToggle('leader2') then
+  elseif checkToggle('leaders2') then
     options.leaders = 'choose'
   else
     options.leaders = 'none'
@@ -2786,7 +2763,11 @@ function setupStartingResources()
       local boardLocation = PlayermatApi.getPlayermats(playerColor).getPosition()
 
       if playerBoardState == 9 then
-        -- if the player board is the base board, grab the player deck for the board color
+        -- if the player board is the base board, grab the player deck for the board color and remove the leader overview
+        local overview = getObjectFromGUID(PLAYER_VARS[playerColor].leaderOverview)
+        if overview then
+          overview.destruct()
+        end
         cardList = STARTER_DECK_DATA[playerColor]
       else
         local refIndex = playerBoardState * 2 - 2
@@ -2804,7 +2785,11 @@ function setupStartingResources()
           })
         end
 
-        getObjectFromGUID(PLAYER_VARS[playerColor].leaderOverview).Book.setPage(refIndex)
+        -- set the overview to the correct page
+        local overview = getObjectFromGUID(PLAYER_VARS[playerColor].leaderOverview)
+        if overview then
+          overview.Book.setPage(refIndex)
+        end
 
         cardList = STARTER_DECK_DATA[PLAYERMAT_STATE_TO_LEADER[playerBoardState]]
 
@@ -3482,7 +3467,6 @@ function deliverRewards(playerColor, obj, str)
   local rewards = obj and obj.getGMNotes() or str
   if not rewards or rewards == "" then return true end
 
-  local resourceLabels     = { t = 'tablet', a = 'arrowhead', j = 'jewel', c = 'coin', s = 'compass', q = 'dark tablet' }
   local resourceCount      = {}
   local deliveredAll       = true
   local deliveredResources = false
@@ -3492,7 +3476,7 @@ function deliverRewards(playerColor, obj, str)
     local reward = string.sub(rewards, i, i)
 
     -- these resources are automatically given to the player
-    if resourceLabels[reward] ~= nil then
+    if RESOURCE_LABELS[reward] ~= nil then
       gainResource(reward, playerColor)
       resourceCount[reward] = (resourceCount[reward] or 0) + 1
       deliveredResources = true
@@ -3533,7 +3517,7 @@ function deliverRewards(playerColor, obj, str)
     local message = p .. ' gets '
     local textList = {}
     for code, count in pairs(resourceCount) do
-      local label = resourceLabels[code]
+      local label = RESOURCE_LABELS[code]
       if count > 1 then
         if code == 's' then
           label = 'compasses'
@@ -4160,6 +4144,10 @@ function calculateScores()
   local totalDarkTablets = {}
   local altarVp          = {}
 
+  -- maybe hide Spider Temple rows
+  UI.setAttribute("ScoreboardRow-altars", "active", options.researchTrack == 7)
+  UI.setAttribute("ScoreboardRow-darkTablets", "active", options.researchTrack == 7)
+
   if options.researchTrack == 7 then
     -- check for altars with artifact
     for _, data in ipairs(trackInfo.altarData) do
@@ -4295,7 +4283,10 @@ function calculateScores()
 
     -- get all objects in play zone
     for _, object in ipairs(getObjectFromGUID(PLAYER_VARS[playerColor].allZoneGuid).getObjects()) do
-      table.insert(scoreTheseObjects, object)
+      -- exclude objects outside of the zone for the professor to not score artifacts in suitcase
+      if options.playerBoards[playerColor] ~= 4 or math.abs(object.getPosition().z) < 71.5 then
+        table.insert(scoreTheseObjects, object)
+      end
     end
 
     -- get objects from hand
@@ -4330,14 +4321,6 @@ function calculateScores()
     for category, subscore in pairs(subscores) do
       total = total + subscore
       UI.setAttribute(category .. playerColor, "text", subscore)
-    end
-
-    -- maybe hide Spider Temple rows
-    if options.researchTrack ~= 7 then
-      UI.setAttribute("ScoreboardRow-altars", "active", false)
-      UI.setAttribute("ScoreboardRow-darkTablets", "active", false)
-      UI.setAttribute("ScoreboardRow-altars" .. playerColor, "active", false)
-      UI.setAttribute("ScoreboardRow-darkTablets" .. playerColor, "active", false)
     end
 
     UI.setAttribute('total' .. playerColor, "text", total)
@@ -4381,7 +4364,7 @@ function calculateScores()
   end
 
   local buttonBlock = getObjectFromGUID(BUTTON_BLOCK_GUID)
-  if #buttonBlock.getButtons() < 3 then
+  if not buttonBlock.getButtons() or #buttonBlock.getButtons() < 3 then
     local params = {
       function_owner = self,
       label          = 'Toggle Scoreboard',
