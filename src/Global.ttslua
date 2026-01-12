@@ -4,22 +4,22 @@
 -- refactored by Chr1Z for twisted paths (playzones shifted by 8 units in x-direction)
 
 require("util/TtsLuaAdditions")
-local DeckLib       = require("util/DeckLib")
-local PlayermatApi  = require("playermat/PlayermatApi")
-local SearchLib     = require("util/SearchLib")
-RESEARCH_TRACK_DATA = require("ResearchTrackData")
+local DeckLib               = require("util/DeckLib")
+local PlayermatApi          = require("playermat/PlayermatApi")
+local SearchLib             = require("util/SearchLib")
+RESEARCH_TRACK_DATA         = require("ResearchTrackData")
 
-TEST_VARS           = {
+TEST_VARS                   = {
   defineSeated  = false,
   hideSplash    = false,
   seatedPlayers = { 'Blue', 'Red', 'Yellow', 'Green' }
 }
 
-COLOR_LIST          = { "Blue", "Red", "Yellow", "Green" }
+COLOR_LIST                  = { "Blue", "Red", "Yellow", "Green" }
 
-RESEARCH_TOKENS     = { "magnifying", "journal", "lantern" }
+RESEARCH_TOKENS             = { "magnifying", "journal", "lantern" }
 
-PLAYER_VARS         = {
+PLAYER_VARS                 = {
   Red = {
     allZoneGuid          = 'b32bc6',
     playAreaZoneGuid     = '472eb8',
@@ -127,7 +127,7 @@ PLAYER_VARS         = {
 }
 
 -- points for idol slots
-IDOL_SLOT_DATA      = {
+IDOL_SLOT_DATA              = {
   Captain    = { 1, 2, 3, 4 },
   Falconer   = { 1, 2, 3, 4 },
   Baroness   = { 1, 2, 3, 4 },
@@ -139,7 +139,7 @@ IDOL_SLOT_DATA      = {
   Base       = { 1, 2, 3, 4 }
 }
 
-DARK_TABLET_DATA    = {
+DARK_TABLET_DATA            = {
   bucketSize     = Vector(2.25, 2, 3),
   leftBucketPos  = Vector(-25.5, 1.7, -22.4),
   rightBucketPos = Vector(0.17, 1.7, -22.4),
@@ -148,7 +148,7 @@ DARK_TABLET_DATA    = {
   bucketVp       = { -1, -2, -2, -3, -3, -4, -5 }
 }
 
-STARTER_DECK_DATA   = {
+STARTER_DECK_DATA           = {
   Yellow     = { "0001", "0002", "0003", "0004" },
   Green      = { "0005", "0006", "0007", "0008" },
   Blue       = { "0009", "0010", "0011", "0012" },
@@ -163,7 +163,7 @@ STARTER_DECK_DATA   = {
   Journalist = { "2005", "2006", "2007", "2008" }
 }
 
-RESOURCE_LABELS     = {
+RESOURCE_LABELS             = {
   t = 'tablet',
   a = 'arrowhead',
   j = 'jewel',
@@ -852,17 +852,18 @@ function createGlobalXml()
 
   -- Categories for the main scoreboard column
   local scoreboardCategories = {
-    "Player",
-    "Leader",
-    "Research Tokens",
-    "Temple Tiles",
-    "Idols",
-    "Guardians",
-    "Items and Artifacts",
-    "Fear",
-    "Dark Tablets",
-    "Altars",
-    "Total"
+    { name = "Player" },
+    { name = "Leader" },
+    { name = "Research Tokens", icon = "icon-research_tokens" },
+    { name = "Temple Tiles",    icon = "icon-temple_tiles" },
+    { name = "Idols",           icon = "icon-idols" },
+    { name = "Guardians",       icon = "icon-guardians" },
+    { name = "Items",           icon = "icon-item" },
+    { name = "Artifacts",       icon = "icon-artifact" },
+    { name = "Fear",            icon = "icon-fear" },
+    { name = "Dark Tablets",    icon = "icon-dark_tablet" },
+    { name = "Altars",          icon = "icon-altar" },
+    { name = "Total",           icon = "icon-sum" }
   }
 
   -- IDs/prefixes corresponding to the categories
@@ -873,7 +874,8 @@ function createGlobalXml()
     "temple",
     "idol",
     "guardian",
-    "cards",
+    "items",
+    "artifacts",
     "fear",
     "darkTablets",
     "altars",
@@ -887,25 +889,25 @@ function createGlobalXml()
       active              = false,
       rectAlignment       = "UpperLeft",
       offsetXY            = "70 -140", -- Starting position
-      height              = 300,
-      width               = 550,       -- Total width (Labels + Players)
-      cellPadding         = "5 5 0 0",
+      height              = 450,
+      width               = 600,       -- Total width (Labels + Icons + Players)
+      cellPadding         = "5 5 15 15",
       cellBackgroundColor = "clear",
       rowBackgroundColor  = "rgba(0, 0, 0, 0.97)",
-      columnWidths        = "150 100 100 100 100" -- Labels followed by 4 player cols
+      columnWidths        = "150 50 100 100 100 100" -- Labels + Icons followed by 4 player cols
     },
     children = {}
   }
 
   -- Generate Rows: Each row contains 1 Label + 4 Player Cells
-  for i, label in ipairs(scoreboardCategories) do
+  for i, cat in ipairs(scoreboardCategories) do
     local idPrefix = scoreIds[i]
 
     local row = {
       tag = "Row",
       attributes = { id = "ScoreboardRow-" .. idPrefix },
       children = {
-        -- 1. The Label Cell
+        -- Label Cell
         {
           tag = "Cell",
           children = {
@@ -914,15 +916,31 @@ function createGlobalXml()
               attributes = {
                 color     = "white",
                 alignment = "MiddleRight",
-                text      = label .. "  "
+                text      = cat.name .. "  "
               }
             }
           }
-        }
+        },
+        { tag = "Cell", children = {} }
       }
     }
 
-    -- 2. Add the 4 Player Cells to this same row
+    -- Icon Cell
+    if cat.icon then
+      table.insert(row.children[2].children,
+        {
+          tag = "Image",
+          attributes = {
+            image          = cat.icon,
+            preserveAspect = true,
+            rectAlignment  = "MiddleCenter",
+            width          = 35,
+            height         = 35
+          }
+        })
+    end
+
+    -- Player Cells
     for _, colorName in ipairs(COLOR_LIST) do
       local initialValue = (idPrefix == "name") and "" or "0"
 
@@ -947,7 +965,7 @@ function createGlobalXml()
 
   table.insert(uiTable, mainTable)
 
-  --- 3. Options Menu Top Panel
+  --- Options Menu Top Panel
   table.insert(uiTable, {
     tag        = "Panel",
     attributes = {
@@ -971,7 +989,7 @@ function createGlobalXml()
     }
   })
 
-  --- 4. Options Menu Left Table
+  --- Options Menu Left Table
   local leftOptions = {
     {
       title   = "Board",
@@ -1016,7 +1034,7 @@ function createGlobalXml()
   }
 
   for _, section in ipairs(leftOptions) do
-    -- 1. Create the base vertical layout structure for the section
+    -- base vertical layout structure for the section
     local verticalLayoutChildren = {
       {
         tag = "Text",
@@ -1029,7 +1047,7 @@ function createGlobalXml()
       }
     }
 
-    -- 2. Loop through all toggles in this section and add them to the verticalLayoutChildren
+    -- toggles in this section
     for _, toggle in ipairs(section.toggles) do
       table.insert(verticalLayoutChildren, {
         tag        = "Toggle",
@@ -1042,7 +1060,7 @@ function createGlobalXml()
       })
     end
 
-    -- 3. Construct the Row structure using the complete verticalLayoutChildren
+    -- row structure using the complete verticalLayoutChildren
     local row = {
       tag = "Row",
       attributes = { preferredHeight = section.height },
@@ -1065,7 +1083,7 @@ function createGlobalXml()
 
   table.insert(uiTable, optionsMenuLeft)
 
-  --- 5. Options Menu Right Table
+  ---Options Menu Right Table
   local rightOptions = {
     {
       title = "Moon Staff",
@@ -1171,7 +1189,7 @@ function createGlobalXml()
 
   table.insert(uiTable, optionsMenuRight)
 
-  --- 6. Options Menu Buttons Panel
+  --- Options Menu Buttons Panel
   table.insert(uiTable, {
     tag = "Panel",
     attributes = {
@@ -1209,7 +1227,7 @@ function createGlobalXml()
     }
   })
 
-  --- 7. Continue Menu Table
+  --- Continue Menu Table
   table.insert(uiTable, {
     tag = "TableLayout",
     attributes = {
@@ -1273,7 +1291,7 @@ function createGlobalXml()
     }
   })
 
-  --- 8. Continue Menu Buttons Table
+  --- Continue Menu Buttons Table
   local continueMenuButtonsData = {
     {
       onClick = "menuStart(4)",
@@ -1326,7 +1344,7 @@ function createGlobalXml()
 
   table.insert(uiTable, continueMenuButtons)
 
-  --- 9. Solo Menu Table
+  --- Solo Menu Table
   local soloMenuSliders = {
     { id = "red",    text = "Red Actions: 0",    sliderId = "redSlider",    minValue = "0", maxValue = "5", value = "0" },
     { id = "purple", text = "Purple Actions: 0", sliderId = "purpleSlider", minValue = "0", maxValue = "5", value = "0" }
@@ -1412,12 +1430,16 @@ function createGlobalXml()
   end
 
   table.insert(soloMenu.children,
-    { tag = "Row", attributes = { preferredHeight = 5 }, children = { { tag = "Cell" }, { tag = "Cell" }, { tag = "Cell" } } })
+    {
+      tag        = "Row",
+      attributes = { preferredHeight = 5 },
+      children   = { { tag = "Cell" }, { tag = "Cell" }, { tag = "Cell" } }
+    })
 
   -- Difficulty Row
   table.insert(soloMenu.children, {
     tag = "Row",
-    attributes = { preferredHeight = "30" },
+    attributes = { preferredHeight = 30 },
     children = {
       { tag = "Cell" },
       {
@@ -1471,7 +1493,7 @@ function createGlobalXml()
             minValue       = 0,
             maxValue       = 4,
             value          = 3,
-            wholeNumbers   = "true"
+            wholeNumbers   = true
           }
         }
       },
@@ -4050,7 +4072,7 @@ end
 function getVpValue(notes)
   if notes == nil or notes == "" or string.sub(notes, 1, 1) ~= '{' then return 0 end
   local md = JSON.decode(notes) or {}
-  return md.points or 0
+  return md.points or 0, md.type
 end
 
 function findPurpleSiteActionCard(zoneGuid)
@@ -4173,7 +4195,7 @@ function calculateScores()
   end
 
   for _, playerColor in ipairs(seatedPlayerColors) do
-    local subscores             = { research = 0, temple = 0, idol = 0, guardian = 0, cards = 0, fear = 0 }
+    local subscores             = { research = 0, temple = 0, idol = 0, guardian = 0, items = 0, artifacts = 0, fear = 0 }
     local templeOrder           = 9
     local scoredMagnifyingGlass = false
 
@@ -4247,11 +4269,13 @@ function calculateScores()
             subscores.guardian = subscores.guardian + 5
           else
             -- regular cards
-            local score = getVpValue(cardData.GMNotes)
+            local score, type = getVpValue(cardData.GMNotes)
             if score < 0 then
               subscores.fear = subscores.fear + score
-            else
-              subscores.cards = subscores.cards + score
+            elseif type == "Item" then
+              subscores.items = subscores.items + score
+            elseif type == "Artifact" then
+              subscores.artifacts = subscores.artifacts + score
             end
           end
         end
@@ -4265,11 +4289,13 @@ function calculateScores()
         subscores.fear = subscores.fear - 2
       elseif object.type == "Card" then
         -- regular cards
-        local score = getVpValue(object.getGMNotes())
+        local score, type = getVpValue(object.getGMNotes())
         if score < 0 then
           subscores.fear = subscores.fear + score
-        else
-          subscores.cards = subscores.cards + score
+        elseif type == "Item" then
+          subscores.items = subscores.items + score
+        elseif type == "Artifact" then
+          subscores.artifacts = subscores.artifacts + score
         end
       end
     end
