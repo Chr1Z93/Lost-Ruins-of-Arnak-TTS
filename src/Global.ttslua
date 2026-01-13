@@ -10,7 +10,7 @@ local SearchLib             = require("util/SearchLib")
 RESEARCH_TRACK_DATA         = require("ResearchTrackData")
 
 TEST_VARS                   = {
-  defineSeated  = true,
+  defineSeated  = false,
   hideSplash    = false,
   seatedPlayers = { 'Blue', 'Red', 'Yellow', 'Green' }
 }
@@ -885,23 +885,27 @@ function createGlobalXml()
   local mainTable = {
     tag = "TableLayout",
     attributes = {
-      id                  = "scoreboard",
-      active              = false,
-      rectAlignment       = "UpperLeft",
-      offsetXY            = "70 -140", -- Starting position
-      height              = 450,
-      width               = 600,       -- Total width (Labels + Icons + Players)
-      cellPadding         = "5 5 0 0",
-      cellSpacing         = 3,
-      cellBackgroundColor = "Black",
-      color               = "#C9B395F3",
-      columnWidths        = "150 50 100 100 100 100", -- Labels + Icons followed by 4 player cols
-      outline             = "Black"
+      id                                   = "scoreboard",
+      active                               = false,
+      rectAlignment                        = "MiddleCenter",
+      height                               = 600,
+      width                                = 800,
+      allowDragging                        = true,
+      returnToOriginalPositionWhenReleased = false,
+      cellPadding                          = "3 3 3 3",
+      cellSpacing                          = 2,
+      cellBackgroundColor                  = "clear",
+      rowBackgroundColor                   = "#383838",
+      color                                = "#DDDDDD",
+      columnWidths                         = "150 50 150 150 150 150", -- Label + Icon + 4 Player cols
+      outline                              = "#DDDDDD",
+      outlineSize                          = "3 3",
+      scale                                = "0.9 0.9 1"
     },
     children = {}
   }
 
-  -- Generate Rows: Each row contains 1 Label + 4 Player Cells
+  -- Generate Rows: Each row contains 1 Label + 1 Icon + 4 Player Cells
   for i, cat in ipairs(scoreboardCategories) do
     local idPrefix = scoreIds[i]
 
@@ -916,8 +920,9 @@ function createGlobalXml()
             {
               tag = "Text",
               attributes = {
-                color     = "Black",
+                color     = "#FFFFFF",
                 alignment = "MiddleRight",
+                fontSize  = 17,
                 text      = cat.name .. "  "
               }
             }
@@ -935,16 +940,14 @@ function createGlobalXml()
           attributes = {
             image          = cat.icon,
             preserveAspect = true,
-            rectAlignment  = "MiddleCenter",
-            width          = 35,
-            height         = 35
+            rectAlignment  = "MiddleCenter"
           }
         })
     end
 
     -- Player Cells
     for _, colorName in ipairs(COLOR_LIST) do
-      local initialValue = (idPrefix == "name") and "" or "0"
+      local initialValue = (idPrefix == "name" or idPrefix == "leader") and "" or 0
 
       table.insert(row.children, {
         tag = "Cell",
@@ -952,10 +955,12 @@ function createGlobalXml()
           {
             tag = "Text",
             attributes = {
-              id        = idPrefix .. colorName,
-              color     = colorName,
-              alignment = "MiddleCenter",
-              text      = initialValue
+              id                   = idPrefix .. colorName,
+              color                = colorName,
+              alignment            = "MiddleCenter",
+              resizeTextForBestFit = true,
+              resizeTextMaxSize    = 25,
+              text                 = initialValue
             }
           }
         }
