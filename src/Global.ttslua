@@ -553,8 +553,24 @@ function onLoad(saveState)
     local action      = netAmount > 0 and "gained " or "spent "
     local location    = useSuitcase and (netAmount > 0 and " to their suitcase" or " from their suitcase") or ""
     local label       = RESOURCE_LABELS[resId] or resId
+    local amountStr   = math.abs(netAmount) .. " "
 
-    return coloredName .. " manually " .. action .. math.abs(netAmount) .. " " .. label .. location .. "."
+    -- singular / plural handling with edge case for arrowheads / compasses
+    if math.abs(netAmount) == 1 then
+      if resId == "a" then
+        amountStr = "an "
+      else
+        amountStr = "a "
+      end
+    else
+      if resId == "s" then
+        label = label .. "es"
+      else
+        label = label .. "s"
+      end
+    end
+
+    return coloredName .. " manually " .. action .. amountStr .. label .. location .. "."
   end)
 end
 
