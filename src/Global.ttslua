@@ -5,6 +5,7 @@
 
 require("util/TtsLuaAdditions")
 local DeckLib               = require("util/DeckLib")
+local MessageQueue          = require("util/MessageQueue")
 local PlayermatApi          = require("playermat/PlayermatApi")
 local SearchLib             = require("util/SearchLib")
 RESEARCH_TRACK_DATA         = require("ResearchTrackData")
@@ -534,6 +535,43 @@ function onLoad(saveState)
     if turn ~= nil and Turns.enable and Turns.turn_color ~= turn then Turns.turn_color = turn end
     Wait.time(function() doneLoading = true end, 0.5)
   end, 10)
+
+  -- This one formatter will handle all manual resource gaining / spending
+  MessageQueue.registerFormatter("manual_resource_base", function(playerColor, messages)
+    local netAmount   = 0
+    local resId       = messages[1].resource    -- context stays consistent due to unique message type key
+    local useSuitcase = messages[1].useSuitcase -- context stays consistent due to unique message type key
+
+    for _, msg in ipairs(messages) do
+      netAmount = netAmount + (msg.remove and -1 or 1)
+    end
+
+    if netAmount == 0 then return "" end
+
+    local name        = Player[playerColor] and Player[playerColor].steam_name or playerColor
+    local coloredName = "[" .. Color.fromString(playerColor):toHex() .. "]" .. name .. "[-]"
+    local action      = netAmount > 0 and "gained " or "spent "
+    local location    = useSuitcase and (netAmount > 0 and " to their suitcase" or " from their suitcase") or ""
+    local label       = RESOURCE_LABELS[resId] or resId
+    local amountStr   = math.abs(netAmount) .. " "
+
+    -- singular / plural handling with edge case for arrowheads / compasses
+    if math.abs(netAmount) == 1 then
+      if resId == "a" then
+        amountStr = "an "
+      else
+        amountStr = "a "
+      end
+    else
+      if resId == "s" then
+        label = label .. "es"
+      else
+        label = label .. "s"
+      end
+    end
+
+    return coloredName .. " manually " .. action .. amountStr .. label .. location .. "."
+  end)
 end
 
 function onObjectSpawn(obj)
@@ -2587,32 +2625,15 @@ function onClick_resourceBag(clickColor, remove, playerColor, resource, useSuitc
     gainResource(resource, playerColor, useSuitcase)
   end
 
-  -- construct feedback
-  local strList = {}
-  table.insert(strList, getPlayerName(playerColor))
-  table.insert(strList, " manually ")
+  -- Create a unique key like "manual_Gold_true"
+  -- This ensures different resources never bundle together into the same line.
+  local queueKey = "manual_" .. resource .. "_" .. tostring(useSuitcase)
 
-  if remove then
-    table.insert(strList, "spent")
-  else
-    table.insert(strList, "gained")
-  end
-
-  table.insert(strList, " 1 ")
-  table.insert(strList, RESOURCE_LABELS[resource])
-
-  if useSuitcase then
-    if remove then
-      table.insert(strList, " from")
-    else
-      table.insert(strList, " to")
-    end
-    table.insert(strList, " their suitcase")
-  end
-
-  table.insert(strList, ".")
-
-  printToAll(table.concat(strList))
+  MessageQueue.queue(playerColor, queueKey, {
+    resource    = resource,
+    remove      = remove,
+    useSuitcase = useSuitcase
+  })
 end
 
 -- This function will do a variety of things to setup the campaign including moving campiagn related objects to the table, determining first player, etc
