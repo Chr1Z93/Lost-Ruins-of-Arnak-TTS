@@ -3731,6 +3731,9 @@ end
 function goesInDeck(object)
   if object == nil then return false end
 
+  -- exclude encounter cards
+  if object.getGMNotes() == "" then return false end
+
   local excludeTags = { 'assistant', 'idol', 'site1', 'site2', 'guardian', "SpecialDelivery" }
 
   local cardTags = nil

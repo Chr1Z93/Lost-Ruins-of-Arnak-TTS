@@ -9,11 +9,11 @@ function onLoad()
     click_function = "rotateWheel",
     function_owner = self,
     tooltip        = "Rotate the wheel clockwise.\nRight-click to undo.",
-    position       = { 2.67, 0.35, 0 },
-    font_size      = 325,
+    position       = { 2.67, 0.11, 0 },
+    font_size      = 800,
     scale          = { 0.1, 0.1, 0.1 },
     width          = 1000,
-    height         = 450
+    height         = 1000
   })
 end
 
