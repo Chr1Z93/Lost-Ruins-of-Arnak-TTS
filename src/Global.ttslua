@@ -408,9 +408,7 @@ SITE_OFFSETS                = {
 solo                        = {
   board = 'a30382',
   boardPosition = { -51.26, 1.53, 18.96 },
-  boardPosition = { -51.26, 1.53, 18.96 },
   objectives = 'd8547e',
-  objectivePosition = { -59, 1.53, -0.80 },
   objectivePosition = { -59, 1.53, -0.80 },
   zones = {
     deck = '7196a9',
@@ -423,7 +421,6 @@ solo                        = {
       ftt  = '1caf8d',
       g    = '6892c0',
       d    = '53c99c',
-      o    = '53c99d',
       o    = '53c99d',
       t    = '500131',
       r    = 'af87d7',
@@ -438,9 +435,6 @@ solo                        = {
   spiderTempleActionCard = 'd47408',
   owlTempleActionCard = '4b2de9',
   pawnPositions = { { -36.50, 2.20, 20 }, { -34.50, 2.20, 20 }, { -32.50, 2.20, 20 }, { -36.50, 2.20, 18 }, { -34.50, 2.20, 18 }, { -32.50, 2.20, 18 } },
-  spiderTempleActionCard = 'd47408',
-  owlTempleActionCard = '4b2de9',
-  pawnPositions = { { -36.50, 2.20, 20 }, { -34.50, 2.20, 20 }, { -32.50, 2.20, 20 }, { -36.50, 2.20, 18 }, { -34.50, 2.20, 18 }, { -32.50, 2.20, 18 } },
   actionDecks = { arch = 'f682fb', other = '52b0e5' },
   actionCards = {
     artifact = { '35cf03', '8643d5', '6862ec' },
@@ -452,17 +446,7 @@ solo                        = {
   actionCardTypes = { 'artifact', 'item', 'site', 'guardian', 'research' },
   deckPositions = { { -60.57, 1.65, 17.70 }, { -56.58, 1.60, 17.70 } },
   setupPositions = { { -60.57, 1.53, 42.48 }, { -56.58, 1.53, 42.48 } },
-  deckPositions = { { -60.57, 1.65, 17.70 }, { -56.58, 1.60, 17.70 } },
-  setupPositions = { { -60.57, 1.53, 42.48 }, { -56.58, 1.53, 42.48 } },
   acquiredStuffPositions = {
-    idolA            = { -42.85, 1.50, 10.15 },
-    researchBonus    = { -40.16, 2.28, 10.15 },
-    templeTile       = { { -53.60, 1.93, 11 }, { -50, 1.93, 11 }, { -46.40, 1.93, 11 }, { -53.60, 1.93, 9.30 }, { -50, 1.93, 9.30 }, { -46.40, 1.93, 9.30 } },
-    templeTileSilver = { -57.90, 1.93, 10.15 },
-    templeTileGold   = { -62.10, 1.93, 10.15 },
-    guardian         = { -50.25, 2.10, 17.71 },
-    buy              = { -43.12, 2.10, 18.95 },
-    assistant        = { -34.50, 2, 10.15 }
     idolA            = { -42.85, 1.50, 10.15 },
     researchBonus    = { -40.16, 2.28, 10.15 },
     templeTile       = { { -53.60, 1.93, 11 }, { -50, 1.93, 11 }, { -46.40, 1.93, 11 }, { -53.60, 1.93, 9.30 }, { -50, 1.93, 9.30 }, { -46.40, 1.93, 9.30 } },
@@ -479,9 +463,6 @@ soloStatus                  = {
   fulfilledObjectives = {},
   pawnsOut            = 0,
   magnifying          = { row = 0, path = 0 },
-  journal             = { row = 0, path = 0 },
-  lantern             = { row = 0, path = 0 },
-  hasLantern          = false
   journal             = { row = 0, path = 0 },
   lantern             = { row = 0, path = 0 },
   hasLantern          = false
@@ -3134,10 +3115,6 @@ function menuStartSolo()
   broadcastToAll('Starting solo mode: Difficulty Level ' .. difficulty .. '/10')
   broadcastToAll('(Green ' .. actionCounts[1] .. ' cards, Red ' .. red .. ' cards, Purple ' .. purple .. ' cards)')
 
-  local difficulty = red + purple * 2
-  broadcastToAll('Starting solo mode: Difficulty Level ' .. difficulty .. '/10')
-  broadcastToAll('(Green ' .. actionCounts[1] .. ' cards, Red ' .. red .. ' cards, Purple ' .. purple .. ' cards)')
-
   options.objectives = tonumber(UI.getAttribute('objectiveSlider', 'value'))
   uiOff()
 
@@ -3169,13 +3146,6 @@ function menuStartSolo()
         end
       end
     end
-
-    if options.researchTrack == 7 then
-      actionDeck.putObject(bag.takeObject({ guid = solo.spiderTempleActionCard }))
-    elseif options.researchTrack == 8 then
-      actionDeck.putObject(bag.takeObject({ guid = solo.owlTempleActionCard }))
-    end
-
 
     if options.researchTrack == 7 then
       actionDeck.putObject(bag.takeObject({ guid = solo.spiderTempleActionCard }))
@@ -4803,10 +4773,6 @@ function getDecisionArrow()
   return math.random(1, 2) == 1 and 'left' or 'right'
 end
 
-function getDecisionArrow()
-  return math.random(1, 2) == 1 and 'left' or 'right'
-end
-
 function rivalTurnCoroutine()
   getObjectFromGUID(PLAYER_VARS.Red.playAreaZoneGuid).editButton({ index = 0, label = buttonLabelsRival.busy })
   broadcastToAll("Rival's turn.", 'Red')
@@ -4820,7 +4786,6 @@ function rivalTurnCoroutine()
     setupButtonRivalTurn()
     return 1
   end
-  wait(0.8)
   wait(0.8)
 
   local action = actionCard.getDescription()
@@ -4844,17 +4809,7 @@ function rivalTurnCoroutine()
         rivalBuy('artifact', false)
         soloStatus.fulfilledObjectives['artifact'] = true
       end
-      if action == 'artifact' then
-        broadcastToAll('Rival buys an additional item with the lowest score.')
-        rivalBuy('item', false)
-        soloStatus.fulfilledObjectives['item'] = true
-      elseif action == 'item' then
-        broadcastToAll('Rival buys an additional artifact with the lowest score.')
-        rivalBuy('artifact', false)
-        soloStatus.fulfilledObjectives['artifact'] = true
-      end
     end
-    wait(1.5)
     wait(1.5)
     refillRowCoroutine()
   elseif action == 'arch' then
@@ -4969,12 +4924,8 @@ function rivalTurnCoroutine()
         local pawnOffset = (targetLevel == 2) and SITE_OFFSETS.spotLvl2 or SITE_OFFSETS.spotLvl1
         local pawnPos = siteInfo.pos + pawnOffset
         local success = rivalMovePawn(pawnPos)
-        local pawnOffset = (targetLevel == 2) and SITE_OFFSETS.spotLvl2 or SITE_OFFSETS.spotLvl1
-        local pawnPos = siteInfo.pos + pawnOffset
-        local success = rivalMovePawn(pawnPos)
 
         if success then
-          if soloStatus.pawnsOut > 2 then soloStatus.fulfilledObjectives.arch = true end
           if soloStatus.pawnsOut > 2 then soloStatus.fulfilledObjectives.arch = true end
           wait(1.2)
           local foundIdols = {}
@@ -4998,10 +4949,8 @@ function rivalTurnCoroutine()
                 object.setRotationSmooth(facedown, false, true)
                 object.setPositionSmooth(dupePos, false, false)
                 dupeY = dupeY + 0.4
-                dupeY = dupeY + 0.4
               else
                 local idolReward = object.getGMNotes()
-                local idolZone = getObjectFromGUID(solo.zones.idol[idolReward])
                 local idolZone = getObjectFromGUID(solo.zones.idol[idolReward])
                 local isDupe = false
                 -- Check if the target zone already has other idols
@@ -5013,15 +4962,11 @@ function rivalTurnCoroutine()
                 end
                 if isDupe then
                   object.setRotationSmooth(facedown, false, true)
-                  object.setRotationSmooth(facedown, false, true)
                   object.setPositionSmooth(dupePos, false, false)
-                  dupeY = dupeY + 0.4
                   dupeY = dupeY + 0.4
                 else
                   local idolPos = idolZone.getPosition()
-                  local idolPos = idolZone.getPosition()
                   object.setRotationSmooth(faceup, false, true)
-                  object.setPositionSmooth({ idolPos[1], idolPos[2], idolPos[3] }, false, false)
                   object.setPositionSmooth({ idolPos[1], idolPos[2], idolPos[3] }, false, false)
                 end
               end
@@ -5033,9 +4978,7 @@ function rivalTurnCoroutine()
           local wakeGuardian = false
           if (gmNotes == 'green' or gmNotes == 'purple') and (round == 1 or round == 3 or round == 5) then
             wakeGuardian = true
-            wakeGuardian = true
           elseif gmNotes == 'red' and (round == 2 or round == 4) then
-            wakeGuardian = true
             wakeGuardian = true
           end
 
@@ -5065,7 +5008,6 @@ function rivalTurnCoroutine()
       broadcastToAll('Rival does not take this action in round 5.')
     else
       local somethingDefeated = false
-      local somethingDefeated = false
       if options.researchTrack == 4 and soloStatus.magnifying.row == 5 then
         -- overcome lizard temple guardian first
         local searchResult = SearchLib.atPosition(RESEARCH_TRACK_DATA[4].guardianPos, "isGuardian")
@@ -5076,11 +5018,9 @@ function rivalTurnCoroutine()
           searchResult[1].setPositionSmooth(solo.acquiredStuffPositions.guardian, false, false)
           soloStatus.fulfilledObjectives.guardian = true
           somethingDefeated = true
-          somethingDefeated = true
         end
       end
 
-      if not somethingDefeated then
       if not somethingDefeated then
         -- overcome a guardian on the main board
         -- [AI修改] 重建擊敗守衛邏輯: 優先級 Level 2 > Level 1
@@ -5108,56 +5048,8 @@ function rivalTurnCoroutine()
               for _, guardian in ipairs(guardians) do
                 if not guardian.is_face_down then
                   table.insert(layerGuardians, guardian)
-        -- [AI修改] 重建擊敗守衛邏輯: 優先級 Level 2 > Level 1
-        local boardData = getBoardData()
-        -- 搜尋順序：Lvl 1 -> Lvl 2 (行數較低者優先)
-        local searchLayers = {
-          { data = boardData.lvl1, level = 1, offset = SITE_OFFSETS.spotLvl1 },
-          { data = boardData.lvl2, level = 2, offset = SITE_OFFSETS.spotLvl2 }
-        }
-
-        local guardianToDefeat = nil
-
-        for _, layer in ipairs(searchLayers) do
-          local layerGuardians = {}
-          for i = #layer.data, 1, -1 do
-            local siteData = layer.data[i]
-            -- 檢查此地點是否有對手的考古學家
-            local pawnPos = siteData.pos + layer.offset
-            local rivalPawn = SearchLib.atPosition(pawnPos,
-              function(obj) return obj.hasTag('pawn') and obj.getDescription() == 'Red' end)
-
-            if #rivalPawn > 0 then
-              -- 檢查此地點是否有未被擊敗的守衛
-              local guardians = SearchLib.atPosition(siteData.pos + SITE_OFFSETS.guardian, "isGuardian")
-              for _, guardian in ipairs(guardians) do
-                if not guardian.is_face_down then
-                  table.insert(layerGuardians, guardian)
                 end
               end
-            end
-          end
-
-          if #layerGuardians > 0 then
-            -- 找到優先級最高的層級，不再往下搜尋
-            if #layerGuardians == 1 then
-              guardianToDefeat = layerGuardians[1]
-            else
-              -- 同層級多個選擇：依據決策箭頭(左/右)選擇 X 軸
-              table.sort(layerGuardians, function(a, b) return a.getPosition().x < b.getPosition().x end)
-              local arrow = getDecisionArrow()
-              broadcastToAll("發現多個守衛 (Level " ..
-                layer.level .. ")，依箭頭選擇：" .. (arrow == 'left' and "左 (Left)" or "右 (Right)"))
-
-              if arrow == 'left' then
-                guardianToDefeat = layerGuardians[1]
-              else
-                guardianToDefeat = layerGuardians[#layerGuardians]
-              end
-            end
-            break
-          end
-        end
             end
           end
 
@@ -5202,7 +5094,6 @@ function rivalTurnCoroutine()
         -- Regardless of whether a guardian was defeated, the second part of the Purple action will use the Notebook for research.
         broadcastToAll('Purple Guardian Action: Performing extra research using the Notebook.')
         wait(1.5)
-        rivalResearch('journal', true)
         rivalResearch('journal', true)
       end
     end
@@ -5292,7 +5183,6 @@ function rivalTurnCoroutine()
     broadcastToAll(getPlayerName(seatedPlayerColors[1], true) .. "'s turn.", seatedPlayerColors[1])
     setupButtonRivalTurn()
   else
-    wait(0.5)
     wait(0.5)
     rivalTurnCoroutine()
   end
@@ -5660,31 +5550,6 @@ function rivalResearch(id, doNotTakeAssistant)
     end
   end
 
-  -- 除了貓頭鷹神廟外，筆記本跟提燈都只能到倒數第二層
-  if (((options.researchTrack ~= 8) and (soloStatus['journal'].row == 2 or soloStatus['lantern'].row == 2)) or (options.researchTrack == 8) and (soloStatus['journal'].row == 1 or soloStatus['lantern'].row == 1)) then
-    broadcastToAll(tokenName .. '已達研究軌頂端。')
-    return false
-  end
-
-  -- [AI修改] 實作筆記本移動上限限制 (規則：筆記本不可超過放大鏡/提燈)
-  if id == 'journal' then
-    local mRow = (soloStatus.magnifying.row == 0) and 99 or soloStatus.magnifying.row
-    local limitRow = mRow
-    -- 在貓頭鷹神廟且進入提燈模式時，上限為放大鏡與提燈中的最高者 (最小 Row 索引)
-    if options.researchTrack == 8 and soloStatus.hasLantern then
-      local lRow = (soloStatus.lantern and soloStatus.lantern.row) or 0
-      if lRow == 0 then lRow = 99 end
-      limitRow = math.min(mRow, lRow)
-    end
-
-    local jRow = (soloStatus.journal.row == 0) and 99 or soloStatus.journal.row
-    -- Row 數字越小代表在軌頂越高。若筆記本 Row <= 上限 Row，代表無法再上升。
-    if jRow <= limitRow then
-      broadcastToAll('筆記本已達移動上限 (不可超過放大鏡或提燈)，行動取消。')
-      return false
-    end
-  end
-
   local token = getResearchToken(id, "Red")
   if token == nil then
     broadcastToAll('Error: unable to locate ' .. tokenName .. '.')
@@ -5790,120 +5655,7 @@ function rivalResearch(id, doNotTakeAssistant)
   -- 因為貓頭鷹廟頂層有秘密通道，已必須分開判斷
   if (soloStatus['magnifying'].row == 1) then
     broadcastToAll(tokenName .. '已達研究軌頂端。')
-  --當前箭頭
-  local arrow = getDecisionArrow()
-
-  -- [AI修改] 貓頭鷹神廟秘密通道邏輯攔截
-  -- 條件符合時，貓頭鷹神廟的放大鏡會優先進入未被佔據的秘密通道
-  if options.researchTrack == 8 and id == 'magnifying' and not soloStatus.hasLantern then
-    local currentRowIndex = soloStatus[id].row
-    -- 只有在軌道上(row > 0)時才檢查目前所處路徑點是否有秘密通道
-    if currentRowIndex > 0 then
-      local currentPathIndex = soloStatus[id].path
-      local currentPath = trackInfo.rows[currentRowIndex].paths and
-          trackInfo.rows[currentRowIndex].paths[currentPathIndex]
-
-      -- [AI修改] 支援多個秘密通道 (陣列格式)
-      local gateways = currentPath and currentPath.secretGateways
-      if gateways then
-        -- 統一轉為陣列處理
-        local gatewayList = gateways.direction and { gateways } or gateways
-
-        -- 1. 篩選符合方向的通道
-        local matchingGateways = {}
-        for _, g in ipairs(gatewayList) do
-          if g.direction == arrow then table.insert(matchingGateways, g) end
-        end
-
-        if #matchingGateways > 0 then
-          local selectedGateway = nil
-
-          -- 2. [AI修改] 篩選未被放大鏡佔用的通道
-          local unoccupiedGateways = {}
-          for _, g in ipairs(matchingGateways) do
-            local isOccupied = false
-            for _, obj in ipairs(SearchLib.atPosition(Vector(g.pos))) do
-              if string.find(obj.getName() or "", "Magnifying") then
-                isOccupied = true;
-                break
-              end
-            end
-            if not isOccupied then table.insert(unoccupiedGateways, g) end
-          end
-
-          -- 3. [AI修改] 隨機挑選未被佔用的通道
-          if #unoccupiedGateways > 0 then
-            selectedGateway = unoccupiedGateways[math.random(1, #unoccupiedGateways)]
-            -- A. 狀態切換：後續下次研究時改為移動提燈
-            soloStatus.hasLantern = true
-
-            -- B. [AI修改] 處理獎勵位置 (支援單一位置或複數獎勵位 bonusPos)
-            local finalToPos = selectedGateway.pos
-            local bonusTile = nil
-            if selectedGateway.bonusPos then
-              local bonusPositions = {}
-              for _, bp in ipairs(selectedGateway.bonusPos) do table.insert(bonusPositions, bp) end
-              for i = 1, #bonusPositions do
-                local bIdx = math.random(1, #bonusPositions)
-                local bPos = bonusPositions[bIdx]
-                for _, object in ipairs(getResearchObjects()) do
-                  if object.getDescription() == '' and not object.is_face_down then
-                    if positionIsClose(object.getPosition(), bPos) then
-                      bonusTile = object
-                      finalToPos = bPos
-                      break
-                    end
-                  end
-                end
-                if bonusTile then break else table.remove(bonusPositions, bIdx) end
-              end
-            end
-
-            -- C. [AI修改] 處理通道獎勵
-            if bonusTile then
-              wait(1.2)
-              broadcastToAll('Rival removes a research bonus tile.')
-              bonusTile.setRotation(facedown)
-              bonusTile.setPositionSmooth(solo.acquiredStuffPositions.researchBonus, false, false)
-            elseif selectedGateway.bonus then
-              rivalTakeResearchBonus(finalToPos) -- 內部自帶 wait(1.2)
-            end
-
-            -- D. [AI修改] 執行移動
-            token.setRotationSmooth(faceup, false, true)
-            token.setPositionSmooth({ finalToPos[1], finalToPos[2] + 0.4, finalToPos[3] }, false, false)
-            soloStatus.fulfilledObjectives.research = true
-            broadcastToAll('對手發現祕密通道')
-            -- E. [AI修改] 處理助手移除
-            if selectedGateway.assistant and not doNotTakeAssistant then
-              rivalGetAssistant(arrow)
-            end
-            return true
-          end
-        end
-      end
-    end
-  end
-
-  -- 因為貓頭鷹廟頂層有秘密通道，已必須分開判斷
-  if (soloStatus['magnifying'].row == 1) then
-    broadcastToAll(tokenName .. '已達研究軌頂端。')
     return false
-  end
-
-  if options.researchTrack == 3 and soloStatus[id].row == 7 and id == 'magnifying' then
-    local toPos = trackInfo.artifactPos
-    token.setRotationSmooth(faceup, false, true)
-    token.setPositionSmooth({ toPos[1], toPos[2] + 0.4, toPos[3] }, false, false)
-    soloStatus[id].row = 5
-    soloStatus[id].path = 1
-    return true
-  end
-
-  local tokenMoved = false
-
-  -- [修改] 特殊:貓頭鷹神廟以外的放大鏡移動至頂層
-  if not tokenMoved and id == 'magnifying' and soloStatus[id].row == 2 and options.researchTrack ~= 8 then
   end
 
   if options.researchTrack == 3 and soloStatus[id].row == 7 and id == 'magnifying' then
@@ -5925,9 +5677,6 @@ function rivalResearch(id, doNotTakeAssistant)
         local objName = obj.getName()
         -- [AI修改] 佔位判定：根據目前的指示物類型(id)來判斷
         if id == 'magnifying' and string.find(objName, 'Magnifying') ~= nil then occupied = true end
-        local objName = obj.getName()
-        -- [AI修改] 佔位判定：根據目前的指示物類型(id)來判斷
-        if id == 'magnifying' and string.find(objName, 'Magnifying') ~= nil then occupied = true end
       end
 
       if not occupied then
@@ -5938,99 +5687,9 @@ function rivalResearch(id, doNotTakeAssistant)
         tokenMoved = true
         soloStatus.fulfilledObjectives.research = true
         wait(0.5)
-        tokenMoved = true
-        soloStatus.fulfilledObjectives.research = true
-        wait(0.5)
         break
       end
     end
-    if not tokenMoved then
-      broadcastToAll('Rival無法將放大鏡移動到頂端')
-      return false
-    end
-  end
-
-  if not tokenMoved then
-    -- [AI修改] 剩餘移動邏輯攔截
-    -- 蜘蛛神廟特殊處理
-    if options.researchTrack == 7 then
-      local currentRowIndex = soloStatus[id].row
-      local nextRowIndex = 0
-      -- 1. 決定下一列索引 (Branching)
-      if currentRowIndex == 0 then
-        nextRowIndex = #trackInfo.rows
-      else
-        -- [AI修改] forwards 現在位於列 (Row) 層級
-        local possibleNextRows = trackInfo.rows[currentRowIndex].forwards or {}
-        if #possibleNextRows > 0 then
-          nextRowIndex = possibleNextRows[math.random(1, #possibleNextRows)]
-        end
-      end
-
-      local nextRow = trackInfo.rows[nextRowIndex]
-      local toPos = nextRow.bucketData.pos
-      local bonusTile = nil
-
-      -- 2. 決定移動座標 (處理單一位置、複數獎勵位置或區域中心)
-      if nextRow.bonus then
-      elseif nextRow.bonusPos then
-        local bonusPositions = {}
-        for _, pos in ipairs(nextRow.bonusPos) do table.insert(bonusPositions, pos) end
-        if #bonusPositions > 0 then
-          local startIdx = (arrow == 'left') and 1 or #bonusPositions
-          local endIdx   = (arrow == 'left') and #bonusPositions or 1
-          local step     = (arrow == 'left') and 1 or -1
-
-          for i = startIdx, endIdx, step do
-            local possibleBonus = SearchLib.atPosition(Vector(bonusPositions[i]), "isResearchTile")
-            if possibleBonus then
-              for _, tile in ipairs(possibleBonus) do
-                if not tile.is_face_down then
-                  bonusTile = tile
-                  toPos = bonusPositions[i]
-                  break
-                end
-              end
-              if bonusTile then
-                break
-              end
-            end
-          end
-        end
-      end
-
-      -- 3. 處理獎勵片移除
-      rivalTakeResearchBonus(toPos)
-
-      -- 4. 執行移動與狀態更新
-      token.setRotationSmooth(faceup, false, true)
-      token.setPositionSmooth({ toPos[1], toPos[2] + 0.4, toPos[3] }, false, false)
-      soloStatus[id].row = nextRowIndex
-      soloStatus[id].path = 1
-      soloStatus.fulfilledObjectives.research = true
-
-      -- 5. 處理助手移除 (比照原版順序：移動後處理)
-      if (id == 'magnifying' and nextRow.assistant) or (id == 'journal' and nextRow.journalAssistant) then
-        wait(1.2)
-        if doNotTakeAssistant then
-          broadcastToAll('Rival does not remove an assistant from the supply board for this action.')
-        else
-          rivalGetAssistant(arrow)
-        end
-      end
-    else
-      local nextRowIndex = nil
-      local forwardPaths = nil
-      if soloStatus[id].row == 0 then
-        nextRowIndex = #trackInfo.rows
-        forwardPaths = {}
-        for i, _ in ipairs(trackInfo.rows[nextRowIndex].paths) do
-          table.insert(forwardPaths, i)
-        end
-      else
-        nextRowIndex = soloStatus[id].row - 1
-        forwardPaths = trackInfo.rows[soloStatus[id].row].paths[soloStatus[id].path].forward
-      end
     if not tokenMoved then
       broadcastToAll('Rival無法將放大鏡移動到頂端')
       return false
@@ -6152,39 +5811,6 @@ function rivalResearch(id, doNotTakeAssistant)
           end
         end
       end
-      local nextRow       = trackInfo.rows[nextRowIndex]
-      local nextPathIndex = forwardPaths[math.random(1, #forwardPaths)]
-      local nextPath      = nextRow.paths[nextPathIndex]
-      local toPos         = nextPath.pos
-      local bonusTile     = nil
-
-      -- 根據bonus決定移動到pos或bonosPos
-      if nextPath.bonus then
-      elseif nextPath.bonusPos then
-        local bonusPositions = {}
-        for _, pos in ipairs(nextPath.bonusPos) do table.insert(bonusPositions, pos) end
-        if #bonusPositions > 0 then
-          local startIdx = (arrow == 'left') and 1 or #bonusPositions
-          local endIdx   = (arrow == 'left') and #bonusPositions or 1
-          local step     = (arrow == 'left') and 1 or -1
-
-          for i = startIdx, endIdx, step do
-            local possibleBonus = SearchLib.atPosition(Vector(bonusPositions[i]), "isResearchTile")
-            if possibleBonus then
-              for _, tile in ipairs(possibleBonus) do
-                if not tile.is_face_down then
-                  bonusTile = tile
-                  toPos = bonusPositions[i]
-                  break
-                end
-              end
-              if bonusTile then
-                break
-              end
-            end
-          end
-        end
-      end
 
       --嘗試移除獎勵
       rivalTakeResearchBonus(toPos)
@@ -6206,72 +5832,7 @@ function rivalResearch(id, doNotTakeAssistant)
             wait(1.2)
           end
         end
-      --嘗試移除獎勵
-      rivalTakeResearchBonus(toPos)
 
-      -- 移動並更新狀態
-      token.setRotationSmooth(faceup, false, true)
-      token.setPositionSmooth({ toPos[1], toPos[2] + 0.4, toPos[3] }, false, false)
-      soloStatus[id].row = nextRowIndex
-      soloStatus[id].path = nextPathIndex
-
-      -- [AI修改] 助手獎勵領取判定
-
-      if (id == 'magnifying' and nextRow.assistant) or (id == 'lantern' and nextRow.lanternAssistant) then
-        wait(1.2)
-        if options.researchTrack == 2 and soloStatus[id].row == 5 then
-          local card = drawCardFromPosition(trackInfo.assistantPos, solo.acquiredStuffPositions.assistant, faceup)
-          if card ~= nil then
-            broadcastToAll('Rival rescues an assistant from the research track.')
-            wait(1.2)
-          end
-        end
-
-        if doNotTakeAssistant then
-          broadcastToAll('Rival does not remove an assistant from the supply board for this action.')
-        else
-          rivalGetAssistant(arrow)
-        end
-      end
-    end
-  end
-
-  -- [AI修改] 頂層獎勵攔截(只有移動後到頂層的放大鏡能領一次獎勵)
-  if tokenMoved and (id == 'magnifying') and (soloStatus[id].row == 1) then
-    -- [修改] 除了貓頭鷹神廟外，隨機移除一個頂層獎勵
-    -- if options.researchTrack ~= 8 then
-    --   local top = trackInfo.rows[1]
-    --   if top then
-    --     if top.bonusPos then
-    --       rivalTakeResearchBonus(top.bonusPos)
-    --     end
-    --   end
-    -- end
-
-    -- [AI修改] 領取銀色石板
-    local positions = {}
-    if trackInfo.templeTileData and trackInfo.templeTileData[2] then
-      for _, p in ipairs(trackInfo.templeTileData[2].positions) do
-        table.insert(positions, p)
-      end
-    end
-
-    -- 貓頭鷹神廟特規：只使用前兩個位置
-    if options.researchTrack == 8 then
-      while #positions > 2 do table.remove(positions) end
-    end
-
-    local startIdx = (arrow == 'left') and 1 or #positions
-    local endIdx = (arrow == 'left') and #positions or 1
-    local step = (arrow == 'left') and 1 or -1
-
-    for i = startIdx, endIdx, step do
-      local searchResult = SearchLib.atPosition(Vector(positions[i]), "isTempleTile")
-      if #searchResult > 0 then
-        broadcastToAll('Rival takes a silver temple tile.')
-        searchResult[1].setRotation(faceup)
-        searchResult[1].setPositionSmooth(solo.acquiredStuffPositions.templeTileSilver, false, false)
-        break
         if doNotTakeAssistant then
           broadcastToAll('Rival does not remove an assistant from the supply board for this action.')
         else
