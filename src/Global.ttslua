@@ -4819,14 +4819,14 @@ function rivalTurnCoroutine()
     local boardData    = getBoardData()
 
     -- Search Order: Lvl 2 -> Lvl 1 -> Camp
-    -- Rule: Search order is from high to low; same level equals the same row
+    -- Rule: Search order is from high to low (same level equals the same row)
     local searchLayers = {
-      { data = boardData.lvl2, type = 'site', offset = SITE_OFFSETS.spotLvl2 },
-      { data = boardData.lvl1, type = 'site', offset = SITE_OFFSETS.spotLvl1 },
-      { data = boardData.camp, type = 'camp', offsets = { SITE_OFFSETS.spotLeft, SITE_OFFSETS.spotRight } }
+      { data = boardData.lvl2, offset = SITE_OFFSETS.spotLvl2 },
+      { data = boardData.lvl1, offset = SITE_OFFSETS.spotLvl1 },
+      { data = boardData.camp, offsets = { SITE_OFFSETS.spotLeft, SITE_OFFSETS.spotRight } }
     }
 
-    for _, layer in ipairs(searchLayers) do
+    for i, layer in ipairs(searchLayers) do
       local candidates = {}
 
       for _, siteData in ipairs(layer.data) do
@@ -4834,7 +4834,7 @@ function rivalTurnCoroutine()
         local validPawnPos = nil
 
         -- 1. Check if it provides the resource
-        if layer.type == 'site' then
+        if i < 3 then
           local siteTiles = SearchLib.atPosition(siteData.pos, "isSite")
           for _, tile in ipairs(siteTiles) do
             local notes = tile.getGMNotes()
@@ -4888,7 +4888,7 @@ function rivalTurnCoroutine()
       if soloStatus.pawnsOut > 2 then soloStatus.fulfilledObjectives.arch = true end
     else
       broadcastToAll('Rival could not find an available site providing ' ..
-        (resourceText[gmNotes] or 'specific resources') .. '; skipping this action.')
+        (resourceText[gmNotes] or 'specific resources') .. '-> skipping this action.')
     end
   elseif action == 'site' then
     if gmNotes == 'purple' then
@@ -5078,7 +5078,7 @@ function rivalTurnCoroutine()
       end
 
       if not somethingDefeated then
-        broadcastToAll('Rival cannot find a guardian to defeat; performing research instead.')
+        broadcastToAll('Rival cannot find a guardian to defeat -> performing research instead.')
         wait(1)
         soloStatus.fulfilledObjectives.research = rivalResearch('magnifying', true)
       end
@@ -5313,7 +5313,7 @@ function rivalPlaceArtifactAndActivateAltar()
       local hasArt = false
       for _, c in ipairs(cards) do
         if getMetaData(c).type == "Artifact" then
-          hasArt = true;
+          hasArt = true
           break
         end
       end
@@ -5331,9 +5331,9 @@ function rivalPlaceArtifactAndActivateAltar()
     if soloStatus.magnifying.row < altarToActivate.rowindex and soloStatus.magnifying.row > 0 then
       if tryPlaceDarkTablet(altarToActivate) then
         wait(0.5)
-        broadcastToAll('Successfully placed the Tablet; using the Artifact.')
+        broadcastToAll('Successfully placed the Tablet -> using the Artifact.')
       else
-        broadcastToAll('Failed to place the Tablet; cannot use the Artifact.')
+        broadcastToAll('Failed to place the Tablet -> cannot use the Artifact.')
       end
     else
       broadcastToAll('Rival cannot find an Altar (position must be lower than the Magnifying Glass).')
@@ -5564,7 +5564,7 @@ function rivalResearch(id, doNotTakeAssistant)
             local isOccupied = false
             for _, obj in ipairs(SearchLib.atPosition(Vector(g.pos))) do
               if string.find(obj.getName() or "", "Magnifying") then
-                isOccupied = true;
+                isOccupied = true
                 break
               end
             end
