@@ -3729,25 +3729,16 @@ function getStaff()
   return staffList[1]
 end
 
-function goesInDeck(object)
-  if object == nil then return false end
+local NOT_IN_DECK_TAGS = { 'assistant', 'idol', 'site1', 'site2', 'guardian', "SpecialDelivery" }
 
+function goesInDeck(tags, gmnotes)
   -- exclude encounter cards
-  if object.getGMNotes() == "" then return false end
+  if not gmnotes or gmnotes == "" then return false end
 
-  local excludeTags = { 'assistant', 'idol', 'site1', 'site2', 'guardian', "SpecialDelivery" }
+  if not tags or #tags == 0 then return true end
 
-  local cardTags = nil
-  if object.type == 'Card' then
-    cardTags = object.getTags()
-  else
-    cardTags = object.tags
-  end
-
-  if not cardTags or #cardTags == 0 then return true end
-
-  for _, tag in ipairs(excludeTags) do
-    if cardTags[1] == tag then return false end
+  for _, tag in ipairs(NOT_IN_DECK_TAGS) do
+    if tags[1] == tag then return false end
   end
 
   return true
@@ -3807,15 +3798,17 @@ function nextRoundCoroutine()
       local cards = {}
       for _, object in ipairs(getObjectFromGUID(PLAYER_VARS[playerColor].playAreaZoneGuid).getObjects()) do
         if object.type == 'Card' then
-          if goesInDeck(object) then
+          if goesInDeck(object.getTags(), object.getGMNotes()) then
             object.setRotation(facedown)
             table.insert(cards, object)
           end
         elseif object.type == 'Deck' then
           -- check deck contents in case assistants/idols/sites/guardians were grouped
           local guidsToMove = {}
-          for _, card in ipairs(object.getObjects()) do
-            if goesInDeck(card) then table.insert(guidsToMove, card.guid) end
+          for _, cardInfo in ipairs(object.getObjects()) do
+            if goesInDeck(cardInfo.tags, cardInfo.gm_notes) then
+              table.insert(guidsToMove, cardInfo.guid)
+            end
           end
 
           -- ttsbug(?): if object disappears inside this for-loop, object becomes a non-nil reference that doesn't have an instance
