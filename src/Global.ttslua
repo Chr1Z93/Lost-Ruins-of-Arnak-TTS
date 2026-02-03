@@ -3433,18 +3433,15 @@ function refillRowCoroutine()
   local items     = {}
 
   for i = 1, 6 do
+    -- find the first card in that spot and insert it in the respective table
     local searchResult = SearchLib.atPosition(getMarketPos(i), "isCard")
     if #searchResult > 0 then
-      if i <= round then
-        table.insert(artifacts, searchResult[1])
-      else
-        table.insert(items, searchResult[1])
-      end
+      table.insert((i <= round) and artifacts or items, searchResult[1])
     end
   end
 
   if #artifacts < round or #items < 6 - round then
-    -- shift
+    -- shift the market cards
     if #artifacts > 0 and #artifacts < round then
       for i = 1, #artifacts do
         artifacts[#artifacts - i + 1].setPositionSmooth(getMarketPos(round - i + 1):setAt("y", tileY), false, true)
@@ -3457,14 +3454,14 @@ function refillRowCoroutine()
       end
     end
 
-    if #artifacts > 0 and #artifacts < round or #items > 0 and #items < 6 - round then wait(0.26) end
+    if #artifacts > 0 and #artifacts < round or #items > 0 and #items < 6 - round then wait(0.3) end
 
-    -- refill
+    -- refill the market
     if #artifacts < round then
       for i = 1, round - #artifacts do
         local card = drawCardFromPosition(getCardBoardLocation("Artifact"), getMarketPos(i):setAt("y", tileY), faceup)
         if card == nil then break end
-        wait(0.16)
+        wait(0.2)
       end
     end
 
@@ -3472,7 +3469,7 @@ function refillRowCoroutine()
       for i = round + #items + 1, 6 do
         local card = drawCardFromPosition(getCardBoardLocation("Item"), getMarketPos(i):setAt("y", tileY), faceup)
         if card == nil then break end
-        wait(0.16)
+        wait(0.2)
       end
     end
     wait(0.2)
@@ -3505,9 +3502,13 @@ function getTent(playerColor)
 end
 
 function getResearchToken(type, playerColor)
-  if type == "magnifying" then type = "Magnifying Glass" end
-  if type == "journal" then type = "Journal" end
-  if type == "lantern" then type = "Lantern" end
+  if type == "magnifying" then
+    type = "Magnifying Glass"
+  elseif type == "journal" then
+    type = "Journal"
+  elseif type == "lantern" then
+    type = "Lantern"
+  end
   return getObjectByName(playerColor .. " " .. type)
 end
 
