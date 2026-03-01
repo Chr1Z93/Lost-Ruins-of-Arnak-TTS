@@ -107,7 +107,7 @@ def load_savegame_in_TTS():
         return
 
 
-def copy_preview_image(output_folder, branch):
+def copy_preview_image(output_folder):
     image_name = GAME_NAME + ".png"
     image_path = Path(image_name)
     if image_path.is_file():
@@ -176,7 +176,7 @@ def main():
     print(f"Execution took {elapsed_time:.2f} seconds.")
 
     if args.action == "build":
-        copy_preview_image(output_folder, branch)
+        copy_preview_image(output_folder)
         load_savegame_in_TTS()
 
 
