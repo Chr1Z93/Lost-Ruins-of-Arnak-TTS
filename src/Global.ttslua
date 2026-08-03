@@ -3449,18 +3449,15 @@ function refillRowCoroutine()
   local items     = {}
 
   for i = 1, 6 do
+    -- find the first card in that spot and insert it in the respective table
     local searchResult = SearchLib.atPosition(getMarketPos(i), "isCard")
     if #searchResult > 0 then
-      if i <= round then
-        table.insert(artifacts, searchResult[1])
-      else
-        table.insert(items, searchResult[1])
-      end
+      table.insert((i <= round) and artifacts or items, searchResult[1])
     end
   end
 
   if #artifacts < round or #items < 6 - round then
-    -- shift
+    -- shift the market cards
     if #artifacts > 0 and #artifacts < round then
       for i = 1, #artifacts do
         artifacts[#artifacts - i + 1].setPositionSmooth(getMarketPos(round - i + 1):setAt("y", tileY), false, true)
@@ -3473,14 +3470,14 @@ function refillRowCoroutine()
       end
     end
 
-    if #artifacts > 0 and #artifacts < round or #items > 0 and #items < 6 - round then wait(0.26) end
+    if #artifacts > 0 and #artifacts < round or #items > 0 and #items < 6 - round then wait(0.3) end
 
-    -- refill
+    -- refill the market
     if #artifacts < round then
       for i = 1, round - #artifacts do
         local card = drawCardFromPosition(getCardBoardLocation("Artifact"), getMarketPos(i):setAt("y", tileY), faceup)
         if card == nil then break end
-        wait(0.16)
+        wait(0.2)
       end
     end
 
@@ -3488,7 +3485,7 @@ function refillRowCoroutine()
       for i = round + #items + 1, 6 do
         local card = drawCardFromPosition(getCardBoardLocation("Item"), getMarketPos(i):setAt("y", tileY), faceup)
         if card == nil then break end
-        wait(0.16)
+        wait(0.2)
       end
     end
     wait(0.2)
@@ -3521,9 +3518,13 @@ function getTent(playerColor)
 end
 
 function getResearchToken(type, playerColor)
-  if type == "magnifying" then type = "Magnifying Glass" end
-  if type == "journal" then type = "Journal" end
-  if type == "lantern" then type = "Lantern" end
+  if type == "magnifying" then
+    type = "Magnifying Glass"
+  elseif type == "journal" then
+    type = "Journal"
+  elseif type == "lantern" then
+    type = "Lantern"
+  end
   return getObjectByName(playerColor .. " " .. type)
 end
 
@@ -3744,25 +3745,16 @@ function getStaff()
   return staffList[1]
 end
 
-function goesInDeck(object)
-  if object == nil then return false end
+local NOT_IN_DECK_TAGS = { 'assistant', 'idol', 'site1', 'site2', 'guardian', "SpecialDelivery" }
 
+function goesInDeck(tags, gmnotes)
   -- exclude encounter cards
-  if object.getGMNotes() == "" then return false end
+  if not gmnotes or gmnotes == "" then return false end
 
-  local excludeTags = { 'assistant', 'idol', 'site1', 'site2', 'guardian', "SpecialDelivery" }
+  if not tags or #tags == 0 then return true end
 
-  local cardTags = nil
-  if object.type == 'Card' then
-    cardTags = object.getTags()
-  else
-    cardTags = object.tags
-  end
-
-  if not cardTags or #cardTags == 0 then return true end
-
-  for _, tag in ipairs(excludeTags) do
-    if cardTags[1] == tag then return false end
+  for _, tag in ipairs(NOT_IN_DECK_TAGS) do
+    if tags[1] == tag then return false end
   end
 
   return true
@@ -3822,15 +3814,17 @@ function nextRoundCoroutine()
       local cards = {}
       for _, object in ipairs(getObjectFromGUID(PLAYER_VARS[playerColor].playAreaZoneGuid).getObjects()) do
         if object.type == 'Card' then
-          if goesInDeck(object) then
+          if goesInDeck(object.getTags(), object.getGMNotes()) then
             object.setRotation(facedown)
             table.insert(cards, object)
           end
         elseif object.type == 'Deck' then
           -- check deck contents in case assistants/idols/sites/guardians were grouped
           local guidsToMove = {}
-          for _, card in ipairs(object.getObjects()) do
-            if goesInDeck(card) then table.insert(guidsToMove, card.guid) end
+          for _, cardInfo in ipairs(object.getObjects()) do
+            if goesInDeck(cardInfo.tags, cardInfo.gm_notes) then
+              table.insert(guidsToMove, cardInfo.guid)
+            end
           end
 
           -- ttsbug(?): if object disappears inside this for-loop, object becomes a non-nil reference that doesn't have an instance
@@ -4375,7 +4369,7 @@ function calculateScores()
         if scoreIdols then subscores.idol = subscores.idol + 3 end
       elseif object.hasTag('guardian') then
         subscores.guardian = subscores.guardian + 5
-      elseif object.type == 'Custom_Token' and object.getName() == 'Fear' then
+      elseif object.type == 'Tile' and object.getName() == 'Fear' then
         subscores.fear = subscores.fear - 2
       elseif object.type == "Card" then
         -- regular cards

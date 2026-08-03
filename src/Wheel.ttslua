@@ -1,0 +1,3 @@
+function onLoad()
+  self.addContextMenuItem("Unattach Teeth", function() self.removeAttachments() end)
+end
