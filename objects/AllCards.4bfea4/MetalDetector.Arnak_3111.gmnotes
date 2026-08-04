@@ -1,0 +1,12 @@
+{
+  "id": 3111,
+  "type": "Item",
+  "boot": 1,
+  "boat": 1,
+  "car": 1,
+  "plane": 1,
+  "cost": 1,
+  "points": 1,
+  "expansion": "Surprise Shipment"
+}
+
