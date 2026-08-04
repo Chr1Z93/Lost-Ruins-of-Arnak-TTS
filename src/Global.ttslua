@@ -194,6 +194,7 @@ options                     = {
     expeditionLeaders = true,
     missingExpedition = true,
     twistedPaths      = true,
+    surpriseShipment  = true,
     promos            = true
   }
 }
@@ -251,6 +252,9 @@ EXPANSION_DECKS             = {
     sites1     = 'eb952d',
     sites2     = '632057',
     guardians  = 'd8eb77'
+  },
+  surpriseShipment = {
+    sites2 = 'TODO'
   }
 }
 
@@ -1782,7 +1786,7 @@ function checkDoneSpawning()
 end
 
 function getOptionsFromUI()
-  local expansions = { 'expeditionLeaders', 'missingExpedition', "twistedPaths", 'promos' }
+  local expansions = { 'expeditionLeaders', 'missingExpedition', 'twistedPaths', 'surpriseShipment', 'promos' }
   for _, expansion in ipairs(expansions) do
     checkToggle(expansion, options.expansions)
   end
@@ -2197,9 +2201,18 @@ function setupArtifactsItemsFear()
       addCardsToList(cardList, result)
     end
 
-    -- maybe add cards from "Promo 1"
+    -- maybe add cards from "Surprise Shipment"
+    if options.expansions.surpriseShipment then
+      result = AllCardsBag.call("getCardsByExpansionAndType", { expansion = "Surprise Shipment", type = cardType })
+      addCardsToList(cardList, result)
+    end
+
+    -- maybe add "Promo" cards
     if options.expansions.promos then
       result = AllCardsBag.call("getCardsByExpansionAndType", { expansion = "Promo 1", type = cardType })
+      addCardsToList(cardList, result)
+
+      result = AllCardsBag.call("getCardsByExpansionAndType", { expansion = "Promo 2", type = cardType })
       addCardsToList(cardList, result)
     end
 
@@ -3087,6 +3100,7 @@ function menuStart(_, value, _)
     options.expansions.expeditionLeaders = true
     options.expansions.missingExpedition = true
     options.expansions.twistedPaths      = true
+    options.expansions.surpriseShipment  = true
     UI.setAttribute('continueMenu', 'active', true)
     UI.setAttribute('continueMenuButtons', 'active', true)
   elseif menuChoice == 2 and checkToggle('leaders2') then
