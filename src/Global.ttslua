@@ -2898,7 +2898,7 @@ function setupStartingResources()
           table.insert(profStuff, suitcase)
 
           for resource, guid in pairs(SUITCASE_RESOURCE_BAG_GUIDS) do -- Place and setup the professor's Bag
-            local toPos = PlayermatApi.getZonePosition(playerColor, "Suitcase_" .. resource)
+            local toPos       = PlayermatApi.getZonePosition(playerColor, "Suitcase_" .. resource)
             local resourceBag = tokenBag.takeObject({
               guid     = guid,
               position = { toPos[1], 1.63, toPos[3] },
@@ -3383,11 +3383,21 @@ function buyFromMarket(playerColor, marketPos, isRightClick)
     -- right-click -> "buy": automatically remove resources
     if md.id == "3208" or md.id == "3209" or md.id == "3211" then
       -- special combination cards
-      local bagCompass   = getObjectFromGUID(vars.resourceBags.s)
-      local bagCoin      = getObjectFromGUID(vars.resourceBags.c)
+      local bagCompass     = getObjectFromGUID(vars.resourceBags.s)
+      local bagCoin        = getObjectFromGUID(vars.resourceBags.c)
+      suffix               = " coins/compasses"
+
+      -- handle suitcase
+      local bagSuitcaseCompass
+      local suitcaseAmount = 0
+      if options.playerBoards[playerColor] == 4 then
+        bagSuitcaseCompass = getObjectFromGUID(SUITCASE_RESOURCE_BAG_GUIDS.s)
+        suitcaseAmount     = bagSuitcaseCompass.getQuantity()
+      end
+
       local compassCount = bagCompass.getQuantity()
       local coinCount    = bagCoin.getQuantity()
-      local sum          = compassCount + coinCount
+      local sum          = compassCount + coinCount + suitcaseAmount
 
       if sum < md.cost then
         -- Can't afford
@@ -3401,42 +3411,77 @@ function buyFromMarket(playerColor, marketPos, isRightClick)
         for i = 1, compassCount do
           Wait.time(function() trashObject(playerColor, bagCompass.takeObject()) end, i * 0.1)
         end
+        if suitcaseAmount > 0 then
+          printToAll("Compasses on Suitcase before paying: " .. suitcaseAmount)
+          for i = 1, suitcaseAmount do
+            Wait.time(function() trashObject(playerColor, bagSuitcaseCompass.takeObject()) end, i * 0.1)
+          end
+        end
         broadcastToAll(coloredName ..
-          ' spends ' .. coinCount .. '/' .. compassCount .. ' coins / compasses to buy ' .. card.getName() .. ".")
+          ' spends ' .. coinCount .. '/' .. compassCount .. ' coins/compasses to buy ' .. card.getName() .. ".")
       elseif coinCount == 0 then
         -- Only has compasses
-        for i = 1, compassCount do
+        local compassesToSpend = md.cost
+        if suitcaseAmount > 0 then
+          printToAll("Compasses on Suitcase before paying: " .. suitcaseAmount)
+          local spendFromSuitcase = math.min(suitcaseAmount, compassesToSpend)
+          for i = 1, spendFromSuitcase do
+            Wait.time(function() trashObject(playerColor, bagSuitcaseCompass.takeObject()) end, i * 0.1)
+          end
+          compassesToSpend = compassesToSpend - spendFromSuitcase
+        end
+
+        for i = 1, compassesToSpend do
           Wait.time(function() trashObject(playerColor, bagCompass.takeObject()) end, i * 0.1)
         end
         broadcastToAll(coloredName .. ' spends ' .. md.cost .. ' compasses to buy ' .. card.getName() .. ".")
       elseif compassCount == 0 then
         -- Only has coins
-        for i = 1, coinCount do
+        for i = 1, md.cost do
           Wait.time(function() trashObject(playerColor, bagCoin.takeObject()) end, i * 0.1)
         end
         broadcastToAll(coloredName .. ' spends ' .. md.cost .. ' coins to buy ' .. card.getName() .. ".")
       else
         broadcastToAll(coloredName ..
           ' needs to manually spend a combination of ' ..
-          md.cost .. ' coins / compasses to pay for ' .. card.getName() .. ".")
+          md.cost .. ' coins/compasses to pay for ' .. card.getName() .. ".")
       end
     else
       -- regular case
-      local bag
+      local bag, bagSuitcaseCompass
+      local suitcaseAmount = 0
       if md.resource == "compass" then
         bag = getObjectFromGUID(vars.resourceBags.s)
+        if options.playerBoards[playerColor] == 4 then
+          bagSuitcaseCompass = getObjectFromGUID(SUITCASE_RESOURCE_BAG_GUIDS.s)
+          suitcaseAmount     = bagSuitcaseCompass.getQuantity()
+        end
       elseif md.resource == "coin" then
         bag = getObjectFromGUID(vars.resourceBags.c)
       end
 
-      if bag.getQuantity() < md.cost then
+      if (bag.getQuantity() + suitcaseAmount) < md.cost then
         broadcastToColor('You do not have enough' .. suffix .. ' to buy ' .. card.getName() .. ".", playerColor)
         return
       end
 
       broadcastToAll(coloredName .. ' spends ' .. md.cost .. suffix .. ' to buy ' .. card.getName() .. ".")
-      for i = 1, md.cost do
-        Wait.time(function() trashObject(playerColor, bag.takeObject()) end, i * 0.1)
+
+      -- spend suitcase resources first
+      local compassesToSpend = md.cost
+      if suitcaseAmount > 0 then
+        printToAll("Compasses on Suitcase before paying: " .. suitcaseAmount)
+        local spendFromSuitcase = math.min(suitcaseAmount, compassesToSpend)
+        for i = 1, spendFromSuitcase do
+          Wait.time(function() trashObject(playerColor, bagSuitcaseCompass.takeObject()) end, i * 0.1)
+        end
+        compassesToSpend = compassesToSpend - spendFromSuitcase
+      end
+
+      if compassesToSpend > 0 then
+        for i = 1, compassesToSpend do
+          Wait.time(function() trashObject(playerColor, bag.takeObject()) end, i * 0.1)
+        end
       end
     end
   end
