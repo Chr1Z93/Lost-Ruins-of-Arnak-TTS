@@ -1,12 +1,9 @@
 {
   "id": 3217,
   "type": "Artifact",
-  "boot": 1,
-  "boat": 1,
-  "car": 1,
   "plane": 1,
-  "cost": 1,
-  "points": 1,
+  "cost": 5,
+  "points": 3,
   "expansion": "Surprise Shipment"
 }
 

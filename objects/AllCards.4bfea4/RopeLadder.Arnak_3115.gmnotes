@@ -1,12 +1,10 @@
 {
   "id": 3115,
   "type": "Item",
-  "boot": 1,
   "boat": 1,
   "car": 1,
-  "plane": 1,
-  "cost": 1,
-  "points": 1,
+  "cost": 4,
+  "points": 2,
   "expansion": "Surprise Shipment"
 }
 
