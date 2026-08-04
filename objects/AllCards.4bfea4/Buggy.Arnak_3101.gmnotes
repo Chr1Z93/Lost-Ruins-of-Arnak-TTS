@@ -1,9 +1,8 @@
 {
-  "id": 3101,
+  "id": "3101",
   "type": "Item",
   "car": 2,
   "cost": 2,
   "points": 2,
   "expansion": "Surprise Shipment"
 }
-
