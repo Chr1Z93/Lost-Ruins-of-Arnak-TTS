@@ -207,11 +207,11 @@
     "GuardiansMissingExpedition.6fbe77",
     "CardCustom.10d945",
     "Level1SitesMissingExpedition.408800",
-    "EncounterCards.40e930",
-    "EncounterCards.18e055",
-    "EncounterCards.695842",
-    "EncounterCards.ea2b73",
-    "EncounterCards.c7741d",
+    "EncounterCards1.40e930",
+    "EncounterCards3.18e055",
+    "EncounterCards5.695842",
+    "EncounterCards4.ea2b73",
+    "EncounterCards2.c7741d",
     "ScriptingTrigger.bonus1",
     "ScriptingTrigger.bonus2",
     "ScriptingTrigger.bonus3",
@@ -227,7 +227,8 @@
     "AssistantsTwistedPaths.629725",
     "Level1SitesTwistedPaths.eb952d",
     "GuardiansTwistedPaths.d8eb77",
-    "Level2SitesTwistedPaths.632057"
+    "Level2SitesTwistedPaths.632057",
+    "SurpriseShipmentRulebook.e5f9ee"
   ],
   "PlayArea": 0.5,
   "PlayerCounts": [

@@ -1,19 +1,22 @@
 {
   "options": {
     "board": 1,
+    "campaign": false,
     "expansions": {
-      "artifacts": false,
-      "assistants": false,
-      "guardians": false,
-      "idols": false,
-      "items": false,
+      "expeditionLeaders": true,
+      "missingExpedition": true,
       "promos": true,
-      "sites1": false,
-      "sites2": false
+      "surpriseShipment": true,
+      "twistedPaths": true
     },
-    "leaders": "none",
+    "leaders": "random",
     "objectives": 3,
-    "playerBoards": [],
+    "playerBoards": {
+      "Blue": 9,
+      "Green": 9,
+      "Red": 9,
+      "Yellow": 9
+    },
     "researchTrack": 1,
     "solo": false,
     "staff": 1
@@ -23,11 +26,11 @@
   "soloStatus": {
     "firstTurn": true,
     "fulfilledObjectives": [],
-    "magnifying": {
+    "journal": {
       "path": 0,
       "row": 0
     },
-    "notebook": {
+    "magnifying": {
       "path": 0,
       "row": 0
     },
