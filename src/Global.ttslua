@@ -3101,6 +3101,7 @@ function menuStart(_, value, _)
     options.expansions.missingExpedition = true
     options.expansions.twistedPaths      = true
     options.expansions.surpriseShipment  = true
+    options.expansions.promos            = true
     UI.setAttribute('continueMenu', 'active', true)
     UI.setAttribute('continueMenuButtons', 'active', true)
   elseif menuChoice == 2 and checkToggle('leaders2') then
@@ -3380,26 +3381,68 @@ function buyFromMarket(playerColor, marketPos, isRightClick)
 
   if isRightClick then
     -- right-click -> "buy": automatically remove resources
-    local bag
-    if md.resource == "compass" then
-      bag = getObjectFromGUID(vars.resourceBags.s)
-    elseif md.resource == "coin" then
-      bag = getObjectFromGUID(vars.resourceBags.c)
-    end
+    if md.id == "3208" or md.id == "3209" or md.id == "3211" then
+      -- special combination cards
+      local bagCompass   = getObjectFromGUID(vars.resourceBags.s)
+      local bagCoin      = getObjectFromGUID(vars.resourceBags.c)
+      local compassCount = bagCompass.getQuantity()
+      local coinCount    = bagCoin.getQuantity()
+      local sum          = compassCount + coinCount
 
-    if bag.getQuantity() < md.cost then
-      broadcastToColor('You do not have enough' .. suffix .. ' to buy ' .. card.getName() .. ".", playerColor)
-      return
-    end
+      if sum < md.cost then
+        -- Can't afford
+        broadcastToColor('You do not have enough coins/compasses to buy ' .. card.getName() .. ".", playerColor)
+        return
+      elseif sum == md.cost then
+        -- Can exactly afford
+        for i = 1, coinCount do
+          Wait.time(function() trashObject(playerColor, bagCoin.takeObject()) end, i * 0.1)
+        end
+        for i = 1, compassCount do
+          Wait.time(function() trashObject(playerColor, bagCompass.takeObject()) end, i * 0.1)
+        end
+        broadcastToAll(coloredName ..
+          ' spends ' .. coinCount .. '/' .. compassCount .. ' coins / compasses to buy ' .. card.getName() .. ".")
+      elseif coinCount == 0 then
+        -- Only has compasses
+        for i = 1, compassCount do
+          Wait.time(function() trashObject(playerColor, bagCompass.takeObject()) end, i * 0.1)
+        end
+        broadcastToAll(coloredName .. ' spends ' .. md.cost .. ' compasses to buy ' .. card.getName() .. ".")
+      elseif compassCount == 0 then
+        -- Only has coins
+        for i = 1, coinCount do
+          Wait.time(function() trashObject(playerColor, bagCoin.takeObject()) end, i * 0.1)
+        end
+        broadcastToAll(coloredName .. ' spends ' .. md.cost .. ' coins to buy ' .. card.getName() .. ".")
+      else
+        broadcastToAll(coloredName ..
+          ' needs to manually spend a combination of ' ..
+          md.cost .. ' coins / compasses to pay for ' .. card.getName() .. ".")
+      end
+    else
+      -- regular case
+      local bag
+      if md.resource == "compass" then
+        bag = getObjectFromGUID(vars.resourceBags.s)
+      elseif md.resource == "coin" then
+        bag = getObjectFromGUID(vars.resourceBags.c)
+      end
 
-    broadcastToAll(coloredName .. ' spends ' .. md.cost .. suffix .. ' to buy ' .. card.getName() .. ".")
-    for i = 1, md.cost do
-      Wait.time(function() trashObject(playerColor, bag.takeObject()) end, i * 0.1)
+      if bag.getQuantity() < md.cost then
+        broadcastToColor('You do not have enough' .. suffix .. ' to buy ' .. card.getName() .. ".", playerColor)
+        return
+      end
+
+      broadcastToAll(coloredName .. ' spends ' .. md.cost .. suffix .. ' to buy ' .. card.getName() .. ".")
+      for i = 1, md.cost do
+        Wait.time(function() trashObject(playerColor, bag.takeObject()) end, i * 0.1)
+      end
     end
   end
 
   if md.type == "Artifact" then
-    local toPos = getObjectFromGUID(vars.playAreaZoneGuid).getPosition()
+    local toPos   = getObjectFromGUID(vars.playAreaZoneGuid).getPosition()
     local xOffset = 11.5
     if playerColor == 'Red' or playerColor == 'Yellow' then
       xOffset = 0 - xOffset
