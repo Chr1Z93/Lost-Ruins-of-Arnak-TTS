@@ -36,6 +36,32 @@
         "cwd": "${workspaceFolder}${pathSeparator}.vscode"
       },
       "problemMatcher": []
+    },
+    {
+      "label": "Arnak: Debug Line",
+      "type": "shell",
+      "command": "python",
+      "args": [
+        "${workspaceFolder}/.vscode/debug.py",
+        "${input:guid}",
+        "${input:line}"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}${pathSeparator}.vscode"
+      },
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "guid",
+      "type": "promptString",
+      "description": "Enter Object GUID (or global)"
+    },
+    {
+      "id": "line",
+      "type": "promptString",
+      "description": "Enter Error Line Number"
     }
   ]
 }
