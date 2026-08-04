@@ -5,24 +5,12 @@
     "z": 0
   },
   "Autoraise": true,
+  "CardID": 1803,
   "ColorDiffuse": {
     "b": 0.71324,
     "g": 0.71324,
     "r": 0.71324
   },
-  "ContainedObjects_order": [
-    "Card.f71379",
-    "Card.db2bf3",
-    "Card.550880",
-    "Card.5420e2",
-    "CardCustom.1eee42",
-    "Card.4e4290",
-    "Card.b4b6b8",
-    "Card.d76cb9",
-    "Card.ba58b0",
-    "Card.c8325e"
-  ],
-  "ContainedObjects_path": "Level1Sites.a27f36",
   "CustomDeck": {
     "18": {
       "BackIsHidden": true,
@@ -32,33 +20,12 @@
       "NumWidth": 6,
       "Type": 0,
       "UniqueBack": false
-    },
-    "721": {
-      "BackIsHidden": true,
-      "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/1862806463732172505/0F010A85A45CF2B263F8F88A03BC6E6B6C379E0F/",
-      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/14284732039971721149/3456001FEE3129FE01CB6B5950D17066E4BB690D/",
-      "NumHeight": 1,
-      "NumWidth": 1,
-      "Type": 0,
-      "UniqueBack": false
     }
   },
-  "DeckIDs": [
-    1802,
-    1805,
-    1808,
-    1807,
-    72100,
-    1809,
-    1804,
-    1801,
-    1806,
-    1800
-  ],
   "Description": "",
   "DragSelectable": true,
-  "GMNotes": "",
-  "GUID": "a27f36",
+  "GMNotes": "ssi",
+  "GUID": "604de9",
   "Grid": true,
   "GridProjection": false,
   "Hands": false,
@@ -69,22 +36,22 @@
   "LuaScript": "",
   "LuaScriptState": "",
   "MeasureMovement": false,
-  "Name": "Deck",
-  "Nickname": "Level 1 Sites",
+  "Name": "Card",
+  "Nickname": "",
   "SidewaysCard": false,
   "Snap": true,
   "Sticky": true,
   "Tags": [
     "site1"
   ],
-  "Tooltip": true,
+  "Tooltip": false,
   "Transform": {
-    "posX": 2.285,
-    "posY": 1.65,
-    "posZ": -37.428,
+    "posX": -18.662,
+    "posY": 11.358,
+    "posZ": 53.264,
     "rotX": 0,
     "rotY": 180,
-    "rotZ": 180,
+    "rotZ": 0,
     "scaleX": 2.1,
     "scaleY": 1,
     "scaleZ": 2.1

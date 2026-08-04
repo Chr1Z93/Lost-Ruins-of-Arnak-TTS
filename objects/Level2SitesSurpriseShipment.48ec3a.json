@@ -1,0 +1,78 @@
+{
+  "AltLookAngle": {
+    "x": 0,
+    "y": 0,
+    "z": 0
+  },
+  "Autoraise": true,
+  "ColorDiffuse": {
+    "b": 0.71324,
+    "g": 0.71324,
+    "r": 0.71324
+  },
+  "ContainedObjects_order": [
+    "CardCustom.e94108",
+    "CardCustom.e7fb58"
+  ],
+  "ContainedObjects_path": "Level2SitesSurpriseShipment.48ec3a",
+  "CustomDeck": {
+    "719": {
+      "BackIsHidden": true,
+      "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/1862806463732172872/5034C020F5B15999C6B4E7648F1D5B659EAB30A7/",
+      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/15612165741384247958/FA592624B820FB4F3081EC6AA4A1821738F33723/",
+      "NumHeight": 1,
+      "NumWidth": 1,
+      "Type": 0,
+      "UniqueBack": false
+    },
+    "720": {
+      "BackIsHidden": true,
+      "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/1862806463732172872/5034C020F5B15999C6B4E7648F1D5B659EAB30A7/",
+      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/11559186838407521668/C9938A87611A5EFFFA071FA260F10B9EBA8E363F/",
+      "NumHeight": 1,
+      "NumWidth": 1,
+      "Type": 0,
+      "UniqueBack": false
+    }
+  },
+  "DeckIDs": [
+    71900,
+    72000
+  ],
+  "Description": "",
+  "DragSelectable": true,
+  "GMNotes": "",
+  "GUID": "48ec3a",
+  "Grid": true,
+  "GridProjection": false,
+  "Hands": false,
+  "HideWhenFaceDown": true,
+  "IgnoreFoW": false,
+  "LayoutGroupSortIndex": 0,
+  "Locked": false,
+  "LuaScript": "",
+  "LuaScriptState": "",
+  "MeasureMovement": false,
+  "Name": "Deck",
+  "Nickname": "Level 2 Sites (Surprise Shipment)",
+  "SidewaysCard": false,
+  "Snap": true,
+  "Sticky": true,
+  "Tags": [
+    "site2"
+  ],
+  "Tooltip": true,
+  "Transform": {
+    "posX": 61,
+    "posY": 1.512,
+    "posZ": -46,
+    "rotX": 0,
+    "rotY": 180,
+    "rotZ": 180,
+    "scaleX": 2.3,
+    "scaleY": 1,
+    "scaleZ": 2.3
+  },
+  "Value": 0,
+  "XmlUI": ""
+}

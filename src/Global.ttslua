@@ -254,7 +254,7 @@ EXPANSION_DECKS             = {
     guardians  = 'd8eb77'
   },
   surpriseShipment = {
-    sites2 = 'TODO'
+    sites2 = '48ec3a'
   }
 }
 
@@ -3605,13 +3605,15 @@ TEXT_REWARDS = {
   ["z"] = ' gets to use the effect on the gold side of one assistant available in the supply.',
   ["e"] = ' may exile a card.',
   ["i"] = ' may return two compasses to take an item for free.',
+  ["v"] = ' may return one coin and two compasses to take an item for free.',
   ["m"] = ' may activate a campsite.',
   ["g"] = ' may flip an expended guardian for reuse.',
   ["%"] = ' may gain the reward from an available idol on the board.',
   ["~"] = ' may discard a card to gain a dark tablet.',
   ["#"] = ' may pay a coin to gain a dark tablet.',
   ["$"] = ' may take a Fear card to get a dark tablet.',
-  ["p"] = ' may take one 2-point temple tile from any stack for free.'
+  ["p"] = ' may take one 2-point temple tile from any stack for free.',
+  ["b"] = ' may take back one idol tile from one of their slots.'
 }
 
 -- function that checks the gm notes to determine what rewards the player should get
