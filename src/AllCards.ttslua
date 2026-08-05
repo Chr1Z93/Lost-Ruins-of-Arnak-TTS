@@ -11,10 +11,10 @@ function onLoad()
 end
 
 function clearIndexes()
-  indexingDone = false
-  cardIdIndex = {}
+  indexingDone   = false
+  cardIdIndex    = {}
   expansionIndex = {}
-  typeIndex = {}
+  typeIndex      = {}
 end
 
 -- Clears the bag indexes and starts the coroutine to rebuild the indexes
@@ -156,8 +156,8 @@ end
 --   callback? function callback to be called after the card/deck spawns.
 function spawnCardList(params)
   local cardList = params.cardList
-  local pos = params.position or Vector(0, 3, 46.2)
-  local rot = params.rotation or Vector(0, 180, 180)
+  local pos      = params.position or Vector(0, 3, 46.2)
+  local rot      = params.rotation or Vector(0, 180, 180)
   local callback = params.callback
 
   -- if missing information, then abort
@@ -178,22 +178,22 @@ function spawnCardList(params)
   -- Spawn a single card directly
   if #spawnList == 1 then
     return spawnObjectData({
-      data = spawnList[1].data,
-      position = pos,
-      rotation = rot,
+      data              = spawnList[1].data,
+      position          = pos,
+      rotation          = rot,
       callback_function = callback
     })
   end
 
   -- For multiple cards, construct a deck and spawn that
-  local deck = {}
-  deck.Name = "Deck"
+  local deck            = {}
+  deck.Name             = "Deck"
   deck.ContainedObjects = {}
-  deck.DeckIDs = {}
-  deck.CustomDeck = {}
+  deck.DeckIDs          = {}
+  deck.CustomDeck       = {}
 
   -- Decks won't inherently scale to the cards in them, use the first card to set the size
-  deck.Transform = {
+  deck.Transform        = {
     scaleX = spawnList[1].data.Transform.scaleX,
     scaleY = 1,
     scaleZ = spawnList[1].data.Transform.scaleZ
@@ -204,9 +204,9 @@ function spawnCardList(params)
   end
 
   return spawnObjectData({
-    data = deck,
-    position = pos,
-    rotation = rot,
+    data              = deck,
+    position          = pos,
+    rotation          = rot,
     callback_function = callback
   })
 end
@@ -218,32 +218,34 @@ end
 ---@param deck table TTS deck data structure to add to
 ---@param cardData table Data for the card to be inserted
 function addCardToDeck(deck, cardData)
-  for customDeckId, customDeckData in pairs(cardData.CustomDeck) do
-    if deck.CustomDeck[customDeckId] == nil then
-      -- CustomDeck not added to deck yet, add it
-      deck.CustomDeck[customDeckId] = customDeckData
-    elseif deck.CustomDeck[customDeckId].FaceURL == customDeckData.FaceURL then
-      -- CustomDeck for this card matches the current one for the deck, do nothing
-    else
-      -- CustomDeck data conflict
-      local newDeckId = nil
-      for deckId, customDeck in pairs(deck.CustomDeck) do
-        if customDeckData.FaceURL == customDeck.FaceURL then
-          newDeckId = deckId
-        end
+  local customDeckId, customDeckData = next(cardData["CustomDeck"])
+
+  if deck.CustomDeck[customDeckId] == nil then
+    -- CustomDeck not added to deck yet, add it
+    deck.CustomDeck[customDeckId] = customDeckData
+  elseif deck.CustomDeck[customDeckId].FaceURL == customDeckData.FaceURL then
+    -- CustomDeck for this card matches the current one for the deck, do nothing
+  else
+    -- CustomDeck data conflict
+    local newDeckId = nil
+    for deckId, customDeck in pairs(deck.CustomDeck) do
+      if customDeckData.FaceURL == customDeck.FaceURL then
+        newDeckId = deckId
       end
-      if newDeckId == nil then
-        -- No non-conflicting custom deck for this card, add a new one
-        newDeckId = findNextAvailableId(deck.CustomDeck, "1000")
-        deck.CustomDeck[newDeckId] = customDeckData
-      end
-      -- Update the card with the new CustomDeck info
-      cardData.CardID = newDeckId .. string.sub(cardData.CardID, 5)
-      cardData.CustomDeck[customDeckId] = nil
-      cardData.CustomDeck[newDeckId] = customDeckData
-      break
     end
+
+    if newDeckId == nil then
+      -- No non-conflicting custom deck for this card, add a new one
+      newDeckId = findNextAvailableId(deck.CustomDeck, "1000")
+      deck.CustomDeck[newDeckId] = customDeckData
+    end
+
+    -- Update the card with the new CustomDeck info
+    cardData.CardID                   = newDeckId .. string.sub(cardData.CardID, -2)
+    cardData.CustomDeck[customDeckId] = nil
+    cardData.CustomDeck[newDeckId]    = customDeckData
   end
+
   table.insert(deck.ContainedObjects, cardData)
   table.insert(deck.DeckIDs, cardData.CardID)
 end

@@ -194,6 +194,7 @@ options                     = {
     expeditionLeaders = true,
     missingExpedition = true,
     twistedPaths      = true,
+    surpriseShipment  = true,
     promos            = true
   }
 }
@@ -251,6 +252,9 @@ EXPANSION_DECKS             = {
     sites1     = 'eb952d',
     sites2     = '632057',
     guardians  = 'd8eb77'
+  },
+  surpriseShipment = {
+    sites2 = '48ec3a'
   }
 }
 
@@ -1022,7 +1026,7 @@ function createGlobalXml()
       id            = "optionsMenuTop",
       active        = false,
       rectAlignment = "LowerRight",
-      offsetXY      = "0 500",
+      offsetXY      = "0 515",
       height        = 40,
       width         = 435,
       color         = "rgb(0, 0.39, 0.65)"
@@ -1043,7 +1047,7 @@ function createGlobalXml()
   local leftOptions = {
     {
       title   = "Board",
-      height  = 200,
+      height  = 206,
       toggles = {
         { id = "board1", text = "Bird Temple" },
         { id = "board2", text = "Snake Temple" },
@@ -1053,8 +1057,8 @@ function createGlobalXml()
       }
     },
     {
-      title = "Research Track",
-      height = 260,
+      title   = "Research Track",
+      height  = 269,
       toggles = {
         { id = "research1", text = "Bird Temple" },
         { id = "research2", text = "Snake Temple" },
@@ -1074,7 +1078,7 @@ function createGlobalXml()
       active              = false,
       rectAlignment       = "LowerRight",
       offsetXY            = "-210 10",
-      height              = 490,
+      height              = 505,
       width               = 225,
       cellPadding         = "24 0 12 12",
       cellBackgroundColor = "clear",
@@ -1113,7 +1117,7 @@ function createGlobalXml()
     -- row structure using the complete verticalLayoutChildren
     local row = {
       tag = "Row",
-      attributes = { preferredHeight = section.height },
+      attributes = { preferredheight = section.height },
       children = {
         {
           tag = "Cell",
@@ -1136,18 +1140,18 @@ function createGlobalXml()
   ---Options Menu Right Table
   local rightOptions = {
     {
-      title = "Moon Staff",
-      height = 95,
-      group = true,
+      title   = "Moon Staff",
+      height  = 95,
+      group   = true,
       toggles = {
         { id = "staff1", text = "Blue" },
         { id = "staff2", text = "Red", isOn = "True" },
       }
     },
     {
-      title = "Leader Selection",
-      height = 115,
-      group = true,
+      title   = "Leader Selection",
+      height  = 115,
+      group   = true,
       toggles = {
         { id = "leaders1", text = "Random", isOn = "True" },
         { id = "leaders2", text = "Manual" },
@@ -1155,22 +1159,23 @@ function createGlobalXml()
       }
     },
     {
-      title = "Time Tracking",
-      height = 95,
-      group = true,
+      title   = "Time Tracking",
+      height  = 95,
+      group   = true,
       toggles = {
         { id = "time1", text = "Enabled", isOn = "True" },
         { id = "time2", text = "Disabled" }
       }
     },
     {
-      title = "Expansion Selection",
-      height = 145,
-      group = false,
+      title   = "Expansion Selection",
+      height  = 160,
+      group   = false,
       toggles = {
         { id = "expeditionLeaders", text = "Expedition Leaders",     isOn = "True" },
         { id = "missingExpedition", text = "The Missing Expedition", isOn = "True" },
         { id = "twistedPaths",      text = "Twisted Paths",          isOn = "True" },
+        { id = "surpriseShipment",  text = "Surprise Shipment",      isOn = "True" },
         { id = "promos",            text = "Promos",                 isOn = "True" }
       }
     }
@@ -1183,7 +1188,7 @@ function createGlobalXml()
       active              = false,
       rectAlignment       = "LowerRight",
       offsetXY            = "0 10",
-      height              = 490,
+      height              = 505,
       width               = 210,
       cellPadding         = "0 0 12 12",
       cellBackgroundColor = "clear",
@@ -1224,7 +1229,7 @@ function createGlobalXml()
 
     table.insert(optionsMenuRight.children, {
       tag = "Row",
-      attributes = { preferredHeight = section.height },
+      attributes = { preferredheight = section.height },
       children = {
         {
           tag = "Cell",
@@ -1235,7 +1240,7 @@ function createGlobalXml()
   end
 
   -- Final empty row in optionsMenuRight
-  table.insert(optionsMenuRight.children, { tag = "Row", attributes = { preferredHeight = 60 } })
+  table.insert(optionsMenuRight.children, { tag = "Row", attributes = { preferredheight = 60 } })
 
   table.insert(uiTable, optionsMenuRight)
 
@@ -1295,7 +1300,7 @@ function createGlobalXml()
     children = {
       {
         tag = "Row",
-        attributes = { preferredHeight = 115 },
+        attributes = { preferredheight = 115 },
         children = {
           {
             tag = "Cell",
@@ -1313,7 +1318,7 @@ function createGlobalXml()
       },
       {
         tag = "Row",
-        attributes = { preferredHeight = 77 },
+        attributes = { preferredheight = 77 },
         children = {
           { tag = "Cell" },
           {
@@ -1372,7 +1377,7 @@ function createGlobalXml()
   for _, buttonData in ipairs(continueMenuButtonsData) do
     table.insert(continueMenuButtons.children, {
       tag = "Row",
-      attributes = { preferredHeight = 40 },
+      attributes = { preferredheight = 40 },
       children = {
         {
           tag = "Cell",
@@ -1413,10 +1418,10 @@ function createGlobalXml()
       rowBackgroundColor  = "rgba(1, 1, 1, 0.85)"
     },
     children   = {
-      { tag = "Row", attributes = { preferredHeight = 10 }, children = { { tag = "Cell" }, { tag = "Cell" }, { tag = "Cell" } } },
+      { tag = "Row", attributes = { preferredheight = 10 }, children = { { tag = "Cell" }, { tag = "Cell" }, { tag = "Cell" } } },
       {
         tag = "Row",
-        attributes = { preferredHeight = 30 },
+        attributes = { preferredheight = 30 },
         children = {
           {
             tag = "Cell",
@@ -1438,7 +1443,7 @@ function createGlobalXml()
   for _, item in ipairs(soloMenuSliders) do
     table.insert(soloMenu.children, {
       tag = "Row",
-      attributes = { preferredHeight = 30 },
+      attributes = { preferredheight = 30 },
       children = {
         { tag = "Cell" },
         {
@@ -1457,7 +1462,7 @@ function createGlobalXml()
     })
     table.insert(soloMenu.children, {
       tag = "Row",
-      attributes = { preferredHeight = 20 },
+      attributes = { preferredheight = 20 },
       children = {
         { tag = "Cell" },
         {
@@ -1482,14 +1487,14 @@ function createGlobalXml()
   table.insert(soloMenu.children,
     {
       tag        = "Row",
-      attributes = { preferredHeight = 5 },
+      attributes = { preferredheight = 5 },
       children   = { { tag = "Cell" }, { tag = "Cell" }, { tag = "Cell" } }
     })
 
   -- Difficulty Row
   table.insert(soloMenu.children, {
     tag = "Row",
-    attributes = { preferredHeight = 30 },
+    attributes = { preferredheight = 30 },
     children = {
       { tag = "Cell" },
       {
@@ -1510,7 +1515,7 @@ function createGlobalXml()
   -- Objectives Row and Slider
   table.insert(soloMenu.children, {
     tag = "Row",
-    attributes = { preferredHeight = 30 },
+    attributes = { preferredheight = 30 },
     children = {
       { tag = "Cell" },
       {
@@ -1530,7 +1535,7 @@ function createGlobalXml()
 
   table.insert(soloMenu.children, {
     tag = "Row",
-    attributes = { preferredHeight = 20 },
+    attributes = { preferredheight = 20 },
     children = {
       { tag = "Cell" },
       {
@@ -1554,7 +1559,7 @@ function createGlobalXml()
   table.insert(soloMenu.children,
     {
       tag = "Row",
-      attributes = { preferredHeight = 14 },
+      attributes = { preferredheight = 14 },
       children = {
         { tag = "Cell" },
         { tag = "Cell" },
@@ -1565,7 +1570,7 @@ function createGlobalXml()
   -- Start Game Button
   table.insert(soloMenu.children, {
     tag = "Row",
-    attributes = { preferredHeight = 40 },
+    attributes = { preferredheight = 40 },
     children = {
       {
         tag = "Cell",
@@ -1636,11 +1641,11 @@ function createGlobalXml()
               font          =
               "https://steamusercontent-a.akamaihd.net/ugc/11580651411710945045/C51521EBDE5474EBF3788016FF6D11C30E5D5634/",
               text          =
-              [[This mod includes the 'Expedition Leaders', 'The Missing Expedition' and 'Twisted Paths' expansions.
+              [[This mod includes the 'Expedition Leaders', 'The Missing Expedition', 'Twisted Paths' and 'Surprise Shipment' expansions as well as promo cards.
 
 If you encounter any broken scripts or missing textures, please report them on the Steam Workshop page or contact 'Chr1Z' on Discord.
 
-The latest expansion required a lot of code to be rewritten, so please bear with me if something is not working. Note: Solo mode is NOT working yet!]],
+Note: Solo mode is NOT working yet!]],
               textAlignment = "LowerLeft",
               textColor     = "Black"
             }
@@ -1786,7 +1791,7 @@ function checkDoneSpawning()
 end
 
 function getOptionsFromUI()
-  local expansions = { 'expeditionLeaders', 'missingExpedition', "twistedPaths", 'promos' }
+  local expansions = { 'expeditionLeaders', 'missingExpedition', 'twistedPaths', 'surpriseShipment', 'promos' }
   for _, expansion in ipairs(expansions) do
     checkToggle(expansion, options.expansions)
   end
@@ -2201,9 +2206,18 @@ function setupArtifactsItemsFear()
       addCardsToList(cardList, result)
     end
 
-    -- maybe add cards from "Promo 1"
+    -- maybe add cards from "Surprise Shipment"
+    if options.expansions.surpriseShipment then
+      result = AllCardsBag.call("getCardsByExpansionAndType", { expansion = "Surprise Shipment", type = cardType })
+      addCardsToList(cardList, result)
+    end
+
+    -- maybe add "Promo" cards
     if options.expansions.promos then
       result = AllCardsBag.call("getCardsByExpansionAndType", { expansion = "Promo 1", type = cardType })
+      addCardsToList(cardList, result)
+
+      result = AllCardsBag.call("getCardsByExpansionAndType", { expansion = "Promo 2", type = cardType })
       addCardsToList(cardList, result)
     end
 
@@ -2889,7 +2903,7 @@ function setupStartingResources()
           table.insert(profStuff, suitcase)
 
           for resource, guid in pairs(SUITCASE_RESOURCE_BAG_GUIDS) do -- Place and setup the professor's Bag
-            local toPos = PlayermatApi.getZonePosition(playerColor, "Suitcase_" .. resource)
+            local toPos       = PlayermatApi.getZonePosition(playerColor, "Suitcase_" .. resource)
             local resourceBag = tokenBag.takeObject({
               guid     = guid,
               position = { toPos[1], 1.63, toPos[3] },
@@ -3091,6 +3105,8 @@ function menuStart(_, value, _)
     options.expansions.expeditionLeaders = true
     options.expansions.missingExpedition = true
     options.expansions.twistedPaths      = true
+    options.expansions.surpriseShipment  = true
+    options.expansions.promos            = true
     UI.setAttribute('continueMenu', 'active', true)
     UI.setAttribute('continueMenuButtons', 'active', true)
   elseif menuChoice == 2 and checkToggle('leaders2') then
@@ -3381,26 +3397,113 @@ function buyFromMarket(playerColor, marketPos, isRightClick)
 
   if isRightClick then
     -- right-click -> "buy": automatically remove resources
-    local bag
-    if md.resource == "compass" then
-      bag = getObjectFromGUID(vars.resourceBags.s)
-    elseif md.resource == "coin" then
-      bag = getObjectFromGUID(vars.resourceBags.c)
-    end
+    if md.id == "3208" or md.id == "3209" or md.id == "3211" then
+      -- special combination cards
+      local bagCompass     = getObjectFromGUID(vars.resourceBags.s)
+      local bagCoin        = getObjectFromGUID(vars.resourceBags.c)
+      suffix               = " coins/compasses"
 
-    if bag.getQuantity() < md.cost then
-      broadcastToColor('You do not have enough' .. suffix .. ' to buy ' .. card.getName() .. ".", playerColor)
-      return
-    end
+      -- handle suitcase
+      local bagSuitcaseCompass
+      local suitcaseAmount = 0
+      if options.playerBoards[playerColor] == 4 then
+        bagSuitcaseCompass = getObjectFromGUID(SUITCASE_RESOURCE_BAG_GUIDS.s)
+        suitcaseAmount     = bagSuitcaseCompass.getQuantity()
+      end
 
-    broadcastToAll(coloredName .. ' spends ' .. md.cost .. suffix .. ' to buy ' .. card.getName() .. ".")
-    for i = 1, md.cost do
-      Wait.time(function() trashObject(playerColor, bag.takeObject()) end, i * 0.1)
+      local compassCount = bagCompass.getQuantity()
+      local coinCount    = bagCoin.getQuantity()
+      local sum          = compassCount + coinCount + suitcaseAmount
+
+      if sum < md.cost then
+        -- Can't afford
+        broadcastToColor('You do not have enough coins/compasses to buy ' .. card.getName() .. ".", playerColor)
+        return
+      elseif sum == md.cost then
+        -- Can exactly afford
+        for i = 1, coinCount do
+          Wait.time(function() trashObject(playerColor, bagCoin.takeObject()) end, i * 0.1)
+        end
+        for i = 1, compassCount do
+          Wait.time(function() trashObject(playerColor, bagCompass.takeObject()) end, i * 0.1)
+        end
+        if suitcaseAmount > 0 then
+          printToAll("Compasses on Suitcase before paying: " .. suitcaseAmount)
+          for i = 1, suitcaseAmount do
+            Wait.time(function() trashObject(playerColor, bagSuitcaseCompass.takeObject()) end, i * 0.1)
+          end
+        end
+        broadcastToAll(coloredName ..
+          ' spends ' .. coinCount .. '/' .. compassCount .. ' coins/compasses to buy ' .. card.getName() .. ".")
+      elseif coinCount == 0 then
+        -- Only has compasses
+        local compassesToSpend = md.cost
+        if suitcaseAmount > 0 then
+          printToAll("Compasses on Suitcase before paying: " .. suitcaseAmount)
+          local spendFromSuitcase = math.min(suitcaseAmount, compassesToSpend)
+          for i = 1, spendFromSuitcase do
+            Wait.time(function() trashObject(playerColor, bagSuitcaseCompass.takeObject()) end, i * 0.1)
+          end
+          compassesToSpend = compassesToSpend - spendFromSuitcase
+        end
+
+        for i = 1, compassesToSpend do
+          Wait.time(function() trashObject(playerColor, bagCompass.takeObject()) end, i * 0.1)
+        end
+        broadcastToAll(coloredName .. ' spends ' .. md.cost .. ' compasses to buy ' .. card.getName() .. ".")
+      elseif compassCount == 0 then
+        -- Only has coins
+        for i = 1, md.cost do
+          Wait.time(function() trashObject(playerColor, bagCoin.takeObject()) end, i * 0.1)
+        end
+        broadcastToAll(coloredName .. ' spends ' .. md.cost .. ' coins to buy ' .. card.getName() .. ".")
+      else
+        broadcastToAll(coloredName ..
+          ' needs to manually spend a combination of ' ..
+          md.cost .. ' coins/compasses to pay for ' .. card.getName() .. ".")
+      end
+    else
+      -- regular case
+      local bag, bagSuitcaseCompass
+      local suitcaseAmount = 0
+      if md.resource == "compass" then
+        bag = getObjectFromGUID(vars.resourceBags.s)
+        if options.playerBoards[playerColor] == 4 then
+          bagSuitcaseCompass = getObjectFromGUID(SUITCASE_RESOURCE_BAG_GUIDS.s)
+          suitcaseAmount     = bagSuitcaseCompass.getQuantity()
+        end
+      elseif md.resource == "coin" then
+        bag = getObjectFromGUID(vars.resourceBags.c)
+      end
+
+      if (bag.getQuantity() + suitcaseAmount) < md.cost then
+        broadcastToColor('You do not have enough' .. suffix .. ' to buy ' .. card.getName() .. ".", playerColor)
+        return
+      end
+
+      broadcastToAll(coloredName .. ' spends ' .. md.cost .. suffix .. ' to buy ' .. card.getName() .. ".")
+
+      -- spend suitcase resources first
+      local compassesToSpend = md.cost
+      if suitcaseAmount > 0 then
+        printToAll("Compasses on Suitcase before paying: " .. suitcaseAmount)
+        local spendFromSuitcase = math.min(suitcaseAmount, compassesToSpend)
+        for i = 1, spendFromSuitcase do
+          Wait.time(function() trashObject(playerColor, bagSuitcaseCompass.takeObject()) end, i * 0.1)
+        end
+        compassesToSpend = compassesToSpend - spendFromSuitcase
+      end
+
+      if compassesToSpend > 0 then
+        for i = 1, compassesToSpend do
+          Wait.time(function() trashObject(playerColor, bag.takeObject()) end, i * 0.1)
+        end
+      end
     end
   end
 
   if md.type == "Artifact" then
-    local toPos = getObjectFromGUID(vars.playAreaZoneGuid).getPosition()
+    local toPos   = getObjectFromGUID(vars.playAreaZoneGuid).getPosition()
     local xOffset = 11.5
     if playerColor == 'Red' or playerColor == 'Yellow' then
       xOffset = 0 - xOffset
@@ -3563,13 +3666,15 @@ TEXT_REWARDS = {
   ["z"] = ' gets to use the effect on the gold side of one assistant available in the supply.',
   ["e"] = ' may exile a card.',
   ["i"] = ' may return two compasses to take an item for free.',
+  ["v"] = ' may return one coin and two compasses to take an item for free.',
   ["m"] = ' may activate a campsite.',
   ["g"] = ' may flip an expended guardian for reuse.',
   ["%"] = ' may gain the reward from an available idol on the board.',
   ["~"] = ' may discard a card to gain a dark tablet.',
   ["#"] = ' may pay a coin to gain a dark tablet.',
   ["$"] = ' may take a Fear card to get a dark tablet.',
-  ["p"] = ' may take one 2-point temple tile from any stack for free.'
+  ["p"] = ' may take one 2-point temple tile from any stack for free.',
+  ["b"] = ' may take back one idol tile from one of their slots.'
 }
 
 -- function that checks the gm notes to determine what rewards the player should get

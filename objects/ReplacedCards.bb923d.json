@@ -15,10 +15,11 @@
   },
   "ContainedObjects_order": [
     "Card.7e5455",
+    "Card.604de9",
     "StoneKey.315729"
   ],
   "ContainedObjects_path": "ReplacedCards.bb923d",
-  "Description": "Contains base game artifact and assistant that are replaced by new expansion versions.",
+  "Description": "Contains base game artifact and assistant that are replaced by new expansion versions as well as the base game 'Crash Site' that was replaced.",
   "DragSelectable": true,
   "GMNotes": "",
   "GUID": "bb923d",

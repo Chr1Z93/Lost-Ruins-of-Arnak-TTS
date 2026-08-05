@@ -2,6 +2,7 @@
 import argparse
 import datetime
 import json
+import os
 import platform
 import shutil
 import subprocess
@@ -19,6 +20,8 @@ try:
 except ImportError:
     pygetwindow = None
 
+PLATFORM = platform.system()
+TTS_SUFFIX = Path("Tabletop Simulator") / "Saves"
 
 # Helper Functions
 
@@ -49,12 +52,34 @@ def get_current_git_branch():
         return None
 
 
+def get_windows_documents_dir() -> Path:
+    """Helper to safely retrieve the Windows Documents folder via registry."""
+    try:
+        import winreg
+
+        sub_key = (
+            r"Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders"
+        )
+        with winreg.OpenKey(winreg.HKEY_CURRENT_USER, sub_key) as key:
+            # 'Personal' is the registry key for the Documents folder
+            doc_path_str, _ = winreg.QueryValueEx(key, "Personal")
+
+            # Expand environment variables like %USERPROFILE% if present
+            return Path(os.path.expandvars(doc_path_str))
+    except Exception:
+        # Fallback to standard guess if registry lookup fails
+        return Path.home() / "Documents"
+
+
 def get_output_folder():
-    home = Path.home()
     if PLATFORM == "Windows":
-        return home / "Documents" / "My Games" / "Tabletop Simulator" / "Saves"
-    else:
-        return home / "Library" / "Tabletop Simulator" / "Saves"
+        base_dir = get_windows_documents_dir() / "My Games"
+    elif PLATFORM == "Darwin":  # macOS
+        base_dir = Path.home() / "Library"
+    else:  # Linux
+        base_dir = Path.home() / ".local" / "share"
+
+    return base_dir / TTS_SUFFIX
 
 
 def get_base_command():
@@ -107,13 +132,21 @@ def load_savegame_in_TTS():
         return
 
 
-def copy_preview_image(output_folder):
-    image_name = GAME_NAME + ".png"
-    image_path = Path(image_name)
-    if image_path.is_file():
-        shutil.copy(image_path, output_folder / f"{GAME_NAME}.png")
+def copy_preview_image(output_folder, branch):
+    base_image = Path(f"{GAME_NAME}.png")
+    dev_image = Path(f"{GAME_NAME}_dev.png")
+
+    # Use dev image ONLY if on a non-main branch AND the file exists
+    if branch and branch != "main" and dev_image.exists():
+        source_image = dev_image
     else:
-        print(f"Note: Icon {image_name} not found, skipping copy.")
+        source_image = base_image
+
+    # Perform the copy (and maybe rename) with a safety check
+    if source_image.exists():
+        shutil.copy(source_image, output_folder / base_image)
+    else:
+        print(f"Note: Icon {source_image} not found, skipping copy.")
 
 
 # CONFIGURATION
@@ -121,7 +154,6 @@ CONFIG = load_config()
 GAME_NAME = CONFIG["GAME_NAME"]
 HOTKEY = CONFIG["HOTKEY"]
 FORCE_GO = CONFIG["FORCE_GO"]
-PLATFORM = platform.system()
 WINDOW_TITLE = "Tabletop Simulator"
 
 
@@ -176,7 +208,7 @@ def main():
     print(f"Execution took {elapsed_time:.2f} seconds.")
 
     if args.action == "build":
-        copy_preview_image(output_folder)
+        copy_preview_image(output_folder, branch)
         load_savegame_in_TTS()
 
 

@@ -15,7 +15,7 @@
     "Card.db2bf3",
     "Card.550880",
     "Card.5420e2",
-    "Card.604de9",
+    "CardCustom.1eee42",
     "Card.4e4290",
     "Card.b4b6b8",
     "Card.d76cb9",
@@ -32,6 +32,15 @@
       "NumWidth": 6,
       "Type": 0,
       "UniqueBack": false
+    },
+    "721": {
+      "BackIsHidden": true,
+      "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/1862806463732172505/0F010A85A45CF2B263F8F88A03BC6E6B6C379E0F/",
+      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/14284732039971721149/3456001FEE3129FE01CB6B5950D17066E4BB690D/",
+      "NumHeight": 1,
+      "NumWidth": 1,
+      "Type": 0,
+      "UniqueBack": false
     }
   },
   "DeckIDs": [
@@ -39,7 +48,7 @@
     1805,
     1808,
     1807,
-    1803,
+    72100,
     1809,
     1804,
     1801,

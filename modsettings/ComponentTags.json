@@ -95,6 +95,18 @@
     {
       "displayed": "Yellow",
       "normalized": "yellow"
+    },
+    {
+      "displayed": "NotInteractable",
+      "normalized": "notinteractable"
+    },
+    {
+      "displayed": "MainBoard",
+      "normalized": "mainboard"
+    },
+    {
+      "displayed": "ResearchTrack",
+      "normalized": "researchtrack"
     }
   ]
 }
