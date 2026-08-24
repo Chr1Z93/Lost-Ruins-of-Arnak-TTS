@@ -2683,7 +2683,6 @@ function setupCampaignMisc()
       x.setPositionSmooth({ 36, 6.80, 55 })
       x.setRotationSmooth({ 60, 180, 0 })
     end,
-    smooth            = true,
     guid              = '0cf9c7',
   })
 
@@ -2695,7 +2694,6 @@ function setupCampaignMisc()
       x.setPositionSmooth({ 45, 6.80, 55 })
       x.setRotationSmooth({ 60, 180, 0 })
     end,
-    smooth            = true,
     guid              = 'c64617',
   })
 
@@ -2721,7 +2719,6 @@ function setupCampaignMisc()
   if #seatedPlayerColors == 3 then
     campaignBag.takeObject({
       position = { -15, 1.51, 36.50 },
-      smooth   = true,
       rotation = { 0, 180, 180 },
       guid     = '20c269',
     })
@@ -2783,7 +2780,6 @@ function setupCampaignMisc()
   soloBag.takeObject({
     position = { -59.79, 1.50, -0.04 },
     rotation = { 0, 180, 0 },
-    smooth   = true,
     guid     = solo.actionDecks[1],
   })
 
@@ -2791,7 +2787,6 @@ function setupCampaignMisc()
   soloBag.takeObject({
     position          = { -55.79, 1.50, -0.04 },
     rotation          = { 0, 180, 0 },
-    smooth            = true,
     guid              = solo.actionDecks[2],
     callback_function = function(x)
       -- Iterate through the advanced deck and seperate out the different colors to be their own decks
@@ -2799,13 +2794,11 @@ function setupCampaignMisc()
         if card.gm_notes == 'red' then
           x.takeObject({
             position = { -51.79, 1.50, -0.04 },
-            smooth   = true,
             guid     = card.guid
           })
         elseif card.gm_notes == 'purple' then
           x.takeObject({
             position = { -47.79, 1.50, -0.04 },
-            smooth   = true,
             guid     = card.guid
           })
         end
@@ -2937,17 +2930,16 @@ function setupStartingResources()
           tokenBag.takeObject({
             guid              = TOKEN_GUIDS.journalistNewspapers,
             position          = Vector(-55.98, 1.55, 53.02),
-            smooth            = true,
             callback_function = function(x)
               x.shuffle()
               x.takeObject({
                 position          = boardLocation + Vector(8.82, 0.06, -0.58),
-                smooth            = true,
+                rotation          = Vector(0, 180, math.random(0, 1) * 180),
                 callback_function = function(y) y.setLock(true) end
               })
               x.takeObject({
                 position          = boardLocation + Vector(14.74, 0.06, -0.59),
-                smooth            = true,
+                rotation          = Vector(0, 180, math.random(0, 1) * 180),
                 callback_function = function(y) y.setLock(true) end
               })
               x.destruct()
@@ -2957,7 +2949,6 @@ function setupStartingResources()
           tokenBag.takeObject({
             guid              = TOKEN_GUIDS.journalistArticles,
             position          = PLAYER_VARS[playerColor].articleToothPosition,
-            smooth            = true,
             callback_function = function(x)
               local count = (#seatedPlayers <= 2) and 3 or 2
 
@@ -2981,7 +2972,6 @@ function setupStartingResources()
         elseif playerBoardState == 8 then -- Setup for the mechanic
           tokenBag.takeObject({
             position          = PLAYER_VARS[playerColor].articleToothPosition,
-            smooth            = true,
             guid              = TOKEN_GUIDS.MechanicGoldTokens,
             rotation          = facedown,
             callback_function = function(x)
@@ -3010,13 +3000,11 @@ function setupStartingResources()
           -- Place the mechanic monkey assistant
           tokenBag.takeObject({
             position = PlayermatApi.getZonePosition(playerColor, "Monkey"),
-            smooth   = true,
             guid     = TOKEN_GUIDS.MechanicMonkey
           })
           tokenBag.takeObject({
             position          = PlayermatApi.getZonePosition(playerColor, "GoldToothAttacher"),
             rotation          = { 0, 0, 0 },
-            smooth            = true,
             guid              = TOKEN_GUIDS.MechanicGoldTokenAttacher,
             callback_function = function(x) x.setLock(true) end
           })
@@ -3025,7 +3013,6 @@ function setupStartingResources()
           tokenBag.takeObject({
             position          = boardLocation + Vector(13.88, 0.05, -0.09),
             rotation          = { 0, 316.32, 0 },
-            smooth            = true,
             guid              = TOKEN_GUIDS.MechanicWheel,
             callback_function = function(x) x.setLock(true) end
           })

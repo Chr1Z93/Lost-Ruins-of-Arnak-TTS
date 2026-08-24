@@ -66,12 +66,12 @@
   "CustomDeck": {
     "285": {
       "BackIsHidden": true,
-      "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/2496761664835281132/F6859B9A18C9407D45C0C5BA6B18CC1556CEF3EC/",
-      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/2496761664835281132/F6859B9A18C9407D45C0C5BA6B18CC1556CEF3EC/",
+      "BackURL": "https://steamusercontent-a.akamaihd.net/ugc/2496761664835280887/48DB2BC84DC4A1A8E279DC88A5843C425F94E2CF/",
+      "FaceURL": "https://steamusercontent-a.akamaihd.net/ugc/2496761664835281049/4D683A846976683F0A229B777F11C7FF17EFF021/",
       "NumHeight": 1,
       "NumWidth": 1,
       "Type": 0,
-      "UniqueBack": false
+      "UniqueBack": true
     }
   },
   "Description": "",
@@ -81,7 +81,7 @@
   "Grid": true,
   "GridProjection": false,
   "Hands": false,
-  "HideWhenFaceDown": true,
+  "HideWhenFaceDown": false,
   "IgnoreFoW": false,
   "LayoutGroupSortIndex": 0,
   "Locked": false,
